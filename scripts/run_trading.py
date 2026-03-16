@@ -25,9 +25,11 @@ logger.add(
 from agents.execution_agent import ExecutionAgent
 from agents.market_scanner import MarketScanner
 from agents.strategy_engine import StrategyEngine
+from agents.trade_monitor import TradeMonitor
 from data.market_feed import ASSET_MAP
 
 SCAN_INTERVAL = 60  # segundos entre scans
+PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
 ASSETS = list(ASSET_MAP.keys())
 TIMEFRAMES = ['15m', '1h']  # Empezar con TF conservadores
 
@@ -46,13 +48,26 @@ def get_portfolio() -> dict:
         row = conn.execute(
             text('SELECT * FROM portfolio ORDER BY timestamp DESC LIMIT 1')
         ).fetchone()
+
+        # Calcular exposición real basada en trades abiertos
+        open_trades = conn.execute(
+            text("SELECT entry_price, position_size FROM trades WHERE status = 'OPEN'")
+        ).fetchall()
+        total_exposure = sum(
+            float(t.entry_price) * float(t.position_size) for t in open_trades
+        )
+
     if row:
+        balance = float(row.total_balance)
+        peak = max(float(row.peak_balance), balance) if row.peak_balance else balance
+        exposure_pct = total_exposure / balance if balance > 0 else 0
+        drawdown = (peak - balance) / peak if peak > 0 else 0
         return {
-            'total_balance': float(row.total_balance),
-            'available_cash': float(row.total_balance) * (1 - float(row.exposure_pct)),
-            'exposure_pct': float(row.exposure_pct),
-            'drawdown_pct': float(row.drawdown_pct),
-            'peak_balance': float(row.total_balance),
+            'total_balance': balance,
+            'available_cash': balance - total_exposure,
+            'exposure_pct': exposure_pct,
+            'drawdown_pct': drawdown,
+            'peak_balance': peak,
         }
     return {
         'total_balance': 10000.0,
@@ -98,6 +113,7 @@ def main():
     scanner = MarketScanner()
     strategy = StrategyEngine()
     executor = ExecutionAgent()
+    monitor = TradeMonitor()
 
     portfolio = get_portfolio()
     logger.info(f'=== TRADING AGENT STARTED (PAPER MODE) === Balance: ${portfolio["total_balance"]:,.2f}')
@@ -105,8 +121,23 @@ def main():
     # Save initial portfolio snapshot
     save_portfolio_snapshot(portfolio)
 
+    cycle_count = 0
+
     while True:
         try:
+            cycle_count += 1
+
+            # 0. MONITOREAR TRADES ABIERTOS — cerrar SL/TP
+            closed_trades = monitor.check_open_trades(portfolio)
+            if closed_trades:
+                for ct in closed_trades:
+                    logger.info(
+                        f'Trade closed: {ct["asset"]} {ct["close_reason"]} '
+                        f'PnL=${ct["pnl"]:+.2f} ({ct["pnl_pct"]:+.2f}%)'
+                    )
+                # Refresh portfolio after closing trades
+                portfolio = get_portfolio()
+
             # 1. Scan mercados
             signals = scanner.scan()
             logger.debug(f'Scan complete: {len(signals)} signals')
@@ -133,7 +164,12 @@ def main():
             # Refresh portfolio
             portfolio = get_portfolio()
 
-            logger.info(f'Cycle complete. Next scan in {SCAN_INTERVAL}s. '
+            # Periodic portfolio snapshot
+            if cycle_count % PORTFOLIO_SNAPSHOT_INTERVAL == 0:
+                save_portfolio_snapshot(portfolio)
+                logger.debug(f'Portfolio snapshot saved (cycle {cycle_count})')
+
+            logger.info(f'Cycle {cycle_count} complete. Next scan in {SCAN_INTERVAL}s. '
                         f'Balance: ${portfolio["total_balance"]:,.2f}')
             time.sleep(SCAN_INTERVAL)
 
