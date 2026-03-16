@@ -1,0 +1,226 @@
+"""
+ExecutionAgent — Ejecuta trades aprobados por RiskManager.
+Paper mode por defecto. Persiste en PostgreSQL y publica en Redis.
+"""
+import json
+import os
+import sys
+import uuid
+from datetime import datetime, timezone
+
+import ccxt
+import redis
+from dotenv import load_dotenv
+from loguru import logger
+from sqlalchemy import create_engine, text
+
+sys.path.insert(0, '/opt/trading')
+load_dotenv('/opt/trading/config/.env')
+
+from core.claude_bridge import ClaudeBridge
+from risk.risk_manager import RiskManager, RiskDecision
+
+
+class ExecutionAgent:
+    """Ejecuta trades: Risk check -> Order -> Save -> Explain."""
+
+    def __init__(self):
+        self.risk = RiskManager()
+        self.claude = ClaudeBridge()
+        self.paper_mode = os.getenv('PAPER_TRADING', 'true').lower() == 'true'
+
+        self.exchange = ccxt.kraken({
+            'apiKey': os.getenv('KRAKEN_API_KEY', ''),
+            'secret': os.getenv('KRAKEN_SECRET', ''),
+        })
+
+        db_url = (
+            f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
+            f"@{os.getenv('POSTGRES_HOST')}:{os.getenv('POSTGRES_PORT', '5432')}"
+            f"/{os.getenv('POSTGRES_DB')}"
+        )
+        self.engine = create_engine(db_url)
+        self.redis = redis.Redis(
+            host=os.getenv('REDIS_HOST', 'localhost'),
+            port=int(os.getenv('REDIS_PORT', 6379)),
+            password=os.getenv('REDIS_PASSWORD') or None,
+            decode_responses=True,
+        )
+
+    def execute(self, signal: dict, portfolio: dict,
+                open_trades: list) -> dict:
+        """Flujo completo: Risk check -> Order -> Save -> Explain."""
+
+        # 1. Risk Manager decision (autoridad final)
+        decision = self.risk.evaluate(signal, portfolio, open_trades)
+
+        if not decision.approved:
+            logger.info(f'Trade REJECTED: {decision.reason}')
+            return {'executed': False, 'reason': decision.reason}
+
+        asset = signal['asset']
+
+        # 2. Colocar orden
+        try:
+            if self.paper_mode:
+                order = self._simulate_order(signal, decision)
+            else:
+                symbol = f'{asset}/USDT'
+                order = self.exchange.create_order(
+                    symbol=symbol,
+                    type='market',
+                    side=signal['direction'].lower(),
+                    amount=decision.position_size,
+                )
+                # Stop loss y take profit
+                self.exchange.create_order(
+                    symbol, 'stop_market', 'sell',
+                    decision.position_size,
+                    params={'stopPrice': decision.stop_loss},
+                )
+                self.exchange.create_order(
+                    symbol, 'limit', 'sell',
+                    decision.position_size,
+                    decision.take_profit,
+                )
+        except Exception as e:
+            logger.error(f'Order execution error: {e}')
+            return {'executed': False, 'reason': f'exchange_error: {e}'}
+
+        # 3. Guardar trade en DB
+        trade_id = str(uuid.uuid4())
+        trade_data = {
+            'id': trade_id,
+            'asset': asset,
+            'side': signal['direction'],
+            'strategy': signal['strategy'],
+            'entry_price': signal['indicators']['price'],
+            'stop_loss': decision.stop_loss,
+            'take_profit': decision.take_profit,
+            'position_size': decision.position_size,
+            'position_pct': (
+                decision.risk_amount / portfolio['total_balance']
+                if portfolio.get('total_balance', 0) > 0 else 0
+            ),
+            'paper_trade': self.paper_mode,
+            'timestamp_open': datetime.now(timezone.utc).isoformat(),
+        }
+        self._save_trade(trade_data)
+
+        # 4. Claude explanation (no bloquea ejecución)
+        try:
+            explanation = self.claude.call(
+                task_type='explain_trade',
+                asset=asset,
+                data={
+                    'trade': trade_data,
+                    'signal': signal,
+                    'decision': {
+                        'approved': decision.approved,
+                        'position_size': decision.position_size,
+                        'risk_amount': decision.risk_amount,
+                        'reason': decision.reason,
+                    },
+                },
+                portfolio_context=portfolio,
+            )
+            self._save_explanation(trade_id, asset, 'explain_trade', explanation)
+        except Exception as e:
+            logger.warning(f'Claude explanation failed (non-critical): {e}')
+
+        # 5. Publicar evento en Redis
+        self.redis.publish('trades:executed', json.dumps({
+            'trade_id': trade_id,
+            'asset': asset,
+            'side': signal['direction'],
+            'price': signal['indicators']['price'],
+        }))
+
+        logger.info(
+            f'TRADE EXECUTED: {trade_id} {asset} {signal["direction"]} '
+            f'{decision.position_size:.6f} @ {signal["indicators"]["price"]}'
+        )
+        return {'executed': True, 'trade_id': trade_id, 'order': order}
+
+    def _simulate_order(self, signal: dict, decision: RiskDecision) -> dict:
+        return {
+            'id': f'PAPER_{uuid.uuid4().hex[:8]}',
+            'symbol': f'{signal["asset"]}/USDT',
+            'side': signal['direction'],
+            'amount': decision.position_size,
+            'price': signal['indicators']['price'],
+            'type': 'market',
+            'status': 'closed',
+        }
+
+    def _save_trade(self, data: dict):
+        with self.engine.begin() as conn:
+            conn.execute(
+                text("""
+                    INSERT INTO trades
+                        (id, asset, side, strategy, entry_price, stop_loss,
+                         take_profit, position_size, position_pct,
+                         paper_trade, timestamp_open)
+                    VALUES
+                        (:id, :asset, :side, :strategy, :entry_price, :stop_loss,
+                         :take_profit, :position_size, :position_pct,
+                         :paper_trade, :timestamp_open)
+                """),
+                data,
+            )
+
+    def _save_explanation(self, trade_id: str, asset: str,
+                          task_type: str, result: dict):
+        with self.engine.begin() as conn:
+            conn.execute(
+                text("""
+                    INSERT INTO claude_explanations
+                        (task_type, asset, trade_id, input_payload, result,
+                         confidence, reasoning, flags, latency_ms)
+                    VALUES
+                        (:task_type, :asset, :trade_id, :input_payload, :result,
+                         :confidence, :reasoning, :flags, :latency_ms)
+                """),
+                {
+                    'task_type': task_type,
+                    'asset': asset,
+                    'trade_id': trade_id,
+                    'input_payload': json.dumps({}),
+                    'result': json.dumps(result, default=str),
+                    'confidence': result.get('confidence', 0),
+                    'reasoning': result.get('reasoning', ''),
+                    'flags': result.get('flags', []),
+                    'latency_ms': result.get('_latency_ms', 0),
+                },
+            )
+
+
+# ── CLI test ──
+if __name__ == '__main__':
+    from agents.strategy_engine import StrategyEngine
+    load_dotenv('/opt/trading/config/.env')
+
+    # Simular portfolio
+    portfolio = {
+        'total_balance': 10000.0,
+        'exposure_pct': 0.0,
+        'drawdown_pct': 0.0,
+    }
+
+    engine = StrategyEngine()
+    agent = ExecutionAgent()
+
+    # Buscar oportunidades y ejecutar la primera
+    opps = engine.scan_all(portfolio)
+    print(f'\n=== {len(opps)} opportunities found ===')
+
+    executed = 0
+    for opp in opps[:3]:  # Intentar hasta 3
+        print(f'\nEvaluating: {opp["asset"]}/{opp["timeframe"]} '
+              f'{opp["strategy"]} {opp["direction"]}')
+        result = agent.execute(opp, portfolio, [])
+        print(f'  Result: {result}')
+        if result.get('executed'):
+            executed += 1
+
+    print(f'\n=== {executed} trades executed (paper mode) ===')
