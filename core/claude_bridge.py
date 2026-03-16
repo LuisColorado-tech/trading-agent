@@ -1,12 +1,16 @@
 """
-ClaudeBridge — LangChain bridge entre OpenClaw y Claude Opus.
+LLMBridge — LangChain bridge hacia modelos LLM (OpenAI / Anthropic).
 Módulo central de comunicación IA del Trading Agent.
 
 Responsabilidades:
-- Enviar payloads estructurados a Claude Opus via LangChain
+- Enviar payloads estructurados al LLM configurado via LangChain
 - Parsear respuestas en JSON estandarizado
-- Devolver resultado neutral si Claude falla (nunca detener el sistema)
+- Devolver resultado neutral si el LLM falla (nunca detener el sistema)
 - Registrar latencia y tokens usados
+
+Providers soportados:
+- openai: GPT-4o-mini (default, más barato), GPT-4o, GPT-4-turbo
+- anthropic: Claude Opus, Sonnet, Haiku
 
 Puntos de intervención:
 1. sentiment_analysis
@@ -21,7 +25,6 @@ import time
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
-from langchain_anthropic import ChatAnthropic
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import PromptTemplate
 from loguru import logger
@@ -104,23 +107,47 @@ Rules:
 
 
 class ClaudeBridge:
-    """LangChain bridge OpenClaw <-> Claude Opus."""
+    """LangChain bridge multi-provider (OpenAI default, Anthropic fallback)."""
 
     def __init__(self):
-        api_key = os.getenv('ANTHROPIC_API_KEY', '')
-        self._configured = bool(api_key and api_key != 'sk-ant-CHANGE_ME')
+        self.llm = None
+        self._configured = False
+        self._provider = 'none'
 
-        if self._configured:
-            self.llm = ChatAnthropic(
-                model=os.getenv('CLAUDE_MODEL', 'claude-opus-4-5'),
-                anthropic_api_key=api_key,
+        # Prioridad: OpenAI (más barato) > Anthropic
+        openai_key = os.getenv('OPENAI_API_KEY', '')
+        anthropic_key = os.getenv('ANTHROPIC_API_KEY', '')
+
+        if openai_key and openai_key != 'CHANGE_ME':
+            from langchain_openai import ChatOpenAI
+            model = os.getenv('LLM_MODEL', 'gpt-4o-mini')
+            self.llm = ChatOpenAI(
+                model=model,
+                api_key=openai_key,
                 temperature=0.1,
                 max_tokens=1000,
                 timeout=30.0,
             )
+            self._configured = True
+            self._provider = f'openai/{model}'
+            logger.info(f'LLMBridge: Using {self._provider}')
+
+        elif anthropic_key and anthropic_key != 'sk-ant-CHANGE_ME':
+            from langchain_anthropic import ChatAnthropic
+            model = os.getenv('LLM_MODEL', 'claude-opus-4-5')
+            self.llm = ChatAnthropic(
+                model=model,
+                anthropic_api_key=anthropic_key,
+                temperature=0.1,
+                max_tokens=1000,
+                timeout=30.0,
+            )
+            self._configured = True
+            self._provider = f'anthropic/{model}'
+            logger.info(f'LLMBridge: Using {self._provider}')
+
         else:
-            self.llm = None
-            logger.warning('ClaudeBridge: API key not configured — running in dry-run mode')
+            logger.warning('LLMBridge: No API key configured — running in dry-run mode')
 
         self._parsers = {
             k: JsonOutputParser(pydantic_object=v)
@@ -139,8 +166,8 @@ class ClaudeBridge:
             raise ValueError(f'Unknown task_type: {task_type}')
 
         if not self._configured:
-            logger.info(f'ClaudeBridge dry-run: {task_type} for {asset}')
-            return self._neutral_result(f'dry-run: API key not set')
+            logger.info(f'LLMBridge dry-run: {task_type} for {asset}')
+            return self._neutral_result(f'dry-run: no API key configured')
 
         parser = self._parsers[task_type]
         format_instructions = parser.get_format_instructions()
@@ -164,22 +191,22 @@ class ClaudeBridge:
             latency = int((time.time() - t0) * 1000)
             result['_latency_ms'] = latency
             logger.info(
-                f'Claude {task_type} for {asset}: '
+                f'LLM [{self._provider}] {task_type} for {asset}: '
                 f'{result.get("confidence", "?")}% conf, {latency}ms'
             )
             return result
 
         except Exception as e:
-            logger.error(f'ClaudeBridge error: {e}')
+            logger.error(f'LLMBridge error: {e}')
             return self._neutral_result(str(e))
 
     @staticmethod
     def _neutral_result(reason: str) -> Dict:
-        """Fallback neutral — nunca detener el sistema por fallo de Claude."""
+        """Fallback neutral — nunca detener el sistema por fallo de LLM."""
         return {
             'result': 'NEUTRAL',
             'confidence': 0,
-            'reasoning': f'Claude unavailable: {reason[:100]}',
-            'flags': ['claude_unavailable'],
+            'reasoning': f'LLM unavailable: {reason[:100]}',
+            'flags': ['llm_unavailable'],
             '_latency_ms': -1,
         }
