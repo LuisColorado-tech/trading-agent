@@ -78,13 +78,17 @@ def save_portfolio_snapshot(portfolio: dict):
         conn.execute(
             text("""
                 INSERT INTO portfolio
-                    (total_balance, exposure_pct, pnl_day, drawdown_pct, positions)
-                VALUES (:balance, :exposure, 0, :drawdown, :positions)
+                    (total_balance, available_cash, exposure_pct, pnl_day,
+                     drawdown_pct, peak_balance, positions, timestamp)
+                VALUES (:balance, :available_cash, :exposure, 0,
+                        :drawdown, :peak_balance, :positions, NOW())
             """),
             {
                 'balance': portfolio['total_balance'],
+                'available_cash': portfolio['available_cash'],
                 'exposure': portfolio['exposure_pct'],
                 'drawdown': portfolio['drawdown_pct'],
+                'peak_balance': portfolio.get('peak_balance', portfolio['total_balance']),
                 'positions': json.dumps({}),
             },
         )
