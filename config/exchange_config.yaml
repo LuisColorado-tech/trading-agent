@@ -1,0 +1,100 @@
+# ──────────────────────────────────────────────────
+# Exchange Configuration — AI Trading Agent
+# Sustituye Binance (bloqueado HTTP 451 desde este VPS)
+# por Kraken (primario) + OKX (secundario + metales)
+# ──────────────────────────────────────────────────
+# Verificado en vivo 2026-03-16 desde VPS srv1347416
+
+exchanges:
+  # ── Exchange primario: Kraken ──
+  # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
+  # Oro tokenizado: XAUT/USDT, PAXG/USD
+  kraken:
+    enabled: true
+    role: primary
+    ccxt_id: kraken
+    sandbox: false
+    rate_limit: true
+    assets:
+      BTC:
+        pair: BTC/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      ETH:
+        pair: ETH/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      SOL:
+        pair: SOL/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      XAU:
+        pair: XAUT/USDT          # Tether Gold — proxy para oro físico
+        timeframes: [5m, 15m, 1h]
+        note: "Token respaldado 1:1 por onza troy de oro (TrueGold/Tether)"
+
+  # ── Exchange secundario: OKX ──
+  # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
+  # Oro: XAUT/USDT (spot), XAU/USD:USD (perp)
+  # Plata: XAG/USDT:USDT (perp) — ÚNICO exchange accesible con plata
+  okx:
+    enabled: true
+    role: secondary
+    ccxt_id: okx
+    sandbox: false
+    rate_limit: true
+    assets:
+      BTC:
+        pair: BTC/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      ETH:
+        pair: ETH/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      SOL:
+        pair: SOL/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      XAU:
+        pair: XAUT/USDT
+        timeframes: [5m, 15m, 1h]
+        alt_pair: "XAU/USD:USD"  # perpetuo — más liquidez para hedging
+      XAG:
+        pair: "XAG/USDT:USDT"   # contrato perpetuo
+        timeframes: [15m, 1h]
+        note: "Plata solo disponible como perpetuo en OKX desde este VPS"
+
+  # ── Backup: Binance US ──
+  # Solo crypto (BTC, ETH). Volumen bajo. Usar si Kraken/OKX fallan.
+  binanceus:
+    enabled: false               # deshabilitado por defecto
+    role: backup
+    ccxt_id: binanceus
+    sandbox: false
+    rate_limit: true
+    assets:
+      BTC:
+        pair: BTC/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      ETH:
+        pair: ETH/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+
+# ── NOTA sobre Binance (main) ──
+# api.binance.com está bloqueado desde este VPS (HTTP 451 — geo-restriction).
+# Testnet spot y futures mainnet también bloqueados.
+# Solo testnet.binancefuture.com y api.binance.us responden.
+# Decisión: usar Kraken + OKX como reemplazo total.
+# Verificado: 2026-03-16
+
+# ── Mapeo de activos del plan ──
+# Activo  | Exchange primario | Par               | Backup
+# BTC     | Kraken            | BTC/USDT          | OKX
+# ETH     | Kraken            | ETH/USDT          | OKX
+# SOL     | Kraken            | SOL/USDT          | OKX / KuCoin
+# XAU     | OKX               | XAUT/USDT         | Kraken (XAUT/USDT)
+# XAG     | OKX               | XAG/USDT:USDT     | Sin alternativa spot
+
+# ── Parámetros de riesgo (INMUTABLES en runtime) ──
+risk:
+  max_risk_per_trade_pct: 1.0
+  max_portfolio_exposure_pct: 5.0
+  stop_loss_atr_mult: 1.5
+  take_profit_atr_mult: 2.5
+  max_drawdown_pct: 10.0
+  paper_trading: true
