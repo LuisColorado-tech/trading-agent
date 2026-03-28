@@ -136,11 +136,13 @@ class StrategyEngine:
         best = max(results, key=lambda r: r['score'])
 
         # ── Filtro de confluencia: exigir alineación multi-indicador ──
+        # En RANGE pedimos 1 factor adicional para evitar whipsaws en rango estrecho
+        min_conf_needed = MIN_CONFLUENCE_INDICATORS + 1 if regime.name == 'RANGE' else MIN_CONFLUENCE_INDICATORS
         n_conf, conf_factors = count_confluence(ind, best['direction'])
-        if n_conf < MIN_CONFLUENCE_INDICATORS:
+        if n_conf < min_conf_needed:
             logger.info(
                 f'No opportunity {asset}/{timeframe}: low_confluence '
-                f'{n_conf}/{MIN_CONFLUENCE_INDICATORS} factors={conf_factors} '
+                f'{n_conf}/{min_conf_needed} factors={conf_factors} '
                 f'dir={best["direction"]} score={best["score"]} regime={regime.name}'
             )
             return {'opportunity': False, 'reason': f'low_confluence:{n_conf}'}

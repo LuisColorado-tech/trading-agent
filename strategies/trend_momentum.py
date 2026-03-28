@@ -8,7 +8,7 @@ from agents.indicators import IndicatorSet
 
 class TrendMomentumStrategy:
     NAME = 'TREND_MOMENTUM'
-    MIN_SCORE = 70  # subido de 65 para mayor selectividad
+    MIN_SCORE = 65  # 70 era demasiado alto para RANGE (cap sistémico en 50)
 
     def score(self, ind: IndicatorSet, df=None) -> dict:
         # Evaluar ambas direcciones con scoring gradual y elegir la mejor
@@ -54,8 +54,8 @@ class TrendMomentumStrategy:
             score += 15
             reasons.append('MACD_BEARISH')
 
-        # Volumen confirma
-        if ind.vol_ratio > 1.3:
+        # Volumen confirma (umbral 1.2 en lugar de 1.3: en RANGE el volumen baja)
+        if ind.vol_ratio > 1.2:
             score += 10
             reasons.append(f'VOL_CONFIRM:{ind.vol_ratio:.2f}x')
 
@@ -112,13 +112,15 @@ class TrendMomentumStrategy:
             score += 15
             reasons.append('MACD_BULLISH')
 
-        # Volumen confirma
-        if ind.vol_ratio > 1.3:
+        # Volumen confirma (umbral 1.2 en lugar de 1.3: en RANGE el volumen baja)
+        if ind.vol_ratio > 1.2:
             score += 10
             reasons.append(f'VOL_CONFIRM:{ind.vol_ratio:.2f}x')
 
-        # Espacio hasta BB superior
-        if ind.close < ind.bb_upper * 0.97:
+        # Espacio hasta BB superior: usando bb_pct en vez de distancia absoluta.
+        # La condición original (close < bb_upper * 0.97) nunca se cumplía en
+        # bandas estrechas (RANGE) porque bb_upper ya está < 3% sobre el precio.
+        if ind.bb_pct < 0.70:
             score += 10
             reasons.append('ROOM_TO_BB_UPPER')
 

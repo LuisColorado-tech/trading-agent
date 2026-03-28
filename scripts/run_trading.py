@@ -188,6 +188,16 @@ def main():
     # Save initial portfolio snapshot
     save_portfolio_snapshot(portfolio)
 
+    # ── Startup warm-up ─────────────────────────────────────────────
+    # Esperar 3 minutos antes del primer ciclo de trading.
+    # Evita que señales acumuladas durante el reinicio disparen múltiples
+    # entradas simultáneas sin contexto de mercado actualizado.
+    import time as _time
+    _warmup_sec = 180
+    logger.info(f'Startup warm-up: {_warmup_sec}s antes del primer ciclo de trading...')
+    _time.sleep(_warmup_sec)
+    # ────────────────────────────────────────────────────────────────
+
     cycle_count = 0
 
     while True:

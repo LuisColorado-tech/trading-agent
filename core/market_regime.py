@@ -34,7 +34,10 @@ def classify_market_regime(ind) -> MarketRegime:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
 
     if ind.bb_width <= 0.10 and ind.atr_pct <= 0.012:
-        return MarketRegime('RANGE', 'NEUTRAL', False, True, False)
+        # MEAN_REVERSION está deshabilitada (0/8 win rate).
+        # Permitir trend en RANGE para no crear zona muerta;
+        # el engine exige confluencia +1 en este régimen para evitar whipsaws.
+        return MarketRegime('RANGE', 'NEUTRAL', True, True, False)
 
     return MarketRegime('CHOPPY', 'NEUTRAL', False, False, False)
 
