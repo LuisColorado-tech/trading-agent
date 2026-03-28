@@ -12,11 +12,35 @@ import time
 
 import requests
 from loguru import logger
+from openai import OpenAI
 
 sys.path.insert(0, '/opt/trading')
 from dotenv import load_dotenv
 
 load_dotenv('/opt/trading/config/.env')
+
+_openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
+# Historial de conversación por chat_id (máx. 20 turnos en memoria)
+_conversation_history: dict = {}
+_MAX_HISTORY = 20
+
+ARTHAS_SYSTEM_PROMPT = """Eres Arthas, el asistente de trading y finanzas personales de Lucho (Luis Colorado).
+
+Tu personalidad:
+- Directo y conciso. Sin rodeos.
+- Paisa colombiano cultivado: mezclás el rigor técnico con expresiones naturales.
+- Conocés en profundidad cripto, trading algorítmico, Polymarket y estrategias quant.
+- Sos el co-piloto de Lucho en todas sus operaciones e ideas de negocio.
+- Cuando no sabés algo, lo decís sin drama. Nunca inventás datos.
+- Podés hablar de cualquier tema: finanzas, código, vida, ideas — sos su asistente integral.
+
+Contexto del sistema:
+- Estás corriendo en un servidor Linux con un trading agent en /opt/trading.
+- Hay una paper session activa con $10,000 de capital.
+- Si Lucho pregunta por datos en tiempo real (trades, portfolio, precios), decile que use /status, /portfolio o /report para datos frescos desde la base de datos.
+
+Respondé siempre en español (castellano colombiano natural, no exagerés el paisa)."""
 
 logger.add(
     '/opt/trading/logs/telegram_bot_{time}.log',
@@ -110,6 +134,31 @@ def run_arthas_command(command: str) -> str:
         return f'❌ Error ejecutando comando: {e}'
 
 
+def chat_with_arthas(chat_id: int, user_text: str) -> str:
+    """Envía el mensaje al LLM con historial conversacional y devuelve la respuesta de Arthas."""
+    history = _conversation_history.setdefault(chat_id, [])
+
+    history.append({'role': 'user', 'content': user_text})
+
+    # Mantener máximo _MAX_HISTORY turnos (par user/assistant)
+    if len(history) > _MAX_HISTORY:
+        history[:] = history[-_MAX_HISTORY:]
+
+    try:
+        response = _openai_client.chat.completions.create(
+            model='gpt-4o-mini',
+            messages=[{'role': 'system', 'content': ARTHAS_SYSTEM_PROMPT}] + history,
+            max_tokens=800,
+            temperature=0.7,
+        )
+        reply = response.choices[0].message.content.strip()
+        history.append({'role': 'assistant', 'content': reply})
+        return reply
+    except Exception as e:
+        logger.error(f'Error en chat_with_arthas: {e}')
+        return f'⚠️ No pude procesar eso ahora: {e}'
+
+
 def process_message(message: dict):
     """Procesa un mensaje entrante de Telegram."""
     chat_id = message.get('chat', {}).get('id')
@@ -123,32 +172,20 @@ def process_message(message: dict):
     if not text:
         return
 
-    # Extraer comando (primera palabra)
+    # Extraer primera palabra para detectar comandos
     cmd_raw = text.split()[0].lower()
-
     arthas_cmd = COMMAND_MAP.get(cmd_raw)
-    if arthas_cmd is None:
-        send_message(
-            f'❓ Comando no reconocido: {cmd_raw}\n\n'
-            'Comandos disponibles:\n'
-            '  /status — Estado general\n'
-            '  /portfolio — Portfolio\n'
-            '  /trades — Trades\n'
-            '  /signals — Señales\n'
-            '  /prices — Precios\n'
-            '  /metrics — Métricas\n'
-            '  /scan — Escanear mercados\n'
-            '  /report — Reporte completo\n'
-            '  /poly — Polymarket status\n'
-            '  /polyreport — Polymarket reporte\n'
-            '  /help — Ayuda',
-            chat_id,
-        )
-        return
 
-    logger.info(f'Comando recibido: {cmd_raw} → {arthas_cmd}')
-    output = run_arthas_command(arthas_cmd)
-    send_message(output, chat_id)
+    if arthas_cmd is not None:
+        # Es un comando → ejecutar arthas_trading.py
+        logger.info(f'Comando recibido: {cmd_raw} → {arthas_cmd}')
+        output = run_arthas_command(arthas_cmd)
+        send_message(output, chat_id)
+    else:
+        # Es conversación libre → responder con LLM
+        logger.info(f'Conversación libre ({len(text)} chars): {text[:60]}...' if len(text) > 60 else f'Conversación libre: {text}')
+        reply = chat_with_arthas(chat_id, text)
+        send_message(reply, chat_id)
 
 
 def polling_loop():
