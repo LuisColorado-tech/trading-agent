@@ -18,6 +18,7 @@ class MarketRegime:
 # (ej. BTC en rally sostenido) el régimen caía siempre en CHOPPY y ambas
 # estrategias quedaban bloqueadas sin operar.
 _TREND_STRENGTH_MIN = 0.12
+_TREND_STRENGTH_MIN_DOWN = 0.20  # reservado — backtest 2Y mostró que 0.20 destruye SOL (+71%→0%). No usar.
 
 
 def classify_market_regime(ind) -> MarketRegime:
