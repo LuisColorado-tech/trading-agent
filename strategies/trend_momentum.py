@@ -80,13 +80,15 @@ class TrendMomentumStrategy:
         score = 0
         reasons = []
 
-        # EMA alcista: EMA20 > EMA50
-        # Umbral bajado de 1.005 → 1.002 para igualar la asimetría con SELL (0.998).
-        # El umbral anterior bloqueaba tendencias alcistas moderadas.
-        if ind.ema20 > ind.ema50 * 1.002:
+        # SOL tiene win rate 19% en BUY/TREND_UP (backtest 6m):
+        # requiere cruce EMA fuerte (1.007) en lugar del umbral suave (1.002).
+        ema_bull_threshold = 1.007 if ind.asset == 'SOL' else 1.002
+
+        # EMA alcista
+        if ind.ema20 > ind.ema50 * ema_bull_threshold:
             score += 25
             reasons.append('EMA_BULL_CROSS')
-            if ind.ema20 > ind.ema50 * 1.007:
+            if ind.ema20 > ind.ema50 * 1.012:
                 score += 10
                 reasons.append('STRONG_BULL_TREND')
 

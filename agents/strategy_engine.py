@@ -95,6 +95,7 @@ class StrategyEngine:
 
         regime = classify_market_regime(ind)
 
+
         # Evaluar todas las estrategias
         results = []
         blocked = []
@@ -108,6 +109,11 @@ class StrategyEngine:
                 else:
                     res = strategy.score(ind)
                 if res['direction'] != 'NEUTRAL':
+                    # Bonus de régimen (backtest 6m): SELL en TREND_DOWN tiene win rate 38%.
+                    # Se añade score adicional para que supere el MIN_SCORE con más margen.
+                    if regime.name == 'TREND_DOWN' and res['direction'] == 'SELL':
+                        res['score'] = res.get('score', 0) + 8
+                        res.setdefault('reasons', []).append('REGIME_TREND_DOWN_BONUS')
                     guard_reason = self.guard.assess_signal(asset, strategy.NAME)
                     if guard_reason:
                         blocked.append({'strategy': strategy.NAME, 'reason': guard_reason})
@@ -136,8 +142,7 @@ class StrategyEngine:
         best = max(results, key=lambda r: r['score'])
 
         # ── Filtro de confluencia: exigir alineación multi-indicador ──
-        # En RANGE pedimos 1 factor adicional para evitar whipsaws en rango estrecho
-        min_conf_needed = MIN_CONFLUENCE_INDICATORS + 1 if regime.name == 'RANGE' else MIN_CONFLUENCE_INDICATORS
+        min_conf_needed = MIN_CONFLUENCE_INDICATORS
         n_conf, conf_factors = count_confluence(ind, best['direction'])
         if n_conf < min_conf_needed:
             logger.info(

@@ -199,6 +199,10 @@ class Backtest:
 
     def _best_signal(self, ind, regime, df_window) -> dict | None:
         from core.market_regime import strategy_allowed_in_regime
+        # Misma lógica que strategy_engine.py en producción
+        # Backtest 6m: TREND_MOMENTUM en RANGE pierde en todos los activos.
+        if not regime.allow_trend and not regime.allow_mean_reversion and not regime.allow_breakout:
+            return None  # CHOPPY — no operar
         results = []
         for strat in STRATEGIES:
             if not strategy_allowed_in_regime(strat.NAME, regime):
@@ -209,10 +213,12 @@ class Backtest:
                 continue
             if res['direction'] == 'NEUTRAL':
                 continue
-            min_conf = MIN_CONFLUENCE_INDICATORS + (1 if regime.name == 'RANGE' else 0)
             n_conf, _ = count_confluence(ind, res['direction'])
-            if n_conf < min_conf:
+            if n_conf < MIN_CONFLUENCE_INDICATORS:
                 continue
+            # Bonus TREND_DOWN SELL — backtest muestra win rate 38%
+            if regime.name == 'TREND_DOWN' and res['direction'] == 'SELL':
+                res['score'] = res.get('score', 0) + 8
             res['strategy'] = strat.NAME
             results.append(res)
 

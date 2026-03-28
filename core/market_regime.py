@@ -34,10 +34,10 @@ def classify_market_regime(ind) -> MarketRegime:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
 
     if ind.bb_width <= 0.10 and ind.atr_pct <= 0.012:
-        # MEAN_REVERSION está deshabilitada (0/8 win rate).
-        # Permitir trend en RANGE para no crear zona muerta;
-        # el engine exige confluencia +1 en este régimen para evitar whipsaws.
-        return MarketRegime('RANGE', 'NEUTRAL', True, True, False)
+        # Backtest 6m: TREND_MOMENTUM en RANGE pierde en BTC (-$880), ETH (-$829), SOL (-$1,157).
+        # El agente espera a que el mercado salga del rango antes de operar.
+        # MEAN_REVERSION sigue disponible en RANGE (aunque está deshabilitada).
+        return MarketRegime('RANGE', 'NEUTRAL', False, True, False)
 
     return MarketRegime('CHOPPY', 'NEUTRAL', False, False, False)
 
