@@ -43,18 +43,20 @@ STRATEGIES = [TrendMomentumStrategy(), BreakoutStrategy()]
 # ── Descarga de datos ─────────────────────────────────────────────────
 
 def download_ohlcv(symbol: str, timeframe: str, months: int) -> pd.DataFrame:
-    """Descarga velas históricas de KuCoin sin API key."""
+    """Descarga velas históricas de KuCoin sin API key, paginando hasta el presente."""
     import ccxt, time as _t
     exchange = ccxt.kucoin({'enableRateLimit': True})
-    
+
     since_dt = datetime.now(timezone.utc) - timedelta(days=months * 30)
-    since_ms  = int(since_dt.timestamp() * 1000)
-    
+    end_dt   = datetime.now(timezone.utc) - timedelta(minutes=30)  # margen de seguridad
+    since_ms = int(since_dt.timestamp() * 1000)
+    end_ms   = int(end_dt.timestamp() * 1000)
+
     all_ohlcv = []
     limit = 1500
-    print(f"  Descargando {symbol} {timeframe} desde {since_dt.date()}...")
-    
-    while True:
+    print(f"  Descargando {symbol} {timeframe} desde {since_dt.date()} ({months} meses)...")
+
+    while since_ms < end_ms:
         try:
             batch = exchange.fetch_ohlcv(symbol, timeframe, since=since_ms, limit=limit)
         except Exception as e:
@@ -62,21 +64,31 @@ def download_ohlcv(symbol: str, timeframe: str, months: int) -> pd.DataFrame:
             break
         if not batch:
             break
+
         all_ohlcv.extend(batch)
-        since_ms = batch[-1][0] + 1
-        if len(batch) < limit:
+        last_ts = batch[-1][0]
+        since_ms = last_ts + 1
+
+        # Progreso cada 10 llamadas
+        if len(all_ohlcv) % 15000 == 0:
+            from_dt = datetime.fromtimestamp(batch[0][0] / 1000, tz=timezone.utc)
+            print(f"    ... {len(all_ohlcv):,} velas | hasta {from_dt.date()}")
+
+        # Si el último lote llegó al presente, salir
+        if last_ts >= end_ms:
             break
-        _t.sleep(0.3)
-    
+
+        # KuCoin requiere pausa entre requests para evitar rate limit
+        _t.sleep(0.4)
+
     if not all_ohlcv:
         return pd.DataFrame()
-    
+
     df = pd.DataFrame(all_ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms', utc=True)
     df = df.set_index('timestamp').sort_index()
-    # Eliminar duplicados que puede traer KuCoin en los bordes
     df = df[~df.index.duplicated(keep='last')]
-    print(f"  ✓ {len(df)} velas  ({df.index[0].date()} → {df.index[-1].date()})")
+    print(f"  ✓ {len(df):,} velas  ({df.index[0].date()} → {df.index[-1].date()})")
     return df
 
 

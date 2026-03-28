@@ -28,7 +28,9 @@ def classify_market_regime(ind) -> MarketRegime:
             return MarketRegime('BREAKOUT_DOWN', 'BEARISH', True, False, False)
 
     if ind.trend_direction == 'UP' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist > 0:
-        return MarketRegime('TREND_UP', 'BULLISH', True, False, False)
+        # Backtest 2 años: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151
+        # (BTC -$1,961, ETH -$2,541, SOL -$1,648). Bloquear igual que RANGE.
+        return MarketRegime('TREND_UP', 'BULLISH', False, False, False)
 
     if ind.trend_direction == 'DOWN' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist < 0:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
