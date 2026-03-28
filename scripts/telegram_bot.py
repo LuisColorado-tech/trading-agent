@@ -218,10 +218,8 @@ def polling_loop():
             if not data.get('ok'):
                 err_code = data.get('error_code', 0)
                 if err_code == 409:
-                    logger.warning(f'Conflict 409 — backoff {backoff}s')
-                    time.sleep(backoff)
-                    backoff = min(backoff * 2, 30)
-                    continue
+                    logger.error('Conflict 409 — hay otra instancia activa. Cerrando este proceso.')
+                    sys.exit(1)
                 logger.error(f'Telegram API error: {data}')
                 time.sleep(5)
                 continue
@@ -245,5 +243,30 @@ def polling_loop():
             time.sleep(5)
 
 
+_PID_FILE = '/tmp/arthas_telegram_bot.pid'
+
+
+def _acquire_lock():
+    """Evita múltiples instancias usando PID file. Mata el proceso anterior si quedó huérfano."""
+    if os.path.exists(_PID_FILE):
+        try:
+            old_pid = int(open(_PID_FILE).read().strip())
+            # Verificar si el proceso sigue vivo
+            os.kill(old_pid, 0)
+            # Si no lanzó excepción, el proceso EXISTE → salir
+            logger.error(f'Bot ya está corriendo (PID {old_pid}). Saliendo.')
+            sys.exit(1)
+        except (ProcessLookupError, ValueError):
+            # PID file huérfano — el proceso ya no existe, continuar
+            logger.info('PID file huérfano encontrado, continuando...')
+
+    with open(_PID_FILE, 'w') as f:
+        f.write(str(os.getpid()))
+
+    import atexit
+    atexit.register(lambda: os.path.exists(_PID_FILE) and os.remove(_PID_FILE))
+
+
 if __name__ == '__main__':
+    _acquire_lock()
     polling_loop()
