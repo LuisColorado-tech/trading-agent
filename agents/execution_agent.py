@@ -18,6 +18,7 @@ sys.path.insert(0, '/opt/trading')
 load_dotenv('/opt/trading/config/.env')
 
 from core.claude_bridge import ClaudeBridge
+from core.paper_session_manager import PaperSessionManager
 from risk.risk_manager import RiskManager, RiskDecision
 
 
@@ -40,6 +41,7 @@ class ExecutionAgent:
             f"/{os.getenv('POSTGRES_DB')}"
         )
         self.engine = create_engine(db_url)
+        self.session_manager = PaperSessionManager(db_url)
         self.redis = redis.Redis(
             host=os.getenv('REDIS_HOST', 'localhost'),
             port=int(os.getenv('REDIS_PORT', 6379)),
@@ -66,22 +68,29 @@ class ExecutionAgent:
                 order = self._simulate_order(signal, decision)
             else:
                 symbol = f'{asset}/USDT'
+                side_lower = signal['direction'].lower()
                 order = self.exchange.create_order(
                     symbol=symbol,
                     type='market',
-                    side=signal['direction'].lower(),
+                    side=side_lower,
                     amount=decision.position_size,
                 )
-                # Stop loss y take profit
+                # Stop loss: usar stop-loss order type de Kraken
+                sl_side = 'sell' if side_lower == 'buy' else 'buy'
                 self.exchange.create_order(
-                    symbol, 'stop_market', 'sell',
-                    decision.position_size,
-                    params={'stopPrice': decision.stop_loss},
+                    symbol=symbol,
+                    type='stop-loss',
+                    side=sl_side,
+                    amount=decision.position_size,
+                    price=decision.stop_loss,
                 )
+                # Take profit: limit order
                 self.exchange.create_order(
-                    symbol, 'limit', 'sell',
-                    decision.position_size,
-                    decision.take_profit,
+                    symbol=symbol,
+                    type='take-profit',
+                    side=sl_side,
+                    amount=decision.position_size,
+                    price=decision.take_profit,
                 )
         except Exception as e:
             logger.error(f'Order execution error: {e}')
@@ -89,12 +98,15 @@ class ExecutionAgent:
 
         # 3. Guardar trade en DB
         trade_id = str(uuid.uuid4())
+        active_session = self.session_manager.get_active_session() if self.paper_mode else None
+        entry_price = signal['indicators']['price']
+        initial_risk = abs(entry_price - decision.stop_loss)
         trade_data = {
             'id': trade_id,
             'asset': asset,
             'side': signal['direction'],
             'strategy': signal['strategy'],
-            'entry_price': signal['indicators']['price'],
+            'entry_price': entry_price,
             'stop_loss': decision.stop_loss,
             'take_profit': decision.take_profit,
             'position_size': decision.position_size,
@@ -104,6 +116,11 @@ class ExecutionAgent:
             ),
             'paper_trade': self.paper_mode,
             'timestamp_open': datetime.now(timezone.utc).isoformat(),
+            'metadata': json.dumps({
+                'paper_session_id': str(active_session['id']) if active_session else None,
+                'paper_session_name': active_session['session_name'] if active_session else None,
+                'initial_risk': initial_risk,
+            }),
         }
         self._save_trade(trade_data)
 
@@ -160,11 +177,11 @@ class ExecutionAgent:
                     INSERT INTO trades
                         (id, asset, side, strategy, entry_price, stop_loss,
                          take_profit, position_size, position_pct,
-                         paper_trade, timestamp_open)
+                         paper_trade, timestamp_open, metadata)
                     VALUES
                         (:id, :asset, :side, :strategy, :entry_price, :stop_loss,
                          :take_profit, :position_size, :position_pct,
-                         :paper_trade, :timestamp_open)
+                         :paper_trade, :timestamp_open, CAST(:metadata AS jsonb))
                 """),
                 data,
             )

@@ -1,7 +1,41 @@
+# ── Secretos y configuración local ──────────────────────────────────
 config/.env
-*.pyc
-__pycache__/
-logs/
-.pytest_cache/
-*.egg-info/
+config/*.env*
+
+# ── Entorno virtual Python ───────────────────────────────────────────
 venv/
+.venv/
+env/
+
+# ── Compilados Python ────────────────────────────────────────────────
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Logs y runtime ───────────────────────────────────────────────────
+logs/
+*.log
+nohup.out
+.health_state.json
+
+# ── Tests ─────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Editor / OS ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Datos de mercado (puede ser grande) ─────────────────────────────
+data/*.csv
+data/*.parquet

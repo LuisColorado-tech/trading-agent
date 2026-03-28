@@ -1,7 +1,8 @@
 """
 StrategyEngine — Orquestador de estrategias.
-Evalúa TrendMomentum, MeanReversion y Breakout sobre indicadores reales,
+Evalúa TrendMomentum y Breakout sobre indicadores reales,
 selecciona la mejor señal y pide verificación a Claude.
+NOTE: MeanReversion deshabilitada — 0/8 win rate en paper, -$569 P&L.
 """
 import json
 import os
@@ -9,24 +10,66 @@ import sys
 
 import redis
 from loguru import logger
+from sqlalchemy import create_engine
 
 sys.path.insert(0, '/opt/trading')
 
 from agents.indicators import IndicatorEngine
+from core.market_regime import classify_market_regime, regime_block_reason, strategy_allowed_in_regime
+from core.performance_guard import StrategyPerformanceGuard
 from core.claude_bridge import ClaudeBridge
 from data.market_feed import MarketFeed, ASSET_MAP
 from strategies.breakout import BreakoutStrategy
-from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
+
+
+# ── Confluencia mínima para pasar señal ─────────────────────────────
+MIN_CONFLUENCE_INDICATORS = 3  # nº mínimo de factores alineados para operar
+
+
+def count_confluence(ind, direction: str) -> tuple[int, list[str]]:
+    """Cuenta cuántos indicadores confirman la dirección propuesta."""
+    factors = []
+    if direction == 'BUY':
+        if ind.ema20 > ind.ema50:
+            factors.append('EMA_ALIGNED')
+        if ind.close > ind.ema20:
+            factors.append('PRICE_ABOVE_EMA')
+        if 40 <= ind.rsi <= 65:
+            factors.append('RSI_OK')
+        if ind.macd > ind.macd_signal:
+            factors.append('MACD_BULLISH')
+        if ind.vol_ratio > 1.2:
+            factors.append('VOLUME_UP')
+        if ind.close > ind.vwap:
+            factors.append('ABOVE_VWAP')
+    elif direction == 'SELL':
+        if ind.ema20 < ind.ema50:
+            factors.append('EMA_ALIGNED')
+        if ind.close < ind.ema20:
+            factors.append('PRICE_BELOW_EMA')
+        if 35 <= ind.rsi <= 55:
+            factors.append('RSI_OK')
+        if ind.macd < ind.macd_signal:
+            factors.append('MACD_BEARISH')
+        if ind.vol_ratio > 1.2:
+            factors.append('VOLUME_UP')
+        if ind.close < ind.vwap:
+            factors.append('BELOW_VWAP')
+    return len(factors), factors
 
 
 class StrategyEngine:
     """Evalúa todas las estrategias y devuelve la mejor oportunidad."""
 
     def __init__(self):
+        db_url = (
+            f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
+            f"@{os.getenv('POSTGRES_HOST')}:{os.getenv('POSTGRES_PORT', '5432')}"
+            f"/{os.getenv('POSTGRES_DB')}"
+        )
         self.strategies = [
             TrendMomentumStrategy(),
-            MeanReversionStrategy(),
             BreakoutStrategy(),
         ]
         self.claude = ClaudeBridge()
@@ -37,6 +80,7 @@ class StrategyEngine:
             password=os.getenv('REDIS_PASSWORD') or None,
             decode_responses=True,
         )
+        self.guard = StrategyPerformanceGuard(db_url)
 
     def evaluate(self, asset: str, timeframe: str,
                  portfolio_context: dict = None) -> dict:
@@ -49,25 +93,58 @@ class StrategyEngine:
         if ind is None:
             return {'opportunity': False, 'reason': 'insufficient_data'}
 
+        regime = classify_market_regime(ind)
+
         # Evaluar todas las estrategias
         results = []
+        blocked = []
         for strategy in self.strategies:
             try:
+                if not strategy_allowed_in_regime(strategy.NAME, regime):
+                    blocked.append({'strategy': strategy.NAME, 'reason': regime_block_reason(strategy.NAME, regime)})
+                    continue
                 if strategy.NAME == 'BREAKOUT':
                     res = strategy.score(ind, df)
                 else:
                     res = strategy.score(ind)
                 if res['direction'] != 'NEUTRAL':
+                    guard_reason = self.guard.assess_signal(asset, strategy.NAME)
+                    if guard_reason:
+                        blocked.append({'strategy': strategy.NAME, 'reason': guard_reason})
+                        logger.warning(f'Strategy guard blocked {asset}/{timeframe} {strategy.NAME}: {guard_reason}')
+                        continue
                     res['strategy'] = strategy.NAME
+                    res['on_probation'] = self.guard.is_on_probation(strategy.NAME)
                     results.append(res)
             except Exception as e:
                 logger.error(f'Strategy {strategy.NAME} error: {e}')
 
         if not results:
+            if blocked:
+                block_summary = ', '.join(f"{b['strategy']}:{b['reason']}" for b in blocked)
+                logger.info(
+                    f'No opportunity {asset}/{timeframe}: BLOCKED [{block_summary}]'
+                )
+                return {'opportunity': False, 'reason': 'strategy_guard', 'blocked': blocked}
+            logger.info(
+                f'No opportunity {asset}/{timeframe}: no_signal '
+                f'(regime={regime.name} trend={ind.trend_strength:.3f})'
+            )
             return {'opportunity': False, 'reason': 'no_signal'}
 
         # Seleccionar señal de mayor score
         best = max(results, key=lambda r: r['score'])
+
+        # ── Filtro de confluencia: exigir alineación multi-indicador ──
+        n_conf, conf_factors = count_confluence(ind, best['direction'])
+        if n_conf < MIN_CONFLUENCE_INDICATORS:
+            logger.info(
+                f'No opportunity {asset}/{timeframe}: low_confluence '
+                f'{n_conf}/{MIN_CONFLUENCE_INDICATORS} factors={conf_factors} '
+                f'dir={best["direction"]} score={best["score"]} regime={regime.name}'
+            )
+            return {'opportunity': False, 'reason': f'low_confluence:{n_conf}'}
+        best['confluence'] = {'count': n_conf, 'factors': conf_factors}
 
         # Invocar Claude para verificación de consistencia
         claude_check = self.claude.call(
@@ -102,11 +179,13 @@ class StrategyEngine:
         best['claude_analysis'] = claude_check
         best['asset'] = asset
         best['timeframe'] = timeframe
+        best['market_regime'] = regime.name
         best['indicators'] = {
             'rsi': ind.rsi,
             'atr': ind.atr,
             'price': ind.close,
             'trend': ind.trend_direction,
+            'trend_strength': ind.trend_strength,
         }
 
         return {'opportunity': True, 'signal': best}

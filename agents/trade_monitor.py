@@ -3,12 +3,16 @@ TradeMonitor — Monitorea trades abiertos y cierra al alcanzar SL/TP/Trailing.
 
 Ciclo por trade:
   1. Obtener precio actual del activo
-  2. Evaluar si se alcanzó SL, TP o trailing stop
-  3. Cerrar trade: calcular PnL, actualizar DB, ajustar portfolio
-  4. Publicar evento en Redis
+  2. Evaluar trailing dinámico (avanzar SL si corresponde)
+  3. Evaluar si se alcanzó SL o TP
+  4. Cerrar trade: calcular PnL, actualizar DB, ajustar portfolio
+  5. Publicar evento en Redis
 
-Trailing stop: cuando el precio supera 1.5×ATR de ganancia desde entry,
-mover SL a break-even (entry price).
+Trailing dinámico progresivo:
+  - Activación: profit ≥ 1.0R → SL a break-even
+  - Cada +0.5R de profit → SL avanza +0.5R adicional
+  - SL solo avanza, nunca retrocede
+  - Ver docs/TRAILING_DINAMICO.md para flujo técnico completo
 """
 import json
 import os
@@ -25,7 +29,13 @@ from sqlalchemy import create_engine, text
 sys.path.insert(0, '/opt/trading')
 load_dotenv('/opt/trading/config/.env')
 
+from core.portfolio_utils import calculate_drawdown, calculate_peak_balance, calculate_risk_exposure, calculate_total_notional
 from data.market_feed import MarketFeed, ASSET_MAP
+
+# ── Trailing Dinámico: parámetros (v2 — más agresivo) ────────────
+TRAILING_ACTIVATION_R = 0.75  # Activar trailing antes para proteger ganancias
+TRAILING_STEP_R = 0.3         # Escalones más finos para seguir mejor el precio
+TRAILING_OFFSET_R = 0.75      # SL más ceñido al precio
 
 
 class TradeMonitor:
@@ -46,13 +56,14 @@ class TradeMonitor:
         )
         self.feed = MarketFeed()
 
-    def check_open_trades(self, portfolio: dict) -> list:
+    def check_open_trades(self, portfolio: dict, session: dict = None) -> list:
         """Revisa todos los trades abiertos y cierra los que alcanzan SL/TP.
 
         Returns:
             Lista de dicts con trades cerrados en este ciclo.
         """
-        open_trades = self._get_open_trades()
+        self._current_session = session
+        open_trades = self._get_open_trades(session)
         if not open_trades:
             return []
 
@@ -79,11 +90,20 @@ class TradeMonitor:
 
         return closed
 
-    def _get_open_trades(self) -> list:
+    def _get_open_trades(self, session: dict = None) -> list:
         with self.engine.connect() as conn:
-            rows = conn.execute(
-                text("SELECT * FROM trades WHERE status = 'OPEN' ORDER BY timestamp_open")
-            ).fetchall()
+            if session:
+                rows = conn.execute(
+                    text(
+                        "SELECT * FROM trades WHERE status = 'OPEN' "
+                        "AND timestamp_open >= :session_start ORDER BY timestamp_open"
+                    ),
+                    {'session_start': session['started_at']},
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    text("SELECT * FROM trades WHERE status = 'OPEN' ORDER BY timestamp_open")
+                ).fetchall()
         return [dict(r._mapping) for r in rows]
 
     def _get_current_price(self, asset: str) -> Optional[float]:
@@ -101,13 +121,32 @@ class TradeMonitor:
             return float(row.close)
         return None
 
+    def _get_historical_peak_balance(self) -> float:
+        session = getattr(self, '_current_session', None)
+        with self.engine.connect() as conn:
+            if session and session.get('started_at'):
+                row = conn.execute(
+                    text(
+                        "SELECT COALESCE(MAX(GREATEST(total_balance, COALESCE(peak_balance, total_balance))), 0) AS peak "
+                        "FROM portfolio WHERE timestamp >= :session_start"
+                    ),
+                    {'session_start': session['started_at']},
+                ).fetchone()
+            else:
+                row = conn.execute(
+                    text(
+                        "SELECT COALESCE(MAX(GREATEST(total_balance, COALESCE(peak_balance, total_balance))), 0) AS peak FROM portfolio"
+                    )
+                ).fetchone()
+        return float(row.peak) if row and row.peak is not None else 0.0
+
     def _evaluate_trade(self, trade: dict) -> Optional[dict]:
         """Evalúa si un trade debe cerrarse.
 
         Lógica:
-          - BUY: SL si precio <= stop_loss, TP si precio >= take_profit
-          - SELL: SL si precio >= stop_loss, TP si precio <= take_profit
-          - Trailing: si ganancia > 1.5×(entry-SL), mover SL a entry (break-even)
+          1. Trailing dinámico: avanza SL por escalones de R
+          2. BUY: SL si precio ≤ stop_loss, TP si precio ≥ take_profit
+          3. SELL: SL si precio ≥ stop_loss, TP si precio ≤ take_profit
 
         Returns:
             dict con exit_price, close_reason, pnl, pnl_pct si debe cerrar.
@@ -125,32 +164,70 @@ class TradeMonitor:
         position_size = float(trade['position_size'])
         side = trade['side']
 
-        # Trailing stop: mover SL a break-even cuando ganancia > 1.5 × riesgo
-        risk_distance = abs(entry_price - stop_loss)
-        trailing_threshold = entry_price + (1.5 * risk_distance) if side == 'BUY' \
-            else entry_price - (1.5 * risk_distance)
+        metadata = trade.get('metadata') or {}
+        if isinstance(metadata, str):
+            metadata = json.loads(metadata)
 
+        # ── Calcular R (initial_risk) ──
+        initial_risk = metadata.get('initial_risk')
+        if initial_risk is None:
+            if metadata.get('trailing_activated') and abs(entry_price - stop_loss) < 1e-8:
+                # Legacy: trailing viejo ya movió SL a entry, recalcular desde ATR o skip
+                initial_risk = abs(entry_price * 0.015)  # Fallback: 1.5% del precio como proxy de 1.5×ATR
+                logger.warning(f'TRAILING FALLBACK: {asset} initial_risk recovered as {initial_risk:.4f} (1.5% proxy)')
+            else:
+                initial_risk = abs(entry_price - stop_loss)
+        # Protección contra division by zero
+        if initial_risk < 1e-10:
+            logger.warning(f'ZERO_RISK: {asset} initial_risk={initial_risk}, skipping trailing')
+            initial_risk = 0
+
+        # ── Trailing Dinámico ──
+        if initial_risk > 0:
+            if side == 'BUY':
+                profit_r = (current_price - entry_price) / initial_risk
+            else:
+                profit_r = (entry_price - current_price) / initial_risk
+
+            if profit_r >= TRAILING_ACTIVATION_R:
+                steps = max(1, int((profit_r - TRAILING_ACTIVATION_R) / TRAILING_STEP_R))
+                locked_r = steps * TRAILING_STEP_R
+
+                if side == 'BUY':
+                    new_sl = entry_price + locked_r * initial_risk
+                    should_update = new_sl > stop_loss
+                else:
+                    new_sl = entry_price - locked_r * initial_risk
+                    should_update = new_sl < stop_loss
+
+                if should_update:
+                    self._update_trailing(
+                        trade['id'], new_sl, initial_risk, steps,
+                        locked_r, metadata, asset, side,
+                    )
+                    stop_loss = new_sl
+                    logger.info(
+                        f"TRAILING: {asset} Level {steps} "
+                        f"SL→{new_sl:.2f} (locked {locked_r:.1f}R)"
+                    )
+
+        # ── Determinar si trailing fue activado ──
+        trailing_active = (
+            metadata.get('trailing_activated', False)
+            or stop_loss != float(trade['stop_loss'])
+        )
+
+        # ── Check SL / TP ──
         if side == 'BUY':
-            # Trailing: si precio superó threshold, SL sube a entry
-            if current_price >= trailing_threshold and stop_loss < entry_price:
-                self._update_stop_loss(trade['id'], entry_price)
-                stop_loss = entry_price
-                logger.info(
-                    f"TRAILING STOP: {asset} SL moved to break-even {entry_price:.2f}"
-                )
-
-            # Check SL
             if current_price <= stop_loss:
                 pnl = (stop_loss - entry_price) * position_size
                 pnl_pct = ((stop_loss - entry_price) / entry_price) * 100
                 return {
                     'exit_price': stop_loss,
-                    'close_reason': 'STOP_LOSS',
+                    'close_reason': 'TRAILING_STOP' if trailing_active else 'STOP_LOSS',
                     'pnl': pnl,
                     'pnl_pct': pnl_pct,
                 }
-
-            # Check TP
             if current_price >= take_profit:
                 pnl = (take_profit - entry_price) * position_size
                 pnl_pct = ((take_profit - entry_price) / entry_price) * 100
@@ -162,26 +239,15 @@ class TradeMonitor:
                 }
 
         elif side == 'SELL':
-            # Trailing: si precio bajó del threshold, SL baja a entry
-            if current_price <= trailing_threshold and stop_loss > entry_price:
-                self._update_stop_loss(trade['id'], entry_price)
-                stop_loss = entry_price
-                logger.info(
-                    f"TRAILING STOP: {asset} SL moved to break-even {entry_price:.2f}"
-                )
-
-            # Check SL (SELL: SL es precio más alto)
             if current_price >= stop_loss:
                 pnl = (entry_price - stop_loss) * position_size
                 pnl_pct = ((entry_price - stop_loss) / entry_price) * 100
                 return {
                     'exit_price': stop_loss,
-                    'close_reason': 'STOP_LOSS',
+                    'close_reason': 'TRAILING_STOP' if trailing_active else 'STOP_LOSS',
                     'pnl': pnl,
                     'pnl_pct': pnl_pct,
                 }
-
-            # Check TP (SELL: TP es precio más bajo)
             if current_price <= take_profit:
                 pnl = (entry_price - take_profit) * position_size
                 pnl_pct = ((entry_price - take_profit) / entry_price) * 100
@@ -194,20 +260,45 @@ class TradeMonitor:
 
         return None
 
-    def _update_stop_loss(self, trade_id, new_stop_loss: float):
-        """Actualiza el SL de un trade (para trailing stop)."""
+    def _update_trailing(self, trade_id, new_sl: float, initial_risk: float,
+                         level: int, locked_r: float, existing_metadata: dict,
+                         asset: str, side: str):
+        """Actualiza SL y metadata de trailing dinámico."""
+        now = datetime.now(timezone.utc).isoformat()
+        meta = dict(existing_metadata) if existing_metadata else {}
+
+        meta['trailing_activated'] = True
+        meta['initial_risk'] = initial_risk
+        meta['trailing_level'] = level
+
+        history = meta.get('trailing_history', [])
+        history.append({
+            'level': level,
+            'sl': round(new_sl, 8),
+            'locked_r': locked_r,
+            'ts': now,
+        })
+        meta['trailing_history'] = history
+
         with self.engine.begin() as conn:
             conn.execute(
-                text("""
-                    UPDATE trades SET stop_loss = :sl,
-                    metadata = jsonb_set(
-                        COALESCE(metadata, '{}'::jsonb),
-                        '{trailing_activated}', 'true'::jsonb
-                    )
-                    WHERE id = :id
-                """),
-                {'sl': new_stop_loss, 'id': trade_id},
+                text(
+                    "UPDATE trades SET stop_loss = :sl, metadata = CAST(:meta AS jsonb) "
+                    "WHERE id = :id"
+                ),
+                {'sl': new_sl, 'meta': json.dumps(meta), 'id': trade_id},
             )
+
+        # Notificar al dashboard
+        self.redis.publish('trades:trailing', json.dumps({
+            'trade_id': str(trade_id),
+            'asset': asset,
+            'side': side,
+            'level': level,
+            'new_sl': round(new_sl, 2),
+            'locked_r': locked_r,
+            'initial_risk': initial_risk,
+        }))
 
     def _close_trade(self, trade: dict, exit_price: float,
                      close_reason: str, portfolio: dict):
@@ -251,23 +342,32 @@ class TradeMonitor:
         # 2. Actualizar portfolio: devolver capital + PnL
         position_value = entry_price * position_size
         new_balance = portfolio['total_balance'] + pnl
-        new_cash = portfolio['available_cash'] + position_value + pnl
-        new_peak = max(portfolio.get('peak_balance', new_balance), new_balance)
-        new_drawdown = (new_peak - new_balance) / new_peak if new_peak > 0 else 0
 
-        # Recalcular exposición basada en trades abiertos restantes
-        remaining_open = self._get_open_trades()  # ya sin el recién cerrado
-        total_exposure = sum(
-            float(t['entry_price']) * float(t['position_size'])
-            for t in remaining_open
+        remaining_open = self._get_open_trades(session=getattr(self, '_current_session', None))
+        total_risk_exposure = calculate_risk_exposure(remaining_open)
+        new_exposure_pct = total_risk_exposure / new_balance if new_balance > 0 else 0
+        total_notional = calculate_total_notional(remaining_open)
+        new_cash = new_balance - total_notional
+
+        historical_peak = self._get_historical_peak_balance()
+        new_peak = calculate_peak_balance(
+            new_balance,
+            portfolio.get('peak_balance', new_balance),
+            historical_peak,
         )
-        new_exposure_pct = total_exposure / new_balance if new_balance > 0 else 0
+        new_drawdown = calculate_drawdown(new_balance, new_peak)
 
         portfolio['total_balance'] = new_balance
         portfolio['available_cash'] = new_cash
         portfolio['peak_balance'] = new_peak
         portfolio['drawdown_pct'] = new_drawdown
         portfolio['exposure_pct'] = new_exposure_pct
+        portfolio['historical_max_drawdown'] = max(
+            float(portfolio.get('historical_max_drawdown', 0.0)),
+            new_drawdown,
+        )
+        portfolio['halt_triggered'] = bool(portfolio.get('halt_triggered', False) or new_drawdown >= 0.10)
+        portfolio['recommended_action'] = 'MAINTAIN_HALT' if portfolio['halt_triggered'] else 'NORMAL'
 
         # 3. Guardar snapshot del portfolio
         with self.engine.begin() as conn:

@@ -189,6 +189,13 @@ class ClaudeBridge:
                 'format_instructions': format_instructions,
             })
             latency = int((time.time() - t0) * 1000)
+
+            if not isinstance(result, dict):
+                logger.warning(f'LLM [{self._provider}] {task_type} for {asset}: parser returned {type(result).__name__}, falling back to neutral')
+                neutral = self._neutral_result(f'parser returned {type(result).__name__}')
+                neutral['_latency_ms'] = latency
+                return neutral
+
             result['_latency_ms'] = latency
             logger.info(
                 f'LLM [{self._provider}] {task_type} for {asset}: '

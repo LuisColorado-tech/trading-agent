@@ -68,7 +68,7 @@ Orquesta 3 estrategias y selecciona la mejor oportunidad:
 - **Entrada BUY**: EMA20 > EMA50 + RSI entre 40-70 + precio < BB_upper
 - **Entrada SELL**: EMA20 < EMA50 + RSI < 45
 - **SL**: Entry - 1.5×ATR14 | **TP**: Entry + 2.5×ATR14
-- **Trailing**: Break-even al 1.5×ATR de ganancia
+- **Trailing**: Dinámico progresivo por escalones de R (ver `docs/TRAILING_DINAMICO.md`)
 
 #### Mean Reversion (`strategies/mean_reversion.py`)
 - **Entrada BUY**: Precio ≤ BB_lower + RSI < 35
@@ -84,16 +84,19 @@ Sólo oportunidades con score ≥ 65 y aprobación del LLM pasan al Risk Manager
 
 ### 4. RiskManager (`risk/risk_manager.py`)
 
-**Punto de autoridad final. 7 reglas inmutables:**
+**Punto de autoridad final. 10 reglas inmutables:**
 
 ```
-1. Drawdown ≥ 10%            → HALT (detener todo)
-2. Exposición ≥ 5%           → REJECT
-3. Trades abiertos ≥ 3       → REJECT
-4. Risk per unit = 0         → REJECT
-5. R:R ratio < 1.5           → REJECT
-6. Claude CRITICAL (≥85%)    → REJECT
-7. Todo OK                   → APPROVE + position sizing
+0. Trading halted por drawdown previo  → HALT
+1. Drawdown ≥ 10%                       → HALT (permanente)
+2. Exposición ≥ 5%                      → REJECT
+3. Trades abiertos ≥ 3                  → REJECT
+3b. Mismo asset ya abierto              → REJECT (DUPLICATE_ASSET)
+3c. Asset en cooldown post SL (30 min)  → REJECT (SL_COOLDOWN)
+4. Risk per unit = 0                    → REJECT
+5. R:R ratio < 1.5                      → REJECT
+6. Claude CRITICAL (≥85%)               → REJECT
+7. Todo OK                              → APPROVE + position sizing
 ```
 
 **Position sizing**:
@@ -101,6 +104,10 @@ Sólo oportunidades con score ≥ 65 y aprobación del LLM pasan al Risk Manager
 risk_amount = total_balance × 0.01    (1%)
 position_size = risk_amount / |entry - stop_loss|
 ```
+
+**Cooldown post SL**: Tras un cierre por STOP_LOSS o TRAILING_STOP, el asset entra en cooldown de 30 minutos. Evita loops de re-entrada destructivos.
+
+**Halt persistente**: `check_persistent_halt(portfolio)` verifica drawdown desde DB al inicio de cada ciclo y al arrancar el servicio, sobreviviendo reinicios.
 
 El LLM ejecuta `anomaly_check` antes de aprobar.
 
@@ -119,22 +126,25 @@ Ejecuta trades aprobados por el RiskManager.
 
 **Módulo crítico**: monitorea trades abiertos y cierra al alcanzar SL/TP.
 
-**Evaluación por trade (cada ciclo)**:
+**Trailing dinámico progresivo** (ver `docs/TRAILING_DINAMICO.md`):
 ```
-BUY trade:
-  - Precio ≤ SL → Cerrar STOP_LOSS
-  - Precio ≥ TP → Cerrar TAKE_PROFIT
-  - Precio ≥ Entry + 1.5×risk → Mover SL a break-even (trailing)
+R = |entry - SL_original|                   (riesgo inicial inmutable)
 
-SELL trade:
-  - Precio ≥ SL → Cerrar STOP_LOSS
-  - Precio ≤ TP → Cerrar TAKE_PROFIT
-  - Precio ≤ Entry - 1.5×risk → Mover SL a break-even (trailing)
+BUY trade (cada ciclo):
+  1. Trailing: profit_r = (price - entry) / R
+     - ≥ 1.0R → SL = entry (break-even)
+     - ≥ 1.5R → SL = entry + 0.5R
+     - ≥ 2.0R → SL = entry + 1.0R
+     - (continúa cada +0.5R)
+  2. Precio ≤ SL → Cerrar (TRAILING_STOP si trailing activo, STOP_LOSS si no)
+  3. Precio ≥ TP → Cerrar TAKE_PROFIT
+
+SELL trade: simétrico (SL baja, TP abajo)
 ```
 
 **Al cerrar un trade**:
 1. UPDATE trades → status='CLOSED', exit_price, pnl, pnl_pct, close_reason
-2. Recalcular portfolio (balance, exposure, drawdown)
+2. Recalcular portfolio (balance, risk-based exposure, drawdown)
 3. INSERT portfolio snapshot
 4. PUBLISH Redis `trades:closed`
 
@@ -231,7 +241,7 @@ metadata        JSONB DEFAULT '{}'   -- trailing_activated, etc.
 id              UUID PRIMARY KEY
 total_balance   NUMERIC
 available_cash  NUMERIC
-exposure_pct    NUMERIC
+exposure_pct    NUMERIC              -- risk-based: sum(|entry-SL|*size)/balance
 pnl_day         NUMERIC
 drawdown_pct    NUMERIC
 peak_balance    NUMERIC

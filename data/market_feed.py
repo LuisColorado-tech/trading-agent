@@ -95,37 +95,41 @@ class MarketFeed:
             return pd.DataFrame()
 
     def save_ohlcv(self, df: pd.DataFrame):
-        """Persiste OHLCV en PostgreSQL con upsert (ignora duplicados)."""
+        """Persiste OHLCV en PostgreSQL con upsert bulk (ignora duplicados)."""
         if df.empty:
             return
         df_db = df.reset_index()
-        # Insertar ignorando conflictos de unique constraint
+        records = [
+            {
+                'asset': row['asset'],
+                'timeframe': row['timeframe'],
+                'timestamp': row['timestamp'],
+                'open': float(row['open']),
+                'high': float(row['high']),
+                'low': float(row['low']),
+                'close': float(row['close']),
+                'volume': float(row['volume']),
+                'exchange': row['exchange'],
+            }
+            for _, row in df_db.iterrows()
+        ]
         with self.engine.begin() as conn:
-            for _, row in df_db.iterrows():
-                conn.execute(
-                    text("""
-                        INSERT INTO market_data
-                            (asset, timeframe, timestamp, open, high, low, close, volume, exchange)
-                        VALUES
-                            (:asset, :timeframe, :timestamp, :open, :high, :low, :close, :volume, :exchange)
-                        ON CONFLICT (asset, timeframe, timestamp, exchange) DO NOTHING
-                    """),
-                    {
-                        'asset': row['asset'],
-                        'timeframe': row['timeframe'],
-                        'timestamp': row['timestamp'],
-                        'open': float(row['open']),
-                        'high': float(row['high']),
-                        'low': float(row['low']),
-                        'close': float(row['close']),
-                        'volume': float(row['volume']),
-                        'exchange': row['exchange'],
-                    }
-                )
-        logger.debug(f'Saved {len(df_db)} candles for {df_db["asset"].iloc[0]}')
+            conn.execute(
+                text("""
+                    INSERT INTO market_data
+                        (asset, timeframe, timestamp, open, high, low, close, volume, exchange)
+                    VALUES
+                        (:asset, :timeframe, :timestamp, :open, :high, :low, :close, :volume, :exchange)
+                    ON CONFLICT (asset, timeframe, timestamp, exchange) DO NOTHING
+                """),
+                records,
+            )
+        logger.debug(f'Saved {len(records)} candles for {df_db["asset"].iloc[0]}')
 
     def get_latest(self, asset: str, timeframe: str, n: int = 100) -> pd.DataFrame:
-        """Lee últimas n velas desde DB para evitar rate limits."""
+        """Lee últimas n velas desde DB para evitar rate limits.
+        Verifica que los datos no estén obsoletos (> 3× timeframe).
+        """
         with self.engine.connect() as conn:
             df = pd.read_sql(
                 text("""
@@ -139,6 +143,19 @@ class MarketFeed:
             )
         if df.empty:
             return df
+
+        # Verificar frescura: si el dato más reciente es > 3× el timeframe, advertir
+        latest_ts = pd.to_datetime(df['timestamp'].max(), utc=True)
+        now = pd.Timestamp.now(tz='UTC')
+        tf_minutes = {'1m': 1, '5m': 5, '15m': 15, '1h': 60, '4h': 240, '1d': 1440}
+        max_age_min = tf_minutes.get(timeframe, 60) * 3
+        age_min = (now - latest_ts).total_seconds() / 60
+        if age_min > max_age_min:
+            logger.warning(
+                f'STALE DATA: {asset}/{timeframe} latest={latest_ts}, '
+                f'age={age_min:.0f}min (max={max_age_min}min)'
+            )
+
         return df.sort_values('timestamp').set_index('timestamp')
 
     def refresh(self, asset: str, timeframe: str, limit: int = OHLCV_LIMIT) -> pd.DataFrame:

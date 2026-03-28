@@ -98,3 +98,42 @@ risk:
   take_profit_atr_mult: 2.5
   max_drawdown_pct: 10.0
   paper_trading: true
+
+# ══════════════════════════════════════════════════
+# POLYMARKET — Mercados de predicción (línea independiente)
+# ══════════════════════════════════════════════════
+polymarket:
+  enabled: true
+  paper_trading: true
+  host: "https://clob.polymarket.com"
+  chain_id: 137                    # Polygon
+  initial_paper_balance: 1000.0    # USDC simulados
+  scan_interval_seconds: 300       # 5 min entre scans
+  # ── Filtros de mercado ──
+  market_filters:
+    min_volume: 10000              # USD mínimo volumen
+    min_liquidity: 5000            # USD mínimo liquidez
+    max_end_days: 90               # No apostar a más de 90 días
+    min_end_hours: 2               # No apostar si resuelve en <2h
+  # ── Parámetros de riesgo ──
+  risk:
+    max_position_pct: 5.0          # Max 5% del balance poly por posición
+    max_total_exposure_pct: 40.0   # Max 40% del balance en posiciones
+    max_concurrent_positions: 10   # Max 10 posiciones abiertas
+    min_edge_pct: 8.0              # Edge mínimo para entrar (prob estimada - precio)
+    kelly_fraction: 0.25           # Cuarto Kelly (conservador)
+  # ── Categorías de interés ──
+  categories:
+    - crypto
+    - politics
+    - sports
+    - science
+    - entertainment
+    - business
+    - world
+
+# ── Trailing Dinámico (ver docs/TRAILING_DINAMICO.md) ──
+trailing:
+  activation_threshold_r: 1.0   # Profit mínimo en R para activar trailing
+  step_size_r: 0.5              # Incremento entre escalones (en R)
+  lock_offset_r: 1.0            # SL rezaga (trigger - offset)×R respecto al entry

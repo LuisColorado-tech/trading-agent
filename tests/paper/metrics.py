@@ -14,6 +14,19 @@ sys.path.insert(0, '/opt/trading')
 load_dotenv('/opt/trading/config/.env')
 
 
+def _load_session_context(conn, session_id: str = None):
+    if session_id:
+        row = conn.execute(
+            text('SELECT * FROM paper_sessions WHERE id = :id LIMIT 1'),
+            {'id': session_id},
+        ).fetchone()
+    else:
+        row = conn.execute(
+            text("SELECT * FROM paper_sessions WHERE status = 'ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        ).fetchone()
+    return dict(row._mapping) if row else None
+
+
 def compute_metrics(session_id: str = None):
     db_url = (
         f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
@@ -23,10 +36,23 @@ def compute_metrics(session_id: str = None):
     engine = create_engine(db_url)
 
     with engine.connect() as conn:
+        session = _load_session_context(conn, session_id)
+        if session is None:
+            print('No active paper session found.')
+            return None
+
         trades = pd.read_sql(
-            text("SELECT * FROM trades WHERE paper_trade = true AND status = 'CLOSED' "
-                 "ORDER BY timestamp_open"),
+            text(
+                "SELECT * FROM trades WHERE paper_trade = true AND status = 'CLOSED' "
+                "AND timestamp_open >= :session_start "
+                "AND (:session_end IS NULL OR timestamp_open <= :session_end) "
+                "ORDER BY timestamp_open"
+            ),
             conn,
+            params={
+                'session_start': session['started_at'],
+                'session_end': session.get('ended_at'),
+            },
         )
 
     if len(trades) < 10:
@@ -34,7 +60,11 @@ def compute_metrics(session_id: str = None):
         # Show open trades count
         with engine.connect() as conn:
             open_count = conn.execute(
-                text("SELECT COUNT(*) FROM trades WHERE paper_trade = true AND status = 'OPEN'")
+                text(
+                    "SELECT COUNT(*) FROM trades WHERE paper_trade = true AND status = 'OPEN' "
+                    "AND timestamp_open >= :session_start"
+                ),
+                {'session_start': session['started_at']},
             ).scalar()
         print(f'Open paper trades: {open_count}')
         return None
@@ -55,8 +85,17 @@ def compute_metrics(session_id: str = None):
     # Equity curve
     with engine.connect() as conn:
         equity = pd.read_sql(
-            text('SELECT timestamp, total_balance FROM portfolio ORDER BY timestamp'),
+            text(
+                'SELECT timestamp, total_balance FROM portfolio '
+                'WHERE timestamp >= :session_start '
+                'AND (:session_end IS NULL OR timestamp <= :session_end) '
+                'ORDER BY timestamp'
+            ),
             conn,
+            params={
+                'session_start': session['started_at'],
+                'session_end': session.get('ended_at'),
+            },
         )
 
     if len(equity) > 1:
@@ -75,6 +114,7 @@ def compute_metrics(session_id: str = None):
     expectancy = win_rate * avg_win - (1 - win_rate) * avg_loss
 
     print('=== PAPER TRADING METRICS ===')
+    print(f'Session:         {session["session_name"]}')
     print(f'Total trades:    {n}')
     print(f'Win rate:        {win_rate * 100:.1f}%  (target: 55-65%)')
     print(f'Profit factor:   {profit_factor:.2f}  (target: >1.5)')
@@ -94,6 +134,8 @@ def compute_metrics(session_id: str = None):
     print(f'\n>>> READY FOR LIVE TRADING: {"YES ✅" if passed else "NO ❌"}')
 
     return {
+        'session_id': session['id'],
+        'session_name': session['session_name'],
         'win_rate': win_rate,
         'profit_factor': profit_factor,
         'max_drawdown': max_dd,
