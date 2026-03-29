@@ -20,6 +20,7 @@ from core.performance_guard import StrategyPerformanceGuard
 from core.claude_bridge import ClaudeBridge
 from data.market_feed import MarketFeed, ASSET_MAP
 from strategies.breakout import BreakoutStrategy
+from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
 
@@ -91,6 +92,7 @@ class StrategyEngine:
         self.strategies = [
             TrendMomentumStrategy(),
             MeanReversionStrategy(),
+            BtcDipBuyerStrategy(),
             BreakoutStrategy(),
         ]
         self.claude = ClaudeBridge()
@@ -116,6 +118,12 @@ class StrategyEngine:
 
         regime = classify_market_regime(ind)
 
+        # Si ningún flag está activo (CHOPPY), salir rápido sin evaluar estrategias
+        any_allowed = (regime.allow_trend or regime.allow_mean_reversion
+                       or regime.allow_breakout or regime.allow_dip_buy)
+        if not any_allowed:
+            logger.info(f'No opportunity {asset}/{timeframe}: CHOPPY (régimen inactivo)')
+            return {'opportunity': False, 'reason': 'choppy'}
 
         # Evaluar todas las estrategias
         results = []
@@ -163,12 +171,14 @@ class StrategyEngine:
         best = max(results, key=lambda r: r['score'])
 
         # ── Filtro de confluencia: diferenciado por tipo de estrategia ──
-        # MEAN_REVERSION usa factores de pullback (precio bajo EMA, RSI<42, etc.)
-        # porque en TREND_UP la dirección esperada es exactamente la opuesta a los
-        # indicadores que mide count_confluence estándar.
         if best.get('strategy') == 'MEAN_REVERSION':
             n_conf, conf_factors = count_confluence_pullback(ind, best['direction'])
             min_conf_needed = 3  # de 5 factores específicos de pullback
+        elif best.get('strategy') == 'BTC_DIP_BUYER':
+            # El scoring interno de BtcDipBuyerStrategy ya es suficientemente exigente
+            # (RSI<38 + bb_pct<0.35 + EMA200). Confluencia mínima de 2: macro-bull + oversold.
+            n_conf, conf_factors = count_confluence_pullback(ind, best['direction'])
+            min_conf_needed = 2
         else:
             n_conf, conf_factors = count_confluence(ind, best['direction'])
             min_conf_needed = MIN_CONFLUENCE_INDICATORS

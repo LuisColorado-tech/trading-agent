@@ -29,16 +29,17 @@ from core.market_regime import classify_market_regime
 from agents.strategy_engine import count_confluence, count_confluence_pullback, MIN_CONFLUENCE_INDICATORS
 from strategies.trend_momentum import TrendMomentumStrategy
 from strategies.mean_reversion import MeanReversionStrategy
+from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.breakout import BreakoutStrategy
 
 # ── Parámetros de riesgo (mismos que producción) ─────────────────────
 INITIAL_BALANCE    = 10_000.0
-RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade (sobreescribible por --risk)
+RISK_PER_TRADE_PCT = 0.01       # 1%% del balance por trade (sobreescribible por --risk)
 MAX_CONCURRENT     = 3
 SL_COOLDOWN_BARS   = 4          # velas de cooldown tras SL (≈ 1h en 15m)
-MIN_RR             = 1.8        # R:R mínimo para tomar el trade
+MIN_RR             = 1.5        # R:R mínimo (BTC_DIP_BUYER tiene RR~1.5, el resto ~2.0)
 
-STRATEGIES = [TrendMomentumStrategy(), MeanReversionStrategy(), BreakoutStrategy()]
+STRATEGIES = [TrendMomentumStrategy(), MeanReversionStrategy(), BtcDipBuyerStrategy(), BreakoutStrategy()]
 
 
 # ── Descarga de datos ─────────────────────────────────────────────────
@@ -213,9 +214,13 @@ class Backtest:
 
     def _best_signal(self, ind, regime, df_window) -> dict | None:
         from core.market_regime import strategy_allowed_in_regime
-        # Misma lógica que strategy_engine.py en producción
-        if not regime.allow_trend and not regime.allow_mean_reversion and not regime.allow_breakout:
-            return None  # CHOPPY — no operar
+        # CHOPPY: ningún flag activo — no operar.
+        # Nota: BULL_DIP tiene allow_dip_buy=True pero los otros 3 False,
+        # por eso se incluye allow_dip_buy en la condición de salida.
+        any_allowed = (regime.allow_trend or regime.allow_mean_reversion
+                       or regime.allow_breakout or regime.allow_dip_buy)
+        if not any_allowed:
+            return None
         results = []
         for strat in STRATEGIES:
             if not strategy_allowed_in_regime(strat.NAME, regime):
@@ -229,7 +234,10 @@ class Backtest:
             # Confluencia diferenciada según tipo de estrategia
             if strat.NAME == 'MEAN_REVERSION':
                 n_conf, _ = count_confluence_pullback(ind, res['direction'])
-                min_conf = 3  # 3 de 5 factores de pullback
+                min_conf = 3
+            elif strat.NAME == 'BTC_DIP_BUYER':
+                n_conf, _ = count_confluence_pullback(ind, res['direction'])
+                min_conf = 2  # exigencia interna de la estrategia ya es alta
             else:
                 n_conf, _ = count_confluence(ind, res['direction'])
                 min_conf = MIN_CONFLUENCE_INDICATORS
@@ -352,7 +360,8 @@ def main():
     assets = [a.strip().upper() for a in args.assets.split(',')]
     symbol_map = {'BTC': 'BTC/USDT', 'ETH': 'ETH/USDT', 'SOL': 'SOL/USDT',
                   'XAU': 'XAU/USDT', 'XAG': 'XAG/USDT',
-                  'AVAX': 'AVAX/USDT', 'LINK': 'LINK/USDT'}
+                  'AVAX': 'AVAX/USDT', 'LINK': 'LINK/USDT',
+                  'INJ': 'INJ/USDT', 'AAVE': 'AAVE/USDT', 'POL': 'POL/USDT'}
 
     all_trades = []
     all_metrics = []

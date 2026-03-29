@@ -31,6 +31,15 @@ exchanges:
       LINK:
         pair: LINK/USDT          # Chainlink — correlación baja con BTC, buenas bajadas técnicas
         timeframes: [1m, 5m, 15m, 1h]
+      INJ:
+        pair: INJ/USDT           # Injective — alta beta, caidas del 50-80%% en bajadas
+        timeframes: [1m, 5m, 15m, 1h]
+      AAVE:
+        pair: AAVE/USDT          # Aave DeFi — buenas correcciones técnicas profundas
+        timeframes: [1m, 5m, 15m, 1h]
+      POL:
+        pair: POL/USDT           # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas
+        timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAUT/USDT          # Tether Gold — proxy para oro físico
         timeframes: [5m, 15m, 1h]
@@ -61,6 +70,15 @@ exchanges:
         timeframes: [1m, 5m, 15m, 1h]
       LINK:
         pair: LINK/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      INJ:
+        pair: INJ/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      AAVE:
+        pair: AAVE/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      POL:
+        pair: POL/USDT
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAUT/USDT
