@@ -33,7 +33,9 @@ from risk.risk_manager import PAPER_HALT_COOLDOWN_HOURS
 
 SCAN_INTERVAL = 60  # segundos entre scans
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
-ASSETS = list(ASSET_MAP.keys())
+# Portfolio óptimo (backtest 2Y: +152.8%, Sharpe 0.95, DD 17.1%)
+# BTC excluido: bull macro 2024-2026 revierte rápido cada TREND_DOWN → WR 32-33%
+ASSETS = ['ETH', 'SOL', 'AVAX', 'INJ']
 TIMEFRAMES = ['15m', '1h']  # Empezar con TF conservadores
 
 # DB engine for portfolio tracking

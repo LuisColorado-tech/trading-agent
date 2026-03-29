@@ -17,7 +17,7 @@ sys.path.insert(0, '/opt/trading')
 from core.claude_bridge import ClaudeBridge
 
 # ─── PARÁMETROS INMUTABLES ─────────────────────────────────────────
-MAX_RISK_PER_TRADE_PCT   = 0.01   # 1% del portafolio por trade
+MAX_RISK_PER_TRADE_PCT   = 0.005  # 0.5% del portafolio por trade (óptimo backtest 2Y)
 MAX_PORTFOLIO_EXPOSURE   = 0.05   # 5% máximo total en posiciones abiertas
 STOP_LOSS_ATR_MULTIPLIER = 1.5    # Stop = Entry - (1.5 × ATR)
 TAKE_PROFIT_ATR_MULT     = 2.5    # TP = Entry + (2.5 × ATR)

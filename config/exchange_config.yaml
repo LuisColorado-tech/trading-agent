@@ -31,9 +31,7 @@ exchanges:
       LINK:
         pair: LINK/USDT          # Chainlink — correlación baja con BTC, buenas bajadas técnicas
         timeframes: [1m, 5m, 15m, 1h]
-      INJ:
-        pair: INJ/USDT           # Injective — alta beta, caidas del 50-80%% en bajadas
-        timeframes: [1m, 5m, 15m, 1h]
+      # INJ: solo disponible en OKX/USDT — Kraken tiene INJ/EUR e INJ/USD únicamente
       AAVE:
         pair: AAVE/USDT          # Aave DeFi — buenas correcciones técnicas profundas
         timeframes: [1m, 5m, 15m, 1h]
