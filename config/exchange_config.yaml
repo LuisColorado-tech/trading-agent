@@ -25,6 +25,12 @@ exchanges:
       SOL:
         pair: SOL/USDT
         timeframes: [1m, 5m, 15m, 1h]
+      AVAX:
+        pair: AVAX/USDT          # Avalanche — alta volatilidad, buenas correcciones bajistas
+        timeframes: [1m, 5m, 15m, 1h]
+      LINK:
+        pair: LINK/USDT          # Chainlink — correlación baja con BTC, buenas bajadas técnicas
+        timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAUT/USDT          # Tether Gold — proxy para oro físico
         timeframes: [5m, 15m, 1h]
@@ -49,6 +55,12 @@ exchanges:
         timeframes: [1m, 5m, 15m, 1h]
       SOL:
         pair: SOL/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      AVAX:
+        pair: AVAX/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      LINK:
+        pair: LINK/USDT
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAUT/USDT

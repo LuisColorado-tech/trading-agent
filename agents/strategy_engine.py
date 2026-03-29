@@ -20,6 +20,7 @@ from core.performance_guard import StrategyPerformanceGuard
 from core.claude_bridge import ClaudeBridge
 from data.market_feed import MarketFeed, ASSET_MAP
 from strategies.breakout import BreakoutStrategy
+from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
 
 
@@ -59,6 +60,25 @@ def count_confluence(ind, direction: str) -> tuple[int, list[str]]:
     return len(factors), factors
 
 
+def count_confluence_pullback(ind, direction: str) -> tuple[int, list[str]]:
+    """Confluencia específica para señales de pullback (Mean Reversion en TREND_UP).
+    Los factores son distintos: el precio ESTÁ por debajo de EMA20 (eso es el pullback),
+    el RSI ESTÁ sobrevendido, y el MACD ESTÁ negativo — todo contrario a TREND_MOMENTUM."""
+    factors = []
+    if direction == 'BUY':
+        if ind.ema20 > ind.ema50:              # macro tendencia alcista intacta
+            factors.append('MACRO_UPTREND')
+        if ind.rsi < 42:                       # sobreventa = pullback válido
+            factors.append('RSI_OVERSOLD')
+        if ind.bb_pct < 0.30:                  # precio cerca de soporte estadístico
+            factors.append('NEAR_BB_LOWER')
+        if ind.close > ind.ema200 * 0.97:      # tendencia de largo plazo no rota
+            factors.append('ABOVE_EMA200')
+        if ind.macd_hist < 0:                  # MACD en dip = momentum de bajada agotándose
+            factors.append('MACD_DIP')
+    return len(factors), factors
+
+
 class StrategyEngine:
     """Evalúa todas las estrategias y devuelve la mejor oportunidad."""
 
@@ -70,6 +90,7 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
+            MeanReversionStrategy(),
             BreakoutStrategy(),
         ]
         self.claude = ClaudeBridge()
@@ -141,9 +162,16 @@ class StrategyEngine:
         # Seleccionar señal de mayor score
         best = max(results, key=lambda r: r['score'])
 
-        # ── Filtro de confluencia: exigir alineación multi-indicador ──
-        min_conf_needed = MIN_CONFLUENCE_INDICATORS
-        n_conf, conf_factors = count_confluence(ind, best['direction'])
+        # ── Filtro de confluencia: diferenciado por tipo de estrategia ──
+        # MEAN_REVERSION usa factores de pullback (precio bajo EMA, RSI<42, etc.)
+        # porque en TREND_UP la dirección esperada es exactamente la opuesta a los
+        # indicadores que mide count_confluence estándar.
+        if best.get('strategy') == 'MEAN_REVERSION':
+            n_conf, conf_factors = count_confluence_pullback(ind, best['direction'])
+            min_conf_needed = 3  # de 5 factores específicos de pullback
+        else:
+            n_conf, conf_factors = count_confluence(ind, best['direction'])
+            min_conf_needed = MIN_CONFLUENCE_INDICATORS
         if n_conf < min_conf_needed:
             logger.info(
                 f'No opportunity {asset}/{timeframe}: low_confluence '

@@ -29,18 +29,19 @@ def classify_market_regime(ind) -> MarketRegime:
             return MarketRegime('BREAKOUT_DOWN', 'BEARISH', True, False, False)
 
     if ind.trend_direction == 'UP' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist > 0:
-        # Backtest 2 años: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151
-        # (BTC -$1,961, ETH -$2,541, SOL -$1,648). Bloquear igual que RANGE.
-        return MarketRegime('TREND_UP', 'BULLISH', False, False, False)
+        # Backtest 2Y: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151 → bloqueado (allow_trend=False).
+        # MEAN_REVERSION habilitada: compra pullbacks (RSI<45 + cerca BB_lower) dentro del bull.
+        return MarketRegime('TREND_UP', 'BULLISH', False, True, False)
 
     if ind.trend_direction == 'DOWN' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist < 0:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
 
     if ind.bb_width <= 0.10 and ind.atr_pct <= 0.012:
         # Backtest 6m: TREND_MOMENTUM en RANGE pierde en BTC (-$880), ETH (-$829), SOL (-$1,157).
-        # El agente espera a que el mercado salga del rango antes de operar.
-        # MEAN_REVERSION sigue disponible en RANGE (aunque está deshabilitada).
-        return MarketRegime('RANGE', 'NEUTRAL', False, True, False)
+        # MEAN_REVERSION también pierde en RANGE: la estrategia de pullback dispara porque EMA20>EMA50
+        # por historial reciente, pero en RANGE no hay tendencia real que sostenga la reversión.
+        # Solución: no operar ninguna estrategia en RANGE (esperar TREND_DOWN/UP).
+        return MarketRegime('RANGE', 'NEUTRAL', False, False, False)
 
     return MarketRegime('CHOPPY', 'NEUTRAL', False, False, False)
 

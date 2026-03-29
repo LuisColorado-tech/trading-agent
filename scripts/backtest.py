@@ -26,18 +26,19 @@ load_dotenv('/opt/trading/config/.env')
 
 from agents.indicators import IndicatorEngine
 from core.market_regime import classify_market_regime
-from agents.strategy_engine import count_confluence, MIN_CONFLUENCE_INDICATORS
+from agents.strategy_engine import count_confluence, count_confluence_pullback, MIN_CONFLUENCE_INDICATORS
 from strategies.trend_momentum import TrendMomentumStrategy
+from strategies.mean_reversion import MeanReversionStrategy
 from strategies.breakout import BreakoutStrategy
 
 # ── Parámetros de riesgo (mismos que producción) ─────────────────────
 INITIAL_BALANCE    = 10_000.0
-RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade
+RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade (sobreescribible por --risk)
 MAX_CONCURRENT     = 3
 SL_COOLDOWN_BARS   = 4          # velas de cooldown tras SL (≈ 1h en 15m)
 MIN_RR             = 1.8        # R:R mínimo para tomar el trade
 
-STRATEGIES = [TrendMomentumStrategy(), BreakoutStrategy()]
+STRATEGIES = [TrendMomentumStrategy(), MeanReversionStrategy(), BreakoutStrategy()]
 
 
 # ── Descarga de datos ─────────────────────────────────────────────────
@@ -95,10 +96,11 @@ def download_ohlcv(symbol: str, timeframe: str, months: int) -> pd.DataFrame:
 # ── Backtester ────────────────────────────────────────────────────────
 
 class Backtest:
-    def __init__(self, df: pd.DataFrame, asset: str, timeframe: str):
+    def __init__(self, df: pd.DataFrame, asset: str, timeframe: str, risk_pct: float = RISK_PER_TRADE_PCT):
         self.df = df.copy()
         self.asset = asset
         self.timeframe = timeframe
+        self.risk_pct = risk_pct
         self.balance = INITIAL_BALANCE
         self.peak = INITIAL_BALANCE
         self.trades: list[dict] = []
@@ -143,7 +145,7 @@ class Backtest:
                 continue
 
             # 6. Calcular tamaño de posición
-            risk_amount = self.balance * RISK_PER_TRADE_PCT
+            risk_amount = self.balance * self.risk_pct
             size = risk_amount / risk
 
             self.open_trade = {
@@ -212,7 +214,6 @@ class Backtest:
     def _best_signal(self, ind, regime, df_window) -> dict | None:
         from core.market_regime import strategy_allowed_in_regime
         # Misma lógica que strategy_engine.py en producción
-        # Backtest 6m: TREND_MOMENTUM en RANGE pierde en todos los activos.
         if not regime.allow_trend and not regime.allow_mean_reversion and not regime.allow_breakout:
             return None  # CHOPPY — no operar
         results = []
@@ -225,8 +226,14 @@ class Backtest:
                 continue
             if res['direction'] == 'NEUTRAL':
                 continue
-            n_conf, _ = count_confluence(ind, res['direction'])
-            if n_conf < MIN_CONFLUENCE_INDICATORS:
+            # Confluencia diferenciada según tipo de estrategia
+            if strat.NAME == 'MEAN_REVERSION':
+                n_conf, _ = count_confluence_pullback(ind, res['direction'])
+                min_conf = 3  # 3 de 5 factores de pullback
+            else:
+                n_conf, _ = count_confluence(ind, res['direction'])
+                min_conf = MIN_CONFLUENCE_INDICATORS
+            if n_conf < min_conf:
                 continue
             # Bonus TREND_DOWN SELL — backtest muestra win rate 38%
             if regime.name == 'TREND_DOWN' and res['direction'] == 'SELL':
@@ -338,11 +345,14 @@ def main():
     parser.add_argument('--tf',      default='15m',         help='Timeframe: 1m 5m 15m 1h')
     parser.add_argument('--months',  type=int, default=12,  help='Meses de historia a descargar')
     parser.add_argument('--csv',     default='',            help='Exportar trades a CSV')
+    parser.add_argument('--risk',    type=float, default=1.0, help='Riesgo por trade en %% (default: 1.0)')
     args = parser.parse_args()
 
+    risk_pct = args.risk / 100.0
     assets = [a.strip().upper() for a in args.assets.split(',')]
     symbol_map = {'BTC': 'BTC/USDT', 'ETH': 'ETH/USDT', 'SOL': 'SOL/USDT',
-                  'XAU': 'XAU/USDT', 'XAG': 'XAG/USDT'}
+                  'XAU': 'XAU/USDT', 'XAG': 'XAG/USDT',
+                  'AVAX': 'AVAX/USDT', 'LINK': 'LINK/USDT'}
 
     all_trades = []
     all_metrics = []
@@ -359,7 +369,7 @@ def main():
             print(f"  ⚠ Datos insuficientes ({len(df)} velas)")
             continue
 
-        bt = Backtest(df, asset, args.tf)
+        bt = Backtest(df, asset, args.tf, risk_pct=risk_pct)
         trades = bt.run()
         metrics = compute_metrics(trades, INITIAL_BALANCE)
         all_trades.extend(trades)
