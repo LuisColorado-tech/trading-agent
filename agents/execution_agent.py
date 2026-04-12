@@ -120,6 +120,8 @@ class ExecutionAgent:
                 'paper_session_id': str(active_session['id']) if active_session else None,
                 'paper_session_name': active_session['session_name'] if active_session else None,
                 'initial_risk': initial_risk,
+                'regime': signal.get('market_regime', 'unknown'),
+                'timeframe': signal.get('timeframe', '15m'),
             }),
         }
         self._save_trade(trade_data)

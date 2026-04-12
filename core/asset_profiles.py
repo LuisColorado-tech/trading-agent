@@ -67,6 +67,14 @@ class AssetProfile:
     grid_range_candles: int = 30     # Velas lookback para calcular el rango
     grid_min_rr: float = 1.20        # RR mínimo para abrir orden grid
 
+    # ── Grid Bot: Umbrales de régimen RANGE por asset ────────────────
+    # bb_width y atr_pct deben estar POR DEBAJO de estos umbrales para
+    # considerar el mercado como RANGE y permitir al Grid Bot operar.
+    # Más bajo = criterio más estricto = menos falsos positivos de RANGE.
+    # Calibrado por volatilidad histórica de cada asset en 15m.
+    grid_bb_width_max: float = 0.06   # Ancho máximo de BBands para RANGE
+    grid_atr_pct_max: float = 0.012   # ATR/precio máximo para RANGE
+
     notes: str = ''
 
 
@@ -104,6 +112,8 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=6,
         grid_range_candles=35,
         grid_min_rr=1.25,
+        grid_bb_width_max=0.04,    # BTC es líquido: rango real ≤ 4% bb_width
+        grid_atr_pct_max=0.008,    # BTC trending: ATR sube a 0.5-1.5% → umbral conservador
         notes=(
             'SELL only — BUY pierde $1,961 en 2Y. '
             'Bloqueado en 0h/20-23h UTC (WR <23%). '
@@ -141,6 +151,8 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=5,
         grid_range_candles=30,
         grid_min_rr=1.30,
+        grid_bb_width_max=0.05,    # ETH: rango real ≤ 5% bb_width (más volátil que BTC)
+        grid_atr_pct_max=0.010,    # ETH: DD=10% en v2 → umbral más conservador
         notes=(
             'SELL only. confluencia=4 por edge negativo en paper 15m. '
             'Filtrado a horas 5-8h y 11-19h UTC (mejores en 2Y). '
@@ -177,6 +189,8 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=6,
         grid_range_candles=25,
         grid_min_rr=1.25,
+        grid_bb_width_max=0.05,    # SOL: cambios rápidos de régimen, umbral medio
+        grid_atr_pct_max=0.010,    # SOL: racha de 17 pérd en v2 → umbral conservador
         notes=(
             'SELL only. require_candle_close=True para evitar wick noise — '
             '41% de SL ocurren en <5min en paper. '
@@ -214,6 +228,8 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=6,
         grid_range_candles=25,
         grid_min_rr=1.20,
+        grid_bb_width_max=0.06,    # AVAX: más volátil, rango más amplio permitido
+        grid_atr_pct_max=0.012,    # AVAX: Sharpe=1.97 en v2, umbral estándar
         notes=(
             'SELL only. El mejor asset en backtest 2Y y paper. '
             'require_candle_close=True para eliminar entradas en pico de spike (33% de SL <2min). '
@@ -253,6 +269,8 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=5,
         grid_range_candles=20,
         grid_min_rr=1.25,
+        grid_bb_width_max=0.06,    # INJ: el más volátil, rango más amplio permitido
+        grid_atr_pct_max=0.012,    # INJ: PF=1.09 (peor), umbral estándar para no filtrar demasiado
         notes=(
             'SELL only. Señal más limpia (12% falsas <5min). '
             'trailing_activation_r=2.0 — el trailing actual (0.75R) cierra a $6 '

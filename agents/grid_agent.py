@@ -103,7 +103,7 @@ class GridAgent:
             if self.redis.ttl(f'cooldown:{asset}') > 0:
                 return None
 
-            # 3. Obtener datos e indicadores
+            # 3. Obtener datos e indicadores (15m + 1h para confirmación MTF)
             df = self.feed.get_latest(asset, GRID_TIMEFRAME, n=100)
             if df.empty or len(df) < 35:
                 return None
@@ -112,13 +112,32 @@ class GridAgent:
             if ind is None:
                 return None
 
-            # 4. Verificar régimen RANGE o CHOPPY
-            regime = classify_market_regime(ind)
+            df_1h = self.feed.get_latest(asset, '1h', n=100)
+            ind_1h = None
+            if not df_1h.empty and len(df_1h) >= 50:
+                ind_1h = IndicatorEngine.calculate(df_1h, asset, '1h')
+
+            # 4. Verificar régimen RANGE o CHOPPY (con confirmación MTF 1h)
+            # Si el 1h muestra tendencia clara, el RANGE en 15m es consolidación
+            # dentro de tendencia → Grid Bot quedaría atrapado contra el movimiento mayor.
+            profile = get_profile(asset)
+            regime_1h = classify_market_regime(ind_1h) if ind_1h is not None else None
+            regime = classify_market_regime(ind, ind_htf=ind_1h)
             if not regime.allow_grid:
                 return None
 
+            # 4b. Umbrales de volatilidad por asset (más estrictos que el umbral global)
+            # Cada asset tiene su propia "anchura" de rango real. Si bb_width o atr_pct
+            # superan el umbral del perfil, el mercado está demasiado en movimiento.
+            if ind.bb_width > profile.grid_bb_width_max or ind.atr_pct > profile.grid_atr_pct_max:
+                logger.debug(
+                    f'GridAgent {asset}: umbral RANGE superado '
+                    f'bb_width={ind.bb_width:.4f}>{profile.grid_bb_width_max} '
+                    f'atr_pct={ind.atr_pct:.5f}>{profile.grid_atr_pct_max}'
+                )
+                return None
+
             # 5. Calcular grid con parámetros del perfil del asset
-            profile = get_profile(asset)
             grid = self.strategy.calculate_grid(
                 ind, df,
                 n_levels=profile.grid_levels,
@@ -162,6 +181,8 @@ class GridAgent:
                 entry_price=ind.close,
                 position_size=round(position_size, 6),
                 session=session,
+                regime_name=regime.name,
+                regime_1h_name=regime_1h.name if regime_1h is not None else 'N/A',
             )
 
             logger.info(
@@ -218,7 +239,8 @@ class GridAgent:
         return False
 
     def _open_trade(self, asset: str, level: GridLevel, grid: GridConfig,
-                    entry_price: float, position_size: float, session: dict) -> str:
+                    entry_price: float, position_size: float, session: dict,
+                    regime_name: str = 'RANGE', regime_1h_name: str = 'N/A') -> str:
         trade_id = str(uuid.uuid4())
         now = datetime.now(timezone.utc)
         initial_risk = abs(entry_price - level.sl)
@@ -233,6 +255,8 @@ class GridAgent:
             'initial_risk':     round(initial_risk, 8),
             'paper_session_id':   str(session['id']) if session else None,
             'paper_session_name': session.get('session_name') if session else None,
+            'regime':    regime_name,
+            'regime_1h': regime_1h_name,
         }
 
         with self.engine.begin() as conn:
