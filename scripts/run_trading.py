@@ -23,6 +23,7 @@ logger.add(
 )
 
 from agents.execution_agent import ExecutionAgent
+from agents.grid_agent import GridAgent
 from agents.market_scanner import MarketScanner
 from agents.strategy_engine import StrategyEngine
 from core.paper_session_manager import PaperSessionManager
@@ -33,10 +34,9 @@ from risk.risk_manager import PAPER_HALT_COOLDOWN_HOURS
 
 SCAN_INTERVAL = 60  # segundos entre scans
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
-# Portfolio óptimo (backtest 2Y: +152.8%, Sharpe 0.95, DD 17.1%)
-# BTC excluido: bull macro 2024-2026 revierte rápido cada TREND_DOWN → WR 32-33%
-ASSETS = ['ETH', 'SOL', 'AVAX', 'INJ']
-TIMEFRAMES = ['15m', '1h']  # Empezar con TF conservadores
+# SESSION_008: 7 assets con AssetProfiles individuales (SL/TP/trailing/horas por asset)
+ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ', 'XAU', 'XAG']
+TIMEFRAMES = ['15m', '1h']
 
 # DB engine for portfolio tracking
 _db_url = (
@@ -172,6 +172,7 @@ def main():
     strategy = StrategyEngine()
     executor = ExecutionAgent()
     monitor = TradeMonitor()
+    grid = GridAgent(_db_url)
 
     # Scope performance guard a la sesión activa
     strategy.guard.set_session_start(session['started_at'])
@@ -259,6 +260,11 @@ def main():
                             # Registrar trade de probation si aplica
                             if signal.get('on_probation'):
                                 strategy.guard.record_probation_trade(signal['strategy'])
+
+            # 2b. Grid Bot — actúa en assets con régimen RANGE o CHOPPY
+            grid_opened = grid.run_cycle(ASSETS, portfolio, session)
+            if grid_opened:
+                portfolio = get_portfolio(session)
 
             # Refresh portfolio
             portfolio = get_portfolio(session)

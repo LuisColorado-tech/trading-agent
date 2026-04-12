@@ -4,6 +4,7 @@ Entra BUY o SELL cuando EMA alineada + RSI en zona + volumen + confluencia.
 SL adaptativo: 1.2-1.5 ATR. TP: 2.5-3.0 ATR.
 """
 from agents.indicators import IndicatorSet
+from core.asset_profiles import get_profile
 
 
 class TrendMomentumStrategy:
@@ -64,9 +65,10 @@ class TrendMomentumStrategy:
             score += 10
             reasons.append('NEAR_BB_UPPER')
 
-        # SL adaptativo: más ceñido en baja volatilidad
-        sl_mult = 1.2 if ind.atr_pct < 0.02 else 1.5
-        tp_mult = 2.5 if ind.atr_pct < 0.02 else 3.0
+        # SL/TP por perfil de asset (sustituye el heurístico generico)
+        profile = get_profile(ind.asset)
+        sl_mult = profile.sl_multiplier
+        tp_mult = profile.tp_multiplier
 
         return {
             'direction': 'SELL',
@@ -126,9 +128,10 @@ class TrendMomentumStrategy:
             score += 10
             reasons.append('ROOM_TO_BB_UPPER')
 
-        # SL adaptativo
-        sl_mult = 1.2 if ind.atr_pct < 0.02 else 1.5
-        tp_mult = 2.5 if ind.atr_pct < 0.02 else 3.0
+        # SL/TP por perfil de asset (sustituye el heurístico generico)
+        profile = get_profile(ind.asset)
+        sl_mult = profile.sl_multiplier
+        tp_mult = profile.tp_multiplier
 
         return {
             'direction': 'BUY',

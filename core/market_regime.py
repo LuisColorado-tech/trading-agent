@@ -12,6 +12,7 @@ class MarketRegime:
     allow_mean_reversion: bool
     allow_breakout: bool
     allow_dip_buy: bool = False   # BTC Dip Buyer: BUY en pullbacks dentro de bull estructural
+    allow_grid: bool = False      # Grid Bot: activo en RANGE/CHOPPY (sin tendencia clara)
 
 
 # Umbral de trend_strength para activar TREND/BREAKOUT.
@@ -47,12 +48,11 @@ def classify_market_regime(ind) -> MarketRegime:
 
     if ind.bb_width <= 0.10 and ind.atr_pct <= 0.012:
         # Backtest 6m: TREND_MOMENTUM en RANGE pierde en BTC (-$880), ETH (-$829), SOL (-$1,157).
-        # MEAN_REVERSION también pierde en RANGE: la estrategia de pullback dispara porque EMA20>EMA50
-        # por historial reciente, pero en RANGE no hay tendencia real que sostenga la reversión.
-        # Solución: no operar ninguna estrategia en RANGE (esperar TREND_DOWN/UP).
-        return MarketRegime('RANGE', 'NEUTRAL', False, False, False)
+        # MEAN_REVERSION también pierde en RANGE. Solución: solo Grid Bot en RANGE.
+        return MarketRegime('RANGE', 'NEUTRAL', False, False, False, allow_grid=True)
 
-    return MarketRegime('CHOPPY', 'NEUTRAL', False, False, False)
+    # CHOPPY: ni tendencia ni rango definido → Grid Bot puede operar con tamaños reducidos
+    return MarketRegime('CHOPPY', 'NEUTRAL', False, False, False, allow_grid=True)
 
 
 def strategy_allowed_in_regime(strategy_name: str, regime: MarketRegime) -> bool:

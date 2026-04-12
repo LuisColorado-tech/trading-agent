@@ -30,6 +30,7 @@ sys.path.insert(0, '/opt/trading')
 load_dotenv('/opt/trading/config/.env')
 
 from core.portfolio_utils import calculate_drawdown, calculate_peak_balance, calculate_risk_exposure, calculate_total_notional
+from core.asset_profiles import get_profile
 from data.market_feed import MarketFeed, ASSET_MAP
 
 # ── Trailing Dinámico: parámetros (v2 — más agresivo) ────────────
@@ -183,15 +184,22 @@ class TradeMonitor:
             initial_risk = 0
 
         # ── Trailing Dinámico ──
-        if initial_risk > 0:
+        # Grid Bot usa TP ajustado a un nivel de grid: trailing contraproducente.
+        skip_trailing = trade.get('strategy') == 'GRID_BOT'
+        if initial_risk > 0 and not skip_trailing:
+            profile = get_profile(asset)
+            trailing_activation_r = profile.trailing_activation_r
+            trailing_step_r = profile.trailing_step_r
+
             if side == 'BUY':
                 profit_r = (current_price - entry_price) / initial_risk
             else:
                 profit_r = (entry_price - current_price) / initial_risk
 
-            if profit_r >= TRAILING_ACTIVATION_R:
-                steps = max(1, int((profit_r - TRAILING_ACTIVATION_R) / TRAILING_STEP_R))
-                locked_r = steps * TRAILING_STEP_R
+            if profit_r >= trailing_activation_r:
+                steps = max(1, int((profit_r - trailing_activation_r) / trailing_step_r))
+                locked_r = steps * trailing_step_r
+
 
                 if side == 'BUY':
                     new_sl = entry_price + locked_r * initial_risk

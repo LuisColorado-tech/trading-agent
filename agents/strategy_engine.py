@@ -7,6 +7,7 @@ NOTE: MeanReversion deshabilitada — 0/8 win rate en paper, -$569 P&L.
 import json
 import os
 import sys
+from datetime import datetime, timezone
 
 import redis
 from loguru import logger
@@ -23,6 +24,7 @@ from strategies.breakout import BreakoutStrategy
 from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
+from core.asset_profiles import get_profile, hour_allowed, direction_allowed
 
 
 # ── Confluencia mínima para pasar señal ─────────────────────────────
@@ -108,6 +110,11 @@ class StrategyEngine:
     def evaluate(self, asset: str, timeframe: str,
                  portfolio_context: dict = None) -> dict:
         """Evalúa todas las estrategias y devuelve la mejor oportunidad si existe."""
+        # ── Filtro horario por perfil de asset (antes de cargar datos) ──
+        current_hour = datetime.now(timezone.utc).hour
+        if not hour_allowed(asset, current_hour):
+            return {'opportunity': False, 'reason': f'hour_blocked:{current_hour}h_utc'}
+
         df = self.feed.get_latest(asset, timeframe, n=250)
         if df.empty:
             return {'opportunity': False, 'reason': 'no_data'}
@@ -115,6 +122,12 @@ class StrategyEngine:
         ind = IndicatorEngine.calculate(df, asset, timeframe)
         if ind is None:
             return {'opportunity': False, 'reason': 'insufficient_data'}
+
+        # ── Filtro de volatilidad mínima (ATR) por perfil ──
+        profile = get_profile(asset)
+        if ind.atr_pct < profile.min_atr_pct:
+            logger.info(f'No opportunity {asset}/{timeframe}: low_atr {ind.atr_pct:.4f} < {profile.min_atr_pct:.4f}')
+            return {'opportunity': False, 'reason': f'low_atr:{ind.atr_pct:.4f}'}
 
         regime = classify_market_regime(ind)
 
@@ -170,6 +183,14 @@ class StrategyEngine:
         # Seleccionar señal de mayor score
         best = max(results, key=lambda r: r['score'])
 
+        # ── Filtro de dirección permitida por perfil de asset ──
+        if not direction_allowed(asset, best['direction']):
+            logger.info(
+                f'No opportunity {asset}/{timeframe}: direction_not_allowed '
+                f'dir={best["direction"]} asset={asset}'
+            )
+            return {'opportunity': False, 'reason': f'direction_not_allowed:{best["direction"]}'}
+
         # ── Filtro de confluencia: diferenciado por tipo de estrategia ──
         if best.get('strategy') == 'MEAN_REVERSION':
             n_conf, conf_factors = count_confluence_pullback(ind, best['direction'])
@@ -181,7 +202,7 @@ class StrategyEngine:
             min_conf_needed = 2
         else:
             n_conf, conf_factors = count_confluence(ind, best['direction'])
-            min_conf_needed = MIN_CONFLUENCE_INDICATORS
+            min_conf_needed = get_profile(asset).confluence_min
         if n_conf < min_conf_needed:
             logger.info(
                 f'No opportunity {asset}/{timeframe}: low_confluence '
@@ -225,6 +246,7 @@ class StrategyEngine:
         best['asset'] = asset
         best['timeframe'] = timeframe
         best['market_regime'] = regime.name
+        best['require_candle_close'] = get_profile(asset).require_candle_close
         best['indicators'] = {
             'rsi': ind.rsi,
             'atr': ind.atr,

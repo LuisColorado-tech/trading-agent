@@ -33,10 +33,10 @@ exchanges:
         timeframes: [1m, 5m, 15m, 1h]
       # INJ: solo disponible en OKX/USDT — Kraken tiene INJ/EUR e INJ/USD únicamente
       AAVE:
-        pair: AAVE/USDT          # Aave DeFi — buenas correcciones técnicas profundas
+        pair: AAVE/USD           # Aave DeFi — buenas correcciones técnicas profundas (Kraken no tiene AAVE/USDT)
         timeframes: [1m, 5m, 15m, 1h]
       POL:
-        pair: POL/USDT           # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas
+        pair: POL/USD            # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas (Kraken no tiene POL/USDT)
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAUT/USDT          # Tether Gold — proxy para oro físico

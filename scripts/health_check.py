@@ -318,8 +318,8 @@ def check_trades_coherent() -> tuple:
         issues = []
         if n_no_sl > 0:
             issues.append(f'{n_no_sl} trades sin SL')
-        if n_open > 3:
-            issues.append(f'{n_open} trades abiertos (máx 3)')
+        if n_open > 8:
+            issues.append(f'{n_open} trades abiertos (máx 8: 3 grid + 5 trend)')
         if issues:
             return False, f'Trades: {", ".join(issues)}'
         return True, f'{n_open} trades abiertos, todos con SL'
@@ -378,6 +378,66 @@ def check_balance_stuck() -> tuple:
         return False, f'Error verificando balance: {str(e)[:150]}'
 
 
+def check_grid_bot() -> tuple:
+    """Check 10: Estado del Grid Bot — trades abiertos, PnL session y métricas clave."""
+    try:
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        cur = conn.cursor()
+
+        # Sesión activa
+        cur.execute(
+            "SELECT id, session_name, started_at, initial_balance "
+            "FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1"
+        )
+        active_session = cur.fetchone()
+        if not active_session:
+            conn.close()
+            return True, '📊 Grid: sin sesión activa'
+
+        session_id, session_name, started_at, initial_balance = active_session
+
+        # Trades GRID_BOT abiertos ahora
+        cur.execute(
+            "SELECT asset, entry_price, stop_loss, take_profit "
+            "FROM trades WHERE status='OPEN' AND strategy='GRID_BOT' "
+            "AND timestamp_open >= %s",
+            (started_at,),
+        )
+        open_trades = cur.fetchall()
+        n_open = len(open_trades)
+        open_assets = [r[0] for r in open_trades]
+
+        # PnL acumulado GRID_BOT cerrados en la sesión
+        cur.execute(
+            "SELECT COUNT(*), "
+            "COALESCE(SUM(pnl), 0) AS total_pnl, "
+            "COALESCE(SUM(CASE WHEN pnl > 0 THEN 1 ELSE 0 END), 0) AS wins "
+            "FROM trades WHERE status='CLOSED' AND strategy='GRID_BOT' "
+            "AND timestamp_open >= %s",
+            (started_at,),
+        )
+        closed = cur.fetchone()
+        conn.close()
+
+        n_closed   = int(closed[0])
+        total_pnl  = float(closed[1])
+        n_wins     = int(closed[2])
+        wr_pct     = (n_wins / n_closed * 100) if n_closed > 0 else 0.0
+
+        assets_str = ','.join(sorted(set(open_assets))) if open_assets else 'ninguno'
+
+        msg = (
+            f'📊 Grid: {n_open}/3 abiertos [{assets_str}] | '
+            f'{n_closed} cerrados WR={wr_pct:.0f}% PnL=${total_pnl:+.2f}'
+        )
+        # Alerta si se acerca al límite total sin trades
+        if n_closed == 0 and n_open == 0:
+            return True, f'📊 Grid: sin actividad aún en {session_name}'
+        return True, msg
+    except Exception as e:
+        return False, f'📊 Grid error: {str(e)[:150]}'
+
+
 def check_polymarket() -> tuple:
     """Check del servicio Polymarket."""
     try:
@@ -416,6 +476,7 @@ def main():
         ('📉 Drawdown', check_drawdown),
         ('💹 Trades', check_trades_coherent),
         ('🔒 Balance', check_balance_stuck),
+        ('🤖 Grid Bot', check_grid_bot),
         ('🔮 Polymarket', check_polymarket),
     ]
 
