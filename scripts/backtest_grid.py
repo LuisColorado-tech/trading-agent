@@ -106,14 +106,21 @@ class GridBacktest:
     - Verifica que no hay nivel duplicado antes de abrir
     - No aplica trailing; cierra en TP o SL fijos
     - Registra las barras en régimen RANGE/CHOPPY para calcular "cobertura"
+
+    Parámetros v5 (MTF):
+    - df_1h: datos 1h para filtro multi-timeframe (si se pasa + use_mtf=True)
+    - use_mtf: activa filtro MTF (classifica regime con ind_htf) y thresholds per-asset
     """
 
     def __init__(self, df: pd.DataFrame, asset: str, timeframe: str,
-                 risk_pct: float = RISK_PER_TRADE_PCT):
+                 risk_pct: float = RISK_PER_TRADE_PCT,
+                 df_1h: pd.DataFrame = None, use_mtf: bool = False):
         self.df        = df.copy()
         self.asset     = asset
         self.timeframe = timeframe
         self.risk_pct  = risk_pct
+        self.df_1h     = df_1h
+        self.use_mtf   = use_mtf
         self.strategy  = GridBotStrategy()
 
         self.balance   = INITIAL_BALANCE
@@ -147,7 +154,26 @@ class GridBacktest:
             if ind is None:
                 continue
 
-            regime = classify_market_regime(ind)
+            # v5: thresholds per-asset (si MTF activado)
+            if self.use_mtf:
+                profile_v5 = get_profile(self.asset)
+                if (ind.bb_width > profile_v5.grid_bb_width_max
+                        or ind.atr_pct > profile_v5.grid_atr_pct_max):
+                    continue
+
+            # v5: filtro MTF — ind_1h cacheado por hora (solo recalcula al cambiar la hora)
+            ind_htf = None
+            if self.use_mtf and self.df_1h is not None:
+                ts_cutoff = bar.name.floor('h')  # inicio de la hora actual
+                cached_ts, cached_ind = getattr(self, '_mtf_cache', (None, None))
+                if ts_cutoff != cached_ts:
+                    window_1h = self.df_1h[self.df_1h.index < ts_cutoff].tail(250)
+                    cached_ind = (IndicatorEngine.calculate(window_1h, self.asset, '1h')
+                                  if len(window_1h) >= 50 else None)
+                    self._mtf_cache = (ts_cutoff, cached_ind)
+                ind_htf = cached_ind
+
+            regime = classify_market_regime(ind, ind_htf=ind_htf)
 
             # Contabilizar barras por régimen
             if regime.name in ('RANGE', 'CHOPPY'):
@@ -394,6 +420,8 @@ def main():
                         help='Meses de historia (default: 12)')
     parser.add_argument('--csv',    default='',
                         help='Exportar trades a CSV')
+    parser.add_argument('--mtf', action='store_true', default=False,
+                        help='Activar filtro MTF 1h + thresholds per-asset (v5)')
     args = parser.parse_args()
 
     symbol_map = {
@@ -412,13 +440,20 @@ def main():
             print(f"⚠ {asset} sin symbol map, omitiendo")
             continue
 
-        print(f"\n▶ {asset}/{args.tf}")
+        print(f"\n▶ {asset}/{args.tf}" + (" [MTF v5]" if args.mtf else " [sin MTF v4]"))
         df = download_ohlcv(symbol, args.tf, args.months)
         if df.empty or len(df) < WARMUP_BARS + 50:
             print(f"  ⚠ Datos insuficientes ({len(df)} velas)")
             continue
 
-        bt = GridBacktest(df, asset, args.tf)
+        df_1h = None
+        if args.mtf:
+            df_1h = download_ohlcv(symbol, '1h', args.months)
+            if df_1h.empty:
+                print(f"  ⚠ No se pudo descargar 1h para {asset}; MTF desactivado")
+                df_1h = None
+
+        bt = GridBacktest(df, asset, args.tf, df_1h=df_1h, use_mtf=args.mtf)
         trades = bt.run()
         metrics = compute_metrics(
             trades, INITIAL_BALANCE,

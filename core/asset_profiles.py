@@ -112,7 +112,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         grid_levels=6,
         grid_range_candles=35,
         grid_min_rr=1.25,
-        grid_bb_width_max=0.04,    # BTC es líquido: rango real ≤ 4% bb_width
+        grid_bb_width_max=0.05,    # backtest v5→v5b: 0.04 filtraba demasiado (-23% trades), 0.05 = nivel ETH/SOL
         grid_atr_pct_max=0.008,    # BTC trending: ATR sube a 0.5-1.5% → umbral conservador
         notes=(
             'SELL only — BUY pierde $1,961 en 2Y. '
