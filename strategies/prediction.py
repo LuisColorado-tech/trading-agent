@@ -58,13 +58,25 @@ class PredictionStrategy:
 
     NAME = 'PREDICTION_LLM'
 
+    # DESACTIVADO: 43 trades, 0 wins, -$582 en paper. Sin API key activa
+    # todas las predicciones son basura. Reactivar cuando:
+    #   1) OpenAI API key esté configurada
+    #   2) Se valide calibración en backtesting
+    ENABLED = False
+
     def __init__(self):
         self._llm = None
         api_key = os.getenv('OPENAI_API_KEY', '')
         if api_key and api_key != 'CHANGE_ME':
             from openai import OpenAI
             self._llm = OpenAI(api_key=api_key)
+        else:
+            logger.warning('PREDICTION_LLM: sin API key — estrategia desactivada')
         self._model = os.getenv('LLM_MODEL', 'gpt-4o-mini')
+
+    @property
+    def is_available(self) -> bool:
+        return self.ENABLED and self._llm is not None
 
     def _call_llm(self, prompt: str) -> dict:
         """Llama al LLM y retorna JSON parseado."""
@@ -90,6 +102,9 @@ class PredictionStrategy:
                   confidence, reasoning, market
             Si no hay edge: {'opportunity': False, 'reason': ...}
         """
+        if not self.is_available:
+            return {'opportunity': False, 'reason': 'PREDICTION_LLM_DISABLED'}
+
         question = market.get('question', '')
         price_yes = float(market.get('price_yes', 0.5))
         price_no = float(market.get('price_no', 0.5))

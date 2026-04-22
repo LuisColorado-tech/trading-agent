@@ -270,7 +270,7 @@ class BtcDirectionExecutor:
             if now < end_ts + 30:
                 continue
 
-            outcome = feed.get_market_outcome(trade['condition_id'])
+            outcome = feed.get_market_outcome(trade['market_slug'])
             if outcome is None:
                 # Deadband: si lleva más de 2h expirado y la API no responde
                 # (mercados 5m se purgan rápido de Gamma API), forzar cierre

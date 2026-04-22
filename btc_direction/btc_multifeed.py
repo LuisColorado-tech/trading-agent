@@ -584,33 +584,40 @@ class BtcMultiFeed:
 
     # ── Outcome de mercado resuelto ──────────────────────────────────────────
 
-    def get_market_outcome(self, condition_id: str) -> str | None:
+    def get_market_outcome(self, slug: str) -> str | None:
         """
         Consulta si un mercado ya resolvió y cuál fue el resultado.
+        Usa el endpoint /events?slug= que funciona correctamente para
+        mercados fast (5m, 15m, 1h) de Polymarket.
 
         Returns:
             'Up' | 'Down' | None  (si aún no resolvió o hay error)
         """
         try:
             resp = self._session.get(
-                f'{self.gamma_api}/markets',
-                params={'conditionId': condition_id},
+                f'{self.gamma_api}/events',
+                params={'slug': slug},
                 timeout=10,
             )
             resp.raise_for_status()
-            data = resp.json()
+            events = resp.json()
         except Exception as e:
             logger.warning(
-                f'MULTIFEED: Error consultando outcome {condition_id[:16]}...: {e}'
+                f'MULTIFEED: Error consultando outcome {slug}: {e}'
             )
             return None
 
-        if not data:
+        if not events:
             return None
 
-        market     = data[0]
+        markets = events[0].get('markets', [])
+        if not markets:
+            return None
+
+        market     = markets[0]
         uma_status = market.get('umaResolutionStatus', '')
-        if uma_status != 'resolved':
+        is_closed  = market.get('closed', False)
+        if uma_status != 'resolved' and not is_closed:
             return None
 
         # outcomePrices: ["1","0"] → Up ganó  |  ["0","1"] → Down ganó

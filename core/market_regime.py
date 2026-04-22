@@ -52,8 +52,9 @@ def classify_market_regime(ind, ind_htf=None) -> MarketRegime:
 
     if ind.trend_direction == 'UP' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist > 0:
         # Backtest 2Y: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151 → bloqueado.
-        # MEAN_REVERSION habilitada: compra pullbacks dentro del bull.
-        return MarketRegime('TREND_UP', 'BULLISH', False, True, False)
+        # MEAN_REVERSION desactivada: paper 8 trades 0 wins -$569. Pullbacks en bull
+        # 15m no tienen edge estadístico suficiente en portfolio actual.
+        return MarketRegime('TREND_UP', 'BULLISH', False, False, False)
 
     if ind.trend_direction == 'DOWN' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist < 0:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
