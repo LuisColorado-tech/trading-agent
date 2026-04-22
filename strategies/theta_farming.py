@@ -264,12 +264,25 @@ class ThetaFarmingStrategy:
             logger.info('THETA: sin candidatos en rango DTE/OTM')
             return None
 
-        # 4. Ordenar candidatos: preferencia por DTE objetivo y menor OTM dentro del rango
+        # 4. Pre-score rápido de prima estimada / margen para ordenar candidatos
+        # sin llamar a la API todavía. Usamos prima_estimada = IV_actual * sqrt(DTE/365)
+        # como proxy del valor temporal. Ordenamos por rendimiento esperado (prima/margen).
+        current_iv_approx = iv_rank / 100.0 * 0.60 + 0.20  # estimación burda de IV actual
+        for c in candidates:
+            otm = c['otm_pct']
+            dte = c['dte']
+            strike = c['strike']
+            # Valor temporal estimado (Black-Scholes simplificado: prima ≈ S × IV × sqrt(T))
+            est_premium_usd = btc_price * current_iv_approx * (dte / 365) ** 0.5 * 0.4  # factor atm→otm
+            est_margin_usd  = max(0.10, 0.15 - otm) * CONTRACT_SIZE * btc_price
+            c['est_yield'] = est_premium_usd / est_margin_usd if est_margin_usd > 0 else 0
+            c['in_target_dte'] = TARGET_DTE_MIN <= dte <= TARGET_DTE_MAX
+
         # Prioridad 1: DTE en rango óptimo
-        # Prioridad 2: delta más cercano al target
+        # Prioridad 2: mayor rendimiento estimado prima/margen (descendente)
         candidates.sort(key=lambda c: (
-            0 if TARGET_DTE_MIN <= c['dte'] <= TARGET_DTE_MAX else 1,  # preferir DTE óptimo
-            c['dte'],  # menor DTE primero si están fuera del rango
+            0 if c['in_target_dte'] else 1,
+            -c['est_yield'],
         ))
 
         # 5. Evaluar cada candidato hasta encontrar uno aprobado
@@ -334,8 +347,11 @@ class ThetaFarmingStrategy:
             logger.debug(f'THETA: {instrument_name} delta={delta:.3f} demasiado alto — skip')
             return None
 
-        # Filtro 4: bid mínimo (prima mínima $5 para cubrir fees)
-        entry_premium_btc = bid_btc  # vendemos al bid (precio que el mercado paga)
+        # Filtro 4: prima mínima $5 para cubrir fees
+        # Paper: usar mark price (midpoint) — refleja precio real de una limit order.
+        # Live: usar bid (precio garantizado de ejecución inmediata).
+        # El bid puede ser 15-30% menor que mark en opciones poco líquidas.
+        entry_premium_btc = mark_btc  # paper: midpoint como proxy de limit order al mark
         entry_premium_usd = entry_premium_btc * btc_price
         if entry_premium_usd < 5.0:
             logger.debug(f'THETA: {instrument_name} prima ${entry_premium_usd:.1f} < $5 — skip')
@@ -492,13 +508,16 @@ class ThetaFarmingStrategy:
             return None
 
         try:
-            ivs = [float(h[1]) for h in result[-30:]]
+            # 252 días (1 año de trading) — estándar del sector para IV Rank.
+            # Con solo 30d, una semana volátil infla artificialmente el rank.
+            ivs = [float(h[1]) for h in result[-252:]]
             current_iv = ivs[-1]
             iv_min = min(ivs)
             iv_max = max(ivs)
             iv_rank = (current_iv - iv_min) / (iv_max - iv_min) * 100 if iv_max > iv_min else 50.0
             self._iv_rank_cache = iv_rank
             self._iv_rank_cache_time = now
+            logger.debug(f'THETA IV Rank: {iv_rank:.1f}% (periodo={len(ivs)}d, min={iv_min:.1f}%, max={iv_max:.1f}%, cur={current_iv:.1f}%)')
             return iv_rank
         except Exception as e:
             logger.warning(f'Error calculando IV Rank: {e}')
