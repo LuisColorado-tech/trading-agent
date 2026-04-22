@@ -161,7 +161,8 @@ class ThetaFarmingStrategy:
     en función de condiciones de mercado y filtros de riesgo.
     """
 
-    def __init__(self):
+    def __init__(self, paper_mode: bool = True):
+        self.paper_mode = paper_mode
         self._iv_rank_cache: Optional[float] = None
         self._iv_rank_cache_time: float = 0.0
         self._iv_rank_ttl = 3600.0  # 1 hora
@@ -348,10 +349,13 @@ class ThetaFarmingStrategy:
             return None
 
         # Filtro 4: prima mínima $5 para cubrir fees
-        # Paper: usar mark price (midpoint) — refleja precio real de una limit order.
-        # Live: usar bid (precio garantizado de ejecución inmediata).
-        # El bid puede ser 15-30% menor que mark en opciones poco líquidas.
-        entry_premium_btc = mark_btc  # paper: midpoint como proxy de limit order al mark
+        # Paper: mark price (midpoint) — simula una limit order al mark, más realista
+        # que el bid puro que puede ser 15-30% menor en opciones poco líquidas.
+        # Live: bid — precio de ejecución garantizado en una market sell.
+        if self.paper_mode:
+            entry_premium_btc = mark_btc
+        else:
+            entry_premium_btc = bid_btc  # live: ejecutamos al bid del mercado
         entry_premium_usd = entry_premium_btc * btc_price
         if entry_premium_usd < 5.0:
             logger.debug(f'THETA: {instrument_name} prima ${entry_premium_usd:.1f} < $5 — skip')

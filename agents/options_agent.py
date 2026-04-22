@@ -58,7 +58,7 @@ class OptionsAgent:
 
     def __init__(self):
         self.session_mgr = DeribitSessionManager(_db_url)
-        self.strategy = ThetaFarmingStrategy()
+        self.strategy = ThetaFarmingStrategy(paper_mode=PAPER_MODE)
         self.engine = create_engine(_db_url)
         self._redis = self._connect_redis()
         self._last_scan_time: float = 0.0
