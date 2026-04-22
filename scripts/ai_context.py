@@ -385,5 +385,20 @@ except Exception as e:
 print(f'\n{"═"*60}')
 print('  BRIEFING COMPLETADO — Usa esta info para ubicarte')
 print('  Backtest histórico: reports/backtest_15m_24m*.csv')
-print('  Docs: docs/ARCHITECTURE.md | docs/AUDIT_PIPELINE.md')
+print()
+print('  ── Documentación IA (leer en este orden) ──────────────')
+AI_DOCS = [
+    ('AI_MASTER.md',               'Entry point: VPS, stack, 4 agentes, servicios, comandos'),
+    ('AI_TRADING_AGENT.md',        'Trading Agent: risk rules, regímenes, asset profiles, SESSION_008'),
+    ('AI_OPTIONS_AGENT.md',        'Options Theta Farming: filtros, ciclo de vida, margen Deribit'),
+    ('AI_POLYMARKET_AGENT.md',     'Polymarket SIGNAL_BASED: edge, sizing, PREDICTION_LLM desactivado'),
+    ('AI_BTC_DIRECTION_AGENT.md',  'BTC Direction: multi-TF, bug history, WR 27.6%, backfill'),
+]
+for fname, desc in AI_DOCS:
+    fpath = f'/opt/trading/docs/{fname}'
+    exists = '✓' if os.path.exists(fpath) else '✗'
+    print(f'  {exists} docs/{fname}')
+    print(f'      {desc}')
+print()
+print('  Docs legacy: docs/ARCHITECTURE.md | docs/AUDIT_PIPELINE.md')
 print(f'{"═"*60}\n')
