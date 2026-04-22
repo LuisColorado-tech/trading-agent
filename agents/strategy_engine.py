@@ -9,6 +9,7 @@ import os
 import sys
 from datetime import datetime, timezone
 
+import random
 import redis
 from loguru import logger
 from sqlalchemy import create_engine
@@ -98,6 +99,10 @@ class StrategyEngine:
             BreakoutStrategy(),
         ]
         self.claude = ClaudeBridge()
+        # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
+        # Con 0.10, el LLM se invoca en ~1 de cada 10 señales que pasan confluence.
+        # El 99% de los ABORT de Claude son neutrales — reducir llamadas ahorra ~90% del costo.
+        self._llm_sample_rate = float(os.getenv('LLM_CALL_SAMPLE_RATE', '0.10'))
         self.feed = MarketFeed()
         self.redis = redis.Redis(
             host=os.getenv('REDIS_HOST', 'localhost'),
@@ -212,33 +217,37 @@ class StrategyEngine:
             return {'opportunity': False, 'reason': f'low_confluence:{n_conf}'}
         best['confluence'] = {'count': n_conf, 'factors': conf_factors}
 
-        # Invocar Claude para verificación de consistencia
-        claude_check = self.claude.call(
-            task_type='signal_interpretation',
-            asset=asset,
-            data={
-                'signals': results,
-                'best_signal': best,
-                'indicators': {
-                    'rsi': ind.rsi,
-                    'ema20': ind.ema20,
-                    'ema50': ind.ema50,
-                    'trend': ind.trend_direction,
-                    'vol_ratio': ind.vol_ratio,
-                    'atr_pct': ind.atr_pct,
+        # Invocar LLM para verificación de consistencia (muestreo para controlar costos).
+        # LLM_CALL_SAMPLE_RATE=0.10 → ~1 de cada 10 señales. El resto pasa con resultado neutral.
+        if random.random() < self._llm_sample_rate:
+            claude_check = self.claude.call(
+                task_type='signal_interpretation',
+                asset=asset,
+                data={
+                    'signals': results,
+                    'best_signal': best,
+                    'indicators': {
+                        'rsi': ind.rsi,
+                        'ema20': ind.ema20,
+                        'ema50': ind.ema50,
+                        'trend': ind.trend_direction,
+                        'vol_ratio': ind.vol_ratio,
+                        'atr_pct': ind.atr_pct,
+                    },
+                    'timeframe': timeframe,
                 },
-                'timeframe': timeframe,
-            },
-            portfolio_context=portfolio_context or {},
-        )
+                portfolio_context=portfolio_context or {},
+            )
+        else:
+            claude_check = {'recommendation': 'PROCEED', 'confidence': 0, 'reasoning': 'llm_sampled_out', 'flags': []}
 
-        # Si Claude recomienda abortar con alta confianza, respetar
+        # Si el LLM recomienda abortar con alta confianza, respetar
         if (claude_check.get('recommendation') == 'ABORT'
                 and claude_check.get('confidence', 0) >= 80):
-            logger.warning(f'Claude ABORT for {asset}: {claude_check.get("reasoning")}')
+            logger.warning(f'LLM ABORT for {asset}: {claude_check.get("reasoning")}')
             return {
                 'opportunity': False,
-                'reason': 'claude_abort',
+                'reason': 'llm_abort',
                 'claude_analysis': claude_check,
             }
 

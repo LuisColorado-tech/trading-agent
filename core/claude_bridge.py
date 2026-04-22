@@ -107,18 +107,46 @@ Rules:
 
 
 class ClaudeBridge:
-    """LangChain bridge multi-provider (OpenAI default, Anthropic fallback)."""
+    """LangChain bridge multi-provider (DeepSeek > OpenAI > Anthropic).
+
+    Prioridad de selección de proveedor:
+      1. DeepSeek  (DEEPSEEK_API_KEY)  — ~10x más barato que gpt-4o-mini
+      2. OpenAI    (OPENAI_API_KEY)    — gpt-4o-mini por defecto
+      3. Anthropic (ANTHROPIC_API_KEY) — fallback
+
+    Coste aproximado por 1M tokens (Abr 2026):
+      DeepSeek deepseek-chat: $0.28 input / $0.42 output (cache hit: $0.028)
+      OpenAI gpt-4o-mini:      $0.15 input / $0.60 output
+      Anthropic claude-haiku:  $0.25 input / $1.25 output
+    """
 
     def __init__(self):
         self.llm = None
         self._configured = False
         self._provider = 'none'
 
-        # Prioridad: OpenAI (más barato) > Anthropic
+        # Prioridad: DeepSeek > OpenAI > Anthropic
+        deepseek_key = os.getenv('DEEPSEEK_API_KEY', '')
         openai_key = os.getenv('OPENAI_API_KEY', '')
         anthropic_key = os.getenv('ANTHROPIC_API_KEY', '')
 
-        if openai_key and openai_key != 'CHANGE_ME':
+        if deepseek_key and deepseek_key != 'CHANGE_ME':
+            # DeepSeek es compatible con la API de OpenAI — usa ChatOpenAI con base_url
+            from langchain_openai import ChatOpenAI
+            model = os.getenv('LLM_MODEL', 'deepseek-chat')
+            self.llm = ChatOpenAI(
+                model=model,
+                api_key=deepseek_key,
+                base_url='https://api.deepseek.com/v1',
+                temperature=0.1,
+                max_tokens=1000,
+                timeout=30.0,
+            )
+            self._configured = True
+            self._provider = f'deepseek/{model}'
+            logger.info(f'LLMBridge: Using {self._provider}')
+
+        elif openai_key and openai_key != 'CHANGE_ME':
             from langchain_openai import ChatOpenAI
             model = os.getenv('LLM_MODEL', 'gpt-4o-mini')
             self.llm = ChatOpenAI(
