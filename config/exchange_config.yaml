@@ -138,30 +138,89 @@ polymarket:
   initial_paper_balance: 1000.0    # USDC simulados
   scan_interval_seconds: 300       # 5 min entre scans
   # ── Filtros de mercado ──
+  # Solo mercados crypto con probabilidad moderada (0.20–0.80)
+  # donde nuestras señales técnicas tienen edge real.
   market_filters:
-    min_volume: 10000              # USD mínimo volumen
+    min_volume: 20000              # USD mínimo volumen (subido de 10k)
     min_liquidity: 5000            # USD mínimo liquidez
-    max_end_days: 90               # No apostar a más de 90 días
+    max_end_days: 30               # No apostar a más de 30 días (antes 90)
     min_end_hours: 2               # No apostar si resuelve en <2h
+    min_price_yes: 0.20            # Precio YES mínimo (antes 0.01)
+    max_price_yes: 0.80            # Precio YES máximo (antes 0.99)
+  # ── Categorías permitidas ──
+  # SOLO crypto: donde nuestras señales técnicas tienen valor real.
+  # Deportes/política/entretenimiento eliminados — LLM y señales no tienen edge ahí.
+  categories_allowed:
+    - crypto
+  # ── Palabras clave obligatorias en la pregunta ──
+  # Al menos una debe aparecer para evaluar el mercado.
+  question_keywords:
+    - BTC
+    - Bitcoin
+    - ETH
+    - Ethereum
+    - crypto
+    - cryptocurrency
   # ── Parámetros de riesgo ──
   risk:
-    max_position_pct: 5.0          # Max 5% del balance poly por posición
+    max_position_pct: 4.0          # Max 4% del balance por posición (antes 5%)
     max_total_exposure_pct: 40.0   # Max 40% del balance en posiciones
-    max_concurrent_positions: 10   # Max 10 posiciones abiertas
-    min_edge_pct: 8.0              # Edge mínimo para entrar (prob estimada - precio)
+    max_concurrent_positions: 5    # Max 5 posiciones (antes 10)
+    min_edge_pct: 10.0             # Edge mínimo 10% (antes 8%). Sin LLM, solo señal técnica.
     kelly_fraction: 0.25           # Cuarto Kelly (conservador)
-  # ── Categorías de interés ──
-  categories:
-    - crypto
-    - politics
-    - sports
-    - science
-    - entertainment
-    - business
-    - world
 
 # ── Trailing Dinámico (ver docs/TRAILING_DINAMICO.md) ──
 trailing:
   activation_threshold_r: 1.0   # Profit mínimo en R para activar trailing
   step_size_r: 0.5              # Incremento entre escalones (en R)
   lock_offset_r: 1.0            # SL rezaga (trigger - offset)×R respecto al entry
+
+# ══════════════════════════════════════════════════════════════════════════════
+# OPTIONS — Theta Farming en Deribit (P3 del roadmap)
+# Verificado accesible desde VPS srv1347416 — 2026-04-14
+# ══════════════════════════════════════════════════════════════════════════════
+options:
+  enabled: true
+  paper_trading: true             # Cambiar a false para operar en live
+  exchange: deribit
+  initial_paper_balance_usd: 2000.0  # Capital simulado inicial
+
+  # ── Parámetros de estrategia (theta_farming.py) ──
+  strategy:
+    underlying: BTC
+    option_type: PUT              # Solo PUT vendidos (cobrar prima)
+    contract_size: 0.1            # BTC por contrato (mínimo Deribit)
+
+    # DTE (días hasta expiración)
+    min_dte: 3
+    max_dte: 21
+    target_dte_min: 5             # DTE óptimo
+    target_dte_max: 10
+
+    # Strike OTM
+    min_otm_pct: 0.04             # Mínimo 4% fuera del dinero
+    max_otm_pct: 0.12             # Máximo 12% fuera del dinero
+
+    # IV Rank mínimo para vender (prima suficiente relativa al riesgo)
+    min_iv_rank: 20
+
+    # Delta máximo absoluto del PUT (probabilidad de ser ejercida)
+    max_delta_abs: 0.20
+
+    # Spread máximo como % del mark price (liquidez)
+    max_spread_pct: 0.25
+
+    # Máximo posiciones simultáneas
+    max_open_positions: 3
+
+  # ── Gestión de riesgo ──
+  risk:
+    max_drawdown_pct: 30.0        # Halt si drawdown supera este %
+    stop_loss_multiplier: 2.0     # Stop si prima sube 2× la cobrada
+    profit_lock_pct: 0.80         # Cerrar si ganamos 80% de la prima
+    max_margin_usage_pct: 0.70    # Máximo 70% del balance en margen activo
+
+  # ── Intervalos ──
+  monitor_interval_seconds: 300  # Check stops cada 5 minutos
+  scan_interval_seconds: 3600    # Scan nueva entrada cada 1 hora
+  snapshot_interval_seconds: 3600  # Guardar IV para backtesting cada hora

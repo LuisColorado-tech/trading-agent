@@ -39,3 +39,7 @@ Thumbs.db
 # ── Datos de mercado (puede ser grande) ─────────────────────────────
 data/*.csv
 data/*.parquet
+
+# ── Backups y archivos temporales ────────────────────────────────────
+*.bak
+reports/

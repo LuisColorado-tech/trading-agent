@@ -99,9 +99,22 @@ def query(sql):
 # ── Data loading ──
 pf = query('SELECT * FROM portfolio ORDER BY timestamp DESC LIMIT 1')
 pf_history = query('SELECT timestamp, total_balance, peak_balance, drawdown_pct, exposure_pct FROM portfolio ORDER BY timestamp')
-trades_df = query('SELECT * FROM trades ORDER BY timestamp_open DESC LIMIT 200')
+trades_df = query('SELECT * FROM trades ORDER BY timestamp_open DESC LIMIT 500')
 signals_df = query('SELECT * FROM signals ORDER BY timestamp DESC LIMIT 500')
 claude_df = query('SELECT * FROM claude_explanations ORDER BY timestamp DESC LIMIT 100')
+
+# ── Polymarket data loading ──
+poly_sessions_df = query('SELECT * FROM poly_sessions ORDER BY started_at DESC')
+poly_positions_df = query('SELECT * FROM poly_positions ORDER BY timestamp_open DESC LIMIT 200')
+btcd_df = query('SELECT * FROM btc_direction_trades ORDER BY timestamp_open DESC LIMIT 200')
+
+# ── Options data loading ──
+try:
+    options_sessions_df = query('SELECT * FROM options_sessions ORDER BY started_at DESC')
+    options_positions_df = query('SELECT * FROM options_positions ORDER BY opened_at DESC LIMIT 200')
+except Exception:
+    options_sessions_df = pd.DataFrame()
+    options_positions_df = pd.DataFrame()
 
 closed_trades = trades_df[trades_df['status'] == 'CLOSED'].copy() if not trades_df.empty else pd.DataFrame()
 open_trades = trades_df[trades_df['status'] == 'OPEN'].copy() if not trades_df.empty else pd.DataFrame()
@@ -166,8 +179,8 @@ if st.sidebar.button('🔄 Actualizar datos'):
 # ══════════════════════════════════════════════════════════════════
 # ── TABS ──
 # ══════════════════════════════════════════════════════════════════
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    '📊 Portfolio', '💹 Trades', '📡 Señales', '🤖 IA', '📚 Aprende'
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    '📊 Portfolio', '💹 Trades', '📡 Señales', '🤖 IA', '🔮 Polymarket', '📣 Options', '📚 Aprende'
 ])
 
 # ══════════════════════════════════════════════════════════════════
@@ -563,10 +576,374 @@ with tab4:
         st.info('No hay análisis de IA aún. Se generarán cuando el sistema evalúe señales.')
 
 
-# ══════════════════════════════════════════════════════════════════
-# TAB 5 — PANEL EDUCATIVO
+# ══════════════════════════════════════════════════════════════════# TAB 6 — OPTIONS (Theta Farming Deribit)
+# ════════════════════════════════════════════════════════════════
+with tab6:
+    st.subheader('📣 Options — Theta Farming (Deribit)')
+    st.caption('Vendemos PUTs semanales de BTC OTM. Si BTC no cae hasta el strike, la prima es ganancia pura.')
+
+    if options_sessions_df.empty and options_positions_df.empty:
+        st.info('⏳ Sin datos de opciones todavía. Inicia el agente: `python3 scripts/run_options.py`')
+    else:
+        # ── Señión activa ───────────────────────────────────────────────
+        st.markdown('### 📋 Sesión Activa')
+        if not options_sessions_df.empty:
+            active_opt = options_sessions_df[options_sessions_df['status'] == 'ACTIVE']
+            if not active_opt.empty:
+                s = active_opt.iloc[0]
+                initial = float(s['initial_balance_usd'])
+                current = float(s['current_balance_usd'])
+                pnl_total = float(s['total_pnl_usd'])
+                pnl_pct = pnl_total / initial * 100 if initial > 0 else 0
+                premium_colectado = float(s.get('total_premium_usd', 0) or 0)
+                max_dd = float(s.get('max_drawdown_pct', 0) or 0)
+                total_c = int(s.get('total_contracts', 0) or 0)
+                winning_c = int(s.get('winning_contracts', 0) or 0)
+                wr_opt = winning_c / total_c * 100 if total_c > 0 else 0
+
+                c1, c2, c3, c4, c5, c6 = st.columns(6)
+                c1.metric('💰 Balance', f'${current:,.2f}', delta=f'{pnl_total:+.2f}')
+                c2.metric('📈 PnL Total', f'${pnl_total:+.2f}', delta=f'{pnl_pct:+.2f}%')
+                c3.metric('✅ Prima Cobrada', f'${premium_colectado:.2f}')
+                c4.metric('🎯 Win Rate Contratos', f'{wr_opt:.0f}%', help=f'{winning_c}/{total_c} contratos')
+                c5.metric('📉 Max Drawdown', f'{max_dd:.1f}%')
+                c6.metric('📊 Contratos Totales', total_c)
+
+                # Status badge
+                mode = str(s.get('mode', 'paper')).upper()
+                badge = '📝 PAPER' if mode == 'PAPER' else '🔴 LIVE'
+                st.caption(f'Sesión: **{s["session_name"]}** | Modo: {badge} | Inicio: {str(s["started_at"])[:10]}')
+            else:
+                st.info('Sin sesión options activa.')
+
+        # ── Posiciones abiertas ────────────────────────────────────────────
+        st.markdown('### 🔐 Posiciones Abiertas')
+        if not options_positions_df.empty:
+            open_opt = options_positions_df[options_positions_df['status'] == 'OPEN'].copy()
+            if not open_opt.empty:
+                display_cols = [
+                    'instrument_name', 'strike', 'dte_at_entry',
+                    'entry_premium_usd', 'margin_required_usd',
+                    'iv_at_entry', 'iv_rank_at_entry', 'delta_at_entry',
+                    'expiration_date', 'opened_at',
+                ]
+                cols_available = [c for c in display_cols if c in open_opt.columns]
+                st.dataframe(
+                    open_opt[cols_available].rename(columns={
+                        'instrument_name': 'Instrumento',
+                        'strike': 'Strike $',
+                        'dte_at_entry': 'DTE',
+                        'entry_premium_usd': 'Prima $',
+                        'margin_required_usd': 'Margen $',
+                        'iv_at_entry': 'IV%',
+                        'iv_rank_at_entry': 'IV Rank%',
+                        'delta_at_entry': 'Delta',
+                        'expiration_date': 'Expira',
+                        'opened_at': 'Abierta',
+                    }),
+                    use_container_width=True,
+                    height=200,
+                )
+            else:
+                st.info('Sin posiciones abiertas actualmente.')
+
+        # ── Historial de posiciones cerradas ────────────────────────────
+        st.markdown('### 📜 Historial')
+        if not options_positions_df.empty:
+            closed_opt = options_positions_df[options_positions_df['status'] != 'OPEN'].copy()
+            if not closed_opt.empty:
+                # Colorear por resultado
+                if 'pnl_usd' in closed_opt.columns:
+                    closed_opt['pnl_usd'] = pd.to_numeric(closed_opt['pnl_usd'], errors='coerce')
+                    hist_cols = [
+                        'instrument_name', 'strike', 'dte_at_entry',
+                        'entry_premium_usd', 'exit_premium_usd', 'pnl_usd', 'pnl_pct',
+                        'exit_reason', 'iv_rank_at_entry', 'closed_at',
+                    ]
+                    hist_available = [c for c in hist_cols if c in closed_opt.columns]
+                    st.dataframe(
+                        closed_opt[hist_available].rename(columns={
+                            'instrument_name': 'Instrumento',
+                            'strike': 'Strike $',
+                            'dte_at_entry': 'DTE',
+                            'entry_premium_usd': 'Prima Entrada $',
+                            'exit_premium_usd': 'Prima Salida $',
+                            'pnl_usd': 'PnL $',
+                            'pnl_pct': 'PnL %',
+                            'exit_reason': 'Razón',
+                            'iv_rank_at_entry': 'IV Rank%',
+                            'closed_at': 'Cerrada',
+                        }),
+                        use_container_width=True,
+                        height=300,
+                    )
+
+                    # Gráfico PnL acumulado
+                    if len(closed_opt) > 1:
+                        closed_sorted = closed_opt.sort_values('closed_at')
+                        closed_sorted['pnl_acum'] = closed_sorted['pnl_usd'].cumsum()
+                        fig = px.area(
+                            closed_sorted,
+                            x='closed_at',
+                            y='pnl_acum',
+                            title='PnL Acumulado Options',
+                            labels={'closed_at': 'Fecha', 'pnl_acum': 'PnL USD'},
+                            color_discrete_sequence=['#00CC96'],
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info('Sin contratos cerrados todavía.')
+
+        # ── Explicación didáctica ─────────────────────────────────────────
+        with st.expander('ℹ️ Cómo funciona el Theta Farming'):
+            st.markdown("""
+            **Vendemos PUTs OTM (out-of-the-money) de BTC en Deribit.**
+
+            | Término | Significado |
+            |---------|-------------|
+            | **PUT** | Opción que le da al comprador el derecho a vendernos BTC a un precio fijo |
+            | **OTM (Out-of-the-Money)** | El strike está por debajo del precio actual de BTC |
+            | **Strike** | El precio al que el comprador puede ejercer la opción |
+            | **Prima** | Lo que cobramos al vender la opción |
+            | **DTE** | Días hasta el vencimiento |
+            | **IV Rank** | Qué tan cara está la prima relativa a su historia (0-100%) |
+            | **Delta** | Probabilidad aproximada de que la opción sea ejercida (queremos ≤ 0.15) |
+            | **Theta** | Dólars/día que pierde la prima por el paso del tiempo (a nuestro favor) |
+
+            **Escenario ganador (80% del tiempo):**
+            BTC se mantiene por encima del strike → la opción vence sin valor → nos quedamos la prima.
+
+            **Escenario perdedor:**
+            BTC cae por debajo del strike → la opción tiene valor intrínseco → compramos de vuelta si supera 2× la prima.
+            """)
+
+# ════════════════════════════════════════════════════════════════# TAB 5 — POLYMARKET
 # ══════════════════════════════════════════════════════════════════
 with tab5:
+    st.subheader('🔮 Polymarket — Mercados de Predicción')
+
+    # ── Sección 1: Sesiones ──────────────────────────────────────
+    st.markdown('### 📋 Sesiones')
+
+    if not poly_sessions_df.empty:
+        # Sesión activa
+        active_sess = poly_sessions_df[poly_sessions_df['status'] == 'ACTIVE']
+        if not active_sess.empty:
+            s = active_sess.iloc[0]
+            init_bal  = float(s['initial_balance'])
+            curr_bal  = float(s['current_balance'])
+            total_pnl_poly = float(s['total_pnl'])
+            win_trades = int(s['winning_trades'] or 0)
+            total_tr  = int(s['total_trades'] or 0)
+            wr_poly   = (win_trades / total_tr * 100) if total_tr > 0 else 0.0
+            pf_poly   = float(s['profit_factor'] or 0)
+            dd_poly   = float(s['max_drawdown'] or 0)
+
+            st.success(f"🟢 **{s['session_name']}** — Activa desde {pd.to_datetime(s['started_at']).strftime('%d/%m/%Y %H:%M')}")
+            c1, c2, c3, c4, c5, c6 = st.columns(6)
+            c1.metric('💰 Balance', f'${curr_bal:,.2f}',
+                      delta=f'{curr_bal - init_bal:+,.2f}')
+            c2.metric('📈 P&L Total', f'${total_pnl_poly:+,.2f}')
+            c3.metric('🎯 Win Rate', f'{wr_poly:.1f}%')
+            c4.metric('📊 Profit Factor', f'{pf_poly:.2f}')
+            c5.metric('📉 Max Drawdown', f'${dd_poly:.2f}')
+            c6.metric('🔢 Trades', f'{total_tr}', help=f'{win_trades} ganados')
+        else:
+            st.info('No hay sesión de Polymarket activa.')
+
+        # Historial de sesiones
+        st.markdown('##### Historial de Sesiones')
+        sess_display = poly_sessions_df.copy()
+        sess_display['initial_balance'] = sess_display['initial_balance'].apply(lambda x: f'${float(x):,.2f}')
+        sess_display['current_balance'] = sess_display['current_balance'].apply(lambda x: f'${float(x):,.2f}')
+        sess_display['total_pnl'] = sess_display['total_pnl'].apply(lambda x: f'${float(x):+,.2f}')
+        sess_display['max_drawdown'] = sess_display['max_drawdown'].apply(lambda x: f'${float(x):.2f}')
+        sess_display['status_icon'] = sess_display['status'].map({
+            'ACTIVE': '🟢 ACTIVE', 'COMPLETED': '✅ COMPLETED', 'FAILED': '❌ FAILED'
+        }).fillna(sess_display['status'])
+        st.dataframe(
+            sess_display[['session_name', 'status_icon', 'initial_balance', 'current_balance',
+                          'total_pnl', 'total_trades', 'winning_trades', 'max_drawdown', 'started_at']].rename(columns={
+                'session_name': 'Sesión', 'status_icon': 'Estado',
+                'initial_balance': 'Balance Inicial', 'current_balance': 'Balance Actual',
+                'total_pnl': 'P&L', 'total_trades': 'Trades', 'winning_trades': 'Ganados',
+                'max_drawdown': 'Max DD', 'started_at': 'Inicio',
+            }),
+            use_container_width=True, hide_index=True,
+        )
+    else:
+        st.info('No hay sesiones de Polymarket registradas.')
+
+    st.markdown('---')
+
+    # ── Sección 2: Posiciones de Predicción ─────────────────────
+    st.markdown('### 🎯 Posiciones de Predicción (POLY_SESSION)')
+
+    if not poly_positions_df.empty:
+        open_poly  = poly_positions_df[poly_positions_df['status'] == 'OPEN']
+        closed_poly = poly_positions_df[poly_positions_df['status'] == 'CLOSED']
+
+        # KPIs cerradas
+        if not closed_poly.empty:
+            pnl_series = closed_poly['pnl'].astype(float)
+            gross_gains   = pnl_series[pnl_series > 0].sum()
+            gross_losses  = abs(pnl_series[pnl_series <= 0].sum())
+            pf_closed     = (gross_gains / gross_losses) if gross_losses > 0 else float('inf')
+            wr_closed     = (len(pnl_series[pnl_series > 0]) / len(pnl_series) * 100)
+
+            c1, c2, c3, c4 = st.columns(4)
+            c1.metric('🔒 Cerradas', len(closed_poly))
+            c2.metric('🔓 Abiertas', len(open_poly))
+            c3.metric('🎯 Win Rate', f'{wr_closed:.1f}%')
+            c4.metric('📊 Profit Factor', f'{pf_closed:.2f}' if pf_closed != float('inf') else '∞')
+
+        # Posiciones abiertas
+        if not open_poly.empty:
+            st.markdown(f'##### 🔓 Abiertas ({len(open_poly)})')
+            open_disp = open_poly[['question', 'side', 'entry_price', 'shares',
+                                   'cost_basis', 'session_name', 'timestamp_open']].copy()
+            open_disp['entry_price'] = open_disp['entry_price'].apply(lambda x: f'{float(x):.3f}')
+            open_disp['cost_basis']  = open_disp['cost_basis'].apply(lambda x: f'${float(x):.2f}')
+            open_disp.columns = ['Mercado', 'Lado', 'Entrada', 'Shares', 'Costo', 'Sesión', 'Abierto']
+            st.dataframe(open_disp, use_container_width=True, hide_index=True)
+
+        # Posiciones cerradas
+        if not closed_poly.empty:
+            st.markdown(f'##### 🔒 Cerradas ({len(closed_poly)})')
+
+            # P&L por close_reason
+            col_a, col_b = st.columns(2)
+            with col_a:
+                reason_counts = closed_poly['close_reason'].value_counts()
+                colors_map = {
+                    'RESOLVED_WIN': '#4CAF50', 'RESOLVED_LOSS': '#f44336',
+                    'EXPIRED': '#FF9800', 'MANUAL': '#9E9E9E',
+                }
+                fig_pr = go.Figure(go.Pie(
+                    labels=reason_counts.index, values=reason_counts.values,
+                    marker=dict(colors=[colors_map.get(r, '#999') for r in reason_counts.index]),
+                    hole=0.4,
+                ))
+                fig_pr.update_layout(height=260, margin=dict(l=0, r=0, t=20, b=0),
+                                     title_text='Motivo de cierre')
+                st.plotly_chart(fig_pr, use_container_width=True)
+
+            with col_b:
+                # P&L acumulado por día
+                cd = closed_poly.copy()
+                cd['fecha'] = pd.to_datetime(cd['timestamp_close']).dt.date
+                daily_pnl = cd.groupby('fecha')['pnl'].sum().reset_index()
+                daily_pnl['pnl'] = daily_pnl['pnl'].astype(float)
+                fig_dpnl = go.Figure(go.Bar(
+                    x=daily_pnl['fecha'], y=daily_pnl['pnl'],
+                    marker_color=['#4CAF50' if v >= 0 else '#f44336' for v in daily_pnl['pnl']],
+                    text=daily_pnl['pnl'].apply(lambda x: f'${x:+.2f}'),
+                    textposition='outside',
+                ))
+                fig_dpnl.update_layout(height=260, margin=dict(l=0, r=0, t=20, b=0),
+                                       title_text='P&L por día', yaxis_title='USD')
+                st.plotly_chart(fig_dpnl, use_container_width=True)
+
+            # Tabla
+            closed_disp = closed_poly[['question', 'side', 'entry_price',
+                                       'pnl', 'pnl_pct', 'close_reason',
+                                       'session_name', 'timestamp_close']].copy()
+            closed_disp['entry_price'] = closed_disp['entry_price'].apply(lambda x: f'{float(x):.3f}')
+            closed_disp['pnl']     = closed_disp['pnl'].apply(lambda x: f'${float(x):+.2f}')
+            closed_disp['pnl_pct'] = closed_disp['pnl_pct'].apply(lambda x: f'{float(x):+.1f}%')
+            closed_disp.columns = ['Mercado', 'Lado', 'Entrada', 'P&L', 'P&L %',
+                                   'Cierre', 'Sesión', 'Cerrado']
+            st.dataframe(closed_disp, use_container_width=True, hide_index=True)
+    else:
+        st.info('No hay posiciones de Polymarket registradas.')
+
+    st.markdown('---')
+
+    # ── Sección 3: BTC Direction ─────────────────────────────────
+    st.markdown('### ₿ BTC Direction — Multi-Timeframe')
+
+    if not btcd_df.empty:
+        btcd_open   = btcd_df[btcd_df['status'] == 'OPEN']
+        btcd_closed = btcd_df[btcd_df['status'] == 'CLOSED']
+
+        # KPIs
+        pnl_btcd   = btcd_closed['pnl_usdc'].astype(float).sum() if not btcd_closed.empty else 0.0
+        wins_btcd  = int((btcd_closed['pnl_usdc'].astype(float) > 0).sum()) if not btcd_closed.empty else 0
+        total_btcd = len(btcd_closed)
+        wr_btcd    = (wins_btcd / total_btcd * 100) if total_btcd > 0 else 0.0
+
+        # Calcular balance actual
+        init_btcd = 500.0  # initial_paper_balance del config
+        locked    = btcd_open['cost_usdc'].astype(float).sum() if not btcd_open.empty else 0.0
+        bal_btcd  = init_btcd + pnl_btcd - locked
+
+        c1, c2, c3, c4, c5 = st.columns(5)
+        c1.metric('💰 Balance', f'${bal_btcd:,.2f}', delta=f'{bal_btcd - init_btcd:+,.2f}')
+        c2.metric('📈 P&L Total', f'${pnl_btcd:+,.2f}')
+        c3.metric('🎯 Win Rate', f'{wr_btcd:.1f}%')
+        c4.metric('🔓 Abiertas', len(btcd_open))
+        c5.metric('🔒 Cerradas', total_btcd)
+
+        # P&L por timeframe
+        if not btcd_closed.empty and 'timeframe' in btcd_closed.columns:
+            tf_avail = btcd_closed['timeframe'].dropna()
+            if not tf_avail.empty:
+                st.markdown('##### P&L por Timeframe')
+                pnl_tf = btcd_closed.groupby('timeframe').agg(
+                    trades=('pnl_usdc', 'count'),
+                    pnl=('pnl_usdc', lambda x: float(x.astype(float).sum())),
+                    wins=('pnl_usdc', lambda x: int((x.astype(float) > 0).sum())),
+                ).reset_index()
+                pnl_tf['win_rate'] = (pnl_tf['wins'] / pnl_tf['trades'] * 100).round(1)
+
+                fig_tf = go.Figure(go.Bar(
+                    x=pnl_tf['timeframe'], y=pnl_tf['pnl'],
+                    marker_color=['#4CAF50' if v >= 0 else '#f44336' for v in pnl_tf['pnl']],
+                    text=pnl_tf['pnl'].apply(lambda x: f'${x:+.2f}'),
+                    textposition='outside',
+                ))
+                fig_tf.update_layout(height=250, margin=dict(l=0, r=0, t=10, b=0),
+                                     yaxis_title='P&L (USDC)')
+                st.plotly_chart(fig_tf, use_container_width=True)
+
+        # Posiciones abiertas
+        if not btcd_open.empty:
+            st.markdown(f'##### 🔓 Abiertas ({len(btcd_open)})')
+            open_btcd = btcd_open[['timeframe', 'direction', 'market_slug',
+                                   'entry_price', 'shares', 'cost_usdc',
+                                   'btc_5m_pct', 'confidence', 'timestamp_open']].copy()
+            open_btcd['entry_price'] = open_btcd['entry_price'].apply(lambda x: f'{float(x):.3f}')
+            open_btcd['cost_usdc']   = open_btcd['cost_usdc'].apply(lambda x: f'${float(x):.2f}')
+            open_btcd['btc_5m_pct']  = open_btcd['btc_5m_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
+            open_btcd['confidence']  = open_btcd['confidence'].apply(lambda x: f'{float(x):.2f}' if pd.notna(x) else '—')
+            open_btcd.columns = ['TF', 'Dir', 'Slug', 'Entrada', 'Shares',
+                                 'Costo', 'BTC 5m %', 'Conf', 'Abierto']
+            st.dataframe(open_btcd, use_container_width=True, hide_index=True)
+
+        # Historial
+        st.markdown(f'##### 🔒 Historial ({total_btcd})')
+        if not btcd_closed.empty:
+            hist_btcd = btcd_closed[['timeframe', 'direction', 'outcome', 'market_slug',
+                                     'entry_price', 'pnl_usdc',
+                                     'btc_5m_pct', 'timestamp_open', 'timestamp_close']].copy()
+            hist_btcd['entry_price'] = hist_btcd['entry_price'].apply(lambda x: f'{float(x):.3f}')
+            hist_btcd['pnl_usdc']    = hist_btcd['pnl_usdc'].apply(lambda x: f'${float(x):+.2f}' if pd.notna(x) else '—')
+            hist_btcd['btc_5m_pct']  = hist_btcd['btc_5m_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
+            hist_btcd.columns = ['TF', 'Dirección', 'Outcome', 'Slug', 'Entrada',
+                                 'P&L', 'BTC 5m %', 'Abierto', 'Cerrado']
+            st.dataframe(hist_btcd, use_container_width=True, hide_index=True)
+        else:
+            st.info('Sin trades cerrados de BTC Direction aún.')
+    else:
+        st.info('BTC Direction aún no ha ejecutado trades. El agente está corriendo y esperando señal.')
+        st.caption('ℹ️ El agente evalúa mercados 5m/15m/4H/1H/Daily cada 30s. '
+                   'Solo entra cuando BTC momentum > 0.15% y el precio Polymarket no lo tiene descontado.')
+
+
+# ══════════════════════════════════════════════════════════════════
+# TAB 7 — PANEL EDUCATIVO
+# ══════════════════════════════════════════════════════════════════
+with tab7:
     st.subheader('📚 Centro de Aprendizaje')
     st.markdown('Aquí puedes aprender los conceptos clave del trading algorítmico '
                 'mientras ves cómo el sistema los aplica en tiempo real.')

@@ -46,8 +46,17 @@ CREATE TABLE IF NOT EXISTS btc_direction_trades (
     timestamp_close TIMESTAMPTZ
 )"""
 
+# Columnas añadidas en v2 (multi-timeframe); se agregan si no existen
+_ALTER_ADD_TIMEFRAME = """\
+ALTER TABLE btc_direction_trades
+    ADD COLUMN IF NOT EXISTS timeframe VARCHAR(8),
+    ADD COLUMN IF NOT EXISTS end_ts    BIGINT,
+    ADD COLUMN IF NOT EXISTS asset     VARCHAR(10) DEFAULT 'BTC';
+ALTER TABLE btc_direction_trades ALTER COLUMN outcome TYPE VARCHAR(8)"""
+
 _CREATE_IDX_SLOT   = "CREATE INDEX IF NOT EXISTS idx_btc_dir_slot   ON btc_direction_trades(slot_ts)"
 _CREATE_IDX_STATUS = "CREATE INDEX IF NOT EXISTS idx_btc_dir_status ON btc_direction_trades(status)"
+_CREATE_IDX_CID    = "CREATE UNIQUE INDEX IF NOT EXISTS idx_btc_dir_cid ON btc_direction_trades(condition_id)"
 
 
 def _db_url() -> str:
@@ -78,8 +87,10 @@ class BtcDirectionExecutor:
     def _ensure_table(self):
         with self.engine.begin() as conn:
             conn.execute(text(_CREATE_TABLE_SQL))
+            conn.execute(text(_ALTER_ADD_TIMEFRAME))
             conn.execute(text(_CREATE_IDX_SLOT))
             conn.execute(text(_CREATE_IDX_STATUS))
+            conn.execute(text(_CREATE_IDX_CID))
 
     def _compute_balance(self) -> float:
         """
@@ -111,8 +122,17 @@ class BtcDirectionExecutor:
 
     # ── Checks de idempotencia y límites ─────────────────────────────────────
 
+    def already_traded(self, condition_id: str) -> bool:
+        """True si ya hay una posición (OPEN o CLOSED) para este condition_id."""
+        with self.engine.connect() as conn:
+            row = conn.execute(
+                text("SELECT 1 FROM btc_direction_trades WHERE condition_id = :cid LIMIT 1"),
+                {'cid': condition_id},
+            ).fetchone()
+        return row is not None
+
     def already_traded_slot(self, slot_ts: int) -> bool:
-        """True si ya hay una posición (OPEN o CLOSED) en este slot."""
+        """Compatibilidad hacia atrás: idempotencia por slot_ts."""
         with self.engine.connect() as conn:
             row = conn.execute(
                 text("SELECT 1 FROM btc_direction_trades WHERE slot_ts = :s LIMIT 1"),
@@ -146,9 +166,12 @@ class BtcDirectionExecutor:
         if not direction:
             return {'executed': False, 'reason': 'NO_SIGNAL'}
 
-        slot_ts = market['slot_ts']
+        slot_ts      = market['slot_ts']
+        condition_id = market['condition_id']
+        timeframe    = market.get('timeframe', '15m')
+        end_ts       = market.get('end_ts', slot_ts + market.get('slot_secs', 900))
 
-        if self.already_traded_slot(slot_ts):
+        if self.already_traded(condition_id):
             return {'executed': False, 'reason': 'ALREADY_TRADED_SLOT'}
 
         if self.count_open_positions() >= self.max_open:
@@ -175,16 +198,18 @@ class BtcDirectionExecutor:
                 INSERT INTO btc_direction_trades
                     (id, slot_ts, market_slug, condition_id, direction,
                      token_id, entry_price, shares, cost_usdc,
-                     btc_5m_pct, signal_reason, confidence, paper_trade, timestamp_open)
+                     btc_5m_pct, signal_reason, confidence,
+                     timeframe, end_ts, asset, paper_trade, timestamp_open)
                 VALUES
                     (:id, :slot_ts, :slug, :cid, :dir,
                      :token_id, :entry_price, :shares, :cost,
-                     :btc_5m_pct, :reason, :conf, TRUE, NOW())
+                     :btc_5m_pct, :reason, :conf,
+                     :timeframe, :end_ts, :asset, TRUE, NOW())
             """), {
                 'id':          trade_id,
                 'slot_ts':     slot_ts,
                 'slug':        market['slug'],
-                'cid':         market['condition_id'],
+                'cid':         condition_id,
                 'dir':         direction,
                 'token_id':    signal['token_id'],
                 'entry_price': entry_price,
@@ -193,6 +218,9 @@ class BtcDirectionExecutor:
                 'btc_5m_pct':  signal.get('btc_5m_pct', 0.0),
                 'reason':      signal.get('reasoning', ''),
                 'conf':        signal.get('confidence', 0.0),
+                'timeframe':   timeframe,
+                'end_ts':      end_ts,
+                'asset':       market.get('asset', 'BTC'),
             })
 
         self._paper_balance -= cost
@@ -228,29 +256,41 @@ class BtcDirectionExecutor:
 
         with self.engine.connect() as conn:
             rows = conn.execute(text(
-                "SELECT id, slot_ts, condition_id, direction, shares, cost_usdc "
+                "SELECT id, slot_ts, condition_id, direction, shares, cost_usdc, "
+                "timeframe, end_ts "
                 "FROM btc_direction_trades WHERE status = 'OPEN'"
             )).fetchall()
 
         now = time.time()
         for row in rows:
-            trade    = dict(row._mapping)
-            slot_end = trade['slot_ts'] + 900
+            trade = dict(row._mapping)
+            # end_ts persiste desde v2; para filas antiguas usar slot_ts + 900
+            end_ts   = int(trade.get('end_ts') or trade['slot_ts'] + 900)
             # Esperar al menos 30s después del cierre del slot antes de consultar
-            if now < slot_end + 30:
+            if now < end_ts + 30:
                 continue
 
             outcome = feed.get_market_outcome(trade['condition_id'])
             if outcome is None:
-                continue  # Aún no resuelto o error temporal
+                # Deadband: si lleva más de 2h expirado y la API no responde
+                # (mercados 5m se purgan rápido de Gamma API), forzar cierre
+                if now > end_ts + 7200:
+                    outcome = 'EXP'
+                else:
+                    continue  # Aún no resuelto o error temporal
 
             direction = trade['direction']
             shares    = float(trade['shares'])
             cost      = float(trade['cost_usdc'])
             won       = (direction == outcome)
 
-            # P&L paper: ganó → recibe $1 por share  |  perdió → pierde el costo
-            pnl = round(shares * 1.0 - cost, 4) if won else round(-cost, 4)
+            # P&L paper: ganó → $1/share | perdió → -costo | EXP → devolver costo (push)
+            if outcome == 'EXP':
+                pnl = 0.0
+            elif won:
+                pnl = round(shares * 1.0 - cost, 4)
+            else:
+                pnl = round(-cost, 4)
 
             with self.engine.begin() as conn:
                 conn.execute(text("""
@@ -263,10 +303,11 @@ class BtcDirectionExecutor:
             # Liberar capital bloqueado y sumar P&L
             self._paper_balance += cost + pnl
 
+            tf   = trade.get('timeframe') or '15m'
             icon = '✓ WON' if won else '✗ LOST'
             logger.info(
-                f'EXECUTOR: CLOSED [{icon}] {direction}→{outcome} '
-                f'slug=btc-updown-15m-{trade["slot_ts"]} '
+                f'EXECUTOR: CLOSED [{icon}] {tf.upper()} {direction}→{outcome} '
+                f'slug={trade["market_slug"]} '
                 f'P&L=${pnl:+.2f} balance=${self._paper_balance:.2f}'
             )
 

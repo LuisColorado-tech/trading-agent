@@ -1,8 +1,11 @@
 """
-run_btc_direction.py — Loop principal del agente BTC Direction 15m.
+run_btc_direction.py — Loop principal del agente BTC Direction (multi-timeframe).
 
-Detecta automáticamente el mercado activo de cada slot de 15 minutos,
-aplica señal combinada (momentum BTC + edge Polymarket) y ejecuta en paper.
+Detecta automáticamente mercados activos BTC Up/Down en todos los timeframes:
+  5m, 15m, 4H  → slug determinístico (sin paginación)
+  1H, Daily    → scan paginado con cache de 5 minutos
+
+Aplica señal de momentum BTC a cada mercado disponible y ejecuta en paper.
 
 Uso:
     python3 /opt/trading/btc_direction/run_btc_direction.py
@@ -45,7 +48,7 @@ with open(_CFG_PATH) as _f:
 
 # ── Importar módulos del agente ───────────────────────────────────────────────
 
-from btc_direction_feed     import BtcDirectionFeed
+from btc_multifeed          import BtcMultiFeed
 from btc_direction_strategy import BtcDirectionStrategy
 from btc_direction_executor import BtcDirectionExecutor
 
@@ -54,27 +57,24 @@ LOOP_INTERVAL_SECS = 30
 
 def run():
     logger.info('═' * 64)
-    logger.info('BTC DIRECTION 15m — AGENTE INICIANDO')
+    logger.info('BTC DIRECTION MULTI-TF — AGENTE INICIANDO')
     logger.info(f'Config:        {_CFG_PATH}')
     logger.info(f'Paper mode:    {_CFG.get("paper_trading", True)}')
     logger.info(f'Balance init:  ${_CFG.get("initial_paper_balance", 500.0):.2f} USDC')
     logger.info(f'Max trade:     ${_CFG.get("risk", {}).get("max_trade_usdc", 20.0):.2f} USDC')
+    logger.info(f'Timeframes:    5m · 15m · 4H (determinístico) + 1H · Daily (scan)')
     logger.info('═' * 64)
 
-    feed     = BtcDirectionFeed(_CFG)
+    feed     = BtcMultiFeed(_CFG)
     strategy = BtcDirectionStrategy(_CFG)
     executor = BtcDirectionExecutor(_CFG)
 
     logger.info(f'Balance actual (desde DB): ${executor.paper_balance:.2f} USDC')
 
-    cycle           = 0
-    last_slot_ts    = 0  # slot que ya logueamos
+    cycle = 0
 
     while True:
         cycle += 1
-        now     = time.time()
-        slot_ts = int(now) // 900 * 900
-        slot_dt = datetime.fromtimestamp(slot_ts, tz=timezone.utc)
 
         try:
             # ── 1. Cerrar posiciones de slots ya expirados ────────────────
@@ -86,56 +86,52 @@ def run():
                     f'P&L=${c["pnl"]:+.2f} USDC'
                 )
 
-            # ── 2. Obtener mercado activo del slot actual ─────────────────
-            market = feed.get_current_market()
-            if market is None:
-                if slot_ts != last_slot_ts:
-                    logger.info(
-                        f'[Ciclo {cycle}] Slot {slot_dt.strftime("%m/%d %H:%M")} UTC — '
-                        'mercado no disponible (fuera de ventana de entrada)'
+            # ── 2. Obtener todos los mercados activos (multi-TF) ──────────
+            markets = feed.scan()
+            if not markets:
+                logger.debug(
+                    f'[Ciclo {cycle}] Ningún mercado activo '
+                    f'(próximo scan en {LOOP_INTERVAL_SECS}s)'
+                )
+                time.sleep(LOOP_INTERVAL_SECS)
+                continue
+
+            # ── 3. Procesar cada mercado disponible ───────────────────────
+            for market in markets:
+                tf  = market['timeframe']
+                cid = market['condition_id']
+
+                # Idempotencia: ¿ya operamos este mercado?
+                if executor.already_traded(cid):
+                    logger.debug(f'  {tf.upper()} {market["slug"][:40]} → ya operado')
+                    continue
+
+                # Evaluar señal para este mercado
+                signal = strategy.evaluate(market)
+                if signal['direction'] is None:
+                    logger.debug(
+                        f'  {tf.upper()} No signal → {signal.get("reasoning", "")}'
                     )
-                    last_slot_ts = slot_ts
-                time.sleep(LOOP_INTERVAL_SECS)
-                continue
+                    continue
 
-            # ── 3. Log de apertura del slot (solo una vez por slot) ───────
-            if slot_ts != last_slot_ts:
-                logger.info(
-                    f'[Slot {slot_dt.strftime("%m/%d %H:%M")} UTC] '
-                    f'slug={market["slug"]} | '
-                    f'Up={market["price_up"]:.3f}  Down={market["price_down"]:.3f} | '
-                    f'remaining={market["seconds_remaining"]:.0f}s | '
-                    f'balance=${executor.paper_balance:.2f}'
-                )
-                last_slot_ts = slot_ts
+                # Ejecutar paper trade
+                result = executor.execute(signal, market)
 
-            # ── 4. Idempotencia: ¿ya operamos este slot? ──────────────────
-            if executor.already_traded_slot(slot_ts):
-                time.sleep(LOOP_INTERVAL_SECS)
-                continue
+                if result['executed']:
+                    asset = market.get('asset', 'BTC')
+                    logger.info(
+                        f'  ▶ TRADE [{asset} {tf.upper()}] {signal["direction"]} | '
+                        f'shares={result["shares"]:.2f} @ {result["entry_price"]:.3f} '
+                        f'= ${result["cost_usdc"]:.2f} USDC | '
+                        f'edge={signal["edge"]:.3f} conf={signal["confidence"]:.2f} | '
+                        f'slug={market["slug"]}'
+                    )
+                else:
+                    reason = result.get('reason', '')
+                    if reason not in ('ALREADY_TRADED_SLOT', 'MAX_OPEN_POSITIONS'):
+                        logger.debug(f'  {tf.upper()} No ejecutado: {reason}')
 
-            # ── 5. Evaluar señal ──────────────────────────────────────────
-            signal = strategy.evaluate(market)
-            if signal['direction'] is None:
-                logger.debug(f'  No signal → {signal["reasoning"]}')
-                time.sleep(LOOP_INTERVAL_SECS)
-                continue
-
-            # ── 6. Ejecutar trade ─────────────────────────────────────────
-            result = executor.execute(signal, market)
-
-            if result['executed']:
-                logger.info(
-                    f'  ▶ TRADE {signal["direction"]} | '
-                    f'shares={result["shares"]:.2f} @ {result["entry_price"]:.3f} = '
-                    f'${result["cost_usdc"]:.2f} USDC | '
-                    f'BTC_5m={signal["btc_5m_pct"]:+.3f}% edge={signal["edge"]:.3f} '
-                    f'conf={signal["confidence"]:.2f}'
-                )
-            else:
-                logger.debug(f'  No ejecutado: {result.get("reason")}')
-
-            # ── 7. Estadísticas periódicas (cada 20 ciclos) ───────────────
+            # ── 4. Estadísticas periódicas (cada 20 ciclos) ───────────────
             if cycle % 20 == 0:
                 _log_stats(executor)
 

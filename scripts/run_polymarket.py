@@ -36,7 +36,7 @@ from core.notifications import send_telegram
 from core.poly_session_manager import PolySessionManager
 from data.polymarket_feed import PolymarketFeed
 from risk.poly_risk import PolyRiskManager
-from strategies.prediction import PredictionStrategy
+from strategies.signal_based_poly import SignalBasedPolyStrategy
 
 SCAN_INTERVAL = _CFG.get('scan_interval_seconds', 300)
 INITIAL_BALANCE = _CFG.get('initial_paper_balance', 1000.0)
@@ -145,7 +145,7 @@ def main():
         return
 
     feed = PolymarketFeed()
-    strategy = PredictionStrategy()
+    strategy = SignalBasedPolyStrategy()
     risk = PolyRiskManager()
     executor = PolyExecutor()
     monitor = PolyMonitor(feed)
@@ -201,8 +201,41 @@ def main():
             open_positions = get_open_positions(session_name)
             already_traded = get_traded_condition_ids(session_name)
 
-            # Limitar a top 15 por volumen para no saturar LLM
-            db_markets = feed.get_active_markets_from_db()[:15]
+            # Obtener régimen de mercado actual para informar las señales crypto
+            market_regime = 'UNKNOWN'
+            try:
+                from sqlalchemy import text as _text
+                with _engine.connect() as _conn:
+                    # Intentar market_snapshots primero (si existe)
+                    try:
+                        _row = _conn.execute(_text(
+                            "SELECT regime FROM market_snapshots ORDER BY timestamp DESC LIMIT 1"
+                        )).fetchone()
+                        if _row:
+                            market_regime = str(_row[0])
+                    except Exception:
+                        # Fallback: inferir régimen desde señales BTC recientes
+                        _rows = _conn.execute(_text("""
+                            SELECT direction FROM signals
+                            WHERE asset = 'BTC'
+                              AND timestamp > now() - interval '30 minutes'
+                            ORDER BY timestamp DESC LIMIT 6
+                        """)).fetchall()
+                        if _rows:
+                            _dirs = [r[0] for r in _rows]
+                            _buys = _dirs.count('BUY')
+                            _sells = _dirs.count('SELL')
+                            if _buys >= 4:
+                                market_regime = 'TREND_UP'
+                            elif _sells >= 4:
+                                market_regime = 'TREND_DOWN'
+                            else:
+                                market_regime = 'RANGE'
+            except Exception:
+                pass  # regime opcional, no bloquear
+
+            # Limitar a top 20 mercados por volumen (sin LLM, el scan es rápido)
+            db_markets = feed.get_active_markets_from_db()[:20]
             evaluated = 0
             executed = 0
 
@@ -212,7 +245,7 @@ def main():
                     continue
 
                 try:
-                    opportunity = strategy.evaluate(market)
+                    opportunity = strategy.evaluate(market, market_regime=market_regime)
                 except Exception as e:
                     logger.debug(f'Strategy eval error: {e}')
                     continue
@@ -227,12 +260,15 @@ def main():
                     'side': opportunity['side'],
                     'edge': opportunity['edge'],
                     'entry_price': opportunity['entry_price'],
-                    'estimated_prob': opportunity['estimated_prob'],
-                    'confidence': opportunity['confidence'],
+                    'estimated_prob': opportunity.get('estimated_prob', 0.5),
+                    'confidence': opportunity.get('confidence', 80),
                     'market': market,
-                    'strategy': opportunity.get('strategy', 'PREDICTION_LLM'),
+                    'strategy': opportunity.get('strategy', SignalBasedPolyStrategy.NAME),
                     'reasoning': opportunity.get('reasoning', ''),
-                    'key_factors': opportunity.get('key_factors', []),
+                    'btc_direction': opportunity.get('btc_direction', ''),
+                    'btc_momentum_pct': opportunity.get('btc_momentum_pct', 0.0),
+                    'market_regime': opportunity.get('market_regime', ''),
+                    'event_type': opportunity.get('event_type', ''),
                 }
 
                 risk_decision = risk.evaluate(signal, balance, open_positions)

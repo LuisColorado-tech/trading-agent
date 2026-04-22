@@ -15,10 +15,11 @@ from loguru import logger
 with open('/opt/trading/config/exchange_config.yaml') as f:
     _CFG = yaml.safe_load(f).get('polymarket', {}).get('risk', {})
 
-MAX_POSITION_PCT = _CFG.get('max_position_pct', 5.0) / 100.0
+MAX_POSITION_PCT = _CFG.get('max_position_pct', 4.0) / 100.0
 MAX_TOTAL_EXPOSURE_PCT = _CFG.get('max_total_exposure_pct', 40.0) / 100.0
-MAX_CONCURRENT = _CFG.get('max_concurrent_positions', 10)
+MAX_CONCURRENT = _CFG.get('max_concurrent_positions', 5)
 KELLY_FRACTION = _CFG.get('kelly_fraction', 0.25)
+MIN_EDGE = _CFG.get('min_edge_pct', 10.0) / 100.0
 
 
 class PolyRiskDecision:
@@ -49,6 +50,11 @@ class PolyRiskManager:
         Returns:
             PolyRiskDecision
         """
+        # R0: Edge mínimo (señal técnica sin LLM — confianza siempre 80)
+        edge = signal.get('edge', 0)
+        if edge < MIN_EDGE:
+            return PolyRiskDecision(False, reason=f'LOW_EDGE:{edge:.3f}<{MIN_EDGE:.2f}')
+
         # R1: Balance mínimo
         if balance < 10.0:
             return PolyRiskDecision(False, reason='INSUFFICIENT_BALANCE')
@@ -69,12 +75,10 @@ class PolyRiskManager:
         if total_exposure >= max_exposure:
             return PolyRiskDecision(False, reason=f'MAX_EXPOSURE:{total_exposure:.0f}/{max_exposure:.0f}')
 
-        # R5: Sizing via Kelly Criterion
-        edge = signal.get('edge', 0)
+        # R5: Sizing via Kelly Criterion (confianza fija 1.0 — señal determinista)
         entry_price = signal.get('entry_price', 0.5)
-        confidence = signal.get('confidence', 50) / 100.0
 
-        shares, cost = self._kelly_size(edge, entry_price, balance, confidence)
+        shares, cost = self._kelly_size(edge, entry_price, balance)
 
         if cost < 1.0:
             return PolyRiskDecision(False, reason=f'KELLY_TOO_SMALL: cost=${cost:.2f}')
@@ -101,14 +105,16 @@ class PolyRiskManager:
         )
         return PolyRiskDecision(True, shares=shares, cost=cost, reason='APPROVED')
 
-    def _kelly_size(self, edge: float, entry_price: float, balance: float, confidence: float) -> tuple[float, float]:
+    def _kelly_size(self, edge: float, entry_price: float, balance: float) -> tuple[float, float]:
         """Calcula tamaño de posición usando Kelly Criterion fraccionado.
 
         Kelly = (p*b - q) / b
         donde:
-            p = probabilidad estimada de ganar
+            p = probabilidad estimada de ganar (entry_price + edge)
             q = 1 - p
             b = odds (payout / costo) = (1 - entry_price) / entry_price
+
+        La señal es determinista (no LLM), confianza = 1.0.
 
         Returns:
             (shares, cost_in_usdc)
@@ -116,11 +122,7 @@ class PolyRiskManager:
         if entry_price <= 0.01 or entry_price >= 0.99:
             return 0, 0
 
-        # Probabilidad estimada ajustada por confianza
-        # Si confidence baja, acercar estimación al precio de mercado
-        p = entry_price + edge  # prob estimada
-        p = entry_price + (p - entry_price) * confidence  # ajustar por confianza
-        p = max(0.01, min(0.99, p))
+        p = max(0.01, min(0.99, entry_price + edge))
         q = 1 - p
 
         # Odds: cuánto ganas por $ arriesgado

@@ -25,10 +25,17 @@ with open('/opt/trading/config/exchange_config.yaml') as f:
     _CFG = yaml.safe_load(f).get('polymarket', {})
 
 _FILTERS = _CFG.get('market_filters', {})
-MIN_VOLUME = _FILTERS.get('min_volume', 10000)
+MIN_VOLUME = _FILTERS.get('min_volume', 20000)
 MIN_LIQUIDITY = _FILTERS.get('min_liquidity', 5000)
-MAX_END_DAYS = _FILTERS.get('max_end_days', 90)
+MAX_END_DAYS = _FILTERS.get('max_end_days', 30)
 MIN_END_HOURS = _FILTERS.get('min_end_hours', 2)
+MIN_PRICE_YES = _FILTERS.get('min_price_yes', 0.20)
+MAX_PRICE_YES = _FILTERS.get('max_price_yes', 0.80)
+
+_CATEGORIES_ALLOWED = set(c.lower() for c in _CFG.get('categories_allowed', ['crypto']))
+_QUESTION_KEYWORDS = [kw.lower() for kw in _CFG.get('question_keywords', [
+    'btc', 'bitcoin', 'eth', 'ethereum', 'crypto', 'cryptocurrency',
+])]
 
 GAMMA_API = 'https://gamma-api.polymarket.com'
 
@@ -152,8 +159,16 @@ class PolymarketFeed:
         price_yes = float(prices_raw[yes_idx])
         price_no = float(prices_raw[no_idx])
 
-        # Filtro: precios válidos (sin edge si ya decidido)
-        if price_yes <= 0.01 or price_yes >= 0.99:
+        # Filtro: precio en zona moderada (0.20–0.80)
+        # Fuera de este rango señales técnicas no tienen edge confiable.
+        if price_yes < MIN_PRICE_YES or price_yes > MAX_PRICE_YES:
+            return None
+
+        # Filtro: al menos una keyword crypto en la pregunta
+        # (La Gamma API devuelve category=None en la mayoría de mercados,
+        # así que filtramos por contenido de la pregunta directamente.)
+        question_lower = m.get('question', '').lower()
+        if not any(kw in question_lower for kw in _QUESTION_KEYWORDS):
             return None
 
         # Token IDs desde clobTokenIds (JSON string)
@@ -169,11 +184,13 @@ class PolymarketFeed:
         token_yes = token_ids_raw[yes_idx]
         token_no = token_ids_raw[no_idx]
 
+        category = (m.get('category', '') or '').lower()
+
         return {
             'condition_id': m.get('conditionId', ''),
             'question': m.get('question', ''),
             'description': m.get('description', '')[:500] if m.get('description') else '',
-            'category': m.get('category', '') or '',
+            'category': category,
             'end_date': end_date,
             'token_yes': token_yes,
             'token_no': token_no,
@@ -255,6 +272,13 @@ class PolymarketFeed:
                 price_yes = self.get_price(row['token_yes'])
                 price_no = self.get_price(row['token_no'])
                 if price_yes is None:
+                    # CLOB 404: mercado expirado sin orderbook → marcar inactivo
+                    with self.engine.connect() as conn:
+                        conn.execute(
+                            text("UPDATE poly_markets SET active = false WHERE id = :id"),
+                            {'id': row['id']},
+                        )
+                        conn.commit()
                     continue
                 # Resolved: price ≈ 1.0 or ≈ 0.0
                 if price_yes >= 0.95:
@@ -284,7 +308,7 @@ class PolymarketFeed:
         return resolved
 
     def get_active_markets_from_db(self) -> list[dict]:
-        """Carga mercados activos desde DB."""
+        """Carga mercados activos desde DB, filtrados por precio y keyword crypto."""
         with self.engine.connect() as conn:
             rows = conn.execute(
                 text('''
@@ -293,7 +317,20 @@ class PolymarketFeed:
                            volume, liquidity
                     FROM poly_markets
                     WHERE active = true
+                      AND price_yes BETWEEN :min_p AND :max_p
+                      AND end_date > now()
+                      AND (
+                          question ILIKE :kw1 OR question ILIKE :kw2
+                          OR question ILIKE :kw3 OR question ILIKE :kw4
+                          OR question ILIKE :kw5 OR question ILIKE :kw6
+                      )
                     ORDER BY volume DESC
-                ''')
+                '''),
+                {
+                    'min_p': MIN_PRICE_YES, 'max_p': MAX_PRICE_YES,
+                    'kw1': '%btc%', 'kw2': '%bitcoin%',
+                    'kw3': '%eth%', 'kw4': '%ethereum%',
+                    'kw5': '%crypto%', 'kw6': '%cryptocurrency%',
+                },
             ).fetchall()
         return [dict(r._mapping) for r in rows]
