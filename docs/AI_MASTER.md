@@ -252,3 +252,94 @@ ORDER BY timestamp_close DESC LIMIT 20;
 7. Para reiniciar tras cambios: systemctl restart <servicio>
 8. Siempre usar: /opt/trading/venv/bin/python3 (NUNCA python3 del sistema)
 ```
+
+---
+
+## 11. ⚡ ACTIVACIÓN LIVE TRADING — Instrucciones para IA
+
+> **LEER ESTO si Lucho dice que ya fondeó y quiere activar el trading real.**
+> Plan acordado: ~$300 USD iniciales en mitad de 2026. $220 → Kraken, $80 → Polymarket.
+
+### Prerequisitos — verificar ANTES de activar
+
+```bash
+# 1. Confirmar que hay 3 meses de paper con Profit Factor ≥ 1.5:
+cd /opt/trading && set -a && source config/.env && set +a
+venv/bin/python3 -c "
+from sqlalchemy import create_engine, text; import os
+e = create_engine(os.environ['DB_URL'])
+with e.connect() as c:
+    r = c.execute(text('''
+        SELECT session_name, total_trades, winning_trades,
+               ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr_pct,
+               final_balance - initial_balance as pnl
+        FROM paper_sessions WHERE status=\'CLOSED\' ORDER BY started_at DESC LIMIT 5
+    ''')).fetchall()
+    [print(row) for row in r]
+"
+
+# 2. Confirmar que las API keys de Kraken están en .env (no CHANGE_ME):
+grep 'KRAKEN_API_KEY' /opt/trading/config/.env
+```
+
+### Pasos de activación (en orden exacto)
+
+**Paso 1 — Agregar API keys de Kraken al .env:**
+```bash
+nano /opt/trading/config/.env
+# Cambiar:
+#   KRAKEN_API_KEY=CHANGE_ME  →  KRAKEN_API_KEY=<key real de Kraken>
+#   KRAKEN_SECRET=CHANGE_ME   →  KRAKEN_SECRET=<secret real de Kraken>
+```
+
+**Paso 2 — Activar live trading:**
+```bash
+# En /opt/trading/config/.env, cambiar:
+#   PAPER_TRADING=true  →  PAPER_TRADING=false
+#   ENVIRONMENT=development  →  ENVIRONMENT=production
+#   INITIAL_CAPITAL=220  (agregar esta línea — el balance real depositado en Kraken)
+```
+
+**Paso 3 — Verificar parámetros del RiskManager para $220:**
+```
+El RiskManager en /opt/trading/risk/risk_manager.py tiene estos parámetros inmutables:
+  MAX_RISK_PER_TRADE_PCT = 0.005   → 0.5% de $220 = $1.10 por trade (adecuado)
+  MAX_PORTFOLIO_EXPOSURE = 0.05    → 5% de $220 = $11 en posiciones abiertas (adecuado)
+  MAX_DRAWDOWN_STOP      = 0.10    → 10% de $220 = $22 de pérdida → parar todo
+  MAX_CONCURRENT_TRADES  = 3       → máximo 3 trades a la vez
+NO cambiar estos parámetros — están calibrados con backtest 2Y.
+```
+
+**Paso 4 — Reiniciar el agente principal:**
+```bash
+systemctl restart trading-agent
+sleep 5
+journalctl -u trading-agent -n 20 --no-pager
+# Confirmar que no dice PAPER MODE en los logs
+```
+
+**Paso 5 — Verificar primera orden:**
+```bash
+# El agente tomará la primera señal que aparezca (puede tardar minutos u horas)
+journalctl -u trading-agent -f
+# Buscar: "LIVE ORDER PLACED" o "Executing trade" sin "[PAPER]"
+```
+
+### Capital de Polymarket ($80)
+- Polymarket NO usa las API keys de Kraken — usa la wallet CLOB configurada en .env
+- Para activar: cambiar `PAPER_TRADING=false` ya lo activa también en Polymarket
+- Verificar saldo en la wallet antes de reiniciar polymarket-agent
+
+### ⚠️ Qué NO hacer
+- NO cambiar los parámetros del RiskManager — están calibrados
+- NO activar OKX ni Deribit todavía — capital insuficiente
+- NO subir `LLM_CALL_SAMPLE_RATE` por encima de 0.20 — el costo sube exponencialmente
+- NO borrar las paper_sessions — son el historial de validación del edge
+
+### Si algo sale mal
+```bash
+# Revertir a paper inmediatamente:
+sed -i 's/PAPER_TRADING=false/PAPER_TRADING=true/' /opt/trading/config/.env
+systemctl restart trading-agent
+# Notificar a Lucho por Telegram automáticamente via health_check
+```
