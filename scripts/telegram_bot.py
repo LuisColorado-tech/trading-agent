@@ -19,7 +19,11 @@ from dotenv import load_dotenv
 
 load_dotenv('/opt/trading/config/.env')
 
-_openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+_deepseek_key = os.getenv('DEEPSEEK_API_KEY') or os.getenv('OPENAI_API_KEY')
+_openai_client = OpenAI(
+    api_key=_deepseek_key,
+    base_url='https://api.deepseek.com',
+)
 
 # Historial de conversación por chat_id (máx. 20 turnos en memoria)
 _conversation_history: dict = {}
@@ -68,6 +72,9 @@ COMMAND_MAP = {
     '/polystatus': 'poly',
     '/polyreport': 'polyreport',
     '/help': 'help',
+    '/stocks': '__stocks_status__',
+    '/stocks_status': '__stocks_status__',
+    '/stocksstatus': '__stocks_status__',
     # Sin slash también
     'status': 'status',
     'portfolio': 'portfolio',
@@ -82,6 +89,8 @@ COMMAND_MAP = {
     'polystatus': 'poly',
     'polyreport': 'polyreport',
     'help': 'help',
+    'stocks': '__stocks_status__',
+    'stocks_status': '__stocks_status__',
 }
 
 
@@ -134,6 +143,27 @@ def run_arthas_command(command: str) -> str:
         return f'❌ Error ejecutando comando: {e}'
 
 
+def get_stocks_status() -> str:
+    """Devuelve el estado actual del stocks agent como texto formateado."""
+    try:
+        result = subprocess.run(
+            ['/opt/trading/venv/bin/python3', '/opt/trading/scripts/run_stocks.py', '--status'],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            cwd='/opt/trading',
+            env={**os.environ, 'PYTHONPATH': '/opt/trading'},
+        )
+        out = result.stdout.strip()
+        if not out:
+            out = result.stderr.strip()
+        return out or '(stocks agent sin respuesta)'
+    except subprocess.TimeoutExpired:
+        return '⏰ stocks --status excedió el tiempo'
+    except Exception as e:
+        return f'❌ Error consultando stocks: {e}'
+
+
 def chat_with_arthas(chat_id: int, user_text: str) -> str:
     """Envía el mensaje al LLM con historial conversacional y devuelve la respuesta de Arthas."""
     history = _conversation_history.setdefault(chat_id, [])
@@ -146,7 +176,7 @@ def chat_with_arthas(chat_id: int, user_text: str) -> str:
 
     try:
         response = _openai_client.chat.completions.create(
-            model='gpt-4o-mini',
+            model='deepseek-chat',
             messages=[{'role': 'system', 'content': ARTHAS_SYSTEM_PROMPT}] + history,
             max_tokens=800,
             temperature=0.7,
@@ -177,9 +207,12 @@ def process_message(message: dict):
     arthas_cmd = COMMAND_MAP.get(cmd_raw)
 
     if arthas_cmd is not None:
-        # Es un comando → ejecutar arthas_trading.py
+        # Es un comando → ejecutar arthas_trading.py o handler especial
         logger.info(f'Comando recibido: {cmd_raw} → {arthas_cmd}')
-        output = run_arthas_command(arthas_cmd)
+        if arthas_cmd == '__stocks_status__':
+            output = get_stocks_status()
+        else:
+            output = run_arthas_command(arthas_cmd)
         send_message(output, chat_id)
     else:
         # Es conversación libre → responder con LLM

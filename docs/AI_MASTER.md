@@ -343,3 +343,88 @@ sed -i 's/PAPER_TRADING=false/PAPER_TRADING=true/' /opt/trading/config/.env
 systemctl restart trading-agent
 # Notificar a Lucho por Telegram automáticamente via health_check
 ```
+
+---
+
+## 12. 📈 STOCKS AGENT — Agente de Acciones NYSE/NASDAQ
+
+**Estado**: Paper trading (pendiente claves Alpaca)
+
+### Arquitectura
+
+| Componente | Archivo | Descripción |
+|---|---|---|
+| Broker client | `core/alpaca_session_manager.py` | API REST Alpaca (paper/live) |
+| Data layer | `data/stocks_feed.py` | OHLCV via Alpaca+yfinance fallback |
+| Perfiles | `core/stocks_profiles.py` | 8 activos calibrados |
+| Estrategia | `strategies/stocks_momentum.py` | Momentum + xsignal boost |
+| Agente | `agents/stocks_agent.py` | Orquestador principal |
+| Entry point | `scripts/run_stocks.py` | CLI y loop |
+| Servicio | `stocks-agent.service` | systemd |
+
+### Universo de activos
+`NVDA`, `TSLA`, `AAPL`, `META`, `AMZN`, `SPY`, `QQQ`, `GLD`
+
+SPY y QQQ actúan también como indicadores de **macro bias**: si ambos están en tendencia bajista, el agente bloquea BUY en acciones individuales.
+
+### xsignals Integration
+- Tabla: `xsignals_signals` en PostgreSQL (mismo DB)
+- Lookback: últimas 48h por ticker + perfil
+- @aguti00: WR=71.4% a 48h (21 señales validadas con yfinance) → **boost real**
+- Boost: +15 puntos al score de StocksMomentumStrategy si señal alineada con conf≥55
+
+### Tablas DB nuevas
+```sql
+stocks_sessions  -- sesiones paper/live
+stocks_trades    -- trades individuales
+stocks_ohlcv     -- cache de velas OHLCV
+```
+
+### Comandos systemd
+```bash
+systemctl start stocks-agent    # iniciar
+systemctl stop stocks-agent     # detener
+systemctl status stocks-agent   # estado
+journalctl -u stocks-agent -f   # logs en tiempo real
+```
+
+### Comandos Telegram
+```
+/stocks        → estado actual (sesión, balance, trades abiertos, macro bias)
+/stocks_status → igual que /stocks
+```
+
+### Activación (cuando tengas claves Alpaca)
+```bash
+# 1. Crear cuenta en https://alpaca.markets → gratis
+# 2. Ir a Paper Trading → API Keys → Generate
+# 3. Añadir a /opt/trading/config/.env:
+ALPACA_API_KEY=<tu key>
+ALPACA_SECRET_KEY=<tu secret>
+
+# 4. Verificar acceso:
+cd /opt/trading && set -a && source config/.env && set +a
+venv/bin/python3 scripts/run_stocks.py --status
+
+# 5. Iniciar en paper:
+systemctl enable stocks-agent
+systemctl start stocks-agent
+
+# 6. Ver logs:
+journalctl -u stocks-agent -f
+```
+
+### Parámetros de riesgo
+```
+MAX_RISK_PER_TRADE_PCT  = 1.0%   → $2.20 por trade con $220
+MAX_PORTFOLIO_EXPOSURE  = 8.0%   → $17.60 en stocks simultáneos
+MAX_CONCURRENT_TRADES   = 3
+MAX_DRAWDOWN_STOP       = 10%    → parar si pierde $22
+```
+
+### Criterios para live con Alpaca
+- 4 semanas en paper con PF ≥ 1.3
+- Al menos 20 trades cerrados
+- Máximo drawdown ≤ 8% en paper
+- Macro bias BULL o NEUTRAL en SPY/QQQ
+

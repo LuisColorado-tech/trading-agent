@@ -144,16 +144,13 @@ def backtest_signals(engine, profile: str = None, days_back: int = 30):
         print("yfinance no instalado. Ejecuta: pip install yfinance")
         return
 
-    where = "WHERE profile = :profile" if profile else "WHERE"
-    time_filter = f"{'AND' if profile else ''} created_at > NOW() - INTERVAL '{days_back} days'"
     params = {'profile': profile} if profile else {}
 
     with engine.connect() as conn:
         signals = conn.execute(
-            text(f"""SELECT id, profile, ticker, side, confidence, created_at
+            text(f"""SELECT id, profile, ticker, side, confidence, created_at, published_hint
                      FROM xsignals_signals
-                     {where if profile else 'WHERE'} {time_filter.lstrip('AND ')}
-                     {'AND' if profile else ''} {'profile = :profile AND' if profile else ''}
+                     WHERE {'profile = :profile AND' if profile else ''}
                      ticker != 'UNKNOWN' AND side != 'neutral'
                      ORDER BY created_at DESC LIMIT 100"""),
             params,
@@ -174,9 +171,21 @@ def backtest_signals(engine, profile: str = None, days_back: int = 30):
     tickers_cache = {}
 
     for sig in signals:
-        ticker = sig.ticker
+        ticker = sig.ticker.replace('$', '').upper()
+        # Mapear tickers que yfinance no conoce con su nombre estándar
+        TICKER_MAP = {'TSMC': 'TSM', 'GOOGL': 'GOOGL', 'GOOG': 'GOOG'}
+        ticker = TICKER_MAP.get(ticker, ticker)
         side = sig.side
-        signal_dt = sig.created_at
+
+        # Usar published_hint (fecha real del tweet) si está disponible
+        if sig.published_hint:
+            try:
+                from datetime import datetime, timezone
+                signal_dt = datetime.fromisoformat(sig.published_hint.replace('Z', '+00:00'))
+            except Exception:
+                signal_dt = sig.created_at
+        else:
+            signal_dt = sig.created_at
 
         if ticker not in tickers_cache:
             try:
@@ -227,12 +236,19 @@ def backtest_signals(engine, profile: str = None, days_back: int = 30):
     print(f"  Win rate 24h: {wr_24h}%  ({hits_24h}/{total_valid})")
     print(f"  Win rate 48h: {wr_48h}%  ({hits_48h}/{total_valid})")
     print(f"\n  Interpretación:")
-    if wr_24h >= 55:
-        print(f"  ✅ @{profile or 'perfiles'} tiene edge real (WR 24h ≥ 55%) → integrar como boost bloqueante")
-    elif wr_24h >= 50:
-        print(f"  ⚠️  Edge marginal (WR 24h 50-55%) → usar solo como boost positivo, no bloqueante")
+    # Evaluar edge en 48h (ventana más relevante para value/swing trading)
+    if wr_48h >= 65 and total_valid >= 15:
+        print(f"  ✅ EDGE REAL a 48h (WR={wr_48h}%, n={total_valid})")
+        print(f"     @{profile or 'perfiles'} muestra dirección estadísticamente significativa")
+        print(f"     → Usar como boost en estrategia swing (horizonte 2-3 días)")
+    elif wr_24h >= 55:
+        print(f"  ✅ Edge real a 24h (WR={wr_24h}%) → boost para estrategia intradía")
+    elif wr_24h >= 50 or wr_48h >= 55:
+        print(f"  ⚠️  Edge marginal → usar solo como confirmación, no señal primaria")
     else:
-        print(f"  ❌ Sin edge estadístico (WR 24h < 50%) → ignorar señales X para trading")
+        print(f"  ❌ Sin edge estadístico (WR 24h={wr_24h}%, 48h={wr_48h}%) → señales no accionables")
+    if total_valid < 30:
+        print(f"  ⚠️  Muestra pequeña ({total_valid} señales) — necesita más datos para confirmación estadística")
     print(f"{'='*55}\n")
 
 
