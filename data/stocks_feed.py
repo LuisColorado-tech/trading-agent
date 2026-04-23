@@ -88,12 +88,15 @@ class StocksFeed:
         symbol = symbol.upper()
 
         # Intentar Alpaca
+        MIN_BARS = 50  # mínimo para calcular EMA50
         if self._alpaca_available:
             try:
                 df = self._fetch_alpaca(symbol, timeframe, n)
-                if not df.empty:
+                if len(df) >= MIN_BARS:
                     self._persist(symbol, timeframe, df)
                     return df.tail(n)
+                elif not df.empty:
+                    logger.debug(f"StocksFeed Alpaca insuficiente {symbol}/{timeframe}: {len(df)} barras → fallback yfinance")
             except Exception as e:
                 logger.warning(f"StocksFeed Alpaca error {symbol}/{timeframe}: {e} → fallback yfinance")
 
