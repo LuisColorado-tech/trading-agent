@@ -42,11 +42,24 @@ from core.notifications import send_telegram
 from core.stocks_profiles import get_stocks_profile, stocks_direction_allowed
 from data.stocks_feed import StocksFeed
 from strategies.stocks_momentum import StocksMomentumStrategy
+from strategies.stocks_trend_etf import StocksTrendEtfStrategy
 
 
 # ── Parámetros globales del agente ────────────────────────────────────────────
 
-STOCKS_UNIVERSE = ['NVDA', 'TSLA', 'AAPL', 'META', 'AMZN', 'SPY', 'QQQ', 'GLD']
+STOCKS_UNIVERSE = [
+    # Acciones individuales — solo TSLA (PF=1.23 backtest 2Y)
+    'TSLA',
+    # ETFs USA
+    'QQQ',   # PF=1.06 — TREND_ETF strategy
+    'GLD',   # PF=1.21 — TREND_ETF strategy, bull run oro 2024-26
+    # ETFs internacionales
+    'EEM',   # PF=1.23 — Emergentes
+    'FXI',   # PF=1.23 — China
+    'EWJ',   # PF=1.19 — Japón
+]
+# Eliminados por PF < 1.0 en backtest 2Y:
+# NVDA 0.96, AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91
 CYCLE_INTERVAL_SECONDS = 60 * 5     # evaluar cada 5 minutos
 MAX_CONCURRENT_TRADES = 3
 MAX_RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade
@@ -82,8 +95,13 @@ class StocksAgent:
         self.session = self.session_mgr.ensure_active_session(initial_balance)
         logger.info(f"Sesión activa: {self.session['session_name']} | balance={self.session['current_balance']}")
 
-        # Estrategia
-        self.strategy = StocksMomentumStrategy()
+        # Estrategias — una instancia por tipo, elegida por perfil
+        self._strategies = {
+            'MOMENTUM':  StocksMomentumStrategy(),
+            'TREND_ETF': StocksTrendEtfStrategy(),
+        }
+        # Mantener self.strategy apuntando al default para compatibilidad
+        self.strategy = self._strategies['MOMENTUM']
 
         mode = 'DRY_RUN' if dry_run else ('PAPER' if os.getenv('PAPER_TRADING', 'true').lower() == 'true' else 'LIVE')
         send_telegram(
@@ -170,17 +188,19 @@ class StocksAgent:
         if ind is None:
             return
 
-        # Régimen de mercado
-        regime = classify_market_regime(ind)
-        if not (regime.allow_trend or regime.allow_breakout):
-            logger.debug(f"{symbol}: régimen bloqueante ({regime.name})")
-            return
+        # Régimen de mercado — solo para activos con use_regime_filter=True
+        if profile.use_regime_filter:
+            regime = classify_market_regime(ind)
+            if not (regime.allow_trend or regime.allow_breakout):
+                logger.debug(f"{symbol}: régimen bloqueante ({regime.name})")
+                return
 
         # xsignals boost (últimas 48h)
         xboost, xside = self._get_xsignal_boost(symbol, profile)
 
-        # Evaluar estrategia
-        result = self.strategy.score(ind, xsignal_boost=xboost if xside else 0)
+        # Evaluar estrategia — elegida por perfil del símbolo
+        strategy = self._strategies.get(profile.strategy_name, self._strategies['MOMENTUM'])
+        result = strategy.score(ind, xsignal_boost=xboost if xside else 0)
 
         if result['direction'] == 'NEUTRAL':
             logger.debug(f"{symbol}: NEUTRAL score={result['score']}")
@@ -196,7 +216,7 @@ class StocksAgent:
         # Filtro xsignal: si hay señal contraria fuerte, reducir boost
         if xside and xside != direction:
             logger.info(f"{symbol}: xsignal {xside} opuesto a {direction} — sin boost")
-            result = self.strategy.score(ind, xsignal_boost=0)
+            result = strategy.score(ind, xsignal_boost=0)
             if result['direction'] != direction:
                 return
 
@@ -289,7 +309,7 @@ class StocksAgent:
             notional=round(notional, 2),
             stop_loss=stop_loss,
             take_profit=take_profit,
-            strategy=StocksMomentumStrategy.NAME,
+            strategy=strategy.NAME,
             alpaca_order_id=alpaca_order_id,
             xsignal_boost=xsignal_boost,
         )

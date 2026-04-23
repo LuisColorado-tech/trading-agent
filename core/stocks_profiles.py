@@ -53,6 +53,17 @@ class StocksProfile:
     # Si True, bloquear BUY cuando SPY+QQQ están en BEAR (macro_bias='BEAR')
     use_macro_filter: bool = True
 
+    # ── Estrategia de scoring ─────────────────────────────────────────────────
+    # 'MOMENTUM'  → StocksMomentumStrategy  (NVDA, TSLA, AAPL, META, AMZN)
+    # 'TREND_ETF' → StocksTrendEtfStrategy  (SPY, QQQ, GLD, EWZ, EEM, FXI, EWJ)
+    strategy_name: str = 'MOMENTUM'
+
+    # ── Filtro de régimen ─────────────────────────────────────────────────────
+    # classify_market_regime() está calibrado para crypto/acciones volátiles.
+    # Para ETFs índice (SPY, QQQ, EWJ, EEM...) clasifica RANGE el 90% del tiempo
+    # bloqueando todas las señales BUY. Desactivar para activos con baja volatilidad.
+    use_regime_filter: bool = True
+
     notes: str = ''
 
 
@@ -132,6 +143,8 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
         xsignal_profiles=('deitaone',),
         xsignal_boost=8,
         use_macro_filter=False,  # SPY ES el macro — no filtrar por SPY/QQQ
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
         notes='ETF S&P500. Gauge macro. No aplica filtro macro (es el propio macro).',
     ),
 
@@ -147,6 +160,8 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
         xsignal_profiles=('unusual_whales',),
         xsignal_boost=8,
         use_macro_filter=False,  # QQQ también es referencia macro
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
         notes='ETF NASDAQ. Tech momentum index. xsignals unusual_whales.',
     ),
 
@@ -193,7 +208,94 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
         xsignal_profiles=('fxhedgers',),
         xsignal_boost=10,
         use_macro_filter=False,  # Oro es hedge — se mueve opuesto al macro
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
         notes='ETF Oro. Correlación con XAU. fxhedgers cubre commodities/forex.',
+    ),
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # ETFs INTERNACIONALES — Exposición a mercados fuera de USA
+    # Todos operan en NYSE (misma API Alpaca, mismo horario)
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    # ── EWZ ───────────────────────────────────────────────────────────────────
+    # iShares Brasil — alta volatilidad commodity-driven
+    # Correlado con petróleo (Petrobras ~20% del ETF) y riesgo político
+    # SL amplio igual que TSLA: gaps frecuentes en apertura
+    # blocked_hours primeros 30min: el gap de apertura es ruido puro
+    'EWZ': StocksProfile(
+        symbol='EWZ',
+        confluence_min=3,
+        allowed_directions=frozenset({'BUY', 'SELL'}),
+        sl_multiplier=1.3,
+        tp_multiplier=2.6,
+        min_atr_pct=0.006,
+        blocked_hours_utc=frozenset({14}),   # 14:30-14:59 UTC = primeros 30min NYSE
+        xsignal_profiles=(),
+        xsignal_boost=0,
+        use_macro_filter=True,   # Muy correlado con risk-on/off global
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
+        notes='Brasil. Alta vol commodity/político. SL=1.3 para gaps. Bloqueado primera media hora.',
+    ),
+
+    # ── EEM ───────────────────────────────────────────────────────────────────
+    # iShares Emergentes — basket diversificado (China 28%, India 18%, Korea 12%)
+    # Volatilidad media, muy sensible al USD y tasas de la Fed
+    # En BEAR macro cae más que SPY → macro filter estricto
+    'EEM': StocksProfile(
+        symbol='EEM',
+        confluence_min=3,
+        allowed_directions=frozenset({'BUY', 'SELL'}),
+        sl_multiplier=1.1,
+        tp_multiplier=2.2,
+        min_atr_pct=0.004,
+        xsignal_profiles=(),
+        xsignal_boost=0,
+        use_macro_filter=True,
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
+        notes='Emergentes. USD-sensible. Cae más que SPY en BEAR. Confluence estricta.',
+    ),
+
+    # ── FXI ───────────────────────────────────────────────────────────────────
+    # iShares China Large Cap — máxima volatilidad geopolítica
+    # Gaps fuertes por noticias PBOC / regulación tech China overnight
+    # SL más amplio (1.5) y ATR mínimo alto para filtrar noise
+    # Solo operar si hay momentum claro: confluence_min=4
+    'FXI': StocksProfile(
+        symbol='FXI',
+        confluence_min=4,            # más estricto por ruido geopolítico
+        allowed_directions=frozenset({'BUY', 'SELL'}),
+        sl_multiplier=1.5,
+        tp_multiplier=2.8,
+        min_atr_pct=0.007,           # solo operar si hay movimiento real
+        blocked_hours_utc=frozenset({14}),   # evitar gap de apertura
+        xsignal_profiles=(),
+        xsignal_boost=0,
+        use_macro_filter=True,
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
+        notes='China. Máxima vol geopolítica. SL=1.5, confluence=4, ATR_min alto.',
+    ),
+
+    # ── EWJ ───────────────────────────────────────────────────────────────────
+    # iShares Japón — baja volatilidad, correlado con Yen (JPY/USD)
+    # Movimientos lentos y predecibles → SL ajustado, TP conservador
+    # Riesgo: noticias BOJ overnight pueden crear gaps pequeños
+    'EWJ': StocksProfile(
+        symbol='EWJ',
+        confluence_min=3,
+        allowed_directions=frozenset({'BUY', 'SELL'}),
+        sl_multiplier=0.9,
+        tp_multiplier=1.8,
+        min_atr_pct=0.003,
+        xsignal_profiles=(),
+        xsignal_boost=0,
+        use_macro_filter=True,
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
+        notes='Japón. Baja vol, JPY-correlado. SL=0.9 ajustado. Movimientos lentos y limpios.',
     ),
 }
 
