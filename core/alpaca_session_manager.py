@@ -160,14 +160,26 @@ class AlpacaClient:
 
         timeframe: '1Min', '5Min', '15Min', '1Hour', '1Day'
         """
+        from datetime import datetime, timedelta, timezone as tz
+
+        # Calcular start automático para asegurar suficiente historia
+        if not start:
+            _tf_minutes = {
+                '1Min': 1, '5Min': 5, '15Min': 15, '1Hour': 60, '1Day': 1440,
+            }
+            tf_min = _tf_minutes.get(timeframe, 15)
+            # Multiplicar por 2.5 para cubrir fines de semana y festivos
+            calendar_minutes = int(tf_min * limit * 2.5)
+            start_dt = datetime.now(tz.utc) - timedelta(minutes=calendar_minutes)
+            start = start_dt.strftime('%Y-%m-%dT%H:%M:%SZ')
+
         params = {
             'timeframe': timeframe,
             'limit': limit,
             'adjustment': 'split',
-            'feed': 'iex',   # gratuito para cuentas paper/free
+            'feed': 'sip',   # sip: datos históricos completos (paper incluido)
+            'start': start,
         }
-        if start:
-            params['start'] = start
         if end:
             params['end'] = end
 
