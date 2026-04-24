@@ -48,15 +48,19 @@ from strategies.stocks_trend_etf import StocksTrendEtfStrategy
 # ── Parámetros globales del agente ────────────────────────────────────────────
 
 STOCKS_UNIVERSE = [
-    # Acciones individuales — solo TSLA (PF=1.23 backtest 2Y)
-    'TSLA',
+    # Acciones individuales — MOMENTUM strategy, PF post-ADX
+    'TSLA',  # PF=1.23
+    'AAPL',  # PF=1.16
+    'AMZN',  # PF=1.18
+    'NVDA',  # PF=1.09
+    'META',  # PF=1.03
     # ETFs USA
-    'QQQ',   # PF=1.06 — TREND_ETF strategy
+    'QQQ',   # PF=1.07 — TREND_ETF strategy
     'GLD',   # PF=1.21 — TREND_ETF strategy, bull run oro 2024-26
     # ETFs internacionales
     'EEM',   # PF=1.23 — Emergentes
     'FXI',   # PF=1.23 — China
-    'EWJ',   # PF=1.19 — Japón
+    'EWJ',   # PF=1.18 — Japón
 ]
 # Eliminados por PF < 1.0 en backtest 2Y:
 # NVDA 0.96, AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91
