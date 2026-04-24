@@ -205,9 +205,12 @@ class StocksBacktest:
 
             # Régimen — solo para activos con use_regime_filter=True
             if self.profile.use_regime_filter:
-                regime = classify_market_regime(ind)
-                if not (regime.allow_trend or regime.allow_breakout):
-                    continue
+                # Override ADX: tendencia confirmada por ADX > 20 siempre pasa
+                adx_confirms = ind.adx > 20
+                if not adx_confirms:
+                    regime = classify_market_regime(ind)
+                    if not (regime.allow_trend or regime.allow_breakout):
+                        continue
 
             # Score
             result = self.strategy.score(ind, xsignal_boost=0)

@@ -190,10 +190,20 @@ class StocksAgent:
 
         # Régimen de mercado — solo para activos con use_regime_filter=True
         if profile.use_regime_filter:
-            regime = classify_market_regime(ind)
-            if not (regime.allow_trend or regime.allow_breakout):
-                logger.debug(f"{symbol}: régimen bloqueante ({regime.name})")
-                return
+            # Override ADX: si el ADX confirma tendencia real (>20), permitir señal
+            # independientemente del classify_market_regime() que usa parámetros calibrados
+            # para crypto y es demasiado restrictivo para acciones individuales en 15m.
+            adx_confirms_trend = (
+                ind.adx > 20
+                and (ind.adx_pos > ind.adx_neg or ind.adx_neg > ind.adx_pos)
+            )
+            if not adx_confirms_trend:
+                regime = classify_market_regime(ind)
+                if not (regime.allow_trend or regime.allow_breakout):
+                    logger.debug(f"{symbol}: régimen bloqueante ({regime.name}, ADX={ind.adx:.1f})")
+                    return
+            else:
+                logger.debug(f"{symbol}: ADX tendencia confirmada (ADX={ind.adx:.1f}, DI+={ind.adx_pos:.1f}, DI-={ind.adx_neg:.1f})")
 
         # xsignals boost (últimas 48h)
         xboost, xside = self._get_xsignal_boost(symbol, profile)

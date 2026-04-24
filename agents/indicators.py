@@ -38,6 +38,10 @@ class IndicatorSet:
     vwap: float
     vol_sma20: float
     vol_ratio: float    # Volumen actual / SMA20 (>1.5 = spike)
+    # ADX (Average Directional Index)
+    adx: float       # Fuerza de tendencia 0-100 (>25 = tendencia, <20 = rango)
+    adx_pos: float   # DI+ (fuerza alcista)
+    adx_neg: float   # DI- (fuerza bajista)
     # Derived
     trend_direction: str   # 'UP' | 'DOWN' | 'SIDEWAYS'
     trend_strength: float  # 0-1
@@ -113,6 +117,15 @@ class IndicatorEngine:
         else:
             trend_direction = 'SIDEWAYS'
 
+        # ADX — fuerza de tendencia (independiente de dirección)
+        adx_obj = ta.trend.ADXIndicator(high=h, low=lo, close=c, window=14)
+        adx_val = float(adx_obj.adx().iloc[-1])
+        adx_pos = float(adx_obj.adx_pos().iloc[-1])
+        adx_neg = float(adx_obj.adx_neg().iloc[-1])
+        # ADX necesita ~28 barras para converger; si es NaN usar 0
+        if not np.isfinite(adx_val):
+            adx_val, adx_pos, adx_neg = 0.0, 0.0, 0.0
+
         # Trend strength: distancia EMA20/EMA50 normalizada por ATR
         trend_strength = min(abs(ema20 - ema50) / (atr * 5), 1.0) if atr > 0 else 0.0
 
@@ -138,6 +151,9 @@ class IndicatorEngine:
             vwap=float(vwap),
             vol_sma20=float(vol_sma20),
             vol_ratio=float(vol_ratio),
+            adx=adx_val,
+            adx_pos=adx_pos,
+            adx_neg=adx_neg,
             trend_direction=trend_direction,
             trend_strength=float(trend_strength),
         )
