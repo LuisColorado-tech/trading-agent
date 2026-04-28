@@ -334,3 +334,239 @@ class PolymarketFeed:
                 },
             ).fetchall()
         return [dict(r._mapping) for r in rows]
+
+    def scan_tail_end_markets(self, min_price: float = 0.90, max_end_days: int = 7) -> list[dict]:
+        """Escanea Gamma API buscando mercados con outcomes casi-ciertos.
+
+        Para Tail-End Trading: outcomes donde price_yes ≥ min_price (near resolution).
+        No requiere keyword filter — cualquier mercado binario sirve.
+
+        Args:
+            min_price: precio mínimo del outcome (default 0.90)
+            max_end_days: días máximos hasta expiración (default 7)
+
+        Returns:
+            Lista de mercados candidatos para tail-end trading.
+        """
+        now = datetime.now(timezone.utc)
+        max_end = now + timedelta(days=max_end_days)
+        min_end = now + timedelta(hours=1)  # al menos 1 hora restante
+
+        all_markets = []
+        offset = 0
+        page_size = 100
+
+        for _ in range(5):  # máximo 5 páginas
+            try:
+                resp = requests.get(f'{GAMMA_API}/markets', params={
+                    'limit': page_size,
+                    'offset': offset,
+                    'active': True,
+                    'closed': False,
+                    'order': 'endDate',
+                    'ascending': True,
+                }, timeout=15)
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as e:
+                logger.error(f'POLY FEED tail_end: Gamma API error: {e}')
+                break
+
+            if not data:
+                break
+
+            for m in data:
+                try:
+                    parsed = self._parse_tail_end_market(m, now, min_end, max_end, min_price)
+                    if parsed:
+                        all_markets.append(parsed)
+                except Exception as e:
+                    logger.debug(f'POLY FEED tail_end: Parse error: {e}')
+
+            if len(data) < page_size:
+                break
+            offset += page_size
+
+        logger.debug(f'POLY FEED tail_end: Found {len(all_markets)} tail-end candidates')
+        return all_markets
+
+    def _parse_tail_end_market(self, m: dict, now, min_end, max_end,
+                                min_price: float) -> dict | None:
+        """Parsea un mercado para Tail-End Trading."""
+        outcomes = m.get('outcomes', '')
+        if isinstance(outcomes, str):
+            try:
+                outcomes = _json.loads(outcomes)
+            except (ValueError, TypeError):
+                return None
+        if not outcomes or len(outcomes) < 2:
+            return None
+
+        outcomes_upper = [o.strip().upper() for o in outcomes]
+        if 'YES' not in outcomes_upper or 'NO' not in outcomes_upper:
+            return None
+
+        if not m.get('acceptingOrders', False):
+            return None
+
+        end_str = m.get('endDate') or m.get('endDateIso', '')
+        if not end_str:
+            return None
+        try:
+            end_date = datetime.fromisoformat(end_str.replace('Z', '+00:00'))
+        except (ValueError, TypeError):
+            return None
+
+        if end_date < min_end or end_date > max_end:
+            return None
+
+        prices_raw = m.get('outcomePrices', '')
+        if isinstance(prices_raw, str):
+            try:
+                prices_raw = _json.loads(prices_raw)
+            except (ValueError, TypeError):
+                return None
+        if not isinstance(prices_raw, list) or len(prices_raw) < 2:
+            return None
+
+        yes_idx = outcomes_upper.index('YES')
+        no_idx = outcomes_upper.index('NO')
+        price_yes = float(prices_raw[yes_idx])
+        price_no = float(prices_raw[no_idx])
+
+        # Al menos uno debe estar en zona near-resolution
+        if price_yes < min_price and price_no < min_price:
+            return None
+
+        # Volumen mínimo (evitar mercados sin liquidez)
+        volume = float(m.get('volume', 0) or 0)
+        if volume < 1000:
+            return None
+
+        token_ids_raw = m.get('clobTokenIds', '')
+        if isinstance(token_ids_raw, str):
+            try:
+                token_ids_raw = _json.loads(token_ids_raw)
+            except (ValueError, TypeError):
+                return None
+        if not isinstance(token_ids_raw, list) or len(token_ids_raw) < 2:
+            return None
+
+        return {
+            'condition_id': m.get('conditionId', ''),
+            'question': m.get('question', ''),
+            'description': m.get('description', '')[:200] if m.get('description') else '',
+            'category': (m.get('category', '') or '').lower(),
+            'end_date': end_date,
+            'token_yes': token_ids_raw[yes_idx],
+            'token_no': token_ids_raw[no_idx],
+            'price_yes': price_yes,
+            'price_no': price_no,
+            'volume': volume,
+            'liquidity': float(m.get('liquidity', 0) or 0),
+        }
+
+    def scan_15min_markets(self) -> list[dict]:
+        """Escanea Gamma API buscando mercados de crypto que cierran en ≤15 minutos.
+
+        Para Late Entry V3: entrar en los últimos 4 minutos de mercados 15-min.
+        Activos: BTC, ETH, SOL, XRP.
+
+        Returns:
+            Lista de mercados ordenados por end_date ASC (los que cierran antes primero).
+        """
+        now = datetime.now(timezone.utc)
+        max_end = now + timedelta(minutes=15)
+        min_end = now + timedelta(seconds=30)  # al menos 30s restantes
+
+        all_markets = []
+
+        try:
+            resp = requests.get(f'{GAMMA_API}/markets', params={
+                'limit': 100,
+                'offset': 0,
+                'active': True,
+                'closed': False,
+                'order': 'endDate',
+                'ascending': True,
+            }, timeout=15)
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as e:
+            logger.error(f'POLY FEED 15min: Gamma API error: {e}')
+            return []
+
+        for m in data:
+            try:
+                end_str = m.get('endDate') or m.get('endDateIso', '')
+                if not end_str:
+                    continue
+                end_date = datetime.fromisoformat(end_str.replace('Z', '+00:00'))
+                if end_date < min_end or end_date > max_end:
+                    continue
+
+                if not m.get('acceptingOrders', False):
+                    continue
+
+                q_lower = m.get('question', '').lower()
+                late_entry_keywords = ['btc', 'bitcoin', 'eth', 'ethereum', 'sol', 'solana', 'xrp', 'ripple']
+                if not any(kw in q_lower for kw in late_entry_keywords):
+                    continue
+
+                parsed = self._parse_market(m, now, min_end, max_end)
+                # Para late entry, relajar el filtro de precio (queremos mercados con consenso ≥ 0.60)
+                if parsed:
+                    all_markets.append(parsed)
+                else:
+                    # Intentar parsear sin filtro de precio
+                    prices_raw = m.get('outcomePrices', '')
+                    if isinstance(prices_raw, str):
+                        try:
+                            prices_raw = _json.loads(prices_raw)
+                        except (ValueError, TypeError):
+                            continue
+                    if not isinstance(prices_raw, list) or len(prices_raw) < 2:
+                        continue
+
+                    outcomes = m.get('outcomes', '')
+                    if isinstance(outcomes, str):
+                        try:
+                            outcomes = _json.loads(outcomes)
+                        except (ValueError, TypeError):
+                            continue
+                    if not outcomes or len(outcomes) < 2:
+                        continue
+
+                    outcomes_upper = [o.strip().upper() for o in outcomes]
+                    if 'YES' not in outcomes_upper or 'NO' not in outcomes_upper:
+                        continue
+
+                    yes_idx = outcomes_upper.index('YES')
+                    no_idx = outcomes_upper.index('NO')
+
+                    token_ids_raw = m.get('clobTokenIds', '')
+                    if isinstance(token_ids_raw, str):
+                        try:
+                            token_ids_raw = _json.loads(token_ids_raw)
+                        except (ValueError, TypeError):
+                            continue
+
+                    all_markets.append({
+                        'condition_id': m.get('conditionId', ''),
+                        'question': m.get('question', ''),
+                        'category': (m.get('category', '') or '').lower(),
+                        'end_date': end_date,
+                        'token_yes': token_ids_raw[yes_idx] if len(token_ids_raw) > yes_idx else '',
+                        'token_no': token_ids_raw[no_idx] if len(token_ids_raw) > no_idx else '',
+                        'price_yes': float(prices_raw[yes_idx]),
+                        'price_no': float(prices_raw[no_idx]),
+                        'volume': float(m.get('volume', 0) or 0),
+                        'liquidity': float(m.get('liquidity', 0) or 0),
+                    })
+            except Exception as e:
+                logger.debug(f'POLY FEED 15min: Parse error: {e}')
+
+        # Ordenar por end_date ASC
+        all_markets.sort(key=lambda m: m['end_date'])
+        logger.debug(f'POLY FEED 15min: Found {len(all_markets)} markets closing in ≤15min')
+        return all_markets

@@ -4,10 +4,10 @@ btc_direction:
 
   # ── Riesgo ──
   risk:
-    max_trade_usdc: 20.0             # Máximo USDC por trade
-    max_open_positions: 2            # Máximo posiciones abiertas simultáneas
-    momentum_threshold_pct: 0.15     # Retorno mínimo BTC 5m para generar señal (%)
-    min_price_edge: 0.03             # Edge mínimo: 0.5 - precio_polymarket
+    max_trade_usdc: 5.0              # REDUCIDO 2026-04-25: WR 27.6% en 105 trades. Era 20.0
+    max_open_positions: 1            # Reducido a 1 (era 2) mientras no se valide edge
+    momentum_threshold_pct: 0.20     # Aumentado 0.15→0.20: exigir señal más fuerte
+    min_price_edge: 0.05             # Aumentado 0.03→0.05: edge mínimo más exigente
 
   # ── Datos de BTC ──
   btc_data:

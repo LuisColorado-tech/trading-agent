@@ -55,7 +55,7 @@ TELEGRAM_CHAT_ID=999936393
 
 | Agente | Estado | Mercado | Resultado paper | Doc completa |
 |---|---|---|---|---|
-| **Trading Agent** | ✅ ACTIVO | Crypto/Metales spot | SESSION_008: +$1,246 en 10 días | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
+| **Trading Agent** | ✅ ACTIVO | Crypto/Metales spot | SESSION_008: v3 activo (Sharpe 0.91→1.02, SOL MaxDD 41%→24%) | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
 | **Options Agent** | ✅ ACTIVO | BTC PUT OTM (Deribit) | paper_mode, sin resultados aún | [AI_OPTIONS_AGENT.md](AI_OPTIONS_AGENT.md) |
 | **Polymarket Agent** | ✅ ACTIVO | Mercados de predicción crypto | WR 60% pero PnL -$70 | [AI_POLYMARKET_AGENT.md](AI_POLYMARKET_AGENT.md) |
 | **BTC Direction** | ⚠️ VIGILANCIA | "BTC sube o baja en X min" | WR 27.6%, PnL -$329 (105 trades) | [AI_BTC_DIRECTION_AGENT.md](AI_BTC_DIRECTION_AGENT.md) |
@@ -228,12 +228,21 @@ ORDER BY timestamp_close DESC LIMIT 20;
 | Abr 2026 | Options IV Rank 30d → 252d | 30d era demasiado corto, 252d estándar del sector |
 | Abr 2026 | BTC Direction bug fix settlement | `/markets?conditionId=` → `/events?slug=` (endpoint correcto) |
 | Abr 2026 | Deadlock fix deribit_session_manager | `_update_peak_and_drawdown(conn=None)` reutiliza tx |
+| Abr 2026 | **Stocks agent: 3 bugs corregidos** | NameError `strategy_name`, Alpaca 422 fractional SELL → qty entero, `decimal.Decimal` aritmética en `close_trade()` |
+| Abr 2026 | **Crypto v3: MIN_SCORE 65→70** | Filtra señales de baja calidad en BTC+INJ; reduce overtrade |
+| Abr 2026 | **Crypto v3: BUY zone RSI 45-68 → 50-65** | Evita entradas tardías y RSI sobrecomprado |
+| Abr 2026 | **BREAKOUT_DOWN `allow_trend=False`** | WR 29%, PnL -$1,590 en backtest 2Y — bloqueado |
+| Abr 2026 | **SOL `confluence_min` 4→5, `trailing_offset_r` 0.75→1.0** | MaxDD SOL 41.3%→24.2%; wicks prematuros con 0.75 |
+| Abr 2026 | **INJ `confluence_min` 3→4** | 1166 trades WR=34% -$2,607 con min=3; filtrado mejorado |
+| Abr 2026 | **ETH RSI SELL zone específica (25-50, guard <25)** | Regresión v3: cutoff 30-50 bloqueaba señales válidas RSI 25-30 en ETH — fix restaura +$6,281 |
 
 ---
 
 ## 9. Estado actual (Abril 2026)
 
-- **SESSION_008**: ACTIVA desde ~12 Abr. +$1,246 en 10 días pero **concentrado**: 74% del PnL vino de solo 2 días (Apr 18-19). Profit Factor real: 1.46. EV: $5.49/trade. 7/11 días positivos.
+- **SESSION_008**: ACTIVA. v3 desplegado el 28 Abr. Backtest 2Y post-v3: PF global 1.08, Sharpe **1.02** (era 0.91), SOL MaxDD **24.2%** (era 41.3%). ETH restaurado: TREND_MOMENTUM +$6,281 (era -$2,189 con bug).
+- **Crypto v3 activo** (`strategies/trend_momentum.py`, `core/market_regime.py`, `core/asset_profiles.py`): MIN_SCORE=70, BREAKOUT_DOWN bloqueado, SOL conf_min=5 trailing=1.0, INJ conf_min=4, ETH RSI SELL 25-50.
+- **Stocks agent**: ACTIVO en STOCKS_SESSION_001 ($220). 3 bugs corregidos el 28 Abr — corriendo limpio sin errores 422.
 - **Fortalezas**: el edge de TREND_MOMENTUM SELL es real. RiskManager funciona (peor día: -$134 = -1.3%).
 - **Expectativa realista**: 2-4%/mes consistente, con spikes 8-10% en mercados tendenciales.
 - **Camino a fondeo**: $300 USDC cuando 3 meses consecutivos con Profit Factor ≥ 1.5.
@@ -348,7 +357,7 @@ systemctl restart trading-agent
 
 ## 12. 📈 STOCKS AGENT — Agente de Acciones NYSE/NASDAQ
 
-**Estado**: Paper trading (pendiente claves Alpaca)
+**Estado**: ✅ ACTIVO — paper trading con claves Alpaca configuradas. STOCKS_SESSION_001 ($220). 3 bugs corregidos el 28 Abr 2026.
 
 ### Arquitectura
 

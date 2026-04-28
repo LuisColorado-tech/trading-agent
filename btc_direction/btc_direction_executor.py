@@ -256,7 +256,7 @@ class BtcDirectionExecutor:
 
         with self.engine.connect() as conn:
             rows = conn.execute(text(
-                "SELECT id, slot_ts, condition_id, direction, shares, cost_usdc, "
+                "SELECT id, slot_ts, market_slug, condition_id, direction, shares, cost_usdc, "
                 "timeframe, end_ts "
                 "FROM btc_direction_trades WHERE status = 'OPEN'"
             )).fetchall()

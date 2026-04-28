@@ -34,8 +34,9 @@ from risk.risk_manager import PAPER_HALT_COOLDOWN_HOURS
 
 SCAN_INTERVAL = 60  # segundos entre scans
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
-# SESSION_008: 7 assets con AssetProfiles individuales (SL/TP/trailing/horas por asset)
-ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ', 'XAU', 'XAG']
+# SESSION_008: 5 assets — XAU/XAG eliminados (KuCoin no los soporta, usar GLD/SLV en stocks)
+# Backtest 24m: AVAX mejor asset (PF=1.10, Sharpe=1.03); BTC el único con PF<1.0 (0.99)
+ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ']
 TIMEFRAMES = ['15m', '1h']
 
 # DB engine for portfolio tracking

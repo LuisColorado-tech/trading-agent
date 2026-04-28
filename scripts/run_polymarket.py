@@ -34,6 +34,7 @@ from agents.poly_executor import PolyExecutor
 from agents.poly_monitor import PolyMonitor
 from core.notifications import send_telegram
 from core.poly_session_manager import PolySessionManager
+from core.poly_strategy_hub import PolyStrategyHub
 from data.polymarket_feed import PolymarketFeed
 from risk.poly_risk import PolyRiskManager
 from strategies.signal_based_poly import SignalBasedPolyStrategy
@@ -145,7 +146,8 @@ def main():
         return
 
     feed = PolymarketFeed()
-    strategy = SignalBasedPolyStrategy()
+    hub = PolyStrategyHub()          # Hub multi-estrategia (incluye SignalBasedPolyStrategy)
+    strategy = hub.get_strategy('signal_based') or SignalBasedPolyStrategy()  # fallback
     risk = PolyRiskManager()
     executor = PolyExecutor()
     monitor = PolyMonitor(feed)
@@ -201,12 +203,11 @@ def main():
             open_positions = get_open_positions(session_name)
             already_traded = get_traded_condition_ids(session_name)
 
-            # Obtener régimen de mercado actual para informar las señales crypto
+            # Obtener régimen de mercado actual
             market_regime = 'UNKNOWN'
             try:
                 from sqlalchemy import text as _text
                 with _engine.connect() as _conn:
-                    # Intentar market_snapshots primero (si existe)
                     try:
                         _row = _conn.execute(_text(
                             "SELECT regime FROM market_snapshots ORDER BY timestamp DESC LIMIT 1"
@@ -214,7 +215,6 @@ def main():
                         if _row:
                             market_regime = str(_row[0])
                     except Exception:
-                        # Fallback: inferir régimen desde señales BTC recientes
                         _rows = _conn.execute(_text("""
                             SELECT direction FROM signals
                             WHERE asset = 'BTC'
@@ -232,27 +232,41 @@ def main():
                             else:
                                 market_regime = 'RANGE'
             except Exception:
-                pass  # regime opcional, no bloquear
+                pass
 
-            # Limitar a top 20 mercados por volumen (sin LLM, el scan es rápido)
+            # ── Mercados principales (top 20 por volumen) ──
             db_markets = feed.get_active_markets_from_db()[:20]
-            evaluated = 0
+
+            # ── Mercados especiales para estrategias adicionales ──
+            tail_end_markets = []
+            late_entry_markets = []
+            try:
+                tail_end_markets = feed.scan_tail_end_markets()
+            except Exception as e:
+                logger.debug(f'Tail-end scan error: {e}')
+            try:
+                late_entry_markets = feed.scan_15min_markets()
+            except Exception as e:
+                logger.debug(f'15min scan error: {e}')
+
+            # ── Hub: evaluar todas las estrategias ──
+            all_signals = hub.evaluate_all(
+                markets=db_markets,
+                market_regime=market_regime,
+                already_traded=already_traded,
+                tail_end_markets=tail_end_markets,
+                late_entry_markets=late_entry_markets,
+            )
+
+            evaluated = len(all_signals)
             executed = 0
 
-            for market in db_markets:
-                # No re-entrar en mercados ya operados (abiertos O cerrados)
-                if market['condition_id'] in already_traded:
-                    continue
+            for opportunity in all_signals:
+                market = opportunity.get('market', {})
+                cid = market.get('condition_id', '')
 
-                try:
-                    opportunity = strategy.evaluate(market, market_regime=market_regime)
-                except Exception as e:
-                    logger.debug(f'Strategy eval error: {e}')
-                    continue
-
-                evaluated += 1
-
-                if not opportunity or not opportunity.get('opportunity'):
+                # Verificar de nuevo (el hub puede haber generado señales en paralelo)
+                if cid in already_traded:
                     continue
 
                 # ── 4. RISK CHECK ──
@@ -263,7 +277,7 @@ def main():
                     'estimated_prob': opportunity.get('estimated_prob', 0.5),
                     'confidence': opportunity.get('confidence', 80),
                     'market': market,
-                    'strategy': opportunity.get('strategy', SignalBasedPolyStrategy.NAME),
+                    'strategy': opportunity.get('strategy', 'signal_based'),
                     'reasoning': opportunity.get('reasoning', ''),
                     'btc_direction': opportunity.get('btc_direction', ''),
                     'btc_momentum_pct': opportunity.get('btc_momentum_pct', 0.0),
@@ -284,24 +298,32 @@ def main():
                     update_balance_after_execution(session_name, result['cost'])
                     balance -= result['cost']
                     open_positions.append({
-                        'condition_id': market['condition_id'],
+                        'condition_id': cid,
                         'cost_basis': result['cost'],
                     })
+                    already_traded.add(cid)
                     executed += 1
-                    q = market['question'][:60]
+                    q = market.get('question', '')[:60]
+                    strat_tag = opportunity.get('strategy', 'unknown')
                     logger.info(
-                        f'POLY TRADE: {opportunity["side"]} '
+                        f'POLY TRADE [{strat_tag}]: {opportunity["side"]} '
                         f'"{q}" '
                         f'edge={opportunity["edge"]:+.1%} cost=${result["cost"]:.2f}'
                     )
                     send_telegram(
-                        f'🎯 <b>POLY TRADE</b> {opportunity["side"]}\n'
+                        f'🎯 <b>POLY TRADE</b> [{strat_tag}] {opportunity["side"]}\n'
                         f'📋 {q}\n'
                         f'Edge: <b>{opportunity["edge"]:+.1%}</b> | '
                         f'Cost: ${result["cost"]:.2f} | '
                         f'Shares: {result["shares"]:.0f}',
                         silent=True,
                     )
+
+                    # Registrar en stats por estrategia
+                    try:
+                        hub.record_execution(strat_tag, session.get('id', 0))
+                    except Exception:
+                        pass
 
             # ── Resumen del ciclo ──
             summary = monitor.get_portfolio_summary()

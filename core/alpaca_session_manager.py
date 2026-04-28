@@ -52,6 +52,8 @@ class AlpacaClient:
     def _post(self, path: str, payload: dict = None):
         url = f"{self.base_url}{path}"
         r = requests.post(url, headers=self._headers, json=payload or {}, timeout=15)
+        if not r.ok:
+            logger.error(f"Alpaca API error {r.status_code} {path}: {r.text}")
         r.raise_for_status()
         return r.json()
 
@@ -364,9 +366,9 @@ class AlpacaSessionManager:
 
         t = dict(trade._mapping)
         if t['direction'] == 'BUY':
-            pnl = (exit_price - t['entry_price']) * t['qty']
+            pnl = (exit_price - float(t['entry_price'])) * float(t['qty'])
         else:
-            pnl = (t['entry_price'] - exit_price) * t['qty']
+            pnl = (float(t['entry_price']) - exit_price) * float(t['qty'])
 
         with self.engine.begin() as conn:
             conn.execute(

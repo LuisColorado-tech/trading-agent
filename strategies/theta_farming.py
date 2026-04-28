@@ -85,7 +85,8 @@ from loguru import logger
 DERIBIT_BASE = "https://www.deribit.com/api/v2"
 
 # Filtros de entrada
-MIN_IV_RANK = 20.0           # IV Rank mínimo para vender (%)
+MIN_IV_RANK = 25.0           # IV Rank mínimo para vender (%) — backtest A-Conservadora: PF=1.17
+IV_RANK_LOOKBACK = 90        # días de historia para calcular IV Rank (90d vs 252d evita distorsión por crashes históricos)
 MIN_DTE = 3                   # Días hasta expiración mínimos
 MAX_DTE = 21                  # Días hasta expiración máximos
 TARGET_DTE_MIN = 5            # DTE óptimo mínimo (preferencia)
@@ -93,14 +94,14 @@ TARGET_DTE_MAX = 10           # DTE óptimo máximo (preferencia)
 MAX_DELTA_ABS = 0.20          # Delta absoluto máximo (-0.20 = 20% prob ITM)
 TARGET_DELTA_MIN = -0.15      # Delta óptimo mínimo
 TARGET_DELTA_MAX = -0.05      # Delta óptimo máximo
-MIN_OTM_PCT = 0.04            # Strike mínimo 4% OTM del precio actual
-MAX_OTM_PCT = 0.12            # Strike máximo 12% OTM
+MIN_OTM_PCT = 0.08            # Strike mínimo 8% OTM del precio actual — preferir 10% OTM (backtest A-Conservadora)
+MAX_OTM_PCT = 0.14            # Strike máximo 14% OTM
 MAX_SPREAD_PCT = 0.25         # Spread máximo como % del mark price
-MAX_OPEN_POSITIONS = 3        # Posiciones simultáneas máximas
-CONTRACT_SIZE = 0.1           # Tamaño mínimo en BTC (está fijo en Deribit)
+MAX_OPEN_POSITIONS = 2        # Posiciones simultáneas máximas — backtest A-Conservadora: MaxDD=23.3%
+CONTRACT_SIZE = 0.1           # Tamaño mínimo en BTC (default; ETH usa 1.0)
 
 # Gestión de riesgo
-STOP_LOSS_MULTIPLIER = 2.0    # Stop a 2× la prima cobrada
+STOP_LOSS_MULTIPLIER = 3.0    # Stop a 3× la prima cobrada — backtest A-Conservadora (vs 2× baseline)
 PROFIT_LOCK_PCT = 0.80        # Cerrar cuando la prima cae al 20% del original (ganemos 80%)
 
 # Máximo capital comprometido en margen (% del balance total de la sesión)
@@ -157,12 +158,16 @@ class ThetaFarmingStrategy:
     """
     Motor de decisión para Theta Farming en Deribit.
 
-    Selecciona el PUT semanal de BTC más adecuado para vender
+    Selecciona el PUT semanal OTM más adecuado para vender
     en función de condiciones de mercado y filtros de riesgo.
+    Soporta BTC (contratos de 0.1) y ETH (contratos de 1.0).
     """
 
-    def __init__(self, paper_mode: bool = True):
+    def __init__(self, underlying: str = 'BTC', paper_mode: bool = True):
+        self.underlying = underlying.upper()
         self.paper_mode = paper_mode
+        # BTC: contract size = 0.1 BTC; ETH: contract size = 1 ETH (Deribit estándar)
+        self.contract_size = 0.1 if self.underlying == 'BTC' else 1.0
         self._iv_rank_cache: Optional[float] = None
         self._iv_rank_cache_time: float = 0.0
         self._iv_rank_ttl = 3600.0  # 1 hora
@@ -200,10 +205,10 @@ class ThetaFarmingStrategy:
             logger.info(f'THETA: margen insuficiente ({margin_available:.0f} USD < {min_margin_needed:.0f}) — skip')
             return None
 
-        # 1. Obtener precio BTC y IV Rank
-        btc_price = self._get_btc_index_price()
+        # 1. Obtener precio del subyacente e IV Rank
+        btc_price = self._get_index_price()
         if btc_price is None:
-            logger.warning('THETA: no se pudo obtener BTC price')
+            logger.warning(f'THETA: no se pudo obtener precio {self.underlying}')
             return None
 
         iv_rank = self._get_iv_rank()
@@ -216,6 +221,7 @@ class ThetaFarmingStrategy:
             logger.info(f'THETA: IV Rank {iv_rank:.0f}% < {MIN_IV_RANK}% — prima muy baja, no es buen momento')
             return OptionSignal(
                 instrument_name='',
+                underlying=self.underlying,
                 approved=False,
                 reason=f'IV_RANK_LOW:{iv_rank:.0f}%<{MIN_IV_RANK}%',
                 btc_price=btc_price,
@@ -223,12 +229,12 @@ class ThetaFarmingStrategy:
             )
 
         iv_rank_signal = 'HIGH' if iv_rank >= 50 else ('MEDIUM' if iv_rank >= 30 else 'LOW')
-        logger.info(f'THETA: BTC=${btc_price:,.0f} | IV Rank={iv_rank:.0f}% ({iv_rank_signal})')
+        logger.info(f'THETA: {self.underlying}=${btc_price:,.0f} | IV Rank={iv_rank:.0f}% ({iv_rank_signal})')
 
         # 2. Listar PUTs disponibles
-        puts = self._fetch_btc_puts()
+        puts = self._fetch_puts()
         if not puts:
-            logger.warning('THETA: no se pudieron obtener instrumentos BTC PUT')
+            logger.warning(f'THETA: no se pudieron obtener instrumentos {self.underlying} PUT')
             return None
 
         # 3. Filtrar por DTE y strike range
@@ -275,7 +281,7 @@ class ThetaFarmingStrategy:
             strike = c['strike']
             # Valor temporal estimado (Black-Scholes simplificado: prima ≈ S × IV × sqrt(T))
             est_premium_usd = btc_price * current_iv_approx * (dte / 365) ** 0.5 * 0.4  # factor atm→otm
-            est_margin_usd  = max(0.10, 0.15 - otm) * CONTRACT_SIZE * btc_price
+            est_margin_usd  = max(0.10, 0.15 - otm) * self.contract_size * btc_price
             c['est_yield'] = est_premium_usd / est_margin_usd if est_margin_usd > 0 else 0
             c['in_target_dte'] = TARGET_DTE_MIN <= dte <= TARGET_DTE_MAX
 
@@ -290,7 +296,7 @@ class ThetaFarmingStrategy:
         for candidate in candidates[:10]:  # máximo 10 intentos para no saturar la API
             signal = self._evaluate_instrument(
                 candidate, btc_price, iv_rank, iv_rank_signal,
-                margin_available, session_balance
+                margin_available, session_balance,
             )
             if signal and signal.approved:
                 return signal
@@ -362,7 +368,7 @@ class ThetaFarmingStrategy:
             return None
 
         # Filtro 5: margen requerido vs margen disponible
-        margin_usd = self._calculate_margin(strike, btc_price, CONTRACT_SIZE, otm_pct)
+        margin_usd = self._calculate_margin(strike, btc_price, self.contract_size, otm_pct)
         if margin_usd > margin_available:
             logger.debug(f'THETA: {instrument_name} margen ${margin_usd:.0f} > disponible ${margin_available:.0f} — skip')
             return None
@@ -396,7 +402,7 @@ class ThetaFarmingStrategy:
 
         return OptionSignal(
             instrument_name=instrument_name,
-            underlying='BTC',
+            underlying=self.underlying,
             option_type='PUT',
             strike=strike,
             expiration_date=exp_dt.date(),
@@ -415,7 +421,7 @@ class ThetaFarmingStrategy:
             vega=vega,
             spread_pct=spread_pct,
             otm_pct=otm_pct,
-            contracts=CONTRACT_SIZE,
+            contracts=self.contract_size,
             entry_premium_usd=entry_premium_usd,
             entry_premium_btc=entry_premium_btc,
             margin_required_usd=margin_usd,
@@ -495,41 +501,43 @@ class ThetaFarmingStrategy:
             logger.warning(f'Deribit API call failed [{method}]: {e}')
             return None
 
-    def _get_btc_index_price(self) -> Optional[float]:
-        result = self._deribit_get('get_index_price', {'index_name': 'btc_usd'})
+    def _get_index_price(self) -> Optional[float]:
+        index_name = f'{self.underlying.lower()}_usd'
+        result = self._deribit_get('get_index_price', {'index_name': index_name})
         if result:
             return float(result.get('index_price', 0)) or None
         return None
 
     def _get_iv_rank(self) -> Optional[float]:
-        """IV Rank calculado como percentil del IV actual en los últimos 30 días."""
+        """IV Rank calculado como percentil del IV actual en los últimos IV_RANK_LOOKBACK días."""
         now = time.time()
         if self._iv_rank_cache is not None and (now - self._iv_rank_cache_time) < self._iv_rank_ttl:
             return self._iv_rank_cache
 
-        result = self._deribit_get('get_historical_volatility', {'currency': 'BTC'})
+        result = self._deribit_get('get_historical_volatility', {'currency': self.underlying})
         if not result or len(result) < 5:
             return None
 
         try:
-            # 252 días (1 año de trading) — estándar del sector para IV Rank.
-            # Con solo 30d, una semana volátil infla artificialmente el rank.
-            ivs = [float(h[1]) for h in result[-252:]]
+            # IV_RANK_LOOKBACK días (90d) — ventana más corta evita distorsión
+            # por crashes históricos (ej: BTC -50% con IV=100%+ en 2022).
+            # Con 252d, un mercado calmado siempre sale con IV Rank bajo.
+            ivs = [float(h[1]) for h in result[-IV_RANK_LOOKBACK:]]
             current_iv = ivs[-1]
             iv_min = min(ivs)
             iv_max = max(ivs)
             iv_rank = (current_iv - iv_min) / (iv_max - iv_min) * 100 if iv_max > iv_min else 50.0
             self._iv_rank_cache = iv_rank
             self._iv_rank_cache_time = now
-            logger.debug(f'THETA IV Rank: {iv_rank:.1f}% (periodo={len(ivs)}d, min={iv_min:.1f}%, max={iv_max:.1f}%, cur={current_iv:.1f}%)')
+            logger.debug(f'THETA IV Rank ({self.underlying}): {iv_rank:.1f}% (periodo={len(ivs)}d, min={iv_min:.1f}%, max={iv_max:.1f}%, cur={current_iv:.1f}%)')
             return iv_rank
         except Exception as e:
             logger.warning(f'Error calculando IV Rank: {e}')
             return None
 
-    def _fetch_btc_puts(self) -> list[dict]:
+    def _fetch_puts(self) -> list[dict]:
         result = self._deribit_get('get_instruments', {
-            'currency': 'BTC',
+            'currency': self.underlying,
             'kind': 'option',
             'expired': 'false',
         })

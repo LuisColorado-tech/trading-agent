@@ -31,6 +31,9 @@ from strategies.trend_momentum import TrendMomentumStrategy
 from strategies.mean_reversion import MeanReversionStrategy
 from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.breakout import BreakoutStrategy
+from strategies.smc_order_blocks import SmcOrderBlocksStrategy
+from strategies.pullback_state_machine import PullbackStateMachineStrategy
+from strategies.btc_microstructure import BtcMicrostructureStrategy
 
 # ── Parámetros de riesgo (mismos que producción) ─────────────────────
 INITIAL_BALANCE    = 10_000.0
@@ -39,7 +42,11 @@ MAX_CONCURRENT     = 3
 SL_COOLDOWN_BARS   = 4          # velas de cooldown tras SL (≈ 1h en 15m)
 MIN_RR             = 1.5        # R:R mínimo (BTC_DIP_BUYER tiene RR~1.5, el resto ~2.0)
 
-STRATEGIES = [TrendMomentumStrategy(), MeanReversionStrategy(), BtcDipBuyerStrategy(), BreakoutStrategy()]
+STRATEGIES = [
+    TrendMomentumStrategy(), MeanReversionStrategy(), BtcDipBuyerStrategy(), BreakoutStrategy(),
+    # Estrategias reverse-engineered de GitHub repos
+    SmcOrderBlocksStrategy(), PullbackStateMachineStrategy(), BtcMicrostructureStrategy(),
+]
 
 
 # ── Descarga de datos ─────────────────────────────────────────────────
@@ -226,7 +233,10 @@ class Backtest:
             if not strategy_allowed_in_regime(strat.NAME, regime):
                 continue
             try:
-                res = strat.score(ind, df_window) if strat.NAME == 'BREAKOUT' else strat.score(ind)
+                # Pasar df_window a todas las estrategias — las que no lo usan lo ignoran
+                res = strat.score(ind, df_window)
+            except TypeError:
+                res = strat.score(ind)
             except Exception:
                 continue
             if res['direction'] == 'NEUTRAL':
@@ -360,6 +370,7 @@ def main():
     assets = [a.strip().upper() for a in args.assets.split(',')]
     symbol_map = {'BTC': 'BTC/USDT', 'ETH': 'ETH/USDT', 'SOL': 'SOL/USDT',
                   'XAU': 'XAU/USDT', 'XAG': 'XAG/USDT',
+                  'PAXG': 'PAXG/USDT',  # PAX Gold — proxy cripto de oro físico
                   'AVAX': 'AVAX/USDT', 'LINK': 'LINK/USDT',
                   'INJ': 'INJ/USDT', 'AAVE': 'AAVE/USDT', 'POL': 'POL/USDT'}
 

@@ -57,6 +57,7 @@ STOCKS_UNIVERSE = [
     # ETFs USA
     'QQQ',   # PF=1.07 — TREND_ETF strategy
     'GLD',   # PF=1.21 — TREND_ETF strategy, bull run oro 2024-26
+    'SLV',   # PF=1.31 ✓ — ETF Plata, WR=37.2%, MaxDD=14.3%, añadido backtest 24m
     # ETFs internacionales
     'EEM',   # PF=1.23 — Emergentes
     'FXI',   # PF=1.23 — China
@@ -67,7 +68,8 @@ STOCKS_UNIVERSE = [
 CYCLE_INTERVAL_SECONDS = 60 * 5     # evaluar cada 5 minutos
 MAX_CONCURRENT_TRADES = 3
 MAX_RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade
-MAX_PORTFOLIO_EXPOSURE = 0.08       # 8% del balance total en stocks
+MAX_PORTFOLIO_EXPOSURE = 2.0        # 200% del balance total en stocks (fractional shares: notional >> balance)
+MAX_NOTIONAL_PER_TRADE = 0.80       # máx 80% del balance por trade individual (evita sobrexposición con SL muy ajustado)
 MAX_DRAWDOWN_STOP = 0.10            # detener si balance cae 10%
 MIN_CONFLUENCE = 3                  # indicadores alineados mínimos
 XSIGNAL_LOOKBACK_HOURS = 48        # horas de lookback para xsignals boost
@@ -266,7 +268,13 @@ class StocksAgent:
         qty = risk_usd / sl_dist
         notional = qty * ind.close
 
-        # Cap de exposición total
+        # Cap por trade individual: máx 80% del balance para evitar sobrexposición con SL muy ajustado
+        max_notional_trade = balance * MAX_NOTIONAL_PER_TRADE
+        if notional > max_notional_trade:
+            notional = max_notional_trade
+            qty = notional / ind.close
+
+        # Cap de exposición total de cartera
         total_exposed = sum(float(t.get('notional', 0)) for t in open_trades)
         if total_exposed + notional > balance * MAX_PORTFOLIO_EXPOSURE:
             logger.info(f"{symbol}: cap de exposición alcanzado ({total_exposed:.2f} + {notional:.2f})")
@@ -287,11 +295,12 @@ class StocksAgent:
             take_profit=result['take_profit'],
             reasons=result['reasons'],
             xsignal_boost=xboost if xside == direction else 0,
+            strategy_name=strategy.NAME,
         )
 
     def _execute_trade(
         self, symbol, direction, price, qty, notional,
-        stop_loss, take_profit, reasons, xsignal_boost=0,
+        stop_loss, take_profit, reasons, xsignal_boost=0, strategy_name='MOMENTUM',
     ):
         """Ejecuta la orden y registra el trade en PostgreSQL."""
         side = 'buy' if direction == 'BUY' else 'sell'
@@ -299,13 +308,30 @@ class StocksAgent:
 
         if not self.dry_run and self._alpaca:
             try:
-                order = self._alpaca.submit_order(
+                # Alpaca solo acepta notional para BUY; SELL (short) requiere qty explícito
+                order_kwargs: dict = dict(
                     symbol=symbol,
-                    notional=round(notional, 2),
                     side=side,
                     order_type='market',
                     time_in_force='day',
                 )
+                if side == 'buy':
+                    order_kwargs['notional'] = round(notional, 2)
+                else:
+                    # Alpaca no permite short selling fraccionario: qty debe ser entero
+                    int_qty = max(1, int(qty))
+                    sell_notional = round(int_qty * price, 2)
+                    balance_now = float(self.session.get('current_balance', 0))
+                    if sell_notional > balance_now * MAX_NOTIONAL_PER_TRADE:
+                        logger.info(
+                            f"SELL {symbol}: {int_qty} share(s) = ${sell_notional:.2f} "
+                            f"excede cap ${balance_now * MAX_NOTIONAL_PER_TRADE:.2f} — saltando"
+                        )
+                        return
+                    qty = int_qty
+                    notional = sell_notional
+                    order_kwargs['qty'] = int_qty
+                order = self._alpaca.submit_order(**order_kwargs)
                 alpaca_order_id = order.get('id')
                 logger.info(f"Alpaca order {alpaca_order_id} enviada: {side} {symbol} ${notional:.2f}")
             except Exception as e:
@@ -323,7 +349,7 @@ class StocksAgent:
             notional=round(notional, 2),
             stop_loss=stop_loss,
             take_profit=take_profit,
-            strategy=strategy.NAME,
+            strategy=strategy_name,
             alpaca_order_id=alpaca_order_id,
             xsignal_boost=xsignal_boost,
         )

@@ -25,6 +25,8 @@ from strategies.breakout import BreakoutStrategy
 from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
+from strategies.smc_order_blocks import SmcOrderBlocksStrategy
+from strategies.btc_microstructure import BtcMicrostructureStrategy
 from core.asset_profiles import get_profile, hour_allowed, direction_allowed
 
 
@@ -94,9 +96,14 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            MeanReversionStrategy(),
+            # MeanReversionStrategy: desactivada permanentemente.
+            # allow_mean_reversion=False en TODOS los regímenes de market_regime.py
+            # + performance_guard bloqueó tras 0/8 WR en paper. Archivo conservado.
             BtcDipBuyerStrategy(),
             BreakoutStrategy(),
+            # Estrategias reverse-engineered de GitHub (activadas 2026-04-25)
+            SmcOrderBlocksStrategy(),
+            BtcMicrostructureStrategy(),
         ]
         self.claude = ClaudeBridge()
         # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
@@ -151,9 +158,12 @@ class StrategyEngine:
                 if not strategy_allowed_in_regime(strategy.NAME, regime):
                     blocked.append({'strategy': strategy.NAME, 'reason': regime_block_reason(strategy.NAME, regime)})
                     continue
-                if strategy.NAME == 'BREAKOUT':
+                # Pasar df a todas las estrategias: SMC_ORDER_BLOCKS y BTC_MICROSTRUCTURE
+                # usan df para FVG y momentum multiperiodo. Sin df esos factores nunca calculan.
+                try:
                     res = strategy.score(ind, df)
-                else:
+                except TypeError:
+                    # Estrategias que no aceptan df (interfaz antigua)
                     res = strategy.score(ind)
                 if res['direction'] != 'NEUTRAL':
                     # Bonus de régimen (backtest 6m): SELL en TREND_DOWN tiene win rate 38%.

@@ -462,6 +462,30 @@ def check_polymarket() -> tuple:
         return False, f'🔮 Poly error: {str(e)[:100]}'
 
 
+def check_stocks() -> tuple:
+    """Check del stocks agent (Alpaca NYSE/NASDAQ)."""
+    try:
+        import subprocess
+        r = subprocess.run(['systemctl', 'is-active', 'stocks-agent'], capture_output=True, text=True, timeout=5)
+        svc_active = r.stdout.strip() == 'active'
+        if not svc_active:
+            return False, '📈 Stocks servicio INACTIVO'
+
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute("SELECT session_name, current_balance, total_trades FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
+        row = cur.fetchone()
+        cur.execute("SELECT COUNT(*) FROM stocks_trades WHERE status='OPEN'")
+        open_c = cur.fetchone()[0]
+        conn.close()
+
+        if not row:
+            return True, '📈 Stocks: sin sesión activa'
+        return True, f'📈 Stocks: {row[0]} ${float(row[1]):,.2f} | {open_c} open | {row[2]} trades'
+    except Exception as e:
+        return False, f'📈 Stocks error: {str(e)[:100]}'
+
+
 def main():
     now = datetime.now(timezone.utc)
     state = load_state()
@@ -478,6 +502,7 @@ def main():
         ('🔒 Balance', check_balance_stuck),
         ('🤖 Grid Bot', check_grid_bot),
         ('🔮 Polymarket', check_polymarket),
+        ('📈 Stocks', check_stocks),
     ]
 
     results = []

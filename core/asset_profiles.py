@@ -98,7 +98,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'BTC': AssetProfile(
         asset='BTC',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=3,
+        confluence_min=5,  # subido 3→5 (backtest 24m: único crypto con PF<1.0=0.99, filtrar señales débiles)
         sl_multiplier=1.3,
         tp_multiplier=2.8,
         trailing_activation_r=1.5,
@@ -175,12 +175,12 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'SOL': AssetProfile(
         asset='SOL',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=4,
+        confluence_min=5,  # v3: 4→5 (MaxDD=41.3% en backtest v2, reducir entradas débiles)
         sl_multiplier=1.4,
         tp_multiplier=2.8,
         trailing_activation_r=1.0,
         trailing_step_r=0.30,
-        trailing_offset_r=0.75,
+        trailing_offset_r=1.0,  # v3: 0.75→1.0 (wicks grandes de SOL activan SL prematuro)
         blocked_hours_utc=frozenset({0, 1, 2, 13, 20, 21, 22, 23}),
         require_candle_close=True,
         min_atr_pct=0.003,
@@ -255,7 +255,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'INJ': AssetProfile(
         asset='INJ',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=3,
+        confluence_min=4,  # v3: 3→4 (1166 trades WR=34% -$2,607 en TREND_MOMENTUM backtest v2)
         sl_multiplier=1.3,
         tp_multiplier=2.6,
         trailing_activation_r=2.0,

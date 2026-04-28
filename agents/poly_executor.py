@@ -84,12 +84,17 @@ class PolyExecutor:
             if not order_info:
                 return {'executed': False, 'reason': 'LIVE_EXECUTION_FAILED'}
 
+        # Determinar tag de estrategia (normalizado a UPPER_CASE)
+        raw_strategy = signal.get('strategy', 'UNKNOWN')
+        strategy_tag = str(raw_strategy).upper().replace('-', '_').replace(' ', '_')
+
         # Persistir en DB
         self._save_position(
             position_id=position_id,
             market=market,
             side=side,
-            strategy=signal.get('strategy', 'PREDICTION_LLM'),
+            strategy=raw_strategy,
+            strategy_tag=strategy_tag,
             entry_price=entry_price,
             shares=shares,
             cost=cost,
@@ -154,20 +159,21 @@ class PolyExecutor:
             return None
 
     def _save_position(self, position_id: str, market: dict, side: str,
-                       strategy: str, entry_price: float, shares: float,
-                       cost: float, session_name: str, metadata: dict):
+                       strategy: str, strategy_tag: str, entry_price: float,
+                       shares: float, cost: float, session_name: str,
+                       metadata: dict):
         """Guarda posición en DB."""
         with self.engine.connect() as conn:
             conn.execute(
                 text('''
                     INSERT INTO poly_positions
                         (id, condition_id, question, side, strategy,
-                         entry_price, shares, cost_basis, status,
-                         paper_trade, session_name, metadata)
+                         strategy_tag, entry_price, shares, cost_basis,
+                         status, paper_trade, session_name, metadata)
                     VALUES
                         (:id, :cid, :q, :side, :strat,
-                         :price, :shares, :cost, 'OPEN',
-                         :paper, :sess, :meta)
+                         :strat_tag, :price, :shares, :cost,
+                         'OPEN', :paper, :sess, :meta)
                 '''),
                 {
                     'id': position_id,
@@ -175,6 +181,7 @@ class PolyExecutor:
                     'q': market.get('question', ''),
                     'side': side,
                     'strat': strategy,
+                    'strat_tag': strategy_tag,
                     'price': entry_price,
                     'shares': shares,
                     'cost': cost,

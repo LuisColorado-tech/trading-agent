@@ -9,7 +9,7 @@ from core.asset_profiles import get_profile
 
 class TrendMomentumStrategy:
     NAME = 'TREND_MOMENTUM'
-    MIN_SCORE = 65  # 70 era demasiado alto para RANGE (cap sistémico en 50)
+    MIN_SCORE = 70  # Subido de 65→70 (v3): reducir señales débiles en BTC+INJ (-$3.5K en backtest v2)
 
     def score(self, ind: IndicatorSet, df=None) -> dict:
         # Evaluar ambas direcciones con scoring gradual y elegir la mejor
@@ -29,8 +29,10 @@ class TrendMomentumStrategy:
         score = 0
         reasons = []
 
-        # EMA bajista: EMA20 < EMA50
-        if ind.ema20 < ind.ema50 * 0.998:
+        # EMA bajista: EMA20 < EMA50. Umbral 0.995 (0.5% gap) exige tendencia bajista
+        # real y evita entradas en mercados choppy donde el cruce EMA revierte en minutos.
+        # Con 0.998 se producían rachas de 8-12 SL consecutivos (ver CSV May-Jun 2024).
+        if ind.ema20 < ind.ema50 * 0.995:
             score += 25
             reasons.append('EMA_BEAR_CROSS')
             if ind.ema20 < ind.ema50 * 0.99:
@@ -42,11 +44,18 @@ class TrendMomentumStrategy:
             score += 15
             reasons.append('PRICE_BELOW_EMA20')
 
-        # RSI en zona de debilidad sin oversold extremo
-        if 25 <= ind.rsi <= 45:
+        # RSI zona de debilidad SELL — asset-specific:
+        # ETH usa 25-50 (el rango 25-30 es momentum bajista válido en ETH, no rebote).
+        # Backtest v3: RSI 30-50 destruyó TREND_MOMENTUM ETH (-$8,435 vs v2).
+        # Resto de assets: 30-50 (evita entrar en oversold extremo con rebote probable).
+        if ind.asset == 'ETH':
+            rsi_bear_low, rsi_bear_high, rsi_os_guard = 25, 50, 25
+        else:
+            rsi_bear_low, rsi_bear_high, rsi_os_guard = 30, 50, 30
+        if rsi_bear_low <= ind.rsi <= rsi_bear_high:
             score += 20
             reasons.append(f'RSI_BEAR_ZONE:{ind.rsi:.1f}')
-        elif ind.rsi < 25:
+        elif ind.rsi < rsi_os_guard:
             score -= 15  # oversold extremo, rebote probable
             reasons.append('RSI_TOO_LOW_BOUNCE_RISK')
 
@@ -99,15 +108,13 @@ class TrendMomentumStrategy:
             score += 15
             reasons.append('PRICE_ABOVE_EMA20')
 
-        # RSI en zona de momentum.  Ventana ampliada de 50-65 → 45-68:
-        # el límite inferior aceptaba solo entradas ya tarde;  el superior
-        # cortaba señales válidas en rallies con RSI 65-68.
-        # La penalización de sobrecompra se mueve a RSI>72 (antes >70) y se
-        # reduce de -20 → -15 para no destruir señales en mercados fuertes.
-        if 45 <= ind.rsi <= 68:
+        # RSI en zona de momentum real (50-65). Reducido de 45-68 → 50-65 (v3):
+        # 45-50 incluía entradas débiles en rebotes; 65-68 incluía pre-sobrecompra.
+        # Penalización sobrecompra bajada a RSI>68 (antes >72) para ser más estrictos.
+        if 50 <= ind.rsi <= 65:
             score += 20
             reasons.append(f'RSI_MOMENTUM_ZONE:{ind.rsi:.1f}')
-        elif ind.rsi > 72:
+        elif ind.rsi > 68:
             score -= 15
             reasons.append('RSI_OVERBOUGHT')
 

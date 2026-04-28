@@ -2,6 +2,52 @@
 
 Todos los cambios notables del proyecto documentados por fase.
 
+## [v3 Crypto + Stocks Bug Fix] — 2026-04-28
+
+### Crypto: Calibración v3 (backtest 2Y: Sharpe 0.91→1.02, SOL MaxDD 41%→24%)
+
+**`strategies/trend_momentum.py`**
+- `MIN_SCORE` 65 → 70: reduce overtrade en BTC+INJ con señales de baja calidad
+- BUY zone RSI 45-68 → 50-65: evita entradas tardías y sobrecomprado (>68 −15 pts)
+- ETH RSI SELL zone específica: `25-50` (guard `rsi < 25`); otros assets `30-50` (guard `rsi < 30`)
+  - Fix regresión crítica: cutoff `30-50` bloqueaba señales válidas ETH RSI 25-30 → TREND_MOMENTUM ETH −$2,189 → +$6,281
+
+**`core/market_regime.py`**
+- `BREAKOUT_DOWN allow_trend=False`: backtest 2Y WR=29%, PnL −$1,590 → bloqueado completamente
+
+**`core/asset_profiles.py`**
+- SOL: `confluence_min` 4→5, `trailing_offset_r` 0.75→1.0 (wicks prematuros con 0.75; MaxDD 41.3%→24.2%)
+- INJ: `confluence_min` 3→4 (1166 trades WR=34% −$2,607 con min=3)
+
+**Resultados backtest 2Y post-v3 (15m, BTC/ETH/SOL/AVAX/INJ):**
+| Asset | PF v2 | PF v3 | MaxDD v2 | MaxDD v3 | Sharpe v2 | Sharpe v3 |
+|-------|-------|-------|----------|----------|-----------|-----------|
+| BTC   | 1.01  | 1.03  | 34.2%    | 34.2%    | 0.10      | 0.28      |
+| ETH   | 1.10  | 1.10  | 19.0%    | 19.0%    | 0.82      | 0.81      |
+| SOL   | 1.04  | 1.11  | 41.3%    | 24.2%    | 0.35      | 0.89      |
+| AVAX  | 1.10  | 1.08  | 25.1%    | 24.3%    | 0.91      | 0.75      |
+| INJ   | 1.07  | 1.10  | 28.0%    | 26.3%    | 0.75      | 0.97      |
+| TOTAL | 1.07  | 1.08  | 41.3%    | 34.2%    | 0.91      | **1.02**  |
+
+### Stocks Agent: 3 bugs corregidos (`agents/stocks_agent.py`, `core/alpaca_session_manager.py`)
+
+**Bug 1 — NameError `strategy` en `_execute_trade()`**
+- Causa: `strategy.NAME` referenciado fuera de scope en `_execute_trade()`
+- Fix: pasar `strategy_name=strategy.NAME` como parámetro explícito
+
+**Bug 2 — Alpaca 422 `fractional orders cannot be sold short`**
+- Causa: SELL enviaba `notional=` con qty fraccional; Alpaca solo acepta qty entero para shorts
+- Fix: BUY usa `notional=`; SELL usa `qty=int(qty)` con cap de exposición
+
+**Bug 3 — `decimal.Decimal` aritmética en `close_trade()`**
+- Causa: `t['entry_price']` retorna `Decimal` desde PostgreSQL; operaciones con `float` lanzaban TypeError
+- Fix: `float(t['entry_price'])` y `float(t['qty'])` en cálculo de PnL
+
+**Mejoras adicionales en `AlpacaClient._post()`:**
+- Log de error con body completo ante respuestas no-200: `logger.error(f"Alpaca API error {r.status_code} {path}: {r.text}")`
+
+---
+
 ## [Post-Fase 6] Bug Fix: Re-entry Loop + Halt Persistente — 2026-03-17
 
 ### Risk: Cooldown post SL (Bug #7 — CRÍTICO)

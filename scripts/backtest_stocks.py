@@ -38,8 +38,10 @@ _STRATEGIES = {
 }
 
 # ── Universo completo ─────────────────────────────────────────────────
-ALL_ASSETS = ['NVDA', 'TSLA', 'AAPL', 'META', 'AMZN', 'SPY', 'QQQ', 'GLD',
-              'EWZ', 'EEM', 'FXI', 'EWJ']
+ALL_ASSETS = ['NVDA', 'TSLA', 'AAPL', 'META', 'AMZN', 'QQQ', 'GLD', 'SLV',
+              'EEM', 'FXI', 'EWJ']
+# Eliminados del default por PF < 1.0 en backtest 24m: SPY (PF=0.94), EWZ (PF=0.89)
+# Añadido SLV: PF=1.31 ✓, WR=37.2%, MaxDD=14.3%
 
 # ── Parámetros de simulación ──────────────────────────────────────────
 INITIAL_BALANCE    = 220.0      # capital real del usuario

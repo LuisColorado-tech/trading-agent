@@ -43,7 +43,7 @@ from strategies.theta_farming import ThetaFarmingStrategy, CONTRACT_SIZE
 PAPER_MODE = True                    # Cambiar a False cuando se quiera ir a live
 INITIAL_BALANCE_USD = 2000.0         # Capital inicial de la sesión paper
 MAX_DRAWDOWN_PCT = 30.0              # Halt si el drawdown supera este %
-SCAN_INTERVAL_SECONDS = 3600        # Evaluar nueva entrada cada 1 hora
+SCAN_INTERVAL_SECONDS = 1800        # Evaluar nueva entrada cada 30 minutos
 MONITOR_INTERVAL_SECONDS = 300      # Verificar stops cada 5 minutos
 
 _db_url = (
@@ -56,9 +56,10 @@ _db_url = (
 class OptionsAgent:
     """Agente de theta farming: ciclo completo scan + monitor + heartbeat."""
 
-    def __init__(self):
+    def __init__(self, underlying: str = 'BTC'):
+        self.underlying = underlying.upper()
         self.session_mgr = DeribitSessionManager(_db_url)
-        self.strategy = ThetaFarmingStrategy(paper_mode=PAPER_MODE)
+        self.strategy = ThetaFarmingStrategy(underlying=self.underlying, paper_mode=PAPER_MODE)
         self.engine = create_engine(_db_url)
         self._redis = self._connect_redis()
         self._last_scan_time: float = 0.0
@@ -148,7 +149,7 @@ class OptionsAgent:
 
         for pos in expired:
             instrument_name = pos['instrument_name']
-            btc_price = self.strategy._get_btc_index_price() or float(pos.get('btc_price_at_entry', 74000))
+            btc_price = self.strategy._get_index_price() or float(pos.get('btc_price_at_entry', 74000))
             strike = float(pos['strike'])
 
             if PAPER_MODE:
@@ -198,14 +199,14 @@ class OptionsAgent:
 
     def _monitor_open_positions(self, open_positions: list[dict], session_name: str):
         """Revisa stop loss y profit lock en cada posición abierta."""
-        btc_price = self.strategy._get_btc_index_price()
+        btc_price = self.strategy._get_index_price()
 
         for pos in open_positions:
             instrument_name = pos['instrument_name']
             entry_premium_btc = float(pos['entry_premium_btc'])
 
             if btc_price is None:
-                logger.warning(f'MONITOR: sin precio BTC para {instrument_name}')
+                logger.warning(f'MONITOR: sin precio {self.underlying} para {instrument_name}')
                 continue
 
             close_reason = self.strategy.should_close_position(
@@ -322,12 +323,12 @@ class OptionsAgent:
     def _save_iv_snapshot(self):
         """Guarda datos del better candidate en options_market_data."""
         try:
-            btc_price = self.strategy._get_btc_index_price()
+            btc_price = self.strategy._get_index_price()
             iv_rank = self.strategy._get_iv_rank()
             if not btc_price:
                 return
 
-            puts = self.strategy._fetch_btc_puts()
+            puts = self.strategy._fetch_puts()
             if not puts:
                 return
 
@@ -346,7 +347,7 @@ class OptionsAgent:
 
                     self.session_mgr.save_market_snapshot({
                         'instrument_name': put['instrument_name'],
-                        'underlying': 'BTC',
+                        'underlying': self.underlying,
                         'timestamp': now,
                         'btc_price': btc_price,
                         'strike': float(put.get('strike', 0)),

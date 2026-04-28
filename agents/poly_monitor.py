@@ -9,6 +9,8 @@ import os
 import sys
 from datetime import datetime, timezone
 
+import requests as _requests
+
 import redis as _redis
 import yaml
 from loguru import logger
@@ -106,10 +108,10 @@ class PolyMonitor:
 
         # Obtener precio actual
         if not token_id:
-            return None
+            return self._handle_no_price(pos)
         current_price = self.feed.get_price(token_id)
         if current_price is None:
-            return None
+            return self._handle_no_price(pos)
 
         # Caso 1b: Precio indica resolución (≥0.95 o ≤0.05 para YES token)
         price_yes = self.feed.get_price(pos['token_yes']) if pos['token_yes'] else None
@@ -127,6 +129,81 @@ class PolyMonitor:
         if current_price <= EARLY_EXIT_LOSS:
             return self._close_position(pos, current_price, 'STOP_LOSS')
 
+        return None
+
+    def _handle_no_price(self, pos: dict) -> dict | None:
+        """Maneja posiciones cuyo token no devuelve precio (404 / token inválido).
+
+        Intenta dos fallbacks en orden:
+        1. Gamma API — si el mercado figura como resuelto, cierra con el outcome real.
+        2. Fecha de expiración — si end_date ya pasó, fuerza cierre EXPIRED_UNKNOWN.
+        """
+        # Fallback 1: Gamma API
+        gamma_outcome = self._check_gamma_resolved(pos.get('condition_id'))
+        if gamma_outcome:
+            logger.info(
+                f'POLY MONITOR: Gamma fallback resuelto ({gamma_outcome}): '
+                f'{pos["question"][:60]}'
+            )
+            return self._close_resolved(pos, gamma_outcome)
+
+        # Fallback 2: end_date pasado → forzar cierre EXPIRED_UNKNOWN
+        end_date = pos.get('end_date')
+        if end_date:
+            now = datetime.now(timezone.utc)
+            if isinstance(end_date, str):
+                try:
+                    end_date = datetime.fromisoformat(end_date.replace('Z', '+00:00'))
+                except ValueError:
+                    pass
+            if hasattr(end_date, 'tzinfo') and end_date.tzinfo and end_date < now:
+                logger.warning(
+                    f'POLY MONITOR: Token inválido y mercado expirado '
+                    f'→ forzando cierre EXPIRED_UNKNOWN: {pos["question"][:60]}'
+                )
+                return self._close_position(pos, 0.0, 'EXPIRED_UNKNOWN')
+            elif isinstance(end_date, datetime) and not end_date.tzinfo and end_date < datetime.now():
+                logger.warning(
+                    f'POLY MONITOR: Token inválido y mercado expirado (naive) '
+                    f'→ forzando cierre EXPIRED_UNKNOWN: {pos["question"][:60]}'
+                )
+                return self._close_position(pos, 0.0, 'EXPIRED_UNKNOWN')
+
+        return None
+
+    def _check_gamma_resolved(self, condition_id: str | None) -> str | None:
+        """Consulta Gamma API para saber si el mercado está resuelto.
+
+        Returns:
+            'YES', 'NO', o None si no está resuelto o hubo error.
+        """
+        if not condition_id:
+            return None
+        try:
+            resp = _requests.get(
+                'https://gamma-api.polymarket.com/markets',
+                params={'condition_id': condition_id},
+                timeout=10,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if not data or not isinstance(data, list):
+                return None
+            market = data[0]
+            if not (market.get('closed') or market.get('resolved')):
+                return None
+            outcomes = market.get('outcomes', '[]')
+            prices = market.get('outcomePrices', '[]')
+            if isinstance(outcomes, str):
+                outcomes = json.loads(outcomes)
+            if isinstance(prices, str):
+                prices = json.loads(prices)
+            if outcomes and prices and len(outcomes) == len(prices):
+                for i, price in enumerate(prices):
+                    if float(price) >= 0.95:
+                        return outcomes[i].upper()
+        except Exception as e:
+            logger.debug(f'POLY MONITOR: Gamma fallback error para {condition_id}: {e}')
         return None
 
     def _close_resolved(self, pos: dict, outcome: str) -> dict:
@@ -284,8 +361,14 @@ class PolyMonitor:
         }))
 
     def get_portfolio_summary(self) -> dict:
-        """Resumen del portafolio Polymarket activo."""
+        """Resumen del portafolio Polymarket activo (solo sesión activa)."""
         with self.engine.connect() as conn:
+            # Obtener sesión activa
+            sess_row = conn.execute(
+                text("SELECT session_name FROM poly_sessions WHERE status = 'ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            ).fetchone()
+            active_session = sess_row[0] if sess_row else None
+
             open_r = conn.execute(
                 text('''
                     SELECT COUNT(*) as cnt,
@@ -293,7 +376,9 @@ class PolyMonitor:
                            COALESCE(SUM(shares), 0) as total_shares
                     FROM poly_positions
                     WHERE status = 'OPEN'
-                ''')
+                      AND (:sess IS NULL OR session_name = :sess)
+                '''),
+                {'sess': active_session},
             ).fetchone()
             closed_r = conn.execute(
                 text('''
@@ -302,7 +387,10 @@ class PolyMonitor:
                            COUNT(*) FILTER(WHERE pnl > 0) as wins
                     FROM poly_positions
                     WHERE status = 'CLOSED'
-                ''')
+                      AND close_reason != 'SESSION_RESET'
+                      AND (:sess IS NULL OR session_name = :sess)
+                '''),
+                {'sess': active_session},
             ).fetchone()
 
         open_data = dict(open_r._mapping) if open_r else {}
@@ -318,4 +406,5 @@ class PolyMonitor:
             'closed_trades': total_closed,
             'total_pnl': float(closed_data.get('total_pnl', 0)),
             'win_rate': (wins / total_closed * 100) if total_closed > 0 else 0,
+            'active_session': active_session,
         }

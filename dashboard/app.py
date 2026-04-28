@@ -154,9 +154,15 @@ if not closed_trades.empty:
             break
 
 # ── Sidebar ──
-st.sidebar.title('🤖 Trading Agent v2.0')
+st.sidebar.title('🤖 Trading Agent v2.1')
 st.sidebar.markdown(f"**Entorno:** `{os.getenv('ENVIRONMENT', 'dev')}`")
 st.sidebar.markdown(f"**Modo:** `{'📝 PAPER' if os.getenv('PAPER_TRADING','true')=='true' else '🔴 LIVE'}`")
+st.sidebar.markdown('**Estrategias activas (6):**')
+st.sidebar.markdown(
+    '`TREND_MOMENTUM` `MEAN_REVERSION`\n\n'
+    '`BTC_DIP_BUYER` `BREAKOUT`\n\n'
+    '`SMC_ORDER_BLOCKS` `BTC_MICROSTRUCTURE`'
+)
 st.sidebar.markdown('---')
 
 # Risk semaphore
@@ -395,6 +401,15 @@ with tab2:
                 }),
                 use_container_width=True, hide_index=True,
             )
+            # Nuevas estrategias desplegadas sin trades aún
+            active_in_db = set(closed_trades['strategy'].unique())
+            new_strats = [s for s in ['SMC_ORDER_BLOCKS', 'BTC_MICROSTRUCTURE'] if s not in active_in_db]
+            if new_strats:
+                st.info(
+                    f"🆕 Estrategias nuevas en producción (sin trades cerrados aún): "
+                    f"{', '.join(f'`{s}`' for s in new_strats)} — "
+                    "Activas desde 2026-04-25, esperando condiciones de mercado (ATR suficiente)."
+                )
 
         # Formatted trade table
         st.markdown('##### Historial Completo')
@@ -783,16 +798,70 @@ with tab5:
         open_poly  = poly_positions_df[poly_positions_df['status'] == 'OPEN']
         closed_poly = poly_positions_df[poly_positions_df['status'] == 'CLOSED']
 
-        # KPIs cerradas
+        # ── Alerta: máximo concurrente alcanzado ──
+        if len(open_poly) >= 8:
+            st.warning(f'⚠️ **MAX_CONCURRENT alcanzado** — {len(open_poly)} posiciones abiertas. '
+                       'El agente detecta señales pero no puede abrir más hasta que resuelvan algunas.')
+
+        # ── Breakdown por estrategia ──
+        st.markdown('#### 📊 Performance por Estrategia')
+        strat_breakdown = poly_positions_df.groupby('strategy').agg(
+            total=('pnl', 'count'),
+            abiertas=('status', lambda x: (x == 'OPEN').sum()),
+            cerradas=('status', lambda x: (x == 'CLOSED').sum()),
+            wins=('pnl', lambda x: (x.fillna(0).astype(float) > 0).sum()),
+            pnl_total=('pnl', lambda x: x.fillna(0).astype(float).sum()),
+        ).reset_index()
+        strat_breakdown['win_rate'] = strat_breakdown.apply(
+            lambda r: f"{r['wins']/r['cerradas']*100:.0f}%" if r['cerradas'] > 0 else '—', axis=1
+        )
+        strat_breakdown['pnl_fmt'] = strat_breakdown['pnl_total'].apply(lambda x: f'${x:+.2f}')
+        strat_breakdown['estado'] = strat_breakdown['strategy'].map({
+            'PREDICTION_LLM': '❌ Descartada (LLM)',
+            'SIGNAL_BASED':   '✅ Activa',
+            'combinatorial':  '🟡 En prueba',
+            'legged_arb':     '🟡 En prueba',
+            'tail_end':       '🟡 En prueba',
+        }).fillna('🟡 En prueba')
+
+        st.dataframe(
+            strat_breakdown[['strategy', 'estado', 'total', 'abiertas', 'cerradas', 'win_rate', 'pnl_fmt']].rename(columns={
+                'strategy': 'Estrategia', 'estado': 'Estado', 'total': 'Total',
+                'abiertas': 'Abiertas', 'cerradas': 'Cerradas',
+                'win_rate': 'Win Rate', 'pnl_fmt': 'P&L',
+            }),
+            use_container_width=True, hide_index=True,
+        )
+
+        with st.expander('ℹ️ ¿Qué hace cada estrategia Polymarket?'):
+            st.markdown("""
+| Estrategia | Lógica | Estado |
+|---|---|---|
+| **PREDICTION_LLM** | LLM (OpenAI) estimaba probabilidades → entró en eventos de 2.2% de prob | ❌ Descartada (-$581 paper) |
+| **SIGNAL_BASED** | BtcDirection + MarketRegime → apuesta cuando señal técnica contradice precio Polymarket | ✅ Activa |
+| **combinatorial** | Arbitraje de monotonicity: P(BTC>$75k) debe ser ≥ P(BTC>$80k) | 🟡 Filtrando oportunidades |
+| **legged_arb** | Arbitraje correlacionado entre dos mercados relacionados | 🟡 En prueba |
+""")
+
+        # KPIs globales cerradas (solo sesión activa)
         if not closed_poly.empty:
-            pnl_series = closed_poly['pnl'].astype(float)
+            # Filtrar solo sesión activa, excluir SESSION_RESET
+            active_sess_name = active_sess.iloc[0]['session_name'] if not active_sess.empty else None
+            if active_sess_name:
+                mask = (closed_poly['session_name'] == active_sess_name) & (closed_poly['close_reason'] != 'SESSION_RESET')
+            else:
+                mask = closed_poly['close_reason'] != 'SESSION_RESET'
+            session_closed = closed_poly[mask].copy()
+
+            pnl_series = session_closed['pnl'].astype(float) if not session_closed.empty else pd.Series(dtype=float)
             gross_gains   = pnl_series[pnl_series > 0].sum()
             gross_losses  = abs(pnl_series[pnl_series <= 0].sum())
             pf_closed     = (gross_gains / gross_losses) if gross_losses > 0 else float('inf')
-            wr_closed     = (len(pnl_series[pnl_series > 0]) / len(pnl_series) * 100)
+            wr_closed     = (len(pnl_series[pnl_series > 0]) / len(pnl_series) * 100) if len(pnl_series) > 0 else 0
 
+            st.markdown('#### 📈 KPIs Globales (sesión activa)')
             c1, c2, c3, c4 = st.columns(4)
-            c1.metric('🔒 Cerradas', len(closed_poly))
+            c1.metric('🔒 Cerradas', len(session_closed))
             c2.metric('🔓 Abiertas', len(open_poly))
             c3.metric('🎯 Win Rate', f'{wr_closed:.1f}%')
             c4.metric('📊 Profit Factor', f'{pf_closed:.2f}' if pf_closed != float('inf') else '∞')

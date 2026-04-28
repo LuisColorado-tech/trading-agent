@@ -5,16 +5,18 @@ Pipeline INDEPENDIENTE del trading cripto y de polymarket.
 
 Modo de operación:
   - Monitor cada 5 minutos: verifica stops y profit locks
-  - Scan de nuevas entradas cada 1 hora
+  - Scan de nuevas entradas cada 30 minutos
   - Snapshot IV cada hora (para backtesting)
   - Heartbeat Redis en cada ciclo
 
 Ejecutar manualmente:
-  /opt/trading/venv/bin/python3 scripts/run_options.py
+  /opt/trading/venv/bin/python3 scripts/run_options.py --underlying BTC
+  /opt/trading/venv/bin/python3 scripts/run_options.py --underlying ETH
 
 Servicio systemd:
   /etc/systemd/system/options-agent.service
 """
+import argparse
 import os
 import sys
 import time
@@ -36,19 +38,28 @@ logger.add(
 from agents.options_agent import OptionsAgent, MONITOR_INTERVAL_SECONDS
 from core.notifications import send_telegram
 
-AGENT_VERSION = '1.0.0'
+AGENT_VERSION = '2.0.0'
 
 
 def main():
-    logger.info(f'OPTIONS AGENT v{AGENT_VERSION} — STARTING')
+    parser = argparse.ArgumentParser(description='Options Theta Farming Agent')
+    parser.add_argument(
+        '--underlying', default='BTC', choices=['BTC', 'ETH'],
+        help='Subyacente para opciones en Deribit (default: BTC)',
+    )
+    args = parser.parse_args()
+    underlying = args.underlying.upper()
+
+    logger.info(f'OPTIONS AGENT v{AGENT_VERSION} ({underlying}) — STARTING')
     send_telegram(
         f'🚀 <b>Options Agent iniciado</b>\n'
         f'Versión: {AGENT_VERSION}\n'
+        f'Subyacente: <b>{underlying}</b>\n'
         f'Modo: PAPER\n'
         f'Hora: {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}'
     )
 
-    agent = OptionsAgent()
+    agent = OptionsAgent(underlying=underlying)
 
     cycle_count = 0
     while True:
@@ -63,7 +74,7 @@ def main():
         except Exception as e:
             logger.exception(f'OPTIONS CYCLE ERROR: {e}')
             send_telegram(
-                f'⚠️ <b>Options Agent ERROR</b>\n'
+                f'⚠️ <b>Options Agent ERROR</b> ({underlying})\n'
                 f'Ciclo #{cycle_count}\n'
                 f'Error: {str(e)[:200]}'
             )

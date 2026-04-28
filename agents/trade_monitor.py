@@ -183,13 +183,14 @@ class TradeMonitor:
             logger.warning(f'ZERO_RISK: {asset} initial_risk={initial_risk}, skipping trailing')
             initial_risk = 0
 
-        # ── Trailing Dinámico ──
+        # ── Trailing Dinámico (price-following) ──
         # Grid Bot usa TP ajustado a un nivel de grid: trailing contraproducente.
         skip_trailing = trade.get('strategy') == 'GRID_BOT'
         if initial_risk > 0 and not skip_trailing:
             profile = get_profile(asset)
             trailing_activation_r = profile.trailing_activation_r
             trailing_step_r = profile.trailing_step_r
+            trailing_offset_r = profile.trailing_offset_r  # distancia SL al precio actual
 
             if side == 'BUY':
                 profit_r = (current_price - entry_price) / initial_risk
@@ -200,12 +201,16 @@ class TradeMonitor:
                 steps = max(1, int((profit_r - trailing_activation_r) / trailing_step_r))
                 locked_r = steps * trailing_step_r
 
-
+                # Fórmula price-following: el SL sigue al precio actual con un offset fijo.
+                # Esto permite que INJ (offset=0.60R) deje más espacio y no salga a $6
+                # cuando el TP debería estar en $18-41.
+                # Previamente: new_sl = entry_price ± locked_r × risk (anclado al entry).
+                # Ahora: new_sl = current_price ∓ trailing_offset_r × risk (sigue el precio).
                 if side == 'BUY':
-                    new_sl = entry_price + locked_r * initial_risk
+                    new_sl = current_price - trailing_offset_r * initial_risk
                     should_update = new_sl > stop_loss
                 else:
-                    new_sl = entry_price - locked_r * initial_risk
+                    new_sl = current_price + trailing_offset_r * initial_risk
                     should_update = new_sl < stop_loss
 
                 if should_update:

@@ -165,9 +165,36 @@ polymarket:
   risk:
     max_position_pct: 2.5          # Max 2.5% del balance por posición (bajado de 4% — reducir DD mientras se valida)
     max_total_exposure_pct: 40.0   # Max 40% del balance en posiciones
-    max_concurrent_positions: 5    # Max 5 posiciones
-    min_edge_pct: 15.0             # Edge mínimo 15% (subido de 10% — mejorar R:R, filtrar mercados ajustados)
+    max_concurrent_positions: 8    # Max 8 posiciones (subido de 5 — hub multi-estrategia)
+    min_edge_pct: 10.0             # Edge mínimo 10% (bajado de 15% para tail_end + late_entry)
     kelly_fraction: 0.25           # Cuarto Kelly (conservador)
+  # ── Configuración por estrategia ──
+  strategies:
+    tail_end:
+      enabled: true
+      min_price: 0.93              # Precio mínimo para considerar "near resolution"
+      max_price: 0.985             # Precio máximo (evitar mercados ya resueltos)
+      max_end_days: 7              # Días máximos hasta expiración
+      min_end_hours: 1             # Horas mínimas hasta expiración
+      min_return_pct: 2.0          # Retorno mínimo esperado (%)
+      stop_loss_price: 0.88        # Salida si precio cae por debajo de esto
+    late_entry:
+      enabled: true
+      entry_window_sec: 240        # Últimos 4 minutos antes del cierre
+      min_confidence: 0.30         # Diferencia mínima YES/NO para entrar
+      price_max: 0.92              # Precio máximo del favorito
+      flip_stop_threshold: 0.48    # Salir si el precio cae a este nivel
+      max_spread: 1.05             # Spread máximo YES+NO
+    legged_arb:
+      enabled: false               # DESACTIVADA 2026-04-25: 0 wins en 12 trades, entra en mercados políticos
+      max_phase1_price: 0.30       # Precio máximo YES para Phase 1
+      min_leg2_profit_pct: 5.0     # Profit mínimo garantizado para Phase 2
+      max_hold_days: 14            # Días máximos esperando Phase 2
+      max_investment_per_pair: 30  # USD máximo total (ambas legs)
+    combinatorial:
+      enabled: true
+      min_prob_diff: 0.05          # Diferencia mínima de probabilidad para señal
+      group_end_window_days: 5     # Días de tolerancia para agrupar mercados
 
 # ── Trailing Dinámico (ver docs/TRAILING_DINAMICO.md) ──
 trailing:

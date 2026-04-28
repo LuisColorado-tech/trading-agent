@@ -48,7 +48,9 @@ def classify_market_regime(ind, ind_htf=None) -> MarketRegime:
         if ind.trend_direction == 'UP':
             return MarketRegime('BREAKOUT_UP', 'BULLISH', True, False, True)
         if ind.trend_direction == 'DOWN':
-            return MarketRegime('BREAKOUT_DOWN', 'BEARISH', True, False, False)
+            # allow_trend=False (v3): WR=29% en BREAKOUT_DOWN → -$1,590 en backtest 2Y.
+            # En breakdown extremo (vol≥2x, atr≥1.5%) el edge de TREND_MOMENTUM desaparece.
+            return MarketRegime('BREAKOUT_DOWN', 'BEARISH', False, False, False)
 
     if ind.trend_direction == 'UP' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist > 0:
         # Backtest 2Y: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151 → bloqueado.
@@ -89,6 +91,16 @@ def strategy_allowed_in_regime(strategy_name: str, regime: MarketRegime) -> bool
         return regime.allow_breakout
     if strategy_name == 'BTC_DIP_BUYER':
         return regime.allow_dip_buy
+    # Estrategias reverse-engineered de GitHub
+    if strategy_name == 'PULLBACK_STATE_MACHINE':
+        # BUY-only pullback strategy — SÓLO en régimen alcista (TREND_UP, BREAKOUT_UP)
+        return regime.bias == 'BULLISH'
+    if strategy_name == 'SMC_ORDER_BLOCKS':
+        # Breakouts y tendencias — no en mercados laterales muy débiles
+        return regime.allow_trend or regime.allow_breakout
+    if strategy_name == 'BTC_MICROSTRUCTURE':
+        # Multi-signal — útil en casi cualquier régimen excepto puro choppy
+        return regime.allow_trend or regime.allow_breakout or regime.allow_dip_buy
     return True
 
 

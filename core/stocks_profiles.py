@@ -297,6 +297,27 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
         use_regime_filter=False,
         notes='Japón. Baja vol, JPY-correlado. SL=0.9 ajustado. Movimientos lentos y limpios.',
     ),
+
+    # ── SLV ───────────────────────────────────────────────────────────────────
+    # iShares Silver Trust — ETF de plata física
+    # Backtest 24m: WR=37.2%, PF=1.31 ✓, PnL=+$140 (+63.7%), MaxDD=14.3%
+    # Mayor volatilidad que GLD (~1.5x): SL/TP ligeramente más anchos
+    # Correlado con oro y DXY; reacciona también a demanda industrial
+    # use_macro_filter=False: plata es hedge, se mueve opuesto al ciclo macro
+    'SLV': StocksProfile(
+        symbol='SLV',
+        confluence_min=3,
+        allowed_directions=frozenset({'BUY', 'SELL'}),
+        sl_multiplier=1.1,
+        tp_multiplier=2.2,
+        min_atr_pct=0.004,
+        xsignal_profiles=('fxhedgers',),
+        xsignal_boost=10,
+        use_macro_filter=False,  # Plata es hedge como GLD — se mueve opuesto al macro
+        strategy_name='TREND_ETF',
+        use_regime_filter=False,
+        notes='ETF Plata. Backtest 24m: PF=1.31, WR=37.2%, MaxDD=14.3%. Mayor vol que GLD, SL=1.1.',
+    ),
 }
 
 
