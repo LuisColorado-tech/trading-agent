@@ -141,12 +141,13 @@ polymarket:
   # Solo mercados crypto con probabilidad moderada (0.20–0.80)
   # donde nuestras señales técnicas tienen edge real.
   market_filters:
-    min_volume: 20000              # USD mínimo volumen (subido de 10k)
+    min_volume: 30000              # USD mínimo volumen (subido de 20k — v2 diagnóstico)
     min_liquidity: 5000            # USD mínimo liquidez
-    max_end_days: 30               # No apostar a más de 30 días (antes 90)
+    max_end_days: 14               # No apostar a más de 14 días (antes 30 — señales 1h/4h no predicen >14d)
     min_end_hours: 2               # No apostar si resuelve en <2h
-    min_price_yes: 0.20            # Precio YES mínimo (antes 0.01)
-    max_price_yes: 0.80            # Precio YES máximo (antes 0.99)
+    min_price_yes: 0.35            # Precio YES mínimo (subido de 0.20 — entry <0.30 tenía WR=0-5%)
+    max_price_yes: 0.58            # Precio YES máximo (bajado de 0.80 — zona 0.60+ tiene EV<0 en backtest)
+    max_spread: 1.05               # Spread YES+NO máximo (nuevo — filtra rake >5%)
   # ── Categorías permitidas ──
   # SOLO crypto: donde nuestras señales técnicas tienen valor real.
   # Deportes/política/entretenimiento eliminados — LLM y señales no tienen edge ahí.
@@ -163,11 +164,18 @@ polymarket:
     - cryptocurrency
   # ── Parámetros de riesgo ──
   risk:
-    max_position_pct: 2.5          # Max 2.5% del balance por posición (bajado de 4% — reducir DD mientras se valida)
+    max_position_pct: 2.5          # Max 2.5% del balance por posición
     max_total_exposure_pct: 40.0   # Max 40% del balance en posiciones
-    max_concurrent_positions: 8    # Max 8 posiciones (subido de 5 — hub multi-estrategia)
-    min_edge_pct: 10.0             # Edge mínimo 10% (bajado de 15% para tail_end + late_entry)
-    kelly_fraction: 0.25           # Cuarto Kelly (conservador)
+    max_concurrent_positions: 5    # Max 5 posiciones (reducido de 8 con menos estrategias)
+    min_edge_pct: 10.0             # Edge mínimo 10% — zona 0.35-0.58 da edge 10-15% (ajustado v2)
+    kelly_fraction: 0.25           # Cuarto Kelly base (dinámico: edge≥25%→0.40, ≥20%→0.30)
+    early_exit_profit: 0.85        # TP fijo (poly_monitor — base)
+    early_exit_loss: 0.10          # SL fijo (poly_monitor — overrideado por SL dinámico)
+    sl_loss_fraction: 0.40         # SL dinámico: perder máx 40% del capital invertido (nuevo v2)
+    sl_trailing_activate: 0.72     # Activar trailing TP cuando precio llega a 0.72 (nuevo v2)
+    sl_trailing_step: 0.04         # Avanzar trailing cada +0.04 (nuevo v2)
+    max_session_drawdown_pct: 20.0 # Circuit breaker: pausar si DD sesión > 20% (antes 50%)
+    consecutive_losses_halt: 5     # Circuit breaker: haltar si N pérdidas seguidas (nuevo v2)
   # ── Configuración por estrategia ──
   strategies:
     tail_end:
@@ -179,12 +187,7 @@ polymarket:
       min_return_pct: 2.0          # Retorno mínimo esperado (%)
       stop_loss_price: 0.88        # Salida si precio cae por debajo de esto
     late_entry:
-      enabled: true
-      entry_window_sec: 240        # Últimos 4 minutos antes del cierre
-      min_confidence: 0.30         # Diferencia mínima YES/NO para entrar
-      price_max: 0.92              # Precio máximo del favorito
-      flip_stop_threshold: 0.48    # Salir si el precio cae a este nivel
-      max_spread: 1.05             # Spread máximo YES+NO
+      enabled: false               # DESACTIVADA v2: datos insuficientes para validar edge, zona de precio 0.70-0.79 WR=84% pero R:R<1
     legged_arb:
       enabled: false               # DESACTIVADA 2026-04-25: 0 wins en 12 trades, entra en mercados políticos
       max_phase1_price: 0.30       # Precio máximo YES para Phase 1
@@ -192,9 +195,7 @@ polymarket:
       max_hold_days: 14            # Días máximos esperando Phase 2
       max_investment_per_pair: 30  # USD máximo total (ambas legs)
     combinatorial:
-      enabled: true
-      min_prob_diff: 0.05          # Diferencia mínima de probabilidad para señal
-      group_end_window_days: 5     # Días de tolerancia para agrupar mercados
+      enabled: false               # DESACTIVADA v2: EV=-$3.32 en 17 trades (backtest diagnóstico 2026-04-28)
 
 # ── Trailing Dinámico (ver docs/TRAILING_DINAMICO.md) ──
 trailing:

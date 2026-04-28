@@ -106,15 +106,14 @@ class PolyRiskManager:
         return PolyRiskDecision(True, shares=shares, cost=cost, reason='APPROVED')
 
     def _kelly_size(self, edge: float, entry_price: float, balance: float) -> tuple[float, float]:
-        """Calcula tamaño de posición usando Kelly Criterion fraccionado.
+        """Calcula tamaño de posición usando Kelly Criterion fraccionado dinámico.
 
         Kelly = (p*b - q) / b
-        donde:
-            p = probabilidad estimada de ganar (entry_price + edge)
-            q = 1 - p
-            b = odds (payout / costo) = (1 - entry_price) / entry_price
-
-        La señal es determinista (no LLM), confianza = 1.0.
+        Fracción dinámica según magnitud del edge (v2 — diagnóstico 2026-04-28):
+            edge >= 0.25 → 0.40× (alta confianza)
+            edge >= 0.20 → 0.30×
+            edge >= 0.15 → 0.25× (base)
+            else         → 0.20× (solo pasa si MIN_EDGE < 0.15)
 
         Returns:
             (shares, cost_in_usdc)
@@ -132,8 +131,15 @@ class PolyRiskManager:
         kelly = (p * b - q) / b if b > 0 else 0
         kelly = max(0, kelly)
 
-        # Fracción Kelly (conservador)
-        fraction = kelly * KELLY_FRACTION
+        # Fracción dinámica según edge — más edge → más tamaño
+        if edge >= 0.25:
+            fraction_mult = 0.40
+        elif edge >= 0.20:
+            fraction_mult = 0.30
+        else:
+            fraction_mult = KELLY_FRACTION  # 0.25 base (o lo que diga config)
+
+        fraction = kelly * fraction_mult
         cost = balance * fraction
         shares = cost / entry_price if entry_price > 0 else 0
 

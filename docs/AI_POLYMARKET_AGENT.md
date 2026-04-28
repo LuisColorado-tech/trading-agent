@@ -1,8 +1,8 @@
 # POLYMARKET AGENT — Mercados de Predicción Crypto
 
 > Estrategia de trading en mercados de predicción (Polymarket) usando señales técnicas.
-> Estado: **ACTIVO** — en validación de edge
-> Última actualización: Abril 2026
+> Estado: **ACTIVO v2** — filtros de precio aplicados, diagnóstico completo completado
+> Última actualización: 2026-04-28 (v2 — post-diagnóstico)
 
 ---
 
@@ -10,22 +10,30 @@
 
 El Polymarket Agent apuesta en mercados de predicción tipo "¿Subirá BTC esta semana?" usando señales técnicas del Trading Agent. La idea: si la señal técnica da SELL con alta confluencia y hay un mercado predictivo activo sobre esa dirección, tenemos edge sobre el precio del mercado (que refleja sentimiento general, no señales técnicas).
 
-**Resultados actuales**:
-- Win Rate: **~60%** (bueno en teoría)
-- PnL: **-$70** (malo en práctica)
-- Problema: R:R desequilibrado — las pérdidas son más grandes que las ganancias; se gana en frecuencia pero se pierde en magnitud.
-- Estado: bajo vigilancia. El edge de 15% se aplicó para mejorar R:R.
+**Resultados históricos (pre-v2, 130 trades)**:
+- Win Rate global: 26.9% (era 0-5% para entry <0.30)
+- EV por trade: **-$7.30** (muy negativo)
+- PnL total: **-$949.20** en 4 sesiones
 
-**Balance paper**: $1,000 USDC inicial.
+**Diagnóstico v2 (2026-04-28)**:
+- Causa raíz #1: 78 trades con entry_price <0.30 → WR=0-5%, -$895 → **filtro min_price_yes subido a 0.35**
+- Causa raíz #2: LEGGED_ARB (10 trades WR=0%, -$177) y COMBINATORIAL (17 trades EV=-$3.32, -$57) → **ambas desactivadas**
+- Zona de edge real: entry 0.35–0.58 → WR=50%, **EV=+$2.28/trade, PnL=+$27.36** (12 trades históricos)
+- SL demasiado amplio: avg STOP_LOSS=-$17.49 → **SL dinámico: entry*(1-0.40) = max 40% de pérdida capital**
+
+**Balance paper**: $1,000 USDC inicial. POLY_SESSION_004 activa.
 
 ---
 
-## 2. Dos estrategias — solo una activa
+## 2. Estrategias activas
 
 | Estrategia | Estado | Descripción |
 |---|---|---|
-| `SIGNAL_BASED` | ✅ ACTIVA | Usa señales técnicas del Trading Agent para detectar edge en mercados Polymarket |
-| `PREDICTION_LLM` | ❌ DESACTIVADA | Usaba Claude/OpenAI para predecir. Sin API key configurada. 43 trades, 0 wins, -$582. `ENABLED=False` en `prediction.py` |
+| `SIGNAL_BASED` | ✅ ACTIVA | Usa señales técnicas del Trading Agent (BTC 1h/4h + market_regime) para detectar edge |
+| `TAIL_END` | ✅ ACTIVA | Mercados con cierre próximo (>2h, <24h) con señal confirmada |
+| `LATE_ENTRY` | ❌ DESACTIVADA v2 | Datos insuficientes para validar edge; desactivada hasta tener 50+ trades |
+| `COMBINATORIAL` | ❌ DESACTIVADA v2 | EV=-$3.32/trade en 17 trades (backtest diagnóstico 2026-04-28) |
+| `LEGGED_ARB` | ❌ DESACTIVADA | WR=0% en 10 trades, -$176.81 total |
 
 ---
 

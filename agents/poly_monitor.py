@@ -24,10 +24,21 @@ load_dotenv('/opt/trading/config/.env')
 with open('/opt/trading/config/exchange_config.yaml') as f:
     _CFG = yaml.safe_load(f).get('polymarket', {})
 
-# Salida anticipada si precio alcanza este umbral
+# Salida anticipada si precio alcanza este umbral (TP fijo — fallback)
 EARLY_EXIT_PROFIT = _CFG.get('risk', {}).get('early_exit_profit', 0.85)
-# Salida anticipada si precio cae debajo de este umbral
+# Salida anticipada si precio cae debajo de este umbral (SL fijo — fallback)
 EARLY_EXIT_LOSS = _CFG.get('risk', {}).get('early_exit_loss', 0.10)
+
+# ── SL dinámico v2 ────────────────────────────────────────────────────
+# SL_LOSS_FRACTION: pérdida máxima permitida como % del capital invertido
+# Ej: entry=0.45, fraction=0.40 → SL cuando precio cae a 0.45*(1-0.40)=0.27
+SL_LOSS_FRACTION = _CFG.get('risk', {}).get('sl_loss_fraction', 0.40)
+
+# ── Trailing TP v2 ────────────────────────────────────────────────────
+# Activar trailing cuando precio llega a SL_TRAILING_ACTIVATE
+# Avanzar trailing_high cada +SL_TRAILING_STEP; SL trailing = trailing_high - step
+SL_TRAILING_ACTIVATE = _CFG.get('risk', {}).get('sl_trailing_activate', 0.72)
+SL_TRAILING_STEP     = _CFG.get('risk', {}).get('sl_trailing_step', 0.04)
 
 
 def _db_url() -> str:
@@ -96,8 +107,9 @@ class PolyMonitor:
 
         Casos de cierre:
         1. Mercado resuelto → RESOLVED_WIN / RESOLVED_LOSS
-        2. Precio ≥ EARLY_EXIT_PROFIT → TAKE_PROFIT
-        3. Precio ≤ EARLY_EXIT_LOSS → STOP_LOSS
+        2. Trailing TP: precio ≥ EARLY_EXIT_PROFIT fijo O trailing_high - step → TAKE_PROFIT
+        3. SL dinámico: precio ≤ entry * (1 - SL_LOSS_FRACTION) → STOP_LOSS
+        4. SL fijo fallback: precio ≤ EARLY_EXIT_LOSS → STOP_LOSS
         """
         side = pos['side']
         token_id = pos['token_yes'] if side == 'YES' else pos['token_no']
@@ -121,11 +133,42 @@ class PolyMonitor:
             elif price_yes <= 0.05:
                 return self._close_resolved(pos, 'NO')
 
-        # Caso 2: Take profit — nuestro lado alcanza precio alto
+        entry_price = float(pos.get('entry_price') or 0.50)
+
+        # Caso 2: Trailing TP — activar cuando precio ≥ SL_TRAILING_ACTIVATE
+        # trailing_high se persiste en metadata; avanzar si precio supera el high anterior
+        if current_price >= SL_TRAILING_ACTIVATE:
+            meta = pos.get('metadata') or {}
+            if isinstance(meta, str):
+                import json as _json
+                try:
+                    meta = _json.loads(meta)
+                except Exception:
+                    meta = {}
+            trailing_high = float(meta.get('trailing_high', SL_TRAILING_ACTIVATE))
+            if current_price > trailing_high + SL_TRAILING_STEP:
+                # Avanzar el high y actualizar metadata
+                trailing_high = current_price
+                self._update_trailing_high(pos['id'], trailing_high)
+                logger.info(
+                    f'POLY TRAILING: "{pos["question"][:50]}" '
+                    f'nuevo high={trailing_high:.3f}'
+                )
+            # Trailing SL: cerrar si precio cae SL_TRAILING_STEP por debajo del high
+            trailing_sl = trailing_high - SL_TRAILING_STEP
+            if current_price <= trailing_sl and trailing_high > SL_TRAILING_ACTIVATE:
+                return self._close_position(pos, current_price, 'TAKE_PROFIT')
+
+        # Caso 2b: TP fijo (fallback para quien llegó muy alto sin trailing)
         if current_price >= EARLY_EXIT_PROFIT:
             return self._close_position(pos, current_price, 'TAKE_PROFIT')
 
-        # Caso 3: Stop loss — nuestro lado cae a precio bajo
+        # Caso 3: SL dinámico — perder máximo SL_LOSS_FRACTION del capital invertido
+        dynamic_sl = entry_price * (1.0 - SL_LOSS_FRACTION)
+        if current_price <= dynamic_sl:
+            return self._close_position(pos, current_price, 'STOP_LOSS')
+
+        # Caso 4: SL fijo fallback (seguridad ante entry_price=0)
         if current_price <= EARLY_EXIT_LOSS:
             return self._close_position(pos, current_price, 'STOP_LOSS')
 
@@ -244,6 +287,30 @@ class PolyMonitor:
             'cost_basis': cost,
             'session_name': pos['session_name'],
         }
+
+    def _update_trailing_high(self, position_id, trailing_high: float):
+        """Actualiza el trailing_high en metadata de la posición."""
+        import json as _json
+        try:
+            with self.engine.connect() as conn:
+                row = conn.execute(
+                    text('SELECT metadata FROM poly_positions WHERE id = :id'),
+                    {'id': str(position_id)},
+                ).fetchone()
+                meta = {}
+                if row and row[0]:
+                    try:
+                        meta = _json.loads(row[0]) if isinstance(row[0], str) else dict(row[0])
+                    except Exception:
+                        meta = {}
+                meta['trailing_high'] = round(trailing_high, 4)
+                conn.execute(
+                    text('UPDATE poly_positions SET metadata = :m WHERE id = :id'),
+                    {'m': _json.dumps(meta), 'id': str(position_id)},
+                )
+                conn.commit()
+        except Exception as e:
+            logger.debug(f'POLY MONITOR: trailing_high update error: {e}')
 
     def _close_position(self, pos: dict, exit_price: float, close_reason: str) -> dict:
         """Cierra posición con salida anticipada (TP/SL)."""

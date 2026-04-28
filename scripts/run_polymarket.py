@@ -41,7 +41,15 @@ from strategies.signal_based_poly import SignalBasedPolyStrategy
 
 SCAN_INTERVAL = _CFG.get('scan_interval_seconds', 300)
 INITIAL_BALANCE = _CFG.get('initial_paper_balance', 1000.0)
-MAX_DD_PCT = _CFG.get('risk', {}).get('max_session_drawdown_pct', 50.0)
+MAX_DD_PCT = _CFG.get('risk', {}).get('max_session_drawdown_pct', 20.0)
+CONSECUTIVE_LOSSES_HALT = _CFG.get('risk', {}).get('consecutive_losses_halt', 5)
+
+import redis as _redis
+_redis_client = _redis.Redis(
+    host=os.getenv('REDIS_HOST', 'localhost'),
+    port=int(os.getenv('REDIS_PORT', 6379)),
+    decode_responses=True,
+)
 
 _db_url = (
     f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
@@ -140,6 +148,28 @@ def maybe_rollover(session: dict) -> tuple[dict, bool]:
     return new_session, True
 
 
+def _get_consec_losses(session_name: str) -> int:
+    """Devuelve pérdidas consecutivas actuales para la sesión."""
+    try:
+        val = _redis_client.get(f'poly:consec_losses:{session_name}')
+        return int(val) if val else 0
+    except Exception:
+        return 0
+
+
+def _record_trade_result(session_name: str, won: bool):
+    """Actualiza contador de pérdidas consecutivas en Redis."""
+    key = f'poly:consec_losses:{session_name}'
+    try:
+        if won:
+            _redis_client.delete(key)
+        else:
+            _redis_client.incr(key)
+            _redis_client.expire(key, 86400)  # expira en 24h
+    except Exception:
+        pass
+
+
 def main():
     if not _CFG.get('enabled', False):
         logger.warning('Polymarket is DISABLED in config. Exiting.')
@@ -160,6 +190,7 @@ def main():
     )
 
     cycle_count = 0
+    circuit_breaker_active = False
 
     while True:
         try:
@@ -170,6 +201,8 @@ def main():
             session, rolled = maybe_rollover(session)
             if rolled:
                 logger.info(f'Rolled over to {session["session_name"]}')
+                circuit_breaker_active = False
+                _redis_client.delete(f'poly:consec_losses:{session["session_name"]}')
                 continue  # restart cycle with new session
 
             # ── 0. MONITOREAR posiciones abiertas ──
@@ -186,6 +219,31 @@ def main():
                         f'PnL: <b>${c["pnl"]:+.2f}</b> ({c["pnl_pct"]:+.1f}%)',
                         silent=False,
                     )
+                    # Actualizar contador de pérdidas consecutivas
+                    _record_trade_result(session_name, c['pnl'] > 0)
+
+            # ── CIRCUIT BREAKER: pérdidas consecutivas ──
+            consec_losses = _get_consec_losses(session_name)
+            if consec_losses >= CONSECUTIVE_LOSSES_HALT:
+                if not circuit_breaker_active:
+                    circuit_breaker_active = True
+                    logger.warning(
+                        f'POLY CIRCUIT BREAKER: {consec_losses} pérdidas consecutivas. '
+                        f'Pausando nuevas entradas por 2 ciclos.'
+                    )
+                    send_telegram(
+                        f'⚠️ <b>POLY CIRCUIT BREAKER</b>\n'
+                        f'{consec_losses} pérdidas consecutivas.\n'
+                        f'Pausando nuevas entradas — solo monitor activo.',
+                        silent=False,
+                    )
+                # Solo monitorear — no abrir posiciones
+                time.sleep(SCAN_INTERVAL)
+                # Desactivar después de que al menos 1 posición gane (via _record_trade_result)
+                if _get_consec_losses(session_name) < CONSECUTIVE_LOSSES_HALT:
+                    circuit_breaker_active = False
+                    logger.info('POLY CIRCUIT BREAKER: resuelto, reanudando operaciones.')
+                continue
 
             # ── 1. SCAN mercados ──
             markets = feed.scan_markets()
