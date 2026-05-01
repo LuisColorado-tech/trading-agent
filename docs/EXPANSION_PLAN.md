@@ -354,3 +354,16 @@ Agregar al React dashboard una sección **"Líneas de Negocio"** en el Overview:
 ## Próximo paso
 
 Arrancar **Fase 1 (Grid Stable)**. Es la de menor riesgo, menor esfuerzo (extiende código existente), y puede dar 0.5-1% mensual en 1-2 semanas. ¿Procedo?
+
+---
+
+## Historial de implementación
+
+| Fecha | Fase | Estado | Resultado backtest | Commit |
+|---|---|---|---|---|
+| 2026-05-01 | 1 — Grid Stable | ✅ COMPLETADA | ETH/BTC: PF=1.84, DD=0.3%, Sharpe=2.20 | a3119e4 |
+| 2026-05-03 | 2 — Basis Trade | ⏳ Programado | — | — |
+| 2026-05-05 | 3 — VIX Mean Rev | ⏳ Programado | — | — |
+| 2026-05-07 | 4 — Pairs Trading | ⏳ Programado | — | — |
+| 2026-05-10 | 5 — Earnings Strangle | ⏳ Programado | — | — |
+| 2026-05-13 | 6 — Reporte Final | ⏳ Programado | — | — |

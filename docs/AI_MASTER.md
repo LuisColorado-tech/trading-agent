@@ -87,6 +87,7 @@ journalctl -u options-agent -n 50 --no-pager
 | `btc-direction` | `btc_direction/run_btc_direction.py` | BTC Direction multi-TF |
 | `trading-dashboard` | `dashboard/app.py` | Streamlit en :8501 |
 | `trading-health` | `scripts/health_check.py` | Health check periódico |
+| `grid-stable` | `agents/grid_stable_agent.py` | Grid Bot pares estables ETH/BTC, LINK/BTC |
 | `telegram-bot` | — | Bot de notificaciones |
 
 ---
@@ -239,15 +240,29 @@ ORDER BY timestamp_close DESC LIMIT 20;
 
 ---
 
-## 9. Estado actual (Mayo 2026 — post-auditoría)
+## 9. Estado actual (Mayo 2026 — post-auditoría v3 + Expansión Fase 1)
 
-- **SESSION_008**: ACTIVA. Balance $12,116. v3 mejorado: MIN_SCORE=75, DEAD_HOURS extendido, INJ riesgo normalizado, trailing activado antes, MAX_CONCURRENT=2.
-- **Stocks agent v3**: STOCKS_SESSION_001 ($220). Trailing stop implementado, xsignal boost corregido, ATR filters subidos, macro bias con gradiente.
-- **Polymarket v3**: POLY_SESSION_005 ($1,000 fresh). Bugs críticos corregidos: edge formula, min_price_yes=0.42, max_spread enforce, Kelly sizing realista.
-- **Fortalezas**: edge de TREND_MOMENTUM SELL es real. RiskManager funciona. SLV es el primer activo stocks con PF≥1.30.
-- **Camino a fondeo**: $300 USDC. Crypto más cercano (PF=1.08, meta 1.50). Ver plan detallado en [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md).
+
+
+- **SESSION_009**: ACTIVA. Balance $10,000. Crypto v3: MIN_SCORE=75, DEAD_HOURS extendido, INJ riesgo normalizado, trailing 0.75R, MAX_CONCURRENT=2.
+
+- **Stocks v3**: STOCKS_SESSION_001 ($220). Trailing implementado, xsignal fix, ATR filters, macro gradient.
+
+- **Polymarket v3**: POLY_SESSION_005 ($1,000). Edge formula corregida, min_price_yes=0.42, max_spread enforce, Kelly realista.
+
+- **Grid Stable v1**: NUEVO. ETH/BTC + LINK/BTC. Backtest 12m: PF=1.84, DD=0.3%%, Sharpe=2.20. 10 niveles por par.
+
+- **Fortalezas**: 4 agentes activos generando. SLV primer activo stocks con PF≥1.30. Grid Stable complementa con baja volatilidad.
+
+- **Expansión**: 5 nuevas líneas en desarrollo (Basis Trade, VIX, Pairs, Earnings, Grid Stable).
+
+- **Camino a fondeo**: $300 USDC. Ver docs/IMPROVEMENT_PLAN.md y docs/EXPANSION_PLAN.md.
+
+
 
 ---
+
+
 
 ## 10. Flujo de trabajo para nueva IA
 
