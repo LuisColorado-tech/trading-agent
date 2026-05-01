@@ -29,8 +29,8 @@ MIN_VOLUME = _FILTERS.get('min_volume', 20000)
 MIN_LIQUIDITY = _FILTERS.get('min_liquidity', 5000)
 MAX_END_DAYS = _FILTERS.get('max_end_days', 30)
 MIN_END_HOURS = _FILTERS.get('min_end_hours', 2)
-MIN_PRICE_YES = _FILTERS.get('min_price_yes', 0.20)
-MAX_PRICE_YES = _FILTERS.get('max_price_yes', 0.80)
+MIN_PRICE_YES = _FILTERS.get('min_price_yes', 0.42)
+MAX_PRICE_YES = _FILTERS.get('max_price_yes', 0.58)
 
 _CATEGORIES_ALLOWED = set(c.lower() for c in _CFG.get('categories_allowed', ['crypto']))
 _QUESTION_KEYWORDS = [kw.lower() for kw in _CFG.get('question_keywords', [
@@ -159,9 +159,14 @@ class PolymarketFeed:
         price_yes = float(prices_raw[yes_idx])
         price_no = float(prices_raw[no_idx])
 
-        # Filtro: precio en zona moderada (0.20–0.80)
+        # Filtro: precio en zona moderada (0.42–0.58)
         # Fuera de este rango señales técnicas no tienen edge confiable.
         if price_yes < MIN_PRICE_YES or price_yes > MAX_PRICE_YES:
+            return None
+
+        # Filtro: spread máximo (rake implícito ≤ 5%)
+        MAX_SPREAD = _FILTERS.get('max_spread', 1.05)
+        if price_yes + price_no > MAX_SPREAD:
             return None
 
         # Filtro: al menos una keyword crypto en la pregunta

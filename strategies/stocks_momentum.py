@@ -19,22 +19,25 @@ class StocksMomentumStrategy:
     NAME = 'STOCKS_MOMENTUM'
     MIN_SCORE = 65
 
-    def score(self, ind: IndicatorSet, xsignal_boost: int = 0) -> dict:
+    def score(self, ind: IndicatorSet, xsignal_boost: int = 0, xsignal_dir: str = '') -> dict:
         """Evalúa ambas direcciones y devuelve la mejor señal.
 
         Args:
             ind: indicadores técnicos calculados por IndicatorEngine
             xsignal_boost: puntos extra provenientes de señales X alineadas
+            xsignal_dir: dirección del xsignal ('BUY' o 'SELL') — solo boost en esa dir
         """
         sell = self._score_sell(ind)
         buy = self._score_buy(ind)
 
-        # Aplicar boost de xsignals a la dirección alineada
+        # Aplicar boost de xsignals SOLO a la dirección alineada (fix v3)
         if xsignal_boost > 0:
-            sell['score'] += xsignal_boost
-            sell['reasons'].append(f'XSIGNAL_BOOST:+{xsignal_boost}')
-            buy['score'] += xsignal_boost
-            buy['reasons'].append(f'XSIGNAL_BOOST:+{xsignal_boost}')
+            if xsignal_dir == 'SELL':
+                sell['score'] += xsignal_boost
+                sell['reasons'].append(f'XSIGNAL_BOOST:+{xsignal_boost}')
+            elif xsignal_dir == 'BUY':
+                buy['score'] += xsignal_boost
+                buy['reasons'].append(f'XSIGNAL_BOOST:+{xsignal_boost}')
 
         if sell['score'] >= self.MIN_SCORE and sell['score'] >= buy['score']:
             return sell

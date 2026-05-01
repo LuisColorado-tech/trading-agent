@@ -109,6 +109,9 @@ class StocksAgent:
         # Mantener self.strategy apuntando al default para compatibilidad
         self.strategy = self._strategies['MOMENTUM']
 
+        # Estado de trailing por trade (v3)
+        self._trailing_state: dict[str, dict] = {}
+
         mode = 'DRY_RUN' if dry_run else ('PAPER' if os.getenv('PAPER_TRADING', 'true').lower() == 'true' else 'LIVE')
         send_telegram(
             f"🤖 <b>StocksAgent arrancado</b>\n"
@@ -164,9 +167,10 @@ class StocksAgent:
             logger.info(f"Máximo de trades concurrentes alcanzado ({MAX_CONCURRENT_TRADES})")
             return
 
-        # 4. Macro bias
+        # 4. Macro bias + severidad (v3: gradiente)
         macro = self.feed.get_macro_bias()
-        logger.info(f"Macro bias: {macro}")
+        self._macro_severity = self.feed.get_macro_severity()  # qué tan profundo es el bias (0.0–5.0 %)
+        logger.info(f"Macro bias: {macro} (severity={self._macro_severity:.1f}%)")
 
         # 5. Evaluar cada activo
         for symbol in STOCKS_UNIVERSE:
@@ -178,6 +182,13 @@ class StocksAgent:
     def _evaluate_symbol(self, symbol: str, macro: str, open_trades: list):
         """Evalúa un símbolo y ejecuta trade si hay señal."""
         profile = get_stocks_profile(symbol)
+
+        # Bloquear horas malas según perfil (v3)
+        if profile.blocked_hours_utc:
+            current_hour = datetime.now(timezone.utc).hour
+            if current_hour in profile.blocked_hours_utc:
+                logger.debug(f"{symbol}: hora bloqueada UTC={current_hour}")
+                return
 
         # No abrir segundo trade en el mismo símbolo
         symbols_in_trade = {t['symbol'] for t in open_trades}
@@ -216,7 +227,7 @@ class StocksAgent:
 
         # Evaluar estrategia — elegida por perfil del símbolo
         strategy = self._strategies.get(profile.strategy_name, self._strategies['MOMENTUM'])
-        result = strategy.score(ind, xsignal_boost=xboost if xside else 0)
+        result = strategy.score(ind, xsignal_boost=xboost if xside else 0, xsignal_dir=xside or '')
 
         if result['direction'] == 'NEUTRAL':
             logger.debug(f"{symbol}: NEUTRAL score={result['score']}")
@@ -224,10 +235,18 @@ class StocksAgent:
 
         direction = result['direction']
 
-        # Filtro macro: si hay bear macro, no abrir BUY en acciones individuales
+        # Filtro macro (v3): gradiente en vez de binario
         if macro == 'BEAR' and direction == 'BUY' and profile.use_macro_filter:
-            logger.info(f"{symbol}: BUY bloqueado por macro BEAR")
-            return
+            if self._macro_severity >= 1.0:
+                # BEAR severo (≥1% bajo SMA10): bloquear todos los BUY
+                logger.info(f"{symbol}: BUY bloqueado por macro BEAR severo")
+                return
+            else:
+                # BEAR leve (0.1-1% bajo SMA10): permitir BUY solo con score ≥ 80
+                if result['score'] < 80:
+                    logger.info(f"{symbol}: BUY bloqueado por macro BEAR leve (score={result['score']} < 80)")
+                    return
+                logger.info(f"{symbol}: BUY permitido en BEAR leve (score={result['score']} ≥ 80)")
 
         # Filtro xsignal: si hay señal contraria fuerte, reducir boost
         if xside and xside != direction:
@@ -308,6 +327,32 @@ class StocksAgent:
 
         if not self.dry_run and self._alpaca:
             try:
+                # Validar si hay orden opuesta pendiente/activa
+                open_orders = self._alpaca.get_orders(status='open')
+                for o in open_orders:
+                    if o['symbol'] == symbol and o['side'] != side:
+                        logger.warning(f"Orden opuesta pendiente para {symbol} ({o['side']}) — cancelando antes de enviar nueva orden")
+                        try:
+                            self._alpaca.cancel_order(o['id'])
+                            logger.info(f"Orden opuesta {o['id']} cancelada")
+                        except Exception as ce:
+                            logger.error(f"No se pudo cancelar orden opuesta: {ce}")
+                        # Esperar a que se cancele antes de continuar
+                        time.sleep(2)
+                        # Reintentar verificación de órdenes opuestas
+                        for _ in range(2):
+                            open_orders_retry = self._alpaca.get_orders(status='open')
+                            opuesta_sigue = any(
+                                oo['symbol'] == symbol and oo['side'] != side for oo in open_orders_retry
+                            )
+                            if not opuesta_sigue:
+                                break
+                            logger.warning(f"Orden opuesta para {symbol} aún pendiente tras cancelación, esperando...")
+                            time.sleep(2)
+                        else:
+                            logger.error(f"No se pudo limpiar orden opuesta para {symbol} tras varios intentos. Abortando envío de nueva orden.")
+                            return
+
                 # Alpaca solo acepta notional para BUY; SELL (short) requiere qty explícito
                 order_kwargs: dict = dict(
                     symbol=symbol,
@@ -331,6 +376,7 @@ class StocksAgent:
                     qty = int_qty
                     notional = sell_notional
                     order_kwargs['qty'] = int_qty
+                logger.info(f"Validando orden: {order_kwargs}")
                 order = self._alpaca.submit_order(**order_kwargs)
                 alpaca_order_id = order.get('id')
                 logger.info(f"Alpaca order {alpaca_order_id} enviada: {side} {symbol} ${notional:.2f}")
@@ -363,7 +409,7 @@ class StocksAgent:
         )
 
     def _monitor_open_trades(self):
-        """Verifica SL/TP para cada trade abierto."""
+        """Verifica SL/TP/trailing para cada trade abierto (v3: trailing implementado)."""
         open_trades = self.session_mgr.get_open_trades(self.session['id'])
         if not open_trades:
             return
@@ -375,17 +421,64 @@ class StocksAgent:
                 if price <= 0:
                     continue
 
+                entry = float(trade['entry_price'])
+                sl = float(trade['stop_loss'])
+                tp = float(trade['take_profit'])
+                direction = trade['direction']
+                profile = get_stocks_profile(symbol)
+                risk_per_unit = abs(entry - sl)
+                tid = trade['id']
+
+                # ── Trailing stop (v3) ──
+                if risk_per_unit > 0:
+                    if tid not in self._trailing_state:
+                        self._trailing_state[tid] = {
+                            'high': price, 'low': price, 'activated': False
+                        }
+                    ts = self._trailing_state[tid]
+
+                    # Actualizar high/low
+                    if direction == 'BUY' and price > ts['high']:
+                        ts['high'] = price
+                    elif direction == 'SELL' and price < ts['low']:
+                        ts['low'] = price
+
+                    # Verificar activación
+                    if direction == 'BUY':
+                        profit_r = (price - entry) / risk_per_unit
+                    else:
+                        profit_r = (entry - price) / risk_per_unit
+
+                    if profit_r >= profile.trailing_activation_r:
+                        ts['activated'] = True
+
+                    if ts['activated']:
+                        if direction == 'BUY':
+                            trailing_sl = ts['high'] - profile.trailing_offset_r * risk_per_unit
+                            if price <= trailing_sl:
+                                self._trailing_state.pop(tid, None)
+                                self._close_trade(trade, price, 'TRAILING_STOP')
+                                continue
+                        else:
+                            trailing_sl = ts['low'] + profile.trailing_offset_r * risk_per_unit
+                            if price >= trailing_sl:
+                                self._trailing_state.pop(tid, None)
+                                self._close_trade(trade, price, 'TRAILING_STOP')
+                                continue
+
+                # ── SL / TP fijos ──
                 hit_sl = (
-                    (trade['direction'] == 'BUY' and price <= float(trade['stop_loss'])) or
-                    (trade['direction'] == 'SELL' and price >= float(trade['stop_loss']))
+                    (direction == 'BUY' and price <= sl) or
+                    (direction == 'SELL' and price >= sl)
                 )
                 hit_tp = (
-                    (trade['direction'] == 'BUY' and price >= float(trade['take_profit'])) or
-                    (trade['direction'] == 'SELL' and price <= float(trade['take_profit']))
+                    (direction == 'BUY' and price >= tp) or
+                    (direction == 'SELL' and price <= tp)
                 )
 
                 if hit_sl or hit_tp:
                     reason = 'SL' if hit_sl else 'TP'
+                    self._trailing_state.pop(tid, None)
                     self._close_trade(trade, price, reason)
 
             except Exception as e:
@@ -401,13 +494,27 @@ class StocksAgent:
             # Enviar orden de cierre
             close_side = 'sell' if trade['direction'] == 'BUY' else 'buy'
             try:
-                self._alpaca.submit_order(
-                    symbol=trade['symbol'],
-                    qty=float(trade['qty']),
-                    side=close_side,
-                    order_type='market',
-                    time_in_force='day',
-                )
+                # Consultar posición real antes de cerrar
+                pos = self._alpaca.get_position(trade['symbol'])
+                if pos:
+                    available_qty = float(pos.get('qty', 0))
+                    close_qty = min(float(trade['qty']), available_qty)
+                    # Si el activo requiere entero, redondear
+                    if available_qty >= 1:
+                        close_qty = int(close_qty)
+                    if close_qty <= 0:
+                        logger.warning(f"No hay cantidad disponible para cerrar {trade['symbol']}")
+                        return
+                    logger.info(f"Cerrando {trade['symbol']} qty={close_qty} (disponible={available_qty})")
+                    self._alpaca.submit_order(
+                        symbol=trade['symbol'],
+                        qty=close_qty,
+                        side=close_side,
+                        order_type='market',
+                        time_in_force='day',
+                    )
+                else:
+                    logger.warning(f"No se encontró posición abierta en Alpaca para {trade['symbol']}")
             except Exception as e:
                 logger.error(f"Error cerrando {trade['symbol']} en Alpaca: {e}")
 

@@ -163,6 +163,30 @@ class StocksFeed:
         except Exception:
             return 'NEUTRAL'
 
+    def get_macro_severity(self) -> float:
+        """Severidad del macro bias: qué tan lejos está el precio de la SMA10.
+
+        Returns porcentaje (0.0 = en la SMA, positivo = bullish, negativo = bearish).
+        Usado para el filtro macro con gradiente en vez de binario (v3).
+        """
+        try:
+            spy = self.get_latest('SPY', '1d', 20)
+            qqq = self.get_latest('QQQ', '1d', 20)
+            if spy.empty or qqq.empty:
+                return 0.0
+
+            spy_sma = spy['close'].rolling(10).mean().iloc[-1]
+            qqq_sma = qqq['close'].rolling(10).mean().iloc[-1]
+            spy_close = spy.iloc[-1]['close']
+            qqq_close = qqq.iloc[-1]['close']
+
+            spy_pct = (spy_close - spy_sma) / spy_sma * 100
+            qqq_pct = (qqq_close - qqq_sma) / qqq_sma * 100
+
+            return (spy_pct + qqq_pct) / 2  # promedio de ambos
+        except Exception:
+            return 0.0
+
     # ── Fuentes de datos ─────────────────────────────────────────────────────
 
     def _fetch_alpaca(self, symbol: str, timeframe: str, n: int) -> pd.DataFrame:

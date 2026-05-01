@@ -1,8 +1,8 @@
 # TRADING AGENT — Documentación IA
 
 > Agente principal de trading algorítmico. Opera TREND_MOMENTUM SELL en crypto y metales.
-> Estado: **ACTIVO** — SESSION_008 en curso
-> Última actualización: Abril 2026
+> Estado: **ACTIVO v3** — SESSION_008 en curso
+> Última actualización: Mayo 2026 (post-auditoría v3)
 
 ---
 
@@ -10,16 +10,12 @@
 
 El Trading Agent es el agente más maduro del sistema. Usa TrendMomentum SELL para capturar movimientos bajistas en 7 assets crypto/metales en timeframe 15m.
 
-**Resultados SESSION_008** (12 Apr – 22 Apr 2026):
-- PnL: **+$1,246.55** sobre balance inicial ~$10,107
-- Retorno: **+12.34%** en 10 días
-- Trades totales: 227
-- Win Rate: ~56%
-- Profit Factor: **1.46**
-- EV por trade: **$5.49**
-- Días positivos: 7/11 (63.6%)
-- Peor día: -$134 (-1.3%) → riesgo controlado
-- ⚠️ **Concentración**: 74% del PnL vino de solo 2 días (Apr 18-19). Expectativa realista: 2-4%/mes.
+**Backtest 24 meses (v3, May 2024 → Abr 2026)**:
+- Trades: 5,469 | Win Rate: 35.3% | Profit Factor: **1.08** | PnL: **+$45,866**
+- Sharpe: 1.91 | Max DD: 31.0% | Activo más rentable: INJ (+$19,206)
+
+**Resultados SESSION_008** (12 Abr → en curso):
+- Balance: $12,116 | PnL: +$2,109 | 364 trades | WR: 50.3%
 
 ---
 
@@ -98,11 +94,11 @@ scripts/run_trading.py           ← Entry point (systemd: trading-agent.service
 1. `trend_direction == 'DOWN'` (EMA20 < EMA50)
 2. `RSI` entre 25 y 45 (precio bajando pero no sobrevendido extremo)
 3. `MACD histograma < 0` (momentum bajista confirmado)
-4. `score ≥ 65` (suma de indicadores alineados)
+4. `score ≥ 75` (suma de indicadores alineados — subido de 70 en v3 para filtrar señales débiles)
 5. `confluence_min` cumplido por asset (ver tabla de perfiles)
 6. Régimen permite TREND (ver sección 6)
 
-**Score mínimo**: 65. Cada indicador alineado aporta puntos. El régimen TREND_DOWN añade +8 bonus.
+**Score mínimo**: 75. Cada indicador alineado aporta puntos. El régimen TREND_DOWN añade +8 bonus.
 
 ---
 
@@ -136,11 +132,11 @@ MAX_PORTFOLIO_EXPOSURE   = 0.05    # 5% máximo total expuesto
 STOP_LOSS_ATR_MULTIPLIER = 1.5     # SL = entry - (1.5 × ATR)
 TAKE_PROFIT_ATR_MULT     = 2.5     # TP = entry + (2.5 × ATR)
 MAX_DRAWDOWN_STOP        = 0.10    # 10% drawdown → HALT total
-MAX_CONCURRENT_TRADES    = 3       # Máximo trades abiertos
+MAX_CONCURRENT_TRADES    = 2       # Máximo trades abiertos (reducido 3→2 v3)
 MIN_RR_RATIO             = 1.5     # R:R mínimo para aprobar trade
 SL_COOLDOWN_MINUTES      = 60      # Espera tras SL (mismo asset)
 TP_COOLDOWN_MINUTES      = 5       # Espera tras TP/TRAILING
-DEAD_HOURS_UTC           = {1,2,3,4}  # Horas bloqueadas (0% WR histórico)
+DEAD_HOURS_UTC           = {1,2,3,4,9,13,14,20,22,23}  # Horas con WR < 31% en backtest 24m
 SIGNAL_DEDUP_HOURS       = 4       # No reentrar mismo asset+dirección en 4h tras SL
 MAX_NOTIONAL_PCT         = 0.50    # Notional máx = 50% del balance
 PAPER_HALT_COOLDOWN_HOURS = 3      # Paper: reanuda solo tras 3h de halt
@@ -164,15 +160,15 @@ PAPER_AUTO_RESUME_MAX_DD = 0.09    # Solo reanuda si DD < 9%
 
 **Archivo**: `core/asset_profiles.py`
 
-| Asset | SL× | TP× | Trail@R | Step | Offset | ConfMin | HorasOK | HorasBloq |
+| Asset | SL× | TP× | Trail@R | Step | Offset | ConfMin | HorasBloq |
 |---|---|---|---|---|---|---|---|---|
-| BTC | 1.5 | 2.5 | 0.75R | 0.30R | 0.75R | 3 | — | {0,20,22} |
-| ETH | 1.5 | 2.5 | 0.75R | 0.30R | 0.75R | 3 | — | — |
-| SOL | 1.8 | 3.0 | 1.0R | 0.40R | 1.0R | 4 | — | — |
-| AVAX | 1.8 | 3.0 | 1.0R | 0.40R | 1.0R | 3 | — | — |
-| LINK | 1.6 | 2.8 | 0.75R | 0.30R | 0.75R | 3 | — | — |
-| XAU | 1.5 | 2.5 | 1.0R | 0.50R | 1.0R | 3 | — | — |
-| XAG | 2.0 | 3.5 | 1.2R | 0.50R | 1.2R | 3 | — | — |
+| BTC | 1.3 | 2.8 | 0.75R | 0.40R | 0.80R | 5 | {0,20,21,22,23} |
+| ETH | 1.4 | 2.8 | 1.0R | 0.30R | 0.70R | 4 | {0,1,2,3,4,9,10} |
+| SOL | 1.4 | 2.8 | 1.0R | 0.30R | 1.0R | 5 | {0,1,2,13,20,21,22,23} |
+| AVAX | 1.5 | 2.6 | 0.75R | 0.35R | 0.70R | 3 | {1,2,3,4,13,20,21,22} |
+| INJ | 1.8 | 3.5 | 1.0R | 0.40R | 0.60R | 5 | {4,21,22,23} |
+| XAU | 1.2 | 3.0 | 0.75R | 0.50R | 0.80R | 3 | {0,1,2,3,4} |
+| XAG | 1.3 | 2.8 | 0.75R | 0.40R | 0.70R | 3 | {0,1,2,3,4} |
 
 - `SL×` = multiplicador de ATR para Stop Loss
 - `TP×` = multiplicador de ATR para Take Profit
@@ -299,10 +295,15 @@ with e.connect() as c:
 
 ---
 
-## 12. Historial de cambios recientes (Abril 2026)
+## 12. Historial de cambios recientes
 
-| Archivo | Cambio | Razón |
-|---|---|---|
-| `strategies/prediction.py` | `ENABLED = False` | 43 trades, 0 wins, -$582. Sin API key. |
-| `core/market_regime.py` | TREND_UP: `allow_mean_reversion=False` | Paper: 8 trades, 0 wins, -$569 |
-| `core/deribit_session_manager.py` | `_update_peak_and_drawdown(conn=None)` | Deadlock fix: reutiliza tx existente |
+| Fecha | Archivo | Cambio | Razón |
+|---|---|---|---|
+| 2026-05-01 | `risk/risk_manager.py` | DEAD_HOURS extendido {1,2,3,4,9,13,14,20,22,23} | Backtest 24m: 7 horas con WR<31% |
+| 2026-05-01 | `risk/risk_manager.py` | MAX_CONCURRENT 3→2 | Reducir exposición, mejorar PF |
+| 2026-05-01 | `core/asset_profiles.py` | INJ sl_multiplier 1.3→1.8, confluence 4→5 | Normalizar riesgo (-40% size) |
+| 2026-05-01 | `core/asset_profiles.py` | Trailing activado antes: BTC/XAU/XAG 1.5R→0.75R, AVAX 1.2R→0.75R, INJ 2.0R→1.0R | Evitar reversiones que borran ganancias |
+| 2026-05-01 | `strategies/trend_momentum.py` | MIN_SCORE 70→75 | Filtrar señales de baja calidad, mejorar PF |
+| 2026-04-28 | `strategies/prediction.py` | `ENABLED = False` | 43 trades, 0 wins, -$582 |
+| 2026-04-28 | `core/market_regime.py` | TREND_UP: `allow_mean_reversion=False` | 8 trades, 0 wins, -$569 |
+| 2026-04-28 | `core/deribit_session_manager.py` | `_update_peak_and_drawdown(conn=None)` | Deadlock fix

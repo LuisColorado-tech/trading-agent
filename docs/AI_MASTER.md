@@ -1,7 +1,7 @@
 # ARTHAS TRADING SYSTEM — Índice Maestro para IA
 
 > **Entry point para IA.** Lee este archivo primero. Tiempo estimado: 2 minutos.
-> Última actualización: Abril 2026 (post-SESSION_008)
+> Última actualización: Mayo 2026 (post-auditoría v3 — mejoras en 3 agentes)
 
 ---
 
@@ -53,12 +53,13 @@ TELEGRAM_CHAT_ID=999936393
 
 ## 3. Los 4 Agentes
 
-| Agente | Estado | Mercado | Resultado paper | Doc completa |
-|---|---|---|---|---|
-| **Trading Agent** | ✅ ACTIVO | Crypto/Metales spot | SESSION_008: v3 activo (Sharpe 0.91→1.02, SOL MaxDD 41%→24%) | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
+| Agente | Estado | Mercado | Resultado | Doc completa |
+|---|---|---|---|---|---|
+| **Trading Agent** | ✅ ACTIVO v3 | Crypto/Metales spot | PF=1.08, Sharpe=1.91 backtest 24m | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
 | **Options Agent** | ✅ ACTIVO | BTC PUT OTM (Deribit) | paper_mode, sin resultados aún | [AI_OPTIONS_AGENT.md](AI_OPTIONS_AGENT.md) |
-| **Polymarket Agent** | ✅ ACTIVO | Mercados de predicción crypto | WR 60% pero PnL -$70 | [AI_POLYMARKET_AGENT.md](AI_POLYMARKET_AGENT.md) |
-| **BTC Direction** | ⚠️ VIGILANCIA | "BTC sube o baja en X min" | WR 27.6%, PnL -$329 (105 trades) | [AI_BTC_DIRECTION_AGENT.md](AI_BTC_DIRECTION_AGENT.md) |
+| **Polymarket Agent** | ✅ ACTIVO v3 | Mercados de predicción crypto | PF=0.37 históricamente, bugs corregidos v3 | [AI_POLYMARKET_AGENT.md](AI_POLYMARKET_AGENT.md) |
+| **BTC Direction** | ⚠️ VIGILANCIA | "BTC sube o baja en X min" | WR 27.6%, PnL -$329 | [AI_BTC_DIRECTION_AGENT.md](AI_BTC_DIRECTION_AGENT.md) |
+| **Stocks Agent** | ✅ ACTIVO v3 | NYSE/NASDAQ (Alpaca) | PF=1.18 backtest 24m, SLV PF=1.30 | [AI_STOCKS_AGENT.md](AI_STOCKS_AGENT.md) |
 
 ---
 
@@ -238,14 +239,13 @@ ORDER BY timestamp_close DESC LIMIT 20;
 
 ---
 
-## 9. Estado actual (Abril 2026)
+## 9. Estado actual (Mayo 2026 — post-auditoría)
 
-- **SESSION_008**: ACTIVA. v3 desplegado el 28 Abr. Backtest 2Y post-v3: PF global 1.08, Sharpe **1.02** (era 0.91), SOL MaxDD **24.2%** (era 41.3%). ETH restaurado: TREND_MOMENTUM +$6,281 (era -$2,189 con bug).
-- **Crypto v3 activo** (`strategies/trend_momentum.py`, `core/market_regime.py`, `core/asset_profiles.py`): MIN_SCORE=70, BREAKOUT_DOWN bloqueado, SOL conf_min=5 trailing=1.0, INJ conf_min=4, ETH RSI SELL 25-50.
-- **Stocks agent**: ACTIVO en STOCKS_SESSION_001 ($220). 3 bugs corregidos el 28 Abr — corriendo limpio sin errores 422.
-- **Fortalezas**: el edge de TREND_MOMENTUM SELL es real. RiskManager funciona (peor día: -$134 = -1.3%).
-- **Expectativa realista**: 2-4%/mes consistente, con spikes 8-10% en mercados tendenciales.
-- **Camino a fondeo**: $300 USDC cuando 3 meses consecutivos con Profit Factor ≥ 1.5.
+- **SESSION_008**: ACTIVA. Balance $12,116. v3 mejorado: MIN_SCORE=75, DEAD_HOURS extendido, INJ riesgo normalizado, trailing activado antes, MAX_CONCURRENT=2.
+- **Stocks agent v3**: STOCKS_SESSION_001 ($220). Trailing stop implementado, xsignal boost corregido, ATR filters subidos, macro bias con gradiente.
+- **Polymarket v3**: POLY_SESSION_005 ($1,000 fresh). Bugs críticos corregidos: edge formula, min_price_yes=0.42, max_spread enforce, Kelly sizing realista.
+- **Fortalezas**: edge de TREND_MOMENTUM SELL es real. RiskManager funciona. SLV es el primer activo stocks con PF≥1.30.
+- **Camino a fondeo**: $300 USDC. Crypto más cercano (PF=1.08, meta 1.50). Ver plan detallado en [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md).
 
 ---
 

@@ -9,7 +9,7 @@ from core.asset_profiles import get_profile
 
 class TrendMomentumStrategy:
     NAME = 'TREND_MOMENTUM'
-    MIN_SCORE = 70  # Subido de 65→70 (v3): reducir señales débiles en BTC+INJ (-$3.5K en backtest v2)
+    MIN_SCORE = 75  # Subido de 70→75 (v3): filtrar señales de baja calidad, PF 1.08→meta 1.20
 
     def score(self, ind: IndicatorSet, df=None) -> dict:
         # Evaluar ambas direcciones con scoring gradual y elegir la mejor

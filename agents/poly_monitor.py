@@ -32,7 +32,7 @@ EARLY_EXIT_LOSS = _CFG.get('risk', {}).get('early_exit_loss', 0.10)
 # ── SL dinámico v2 ────────────────────────────────────────────────────
 # SL_LOSS_FRACTION: pérdida máxima permitida como % del capital invertido
 # Ej: entry=0.45, fraction=0.40 → SL cuando precio cae a 0.45*(1-0.40)=0.27
-SL_LOSS_FRACTION = _CFG.get('risk', {}).get('sl_loss_fraction', 0.40)
+SL_LOSS_FRACTION = _CFG.get('risk', {}).get('sl_loss_fraction', 0.25)
 
 # ── Trailing TP v2 ────────────────────────────────────────────────────
 # Activar trailing cuando precio llega a SL_TRAILING_ACTIVATE

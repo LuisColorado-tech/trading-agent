@@ -22,11 +22,11 @@ MAX_PORTFOLIO_EXPOSURE   = 0.05   # 5% máximo total en posiciones abiertas
 STOP_LOSS_ATR_MULTIPLIER = 1.5    # Stop = Entry - (1.5 × ATR)
 TAKE_PROFIT_ATR_MULT     = 2.5    # TP = Entry + (2.5 × ATR)
 MAX_DRAWDOWN_STOP        = 0.10   # 10% drawdown → parar todo el trading
-MAX_CONCURRENT_TRADES    = 3      # Máximo trades abiertos simultáneamente
+MAX_CONCURRENT_TRADES    = 2      # Máximo trades abiertos simultáneamente (reducido 3→2: v3 mejora PF)
 MIN_RR_RATIO             = 1.5    # Ratio riesgo:recompensa mínimo
 SL_COOLDOWN_MINUTES      = 60     # Minutos de espera tras un SL antes de re-entrar al mismo asset
 TP_COOLDOWN_MINUTES      = 5      # Minutos de espera tras un TP/TRAILING antes de re-entrar
-DEAD_HOURS_UTC           = {1, 2, 3, 4}  # Horas con 0% WR históricamente — no operar
+DEAD_HOURS_UTC           = {1, 2, 3, 4, 9, 13, 14, 20, 22, 23}  # Backtest 24m: horas con WR < 31% — no operar
 SIGNAL_DEDUP_HOURS       = 4     # No reentrar mismo asset+dirección en N horas tras SL
 MAX_NOTIONAL_PCT         = 0.50   # Notional máximo por trade = 50% del balance (evitar apalancamiento)
 PAPER_HALT_COOLDOWN_HOURS = 3     # Reanudación autónoma sólo en paper tras cuarentena

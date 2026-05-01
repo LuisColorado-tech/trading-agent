@@ -86,8 +86,8 @@ with open('/opt/trading/config/exchange_config.yaml') as f:
 
 _RISK = _CFG.get('risk', {})
 MIN_EDGE = _RISK.get('min_edge_pct', 10.0) / 100.0          # 0.10
-MIN_PRICE_YES = _CFG.get('market_filters', {}).get('min_price_yes', 0.20)
-MAX_PRICE_YES = _CFG.get('market_filters', {}).get('max_price_yes', 0.80)
+MIN_PRICE_YES = _CFG.get('market_filters', {}).get('min_price_yes', 0.42)
+MAX_PRICE_YES = _CFG.get('market_filters', {}).get('max_price_yes', 0.58)
 
 # ── Patrones de clasificación de evento ─────────────────────────────────────
 # DOWN_EVENT: el mercado pregunta si BTC/ETH va a caer
@@ -138,7 +138,7 @@ class SignalBasedPolyStrategy:
 
     # ── Señales desde DB ─────────────────────────────────────────────────────
 
-    def _get_btc_direction_from_db(self) -> tuple[str | None, str]:
+    def _get_btc_direction_from_db(self) -> tuple[str | None, str, int, int]:
         """Lee señales macro (1h/4h) deduplicadas para dirección estructural de BTC.
 
         Usa DISTINCT ON (timeframe) para obtener UNA señal por timeframe
@@ -146,11 +146,11 @@ class SignalBasedPolyStrategy:
         Solo usa 1h/4h: señales relevantes para mercados que resuelven en días/semanas.
 
         Returns:
-            (direction, description)
+            (direction, description, buys, sells)
             direction: 'UP' | 'DOWN' | None si no hay mayoría clara
         """
         if self._engine is None:
-            return None, 'NO_ENGINE'
+            return None, 'NO_ENGINE', 0, 0
         try:
             with self._engine.connect() as conn:
                 rows = conn.execute(text("""
@@ -167,20 +167,20 @@ class SignalBasedPolyStrategy:
                 """)).fetchall()
         except Exception as e:
             logger.debug(f'SIGNAL_POLY: DB signals error: {e}')
-            return None, 'DB_ERROR'
+            return None, 'DB_ERROR', 0, 0
 
         if not rows:
-            return None, 'NO_MACRO_SIGNALS'
+            return None, 'NO_MACRO_SIGNALS', 0, 0
 
         buys = sum(1 for r in rows if r[0] == 'BUY')
         sells = sum(1 for r in rows if r[0] == 'SELL')
         desc = f'macro BUY={buys} SELL={sells}'
 
         if buys > sells:
-            return 'UP', desc
+            return 'UP', desc, buys, sells
         if sells > buys:
-            return 'DOWN', desc
-        return None, f'{desc} CONFLICT'
+            return 'DOWN', desc, buys, sells
+        return None, f'{desc} CONFLICT', buys, sells
 
     # ── Exchange ─────────────────────────────────────────────────────────────
 
@@ -333,7 +333,8 @@ class SignalBasedPolyStrategy:
 
         # Obtener dirección BTC: DB signals macro 1h/4h (primario) → CCXT (fallback)
         momentum = 0.0
-        btc_direction, db_desc = self._get_btc_direction_from_db()
+        buys = sells = 0
+        btc_direction, db_desc, buys, sells = self._get_btc_direction_from_db()
         signal_source = 'DB'
 
         if btc_direction is None:
@@ -380,24 +381,24 @@ class SignalBasedPolyStrategy:
             }
 
         # Determinar side: ¿el evento coincide con nuestra señal?
+        # Edge = señal de convicción BTC (conteo de timeframes) * factor de calibración
+        # Formula anterior abs(0.50-price) era tautológica → selección adversa inversa.
+        # Ahora: cuánto más fuerte es la dirección en los timeframes macro, más edge.
+        tf_conviction = abs(buys - sells) / max(1, buys + sells)  # 0.0–1.0
+        edge = tf_conviction * 0.15  # max 15% edge cuando todos los TF coinciden
+
         if event_type == 'DOWN_EVENT' and btc_direction == 'DOWN':
             side = 'YES'   # El evento bajista VA a ocurrir
             entry_price = price_yes
-            edge = entry_price - price_yes + (0.50 - price_yes)
-            # Edge real: cuánto está descontando el mercado vs nuestra señal
-            edge = 0.50 - price_yes if price_yes < 0.50 else price_yes - 0.50
         elif event_type == 'UP_EVENT' and btc_direction == 'UP':
             side = 'YES'   # El evento alcista VA a ocurrir
             entry_price = price_yes
-            edge = 0.50 - price_yes if price_yes < 0.50 else price_yes - 0.50
         elif event_type == 'DOWN_EVENT' and btc_direction == 'UP':
             side = 'NO'    # El evento bajista NO va a ocurrir (BTC sube)
             entry_price = price_no
-            edge = 0.50 - price_no if price_no < 0.50 else price_no - 0.50
         elif event_type == 'UP_EVENT' and btc_direction == 'DOWN':
             side = 'NO'    # El evento alcista NO va a ocurrir (BTC baja)
             entry_price = price_no
-            edge = 0.50 - price_no if price_no < 0.50 else price_no - 0.50
         else:
             return {'opportunity': False, 'reason': 'LOGIC_ERROR'}
 
@@ -408,8 +409,10 @@ class SignalBasedPolyStrategy:
                 'reason': f'LOW_EDGE:{edge:.3f} (min={MIN_EDGE:.2f})',
             }
 
-        # Probabilidad calibrada: precio de entrada + edge (consistente con Kelly sizing)
-        estimated_prob = round(min(0.90, entry_price + edge), 4)
+        # Probabilidad calibrada: precio de entrada como baseline + fracción del edge
+        # Anterior entry_price+edge inflaba probabilidad artificialmente (0.35+0.15=0.50)
+        # Ahora: entry_price * (1 + edge*0.5) → max 7.5% uplift sobre precio de mercado
+        estimated_prob = round(min(0.75, entry_price * (1.0 + edge * 0.5)), 4)
 
         signal_desc = db_desc if signal_source == 'DB' else f'CCXT {momentum:+.3%}'
         reasoning = (

@@ -553,7 +553,18 @@ def main():
         hb_lines = ['💓 <b>Heartbeat — Trading Agent</b>\n']
         all_ok = all(ok for _, ok, _ in results)
         hb_lines.append(f'Estado: {"✅ Todo OK" if all_ok else "⚠️ Con problemas"}\n')
+        # Mostrar primero el estado de Stocks Agent de forma destacada
+        stocks_line = None
         for name, ok, msg in results:
+            if name == '📈 Stocks':
+                stocks_line = f'📈 <b>Stocks Agent</b>: {msg}'
+        if stocks_line:
+            hb_lines.append(stocks_line)
+            hb_lines.append('')
+        # Mostrar el resto de checks
+        for name, ok, msg in results:
+            if name == '📈 Stocks':
+                continue
             icon = '✅' if ok else '❌'
             hb_lines.append(f'{icon} {name}: {msg}')
         hb_lines.append(f'\n⏱️ {now.strftime("%Y-%m-%d %H:%M UTC")}')

@@ -116,6 +116,14 @@ except Exception:
     options_sessions_df = pd.DataFrame()
     options_positions_df = pd.DataFrame()
 
+# ── Stocks data loading ──
+try:
+    stocks_sessions_df = query('SELECT * FROM stocks_sessions ORDER BY started_at DESC')
+    stocks_trades_df = query('SELECT * FROM stocks_trades ORDER BY opened_at DESC LIMIT 500')
+except Exception:
+    stocks_sessions_df = pd.DataFrame()
+    stocks_trades_df = pd.DataFrame()
+
 closed_trades = trades_df[trades_df['status'] == 'CLOSED'].copy() if not trades_df.empty else pd.DataFrame()
 open_trades = trades_df[trades_df['status'] == 'OPEN'].copy() if not trades_df.empty else pd.DataFrame()
 
@@ -185,8 +193,8 @@ if st.sidebar.button('🔄 Actualizar datos'):
 # ══════════════════════════════════════════════════════════════════
 # ── TABS ──
 # ══════════════════════════════════════════════════════════════════
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
-    '📊 Portfolio', '💹 Trades', '📡 Señales', '🤖 IA', '🔮 Polymarket', '📣 Options', '📚 Aprende'
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    '📊 Portfolio', '💹 Trades', '📡 Señales', '🤖 IA', '🔮 Polymarket', '📣 Options', '📈 Stocks', '📚 Aprende'
 ])
 
 # ══════════════════════════════════════════════════════════════════
@@ -1010,9 +1018,256 @@ with tab5:
 
 
 # ══════════════════════════════════════════════════════════════════
-# TAB 7 — PANEL EDUCATIVO
+# TAB 7 — STOCKS AGENT (NYSE/NASDAQ Momentum)
 # ══════════════════════════════════════════════════════════════════
 with tab7:
+    st.subheader('📈 Stocks — Momentum NYSE/NASDAQ (Alpaca)')
+    st.caption('Universo: NVDA · TSLA · AAPL · META · AMZN · SPY · QQQ · GLD')
+
+    if stocks_sessions_df.empty and stocks_trades_df.empty:
+        st.info('⏳ Sin datos de stocks todavía. Inicia el agente: `systemctl start stocks-agent`')
+        with st.expander('ℹ️ ¿Cómo funciona el Stocks Agent?'):
+            st.markdown("""
+            El **Stocks Agent** opera acciones y ETFs en NYSE/NASDAQ usando Alpaca Markets (paper trading).
+            
+            | Concepto | Detalle |
+            |---|---|
+            | **Broker** | Alpaca Markets (paper por ahora) |
+            | **Universo** | NVDA, TSLA, AAPL, META, AMZN, SPY, QQQ, GLD |
+            | **Estrategia** | `STOCKS_MOMENTUM`: Momentum + xsignal boost |
+            | **Macro bias** | SPY/QQQ determinan si se permite BUY en acciones individuales |
+            | **Riesgo por trade** | 1% del balance (~$2.20 con $220 inicial) |
+            | **Exposición máx** | 8% (~$17.60 simultáneos) |
+            | **Trades simultáneos** | 3 máximo |
+            """)
+    else:
+        stocks_open = stocks_trades_df[stocks_trades_df['status'] == 'OPEN'].copy() if not stocks_trades_df.empty else pd.DataFrame()
+        stocks_closed = stocks_trades_df[stocks_trades_df['status'] == 'CLOSED'].copy() if not stocks_trades_df.empty else pd.DataFrame()
+
+        # ── Sesión activa ──────────────────────────────────────────────
+        st.markdown('### 📋 Sesión Activa')
+        if not stocks_sessions_df.empty:
+            active_stocks = stocks_sessions_df[stocks_sessions_df['status'] == 'ACTIVE']
+            if not active_stocks.empty:
+                s = active_stocks.iloc[0]
+                initial = float(s['initial_balance'])
+                current = float(s['current_balance'])
+                total_tr_s = int(s.get('total_trades', 0) or 0)
+                wins_s = int(s.get('winning_trades', 0) or 0)
+                wr_s = wins_s / total_tr_s * 100 if total_tr_s > 0 else 0
+                pf_s = float(s.get('profit_factor', 0) or 0)
+                dd_s = float(s.get('max_drawdown', 0) or 0)
+
+                # Calculate metrics from trades if session stats are stale
+                if not stocks_closed.empty:
+                    total_pnl_stocks = float(stocks_closed['pnl'].astype(float).sum())
+                    gross_profit_s = float(stocks_closed[stocks_closed['pnl'].astype(float) > 0]['pnl'].astype(float).sum())
+                    gross_loss_s = abs(float(stocks_closed[stocks_closed['pnl'].astype(float) <= 0]['pnl'].astype(float).sum()))
+                    pf_real = gross_profit_s / gross_loss_s if gross_loss_s > 0 else float('inf')
+                    wins_real = int((stocks_closed['pnl'].astype(float) > 0).sum())
+                    total_real = len(stocks_closed)
+                    wr_real = wins_real / total_real * 100 if total_real > 0 else 0
+                    # Real current balance
+                    balance_real = initial + total_pnl_stocks
+                else:
+                    total_pnl_stocks = 0
+                    pf_real = float('inf')
+                    wr_real = 0
+                    wins_real = 0
+                    total_real = 0
+                    balance_real = initial
+
+                c1, c2, c3, c4, c5, c6 = st.columns(6)
+                c1.metric('💰 Balance', f'${balance_real:,.2f}',
+                          delta=f'{total_pnl_stocks:+,.2f}')
+                c2.metric('📈 P&L Total', f'${total_pnl_stocks:+,.2f}')
+                c3.metric('🎯 Win Rate', f'{wr_real:.1f}%' if total_real > 0 else '—',
+                          help=f'{wins_real}/{total_real} cerrados')
+                c4.metric('📊 Profit Factor',
+                          f'{pf_real:.2f}' if pf_real != float('inf') else '∞',
+                          help='Ganancias/Pérdidas brutas')
+                c5.metric('📉 Max Drawdown', f'${dd_s:.2f}' if dd_s > 0 else '—')
+                c6.metric('🔢 Trades', f'{total_real}',
+                          help=f'{len(stocks_open)} abiertos')
+
+                # Summary line
+                st.caption(
+                    f'Sesión: **{s["session_name"]}** | '
+                    f'Modo: **📝 PAPER** | '
+                    f'Inicio: {pd.to_datetime(s["started_at"]).strftime("%d/%m/%Y %H:%M")}'
+                )
+
+                # P&L acumulado chart
+                if len(stocks_closed) > 1:
+                    closed_sorted = stocks_closed.sort_values('closed_at')
+                    closed_sorted['pnl_acum'] = closed_sorted['pnl'].astype(float).cumsum()
+                    fig_stocks = px.area(
+                        closed_sorted,
+                        x='closed_at',
+                        y='pnl_acum',
+                        title='PnL Acumulado Stocks',
+                        labels={'closed_at': 'Fecha', 'pnl_acum': 'PnL USD'},
+                        color_discrete_sequence=['#00CC96'],
+                    )
+                    fig_stocks.update_layout(height=250, margin=dict(l=0, r=0, t=30, b=0))
+                    st.plotly_chart(fig_stocks, use_container_width=True)
+            else:
+                st.info('Sin sesión de stocks activa.')
+        else:
+            st.info('Sin datos de sesiones de stocks.')
+
+        st.markdown('---')
+
+        # ── Open positions ──────────────────────────────────────────
+        st.markdown(f'### 🔓 Posiciones Abiertas ({len(stocks_open)})')
+        if not stocks_open.empty:
+            open_cols = ['symbol', 'direction', 'entry_price', 'qty', 'notional',
+                         'stop_loss', 'take_profit', 'strategy', 'opened_at']
+            cols_available = [c for c in open_cols if c in stocks_open.columns]
+            open_display = stocks_open[cols_available].copy()
+            open_display['entry_price'] = open_display['entry_price'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            open_display['notional'] = open_display['notional'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            open_display['stop_loss'] = open_display['stop_loss'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            open_display['take_profit'] = open_display['take_profit'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            st.dataframe(
+                open_display.rename(columns={
+                    'symbol': 'Símbolo',
+                    'direction': 'Dir',
+                    'entry_price': 'Entry $',
+                    'qty': 'Qty',
+                    'notional': 'Notional $',
+                    'stop_loss': 'SL $',
+                    'take_profit': 'TP $',
+                    'strategy': 'Estrategia',
+                    'opened_at': 'Abierto',
+                }),
+                use_container_width=True,
+                height=200,
+            )
+        else:
+            st.info('Sin posiciones abiertas actualmente.')
+
+        st.markdown('---')
+
+        # ── Closed positions ────────────────────────────────────────
+        st.markdown(f'### 🔒 Historial ({len(stocks_closed)})')
+        if not stocks_closed.empty:
+            # KPIs row
+            n_tp_s = len(stocks_closed[stocks_closed['exit_reason'] == 'TP'])
+            n_sl_s = len(stocks_closed[stocks_closed['exit_reason'] == 'SL'])
+            n_other_s = len(stocks_closed) - n_tp_s - n_sl_s
+
+            c1, c2, c3, c4, c5 = st.columns(5)
+            c1.metric('🎯 Take Profit', n_tp_s)
+            c2.metric('🛑 Stop Loss', n_sl_s)
+            c3.metric('📋 Otros', n_other_s)
+            c4.metric('✅ Win Rate', f'{wr_real:.1f}%' if total_real > 0 else '—')
+            c5.metric('📊 Profit Factor',
+                      f'{pf_real:.2f}' if pf_real != float('inf') else '∞')
+
+            # Charts row
+            col_a, col_b = st.columns(2)
+            with col_a:
+                st.markdown('##### P&L por Símbolo')
+                pnl_sym = stocks_closed.groupby('symbol')['pnl'].apply(
+                    lambda x: x.astype(float).sum()
+                ).reset_index()
+                pnl_sym.columns = ['symbol', 'pnl_total']
+                pnl_sym['color'] = pnl_sym['pnl_total'].apply(
+                    lambda x: '#4CAF50' if x > 0 else '#f44336'
+                )
+                fig_sym = go.Figure(go.Bar(
+                    x=pnl_sym['symbol'], y=pnl_sym['pnl_total'],
+                    marker_color=pnl_sym['color'],
+                    text=pnl_sym['pnl_total'].apply(lambda x: f'${x:+,.2f}'),
+                    textposition='outside',
+                ))
+                fig_sym.update_layout(height=280, margin=dict(l=0, r=0, t=10, b=0),
+                                      yaxis_title='P&L (USD)')
+                st.plotly_chart(fig_sym, use_container_width=True)
+
+            with col_b:
+                st.markdown('##### Motivo de Cierre')
+                reason_counts_s = stocks_closed['exit_reason'].value_counts()
+                colors_rs = {'TP': '#4CAF50', 'SL': '#f44336',
+                             'TRAILING_STOP': '#2196F3'}
+                fig_rs = go.Figure(go.Pie(
+                    labels=reason_counts_s.index, values=reason_counts_s.values,
+                    marker=dict(colors=[colors_rs.get(r, '#999') for r in reason_counts_s.index]),
+                    hole=0.4,
+                ))
+                fig_rs.update_layout(height=280, margin=dict(l=0, r=0, t=10, b=0))
+                st.plotly_chart(fig_rs, use_container_width=True)
+
+            # P&L por estrategia
+            st.markdown('##### P&L por Estrategia')
+            if 'strategy' in stocks_closed.columns:
+                pnl_strat_s = stocks_closed.groupby('strategy').agg(
+                    trades=('pnl', 'count'),
+                    pnl_total=('pnl', lambda x: x.astype(float).sum()),
+                    wins=('pnl', lambda x: (x.astype(float) > 0).sum()),
+                ).reset_index()
+                pnl_strat_s['win_rate'] = (pnl_strat_s['wins'] / pnl_strat_s['trades'] * 100).round(1)
+                st.dataframe(
+                    pnl_strat_s.rename(columns={
+                        'strategy': 'Estrategia', 'trades': 'Trades',
+                        'pnl_total': 'P&L Total', 'wins': 'Ganados',
+                        'win_rate': 'Win Rate',
+                    }),
+                    use_container_width=True, hide_index=True,
+                )
+
+            # Full history table
+            st.markdown('##### Historial Completo')
+            hist_cols_s = ['symbol', 'direction', 'entry_price', 'exit_price',
+                           'pnl', 'exit_reason', 'strategy', 'opened_at', 'closed_at']
+            hist_available = [c for c in hist_cols_s if c in stocks_closed.columns]
+            hist_display = stocks_closed[hist_available].copy()
+            hist_display['entry_price'] = hist_display['entry_price'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            hist_display['exit_price'] = hist_display['exit_price'].apply(lambda x: f'${float(x):,.2f}' if pd.notna(x) else '—')
+            hist_display['pnl'] = hist_display['pnl'].apply(
+                lambda x: f'${float(x):+,.2f}' if pd.notna(x) else '—')
+            st.dataframe(
+                hist_display.rename(columns={
+                    'symbol': 'Símbolo', 'direction': 'Dir',
+                    'entry_price': 'Entry', 'exit_price': 'Exit',
+                    'pnl': 'P&L', 'exit_reason': 'Cierre',
+                    'strategy': 'Estrategia',
+                    'opened_at': 'Abierto', 'closed_at': 'Cerrado',
+                }),
+                use_container_width=True, hide_index=True,
+                height=300,
+            )
+        else:
+            st.info('Sin trades cerrados todavía.')
+
+        # ── Explanation ─────────────────────────────────────────────
+        with st.expander('ℹ️ Cómo funciona el Stocks Agent'):
+            st.markdown("""
+            **Operamos acciones y ETFs de NYSE/NASDAQ con momentum + xsignals.**
+
+            | Concepto | Detalle |
+            |---|---|
+            | **Momentum** | Compramos cuando EMA20 > EMA50, RSI en zona 50-65, volumen confirma, y precio por encima de VWAP |
+            | **xsignal boost** | Si @aguti00 en X publica una señal alineada para el ticker (conf ≥ 55), el score recibe +15 puntos |
+            | **Macro bias** | Si SPY y QQQ están ambos en tendencia bajista, se bloquean BUY en todas las acciones individuales |
+            | **Salida** | TP fijo, SL fijo, o cierre manual. El trailing aún no está implementado en stocks. |
+            | **Universo** | 8 activos: NVDA, TSLA, AAPL, META, AMZN, SPY, QQQ, GLD |
+
+            **Estrategias:**
+            - `STOCKS_MOMENTUM`: Acciones individuales (NVDA, TSLA, AAPL, META, AMZN)
+            - `STOCKS_TREND_ETF`: ETFs (SPY, QQQ, GLD) con reglas similares
+
+            **Estado actual:** Paper trading con Alpaca. Se activará live cuando:
+            - 4 semanas paper con PF ≥ 1.3
+            - 20+ trades cerrados
+            - Max DD ≤ 8% en paper
+            """)
+
+# ══════════════════════════════════════════════════════════════════
+# TAB 8 — PANEL EDUCATIVO
+# ══════════════════════════════════════════════════════════════════
+with tab8:
     st.subheader('📚 Centro de Aprendizaje')
     st.markdown('Aquí puedes aprender los conceptos clave del trading algorítmico '
                 'mientras ves cómo el sistema los aplica en tiempo real.')
