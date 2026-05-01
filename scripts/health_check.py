@@ -34,7 +34,7 @@ load_dotenv('/opt/trading/config/.env')
 TELEGRAM_TOKEN = '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE'
 TELEGRAM_CHAT = '999936393'
 STATE_FILE = Path('/opt/trading/.health_state.json')
-HEARTBEAT_HOURS = 6
+HEARTBEAT_HOURS = 3
 MAX_CYCLE_AGE_MIN = 5
 MAX_DATA_AGE_MIN = 15
 MAX_DRAWDOWN_WARN = 0.05
@@ -486,7 +486,150 @@ def check_stocks() -> tuple:
         return False, f'📈 Stocks error: {str(e)[:100]}'
 
 
-def main():
+def _query_one(conn, sql: str, params=None):
+    """Helper: ejecuta query y devuelve (None, ...) si falla."""
+    try:
+        cur = conn.cursor()
+        cur.execute(sql, params or ())
+        return cur.fetchone()
+    except Exception:
+        return None
+
+
+def _build_heartbeat(now: datetime) -> str:
+    """Construye heartbeat multi-agente en formato tabla compacta.
+
+    Cubre: Crypto, Stocks, Polymarket, Options, BTC Direction.
+    Checks de sistema van en alertas, no en el heartbeat.
+    """
+    lines = [f'💓 <b>ARTHAS — {now.strftime("%d %b %H:%M")} UTC</b>', '']
+
+    # ── Queries para cada agente ──
+    try:
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+    except Exception:
+        return '\n'.join(lines + ['❌ DB inaccesible'])
+
+    # Crypto — scope a sesión activa
+    crypto_sess = _query_one(conn,
+        "SELECT session_name, initial_balance, started_at FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+    if crypto_sess:
+        cs_name, cs_init, cs_start = crypto_sess
+        crypto_open = _query_one(conn,
+            "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND timestamp_open >= %s", (cs_start,))
+        crypto_pnl = _query_one(conn,
+            "SELECT COALESCE(SUM(pnl), 0) FROM trades WHERE status='CLOSED' AND close_reason != 'SESSION_CLOSE' AND timestamp_open >= %s", (cs_start,))
+        crypto_dd = _query_one(conn,
+            "SELECT drawdown_pct FROM portfolio WHERE timestamp >= %s ORDER BY timestamp DESC LIMIT 1", (cs_start,))
+    else:
+        cs_name, cs_init = None, None
+        crypto_open = crypto_pnl = crypto_dd = None
+
+    # Stocks
+    stocks = _query_one(conn,
+        "SELECT session_name, current_balance FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
+    if stocks:
+        stocks_open = _query_one(conn,
+            "SELECT COUNT(*) FROM stocks_trades WHERE status='OPEN' AND session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)")
+        stocks_pnl = _query_one(conn,
+            "SELECT COALESCE(SUM(pnl), 0) FROM stocks_trades WHERE status='CLOSED' AND session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)")
+    else:
+        stocks_open = stocks_pnl = None
+
+    # Polymarket
+    poly = _query_one(conn,
+        "SELECT session_name, current_balance FROM poly_sessions WHERE status='ACTIVE' LIMIT 1")
+    if poly:
+        poly_name = poly[0]
+        poly_open = _query_one(conn,
+            "SELECT COUNT(*) FROM poly_positions WHERE status='OPEN' AND session_name = %s", (poly_name,))
+        poly_pnl = _query_one(conn,
+            "SELECT COALESCE(SUM(pnl), 0) FROM poly_positions WHERE status='CLOSED' AND close_reason!='SESSION_RESET' AND session_name = %s", (poly_name,))
+        poly_wr = _query_one(conn,
+            "SELECT COUNT(*), SUM(CASE WHEN pnl>0 THEN 1 ELSE 0 END) FROM poly_positions WHERE status='CLOSED' AND close_reason!='SESSION_RESET' AND session_name = %s", (poly_name,))
+    else:
+        poly_open = poly_pnl = poly_wr = None
+
+    # Options
+    options = _query_one(conn,
+        "SELECT session_name, current_balance FROM options_sessions WHERE status='ACTIVE' LIMIT 1")
+    if options:
+        options_open = _query_one(conn,
+            "SELECT COUNT(*) FROM options_positions WHERE status='OPEN'")
+        options_pnl = _query_one(conn,
+            "SELECT COALESCE(SUM(pnl_usd), 0) FROM options_positions WHERE status='CLOSED'")
+    else:
+        options_open = options_pnl = None
+
+    # BTC Direction
+    btcd = _query_one(conn,
+        "SELECT COUNT(*), SUM(CASE WHEN pnl_usdc>0 THEN 1 ELSE 0 END), COALESCE(SUM(pnl_usdc),0) FROM btc_direction_trades WHERE status='CLOSED'")
+    btcd_open = _query_one(conn, "SELECT COUNT(*) FROM btc_direction_trades WHERE status='OPEN'")
+
+    conn.close()
+
+    # ── Construir tabla ──
+    def fmt(v, default='—'):
+        if v is None or v == '': return default
+        return v
+
+    def row(icon, name, session, balance, n_open, pnl, extra=''):
+        sn = str(session)[:10] if session else '—'
+        bl = f'${float(balance):,.0f}' if balance is not None else '—'
+        op = str(int(n_open)) if n_open is not None else '—'
+        pn = f'${float(pnl):+,.0f}' if pnl is not None else '—'
+        ext = f' {extra}' if extra else ''
+        return f'{icon} <b>{name}</b>  {sn:10s}  {bl:>7s}  {op:>2s} open  {pn:>8s}{ext}'
+
+    lines.append(row('💰', 'Crypto ', 
+        cs_name if cs_name else '—',
+        cs_init if cs_init else None,
+        crypto_open[0] if crypto_open else 0,
+        crypto_pnl[0] if crypto_pnl else 0))
+
+    lines.append(row('📈', 'Stocks ',
+        stocks[0] if stocks else '—',
+        stocks[1] if stocks else None,
+        stocks_open[0] if stocks_open else 0,
+        stocks_pnl[0] if stocks_pnl else 0))
+
+    lines.append(row('🔮', 'Poly   ',
+        poly[0] if poly else '—',
+        poly[1] if poly else None,
+        poly_open[0] if poly_open else 0,
+        poly_pnl[0] if poly_pnl else 0))
+
+    lines.append(row('📣', 'Options',
+        options[0] if options else '—',
+        options[1] if options else None,
+        options_open[0] if options_open else 0,
+        options_pnl[0] if options_pnl else 0))
+
+    btcd_t = int(btcd[0]) if btcd else 0
+    btcd_w = int(btcd[1]) if btcd else 0
+    btcd_wr = f'{btcd_w/btcd_t*100:.0f}%' if btcd_t > 0 else '—'
+    btcd_pnl = float(btcd[2]) if btcd else 0
+    lines.append(row('₿ ', 'BTC Dir',
+        f'WR {btcd_wr}', None,
+        btcd_open[0] if btcd_open else 0,
+        btcd_pnl, f'({btcd_t}t)'))
+
+    # ── Info extra ──
+    lines.append('')
+    extras = []
+    if crypto_dd:
+        dd_val = float(crypto_dd[0]) * 100 if crypto_dd[0] else 0
+        icon_dd = '🟢' if dd_val < 5 else ('🟡' if dd_val < 8 else '🔴')
+        extras.append(f'{icon_dd} DD: {dd_val:.1f}%')
+    if poly_wr:
+        pw_t, pw_w = int(poly_wr[0]), int(poly_wr[1])
+        extras.append(f'Poly WR: {pw_w/pw_t*100:.0f}%' if pw_t > 0 else 'Poly WR: —')
+    extras.append('v3: MIN_SCORE=75 | MAX_CONC=2 | trailing 0.75R')
+    extras.append('Stocks v3: trailing ON | xsignal fix | macro gradient')
+    lines.append('  '.join(extras))
+
+    lines.append(f'\n⏱️ Próximo heartbeat: ~{HEARTBEAT_HOURS}h | Alertas: cada 5min si hay fallos')
+    return '\n'.join(lines)
     now = datetime.now(timezone.utc)
     state = load_state()
 
@@ -550,26 +693,7 @@ def main():
             send_heartbeat = True
 
     if send_heartbeat:
-        hb_lines = ['💓 <b>Heartbeat — Trading Agent</b>\n']
-        all_ok = all(ok for _, ok, _ in results)
-        hb_lines.append(f'Estado: {"✅ Todo OK" if all_ok else "⚠️ Con problemas"}\n')
-        # Mostrar primero el estado de Stocks Agent de forma destacada
-        stocks_line = None
-        for name, ok, msg in results:
-            if name == '📈 Stocks':
-                stocks_line = f'📈 <b>Stocks Agent</b>: {msg}'
-        if stocks_line:
-            hb_lines.append(stocks_line)
-            hb_lines.append('')
-        # Mostrar el resto de checks
-        for name, ok, msg in results:
-            if name == '📈 Stocks':
-                continue
-            icon = '✅' if ok else '❌'
-            hb_lines.append(f'{icon} {name}: {msg}')
-        hb_lines.append(f'\n⏱️ {now.strftime("%Y-%m-%d %H:%M UTC")}')
-        hb_lines.append(f'Próximo heartbeat: ~{HEARTBEAT_HOURS}h')
-        send_telegram('\n'.join(hb_lines), silent=all_ok)
+        send_telegram(_build_heartbeat(now), silent=all_ok)
         state['last_heartbeat'] = now.isoformat()
 
     save_state(state)

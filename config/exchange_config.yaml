@@ -252,3 +252,44 @@ options:
   monitor_interval_seconds: 300  # Check stops cada 5 minutos
   scan_interval_seconds: 3600    # Scan nueva entrada cada 1 hora
   snapshot_interval_seconds: 3600  # Guardar IV para backtesting cada hora
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GRID STABLE — Grid Bot para pares de baja volatilidad (ETH/BTC, LINK/BTC)
+# Extensión del Grid Bot existente con parámetros calibrados para pares estables.
+# ══════════════════════════════════════════════════════════════════════════════
+grid_stable:
+  enabled: true
+  paper_trading: true
+  initial_balance: 500.0           # Capital pequeño dedicado
+  cycle_interval_seconds: 120      # Escanear cada 2 minutos (más frecuente que grid normal)
+  pairs:
+    ETH/BTC:
+      enabled: true
+      exchange: kraken
+      fallback: okx
+      grid_levels: 10
+      grid_range_candles: 50
+      min_range_pct: 0.005
+      max_range_pct: 0.030
+      tp_ratio: 1.20
+      sl_ratio: 0.40
+      min_rr: 1.50
+      max_per_asset: 3
+      risk_fraction: 0.30
+    LINK/BTC:
+      enabled: true
+      exchange: kraken
+      fallback: okx
+      grid_levels: 8
+      grid_range_candles: 50
+      min_range_pct: 0.008
+      max_range_pct: 0.050
+      tp_ratio: 1.30
+      sl_ratio: 0.50
+      min_rr: 1.50
+      max_per_asset: 2
+      risk_fraction: 0.25
+  risk:
+    max_concurrent_total: 5        # Máximo trades grid stable abiertos
+    max_drawdown_pct: 10.0         # Halt si DD > 10%
+    cooldown_bars: 4               # Velas de espera tras SL

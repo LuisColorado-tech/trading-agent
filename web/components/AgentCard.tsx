@@ -4,6 +4,7 @@ import { clsx } from 'clsx'
 interface Props {
   title: string
   icon: string
+  sessionName?: string
   balance?: number
   pnl?: number
   winRate?: number
@@ -13,7 +14,7 @@ interface Props {
   drawdown?: number
   extra?: { label: string; value: string; cls?: string }[]
   status?: string
-  color?: 'green' | 'blue' | 'gold' | 'purple' | 'orange'
+  color?: 'green' | 'blue' | 'gold' | 'purple' | 'orange' | 'red'
 }
 
 const colorMap: Record<string, string> = {
@@ -22,97 +23,102 @@ const colorMap: Record<string, string> = {
   gold:   'border-gold/20 hover:border-gold/40',
   purple: 'border-purple/20 hover:border-purple/40',
   orange: 'border-orange/20 hover:border-orange/40',
+  red:    'border-red/20 hover:border-red/40',
 }
 
-const dotColorMap: Record<string, string> = {
-  green: 'bg-green', blue: 'bg-blue', gold: 'bg-gold', purple: 'bg-purple', orange: 'bg-orange',
+const statusBadge: Record<string, { label: string; cls: string }> = {
+  ACTIVE:  { label: 'LIVE', cls: 'badge-green' },
+  FAILED:  { label: 'FAIL', cls: 'badge-red' },
+  COMPLETED: { label: 'DONE', cls: 'badge-blue' },
+  no_data: { label: 'OFF', cls: 'badge-muted' },
+  error:   { label: 'ERR', cls: 'badge-red' },
 }
 
 export default function AgentCard({
-  title, icon, balance, pnl, winRate, profitFactor,
+  title, icon, sessionName, balance, pnl, winRate, profitFactor,
   openTrades, totalTrades, drawdown, extra = [],
-  status = 'active', color = 'green',
+  status = 'ACTIVE', color = 'green',
 }: Props) {
-  const isActive = status === 'active'
+  const isActive = status === 'ACTIVE'
+  const badge = statusBadge[status] ?? { label: status, cls: 'badge-muted' }
 
   return (
     <div className={clsx(
-      'card transition-all duration-200 cursor-default',
+      'card transition-all duration-200 cursor-default group',
       colorMap[color] ?? colorMap.green
     )}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <span className="text-xl">{icon}</span>
-          <span className="font-semibold text-sm text-white">{title}</span>
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2.5">
+          <span className="text-lg">{icon}</span>
+          <div>
+            <span className="font-semibold text-sm text-white">{title}</span>
+            {sessionName && (
+              <div className="text-[10px] font-mono text-muted mt-0.5">{sessionName}</div>
+            )}
+          </div>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className={clsx(
-            'w-1.5 h-1.5 rounded-full',
-            isActive ? `${dotColorMap[color]} animate-pulse` : 'bg-muted'
-          )} />
-          <span className="text-[10px] font-mono text-muted uppercase tracking-wider">
-            {isActive ? 'live' : 'offline'}
-          </span>
-        </div>
+        <span className={clsx('badge text-[10px]', badge.cls)}>{badge.label}</span>
       </div>
 
       {/* Balance & PnL */}
-      {balance != null && (
-        <div className="mb-3">
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Balance</div>
-          <div className="text-2xl font-mono font-bold text-white">${fmt(balance, 0)}</div>
+      <div className="flex items-end justify-between mb-4">
+        <div>
+          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">Balance</div>
+          <div className="text-xl font-mono font-bold text-white">
+            ${balance != null ? fmt(balance, 0) : '—'}
+          </div>
         </div>
-      )}
-
-      {pnl != null && (
-        <div className={clsx('text-sm font-mono font-semibold mb-4', pnlClass(pnl))}>
-          {fmtPnl(pnl)} total P&L
-        </div>
-      )}
+        {pnl != null && (
+          <div className={clsx('text-right', pnlClass(pnl))}>
+            <div className="text-[10px] uppercase tracking-wider mb-1 opacity-70">P&L</div>
+            <div className="text-sm font-mono font-semibold">{fmtPnl(pnl)}</div>
+          </div>
+        )}
+      </div>
 
       {/* KPI grid */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
         {winRate != null && (
           <div>
             <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Win Rate</div>
-            <div className="text-lg font-mono font-semibold text-white">{fmtPct(winRate)}</div>
+            <div className="text-sm font-mono font-semibold text-white">{fmtPct(winRate)}</div>
           </div>
         )}
         {profitFactor != null && (
           <div>
-            <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Profit Factor</div>
-            <div className={clsx('text-lg font-mono font-semibold', profitFactor >= 1.5 ? 'pos' : profitFactor >= 1.0 ? 'text-gold' : 'neg')}>
-              {fmt(profitFactor)}
-            </div>
+            <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">PF</div>
+            <div className={clsx('text-sm font-mono font-semibold',
+              profitFactor >= 1.5 ? 'pos' : profitFactor >= 1.0 ? 'text-gold' : 'neg'
+            )}>{fmt(profitFactor)}</div>
           </div>
         )}
         {totalTrades != null && (
           <div>
             <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Trades</div>
-            <div className="text-lg font-mono font-semibold text-white">{totalTrades}</div>
+            <div className="text-sm font-mono font-semibold text-white">{totalTrades}</div>
           </div>
         )}
         {openTrades != null && (
           <div>
             <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Abiertos</div>
-            <div className={clsx('text-lg font-mono font-semibold', openTrades > 0 ? 'pos' : 'neutral')}>
-              {openTrades}
-            </div>
+            <div className={clsx('text-sm font-mono font-semibold',
+              openTrades > 0 ? 'text-blue' : 'text-muted'
+            )}>{openTrades}</div>
           </div>
         )}
         {drawdown != null && (
           <div>
             <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Drawdown</div>
-            <div className={clsx('text-lg font-mono font-semibold', drawdown > 5 ? 'neg' : drawdown > 2 ? 'text-gold' : 'pos')}>
-              -{fmtPct(drawdown)}
-            </div>
+            <div className={clsx('text-sm font-mono font-semibold',
+              drawdown > 8 ? 'neg' : drawdown > 4 ? 'text-gold' : 'pos'
+            )}>-{fmtPct(drawdown)}</div>
           </div>
         )}
         {extra.map(({ label, value, cls }) => (
           <div key={label}>
             <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">{label}</div>
-            <div className={clsx('text-lg font-mono font-semibold', cls ?? 'text-white')}>{value}</div>
+            <div className={clsx('text-sm font-mono font-semibold', cls ?? 'text-white')}>{value}</div>
           </div>
         ))}
       </div>

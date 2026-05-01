@@ -4,8 +4,9 @@ import Sidebar from '@/components/Sidebar'
 import LiveTicker from '@/components/LiveTicker'
 
 export const metadata: Metadata = {
-  title: 'Arthas Trading',
-  description: 'Multi-agent trading dashboard',
+  title: 'ARTHAS — Trading System',
+  description: 'Multi-agent algorithmic trading dashboard — Crypto, Stocks, Polymarket, Options, BTC Direction',
+  icons: { icon: '/favicon.ico' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
