@@ -1,0 +1,30 @@
+FASE 1 — DASHBOARD CONSORCIO LIVE
+==================================
+Estas implementando la Fase 1 del plan de mejora del dashboard en /opt/trading/docs/DASHBOARD_IMPROVEMENT_PLAN.md.
+
+INSTRUCCIONES:
+1. Lee /opt/trading/docs/DASHBOARD_IMPROVEMENT_PLAN.md seccion "FASE 1"
+2. Lee el codigo actual del dashboard en /opt/trading/web/ y /opt/trading/api/
+3. Implementa:
+   a. NUEVO endpoint /overview/consortium en api/routers/overview.py:
+      - Capital total sumando balances de todos los agentes
+      - P&L diario (ultimas 24h), mensual, anual
+      - DD global maximo
+      - Agentes activos count
+   b. NUEVO componente ConsortiumWidget.tsx en web/components/
+      - Muestra en el Overview arriba de los AgentCards
+      - Capital total, P&L hoy (+%), P&L mensual, P&L anual, DD global, agentes activos
+      - Formato: tarjeta horizontal con KPIs en columnas
+   c. NUEVO componente AllocationChart.tsx (Recharts PieChart/Donut)
+      - Muestra distribucion del capital entre agentes
+   d. NUEVO endpoint /overview/daily-pnl en api/routers/overview.py
+   e. NUEVO componente ConsolidatedCalendar.tsx (P&L heatmap de todos los agentes)
+      - Un solo calendario que sume PnL diario de crypto+stocks+poly+options
+   f. Actualizar web/app/page.tsx para integrar todo
+   g. Agregar los nuevos endpoints a web/lib/api.ts
+4. VERIFICA que compile: cd /opt/trading/web && npm run build
+5. Reinicia: systemctl restart dashboard-api dashboard-web
+6. Envia reporte por Telegram
+7. Git add, commit, push
+
+NO modifiques agentes de trading. Solo dashboard.

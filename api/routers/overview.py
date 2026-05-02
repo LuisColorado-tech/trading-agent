@@ -184,3 +184,117 @@ def overview():
         result['btc_direction'] = {'status': 'error'}
 
     return result
+
+
+@router.get('/consortium')
+def consortium():
+    """Resumen financiero consolidado del consorcio — KPIs globales."""
+    try:
+        from api.db import q_one, q
+
+        # Capital total = suma de balances de todos los agentes activos
+        capital = 0.0
+        rows = []
+
+        # Crypto
+        cs = q_one("SELECT * FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        if not cs:
+            cs = q_one("SELECT * FROM paper_sessions ORDER BY started_at DESC LIMIT 1")
+        if cs:
+            pf = q_one("SELECT total_balance FROM portfolio ORDER BY timestamp DESC LIMIT 1") or {}
+            cb = float(pf.get('total_balance') or cs['initial_balance'] or 0)
+            capital += cb
+            rows.append(('Crypto', cs['session_name'], cb))
+
+        # Stocks
+        ss = q_one("SELECT * FROM stocks_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        if not ss:
+            ss = q_one("SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1")
+        if ss:
+            sb = float(ss['current_balance'] or ss['initial_balance'] or 0)
+            capital += sb
+            rows.append(('Stocks', ss['session_name'], sb))
+
+        # Polymarket
+        ps = q_one("SELECT * FROM poly_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        if not ps:
+            ps = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1")
+        if ps:
+            pb = float(ps['current_balance'] or ps['initial_balance'] or 0)
+            capital += pb
+            rows.append(('Polymarket', ps['session_name'], pb))
+
+        # Options
+        os_ = q_one("SELECT * FROM options_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        if not os_:
+            os_ = q_one("SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1")
+        if os_:
+            ob = float(os_['current_balance_usd'] or os_['initial_balance_usd'] or 0)
+            capital += ob
+            rows.append(('Options', os_['session_name'], ob))
+
+        # Grid Stable
+        gs_pnl = q_one("SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'") or {}
+        gs_bal = 500.0 + float(gs_pnl.get('pnl') or 0)
+        capital += gs_bal
+        rows.append(('Grid Stable', 'GRID_STABLE', gs_bal))
+
+        # P&L diario (últimas 24h)
+        daily = q_one("""
+            SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades
+            WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
+        """) or {}
+        daily_poly = q_one("""
+            SELECT COALESCE(SUM(pnl), 0) as pnl FROM poly_positions
+            WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
+        """) or {}
+        daily_pnl = float(daily.get('pnl') or 0) + float(daily_poly.get('pnl') or 0)
+
+        # DD global
+        crypto_dd = q_one("SELECT drawdown_pct FROM portfolio ORDER BY timestamp DESC LIMIT 1") or {}
+        dd_pct = float(crypto_dd.get('drawdown_pct') or 0) * 100
+
+        # Agentes activos
+        services = q_one("SELECT COUNT(*) as c FROM paper_sessions WHERE status='ACTIVE'") or {}
+        active = int(services.get('c') or 0)
+
+        return {
+            'capital_total': round(capital, 2),
+            'daily_pnl': round(daily_pnl, 2),
+            'daily_pnl_pct': round(daily_pnl / capital * 100, 2) if capital > 0 else 0,
+            'max_drawdown_pct': round(dd_pct, 1),
+            'active_agents': active,
+            'allocation': [{'agent': name, 'session': sess, 'balance': bal}
+                          for name, sess, bal in rows],
+        }
+    except Exception as e:
+        return {'error': str(e), 'capital_total': 0, 'daily_pnl': 0}
+
+
+@router.get('/daily-pnl')
+def daily_pnl(limit: int = 90):
+    """P&L diario consolidado de todos los agentes — para heatmap."""
+    rows = q(f"""
+        SELECT
+            series.date,
+            COALESCE(t.pnl, 0) + COALESCE(p.pnl, 0) as pnl
+        FROM (
+            SELECT generate_series(
+                CURRENT_DATE - INTERVAL '{limit} days',
+                CURRENT_DATE,
+                '1 day'::interval
+            )::date as date
+        ) series
+        LEFT JOIN (
+            SELECT DATE(timestamp_close) as dt, SUM(pnl) as pnl
+            FROM trades WHERE status='CLOSED'
+            GROUP BY dt
+        ) t ON series.date = t.dt
+        LEFT JOIN (
+            SELECT DATE(timestamp_close) as dt, SUM(pnl) as pnl
+            FROM poly_positions WHERE status='CLOSED'
+            GROUP BY dt
+        ) p ON series.date = p.dt
+        ORDER BY series.date
+    """)
+    return [{'date': str(r.date), 'pnl': round(float(r.pnl or 0), 2)} for r in rows]

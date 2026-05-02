@@ -1,6 +1,8 @@
 import { api } from '@/lib/api'
 import AgentCard from '@/components/AgentCard'
 import MiniEquity from '@/components/MiniEquity'
+import ConsortiumWidget from '@/components/ConsortiumWidget'
+import AllocationChart from '@/components/AllocationChart'
 import { fmtPnl } from '@/lib/fmt'
 import { clsx } from 'clsx'
 
@@ -52,6 +54,9 @@ export default async function OverviewPage() {
           </div>
         </div>
       </div>
+
+      {/* Consortium widget */}
+      <ConsortiumWidget />
 
       {/* Agent cards */}
       <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
@@ -151,15 +156,24 @@ export default async function OverviewPage() {
         />
       </div>
 
-      {/* Equity charts */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+      {/* Allocation + Equity charts */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+        <div className="card">
+          <AllocationChart data={[
+            { agent: 'Crypto', balance: c.balance ?? 0 },
+            { agent: 'Stocks', balance: s.balance ?? 0 },
+            { agent: 'Polymarket', balance: p.balance ?? 0 },
+            { agent: 'Options', balance: o.balance ?? 0 },
+            { agent: 'Grid Stable', balance: 500 },
+          ]} />
+        </div>
         <div className="card">
           <div className="text-xs text-muted uppercase tracking-wider mb-3">Crypto Equity Curve</div>
-          <MiniEquity data={history} dataKey="total_balance" color="#58A6FF" height={160} />
+          <MiniEquity data={history} dataKey="total_balance" color="#58A6FF" height={140} />
         </div>
         <div className="card">
           <div className="text-xs text-muted uppercase tracking-wider mb-3">Stocks Equity Curve</div>
-          <MiniEquity data={seq} dataKey="balance" color="#00FF87" height={160} />
+          <MiniEquity data={seq} dataKey="balance" color="#00FF87" height={140} />
         </div>
       </div>
 
