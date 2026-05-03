@@ -1,0 +1,337 @@
+{
+  "mindmap": {
+    "title": "ARTHAS TRADING CONSORTIUM — v4",
+    "meta": {
+      "fecha": "2026-05-03",
+      "balance_total": "~$12,000 paper",
+      "modo": "PAPER TRADING",
+      "vps": "187.77.5.109 (srv1347416, Ubuntu 24.04)",
+      "python": "3.12 (venv /opt/trading/venv/bin/python3)",
+      "objetivo": "Validar edge → fondear $300 USDC → operar en vivo"
+    },
+    "infraestructura": {
+      "base_de_datos": {
+        "postgresql": "localhost:5432, db=trading_agent",
+        "tablas_principales": ["trades", "portfolio", "paper_sessions", "signals", "market_data", "poly_positions", "snipe_trades", "stocks_trades", "options_positions", "repo_strategies", "xsignals_signals"]
+      },
+      "cache_pubsub": {
+        "redis": "localhost:6379",
+        "canales": ["signals:new", "trades:executed", "trades:closed", "trades:trailing", "grid_stable:new_trade"],
+        "keys_control": ["halt:trading", "cooldown:*", "dedup:*", "guard:*", "cooldown_grid_stable:*"]
+      },
+      "exchanges": {
+        "kraken": "BTC, ETH, SOL, AVAX, LINK, XAU — primario",
+        "okx": "XAG, fallback crypto — secundario",
+        "alpaca_markets": "Stocks NYSE/NASDAQ (paper mode)",
+        "deribit": "Options BTC (OAuth2)",
+        "polymarket": "Prediction markets (Gamma + CLOB APIs)",
+        "binance": "BLOQUEADO — HTTP 451 geo-restriction en este VPS"
+      },
+      "dashboard": {
+        "frontend": "Next.js 14 React :3000 (dashboard-web.service)",
+        "api": "FastAPI :8000 (dashboard-api.service)",
+        "proxy": "Nginx :80/:443"
+      },
+      "monitoreo": {
+        "logs": "/opt/trading/logs/ (Loguru, rotación diaria, 30 días)",
+        "health_check": "trading-health.service — heartbeat cada 3h + alertas Telegram",
+        "telegram": "TOKEN 8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE, CHAT 999936393"
+      },
+      "orquestador": {
+        "script": "scripts/orchestrator.sh",
+        "cron_activos": [
+          "May 3 08:00 — Fase 1 Grid Stable ✅ COMPLETADA",
+          "May 5 08:00 — Fase 2 Basis Trade",
+          "May 7 08:00 — Fase 3 VIX Mean Reversion",
+          "May 10 08:00 — Fase 4 Pairs Trading",
+          "May 13 08:00 — Fase 5 Earnings Strangle",
+          "May 16 08:00 — Reporte Final",
+          "May 5 08:00 — Dash Risk Analytics",
+          "May 6 08:00 — Dash Real-time UX"
+        ],
+        "cron_desactivados": [
+          "May 4 dash_pages — ya implementado manualmente May 3",
+          "May 7 dash_grid — ya implementado manualmente May 3"
+        ]
+      }
+    },
+    "agentes_activos": {
+      "trading_agent": {
+        "nombre": "Crypto/Metales — TrendMomentum",
+        "servicio": "trading-agent.service",
+        "entry_point": "scripts/run_trading.py",
+        "ciclo": "60 segundos",
+        "estrategia": "TREND_MOMENTUM SELL",
+        "estado": "ACTIVO v3 — PAPER_SESSION_009",
+        "activos": "BTC, ETH, SOL, AVAX, LINK, XAU, XAG (7 activos, SELL only)",
+        "timeframe": "15m",
+        "metricas_all_time": {
+          "trades": 309,
+          "win_rate": "50.2%",
+          "profit_factor": 3.47,
+          "pnl": "+$11,861"
+        },
+        "parametros_clave": {
+          "MIN_SCORE": 75,
+          "MAX_CONCURRENT": 2,
+          "MAX_RISK_PER_TRADE": "0.5%",
+          "DEAD_HOURS_UTC": [1, 2, 3, 4, 9, 13, 14, 20, 22, 23],
+          "SL_COOLDOWN": "60 min",
+          "trailing": "dinámico progresivo por escalones de R"
+        },
+        "sub_estrategias": {
+          "grid_bot": {
+            "estrategia": "GRID_BOT",
+            "estado": "ACTIVO v4 — recalibrado May 3",
+            "regimen": "RANGE/CHOPPY",
+            "direccion": "BUY + SELL (market-neutral)",
+            "activos": "7 activos crypto",
+            "timeframe": "15m + 1h MTF",
+            "metricas_all_time": {
+              "trades": 266,
+              "win_rate": "47.4%",
+              "profit_factor": 1.17,
+              "pnl": "+$764"
+            },
+            "protecciones": ["cooldown post-SL 30min (Redis+DB)", "risk_fraction dinámico por régimen 1h", "trailing selectivo (tp_ratio>=1.7)", "grid recalculation en breakout", "belt-and-suspenders DB check SL reciente"]
+          }
+        },
+        "archivos_clave": ["agents/strategy_engine.py", "strategies/trend_momentum.py", "risk/risk_manager.py", "core/market_regime.py", "core/asset_profiles.py", "agents/grid_agent.py", "strategies/grid_bot.py"]
+      },
+      "grid_stable": {
+        "nombre": "Grid Stable Pairs",
+        "servicio": "grid-stable.service",
+        "entry_point": "agents/grid_stable_agent.py",
+        "ciclo": "120 segundos",
+        "estrategia": "Grid pasivo en pares estables",
+        "estado": "ACTIVO v2 — recalibrado May 3",
+        "activos": "ETH/BTC, LINK/BTC",
+        "timeframe": "15m (via CCXT directo a Kraken)",
+        "metricas_all_time": {
+          "trades": 154,
+          "win_rate": "22.7%",
+          "profit_factor": 0.86,
+          "pnl": "-$12.61"
+        },
+        "backtest_6m_post_fix": {
+          "trades": 4359,
+          "profit_factor": 2.78,
+          "retorno": "+1682%"
+        },
+        "parametros_clave": {
+          "ETH_BTC_SL": "0.60× spacing",
+          "ETH_BTC_TP": "1.80× spacing",
+          "LINK_BTC_SL": "0.65× spacing",
+          "LINK_BTC_TP": "1.95× spacing",
+          "RR": "3.0",
+          "COOLDOWN_SL": "10 min (Redis + intra-ciclo)",
+          "direccion": "BUY + SELL"
+        },
+        "protecciones": ["cooldown post-SL (Redis 10min + intra-ciclo)", "trailing break-even (50% camino al TP)", "breakout validation (últimas 3 velas)", "risk_fraction ETH/BTC 0.30→0.20"],
+        "archivos_clave": ["agents/grid_stable_agent.py", "strategies/grid_stable.py", "core/grid_stable_profiles.py", "scripts/backtest_grid_stable.py"],
+        "riesgo": "Edge no validado en live — solo 154 trades reales vs 4359 en backtest. Los resultados live (-$12.61) vs backtest (+1682%) divergen dramáticamente. Se necesita más tiempo paper."
+      },
+      "stocks_agent": {
+        "nombre": "Stocks NYSE/NASDAQ",
+        "servicio": "stocks-agent.service",
+        "entry_point": "scripts/run_stocks.py",
+        "estrategia": "MOMENTUM + TREND_ETF",
+        "estado": "ACTIVO v3 — STOCKS_SESSION_001 ($220)",
+        "activos": "NVDA, TSLA, AAPL, META, AMZN, SPY, QQQ, GLD, SLV, EEM, EWJ (11 activos)",
+        "horario": "NYSE 14:30-21:00 UTC L-V",
+        "metricas_backtest_24m": {
+          "trades": 3042,
+          "win_rate": "34.7%",
+          "profit_factor": 1.18,
+          "pnl": "+$925"
+        },
+        "parametros_clave": {
+          "MIN_SCORE": 65,
+          "MAX_CONCURRENT": 3,
+          "MAX_RISK_PER_TRADE": "1%",
+          "macro_bias": "SPY+QQQ determinan severidad BEAR/BULL",
+          "xsignal_boost": "+15 puntos si señal @aguti00 alineada (WR=71.4%)"
+        },
+        "archivos_clave": ["agents/stocks_agent.py", "strategies/stocks_momentum.py", "strategies/stocks_trend_etf.py", "core/stocks_profiles.py", "data/stocks_feed.py", "core/alpaca_session_manager.py"]
+      },
+      "polymarket_agent": {
+        "nombre": "Polymarket Predictions",
+        "servicio": "polymarket-agent.service",
+        "entry_point": "scripts/run_polymarket.py",
+        "estrategia": "SIGNAL_BASED + TAIL_END",
+        "estado": "ACTIVO v3 — POLY_SESSION_005 ($1,000) — DD HALT 26.9% > 20%",
+        "metricas": {
+          "win_rate": "29.9%",
+          "profit_factor": 0.37,
+          "pnl": "-$961",
+          "estado_circuit_breaker": "HALT activo (DD 26.9% > 20%) — no abre nuevas posiciones"
+        },
+        "fix_v3_mayo_1": [
+          "Edge = abs(0.50-price) → tf_conviction*0.15 (elimina tautología)",
+          "min_price_yes 0.35→0.42",
+          "max_spread ahora aplicado en código (antes solo YAML)",
+          "estimated_prob corregido (Kelly sizing realista)",
+          "SL dinámico 40%→25%",
+          "max_position 2.5%→1.5%, max_concurrent 5→3"
+        ],
+        "archivos_clave": ["strategies/signal_based_poly.py", "data/polymarket_feed.py", "agents/poly_executor.py", "agents/poly_monitor.py", "risk/poly_risk.py"]
+      },
+      "polymarket_snipe": {
+        "nombre": "PolySnipe — Late-entry Up/Down 15m",
+        "servicio": "polymarket-snipe.service",
+        "entry_point": "scripts/run_polymarket_snipe.py",
+        "estrategia": "SNIPE (94% WR documentado) + ARB (risk-free)",
+        "estado": "ACTIVO v1 — 69 trades acumulados",
+        "ciclo": "30 segundos",
+        "activos": "BTC, ETH, SOL, XRP",
+        "metricas_reales": {
+          "trades": 73,
+          "wins": 70,
+          "losses": 3,
+          "win_rate": "95.9%",
+          "pnl": "+$82",
+          "balance": "$500 → $582",
+          "profit_factor": 4.85
+        },
+        "mecanica": "Minuto 13-14.5 de ventana 15m → si asset movió >0.10% → compra lado ganador a $0.88-$0.97 → cobra $1.00 al cierre",
+        "riesgos_criticos": [
+          "R:R 1:14 — cada loss cuesta ~$38 (14 wins para compensar)",
+          "Break-even WR: 93.3% — solo 4 losses más y la estrategia es negativa",
+          "Entradas duplicadas corregidas (slug_already_traded DB check)",
+          "Oracle divergence: Kraken close ≠ Polymarket oracle — causó 1 loss falso",
+          "Muestra pequeña (73 trades) — IC 95%: WR real entre 90-100%"
+        ],
+        "protecciones_implementadas": [
+          "slug_already_traded() — evita duplicados en mismo mercado",
+          "circuit breaker daily_loss > $15",
+          "log ORACLE GAP cuando move < threshold al resolver"
+        ],
+        "archivos_clave": ["agents/polymarket_snipe.py", "scripts/run_polymarket_snipe.py"],
+        "nota": "ARB nunca se ha ejecutado — YES+NO < $0.985 nunca se cumple en 15m. Código muerto."
+      },
+      "options_agent": {
+        "nombre": "Options — Theta Farming",
+        "servicio": "options-agent.service",
+        "entry_point": "scripts/run_options.py",
+        "estrategia": "Vender PUTs BTC OTM semanales en Deribit",
+        "estado": "ACTIVO en paper_mode — $2,000 inicial, sin resultados históricos suficientes",
+        "parametros_clave": {
+          "IV_Rank_min": "20% (lookback 252d)",
+          "DTE": "3-21 días (óptimo 5-10)",
+          "delta_max": "0.20",
+          "OTM": "4-12%",
+          "max_spread": "25%",
+          "max_positions": 3,
+          "STOP_LOSS": "2× prima",
+          "PROFIT_LOCK": "80% de prima"
+        },
+        "archivos_clave": ["agents/options_agent.py", "strategies/theta_farming.py", "core/deribit_session_manager.py"]
+      }
+    },
+    "agentes_pausados_desactivados": {
+      "btc_direction": {
+        "nombre": "BTC Direction (legacy)",
+        "estado": "REEMPLAZADO por PolySnipe",
+        "motivo": "WR 0%, 183 trades, PnL -$497 — estructuralmente inviable",
+        "servicio": "btc-direction.service (apagado)"
+      },
+      "estrategias_desactivadas_dentro_trading_agent": {
+        "MEAN_REVERSION": "8 trades, 0 wins, -$569 — sin edge en 15m",
+        "PREDICTION_LLM": "43 trades, 0 wins, -$582 — sin API key OpenAI",
+        "TREND_MOMENTUM_BUY": "Backtest 2Y: -$6,151 — bloqueado en market_regime.py",
+        "BREAKOUT_DOWN_allow_trend": "WR 29%, PnL -$1,590 — bloqueado en market_regime.py"
+      }
+    },
+    "agentes_en_desarrollo_orquestador": {
+      "fase_1_grid_stable": {
+        "estado": "COMPLETADO May 3",
+        "entregables": "grid_stable_agent.py, grid_stable_profiles.py, grid_stable.py, backtest_grid_stable.py, grid-stable.service, YAML config",
+        "nota": "Ya recalibrado manualmente v2 en esta sesión"
+      },
+      "fase_2_basis_trade": {
+        "fecha_programada": "May 5 08:00 UTC",
+        "descripcion": "Spot-Futures Basis Trade en Kraken — market neutral, 8-15% APY estimado",
+        "entregables": "6 archivos: kraken_futures_feed.py, estrategia, ejecutor, backtest, config",
+        "backtest": "funding rates 2Y"
+      },
+      "fase_3_vix": {
+        "fecha_programada": "May 7 08:00 UTC",
+        "descripcion": "VIX Mean Reversion con VXX/UVXY via Alpaca — hedge anticorrelación crypto",
+        "entregables": "5 archivos: vol_feed.py, estrategia, perfiles, backtest, integración stocks",
+        "backtest": "VIX 5Y"
+      },
+      "fase_4_pairs": {
+        "fecha_programada": "May 10 08:00 UTC",
+        "descripcion": "Pairs Trading GLD-SLV, KO-PEP via Alpaca — market neutral, cointegración",
+        "entregables": "6 archivos: pairs_feed.py, cointegración, estrategia, ejecutor, backtest, systemd",
+        "backtest": "GLD-SLV 5Y"
+      },
+      "fase_5_earnings": {
+        "fecha_programada": "May 13 08:00 UTC",
+        "descripcion": "Earnings Strangle NVDA/TSLA/AAPL/META via Alpaca — venta de volatilidad pre-earnings",
+        "entregables": "6 archivos: earnings_calendar.py, options_chain, estrategia, ejecutor, backtest",
+        "backtest": "NVDA/TSLA 3Y"
+      },
+      "fase_6_final": {
+        "fecha_programada": "May 16 08:00 UTC",
+        "descripcion": "Reporte final consolidado — dashboard completo, git push, Telegram resumen",
+        "entregables": "Dashboard final + reporte"
+      }
+    },
+    "sistema_estrategias_externas": {
+      "github_strategy_hunter": {
+        "estado": "ACTIVO — pipeline de ingeniería inversa",
+        "script": "scripts/repo_strategy_hunter.py",
+        "tabla_db": "repo_strategies",
+        "estrategias_adaptadas": [
+          "smc_order_blocks.py — SMC/ICT Order Blocks + FVG",
+          "pullback_state_machine.py — Pullback 4-Phase State Machine",
+          "btc_microstructure.py — BTC Microstructure Multi-Signal"
+        ],
+        "pipeline": "discover → analyze → adapt → backtest → deploy"
+      },
+      "xsignals": {
+        "descripcion": "Señales de X/Twitter (@aguti00) — WR=71.4% a 48h",
+        "tabla_db": "xsignals_signals",
+        "integración": "StocksMomentum recibe +15 puntos si señal alineada con confianza ≥55"
+      }
+    },
+    "estrategia_fondeo": {
+      "capital_objetivo": "$300 USDC",
+      "distribucion": "$220 → Kraken (Crypto), $80 → Polymarket",
+      "prerequisitos": [
+        "3 meses paper con PF ≥ 1.5 en Crypto",
+        "4 semanas paper con PF ≥ 1.3 en Stocks",
+        "PolySnipe: 2 semanas paper con WR ≥ 80% → $50-80 live",
+        "Polymarket: break-even o positivo en 50 trades post-fix",
+        "Grid Stable: validar edge con ≥200 trades paper"
+      ],
+      "security_rules": [
+        "Max 40% capital en un solo exchange",
+        "Seed phrase NUNCA en VPS (offline, 2 ubicaciones físicas)",
+        "Hot wallet (20%) en VPS, Cold wallet (80%) offline",
+        "Address whitelisting en exchanges",
+        "Prueba de retiro mensual ($10 de cada exchange)"
+      ]
+    },
+    "llm_integration": {
+      "provider": "DeepSeek (deepseek-chat) + OpenAI GPT-4o-mini fallback",
+      "bridge": "core/claude_bridge.py — multi-provider con LangChain + Pydantic",
+      "task_types": ["signal_interpretation", "anomaly_check", "explain_trade", "sentiment_analysis", "daily_briefing"],
+      "principio": "LLM nunca bloquea la operación — si falla, retorna NEUTRAL",
+      "costo_estimado": "~$0.03-0.05/día"
+    },
+    "backtesting": {
+      "scripts_disponibles": {
+        "crypto": "scripts/backtest.py (TrendMomentum 15m/1h)",
+        "grid": "scripts/backtest_grid.py (Grid Bot con --mtf)",
+        "grid_stable": "scripts/backtest_grid_stable.py (ETH/BTC, LINK/BTC)",
+        "stocks": "scripts/backtest_stocks.py (Momentum + Trend ETF)",
+        "polymarket": "scripts/backtest_polymarket.py (--all-sessions, --scan-combos)",
+        "options": "scripts/backtest_options.py (Theta Farming)",
+        "value_zone": "scripts/backtest_value_zone.py (nuevo)"
+      },
+      "datos": "PostgreSQL market_data + KuCoin CCXT (sin API key)"
+    }
+  }
+}
