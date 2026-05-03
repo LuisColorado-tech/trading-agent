@@ -5,7 +5,7 @@ Verifica que el sistema funciona correctamente y envía alertas por Telegram.
 
 Se ejecuta vía systemd timer cada 5 minutos.
 Si detecta problemas, envía alerta inmediata.
-Cada 6 horas envía un resumen de estado (heartbeat).
+Cada 3 horas envía un resumen de estado (heartbeat).
 
 Checks:
   1. Servicio trading-agent activo
@@ -31,8 +31,8 @@ from dotenv import load_dotenv
 load_dotenv('/opt/trading/config/.env')
 
 # ── Config ──
-TELEGRAM_TOKEN = '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE'
-TELEGRAM_CHAT = '999936393'
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE')
+TELEGRAM_CHAT = os.getenv('TELEGRAM_CHAT_ID', '999936393')
 STATE_FILE = Path('/opt/trading/.health_state.json')
 HEARTBEAT_HOURS = 3
 MAX_CYCLE_AGE_MIN = 5
@@ -242,7 +242,7 @@ def check_market_data_fresh() -> tuple:
 def check_dashboard() -> tuple:
     """Check 6: ¿Dashboard accesible?"""
     try:
-        r = requests.get('http://localhost:8501', timeout=5)
+        r = requests.get('http://localhost:3000', timeout=5)
         if r.status_code == 200:
             return True, 'Dashboard OK (HTTP 200)'
         return False, f'Dashboard HTTP {r.status_code}'
@@ -471,19 +471,35 @@ def check_stocks() -> tuple:
         if not svc_active:
             return False, '📈 Stocks servicio INACTIVO'
 
-        conn = psycopg2.connect(**DB_CONFIG)
-        cur = conn.cursor()
-        cur.execute("SELECT session_name, current_balance, total_trades FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
-        row = cur.fetchone()
-        cur.execute("SELECT COUNT(*) FROM stocks_trades WHERE status='OPEN'")
-        open_c = cur.fetchone()[0]
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        row = _query_one(conn,
+            "SELECT COUNT(*) FROM stocks_trades WHERE opened_at > now() - interval '24 hours'")
         conn.close()
-
-        if not row:
-            return True, '📈 Stocks: sin sesión activa'
-        return True, f'📈 Stocks: {row[0]} ${float(row[1]):,.2f} | {open_c} open | {row[2]} trades'
+        count = int(row[0]) if row else 0
+        return True, f'📈 Stocks OK — {count} trades en 24h'
     except Exception as e:
-        return False, f'📈 Stocks error: {str(e)[:100]}'
+        return False, f'📈 Stocks error: {str(e)[:80]}'
+
+
+def check_snipe() -> tuple:
+    """Check del PolyMarket SNIPE agent."""
+    try:
+        import subprocess
+        r = subprocess.run(['systemctl', 'is-active', 'polymarket-snipe'], capture_output=True, text=True, timeout=5)
+        svc_active = r.stdout.strip() == 'active'
+        if not svc_active:
+            return False, '🎯 PolySnipe servicio INACTIVO'
+
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        row = _query_one(conn,
+            "SELECT COUNT(*) FROM snipe_trades WHERE timestamp_open > now() - interval '6 hours'")
+        conn.close()
+        count = int(row[0]) if row else 0
+        if count == 0:
+            return True, '🎯 SNIPE sin trades en 6h — esperando ventana 13-14.5min'
+        return True, f'🎯 SNIPE OK — {count} trades en 6h'
+    except Exception as e:
+        return False, f'🎯 SNIPE check error: {str(e)[:80]}'
 
 
 def _query_one(conn, sql: str, params=None):
@@ -561,7 +577,23 @@ def _build_heartbeat(now: datetime) -> str:
     else:
         options_open = options_pnl = None
 
-    # BTC Direction
+    # PolyMarket SNIPE
+    try:
+        snipe_sess = _query_one(conn,
+            "SELECT session_name, current_balance FROM snipe_sessions WHERE status='ACTIVE' LIMIT 1")
+        if snipe_sess:
+            snipe_open = _query_one(conn, "SELECT COUNT(*) FROM snipe_trades WHERE status='OPEN'")
+            snipe_pnl = _query_one(conn,
+                "SELECT COALESCE(SUM(pnl_usdc), 0) FROM snipe_trades WHERE status='CLOSED'")
+            snipe_wr = _query_one(conn,
+                "SELECT COUNT(*), SUM(CASE WHEN outcome='WIN' THEN 1 ELSE 0 END) "
+                "FROM snipe_trades WHERE status='CLOSED'")
+        else:
+            snipe_open = snipe_pnl = snipe_wr = None
+    except Exception:
+        snipe_sess = snipe_open = snipe_pnl = snipe_wr = None
+
+    # BTC Direction (DEPRECATED)
     btcd = _query_one(conn,
         "SELECT COUNT(*), SUM(CASE WHEN pnl_usdc>0 THEN 1 ELSE 0 END), COALESCE(SUM(pnl_usdc),0) FROM btc_direction_trades WHERE status='CLOSED'")
     btcd_open = _query_one(conn, "SELECT COUNT(*) FROM btc_direction_trades WHERE status='OPEN'")
@@ -605,14 +637,17 @@ def _build_heartbeat(now: datetime) -> str:
         options_open[0] if options_open else 0,
         options_pnl[0] if options_pnl else 0))
 
+    lines.append(row('🎯', 'SNIPE  ',
+        snipe_sess[0] if snipe_sess else '—',
+        snipe_sess[1] if snipe_sess else None,
+        snipe_open[0] if snipe_open else 0,
+        snipe_pnl[0] if snipe_pnl else 0))
+
+    # BTC Dir info as footnote
     btcd_t = int(btcd[0]) if btcd else 0
-    btcd_w = int(btcd[1]) if btcd else 0
-    btcd_wr = f'{btcd_w/btcd_t*100:.0f}%' if btcd_t > 0 else '—'
     btcd_pnl = float(btcd[2]) if btcd else 0
-    lines.append(row('₿ ', 'BTC Dir',
-        f'WR {btcd_wr}', None,
-        btcd_open[0] if btcd_open else 0,
-        btcd_pnl, f'({btcd_t}t)'))
+    btcd_msg = f'BTC Dir (legacy): {btcd_t}t ${btcd_pnl:+.0f} — reemplazado por SNIPE'
+    lines.append(f'  <i>{btcd_msg}</i>')
 
     # ── Info extra ──
     lines.append('')
@@ -630,6 +665,15 @@ def _build_heartbeat(now: datetime) -> str:
 
     lines.append(f'\n⏱️ Próximo heartbeat: ~{HEARTBEAT_HOURS}h | Alertas: cada 5min si hay fallos')
     return '\n'.join(lines)
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--test-heartbeat', action='store_true',
+                        help='Forzar envío inmediato de heartbeat a Telegram (ignora intervalo)')
+    args = parser.parse_args()
+
     now = datetime.now(timezone.utc)
     state = load_state()
 
@@ -645,6 +689,7 @@ def _build_heartbeat(now: datetime) -> str:
         ('🔒 Balance', check_balance_stuck),
         ('🤖 Grid Bot', check_grid_bot),
         ('🔮 Polymarket', check_polymarket),
+        ('🎯 PolySnipe', check_snipe),
         ('📈 Stocks', check_stocks),
     ]
 
@@ -658,6 +703,8 @@ def _build_heartbeat(now: datetime) -> str:
         results.append((name, ok, msg))
         if not ok:
             failures.append((name, msg))
+
+    all_ok = all(ok for _, ok, _ in results)
 
     # ── Alertas por fallos ──
     if failures:
@@ -692,14 +739,27 @@ def _build_heartbeat(now: datetime) -> str:
         except (ValueError, TypeError):
             send_heartbeat = True
 
-    if send_heartbeat:
+    if args.test_heartbeat:
+        print('[HEARTBEAT] --test-heartbeat: forzando envío inmediato...')
+        send_telegram(_build_heartbeat(now), silent=False)
+        state['last_heartbeat'] = now.isoformat()
+    elif send_heartbeat:
+        print(f'[HEARTBEAT] Enviando heartbeat (silent={all_ok})...')
         send_telegram(_build_heartbeat(now), silent=all_ok)
         state['last_heartbeat'] = now.isoformat()
+    else:
+        next_hb = ''
+        if last_hb:
+            try:
+                next_hb_dt = datetime.fromisoformat(last_hb) + timedelta(hours=HEARTBEAT_HOURS)
+                next_hb = f' (próximo ~{next_hb_dt.strftime("%H:%M UTC")})'
+            except (ValueError, TypeError):
+                pass
+        print(f'[HEARTBEAT] Suprimido — no han pasado {HEARTBEAT_HOURS}h{next_hb}')
 
     save_state(state)
 
     # ── Salida para logs ──
-    all_ok = all(ok for _, ok, _ in results)
     status = 'OK' if all_ok else 'FAIL'
     print(f'[{now.strftime("%H:%M:%S")}] Health check: {status} ({len(results)-len(failures)}/{len(results)} passed)')
     for name, ok, msg in results:

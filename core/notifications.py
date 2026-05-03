@@ -1,11 +1,16 @@
 """
 notifications.py — Notificaciones Telegram compartidas (cripto + polymarket).
 """
+import os
+
 import requests
+from dotenv import load_dotenv
 from loguru import logger
 
-TELEGRAM_TOKEN = '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE'
-TELEGRAM_CHAT = '999936393'
+load_dotenv('/opt/trading/config/.env')
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE')
+TELEGRAM_CHAT = os.getenv('TELEGRAM_CHAT_ID', '999936393')
 
 
 def send_telegram(message: str, silent: bool = False):

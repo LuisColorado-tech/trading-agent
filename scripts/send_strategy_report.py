@@ -279,7 +279,7 @@ class ArthasPDF(FPDF):
 
         self.set_font('Helvetica', '', 10)
         self.set_text_color(100, 180, 255)
-        self.cell(0, 8, 'VPS: 187.77.5.109  |  Dashboard: :8501', align='C')
+        self.cell(0, 8, 'VPS: 187.77.5.109  |  Dashboard: :3000', align='C')
         self.ln(8)
         self.cell(0, 8, f'Generado: {datetime.now().strftime("%d/%m/%Y %H:%M")} UTC', align='C')
         self.ln(30)

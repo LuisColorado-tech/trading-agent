@@ -11,10 +11,12 @@ import requests
 from datetime import datetime
 
 sys.path.insert(0, '/opt/trading')
+from dotenv import load_dotenv
+load_dotenv('/opt/trading/config/.env')
 from fpdf import FPDF, XPos, YPos
 
-TELEGRAM_TOKEN = '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE'
-TELEGRAM_CHAT  = '999936393'
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE')
+TELEGRAM_CHAT  = os.getenv('TELEGRAM_CHAT_ID', '999936393')
 
 # ?? Datos reales de la DB ????????????????????????????????????????????????????
 

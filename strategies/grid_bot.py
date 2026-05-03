@@ -3,9 +3,10 @@ GridBotStrategy — Grid trading para régimen RANGE / CHOPPY.
 
 Lógica:
   - Divide el rango reciente (últimas N velas) en niveles equidistantes
-  - Cuando el precio toca un nivel → señal SELL (sesgo bear del sistema)
-  - TP = 1.5 × grid_spacing por debajo del nivel de entrada
-  - SL = 0.6 × grid_spacing por encima del nivel (relativo, no absoluto)
+  - Niveles por encima del precio → SELL (apuesta a que baje al nivel inferior)
+  - Niveles por debajo del precio → BUY (apuesta a que suba al nivel superior)
+  - TP = 1.5 × grid_spacing en dirección favorable
+  - SL = 0.6 × grid_spacing en dirección contraria
   - RR teórico = 1.5 / 0.6 = 2.5 × por nivel; realizado ~1.6× con slippage
   - Solo activa cuando market_regime ∈ {RANGE, CHOPPY}
   - RR mínimo 1.20 para abrir orden
@@ -105,10 +106,10 @@ class GridBotStrategy:
         for i in range(n_levels + 1):
             level_price = buffered_low + i * grid_spacing
 
-            # SELL: niveles por encima del precio actual
+            # SELL: niveles por encima del precio actual (apuesta a que baje)
             if level_price > current_price * (1 + LEVEL_TOLERANCE_PCT * 0.5):
                 tp  = level_price - grid_spacing * tp_ratio
-                sl  = level_price + grid_spacing * sl_ratio  # per-level, no desde range_high
+                sl  = level_price + grid_spacing * sl_ratio
                 risk_per_unit   = abs(level_price - sl)
                 reward_per_unit = abs(level_price - tp)
                 if risk_per_unit < 1e-10:
@@ -118,6 +119,25 @@ class GridBotStrategy:
                     levels.append(GridLevel(
                         price=round(level_price, 8),
                         direction='SELL',
+                        tp=round(tp, 8),
+                        sl=round(sl, 8),
+                        level_idx=i,
+                        rr=round(rr, 3),
+                    ))
+
+            # BUY: niveles por debajo del precio actual (apuesta a que suba)
+            elif level_price < current_price * (1 - LEVEL_TOLERANCE_PCT * 0.5):
+                tp  = level_price + grid_spacing * tp_ratio    # TP arriba del nivel
+                sl  = level_price - grid_spacing * sl_ratio    # SL abajo del nivel
+                risk_per_unit   = abs(level_price - sl)
+                reward_per_unit = abs(level_price - tp)
+                if risk_per_unit < 1e-10:
+                    continue
+                rr = reward_per_unit / risk_per_unit
+                if rr >= min_rr:
+                    levels.append(GridLevel(
+                        price=round(level_price, 8),
+                        direction='BUY',
                         tp=round(tp, 8),
                         sl=round(sl, 8),
                         level_idx=i,

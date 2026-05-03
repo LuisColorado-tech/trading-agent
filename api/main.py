@@ -12,6 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.routers import stocks, crypto, polymarket, options, live, overview
+from api.routers.grid_stable import router as grid_stable_router
 
 app = FastAPI(title='Trading Agent API', version='1.0.0')
 
@@ -28,6 +29,7 @@ app.include_router(crypto.router,   prefix='/crypto',   tags=['crypto'])
 app.include_router(polymarket.router, prefix='/polymarket', tags=['polymarket'])
 app.include_router(options.router,  prefix='/options',  tags=['options'])
 app.include_router(live.router,     prefix='/live',     tags=['live'])
+app.include_router(grid_stable_router, prefix='/grid-stable', tags=['grid-stable'])
 
 
 @app.get('/health')

@@ -1,4 +1,4 @@
-"""Router: Polymarket + BTC Direction."""
+"""Router: Polymarket + BTC Direction + PolySnipe."""
 from fastapi import APIRouter
 from api.db import q, q_one
 
@@ -51,3 +51,34 @@ def btc_direction(limit: int = 100):
         SELECT * FROM btc_direction_trades
         ORDER BY timestamp_open DESC LIMIT :limit
     """, {'limit': limit})
+
+
+# ── PolySnipe endpoints ──
+@router.get('/snipe')
+def snipe_trades(limit: int = 200):
+    return q("""
+        SELECT * FROM snipe_trades
+        ORDER BY timestamp_open DESC LIMIT :limit
+    """, {'limit': limit})
+
+
+@router.get('/snipe/stats')
+def snipe_stats():
+    row = q_one("""
+        SELECT
+            COUNT(*) AS total,
+            COUNT(*) FILTER (WHERE status = 'OPEN') AS open_cnt,
+            COUNT(*) FILTER (WHERE status = 'CLOSED') AS closed_cnt,
+            COUNT(*) FILTER (WHERE outcome = 'WIN') AS wins,
+            COUNT(*) FILTER (WHERE strategy = 'SNIPE') AS snipe_cnt,
+            COUNT(*) FILTER (WHERE strategy = 'ARB') AS arb_cnt,
+            COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
+        FROM snipe_trades
+    """) or {}
+    closed = int(row.get('closed_cnt') or 0)
+    wins = int(row.get('wins') or 0)
+    return {
+        **row,
+        'win_rate': round(wins / closed * 100, 1) if closed > 0 else 0,
+        'balance': 500.0 + float(row.get('total_pnl') or 0),
+    }

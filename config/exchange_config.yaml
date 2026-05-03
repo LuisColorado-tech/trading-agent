@@ -196,6 +196,14 @@ polymarket:
       max_investment_per_pair: 30  # USD máximo total (ambas legs)
     combinatorial:
       enabled: false               # DESACTIVADA v2: EV=-$3.32 en 17 trades (backtest diagnóstico 2026-04-28)
+    value_zone:
+      enabled: true                # NUEVA v3 (2026-05-02): compra YES en zona incertidumbre $0.42-$0.58
+      min_volume: 30000            # USD volumen mínimo
+      min_liquidity: 5000          # USD liquidez mínima
+      min_days_left: 1             # Días mínimos hasta expiración
+      max_days_left: 7             # Días máximos hasta expiración
+      exclude_between: true        # Excluir mercados "between X and Y"
+      exclude_compounds: true      # Excluir preguntas multi-condición
 
 # ── Trailing Dinámico (ver docs/TRAILING_DINAMICO.md) ──
 trailing:
@@ -271,11 +279,11 @@ grid_stable:
       grid_range_candles: 50
       min_range_pct: 0.005
       max_range_pct: 0.030
-      tp_ratio: 1.20
-      sl_ratio: 0.40
+      tp_ratio: 1.80
+      sl_ratio: 0.60
       min_rr: 1.50
       max_per_asset: 3
-      risk_fraction: 0.30
+      risk_fraction: 0.20
     LINK/BTC:
       enabled: true
       exchange: kraken
@@ -284,8 +292,8 @@ grid_stable:
       grid_range_candles: 50
       min_range_pct: 0.008
       max_range_pct: 0.050
-      tp_ratio: 1.30
-      sl_ratio: 0.50
+      tp_ratio: 1.95
+      sl_ratio: 0.65
       min_rr: 1.50
       max_per_asset: 2
       risk_fraction: 0.25
@@ -293,3 +301,34 @@ grid_stable:
     max_concurrent_total: 5        # Máximo trades grid stable abiertos
     max_drawdown_pct: 10.0         # Halt si DD > 10%
     cooldown_bars: 4               # Velas de espera tras SL
+
+# ──────────────────────────────────────────────────
+# Polymarket SNIPE Agent — Late-entry + Arbitrage
+# Reemplaza al BTC Direction Agent (WR=0%)
+# Basado en LuciferForge/polymarket-btc-autotrader
+# ──────────────────────────────────────────────────
+polymarket_snipe:
+  enabled: true
+  paper_trading: true
+  initial_paper_balance: 500.0
+  scan_interval_seconds: 30
+  gamma_api: "https://gamma-api.polymarket.com"
+  assets:
+    - btc
+    - eth
+    - sol
+    - xrp
+  snipe:
+    min_minute: 13                  # Entrar en minuto 13
+    max_minute: 14.5                # Hasta minuto 14.5
+    momentum_threshold_pct: 0.10    # Mínimo 0.10% de movimiento BTC/SOL/etc
+    max_entry_price: 0.97           # No comprar si el lado ganador > $0.97
+    min_entry_price: 0.88           # No comprar si < $0.88 (aún incierto)
+    order_size_shares: 40           # Shares por trade SNIPE
+  arb:
+    target_cost: 0.985              # Comprar YES+NO si suma < $0.985
+    min_gap: 0.015                  # Gap mínimo de profit por share
+    order_size_shares: 25           # Shares por lado en ARB
+  risk:
+    max_daily_loss: 15.0            # USD máx de pérdida diaria (~3-4 wins compensan)
+    max_concurrent_positions: 3     # Máx posiciones simultáneas

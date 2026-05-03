@@ -92,3 +92,87 @@ scripts/
 0 8 13 5 * /opt/trading/scripts/orchestrator.sh earnings
 0 8 16 5 * /opt/trading/scripts/orchestrator.sh final_report
 ```
+
+---
+
+## ESTADO ACTUAL DEL DASHBOARD — May 2, 2026
+
+> **Última intervención**: Fix de crash + Fases 1-2 parciales del `DASHBOARD_IMPROVEMENT_PLAN.md`.
+
+### Fix aplicado
+- **Problema**: `Failed to find Server Action "x"` — build de Next.js obsoleto.
+- **Solución**: `rm -rf web/.next && npm run build` + `systemctl restart dashboard-web`.
+
+### Páginas existentes (9/9 con detalle)
+
+| Ruta | Archivo | Estado |
+|---|---|---|
+| `/` (Overview) | `web/app/page.tsx` | **OK** — ConsortiumWidget, AllocationChart, MiniEquity, 6 AgentCards con href |
+| `/stocks` | `web/app/stocks/page.tsx` | **OK** — preexistente |
+| `/crypto` | `web/app/crypto/page.tsx` | **OK** — preexistente |
+| `/polymarket` | `web/app/polymarket/page.tsx` | **NUEVO** — KPIs, posiciones abiertas/cerradas, historial |
+| `/options` | `web/app/options/page.tsx` | **NUEVO** — KPIs, primas, posiciones abiertas/cerradas |
+| `/btc-direction` | `web/app/btc-direction/page.tsx` | **NUEVO** — KPIs, WR por timeframe, historial trades |
+| `/grid-stable` | `web/app/grid-stable/page.tsx` | **NUEVO** — KPIs, estrategia, plan implementación |
+| `/trades` | `web/app/trades/page.tsx` | **MEJORADO** — Unifica 4 agentes (era 2: Stocks+Crypto, ahora +Poly+BTC Dir) |
+| `/signals` | `web/app/signals/page.tsx` | **OK** — preexistente |
+| `/analytics` | `web/app/analytics/page.tsx` | **OK** — preexistente |
+
+### Componentes actualizados
+
+| Componente | Cambio |
+|---|---|
+| `AgentCard.tsx` | Acepta `href` prop → wrappea en `<Link>` si se provee |
+| `Sidebar.tsx` | 9 links (era 6) — agregados Polymarket, Options, BTC Direction |
+| `lib/api.ts` | 4 métodos nuevos: `consortium`, `dailyPnl`, `polySession`, `polyPositions`, `optionsSession`, `optionsPositions`, `btcDirection` |
+
+### API endpoints existentes (FastAPI :8000)
+
+| Router | Endpoints | Estado |
+|---|---|---|
+| `overview.py` | `/` + `/consortium` + `/daily-pnl` | OK |
+| `stocks.py` | `/session`, `/trades`, `/trades/open`, `/trades/equity`, `/universe`, `/stats/by-strategy`, `/stats/daily-pnl` | OK |
+| `crypto.py` | `/portfolio`, `/portfolio/history`, `/trades`, `/trades/stats`, `/signals`, `/signals/heatmap`, `/ai`, `/stats/daily-pnl` | OK |
+| `polymarket.py` | `/session`, `/positions`, `/stats`, `/btc-direction` | OK |
+| `options.py` | `/session`, `/positions`, `/stats` | OK |
+| `live.py` | `/prices` (REST) + `/stream` (SSE, sin usar en frontend) | OK |
+
+### Grid Stable
+
+- El endpoint `/overview/consortium` ya calcula balance y P&L real desde `trades WHERE strategy='GRID_STABLE'`.
+- La página `/grid-stable` consume `consortium` + filtra `cryptoTrades` por `strategy='GRID_STABLE'`.
+- **Pendiente**: Un endpoint dedicado `/grid-stable/stats` según Fase 5 del plan.
+
+### Pendientes del DASHBOARD_IMPROVEMENT_PLAN.md
+
+| Fase | Tarea | Estado |
+|---|---|---|
+| 1.1 | ConsortiumWidget | **HECHO** |
+| 1.2 | AllocationChart donut | **HECHO** |
+| 1.3 | P&L consolidado heatmap | **HECHO** (endpoint `/overview/daily-pnl`, sin componente en frontend) |
+| 2.1 | Polymarket page | **HECHO** |
+| 2.2 | Options page | **HECHO** |
+| 2.3 | BTC Direction page | **HECHO** |
+| 2.4 | Trade journal unificado | **HECHO** (4 agentes, faltan filtros por fecha/asset) |
+| 3.1 | Risk panel (Sharpe, Sortino, VaR) | **PENDIENTE** |
+| 3.2 | Drawdown chart | **PENDIENTE** |
+| 3.3 | Monthly returns bars | **PENDIENTE** |
+| 4.1 | SSE live ticker | **PENDIENTE** (SSE endpoint existe en `/live/stream`) |
+| 4.2 | Notificaciones | **PENDIENTE** |
+| 4.3 | Sidebar + cards clickeables | **HECHO** |
+| 5.1 | Grid Stable API dedicada | **PENDIENTE** (datos reales ya usándose vía consortium) |
+
+### Servicios
+
+```
+dashboard-api.service  → FastAPI :8000 (uvicorn, 2 workers) — activo
+dashboard-web.service  → Next.js :3000 — activo
+```
+
+### Notas para el futuro agente
+
+- **NO volver a crear** páginas que ya existen en `web/app/`.
+- **NO tocar** `web/.next/` a menos que haya errores de build.
+- Para rebuild: `rm -rf web/.next && cd web && npm run build && systemctl restart dashboard-web`.
+- El plan `DASHBOARD_IMPROVEMENT_PLAN.md` sigue vigente como guía de fases.
+- Los endpoints del backend (`api/routers/`) no se modificaron en esta intervención.

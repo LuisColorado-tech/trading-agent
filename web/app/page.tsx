@@ -9,33 +9,45 @@ import { clsx } from 'clsx'
 export const revalidate = 30
 
 const cardColors: Record<string, 'green'|'blue'|'gold'|'purple'|'red'> = {
-  stocks: 'green', crypto: 'blue', polymarket: 'purple', options: 'gold', btc_direction: 'red',
+  stocks: 'green', crypto: 'blue', polymarket: 'purple', options: 'gold', snipe: 'green', btc_direction: 'red',
 }
 
 export default async function OverviewPage() {
-  const [overview, cryptoHistory, stocksEquity] = await Promise.allSettled([
+  const [overview, cryptoHistory, stocksEquity, consortiumRes, byStratRes] = await Promise.allSettled([
     api.overview(),
     api.cryptoHistory(),
     api.stocksEquity(),
+    api.consortium(),
+    api.cryptoByStrategy(),
   ])
 
   const ov = overview.status === 'fulfilled' ? overview.value : {}
   const history = cryptoHistory.status === 'fulfilled' ? cryptoHistory.value : []
   const seq = stocksEquity.status === 'fulfilled' ? stocksEquity.value : []
+  const consortium = consortiumRes.status === 'fulfilled' ? consortiumRes.value : null
+  const csStats = byStratRes.status === 'fulfilled' ? byStratRes.value : {}
 
   const s = ov.stocks ?? {}
   const c = ov.crypto ?? {}
   const p = ov.polymarket ?? {}
   const o = ov.options ?? {}
+  const sp = ov.snipe ?? {}
   const b = ov.btc_direction ?? {}
+  const gb = csStats['GRID_BOT'] ?? {}
+  const tm = csStats['TREND_MOMENTUM'] ?? {}
+
+  // Grid Stable real data from consortium
+  const gsAlloc = consortium?.allocation?.find((a: any) => a.agent === 'Grid Stable')
+  const gsBalance = gsAlloc?.balance ?? 500
+  const gsSession = (gsAlloc?.balance ?? 0) > 500 ? 'GRID_STABLE (+)' : 'GRID_STABLE'
 
   // Consolidated P&L
-  const consolidated = [s.total_pnl, c.total_pnl, p.total_pnl, o.total_pnl, b.total_pnl]
+  const consolidated = [s.total_pnl, c.total_pnl, p.total_pnl, o.total_pnl, sp.total_pnl]
     .filter((v): v is number => v != null)
     .reduce((a, b) => a + b, 0)
 
   // Agent status counts
-  const activeCount = [s.status, c.status, p.status, o.status].filter(v => v === 'ACTIVE').length
+  const activeCount = consortium?.active_agents ?? 0
 
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
@@ -44,7 +56,7 @@ export default async function OverviewPage() {
         <div>
           <h1 className="text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
           <p className="text-sm text-muted mt-1">
-            {activeCount}/4 agentes activos · paper trading · v3
+            {activeCount}/6 agentes activos · paper trading · v3
           </p>
         </div>
         <div className="text-right">
@@ -63,6 +75,7 @@ export default async function OverviewPage() {
         <AgentCard
           title="Stocks — NYSE/NASDAQ"
           icon="📈"
+          href="/stocks"
           sessionName={s.session_name}
           balance={s.balance}
           pnl={s.total_pnl}
@@ -77,24 +90,46 @@ export default async function OverviewPage() {
         />
 
         <AgentCard
-          title="Crypto — Kraken v3"
+          title="TrendMomentum — SELL v3"
           icon="₿"
+          href="/crypto"
           sessionName={c.session_name}
           balance={c.balance}
-          pnl={c.total_pnl}
-          winRate={c.win_rate}
-          profitFactor={c.profit_factor}
-          openTrades={c.open_trades}
-          totalTrades={c.total_trades}
+          pnl={tm.total_pnl ?? 0}
+          winRate={tm.win_rate ?? 0}
+          profitFactor={tm.profit_factor ?? 0}
+          openTrades={tm.open_trades ?? 0}
+          totalTrades={tm.total_trades ?? 0}
           drawdown={c.drawdown_pct ? c.drawdown_pct * 100 : 0}
           status={c.status}
           color={cardColors.crypto}
-          extra={[{ label: 'v3', value: 'MIN_SCORE=75', cls: 'text-green' }]}
+          extra={[{ label: 'v3', value: 'MIN_SCORE=75·7 assets', cls: 'text-blue' }]}
+        />
+
+        <AgentCard
+          title="Grid Bot — Range v4"
+          icon="📊"
+          href="/grid-bot"
+          sessionName="GRID_BOT"
+          balance={10000}
+          pnl={gb.total_pnl ?? 0}
+          winRate={gb.win_rate ?? 0}
+          profitFactor={gb.profit_factor ?? 0}
+          openTrades={gb.open_trades ?? 0}
+          totalTrades={gb.total_trades ?? 0}
+          drawdown={0}
+          status="ACTIVE"
+          color="blue"
+          extra={[
+            { label: 'v4', value: 'BUY+SELL·Cooldown', cls: 'text-blue' },
+            { label: 'AvgW/L', value: `+$${gb.avg_win ?? 0}/-$${Math.abs(gb.avg_loss ?? 0)}`, cls: 'text-muted' },
+          ]}
         />
 
         <AgentCard
           title="Polymarket v3"
           icon="🔮"
+          href="/polymarket"
           sessionName={p.session_name}
           balance={p.balance}
           pnl={p.total_pnl}
@@ -111,6 +146,7 @@ export default async function OverviewPage() {
         <AgentCard
           title="Options — Deribit"
           icon="📣"
+          href="/options"
           sessionName={o.session_name}
           balance={o.balance}
           pnl={o.total_pnl}
@@ -123,8 +159,27 @@ export default async function OverviewPage() {
         />
 
         <AgentCard
-          title="BTC Direction"
+          title="PolySnipe — SNIPE+ARB"
+          icon="🎯"
+          href="/snipe"
+          sessionName={sp.session_name}
+          balance={sp.balance}
+          pnl={sp.total_pnl}
+          winRate={sp.win_rate}
+          openTrades={sp.open_trades}
+          totalTrades={sp.total_trades}
+          status={sp.status}
+          color={cardColors.snipe}
+          extra={[
+            { label: 'v1', value: 'SNIPE + ARB 15m', cls: 'text-green' },
+            { label: 'Ref', value: 'LuciferForge 94% WR', cls: 'text-muted' },
+          ]}
+        />
+
+        <AgentCard
+          title="BTC Direction (old)"
           icon="₿"
+          href="/btc-direction"
           balance={171}
           pnl={b.total_pnl}
           winRate={b.win_rate}
@@ -133,15 +188,16 @@ export default async function OverviewPage() {
           totalTrades={b.total_trades}
           status={b.status}
           color={cardColors.btc_direction}
-          extra={b.win_rate < 40 ? [{ label: '⚠', value: 'WR < 40% · bajo vigilancia', cls: 'text-red' }] : []}
+          extra={[{ label: '⚠', value: 'Reemplazado por SNIPE', cls: 'text-red' }]}
         />
 
         <AgentCard
           title="Grid Stable — ETH/BTC"
           icon="📐"
-          sessionName="GRID_STABLE"
-          balance={500}
-          pnl={0}
+          href="/grid-stable"
+          sessionName={gsSession}
+          balance={gsBalance}
+          pnl={(gsBalance ?? 500) - 500}
           winRate={36.8}
           profitFactor={1.84}
           openTrades={0}
@@ -150,7 +206,7 @@ export default async function OverviewPage() {
           status="ACTIVE"
           color="gold"
           extra={[
-            { label: 'v1', value: 'PF=1.84 · DD=0.3%', cls: 'text-gold' },
+            { label: 'v1', value: `PF=1.84 · $${(gsBalance ?? 500) - 500 > 0 ? '+' : ''}${((gsBalance ?? 500) - 500).toFixed(0)}`, cls: 'text-gold' },
             { label: 'Backtest', value: 'ETH/BTC 12m', cls: 'text-muted' },
           ]}
         />
@@ -164,7 +220,8 @@ export default async function OverviewPage() {
             { agent: 'Stocks', balance: s.balance ?? 0 },
             { agent: 'Polymarket', balance: p.balance ?? 0 },
             { agent: 'Options', balance: o.balance ?? 0 },
-            { agent: 'Grid Stable', balance: 500 },
+            { agent: 'PolySnipe', balance: sp.balance ?? 0 },
+            { agent: 'Grid Stable', balance: gsBalance },
           ]} />
         </div>
         <div className="card">

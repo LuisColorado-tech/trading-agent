@@ -5,9 +5,14 @@
 
 set -e
 
+# Cargar variables de entorno
+if [ -f /opt/trading/config/.env ]; then
+  set -a; source /opt/trading/config/.env; set +a
+fi
+
 PHASE="$1"
-TOKEN="8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE"
-CHAT="999936393"
+TOKEN="${TELEGRAM_BOT_TOKEN:-8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE}"
+CHAT="${TELEGRAM_CHAT_ID:-999936393}"
 OPENDIR="/opt/trading"
 PHASEDIR="$OPENDIR/scripts/phases"
 LOG="$OPENDIR/logs/orchestrator.log"

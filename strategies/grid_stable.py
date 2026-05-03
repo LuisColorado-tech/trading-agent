@@ -70,6 +70,13 @@ class GridStableStrategy:
         # Verificar que el precio no rompió el rango en las últimas velas
         bars_in_range = int((recent['high'] <= high * 1.002).sum())
 
+        # Verificar que no hay breakout activo (últimas 3 velas rompiendo rango)
+        last3 = recent.iloc[-3:]
+        breaking_up = (last3['close'] > high * 1.002).sum()
+        breaking_down = (last3['close'] < low * 0.998).sum()
+        if breaking_up >= 2 or breaking_down >= 2:
+            return None
+
         # Contar velas donde el precio se mantuvo dentro del rango
         in_range = (
             (recent['high'] <= high * (1 + p.level_tolerance_pct)) &
@@ -83,23 +90,33 @@ class GridStableStrategy:
 
         # Generar niveles
         levels = []
+        current = ind.close
         for i in range(1, p.grid_levels + 1):
             level_price = low + i * spacing
 
-            # Solo SELL (mismo sesgo bear del sistema)
-            tp = level_price * (1 - spacing / level_price * p.tp_ratio)
-            sl = level_price * (1 + spacing / level_price * p.sl_ratio)
-            rr = (level_price - tp) / (sl - level_price) if (sl - level_price) > 0 else 0
+            # SELL: niveles por encima del precio actual
+            if level_price > current * (1 + p.level_tolerance_pct * 0.5):
+                tp = level_price * (1 - spacing / level_price * p.tp_ratio)
+                sl = level_price * (1 + spacing / level_price * p.sl_ratio)
+                rr = (level_price - tp) / (sl - level_price) if (sl - level_price) > 0 else 0
+                if rr >= p.min_rr:
+                    levels.append(GridLevel(
+                        price=round(level_price, 8), direction='SELL',
+                        tp=round(tp, 8), sl=round(sl, 8),
+                        level_idx=i, rr=round(rr, 3),
+                    ))
 
-            if rr >= p.min_rr:
-                levels.append(GridLevel(
-                    price=round(level_price, 8),
-                    direction='SELL',
-                    tp=round(tp, 8),
-                    sl=round(sl, 8),
-                    level_idx=i,
-                    rr=round(rr, 3),
-                ))
+            # BUY: niveles por debajo del precio actual
+            elif level_price < current * (1 - p.level_tolerance_pct * 0.5):
+                tp = level_price * (1 + spacing / level_price * p.tp_ratio)
+                sl = level_price * (1 - spacing / level_price * p.sl_ratio)
+                rr = (tp - level_price) / (level_price - sl) if (level_price - sl) > 0 else 0
+                if rr >= p.min_rr:
+                    levels.append(GridLevel(
+                        price=round(level_price, 8), direction='BUY',
+                        tp=round(tp, 8), sl=round(sl, 8),
+                        level_idx=i, rr=round(rr, 3),
+                    ))
 
         if not levels:
             return None

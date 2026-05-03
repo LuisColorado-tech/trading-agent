@@ -101,7 +101,7 @@ SEARCH_QUERIES = [
 MANUAL_REPOS = [
     {
         "repo": "aulekator/Polymarket-BTC-15-Minute-Trading-Bot",
-        "stars": 169,
+        "stars": 196,
         "strategy_name": "BTC 15min Multi-Signal (7-Phase)",
         "strategy_type": "composite",
         "asset_class": "polymarket",
@@ -126,7 +126,7 @@ MANUAL_REPOS = [
     },
     {
         "repo": "suislanchez/polymarket-kalshi-weather-bot",
-        "stars": 156,
+        "stars": 282,
         "strategy_name": "BTC Microstructure + Kelly Sizing",
         "strategy_type": "composite",
         "asset_class": "polymarket",
@@ -158,33 +158,60 @@ MANUAL_REPOS = [
         "priority": 1,
     },
     {
-        "repo": "genoshide/polymarket-arbitrage-trading-bot",
-        "stars": 18,
-        "strategy_name": "Latency Arb + Dump-Hedge (Binance Lag)",
-        "strategy_type": "arb",
+        "repo": "Polymarket/agents",
+        "stars": 3363,
+        "strategy_name": "Polymarket AI Agents (Oficial)",
+        "strategy_type": "agent_based",
         "asset_class": "polymarket",
-        "timeframe": "1m",
+        "timeframe": "variable",
         "description": (
-            "Arbitraje de latencia aprovechando el retraso de 2.7s entre Binance "
-            "y actualización de Polymarket. Estrategia dump-hedge para protección "
-            "contra caídas bruscas. Dashboard con Rich + alertas Telegram."
+            "Framework OFICIAL de Polymarket para trading autónomo con AI Agents. "
+            "Arquitectura Agent → Strategy → Market → Order. "
+            "Soporta multi-market, risk management, backtesting integrado. "
+            "760+ forks, MIT license. Comunidad activa."
         ),
         "entry_logic": (
-            "1. Detectar movimiento brusco en Binance BTC. "
-            "2. Si Polymarket aún no ha actualizado precio (lag ~2.7s), "
-            "entrar en el lado correcto antes que el mercado lo refleje. "
-            "3. Dump-hedge: cuando BTC cae >X%, comprar YES en mercados bajistas."
+            "1. Agent recibe señales del mercado (price, volume, order book). "
+            "2. Strategy evalúa condiciones de entrada (RSI, momentum, etc.). "
+            "3. Order se ejecuta via Polymarket CLOB o AMM. "
+            "4. Risk manager aplica position sizing y stop loss."
         ),
-        "exit_logic": "Expiración del mercado o cierre manual",
-        "indicators_used": "binance_price_lag,price_change_pct,market_odds",
+        "exit_logic": "Expiración del mercado o TP/SL configurado por agente",
+        "indicators_used": "RSI,momentum,orderbook_depth,market_sentiment",
+        "position_sizing": "risk_pct",
+        "risk_params": {"max_position_pct": 0.05, "daily_loss_limit": 200.0},
+        "source_files": "src/agents/, src/strategies/, src/markets/",
+        "priority": 1,
+    },
+    {
+        "repo": "CarlosIbCu/polymarket-kalshi-btc-arbitrage-bot",
+        "stars": 179,
+        "strategy_name": "Cross-Platform Arbitrage (Polymarket ↔ Kalshi)",
+        "strategy_type": "arb",
+        "asset_class": "polymarket",
+        "timeframe": "1h",
+        "description": (
+            "Arbitraje cross-platform en tiempo real entre Polymarket y Kalshi "
+            "para mercados BTC 1-Hour Price. Detecta discrepancias de precio entre "
+            "ambas plataformas y ejecuta arbitraje libre de riesgo. "
+            "Tesis matemática documentada en thesis.md. MIT license."
+        ),
+        "entry_logic": (
+            "1. Monitorear simultáneamente Polymarket CLOB y Kalshi API. "
+            "2. Calcular precio combinado: si P_poly + P_kalshi < $1.00 → oportunidad. "
+            "3. Comprar YES en la plataforma más barata, NO en la más cara. "
+            "4. Profit = (1 - P_poly - P_kalshi) * size - fees."
+        ),
+        "exit_logic": "Expiración del mercado 1h, sin SL necesario (arbitraje puro)",
+        "indicators_used": "polymarket_clob,kalshi_api,price_spread,order_book",
         "position_sizing": "fixed",
-        "risk_params": {"latency_window_sec": 2.7},
-        "source_files": "bot.py, strategies/latency_arb.py",
-        "priority": 2,
+        "risk_params": {"min_spread": 0.01, "max_position": 100.0, "min_edge_pct": 0.01},
+        "source_files": "bot.py, thesis.md, src/",
+        "priority": 1,
     },
     {
         "repo": "joshyattridge/smart-money-concepts",
-        "stars": 1590,
+        "stars": 1615,
         "strategy_name": "Smart Money Concepts (ICT) - Order Blocks + FVG",
         "strategy_type": "breakout",
         "asset_class": "crypto",
@@ -210,7 +237,7 @@ MANUAL_REPOS = [
     },
     {
         "repo": "ilahuerta-IA/backtrader-pullback-window-xauusd",
-        "stars": 46,
+        "stars": 45,
         "strategy_name": "Pullback State Machine (4-Phase Entry)",
         "strategy_type": "momentum",
         "asset_class": "crypto",
@@ -242,7 +269,7 @@ MANUAL_REPOS = [
     },
     {
         "repo": "0xrsydn/polymarket-crypto-toolkit",
-        "stars": 58,
+        "stars": 57,
         "strategy_name": "Polymarket Plugin-Based Multi-Strategy",
         "strategy_type": "composite",
         "asset_class": "polymarket",
@@ -262,7 +289,7 @@ MANUAL_REPOS = [
     },
     {
         "repo": "GiordanoSouza/polymarket-copy-trading-bot",
-        "stars": 34,
+        "stars": 44,
         "strategy_name": "Copy-Trading de Wallets Rentables",
         "strategy_type": "signal_based",
         "asset_class": "polymarket",

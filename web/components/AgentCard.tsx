@@ -1,9 +1,11 @@
+import Link from 'next/link'
 import { fmt, fmtPnl, fmtPct, pnlClass } from '@/lib/fmt'
 import { clsx } from 'clsx'
 
 interface Props {
   title: string
   icon: string
+  href?: string
   sessionName?: string
   balance?: number
   pnl?: number
@@ -35,16 +37,17 @@ const statusBadge: Record<string, { label: string; cls: string }> = {
 }
 
 export default function AgentCard({
-  title, icon, sessionName, balance, pnl, winRate, profitFactor,
+  title, icon, href, sessionName, balance, pnl, winRate, profitFactor,
   openTrades, totalTrades, drawdown, extra = [],
   status = 'ACTIVE', color = 'green',
 }: Props) {
   const isActive = status === 'ACTIVE'
   const badge = statusBadge[status] ?? { label: status, cls: 'badge-muted' }
 
-  return (
+  const card = (
     <div className={clsx(
-      'card transition-all duration-200 cursor-default group',
+      'card transition-all duration-200 group',
+      href ? 'cursor-pointer hover:scale-[1.02]' : 'cursor-default',
       colorMap[color] ?? colorMap.green
     )}>
       {/* Header */}
@@ -124,4 +127,9 @@ export default function AgentCard({
       </div>
     </div>
   )
+
+  if (href) {
+    return <Link href={href} className="block">{card}</Link>
+  }
+  return card
 }

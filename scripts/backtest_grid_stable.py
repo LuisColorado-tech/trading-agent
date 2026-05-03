@@ -28,7 +28,7 @@ from strategies.grid_stable import GridStableStrategy, GridStableConfig
 
 INITIAL_BALANCE = 500.0        # capital pequeño para grid estable
 RISK_PER_TRADE_PCT = 0.005     # 0.5% riesgo por trade
-MAX_CONCURRENT = 3
+MAX_CONCURRENT = 5
 SL_COOLDOWN_BARS = 4
 
 STABLE_PAIRS = ['ETH/BTC', 'LINK/BTC']
@@ -107,6 +107,18 @@ def run_backtest(df: pd.DataFrame, pair: str, profile: GridStableProfile) -> dic
                     trades.append({**pos, 'exit': pos['sl'], 'pnl': pnl, 'reason': 'SL', 'exit_ts': bar_ts})
                     cooldown = SL_COOLDOWN_BARS
                     continue
+            elif pos['direction'] == 'BUY':
+                if current_price >= pos['tp']:
+                    pnl = (pos['tp'] - pos['entry']) * pos['size']
+                    balance += pnl
+                    trades.append({**pos, 'exit': pos['tp'], 'pnl': pnl, 'reason': 'TP', 'exit_ts': bar_ts})
+                    continue
+                elif current_price <= pos['sl']:
+                    pnl = (pos['sl'] - pos['entry']) * pos['size']
+                    balance += pnl
+                    trades.append({**pos, 'exit': pos['sl'], 'pnl': pnl, 'reason': 'SL', 'exit_ts': bar_ts})
+                    cooldown = SL_COOLDOWN_BARS
+                    continue
             still_open.append(pos)
         open_positions = still_open
 
@@ -140,14 +152,17 @@ def run_backtest(df: pd.DataFrame, pair: str, profile: GridStableProfile) -> dic
             'sl': level.sl,
             'size': size,
             'level_idx': level.level_idx,
-            'direction': 'SELL',
+            'direction': level.direction,
             'entry_ts': bar_ts,
         })
 
     # Cerrar posiciones abiertas al final
     for pos in open_positions:
         last_price = float(df.iloc[-1]['close'])
-        pnl = (pos['entry'] - last_price) * pos['size']
+        if pos['direction'] == 'SELL':
+            pnl = (pos['entry'] - last_price) * pos['size']
+        else:
+            pnl = (last_price - pos['entry']) * pos['size']
         trades.append({**pos, 'exit': last_price, 'pnl': pnl, 'reason': 'EOD', 'exit_ts': df.index[-1]})
         balance += pnl
 

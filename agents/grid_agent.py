@@ -40,7 +40,10 @@ from risk.risk_manager import MAX_RISK_PER_TRADE_PCT
 GRID_MAX_PER_ASSET   = 2     # máx trades GRID_BOT abiertos simultáneos por asset
 GRID_MAX_TOTAL       = 3     # máx trades GRID_BOT abiertos en total (no bloquear Trend)
 GRID_RISK_FRACTION   = 0.40  # fracción del MAX_RISK normal por orden grid (40%)
+GRID_RISK_FRACTION_TREND_UP = 0.25  # menor exposición si 1h muestra tendencia alcista
+GRID_RISK_FRACTION_CHOPPY  = 0.20  # mínimo en mercados laterales erráticos
 GRID_TIMEFRAME       = '15m' # timeframe para calcular rango y régimen
+GRID_SL_COOLDOWN_MIN = 30    # minutos de cooldown tras SL (belt-and-suspenders con Redis)
 # ──────────────────────────────────────────────────────────────────
 
 
@@ -99,8 +102,12 @@ class GridAgent:
             if not hour_allowed(asset, hour_utc):
                 return None
 
-            # 2. Cooldown Redis (reutiliza mismo mecanismo que el sistema principal)
+            # 2. Cooldown Redis (ahora también seteado por TradeMonitor para GRID_BOT)
             if self.redis.ttl(f'cooldown:{asset}') > 0:
+                return None
+
+            # 2b. Belt-and-suspenders: verificar DB por SLs recientes de GRID_BOT (mismo asset)
+            if self._recent_grid_sl(asset):
                 return None
 
             # 3. Obtener datos e indicadores (15m + 1h para confirmación MTF)
@@ -151,7 +158,13 @@ class GridAgent:
 
             self._grid_cache[asset] = grid
 
-            # 6. ¿El precio está cerca de un nivel de SELL?
+            # 5b. Detectar si el precio rompió el rango → invalidar grid cache
+            if ind.close > grid.range_high * 1.005 or ind.close < grid.range_low * 0.995:
+                self._grid_cache.pop(asset, None)
+                logger.debug(f'GridAgent {asset}: price broke range, invalidating grid cache')
+                return None
+
+            # 6. ¿El precio está cerca de un nivel de entrada?
             level = self.strategy.nearest_level(grid, ind.close)
             if level is None:
                 return None
@@ -165,9 +178,16 @@ class GridAgent:
             if self._count_open_grid_trades(asset) >= GRID_MAX_PER_ASSET:
                 return None
 
-            # 9. Tamaño de posición
+            # 9. Tamaño de posición con risk fraction dinámico según régimen 1h
             total_balance = portfolio.get('total_balance', 10000.0)
-            risk_amount   = total_balance * MAX_RISK_PER_TRADE_PCT * GRID_RISK_FRACTION
+            rf = GRID_RISK_FRACTION
+            if regime_1h is not None:
+                rf_name = regime_1h.name if hasattr(regime_1h, 'name') else str(regime_1h)
+                if 'TREND_UP' in rf_name or 'BREAKOUT_UP' in rf_name:
+                    rf = GRID_RISK_FRACTION_TREND_UP   # 0.25 → menor exposición en mercado alcista
+                elif 'CHOPPY' in rf_name:
+                    rf = GRID_RISK_FRACTION_CHOPPY     # 0.20 → mínimo en mercados erráticos
+            risk_amount   = total_balance * MAX_RISK_PER_TRADE_PCT * rf
             risk_per_unit = abs(level.price - level.sl)
             if risk_per_unit < 1e-10:
                 return None
@@ -189,7 +209,7 @@ class GridAgent:
                 f'GRID OPEN: {asset} {level.direction} entry={ind.close:.4f} '
                 f'nivel={level.price:.4f} TP={level.tp:.4f} SL={level.sl:.4f} '
                 f'RR={level.rr:.2f} size={position_size:.4f} '
-                f'regime={regime.name}'
+                f'regime={regime.name}{" (1h=" + regime_1h.name + ")" if regime_1h is not None else ""}'
             )
             return {
                 'trade_id': trade_id,
@@ -206,6 +226,20 @@ class GridAgent:
         except Exception as e:
             logger.error(f'GridAgent._evaluate_asset {asset}: {e}')
             return None
+
+    def _recent_grid_sl(self, asset: str) -> bool:
+        """True si GRID_BOT tuvo un SL/TRAILING_STOP en este asset en los últimos GRID_SL_COOLDOWN_MIN minutos."""
+        with self.engine.connect() as conn:
+            row = conn.execute(
+                text(f"""
+                    SELECT COUNT(*) FROM trades
+                    WHERE asset = :asset AND strategy = 'GRID_BOT' AND status = 'CLOSED'
+                    AND close_reason IN ('STOP_LOSS', 'TRAILING_STOP')
+                    AND timestamp_close > NOW() - INTERVAL '{GRID_SL_COOLDOWN_MIN} minutes'
+                """),
+                {'asset': asset},
+            ).fetchone()
+        return int(row[0]) > 0 if row else False
 
     # ── DB helpers ─────────────────────────────────────────────────
 

@@ -7,7 +7,8 @@ estrategias Polymarket:
   2. TailEndPolyStrategy     — Near-resolution yield farming
   3. LateEntryPolyStrategy   — Late Entry V3 (últimos 4 min de mercados 15-min)
   4. LeggedArbPolyStrategy   — Legged Arbitrage 2-fase
-  5. CombinatorialArbPolyStrategy — Violaciones lógicas entre mercados
+   5. CombinatorialArbPolyStrategy — Violaciones lógicas entre mercados
+   6. ValueZonePolyStrategy   — Compra YES en zona incertidumbre $0.42-$0.58
 
 Orden de evaluación por prioridad (confidence):
   1. Combinatorial Arb (near risk-free cuando hay violación)
@@ -97,7 +98,7 @@ class PolyStrategyHub:
             except Exception as e:
                 logger.error(f'POLY HUB: Failed to load LeggedArbPolyStrategy: {e}')
 
-        # 5. Combinatorial Arb
+         # 5. Combinatorial Arb
         if _STRATS_CFG.get('combinatorial', {}).get('enabled', True):
             try:
                 from strategies.poly_combinatorial import CombinatorialArbPolyStrategy
@@ -105,6 +106,15 @@ class PolyStrategyHub:
                 logger.info('POLY HUB: CombinatorialArbPolyStrategy loaded')
             except Exception as e:
                 logger.error(f'POLY HUB: Failed to load CombinatorialArbPolyStrategy: {e}')
+
+        # 6. Value Zone
+        if _STRATS_CFG.get('value_zone', {}).get('enabled', True):
+            try:
+                from strategies.poly_value_zone import ValueZonePolyStrategy
+                self._strategies['value_zone'] = ValueZonePolyStrategy()
+                logger.info('POLY HUB: ValueZonePolyStrategy loaded')
+            except Exception as e:
+                logger.error(f'POLY HUB: Failed to load ValueZonePolyStrategy: {e}')
 
         logger.info(f'POLY HUB: {len(self._strategies)} strategies active: {list(self._strategies.keys())}')
 
@@ -203,6 +213,16 @@ class PolyStrategyHub:
                         all_signals.append(sig)
                 except Exception as e:
                     logger.debug(f'POLY HUB: LeggedArb eval error: {e}')
+
+            # Value Zone (si ninguna otra estrategia tomó este mercado)
+            if 'value_zone' in self._strategies and cid not in seen_condition_ids:
+                try:
+                    sig = self._strategies['value_zone'].evaluate(market)
+                    if sig.get('opportunity'):
+                        seen_condition_ids.add(cid)
+                        all_signals.append(sig)
+                except Exception as e:
+                    logger.debug(f'POLY HUB: ValueZone eval error: {e}')
 
         # Ordenar por confidence DESC
         all_signals.sort(key=lambda s: s.get('confidence', 0), reverse=True)

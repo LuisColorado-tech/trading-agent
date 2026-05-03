@@ -23,7 +23,7 @@ Sistema de trading algorítmico 100% automatizado corriendo en un VPS Linux. Tie
 | Redis | `localhost:6379` — pub/sub, cooldowns, deduplicación |
 | Directorio base | `/opt/trading/` |
 | GitHub | `https://github.com/LuisColorado-tech/trading-agent.git` branch `master` |
-| Dashboard | `http://187.77.5.109:8501` (Streamlit) |
+| Dashboard | `http://187.77.5.109:3000` (Next.js) |
 | Telegram bot | TOKEN `8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE`, CHAT `999936393` |
 
 ### Variables de entorno críticas
@@ -51,32 +51,34 @@ TELEGRAM_CHAT_ID=999936393
 
 ---
 
-## 3. Los 4 Agentes
+## 3. Los 5 Agentes
 
 | Agente | Estado | Mercado | Resultado | Doc completa |
 |---|---|---|---|---|---|
 | **Trading Agent** | ✅ ACTIVO v3 | Crypto/Metales spot | PF=1.08, Sharpe=1.91 backtest 24m | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
 | **Options Agent** | ✅ ACTIVO | BTC PUT OTM (Deribit) | paper_mode, sin resultados aún | [AI_OPTIONS_AGENT.md](AI_OPTIONS_AGENT.md) |
 | **Polymarket Agent** | ✅ ACTIVO v3 | Mercados de predicción crypto | PF=0.37 históricamente, bugs corregidos v3 | [AI_POLYMARKET_AGENT.md](AI_POLYMARKET_AGENT.md) |
-| **BTC Direction** | ⚠️ VIGILANCIA | "BTC sube o baja en X min" | WR 27.6%, PnL -$329 | [AI_BTC_DIRECTION_AGENT.md](AI_BTC_DIRECTION_AGENT.md) |
+| **PolyMarket SNIPE** | ✅ NUEVO v1 | Up/Down 15m (SNIPE+ARB) | WR 94% documentado externamente | [AI_POLYMARKET_SNIPE.md](AI_POLYMARKET_SNIPE.md) |
 | **Stocks Agent** | ✅ ACTIVO v3 | NYSE/NASDAQ (Alpaca) | PF=1.18 backtest 24m, SLV PF=1.30 | [AI_STOCKS_AGENT.md](AI_STOCKS_AGENT.md) |
+| **Grid Stable** | ✅ ACTIVO v1 | ETH/BTC, LINK/BTC pares estables | PF=1.84, Sharpe=2.20 backtest 12m | — |
+| ~~BTC Direction~~ | ❌ REEMPLAZADO | "BTC sube o baja en X min" | WR 0%, PnL -$497 — reemplazado por PolySnipe | — |
 
 ---
 
-## 4. Servicios systemd (7 servicios)
+## 4. Servicios systemd (8 servicios)
 
 ```bash
 # Ver estado de todos:
-systemctl status trading-agent options-agent polymarket-agent btc-direction trading-dashboard trading-health telegram-bot
+systemctl status trading-agent options-agent polymarket-agent polymarket-snipe dashboard-api dashboard-web trading-health grid-stable telegram-bot
 
 # Reiniciar un agente:
-systemctl restart trading-agent
+systemctl restart polymarket-snipe
 
 # Ver logs en tiempo real:
-journalctl -u trading-agent -f
+journalctl -u polymarket-snipe -f
 
 # Ver últimas 50 líneas:
-journalctl -u options-agent -n 50 --no-pager
+journalctl -u polymarket-snipe -n 50 --no-pager
 ```
 
 | Servicio | Archivo | Descripción |
@@ -84,8 +86,9 @@ journalctl -u options-agent -n 50 --no-pager
 | `trading-agent` | `scripts/run_trading.py` | Ciclo principal Trading |
 | `options-agent` | `scripts/run_options.py` | Ciclo Options Theta Farming |
 | `polymarket-agent` | `scripts/run_polymarket.py` | Ciclo Polymarket |
-| `btc-direction` | `btc_direction/run_btc_direction.py` | BTC Direction multi-TF |
-| `trading-dashboard` | `dashboard/app.py` | Streamlit en :8501 |
+| `polymarket-snipe` | `scripts/run_polymarket_snipe.py` | SNIPE+ARB Up/Down 15m |
+| `dashboard-api` | `api/main.py` | FastAPI en :8000 |
+| `dashboard-web` | `web/` | Next.js React en :3000 |
 | `trading-health` | `scripts/health_check.py` | Health check periódico |
 | `grid-stable` | `agents/grid_stable_agent.py` | Grid Bot pares estables ETH/BTC, LINK/BTC |
 | `telegram-bot` | — | Bot de notificaciones |
@@ -136,6 +139,8 @@ journalctl -u trading-agent --since today --no-pager | grep -i error | tail -20
 │   ├── execution_agent.py      # Ejecuta órdenes (paper o real)
 │   ├── options_agent.py        # Orquestador del Options Agent
 │   ├── grid_agent.py           # Grid Bot (RANGE/CHOPPY)
+│   ├── grid_stable_agent.py    # Grid Stable Bot (ETH/BTC, LINK/BTC)
+│   ├── polymarket_snipe.py     # SNIPE+ARB Up/Down 15m
 │   └── market_scanner.py       # Scanner de mercados para Polymarket
 ├── strategies/
 │   ├── trend_momentum.py       # SELL en TREND_DOWN/BREAKOUT_DOWN
@@ -169,6 +174,7 @@ journalctl -u trading-agent --since today --no-pager | grep -i error | tail -20
 │   ├── run_trading.py          # Entry point Trading Agent
 │   ├── run_options.py          # Entry point Options Agent
 │   ├── run_polymarket.py       # Entry point Polymarket Agent
+│   ├── run_polymarket_snipe.py # Entry point PolyMarket SNIPE Agent
 │   ├── health_check.py         # Health check con alertas Telegram
 │   └── backfill_btc_direction.py # Backfill de outcomes BTC Direction
 └── docs/
@@ -176,7 +182,9 @@ journalctl -u trading-agent --since today --no-pager | grep -i error | tail -20
     ├── AI_TRADING_AGENT.md     # Doc Trading Agent
     ├── AI_OPTIONS_AGENT.md     # Doc Options Agent
     ├── AI_POLYMARKET_AGENT.md  # Doc Polymarket Agent
-    ├── AI_BTC_DIRECTION_AGENT.md # Doc BTC Direction
+    ├── AI_POLYMARKET_SNIPE.md  # Doc PolyMarket SNIPE Agent
+    ├── AI_BTC_DIRECTION_AGENT.md # Doc BTC Direction (legacy)
+    ├── BTC_DIRECTION_IMPROVEMENT_PLAN.md # Plan mejora
     ├── ARCHITECTURE.md         # Arquitectura técnica general
     └── CHANGELOG.md            # Historial de cambios
 ```
@@ -200,6 +208,10 @@ options_market_data     -- snapshots de IVs y precios
 poly_sessions           -- sesiones polymarket
 poly_positions          -- posiciones polymarket
 poly_markets            -- mercados indexados
+
+-- Tablas del PolyMarket SNIPE Agent:
+snipe_trades            -- trades SNIPE+ARB 15m
+snipe_sessions          -- sesiones snipe paper
 
 -- Tablas compartidas:
 signals                 -- señales técnicas (escribe Trading, leen Poly y BTC Direction)

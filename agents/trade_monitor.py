@@ -184,10 +184,11 @@ class TradeMonitor:
             initial_risk = 0
 
         # ── Trailing Dinámico (price-following) ──
-        # Grid Bot usa TP ajustado a un nivel de grid: trailing contraproducente.
-        skip_trailing = trade.get('strategy') == 'GRID_BOT'
+        # Grid Bot con grids amplios (tp_ratio >= 1.7): trailing captura ganancias parciales.
+        # Grids muy tight (tp_ratio < 1.7): trailing contraproducente → desactivado.
+        profile = get_profile(asset)
+        skip_trailing = trade.get('strategy') == 'GRID_BOT' and profile.grid_tp_ratio < 1.70
         if initial_risk > 0 and not skip_trailing:
-            profile = get_profile(asset)
             trailing_activation_r = profile.trailing_activation_r
             trailing_step_r = profile.trailing_step_r
             trailing_offset_r = profile.trailing_offset_r  # distancia SL al precio actual
@@ -407,7 +408,34 @@ class TradeMonitor:
                 },
             )
 
-        # 4. Publicar evento en Redis
+        # 4a. Cooldown post-SL para GRID_BOT (evita re-entrada destructiva)
+        # Mismo mecanismo que RiskManager usa para TrendMomentum.
+        if trade.get('strategy') == 'GRID_BOT' and close_reason in ('STOP_LOSS', 'TRAILING_STOP'):
+            cooldown_min = 30
+            self.redis.setex(f'cooldown:{trade["asset"]}', cooldown_min * 60, 'GRID_BOT_SL')
+            logger.info(f'COOLDOWN GRID_BOT: {trade["asset"]} blocked for {cooldown_min}m ({close_reason})')
+
+        # 4b. Contabilizar GRID_BOT en paper_sessions (paridad con TrendMomentum)
+        if trade.get('strategy') == 'GRID_BOT':
+            is_win = pnl > 0
+            session_match = trade.get('metadata') or {}
+            if isinstance(session_match, str):
+                session_match = json.loads(session_match)
+            session_name = session_match.get('paper_session_name')
+            if session_name:
+                with self.engine.begin() as conn:
+                    conn.execute(
+                        text("""
+                            UPDATE paper_sessions
+                            SET total_trades = total_trades + 1,
+                                winning_trades = winning_trades + :win,
+                                final_balance = final_balance + :pnl
+                            WHERE session_name = :sn AND status = 'ACTIVE'
+                        """),
+                        {'win': 1 if is_win else 0, 'pnl': pnl, 'sn': session_name},
+                    )
+
+        # 5. Publicar evento en Redis
         self.redis.publish('trades:closed', json.dumps({
             'trade_id': str(trade['id']),
             'asset': trade['asset'],

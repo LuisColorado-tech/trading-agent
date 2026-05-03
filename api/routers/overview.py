@@ -156,7 +156,36 @@ def overview():
     except Exception:
         result['options'] = {'status': 'error'}
 
-    # ── BTC Direction ──
+    # ── PolySnipe ──
+    try:
+        snipe_s = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+        if not snipe_s:
+            snipe_s = q_one("SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1")
+        if snipe_s:
+            snipe_st = q_one("""
+                SELECT
+                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
+                    COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
+                    COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                    COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
+                FROM snipe_trades
+            """) or {}
+            closed = int(snipe_st.get('total') or 0)
+            winners = int(snipe_st.get('winners') or 0)
+            result['snipe'] = {
+                'session_name': snipe_s['session_name'],
+                'balance': round(500.0 + float(snipe_st.get('total_pnl') or 0), 2),
+                'initial_balance': 500.0,
+                'total_pnl': round(float(snipe_st.get('total_pnl') or 0), 2),
+                'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
+                'open_trades': int(snipe_st.get('open_count') or 0),
+                'total_trades': closed,
+                'status': snipe_s['status'],
+            }
+    except Exception:
+        result['snipe'] = {'status': 'error'}
+
+    # ── BTC Direction (DEPRECATED) ──
     try:
         btcd = q_one("""
             SELECT
@@ -233,6 +262,17 @@ def consortium():
             capital += ob
             rows.append(('Options', os_['session_name'], ob))
 
+        # PolySnipe
+        try:
+            ss = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' LIMIT 1")
+            if ss:
+                snp = q_one("SELECT COALESCE(SUM(pnl_usdc), 0) as pnl FROM snipe_trades WHERE status='CLOSED'") or {}
+                sb = 500.0 + float(snp.get('pnl') or 0)
+                capital += sb
+                rows.append(('PolySnipe', ss['session_name'], sb))
+        except Exception:
+            pass
+
         # Grid Stable
         gs_pnl = q_one("SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'") or {}
         gs_bal = 500.0 + float(gs_pnl.get('pnl') or 0)
@@ -297,4 +337,4 @@ def daily_pnl(limit: int = 90):
         ) p ON series.date = p.dt
         ORDER BY series.date
     """)
-    return [{'date': str(r.date), 'pnl': round(float(r.pnl or 0), 2)} for r in rows]
+    return [{'date': str(r['date']), 'pnl': round(float(r['pnl'] or 0), 2)} for r in rows]

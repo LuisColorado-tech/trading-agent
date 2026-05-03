@@ -6,42 +6,48 @@ import { clsx } from 'clsx'
 export const revalidate = 30
 
 export default async function CryptoPage() {
-  const [pf, stats, history, trades, signals] = await Promise.allSettled([
+  const [pf, byStratRes, history, tradesRes, signals, byAssetRes] = await Promise.allSettled([
     api.cryptoPortfolio(),
-    api.cryptoStats(),
+    api.cryptoByStrategy(),
     api.cryptoHistory(),
-    api.cryptoTrades(),
+    api.cryptoStrategyTrades('TREND_MOMENTUM'),
     api.cryptoSignals(),
+    api.cryptoByAsset(),
   ])
 
   const portfolio = pf.status === 'fulfilled' ? pf.value : {}
-  const st = stats.status === 'fulfilled' ? stats.value : {}
+  const allStats = byStratRes.status === 'fulfilled' ? byStratRes.value : {}
   const hist = history.status === 'fulfilled' ? history.value : []
-  const tr = trades.status === 'fulfilled' ? trades.value : []
+  const tr = tradesRes.status === 'fulfilled' ? tradesRes.value : []
   const sig = signals.status === 'fulfilled' ? signals.value : []
+  const byAsset = byAssetRes.status === 'fulfilled' ? byAssetRes.value : []
+
+  const st = allStats['TREND_MOMENTUM'] ?? {}
+  const tmAssets = byAsset.filter((r: any) => r.strategy === 'TREND_MOMENTUM')
 
   const dd = (portfolio.drawdown_pct ?? 0) * 100
+  const closed = tr.filter((t: any) => t.status === 'CLOSED')
 
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">Crypto — Kraken v3</h1>
+        <h1 className="text-2xl font-bold text-white tracking-tight">Crypto — TrendMomentum</h1>
         <p className="text-sm text-muted mt-1">
-          TREND_MOMENTUM SELL · MIN_SCORE=75 · MAX_CONC=2 · trailing 0.75R
+          TREND_MOMENTUM SELL · MIN_SCORE=75 · MAX_CONC=2 · trailing 0.75R · 7 activos
         </p>
       </div>
 
-      {/* KPIs */}
-      <div className="grid grid-cols-4 xl:grid-cols-8 gap-3">
+      {/* KPIs — TrendMomentum */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         {[
           ['Balance', `$${fmt(portfolio.total_balance, 0)}`, 'text-white'],
-          ['P&L', fmtPnl(st.total_pnl), st.total_pnl >= 0 ? 'pos' : 'neg'],
-          ['Win Rate', fmtPct(st.win_rate), 'text-white'],
-          ['PF', fmt(st.profit_factor), st.profit_factor >= 1.3 ? 'pos' : 'text-gold'],
+          ['P&L', fmtPnl(st.total_pnl ?? 0), (st.total_pnl ?? 0) >= 0 ? 'pos' : 'neg'],
+          ['Win Rate', fmtPct(st.win_rate ?? 0), 'text-white'],
+          ['PF', fmt(st.profit_factor ?? 0), (st.profit_factor ?? 0) >= 1.3 ? 'pos' : 'text-gold'],
           ['DD', `-${fmtPct(dd)}`, dd > 5 ? 'neg' : 'pos'],
           ['Trades', st.total_trades ?? 0, 'text-white'],
-          ['Abiertos', st.open_trades ?? 0, 'text-blue'],
-          ['Exposición', `${fmt((portfolio.exposure_pct ?? 0) * 100, 1)}%`, 'text-muted'],
+          ['Avg Win', `$${fmt(st.avg_win ?? 0, 0)}`, 'pos'],
+          ['Avg Loss', `-$${fmt(Math.abs(st.avg_loss ?? 0), 0)}`, 'neg'],
         ].map(([label, value, cls]) => (
           <div key={label as string} className="card text-center">
             <div className="text-[10px] text-muted uppercase tracking-wider mb-1">{label as string}</div>
@@ -50,24 +56,64 @@ export default async function CryptoPage() {
         ))}
       </div>
 
-      {/* Equity + Trades */}
+      {/* Equity + Performance por Asset */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
         <div className="card xl:col-span-2">
-          <div className="text-xs text-muted uppercase tracking-wider mb-3">Equity Curve</div>
+          <div className="text-xs text-muted uppercase tracking-wider mb-3">Equity Curve (todo el portfolio)</div>
           <MiniEquity data={hist} dataKey="total_balance" color="#58A6FF" height={200} />
         </div>
         <div className="card">
-          <div className="text-xs text-muted uppercase tracking-wider mb-3">Últimos Trades</div>
-          <div className="space-y-1.5 max-h-[200px] overflow-y-auto">
-            {tr.slice(0, 12).map((t: any, i: number) => (
-              <div key={i} className="flex items-center justify-between text-xs py-0.5 border-b border-border/50 last:border-0">
-                <span className="font-mono text-muted">{t.asset}</span>
-                <span className={clsx('font-mono', t.pnl > 0 ? 'pos' : 'neg')}>
-                  {fmtPnl(t.pnl)}
-                </span>
+          <div className="text-xs text-muted uppercase tracking-wider mb-3">Por Asset (TrendMomentum)</div>
+          <div className="space-y-1 max-h-[200px] overflow-y-auto">
+            {tmAssets.map((r: any) => (
+              <div key={r.asset} className="flex justify-between items-center text-xs py-1 border-b border-white/5 last:border-0">
+                <span className="font-mono text-white w-10">{r.asset}</span>
+                <span className="font-mono text-muted w-8 text-right">{r.trades}</span>
+                <span className={clsx('font-mono w-12 text-right', r.wr >= 50 ? 'pos' : 'neg')}>{fmtPct(r.wr)}</span>
+                <span className={clsx('font-mono w-16 text-right', r.total_pnl > 0 ? 'pos' : 'neg')}>{fmtPnl(r.total_pnl)}</span>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Últimos trades TrendMomentum */}
+      <div className="card">
+        <div className="text-xs text-muted uppercase tracking-wider mb-3">
+          Últimos {Math.min(closed.length, 20)} Trades — TrendMomentum
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="text-muted border-b border-white/5">
+                <th className="text-left py-1.5 font-medium">Asset</th>
+                <th className="text-left py-1.5 font-medium">Dir</th>
+                <th className="text-right py-1.5 font-medium">Entry</th>
+                <th className="text-right py-1.5 font-medium">Exit</th>
+                <th className="text-right py-1.5 font-medium">SL</th>
+                <th className="text-right py-1.5 font-medium">TP</th>
+                <th className="text-right py-1.5 font-medium">PnL</th>
+                <th className="text-center py-1.5 font-medium">Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              {closed.slice(0, 20).map((t: any) => (
+                <tr key={t.id} className="border-b border-white/[0.02] hover:bg-white/[0.02]">
+                  <td className="py-1.5 font-mono text-white">{t.asset}</td>
+                  <td className={clsx('py-1.5 font-mono text-[10px]', t.side === 'BUY' ? 'pos' : 'neg')}>{t.side}</td>
+                  <td className="py-1.5 text-right font-mono">{fmt(t.entry_price, 2)}</td>
+                  <td className="py-1.5 text-right font-mono">{fmt(t.exit_price, 2)}</td>
+                  <td className="py-1.5 text-right font-mono text-muted">{fmt(t.stop_loss, 2)}</td>
+                  <td className="py-1.5 text-right font-mono text-muted">{fmt(t.take_profit, 2)}</td>
+                  <td className={clsx('py-1.5 text-right font-mono', t.pnl > 0 ? 'pos' : 'neg')}>{fmtPnl(t.pnl)}</td>
+                  <td className={clsx('py-1.5 text-center text-[10px]',
+                    t.close_reason === 'TAKE_PROFIT' ? 'pos' : t.close_reason === 'TRAILING_STOP' ? 'text-gold' : 'neg')}>
+                    {t.close_reason?.replace('_', ' ')}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 

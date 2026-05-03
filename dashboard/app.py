@@ -108,6 +108,12 @@ poly_sessions_df = query('SELECT * FROM poly_sessions ORDER BY started_at DESC')
 poly_positions_df = query('SELECT * FROM poly_positions ORDER BY timestamp_open DESC LIMIT 200')
 btcd_df = query('SELECT * FROM btc_direction_trades ORDER BY timestamp_open DESC LIMIT 200')
 
+# ── PolySnipe data loading ──
+try:
+    snipe_df = query('SELECT * FROM snipe_trades ORDER BY timestamp_open DESC LIMIT 200')
+except Exception:
+    snipe_df = pd.DataFrame()
+
 # ── Options data loading ──
 try:
     options_sessions_df = query('SELECT * FROM options_sessions ORDER BY started_at DESC')
@@ -165,11 +171,10 @@ if not closed_trades.empty:
 st.sidebar.title('🤖 Trading Agent v2.1')
 st.sidebar.markdown(f"**Entorno:** `{os.getenv('ENVIRONMENT', 'dev')}`")
 st.sidebar.markdown(f"**Modo:** `{'📝 PAPER' if os.getenv('PAPER_TRADING','true')=='true' else '🔴 LIVE'}`")
-st.sidebar.markdown('**Estrategias activas (6):**')
+st.sidebar.markdown('**Estrategias activas (7):**')
 st.sidebar.markdown(
-    '`TREND_MOMENTUM` `MEAN_REVERSION`\n\n'
-    '`BTC_DIP_BUYER` `BREAKOUT`\n\n'
-    '`SMC_ORDER_BLOCKS` `BTC_MICROSTRUCTURE`'
+    '📉 TrendMomentum SELL · ⚡ GridBot RANGE · 🎯 PolySnipe · '
+    '🔮 SignalBased Poly · 📊 ThetaFarming · 📈 StocksMom · 🗃️ GridStable'
 )
 st.sidebar.markdown('---')
 
@@ -936,8 +941,81 @@ with tab5:
 
     st.markdown('---')
 
-    # ── Sección 3: BTC Direction ─────────────────────────────────
-    st.markdown('### ₿ BTC Direction — Multi-Timeframe')
+    # ── Sección 3: PolyMarket SNIPE — Late-entry + ARB ───────────
+    st.markdown('### 🎯 PolyMarket SNIPE — Late-entry + ARB')
+
+    if not snipe_df.empty:
+        snipe_open   = snipe_df[snipe_df['status'] == 'OPEN']
+        snipe_closed = snipe_df[snipe_df['status'] == 'CLOSED']
+
+        pnl_snipe   = snipe_closed['pnl_usdc'].astype(float).sum() if not snipe_closed.empty else 0.0
+        wins_snipe  = int((snipe_closed['outcome'] == 'WIN').sum()) if not snipe_closed.empty else 0
+        total_snipe = len(snipe_closed)
+        wr_snipe    = (wins_snipe / total_snipe * 100) if total_snipe > 0 else 0.0
+
+        init_snipe = 500.0
+        locked     = snipe_open['cost_usdc'].astype(float).sum() if not snipe_open.empty else 0.0
+        bal_snipe  = init_snipe + pnl_snipe - locked
+
+        c1, c2, c3, c4, c5 = st.columns(5)
+        c1.metric('💰 Balance', f'${bal_snipe:,.2f}', delta=f'{bal_snipe - init_snipe:+,.2f}')
+        c2.metric('📈 P&L Total', f'${pnl_snipe:+,.2f}')
+        c3.metric('🎯 Win Rate', f'{wr_snipe:.1f}%')
+        c4.metric('🔓 Abiertas', len(snipe_open))
+        c5.metric('🔒 Cerradas', total_snipe)
+
+        # P&L por estrategia
+        if not snipe_closed.empty:
+            st.markdown('##### P&L por Estrategia')
+            pnl_strat = snipe_closed.groupby('strategy').agg(
+                trades=('pnl_usdc', 'count'),
+                pnl=('pnl_usdc', lambda x: float(x.astype(float).sum())),
+                wins=('outcome', lambda x: int((x == 'WIN').sum())),
+            ).reset_index()
+            pnl_strat['win_rate'] = (pnl_strat['wins'] / pnl_strat['trades'] * 100).round(1)
+
+            fig_strat = go.Figure(go.Bar(
+                x=pnl_strat['strategy'], y=pnl_strat['pnl'],
+                marker_color=['#4CAF50' if v >= 0 else '#f44336' for v in pnl_strat['pnl']],
+                text=pnl_strat['pnl'].apply(lambda x: f'${x:+.2f}'),
+                textposition='outside',
+            ))
+            fig_strat.update_layout(height=250, margin=dict(l=0, r=0, t=10, b=0),
+                                    yaxis_title='P&L (USDC)')
+            st.plotly_chart(fig_strat, use_container_width=True)
+
+        # Posiciones abiertas
+        if not snipe_open.empty:
+            st.markdown(f'##### 🔓 Abiertas ({len(snipe_open)})')
+            open_snipe = snipe_open[['asset', 'strategy', 'direction', 'entry_price',
+                                     'shares', 'cost_usdc', 'move_pct', 'timestamp_open']].copy()
+            open_snipe['entry_price'] = open_snipe['entry_price'].apply(lambda x: f'${float(x):.4f}')
+            open_snipe['cost_usdc']   = open_snipe['cost_usdc'].apply(lambda x: f'${float(x):.2f}')
+            open_snipe['move_pct']    = open_snipe['move_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
+            open_snipe.columns = ['Asset', 'Estrategia', 'Dir', 'Entrada',
+                                  'Shares', 'Costo', 'Move %', 'Abierto']
+            st.dataframe(open_snipe, use_container_width=True, hide_index=True)
+
+        # Historial
+        if not snipe_closed.empty:
+            st.markdown(f'##### 🔒 Historial ({total_snipe})')
+            hist_snipe = snipe_closed[['asset', 'strategy', 'direction', 'outcome',
+                                       'entry_price', 'pnl_usdc', 'move_pct',
+                                       'timestamp_open', 'timestamp_close']].copy()
+            hist_snipe['entry_price'] = hist_snipe['entry_price'].apply(lambda x: f'${float(x):.4f}')
+            hist_snipe['pnl_usdc']    = hist_snipe['pnl_usdc'].apply(lambda x: f'${float(x):+.2f}' if pd.notna(x) else '—')
+            hist_snipe['move_pct']    = hist_snipe['move_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
+            hist_snipe.columns = ['Asset', 'Estrategia', 'Dir', 'Outcome', 'Entrada',
+                                  'P&L', 'Move %', 'Abierto', 'Cerrado']
+            st.dataframe(hist_snipe, use_container_width=True, hide_index=True)
+    else:
+        st.info('PolySnipe aún no ha ejecutado trades. El agente está esperando mercados en minuto 13-14.5.')
+
+    st.markdown('---')
+
+    # ── Sección 4: BTC Direction (DEPRECATED — Reemplazado por PolySnipe) ─
+    st.markdown('### ₿ BTC Direction — MULTI-TF `[DEPRECATED]`')
+    st.caption('Reemplazado por PolyMarket SNIPE Agent. WR=0%, 183 trades, -$497. Parado.')
 
     if not btcd_df.empty:
         btcd_open   = btcd_df[btcd_df['status'] == 'OPEN']
