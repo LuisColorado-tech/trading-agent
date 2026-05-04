@@ -375,12 +375,7 @@ def open_snipe_trade(market: dict, signal: dict, tokens: dict):
             'we': market['_window_end'], 'now': now,
         })
 
-    send_telegram(
-        f'🎯 <b>SNIPE OPEN</b> [{market["_asset"]}] {direction}\n'
-        f'Entry: ${entry_price:.4f} x {shares} = ${cost:.2f}\n'
-        f'Move: {signal["move_pct"]:+.3f}% | WR est: {signal["est_win_rate"]:.0f}%\n'
-        f'<code>{slug}</code>', silent=True,
-    )
+    logger.info(f'SNIPE [{market["_asset"]}] {direction} entry=${entry_price:.4f} x{shares} move={signal["move_pct"]:+.3f}%')
 
 
 def open_arb_trade(market: dict, arb: dict, tokens: dict):
@@ -415,11 +410,7 @@ def open_arb_trade(market: dict, arb: dict, tokens: dict):
             'we': market['_window_end'], 'now': now,
         })
 
-    send_telegram(
-        f'🔒 <b>ARB OPEN</b> [{market["_asset"]}]\n'
-        f'YES=${arb["up_mid"]:.4f} + NO=${arb["down_mid"]:.4f} = ${arb["combined"]:.4f}\n'
-        f'Profit garantizado: ${profit:.4f}\n<code>{slug}</code>', silent=True,
-    )
+    logger.info(f'ARB [{market["_asset"]}] YES=${arb["up_mid"]:.4f} NO=${arb["down_mid"]:.4f} profit=${profit:.4f}')
 
 
 # ── Resolver trades expirados ─────────────────────────────────────────────
@@ -483,24 +474,19 @@ def resolve_expired_trades():
             """), {'outcome': outcome, 'pnl': round(pnl, 4), 'now': now, 'id': trade['id']})
 
         icon = '✅' if pnl > 0 else '❌' if pnl < 0 else '⏸️'
-        logger.info(
-            f'RESOLVED [{asset}] {strategy} {direction} → {outcome} | P&L=${pnl:+.4f}')
+        logger.info(f'RESOLVED [{asset}] {strategy} {direction} → {outcome} | P&L=${pnl:+.4f}')
 
-        # Actualizar snipe_sessions para que heartbeat/consortium refleje el balance real
-        with engine.begin() as conn:
-            conn.execute(text("""
-                UPDATE snipe_sessions SET current_balance = current_balance + :pnl,
-                    total_trades = total_trades + 1,
-                    winning_trades = winning_trades + :win,
-                    snipe_trades_i = snipe_trades_i + CASE WHEN :strat = 'SNIPE' THEN 1 ELSE 0 END,
-                    arb_trades_i = arb_trades_i + CASE WHEN :strat = 'ARB' THEN 1 ELSE 0 END
-                WHERE status = 'ACTIVE'
-            """), {'pnl': round(pnl, 4), 'win': 1 if pnl > 0 else 0, 'strat': strategy})
-        send_telegram(
-            f'{icon} <b>SNIPE RESOLVED</b> [{asset}] {strategy}\n'
-            f'{direction} → {outcome} | P&L: ${pnl:+.4f}',
-            silent=True if pnl <= 0 else False,
-        )
+        # Telegram: solo alertar en LOSS (silencioso en WIN para no saturar)
+        if pnl < 0:
+            st = get_stats()
+            wr = st.get('win_rate_pct', 0)
+            send_telegram(
+                f"{icon} <b>SNIPE LOSS</b> [{asset}] {strategy} {direction}\n"
+                f"Entry: ${entry:.4f} x {shares:.0f} = ${cost:.2f}\n"
+                f"Loss: ${pnl:+.2f} | WR: {wr:.1f}%\n"
+                f"<code>{trade['market_slug']}</code>",
+                silent=False,
+            )
         closed_any = True
 
     return closed_any

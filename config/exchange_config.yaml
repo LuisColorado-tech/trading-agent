@@ -330,5 +330,5 @@ polymarket_snipe:
     min_gap: 0.015                  # Gap mínimo de profit por share
     order_size_shares: 25           # Shares por lado en ARB
   risk:
-    max_daily_loss: 15.0            # USD máx de pérdida diaria (~3-4 wins compensan)
+    max_daily_loss: 40.0            # USD máx de pérdida diaria (1 loss = ~$38, permite 2)
     max_concurrent_positions: 3     # Máx posiciones simultáneas

@@ -170,14 +170,9 @@ def main():
 
             # ── 2. Daily loss check ──
             if daily_pnl() <= -MAX_DAILY_LOSS:
-                logger.warning(f'Daily loss limit reached (${daily_pnl():.2f}). Pausando.')
-                send_telegram(
-                    f'⚠️ <b>PolySnipe DAILY LOSS LIMIT</b>\n'
-                    f'P&L today: ${daily_pnl():.2f} (limit: ${MAX_DAILY_LOSS})\n'
-                    f'Pausando nuevas entradas hasta mañana.',
-                    silent=False,
-                )
-                time.sleep(300)
+                if cycle % 120 == 0:  # log cada ~1h en vez de cada ciclo
+                    logger.warning(f'Daily loss limit (${daily_pnl():.2f} <= -${MAX_DAILY_LOSS}). Pausado hasta mañana.')
+                time.sleep(SCAN_INTERVAL)
                 continue
 
             # ── 3. Scan mercados ──
