@@ -485,6 +485,17 @@ def resolve_expired_trades():
         icon = '✅' if pnl > 0 else '❌' if pnl < 0 else '⏸️'
         logger.info(
             f'RESOLVED [{asset}] {strategy} {direction} → {outcome} | P&L=${pnl:+.4f}')
+
+        # Actualizar snipe_sessions para que heartbeat/consortium refleje el balance real
+        with engine.begin() as conn:
+            conn.execute(text("""
+                UPDATE snipe_sessions SET current_balance = current_balance + :pnl,
+                    total_trades = total_trades + 1,
+                    winning_trades = winning_trades + :win,
+                    snipe_trades_i = snipe_trades_i + CASE WHEN :strat = 'SNIPE' THEN 1 ELSE 0 END,
+                    arb_trades_i = arb_trades_i + CASE WHEN :strat = 'ARB' THEN 1 ELSE 0 END
+                WHERE status = 'ACTIVE'
+            """), {'pnl': round(pnl, 4), 'win': 1 if pnl > 0 else 0, 'strat': strategy})
         send_telegram(
             f'{icon} <b>SNIPE RESOLVED</b> [{asset}] {strategy}\n'
             f'{direction} → {outcome} | P&L: ${pnl:+.4f}',

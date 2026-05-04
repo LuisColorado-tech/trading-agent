@@ -512,157 +512,159 @@ def _query_one(conn, sql: str, params=None):
         return None
 
 
+def _pnl_and_wr(conn, table: str, where: str = '', pnl_col: str = 'pnl', params: tuple = ()):
+    """Helper: retorna (trades, wins, pnl, wr_pct) para una estrategia."""
+    base = f"FROM {table} WHERE status='CLOSED'"
+    if where:
+        base += f' AND {where}'
+    row = _query_one(conn, f"SELECT COUNT(*) as t, SUM(CASE WHEN {pnl_col}>0 THEN 1 ELSE 0 END) as w, COALESCE(SUM({pnl_col}), 0) as pnl {base}", params)
+    if not row:
+        return 0, 0, 0.0, 0.0
+    t, w, pnl = int(row[0] or 0), int(row[1] or 0), float(row[2] or 0)
+    wr = (w / t * 100) if t > 0 else 0.0
+    return t, w, pnl, wr
+
+
 def _build_heartbeat(now: datetime) -> str:
-    """Construye heartbeat multi-agente en formato tabla compacta.
+    """Heartbeat multi-agente v2: 8 estrategias con balance real, PnL, WR, daily.
 
-    Cubre: Crypto, Stocks, Polymarket, Options, BTC Direction.
-    Checks de sistema van en alertas, no en el heartbeat.
+    Estructura:
+      - Sección principal: tabla de 8 filas (estrategia | balance | trades | PnL | WR)
+      - Sección extras: DD, daily PnL, parámetros activos
+      - Footer: próximos heartbeats
     """
-    lines = [f'💓 <b>ARTHAS — {now.strftime("%d %b %H:%M")} UTC</b>', '']
+    lines = [f'💓 <b>ARTHAS TRADING — {now.strftime("%d %b %H:%M")} UTC</b>', '']
 
-    # ── Queries para cada agente ──
     try:
         conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
     except Exception:
         return '\n'.join(lines + ['❌ DB inaccesible'])
 
-    # Crypto — scope a sesión activa
-    crypto_sess = _query_one(conn,
-        "SELECT session_name, initial_balance, started_at FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-    if crypto_sess:
-        cs_name, cs_init, cs_start = crypto_sess
-        crypto_open = _query_one(conn,
-            "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND timestamp_open >= %s", (cs_start,))
-        crypto_pnl = _query_one(conn,
-            "SELECT COALESCE(SUM(pnl), 0) FROM trades WHERE status='CLOSED' AND close_reason != 'SESSION_CLOSE' AND timestamp_open >= %s", (cs_start,))
-        crypto_dd = _query_one(conn,
-            "SELECT drawdown_pct FROM portfolio WHERE timestamp >= %s ORDER BY timestamp DESC LIMIT 1", (cs_start,))
+    # ── 1. TrendMomentum (scope a sesión activa) ──
+    tm_sess = _query_one(conn,
+        "SELECT session_name, started_at FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+    tm_open = 0; tm_pnl = 0.0; tm_wr = 0.0; tm_bal = 0.0; tm_dd = 0.0
+    if tm_sess:
+        tm_start = tm_sess[1]
+        tm_open = int((_query_one(conn,
+            "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND strategy='TREND_MOMENTUM' AND timestamp_open >= %s", (tm_start,)) or [0])[0])
+        _, _, tm_pnl, tm_wr = _pnl_and_wr(conn, 'trades',
+            "strategy='TREND_MOMENTUM' AND close_reason != 'SESSION_CLOSE' AND timestamp_open >= %s", params=(tm_start,))
+        pf_row = _query_one(conn, "SELECT total_balance, drawdown_pct FROM portfolio ORDER BY timestamp DESC LIMIT 1")
+        tm_bal = float(pf_row[0]) if pf_row else 10000.0
+        tm_dd = float(pf_row[1]) * 100 if pf_row and pf_row[1] else 0.0
     else:
-        cs_name, cs_init = None, None
-        crypto_open = crypto_pnl = crypto_dd = None
+        tm_sess = (None, None)
 
-    # Stocks
-    stocks = _query_one(conn,
-        "SELECT session_name, current_balance FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
+    # ── 2. Grid Bot ──
+    gb_open_t = int((_query_one(conn,
+        "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND strategy='GRID_BOT'") or [0])[0])
+    gb_t, gb_w, gb_pnl, gb_wr = _pnl_and_wr(conn, 'trades', "strategy='GRID_BOT'")
+
+    # ── 3. Grid Stable ──
+    gs_open = int((_query_one(conn,
+        "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND strategy='GRID_STABLE'") or [0])[0])
+    gs_t, gs_w, gs_pnl, gs_wr = _pnl_and_wr(conn, 'trades', "strategy='GRID_STABLE'")
+    gs_bal = round(500.0 + gs_pnl, 2)
+
+    # ── 4. Stocks ──
+    stocks = _query_one(conn, "SELECT session_name, current_balance FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
+    st_open = 0; st_pnl = 0.0; st_wr = 0.0; st_bal = 220.0
     if stocks:
-        stocks_open = _query_one(conn,
-            "SELECT COUNT(*) FROM stocks_trades WHERE status='OPEN' AND session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)")
-        stocks_pnl = _query_one(conn,
-            "SELECT COALESCE(SUM(pnl), 0) FROM stocks_trades WHERE status='CLOSED' AND session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)")
+        st_bal = float(stocks[1]) if stocks[1] else 220.0
+        st_open = int((_query_one(conn,
+            "SELECT COUNT(*) FROM stocks_trades WHERE status='OPEN' AND session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)") or [0])[0])
+        st_t, st_w, st_pnl, st_wr = _pnl_and_wr(conn, 'stocks_trades',
+            "session_id = (SELECT id FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1)")
     else:
-        stocks_open = stocks_pnl = None
+        stocks = (None, None)
 
-    # Polymarket
-    poly = _query_one(conn,
-        "SELECT session_name, current_balance FROM poly_sessions WHERE status='ACTIVE' LIMIT 1")
+    # ── 5. Polymarket ──
+    poly = _query_one(conn, "SELECT session_name, current_balance FROM poly_sessions WHERE status='ACTIVE' LIMIT 1")
+    po_open = 0; po_pnl = 0.0; po_wr = 0.0; po_bal = 1000.0
     if poly:
-        poly_name = poly[0]
-        poly_open = _query_one(conn,
-            "SELECT COUNT(*) FROM poly_positions WHERE status='OPEN' AND session_name = %s", (poly_name,))
-        poly_pnl = _query_one(conn,
-            "SELECT COALESCE(SUM(pnl), 0) FROM poly_positions WHERE status='CLOSED' AND close_reason!='SESSION_RESET' AND session_name = %s", (poly_name,))
-        poly_wr = _query_one(conn,
-            "SELECT COUNT(*), SUM(CASE WHEN pnl>0 THEN 1 ELSE 0 END) FROM poly_positions WHERE status='CLOSED' AND close_reason!='SESSION_RESET' AND session_name = %s", (poly_name,))
+        po_bal = float(poly[1]) if poly[1] else 1000.0
+        po_open = int((_query_one(conn,
+            "SELECT COUNT(*) FROM poly_positions WHERE status='OPEN' AND session_name = %s", (poly[0],)) or [0])[0])
+        po_t, _, po_pnl, po_wr = _pnl_and_wr(conn, 'poly_positions',
+            "close_reason!='SESSION_RESET' AND session_name = %s", params=(poly[0],))
     else:
-        poly_open = poly_pnl = poly_wr = None
+        poly = (None, None)
 
-    # Options
-    options = _query_one(conn,
-        "SELECT session_name, current_balance FROM options_sessions WHERE status='ACTIVE' LIMIT 1")
-    if options:
-        options_open = _query_one(conn,
-            "SELECT COUNT(*) FROM options_positions WHERE status='OPEN'")
-        options_pnl = _query_one(conn,
-            "SELECT COALESCE(SUM(pnl_usd), 0) FROM options_positions WHERE status='CLOSED'")
+    # ── 6. Options ──
+    opt = _query_one(conn, "SELECT session_name, current_balance_usd FROM options_sessions WHERE status='ACTIVE' LIMIT 1")
+    op_open = 0; op_pnl = 0.0; op_bal = 2000.0
+    if opt:
+        op_bal = float(opt[1]) if opt[1] else 2000.0
+        op_open = int((_query_one(conn, "SELECT COUNT(*) FROM options_positions WHERE status='OPEN'") or [0])[0])
+        op_row = _query_one(conn, "SELECT COALESCE(SUM(pnl_usd), 0) FROM options_positions WHERE status='CLOSED'")
+        op_pnl = float(op_row[0]) if op_row else 0.0
     else:
-        options_open = options_pnl = None
+        opt = (None, None)
 
-    # PolyMarket SNIPE
+    # ── 7. PolySnipe ──
     try:
-        snipe_sess = _query_one(conn,
-            "SELECT session_name, current_balance FROM snipe_sessions WHERE status='ACTIVE' LIMIT 1")
-        if snipe_sess:
-            snipe_open = _query_one(conn, "SELECT COUNT(*) FROM snipe_trades WHERE status='OPEN'")
-            snipe_pnl = _query_one(conn,
-                "SELECT COALESCE(SUM(pnl_usdc), 0) FROM snipe_trades WHERE status='CLOSED'")
-            snipe_wr = _query_one(conn,
-                "SELECT COUNT(*), SUM(CASE WHEN outcome='WIN' THEN 1 ELSE 0 END) "
-                "FROM snipe_trades WHERE status='CLOSED'")
-        else:
-            snipe_open = snipe_pnl = snipe_wr = None
+        snipe_s = _query_one(conn, "SELECT session_name FROM snipe_sessions WHERE status='ACTIVE' LIMIT 1")
+        sp_open = int((_query_one(conn, "SELECT COUNT(*) FROM snipe_trades WHERE status='OPEN'") or [0])[0])
+        sp_t, sp_w, sp_pnl, sp_wr = _pnl_and_wr(conn, 'snipe_trades', pnl_col='pnl_usdc')
+        sp_today = _query_one(conn,
+            "SELECT COALESCE(SUM(pnl_usdc), 0) FROM snipe_trades WHERE status='CLOSED' AND timestamp_open::date = CURRENT_DATE")
+        sp_daily = float(sp_today[0]) if sp_today else 0.0
+        sp_bal = round(500.0 + sp_pnl, 2)
     except Exception:
-        snipe_sess = snipe_open = snipe_pnl = snipe_wr = None
+        snipe_s = None; sp_open = 0; sp_pnl = 0.0; sp_wr = 0.0; sp_daily = 0.0; sp_bal = 500.0
 
-    # BTC Direction (DEPRECATED)
-    btcd = _query_one(conn,
-        "SELECT COUNT(*), SUM(CASE WHEN pnl_usdc>0 THEN 1 ELSE 0 END), COALESCE(SUM(pnl_usdc),0) FROM btc_direction_trades WHERE status='CLOSED'")
-    btcd_open = _query_one(conn, "SELECT COUNT(*) FROM btc_direction_trades WHERE status='OPEN'")
+    # ── 8. Daily PnL consolidado ──
+    daily = _query_one(conn, """
+        SELECT COALESCE(SUM(pnl), 0) FROM trades WHERE status='CLOSED' AND timestamp_close >= CURRENT_DATE
+    """)
+    daily_pnl = float(daily[0]) if daily else 0.0
 
     conn.close()
 
     # ── Construir tabla ──
-    def fmt(v, default='—'):
-        if v is None or v == '': return default
-        return v
+    def fmt_pnl(v):
+        return f'${v:+,.0f}'
+    def fmt_bal(v):
+        return f'${v:,.0f}'
 
-    def row(icon, name, session, balance, n_open, pnl, extra=''):
-        sn = str(session)[:10] if session else '—'
-        bl = f'${float(balance):,.0f}' if balance is not None else '—'
-        op = str(int(n_open)) if n_open is not None else '—'
-        pn = f'${float(pnl):+,.0f}' if pnl is not None else '—'
-        ext = f' {extra}' if extra else ''
-        return f'{icon} <b>{name}</b>  {sn:10s}  {bl:>7s}  {op:>2s} open  {pn:>8s}{ext}'
+    header = f'{"Estrategia":<18s} {"Balance":>8s} {"Open":>4s} {"PnL":>9s} {"WR":>6s}'
+    lines.append(f'<pre>{header}')
 
-    lines.append(row('💰', 'Crypto ', 
-        cs_name if cs_name else '—',
-        cs_init if cs_init else None,
-        crypto_open[0] if crypto_open else 0,
-        crypto_pnl[0] if crypto_pnl else 0))
+    rows_data = [
+        ('💰 TrendMom', tm_bal, tm_open, tm_pnl, tm_wr),
+        ('📊 GridBot ', tm_bal, gb_open_t, gb_pnl, gb_wr),
+        ('📐 GridStab', gs_bal, gs_open, gs_pnl, gs_wr),
+        ('📈 Stocks  ', st_bal, st_open, st_pnl, st_wr),
+        ('🔮 Poly    ', po_bal, po_open, po_pnl, po_wr),
+        ('📣 Options ', op_bal, op_open, op_pnl, 0.0),
+        ('🎯 Snipe   ', sp_bal, sp_open, sp_pnl, sp_wr),
+    ]
 
-    lines.append(row('📈', 'Stocks ',
-        stocks[0] if stocks else '—',
-        stocks[1] if stocks else None,
-        stocks_open[0] if stocks_open else 0,
-        stocks_pnl[0] if stocks_pnl else 0))
+    for name, bal, opn, pnl, wr in rows_data:
+        wr_str = f'{wr:.0f}%' if wr > 0 else '—'
+        lines.append(f'{name} {fmt_bal(bal):>7s} {str(opn):>3s} {fmt_pnl(pnl):>8s} {wr_str:>5s}')
+    lines.append('</pre>')
 
-    lines.append(row('🔮', 'Poly   ',
-        poly[0] if poly else '—',
-        poly[1] if poly else None,
-        poly_open[0] if poly_open else 0,
-        poly_pnl[0] if poly_pnl else 0))
-
-    lines.append(row('📣', 'Options',
-        options[0] if options else '—',
-        options[1] if options else None,
-        options_open[0] if options_open else 0,
-        options_pnl[0] if options_pnl else 0))
-
-    lines.append(row('🎯', 'SNIPE  ',
-        snipe_sess[0] if snipe_sess else '—',
-        snipe_sess[1] if snipe_sess else None,
-        snipe_open[0] if snipe_open else 0,
-        snipe_pnl[0] if snipe_pnl else 0))
-
-    # BTC Dir info as footnote
-    btcd_t = int(btcd[0]) if btcd else 0
-    btcd_pnl = float(btcd[2]) if btcd else 0
-    btcd_msg = f'BTC Dir (legacy): {btcd_t}t ${btcd_pnl:+.0f} — reemplazado por SNIPE'
-    lines.append(f'  <i>{btcd_msg}</i>')
-
-    # ── Info extra ──
+    # ── Extras ──
     lines.append('')
     extras = []
-    if crypto_dd:
-        dd_val = float(crypto_dd[0]) * 100 if crypto_dd[0] else 0
-        icon_dd = '🟢' if dd_val < 5 else ('🟡' if dd_val < 8 else '🔴')
-        extras.append(f'{icon_dd} DD: {dd_val:.1f}%')
-    if poly_wr:
-        pw_t, pw_w = int(poly_wr[0]), int(poly_wr[1])
-        extras.append(f'Poly WR: {pw_w/pw_t*100:.0f}%' if pw_t > 0 else 'Poly WR: —')
-    extras.append('v3: MIN_SCORE=75 | MAX_CONC=2 | trailing 0.75R')
-    extras.append('Stocks v3: trailing ON | xsignal fix | macro gradient')
-    lines.append('  '.join(extras))
 
+    # DD + daily
+    dd_icon = '🟢' if tm_dd < 5 else ('🟡' if tm_dd < 8 else '🔴')
+    extras.append(f'{dd_icon} DD: {tm_dd:.1f}%')
+    extras.append(f'💵 Daily PnL: {fmt_pnl(daily_pnl)}')
+    if sp_daily != 0:
+        extras.append(f'🎯 Snipe today: {fmt_pnl(sp_daily)}')
+
+    # Halt status
+    import subprocess
+    r = subprocess.run(['redis-cli', 'get', 'halt:trading'], capture_output=True, text=True, timeout=3)
+    halt_val = r.stdout.strip() if r.returncode == 0 else ''
+    if halt_val:
+        extras.append(f'⚠️ HALT: {halt_val}')
+
+    lines.append('  '.join(extras))
     lines.append(f'\n⏱️ Próximo heartbeat: ~{HEARTBEAT_HOURS}h | Alertas: cada 5min si hay fallos')
     return '\n'.join(lines)
 
