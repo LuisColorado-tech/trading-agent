@@ -362,8 +362,8 @@ Arrancar **Fase 1 (Grid Stable)**. Es la de menor riesgo, menor esfuerzo (extien
 | Fecha | Fase | Estado | Resultado backtest | Commit |
 |---|---|---|---|---|
 | 2026-05-01 | 1 — Grid Stable | ✅ COMPLETADA | ETH/BTC: PF=1.84, DD=0.3%, Sharpe=2.20 | a3119e4 |
-| 2026-05-03 | 2 — Basis Trade | ⏳ Programado | — | — |
-| 2026-05-05 | 3 — VIX Mean Rev | ⏳ Programado | — | — |
-| 2026-05-07 | 4 — Pairs Trading | ⏳ Programado | — | — |
-| 2026-05-10 | 5 — Earnings Strangle | ⏳ Programado | — | — |
-| 2026-05-13 | 6 — Reporte Final | ⏳ Programado | — | — |
+| 2026-05-03 | 2 — Basis Trade | ✅ COMPLETADA (May 8) | BTC: 11% APY, ETH: 8% APY (sintético, sin datos API reales) | — |
+| 2026-05-05 | 3 — VIX Mean Rev | ✅ COMPLETADA (May 8) | SVXY 5Y: PF=1.46, WR=67%, DD=3.7%, 6.1% retorno | — |
+| 2026-05-10 | 4 — Pairs Trading | ⏳ Programado (Hermes cron) | — | — |
+| 2026-05-13 | 5 — Earnings Strangle | ⏳ Programado (Hermes cron) | — | — |
+| 2026-05-16 | 6 — Reporte Final | ⏳ Programado (Hermes cron) | — | — |

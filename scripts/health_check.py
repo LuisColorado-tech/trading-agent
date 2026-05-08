@@ -33,6 +33,9 @@ load_dotenv('/opt/trading/config/.env')
 # ── Config ──
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE')
 TELEGRAM_CHAT = os.getenv('TELEGRAM_CHAT_ID', '999936393')
+# Fallback: token del bot Hermes (@kwok_hermes_ai_assistant_bot) si el principal está bloqueado
+TELEGRAM_FALLBACK_TOKEN = os.getenv('TELEGRAM_FALLBACK_TOKEN', '8356550917:AAGGEkzg06Hrc3Hjb3Sa1jkGVDOdU_lYy2Q')
+TELEGRAM_FALLBACK_CHAT = os.getenv('TELEGRAM_FALLBACK_CHAT_ID', '999936393')
 STATE_FILE = Path('/opt/trading/.health_state.json')
 HEARTBEAT_HOURS = 3
 MAX_CYCLE_AGE_MIN = 5
@@ -51,21 +54,40 @@ DB_CONFIG = {
 }
 
 
-def send_telegram(message: str, silent: bool = False):
-    """Envía mensaje por Telegram."""
+def _try_send(token: str, chat: str, message: str, silent: bool) -> bool:
+    """Intenta enviar con un token. Retorna True si éxito."""
     try:
-        requests.post(
-            f'https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage',
+        r = requests.post(
+            f'https://api.telegram.org/bot{token}/sendMessage',
             json={
-                'chat_id': TELEGRAM_CHAT,
+                'chat_id': chat,
                 'text': message,
                 'parse_mode': 'HTML',
                 'disable_notification': silent,
             },
             timeout=10,
         )
+        if r.status_code == 200:
+            return True
+        if r.status_code == 403:
+            print(f'[WARN] Telegram token blocked (403) — trying fallback')
+        else:
+            print(f'[WARN] Telegram send failed: {r.status_code} {r.text[:100]}')
+        return False
     except Exception as e:
-        print(f'[ERROR] Telegram send failed: {e}')
+        print(f'[ERROR] Telegram send exception: {e}')
+        return False
+
+
+def send_telegram(message: str, silent: bool = False):
+    """Envía mensaje por Telegram con fallback automático al token de Hermes."""
+    if _try_send(TELEGRAM_TOKEN, TELEGRAM_CHAT, message, silent):
+        return
+    if TELEGRAM_FALLBACK_TOKEN and TELEGRAM_FALLBACK_TOKEN != TELEGRAM_TOKEN:
+        if _try_send(TELEGRAM_FALLBACK_TOKEN, TELEGRAM_FALLBACK_CHAT, message, silent):
+            print('[INFO] Sent via Hermes fallback token')
+            return
+    print('[ERROR] All Telegram tokens failed')
 
 
 def load_state() -> dict:

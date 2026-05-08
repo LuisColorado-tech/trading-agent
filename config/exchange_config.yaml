@@ -332,3 +332,77 @@ polymarket_snipe:
   risk:
     max_daily_loss: 40.0            # USD máx de pérdida diaria (1 loss = ~$38, permite 2)
     max_concurrent_positions: 3     # Máx posiciones simultáneas
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BASIS TRADE — Spot-Futures Funding Rate Capture (Market-Neutral)
+# Compra spot + vende futuro. Captura funding rate sin riesgo direccional.
+# ══════════════════════════════════════════════════════════════════════════════
+basis_trade:
+  enabled: true
+  paper_trading: true
+  initial_balance: 500.0
+  min_funding_rate_annual: 8.0       # % anual mínimo para entrar
+  max_capital_pct: 0.30              # 30% del capital en basis trades
+  contracts: [BTC, ETH]              # Solo los líquidos
+  rollover_days_before: 2            # Rollear 2 días antes del vencimiento
+  check_interval_minutes: 60         # Verificar funding cada hora
+  max_positions: 2                   # Máximo posiciones simultáneas
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VIX MEAN REVERSION — Estrategia de volatilidad (Alpaca)
+# Opera productos de volatilidad (SVXY, VXX, UVXY) cuando VIX está en extremos.
+# ══════════════════════════════════════════════════════════════════════════════
+vol_mean_reversion:
+  enabled: true
+  paper_trading: true
+  initial_balance: 500.0
+  assets: [SVXY]                      # Long SVXY = short vol
+  vix_entry_percentile: 80            # Entrar cuando VIX > percentil 80 del último año
+  vix_exit_percentile: 50             # Salir cuando VIX vuelve a la mediana
+  max_position_pct: 0.10              # 10% del capital en vol
+  stop_loss_pct: 0.15                 # -15% en el activo → salir
+  min_contango_annual_pct: 20.0       # Contango mínimo para que valga la pena
+  monitor_interval_minutes: 60        # Verificar cada hora
+  max_hold_days: 60                   # Tiempo máximo en la posición
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PAIRS TRADING — Estrategia de pares cointegrados
+# ══════════════════════════════════════════════════════════════════════════════
+pairs_trading:
+  enabled: false                      # Se activa en Fase 4
+  paper_trading: true
+  initial_balance: 500.0
+  pairs:
+    GLD-SLV:
+      hedge_ratio_window: 252
+      refit_interval: 21
+      z_entry: 2.0
+      z_exit: 0.0
+      stop_loss_z: 3.5
+      max_hold_days: 60
+      min_half_life: 5
+      max_half_life: 60
+    BTC-ETH:
+      hedge_ratio_window: 90
+      refit_interval: 7
+      z_entry: 2.5
+      z_exit: 0.5
+      stop_loss_z: 4.0
+      max_hold_days: 30
+
+# ══════════════════════════════════════════════════════════════════════════════
+# EARNINGS STRANGLE — Strangles pre-earnings en mega-cap tech
+# ══════════════════════════════════════════════════════════════════════════════
+earnings_strangle:
+  enabled: false                      # Se activa en Fase 5
+  paper_trading: true
+  initial_balance: 1000.0
+  assets: [NVDA, TSLA, AAPL, META, AMZN]
+  otm_pct: 0.05
+  days_before: 1
+  days_after: 1
+  max_position_pct: 0.05
+  min_market_cap: 100000000000
+  max_iv_rank: 90
+  min_iv_rank: 40
+  stop_loss_pct: 0.50

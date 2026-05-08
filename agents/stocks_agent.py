@@ -62,6 +62,8 @@ STOCKS_UNIVERSE = [
     'EEM',   # PF=1.23 — Emergentes
     'FXI',   # PF=1.23 — China
     'EWJ',   # PF=1.18 — Japón
+    # Productos de volatilidad (VIX Mean Reversion — Fase 3)
+    'SVXY',  # ProShares Short VIX — monitoreo de precio, gestión vía VOL_MEAN_REVERSION
 ]
 # Eliminados por PF < 1.0 en backtest 2Y:
 # NVDA 0.96, AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91

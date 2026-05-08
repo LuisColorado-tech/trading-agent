@@ -312,6 +312,21 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
         use_regime_filter=False,
         notes='ETF Plata. Backtest 24m: PF=1.31, WR=37.2%, MaxDD=14.3%. Mayor vol que GLD, SL=1.1.',
     ),
+    # ── Productos de volatilidad (VIX Mean Reversion) ──
+    # Gestionados por estrategia VOL_MEAN_REVERSION, no por MOMENTUM/TREND_ETF.
+    # En universo para monitoreo de precio vía Alpaca.
+    'SVXY': StocksProfile(
+        symbol='SVXY',
+        confluence_min=1,           # No usa confluencia de indicadores técnicos
+        allowed_directions=frozenset({'BUY'}),
+        sl_multiplier=1.0,
+        tp_multiplier=1.0,
+        min_atr_pct=0.005,
+        use_macro_filter=False,
+        strategy_name='MOMENTUM',   # Placeholder — gestionado externamente por vol_mean_reversion
+        use_regime_filter=False,
+        notes='ProShares Short VIX (-0.5x). Long = short vol. Gestión por estrategia VOL_MEAN_REVERSION.',
+    ),
 }
 
 

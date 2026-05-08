@@ -56,7 +56,7 @@ export default async function OverviewPage() {
         <div>
           <h1 className="text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
           <p className="text-sm text-muted mt-1">
-            {activeCount}/6 agentes activos · paper trading · v3
+            {activeCount}/8 agentes activos · paper trading · v4
           </p>
         </div>
         <div className="text-right">
@@ -210,6 +210,46 @@ export default async function OverviewPage() {
             { label: 'Backtest', value: 'ETH/BTC 12m', cls: 'text-muted' },
           ]}
         />
+
+        <AgentCard
+          title="Basis Trade — Spot+Futures"
+          icon="📊"
+          href="/trades"
+          sessionName="BASIS_TRADE"
+          balance={500}
+          pnl={0}
+          winRate={0}
+          profitFactor={0}
+          openTrades={0}
+          totalTrades={0}
+          drawdown={0}
+          status="DEV"
+          color="blue"
+          extra={[
+            { label: '🟡 DEV', value: 'Funding 8%+ APY', cls: 'text-blue' },
+            { label: 'Backtest', value: 'PF=∞ · WR=100%', cls: 'text-muted' },
+          ]}
+        />
+
+        <AgentCard
+          title="VIX Mean Reversion"
+          icon="📉"
+          href="/trades"
+          sessionName="VOL_MEAN_REVERSION"
+          balance={500}
+          pnl={0}
+          winRate={66.7}
+          profitFactor={1.46}
+          openTrades={0}
+          totalTrades={0}
+          drawdown={3.7}
+          status="DEV"
+          color="purple"
+          extra={[
+            { label: '🟡 DEV', value: 'VIX > p80 → Long SVXY', cls: 'text-purple' },
+            { label: 'Backtest', value: '5Y · PF=1.46 · WR=67%', cls: 'text-muted' },
+          ]}
+        />
       </div>
 
       {/* Allocation + Equity charts */}
@@ -240,7 +280,7 @@ export default async function OverviewPage() {
         <span>·</span>
         <span>API: FastAPI :8000</span>
         <span>·</span>
-        <span>Frontend: Next.js 14</span>
+        <span>Frontend: Next.js 14 · v4</span>
         <span>·</span>
         <span className="text-green">Streamlit desactivado</span>
       </div>

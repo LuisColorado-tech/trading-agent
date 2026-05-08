@@ -2,8 +2,9 @@
 ## Sistema de Ingeniería Inversa de Estrategias de Trading
 
 **Creado:** 2026-04-25  
+**Actualizado:** 2026-05-02 (sondeo completo — 2 repos nuevos, 1 eliminado)  
 **Estado:** ACTIVO  
-**Versión:** 1.0
+**Versión:** 1.1
 
 ---
 
@@ -16,7 +17,7 @@ Sistema automatizado para:
 4. Backtest en datos históricos reales (KuCoin via ccxt)
 5. Filtrar las mejores y desplegarlas en producción
 
-**Resultado:** De 703+ repos identificados → 7 estrategias de alta calidad en DB → 3 adaptadores creados → backtesting integrado
+**Resultado:** De 703+ repos identificados → 8 estrategias de alta calidad en DB → 3 adaptadores creados → backtesting integrado (1 repo eliminado por borrado en GitHub)
 
 ---
 
@@ -48,32 +49,48 @@ Sistema automatizado para:
 
 ### PRIORIDAD 1 — Implementar inmediatamente
 
-| Repo | Estrellas | Estrategia | Tipo | Timeframe |
-|------|-----------|------------|------|-----------|
-| `aulekator/Polymarket-BTC-15-Minute-Trading-Bot` | 169⭐ | Multi-Signal 7-Phase | composite | 15m |
-| `suislanchez/polymarket-kalshi-weather-bot` | 156⭐ | BTC Microstructure + Kelly | composite | 5m |
+| Repo | Estrellas | Estrategia | Tipo | Timeframe | Potencial |
+|------|-----------|------------|------|-----------|-----------|
+| `Polymarket/agents` | 3,363⭐ | AI Agents oficial Polymarket | agent-based | variable | ★★★ |
+| `aulekator/Polymarket-BTC-15-Minute-Trading-Bot` | 196⭐ | Multi-Signal 7-Phase | composite | 15m | ★★☆ |
+| `suislanchez/polymarket-kalshi-weather-bot` | 282⭐ | BTC Microstructure + Kelly | composite | 5m | ★★★ |
+| `CarlosIbCu/polymarket-kalshi-btc-arbitrage-bot` | 179⭐ | Cross-Platform Arb (PM↔Kalshi) | arb | 1h | ★★★ |
 
 **Lógica clave extraída:**
+
+**Polymarket/agents (OFICIAL):**
+- Framework oficial de Polymarket para trading autónomo con AI agents
+- Arquitectura: Agent → Strategy → Market → Order
+- Soporta multi-market, risk management, backtesting integrado
+- MIT license, comunidad activa (760+ forks)
+
+**aulekator:**
 - Señales: RSI(14) + Momentum(1m/5m/15m) + VWAP dev + SMA crossover + Market skew
 - Convergencia: ≥2 de 5 indicadores
 - Position sizing: Kelly fraccional (15%)
 - Edge mínimo: 2% para BTC, 8% para weather
 - Stop loss: 30%, Take profit: 20%
 
+**CarlosIbCu (NUEVO — Arbitraje riesgo-cero):**
+- Arbitraje cross-platform entre Polymarket y Kalshi en mercados BTC 1-Hour
+- Detecta diferencias de precio en tiempo real via CLOB de Polymarket + API de Kalshi
+- Matemática de arbitraje documentada en `thesis.md`
+- MIT license, 525KB de código
+
 ### PRIORIDAD 2 — Backtest y validar
 
 | Repo | Estrellas | Estrategia | Tipo | Resultados Reportados |
 |------|-----------|------------|------|-----------------------|
-| `joshyattridge/smart-money-concepts` | 1590⭐ | SMC/ICT Order Blocks + FVG | breakout | N/A (lib) |
-| `ilahuerta-IA/backtrader-pullback-window-xauusd` | 46⭐ | Pullback State Machine | momentum | Sharpe 0.89, PF 1.64, WR 55% |
-| `genoshide/polymarket-arbitrage-trading-bot` | 18⭐ | Latency Arb (2.7s lag) | arb | N/A |
+| `joshyattridge/smart-money-concepts` | 1,615⭐ | SMC/ICT Order Blocks + FVG | breakout | N/A (lib) |
+| `ilahuerta-IA/backtrader-pullback-window-xauusd` | 45⭐ | Pullback State Machine | momentum | Sharpe 0.89, PF 1.64, WR 55% |
+| ~~`genoshide/polymarket-arbitrage-trading-bot`~~ | ❌ **ELIMINADO** | Latency Arb (2.7s lag) | arb | Repo borrado de GitHub (Mayo 2026) |
 
 ### PRIORIDAD 3 — Investigar más
 
 | Repo | Estrellas | Estrategia | Tipo |
 |------|-----------|------------|------|
-| `0xrsydn/polymarket-crypto-toolkit` | 58⭐ | Plugin-based multi-strat | composite |
-| `GiordanoSouza/polymarket-copy-trading-bot` | 34⭐ | Copy-trading wallets | signal_based |
+| `0xrsydn/polymarket-crypto-toolkit` | 57⭐ | Plugin-based multi-strat | composite |
+| `GiordanoSouza/polymarket-copy-trading-bot` | 44⭐ | Copy-trading wallets | signal_based |
 
 ---
 
@@ -160,12 +177,16 @@ python scripts/backtest.py --assets BTC/USDT ETH/USDT --tf 15m --months 18 --csv
 python scripts/backtest.py --assets BTC/USDT --tf 5m --months 12 --csv reports/btc_micro_backtest.csv
 ```
 
-### 2. Analizar estrategia de latency arb (Polymarket)
-- Revisar código de `genoshide/polymarket-arbitrage-trading-bot`
-- Evaluar si es compatible con nuestra infraestructura
-- Implementar detección de lag Binance → Polymarket
+### 2. Analizar estrategia de arbitraje cross-platform (Polymarket ↔ Kalshi)
+- Revisar código de `CarlosIbCu/polymarket-kalshi-btc-arbitrage-bot` ⭐179
+- Leer `thesis.md` con la matemática de arbitraje
+- Evaluar si es compatible con nuestra infraestructura existente (ya tenemos feeds de ambos)
+- Implementar detector de oportunidades Kalshi vs Polymarket
 
-### 3. Implementar copy-trading tracker
+### 3. Evaluar Polymarket AI Agents oficial
+- Revisar framework `Polymarket/agents` ⭐3,363 (oficial de Polymarket)
+- Arquitectura agent-based compatible con nuestro sistema
+- Evaluar migración de nuestros agentes Polymarket al framework oficial
 - Identificar las top 10 wallets en Polymarket
 - Monitorear sus trades en tiempo real
 - Implementar replicación con delay mínimo
@@ -243,8 +264,14 @@ position = kelly * 0.15 * bankroll  # 15% fraccional
 # Capped: max(5% bankroll, $75 por trade)
 ```
 
-### Latency Arb (genoshide)
-- Lag promedio detectado: 2.7 segundos entre Binance y Polymarket
-- El bot entra ANTES que el mercado procese el movimiento de Binance
-- Ventana de oportunidad: 0.5 - 3 segundos
-- Profit target: 2-5% edge
+### Cross-Platform Arbitrage (CarlosIbCu)
+- Monitorea simultáneamente Polymarket CLOB y Kalshi API para mercados BTC 1-Hour
+- Detecta discrepancia de precios: si P_poly + P_kalshi < $1.00 → arbitraje libre de riesgo
+- Fórmula: Profit = (1 - P_poly - P_kalshi) * position_size - fees
+- Tesis matemática completa en thesis.md del repo
+
+### Polymarket AI Agents (oficial)
+- Sistema de agentes autónomos con marketplace de estrategias
+- Cada agente: percepción del mercado → decisión → ejecución → aprendizaje
+- Risk management integrado: position sizing, stop loss, portfolio limits
+- API compatible con Python SDK de Polymarket
