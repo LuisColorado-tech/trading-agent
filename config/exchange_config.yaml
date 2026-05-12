@@ -8,7 +8,6 @@
 exchanges:
   # ── Exchange primario: Kraken ──
   # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
-  # Oro tokenizado: XAUT/USDT, PAXG/USD
   kraken:
     enabled: true
     role: primary
@@ -38,15 +37,12 @@ exchanges:
       POL:
         pair: POL/USD            # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas (Kraken no tiene POL/USDT)
         timeframes: [1m, 5m, 15m, 1h]
-      XAU:
-        pair: XAUT/USDT          # Tether Gold — proxy para oro físico
-        timeframes: [5m, 15m, 1h]
-        note: "Token respaldado 1:1 por onza troy de oro (TrueGold/Tether)"
+      # XAU/XAG removidos May 2026: backtest negativo en crypto (-$4.6K XAU).
+      # Metales se operan via Alpaca (stocks) como GLD/SLV — mejores PF del universo.
 
   # ── Exchange secundario: OKX ──
   # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
-  # Oro: XAUT/USDT (spot), XAU/USD:USD (perp)
-  # Plata: XAG/USDT:USDT (perp) — ÚNICO exchange accesible con plata
+  # XAU/XAG removidos: metales operados via Alpaca stocks (GLD/SLV)
   okx:
     enabled: true
     role: secondary
@@ -78,14 +74,7 @@ exchanges:
       POL:
         pair: POL/USDT
         timeframes: [1m, 5m, 15m, 1h]
-      XAU:
-        pair: XAUT/USDT
-        timeframes: [5m, 15m, 1h]
-        alt_pair: "XAU/USD:USD"  # perpetuo — más liquidez para hedging
-      XAG:
-        pair: "XAG/USDT:USDT"   # contrato perpetuo
-        timeframes: [15m, 1h]
-        note: "Plata solo disponible como perpetuo en OKX desde este VPS"
+      # XAU/XAG removidos May 2026 → operados como GLD/SLV en stocks (Alpaca)
 
   # ── Backup: Binance US ──
   # Solo crypto (BTC, ETH). Volumen bajo. Usar si Kraken/OKX fallan.
@@ -115,8 +104,7 @@ exchanges:
 # BTC     | Kraken            | BTC/USDT          | OKX
 # ETH     | Kraken            | ETH/USDT          | OKX
 # SOL     | Kraken            | SOL/USDT          | OKX / KuCoin
-# XAU     | OKX               | XAUT/USDT         | Kraken (XAUT/USDT)
-# XAG     | OKX               | XAG/USDT:USDT     | Sin alternativa spot
+# Metales (GLD/SLV) operados via Alpaca stocks — no por crypto
 
 # ── Parámetros de riesgo (INMUTABLES en runtime) ──
 risk:
@@ -135,7 +123,7 @@ polymarket:
   paper_trading: true
   host: "https://clob.polymarket.com"
   chain_id: 137                    # Polygon
-  initial_paper_balance: 1000.0    # USDC simulados
+  initial_paper_balance: 200.0     # USDC simulados (reducido $1000→$200: validación Value Zone)
   scan_interval_seconds: 300       # 5 min entre scans
   # ── Filtros de mercado ──
   # Solo mercados crypto con probabilidad moderada (0.20–0.80)
@@ -178,26 +166,18 @@ polymarket:
     consecutive_losses_halt: 5     # Circuit breaker: haltar si N pérdidas seguidas (nuevo v2)
   # ── Configuración por estrategia ──
   strategies:
+    signal_based:
+      enabled: false               # DESACTIVADA 2026-05-10: WR=29.9% PF=0.37, peor que aleatorio. Señales técnicas sin edge en mercados binarios.
     tail_end:
-      enabled: true
-      min_price: 0.93              # Precio mínimo para considerar "near resolution"
-      max_price: 0.985             # Precio máximo (evitar mercados ya resueltos)
-      max_end_days: 7              # Días máximos hasta expiración
-      min_end_hours: 1             # Horas mínimas hasta expiración
-      min_return_pct: 2.0          # Retorno mínimo esperado (%)
-      stop_loss_price: 0.88        # Salida si precio cae por debajo de esto
+      enabled: false               # DESACTIVADA 2026-05-10: R:R insostenible, cada loss borra docenas de wins.
     late_entry:
       enabled: false               # DESACTIVADA v2: datos insuficientes para validar edge, zona de precio 0.70-0.79 WR=84% pero R:R<1
     legged_arb:
       enabled: false               # DESACTIVADA 2026-04-25: 0 wins en 12 trades, entra en mercados políticos
-      max_phase1_price: 0.30       # Precio máximo YES para Phase 1
-      min_leg2_profit_pct: 5.0     # Profit mínimo garantizado para Phase 2
-      max_hold_days: 14            # Días máximos esperando Phase 2
-      max_investment_per_pair: 30  # USD máximo total (ambas legs)
     combinatorial:
       enabled: false               # DESACTIVADA v2: EV=-$3.32 en 17 trades (backtest diagnóstico 2026-04-28)
     value_zone:
-      enabled: true                # NUEVA v3 (2026-05-02): compra YES en zona incertidumbre $0.42-$0.58
+      enabled: true                # ACTIVA (única): compra YES en zona incertidumbre $0.42-$0.58. Backtest: WR=58% EV=+$3.53/trade.
       min_volume: 30000            # USD volumen mínimo
       min_liquidity: 5000          # USD liquidez mínima
       min_days_left: 1             # Días mínimos hasta expiración
@@ -321,17 +301,18 @@ polymarket_snipe:
   snipe:
     min_minute: 13                  # Entrar en minuto 13
     max_minute: 14.5                # Hasta minuto 14.5
-    momentum_threshold_pct: 0.10    # Mínimo 0.10% de movimiento BTC/SOL/etc
-    max_entry_price: 0.97           # No comprar si el lado ganador > $0.97
-    min_entry_price: 0.88           # No comprar si < $0.88 (aún incierto)
-    order_size_shares: 40           # Shares por trade SNIPE
+    momentum_threshold_pct: 0.15    # Mínimo 0.15% de movimiento (subido 0.10→0.15: filtra oracle gaps)
+    max_entry_price: 0.96           # No comprar si el lado ganador > $0.96 (bajado 0.97→0.96)
+    min_entry_price: 0.90           # No comprar si < $0.90 (subido 0.88→0.90: R:R mínimo 1:9)
+    order_size_shares: 20           # Shares base por trade SNIPE (reducido 40→20: loss máx ~$18)
+    dynamic_sizing: true            # Tamaño inverso al precio: +shares si entry<$0.92, -shares si>$0.94
   arb:
     target_cost: 0.985              # Comprar YES+NO si suma < $0.985
     min_gap: 0.015                  # Gap mínimo de profit por share
     order_size_shares: 25           # Shares por lado en ARB
   risk:
-    max_daily_loss: 40.0            # USD máx de pérdida diaria (1 loss = ~$38, permite 2)
-    max_concurrent_positions: 3     # Máx posiciones simultáneas
+    max_daily_loss: 20.0            # USD máx de pérdida diaria (reducido 40→20)
+    max_concurrent_positions: 2     # Máx posiciones simultáneas (reducido 3→2)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # BASIS TRADE — Spot-Futures Funding Rate Capture (Market-Neutral)
@@ -369,7 +350,7 @@ vol_mean_reversion:
 # PAIRS TRADING — Estrategia de pares cointegrados
 # ══════════════════════════════════════════════════════════════════════════════
 pairs_trading:
-  enabled: false                      # Se activa en Fase 4
+  enabled: true                       # Activado Fase 4
   paper_trading: true
   initial_balance: 500.0
   pairs:

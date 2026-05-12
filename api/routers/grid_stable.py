@@ -6,9 +6,13 @@ router = APIRouter()
 
 
 @router.get('/trades')
-def get_trades(limit: int = 200, pair: str = None):
+def get_trades(limit: int = 200, pair: str = None, scope: str = Query("all", description="all | recent"),
+               days: int = Query(30, description="Days window for recent scope")):
     where = "strategy = 'GRID_STABLE'"
     params = {'limit': limit}
+    if scope == "recent":
+        where += " AND timestamp_open >= NOW() - :window * INTERVAL '1 day'"
+        params['window'] = days
     if pair:
         where += " AND asset = :pair"
         params['pair'] = pair
@@ -19,9 +23,16 @@ def get_trades(limit: int = 200, pair: str = None):
 
 
 @router.get('/stats')
-def stats():
+def stats(scope: str = Query("all", description="all | recent"),
+          days: int = Query(30, description="Days window for recent scope")):
     """KPIs del Grid Stable Bot por par."""
-    row = q_one("""
+    window_filter = ""
+    window_params = {}
+    if scope == "recent":
+        window_filter = "AND timestamp_open >= NOW() - :window * INTERVAL '1 day'"
+        window_params['window'] = days
+
+    row = q_one(f"""
         SELECT
             COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_closed,
             COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
@@ -31,29 +42,29 @@ def stats():
             COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
             COALESCE(AVG(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS avg_win,
             COALESCE(AVG(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0), 0) AS avg_loss
-        FROM trades WHERE strategy = 'GRID_STABLE'
-    """) or {}
+        FROM trades WHERE strategy = 'GRID_STABLE' {window_filter}
+    """, window_params) or {}
     closed = int(row.get('total_closed') or 0)
     winners = int(row.get('winners') or 0)
     gp = float(row.get('gross_profit') or 0)
     gl = float(row.get('gross_loss') or 0)
 
     # Por par
-    by_pair = q("""
+    by_pair = q(f"""
         SELECT asset, COUNT(*) as trades,
                COUNT(*) FILTER (WHERE pnl > 0) as wins,
                SUM(pnl) as total_pnl,
                ROUND((COUNT(*) FILTER (WHERE pnl > 0)::numeric / NULLIF(COUNT(*),0))*100, 1) as wr
-        FROM trades WHERE strategy = 'GRID_STABLE' AND status = 'CLOSED'
+        FROM trades WHERE strategy = 'GRID_STABLE' AND status = 'CLOSED' {window_filter}
         GROUP BY asset ORDER BY asset
-    """)
+    """, window_params)
 
     # Por close_reason
-    by_reason = q("""
+    by_reason = q(f"""
         SELECT close_reason, COUNT(*) as count, SUM(pnl) as total_pnl
-        FROM trades WHERE strategy = 'GRID_STABLE' AND status = 'CLOSED'
+        FROM trades WHERE strategy = 'GRID_STABLE' AND status = 'CLOSED' {window_filter}
         GROUP BY close_reason ORDER BY close_reason
-    """)
+    """, window_params)
 
     return {
         'total_trades': closed,
@@ -70,7 +81,17 @@ def stats():
 
 
 @router.get('/stats/daily')
-def daily_pnl():
+def daily_pnl(scope: str = Query("all", description="all | recent"),
+              days: int = Query(30, description="Days window for recent scope")):
+    if scope == "recent":
+        return q("""
+            SELECT DATE(timestamp_close) AS day, asset, SUM(pnl) AS pnl, COUNT(*) AS trades
+            FROM trades
+            WHERE strategy = 'GRID_STABLE' AND status = 'CLOSED' AND timestamp_close IS NOT NULL
+              AND timestamp_open >= NOW() - :window * INTERVAL '1 day'
+            GROUP BY DATE(timestamp_close), asset
+            ORDER BY day DESC, asset
+        """, {'window': days})
     return q("""
         SELECT DATE(timestamp_close) AS day, asset, SUM(pnl) AS pnl, COUNT(*) AS trades
         FROM trades

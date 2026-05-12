@@ -1,23 +1,37 @@
 """Router: Overview — resumen de todos los agentes (v2 — session-scoped + fixes)."""
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from api.db import q, q_one
 
 router = APIRouter()
 
 
 @router.get('/')
-def overview():
+def overview(scope: str = Query("session", description="session | all")):
     """Un solo endpoint que agrega KPIs de todos los agentes para el Overview page."""
     result = {}
 
     # ── Stocks agent ──
     try:
-        sess = q_one("SELECT * FROM stocks_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not sess:
-            sess = q_one("SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1")
-        if sess:
-            sid = sess['id']
-            sname = sess['session_name']
+        if scope == "session":
+            sess = q_one("SELECT * FROM stocks_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            if not sess:
+                sess = q_one("SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1")
+            if sess:
+                sid = sess['id']
+                sname = sess['session_name']
+                stats = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_closed,
+                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                        COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
+                    FROM stocks_trades WHERE session_id = :sid
+                """, {'sid': sid})
+        else:
+            sess = q_one("SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1") or {}
+            sname = sess.get('session_name', 'all')
             stats = q_one("""
                 SELECT
                     COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_closed,
@@ -26,37 +40,53 @@ def overview():
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
                     COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
-                FROM stocks_trades WHERE session_id = :sid
-            """, {'sid': sid})
-            closed = int(stats['total_closed'] or 0)
-            winners = int(stats['winners'] or 0)
-            gp = float(stats['gross_profit'] or 0)
-            gl = float(stats['gross_loss'] or 0)
+                FROM stocks_trades
+            """) or {}
+        if sess:
+            closed = int(stats.get('total_closed') or 0)
+            winners = int(stats.get('winners') or 0)
+            gp = float(stats.get('gross_profit') or 0)
+            gl = float(stats.get('gross_loss') or 0)
             result['stocks'] = {
                 'session_name': sname,
-                'balance': float(sess['current_balance'] or sess['initial_balance'] or 220),
-                'initial_balance': float(sess['initial_balance'] or 220),
-                'total_pnl': round(float(stats['total_pnl'] or 0), 2),
+                'balance': float(sess.get('current_balance') or sess.get('initial_balance') or 220),
+                'initial_balance': float(sess.get('initial_balance') or 220),
+                'total_pnl': round(float(stats.get('total_pnl') or 0), 2),
                 'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
                 'profit_factor': round(gp / gl, 2) if gl > 0 else 0,
-                'open_trades': int(stats['open_count'] or 0),
+                'open_trades': int(stats.get('open_count') or 0),
                 'total_trades': closed,
                 'max_drawdown': float(sess.get('max_drawdown') or 0),
-                'status': sess['status'],
+                'status': sess.get('status', 'no_data'),
             }
     except Exception:
         result['stocks'] = {'status': 'error'}
 
     # ── Crypto agent ──
     try:
-        sess = q_one("SELECT * FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not sess:
-            sess = q_one("SELECT * FROM paper_sessions ORDER BY started_at DESC LIMIT 1")
-        if sess:
-            sname = sess['session_name']
-            sstart = sess['started_at']
-            pf = q_one("SELECT * FROM portfolio WHERE timestamp >= :ts ORDER BY timestamp DESC LIMIT 1",
-                       {'ts': sstart}) or {}
+        if scope == "session":
+            sess = q_one("SELECT * FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            if not sess:
+                sess = q_one("SELECT * FROM paper_sessions ORDER BY started_at DESC LIMIT 1")
+            if sess:
+                sname = sess['session_name']
+                sstart = sess['started_at']
+                pf = q_one("SELECT * FROM portfolio WHERE timestamp >= :ts ORDER BY timestamp DESC LIMIT 1",
+                           {'ts': sstart}) or {}
+                stats = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_CLOSE') AS total_closed,
+                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                        COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
+                    FROM trades WHERE timestamp_open >= :ts
+                """, {'ts': sstart}) or {}
+        else:
+            sess = q_one("SELECT * FROM paper_sessions ORDER BY started_at DESC LIMIT 1") or {}
+            sname = sess.get('session_name', 'all')
+            pf = q_one("SELECT * FROM portfolio ORDER BY timestamp DESC LIMIT 1") or {}
             stats = q_one("""
                 SELECT
                     COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_CLOSE') AS total_closed,
@@ -65,16 +95,17 @@ def overview():
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
                     COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
-                FROM trades WHERE timestamp_open >= :ts
-            """, {'ts': sstart}) or {}
+                FROM trades
+            """) or {}
+        if sess:
             closed = int(stats.get('total_closed') or 0)
             winners = int(stats.get('winners') or 0)
             gp = float(stats.get('gross_profit') or 0)
             gl = float(stats.get('gross_loss') or 0)
             result['crypto'] = {
                 'session_name': sname,
-                'balance': float(pf.get('total_balance') or sess['initial_balance'] or 10000),
-                'initial_balance': float(sess['initial_balance'] or 10000),
+                'balance': float(pf.get('total_balance') or sess.get('initial_balance') or 10000),
+                'initial_balance': float(sess.get('initial_balance') or 10000),
                 'drawdown_pct': float(pf.get('drawdown_pct') or 0),
                 'exposure_pct': float(pf.get('exposure_pct') or 0),
                 'total_pnl': round(float(stats.get('total_pnl') or 0), 2),
@@ -83,18 +114,32 @@ def overview():
                 'open_trades': int(stats.get('open_count') or 0),
                 'total_trades': closed,
                 'max_drawdown': float(sess.get('max_drawdown') or 0),
-                'status': sess['status'],
+                'status': sess.get('status', 'no_data'),
             }
     except Exception:
         result['crypto'] = {'status': 'error'}
 
     # ── Polymarket ──
     try:
-        sess = q_one("SELECT * FROM poly_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not sess:
-            sess = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1")
-        if sess:
-            sname = sess['session_name']
+        if scope == "session":
+            sess = q_one("SELECT * FROM poly_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            if not sess:
+                sess = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1")
+            if sess:
+                sname = sess['session_name']
+                stats = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_RESET') AS total,
+                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                        COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
+                    FROM poly_positions WHERE session_name = :sn
+                """, {'sn': sname}) or {}
+        else:
+            sess = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1") or {}
+            sname = sess.get('session_name', 'all')
             stats = q_one("""
                 SELECT
                     COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_RESET') AS total,
@@ -103,73 +148,103 @@ def overview():
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
                     COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
                     COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
-                FROM poly_positions WHERE session_name = :sn
-            """, {'sn': sname}) or {}
+                FROM poly_positions
+            """) or {}
+        if sess:
             closed = int(stats.get('total') or 0)
             winners = int(stats.get('winners') or 0)
             gp = float(stats.get('gross_profit') or 0)
             gl = float(stats.get('gross_loss') or 0)
             result['polymarket'] = {
                 'session_name': sname,
-                'balance': float(sess['current_balance'] or sess['initial_balance'] or 1000),
-                'initial_balance': float(sess['initial_balance'] or 1000),
+                'balance': float(sess.get('current_balance') or sess.get('initial_balance') or 1000),
+                'initial_balance': float(sess.get('initial_balance') or 1000),
                 'total_pnl': round(float(stats.get('total_pnl') or 0), 2),
                 'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
                 'profit_factor': round(gp / gl, 2) if gl > 0 else 0,
                 'open_trades': int(stats.get('open_count') or 0),
                 'total_trades': closed,
                 'max_drawdown': float(sess.get('max_drawdown') or 0),
-                'status': sess['status'],
+                'status': sess.get('status', 'no_data'),
             }
     except Exception:
         result['polymarket'] = {'status': 'error'}
 
     # ── Options ──
     try:
-        sess = q_one("SELECT * FROM options_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not sess:
-            sess = q_one("SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1")
-        if sess:
-            sname = sess['session_name']
+        if scope == "session":
+            sess = q_one("SELECT * FROM options_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            if not sess:
+                sess = q_one("SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1")
+            if sess:
+                sname = sess['session_name']
+                stats = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status != 'OPEN') AS total,
+                        COUNT(*) FILTER (WHERE status != 'OPEN' AND pnl_usd > 0) AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(entry_premium_usd) FILTER (WHERE status != 'OPEN'), 0) AS total_premium,
+                        COALESCE(SUM(pnl_usd) FILTER (WHERE status != 'OPEN'), 0) AS total_pnl
+                    FROM options_positions
+                    WHERE opened_at >= :started_at
+                """, {'started_at': sess['started_at']}) or {}
+        else:
+            sess = q_one("SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1") or {}
+            sname = sess.get('session_name', 'all')
             stats = q_one("""
                 SELECT
-                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
-                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl_usd > 0) AS winners,
+                    COUNT(*) FILTER (WHERE status != 'OPEN') AS total,
+                    COUNT(*) FILTER (WHERE status != 'OPEN' AND pnl_usd > 0) AS winners,
                     COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                    COALESCE(SUM(entry_premium_usd) FILTER (WHERE status = 'CLOSED'), 0) AS total_premium,
-                    COALESCE(SUM(pnl_usd) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
+                    COALESCE(SUM(entry_premium_usd) FILTER (WHERE status != 'OPEN'), 0) AS total_premium,
+                    COALESCE(SUM(pnl_usd) FILTER (WHERE status != 'OPEN'), 0) AS total_pnl
                 FROM options_positions
             """) or {}
+        if sess:
             closed = int(stats.get('total') or 0)
             winners = int(stats.get('winners') or 0)
             result['options'] = {
                 'session_name': sname,
-                'balance': float(sess['current_balance_usd'] or sess['initial_balance_usd'] or 2000),
-                'initial_balance': float(sess['initial_balance_usd'] or 2000),
+                'balance': float(sess.get('current_balance_usd') or sess.get('initial_balance_usd') or 2000),
+                'initial_balance': float(sess.get('initial_balance_usd') or 2000),
                 'total_premium': round(float(stats.get('total_premium') or 0), 2),
                 'total_pnl': round(float(stats.get('total_pnl') or 0), 2),
                 'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
                 'open_trades': int(stats.get('open_count') or 0),
                 'total_trades': closed,
-                'status': sess['status'],
+                'status': sess.get('status', 'no_data'),
             }
     except Exception:
         result['options'] = {'status': 'error'}
 
     # ── PolySnipe ──
     try:
-        snipe_s = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not snipe_s:
+        if scope == "session":
+            snipe_s = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+            if not snipe_s:
+                snipe_s = q_one("SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1")
+            if snipe_s:
+                snipe_st = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
+                        COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
+                    FROM snipe_trades
+                    WHERE timestamp_open >= :started_at
+                """, {'started_at': snipe_s['started_at']}) or {}
+        else:
             snipe_s = q_one("SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1")
+            if snipe_s:
+                snipe_st = q_one("""
+                    SELECT
+                        COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
+                        COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
+                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                        COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
+                    FROM snipe_trades
+                """) or {}
         if snipe_s:
-            snipe_st = q_one("""
-                SELECT
-                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
-                    COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
-                    COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                    COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
-                FROM snipe_trades
-            """) or {}
             closed = int(snipe_st.get('total') or 0)
             winners = int(snipe_st.get('winners') or 0)
             result['snipe'] = {
@@ -338,3 +413,79 @@ def daily_pnl(limit: int = 90):
         ORDER BY series.date
     """)
     return [{'date': str(r['date']), 'pnl': round(float(r['pnl'] or 0), 2)} for r in rows]
+
+
+@router.get('/risk')
+def risk_metrics():
+    """Métricas de riesgo: Sharpe, Sortino, VaR, MaxDD, returns mensuales."""
+    pnl_rows = q("""
+        SELECT DATE(timestamp_close) as dt, SUM(pnl) as pnl
+        FROM trades WHERE status='CLOSED'
+        GROUP BY dt ORDER BY dt
+    """)
+    if not pnl_rows:
+        return {'error': 'no_data'}
+
+    import numpy as np
+    daily_returns = [float(r['pnl']) for r in pnl_rows]
+    if len(daily_returns) < 30:
+        return {'error': 'insufficient_data', 'days': len(daily_returns)}
+
+    arr = np.array(daily_returns)
+    total_return = round(float(arr.sum()), 2)
+    mean_daily = float(arr.mean())
+    std_daily = float(arr.std())
+
+    # Sharpe ratio (risk-free = 0, annualized 252 days)
+    sharpe = round((mean_daily / std_daily * np.sqrt(252)) if std_daily > 0 else 0, 2)
+
+    # Sortino ratio
+    neg = arr[arr < 0]
+    downside_std = float(neg.std()) if len(neg) > 0 else 0
+    sortino = round((mean_daily / downside_std * np.sqrt(252)) if downside_std > 0 else 0, 2)
+
+    # VaR 95% (historical)
+    var_95 = round(float(np.percentile(arr, 5)), 2)
+
+    # Max drawdown
+    cumulative = np.cumsum(arr)
+    peak = np.maximum.accumulate(cumulative)
+    dd = cumulative - peak
+    max_dd = round(float(dd.min()), 2)
+    max_dd_pct = round(float(dd.min() / abs(peak.max())) * 100 if peak.max() > 0 else 0, 2)
+
+    # Daily return stats
+    win_days = int((arr > 0).sum())
+    loss_days = int((arr < 0).sum())
+    wr_daily = round(win_days / len(arr) * 100, 1) if len(arr) > 0 else 0
+    avg_win = round(float(arr[arr > 0].mean()), 2) if win_days > 0 else 0
+    avg_loss = round(float(arr[arr < 0].mean()), 2) if loss_days > 0 else 0
+
+    # Monthly returns
+    monthly = q("""
+        SELECT DATE_TRUNC('month', timestamp_close) as month, SUM(pnl) as pnl
+        FROM trades WHERE status='CLOSED'
+        GROUP BY month ORDER BY month DESC LIMIT 12
+    """)
+    monthly_returns = [
+        {'month': str(r['month'])[:7], 'pnl': round(float(r['pnl'] or 0), 2)}
+        for r in monthly
+    ]
+
+    return {
+        'sharpe': sharpe,
+        'sortino': sortino,
+        'var_95': var_95,
+        'max_drawdown': max_dd,
+        'max_drawdown_pct': max_dd_pct,
+        'total_return': total_return,
+        'mean_daily': round(mean_daily, 2),
+        'std_daily': round(std_daily, 2),
+        'win_days': win_days,
+        'loss_days': loss_days,
+        'wr_daily': wr_daily,
+        'avg_win': avg_win,
+        'avg_loss': avg_loss,
+        'monthly_returns': monthly_returns,
+        'days': len(daily_returns),
+    }

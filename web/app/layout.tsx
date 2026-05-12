@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import Sidebar from '@/components/Sidebar'
+import AppShell from '@/components/AppShell'
 import LiveTicker from '@/components/LiveTicker'
 
 export const metadata: Metadata = {
@@ -9,17 +9,19 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.ico' },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#0D1117',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="bg-bg text-white">
+      <body className="bg-bg text-white overflow-x-hidden">
         <LiveTicker />
-        <div className="flex">
-          <Sidebar />
-          <main className="ml-56 flex-1 min-h-screen p-6 mt-0">
-            {children}
-          </main>
-        </div>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   )

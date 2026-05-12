@@ -1,31 +1,70 @@
-import { api } from '@/lib/api'
+'use client'
+
+import { useEffect, useState, useMemo } from 'react'
 import { fmt, fmtPnl, fmtPct, pnlClass } from '@/lib/fmt'
 import { clsx } from 'clsx'
 
-export const revalidate = 30
+const API = '/api'
 
-export default async function SnipePage() {
-  const [tradesRes, statsRes] = await Promise.allSettled([
-    api.snipe(200),
-    api.snipeStats(),
-  ])
+type Scope = 'session' | 'all'
 
-  const trades = tradesRes.status === 'fulfilled' ? tradesRes.value : []
-  const stats = statsRes.status === 'fulfilled' ? statsRes.value : {}
+async function fetchJSON(url: string) {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`${url} -> ${res.status}`)
+  return res.json()
+}
 
-  const closed = trades.filter((t: any) => t.status === 'CLOSED')
-  const open = trades.filter((t: any) => t.status === 'OPEN')
-  const winners = closed.filter((t: any) => t.outcome === 'WIN').length
-  const totalPnl = closed.reduce((s: number, t: any) => s + (t.pnl_usdc || 0), 0)
-  const wr = closed.length > 0 ? winners / closed.length * 100 : 0
-  const snipeTrades = trades.filter((t: any) => t.strategy === 'SNIPE').length
-  const arbTrades = trades.filter((t: any) => t.strategy === 'ARB').length
+export default function SnipePage() {
+  const [scope, setScope] = useState<Scope>('session')
+  const [data, setData] = useState<Record<Scope, { trades: any[]; stats: any }>>({
+    session: { trades: [], stats: {} },
+    all: { trades: [], stats: {} },
+  })
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const [sTrades, sStats, aTrades, aStats] = await Promise.allSettled([
+          fetchJSON(`${API}/polymarket/snipe?scope=session&limit=200`),
+          fetchJSON(`${API}/polymarket/snipe/stats?scope=session`),
+          fetchJSON(`${API}/polymarket/snipe?scope=all&limit=200`),
+          fetchJSON(`${API}/polymarket/snipe/stats?scope=all`),
+        ])
+        setData({
+          session: {
+            trades: sTrades.status === 'fulfilled' ? sTrades.value : [],
+            stats: sStats.status === 'fulfilled' ? sStats.value : {},
+          },
+          all: {
+            trades: aTrades.status === 'fulfilled' ? aTrades.value : [],
+            stats: aStats.status === 'fulfilled' ? aStats.value : {},
+          },
+        })
+      } catch {}
+      setLoading(false)
+    }
+    load()
+  }, [])
+
+  const { trades, stats } = data[scope]
+
+  const closed = useMemo(() => trades.filter((t: any) => t.status !== 'OPEN'), [trades])
+  const open = useMemo(() => trades.filter((t: any) => t.status === 'OPEN'), [trades])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-muted text-sm animate-pulse">Cargando datos de snipe...</div>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">PolySnipe — SNIPE + ARB</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">PolySnipe — SNIPE + ARB</h1>
           <p className="text-sm text-muted mt-1">
             Late-entry Up/Down 15m · WR documentado 94% · Reemplaza BTC Direction
           </p>
@@ -33,14 +72,32 @@ export default async function SnipePage() {
         <span className="badge badge-green text-xs">🎯 v1 — PAPER</span>
       </div>
 
+      {/* Scope Toggle */}
+      <div className="flex gap-1 p-1 rounded-lg bg-surface border border-border w-fit">
+        {(['session', 'all'] as Scope[]).map((s) => (
+          <button
+            key={s}
+            onClick={() => setScope(s)}
+            className={clsx(
+              'px-4 py-1.5 text-xs font-semibold rounded-md transition-all',
+              scope === s
+                ? 'bg-white/10 text-white shadow-sm'
+                : 'text-muted hover:text-white/80'
+            )}
+          >
+            {s === 'session' ? '📌 Sesión' : '📜 Histórico'}
+          </button>
+        ))}
+      </div>
+
       {/* KPIs */}
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         {[
           ['Balance', `$${fmt(stats.balance ?? 500, 0)}`, 'text-white'],
-          ['P&L', fmtPnl(totalPnl), pnlClass(totalPnl)],
-          ['Win Rate', fmtPct(wr), wr >= 80 ? 'pos' : wr >= 50 ? 'text-gold' : 'neg'],
-          ['SNIPE Trades', snipeTrades, 'text-blue'],
-          ['ARB Trades', arbTrades, 'text-purple'],
+          ['P&L', fmtPnl(stats.total_pnl ?? 0), pnlClass(stats.total_pnl ?? 0)],
+          ['Win Rate', fmtPct(stats.win_rate ?? 0), (stats.win_rate ?? 0) >= 80 ? 'pos' : (stats.win_rate ?? 0) >= 50 ? 'text-gold' : 'neg'],
+          ['SNIPE Trades', stats.snipe_cnt ?? 0, 'text-blue'],
+          ['ARB Trades', stats.arb_cnt ?? 0, 'text-purple'],
           ['Abiertos', open.length, open.length > 0 ? 'text-gold' : 'text-muted'],
         ].map(([label, value, cls]) => (
           <div key={label as string} className="card text-center">

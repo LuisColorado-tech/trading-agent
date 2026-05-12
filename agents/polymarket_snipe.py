@@ -49,6 +49,7 @@ SNIPE_THRESHOLD  = _CFG.get('snipe', {}).get('momentum_threshold_pct', 0.10)
 SNIPE_MAX_ENTRY  = _CFG.get('snipe', {}).get('max_entry_price', 0.97)
 SNIPE_MIN_ENTRY  = _CFG.get('snipe', {}).get('min_entry_price', 0.88)
 SNIPE_SIZE       = _CFG.get('snipe', {}).get('order_size_shares', 40)
+SNIPE_DYNAMIC    = _CFG.get('snipe', {}).get('dynamic_sizing', True)
 
 # ── ARB params ──
 ARB_TARGET_COST = _CFG.get('arb', {}).get('target_cost', 0.985)
@@ -288,6 +289,26 @@ def evaluate_snipe(market: dict) -> dict | None:
     }
 
 
+def snipe_dynamic_size(entry_price: float) -> int:
+    """Ajusta el tamaño de la posición inversamente al precio de entrada.
+    
+    R:R mejora a menor precio: entry=$0.90 → R:R=1:9, entry=$0.95 → R:R=1:19.
+    Más shares cuando el R:R es favorable, menos cuando el edge es mínimo.
+    """
+    base = SNIPE_SIZE
+    if not SNIPE_DYNAMIC:
+        return base
+    if entry_price <= 0.90:
+        return min(base + 15, 40)
+    elif entry_price <= 0.92:
+        return min(base + 10, 35)
+    elif entry_price >= 0.95:
+        return max(base - 10, 10)
+    elif entry_price >= 0.94:
+        return max(base - 5, 10)
+    return base
+
+
 def check_price_in_entry_zone(win_side_price: float, is_snipe: bool = True) -> bool:
     if is_snipe:
         return SNIPE_MIN_ENTRY <= win_side_price <= SNIPE_MAX_ENTRY
@@ -352,7 +373,7 @@ def open_snipe_trade(market: dict, signal: dict, tokens: dict):
     if not check_price_in_entry_zone(entry_price, is_snipe=True):
         return
 
-    shares = SNIPE_SIZE
+    shares = snipe_dynamic_size(entry_price)
     cost = round(shares * entry_price, 4)
     if cost > PAPER_BALANCE * 0.4:
         logger.info(f'SNIPE [{market["_asset"]}] rechazado: cost ${cost:.2f} > 40% balance')

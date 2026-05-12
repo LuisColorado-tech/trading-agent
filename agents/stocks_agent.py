@@ -50,14 +50,12 @@ from strategies.stocks_trend_etf import StocksTrendEtfStrategy
 STOCKS_UNIVERSE = [
     # Acciones individuales — MOMENTUM strategy, PF post-ADX
     'TSLA',  # PF=1.23
-    'AAPL',  # PF=1.16
     'AMZN',  # PF=1.18
-    'NVDA',  # PF=1.09
-    'META',  # PF=1.03
+    # Removidos May 2026 (PF<1.15, lastre): NVDA PF=1.09, META PF=1.03, AAPL PF=1.16
     # ETFs USA
     'QQQ',   # PF=1.07 — TREND_ETF strategy
     'GLD',   # PF=1.21 — TREND_ETF strategy, bull run oro 2024-26
-    'SLV',   # PF=1.31 ✓ — ETF Plata, WR=37.2%, MaxDD=14.3%, añadido backtest 24m
+    'SLV',   # PF=1.31 — ETF Plata, WR=37.2%, MaxDD=14.3%
     # ETFs internacionales
     'EEM',   # PF=1.23 — Emergentes
     'FXI',   # PF=1.23 — China

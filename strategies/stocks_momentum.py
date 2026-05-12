@@ -9,7 +9,7 @@ Adaptado de TrendMomentumStrategy pero calibrado para stocks:
 - xsignal_boost: si hay señal alineada en xsignals_signals las últimas 48h,
   se agrega puntos extra al score
 
-MIN_SCORE = 65 (igual que TrendMomentumStrategy)
+MIN_SCORE = 65 (igual que TrendMomentumStrategy, subido a 72 May 2026 para filtrar señales débiles)
 """
 from agents.indicators import IndicatorSet
 from core.stocks_profiles import get_stocks_profile
@@ -17,7 +17,7 @@ from core.stocks_profiles import get_stocks_profile
 
 class StocksMomentumStrategy:
     NAME = 'STOCKS_MOMENTUM'
-    MIN_SCORE = 65
+    MIN_SCORE = 72  # subido de 65: WR 35.4%→esperado 42%+ filtrando señales débiles
 
     def score(self, ind: IndicatorSet, xsignal_boost: int = 0, xsignal_dir: str = '') -> dict:
         """Evalúa ambas direcciones y devuelve la mejor señal.

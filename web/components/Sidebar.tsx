@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, TrendingUp, Activity, BarChart2, PieChart, Bitcoin, Coins, Gem, Target, TrendingDown, Grid3X3, Layers } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, Activity, BarChart2, PieChart, Bitcoin, Coins, Gem, Target, TrendingDown, Grid3X3, Layers, Link2, X } from 'lucide-react'
 import { clsx } from 'clsx'
 
 const NAV = [
@@ -10,6 +10,7 @@ const NAV = [
   { href: '/crypto',       label: 'TrendMomentum',    icon: TrendingDown },
   { href: '/grid-bot',     label: 'Grid Bot',         icon: Grid3X3 },
   { href: '/grid-stable',  label: 'Grid Stable',      icon: Layers },
+  { href: '/pairs',         label: 'Pairs Trading',    icon: Link2 },
   { href: '/polymarket',   label: 'Polymarket',       icon: Coins },
   { href: '/options',      label: 'Options',          icon: Gem },
   { href: '/snipe',        label: 'PolySnipe',        icon: Target },
@@ -19,30 +20,70 @@ const NAV = [
   { href: '/analytics',    label: 'Analytics',        icon: PieChart },
 ]
 
-export default function Sidebar() {
+interface Props {
+  open: boolean
+  onClose: () => void
+  isMobile: boolean
+}
+
+export default function Sidebar({ open, onClose, isMobile }: Props) {
   const path = usePathname()
 
   return (
-    <aside className="fixed left-0 top-9 bottom-0 w-56 bg-surface border-r border-border flex flex-col z-40">
-      {/* Logo */}
-      <div className="px-5 py-5 border-b border-border">
-        <div className="flex items-center gap-2.5">
-          <span className="text-xl">⚡</span>
-          <div>
-            <div className="text-sm font-semibold text-white tracking-tight">ARTHAS</div>
-            <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v3</div>
+    <aside
+      className={clsx(
+        'bg-surface border-r border-border flex flex-col',
+        isMobile
+          ? [
+              'fixed inset-y-0 left-0 top-0 z-50 w-72',
+              'transition-transform duration-300 ease-in-out',
+              open ? 'translate-x-0' : '-translate-x-full',
+            ]
+          : 'fixed left-0 top-9 bottom-0 w-56 z-40',
+      )}
+    >
+      {/* Mobile close button */}
+      {isMobile && (
+        <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+          <div className="flex items-center gap-2.5">
+            <span className="text-xl">⚡</span>
+            <div>
+              <div className="text-sm font-semibold text-white tracking-tight">ARTHAS</div>
+              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v3</div>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-md text-muted hover:text-white hover:bg-white/[0.06] transition-colors"
+            aria-label="Cerrar menú"
+          >
+            <X size={18} strokeWidth={1.5} />
+          </button>
+        </div>
+      )}
+
+      {/* Logo (desktop only) */}
+      {!isMobile && (
+        <div className="px-5 py-5 border-b border-border">
+          <div className="flex items-center gap-2.5">
+            <span className="text-xl">⚡</span>
+            <div>
+              <div className="text-sm font-semibold text-white tracking-tight">ARTHAS</div>
+              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v3</div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-0.5">
+      <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
         {NAV.map(({ href, label, icon: Icon }) => {
           const active = path === href || (href !== '/' && path.startsWith(href))
           return (
             <Link
               key={href}
               href={href}
+              onClick={isMobile ? onClose : undefined}
               className={clsx(
                 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-150',
                 active

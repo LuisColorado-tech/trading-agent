@@ -52,16 +52,16 @@ export default async function OverviewPage() {
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       {/* Header row */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
-          <p className="text-sm text-muted mt-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
+          <p className="text-xs sm:text-sm text-muted mt-1">
             {activeCount}/8 agentes activos · paper trading · v4
           </p>
         </div>
-        <div className="text-right">
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-0.5">P&L Consolidado</div>
-          <div className={clsx('text-xl font-mono font-bold', consolidated >= 0 ? 'pos' : 'neg')}>
+        <div className="sm:text-right">
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-0.5">P&L Consolidado</div>
+          <div className={clsx('text-lg sm:text-xl font-mono font-bold', consolidated >= 0 ? 'pos' : 'neg')}>
             {fmtPnl(consolidated)}
           </div>
         </div>
@@ -71,7 +71,7 @@ export default async function OverviewPage() {
       <ConsortiumWidget />
 
       {/* Agent cards */}
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
         <AgentCard
           title="Stocks — NYSE/NASDAQ"
           icon="📈"
@@ -236,24 +236,44 @@ export default async function OverviewPage() {
           icon="📉"
           href="/trades"
           sessionName="VOL_MEAN_REVERSION"
-          balance={500}
-          pnl={0}
+          balance={514.50}
+          pnl={14.50}
           winRate={66.7}
-          profitFactor={1.46}
+          profitFactor={0.65}
           openTrades={0}
-          totalTrades={0}
-          drawdown={3.7}
+          totalTrades={18}
+          drawdown={4.0}
           status="DEV"
           color="purple"
           extra={[
             { label: '🟡 DEV', value: 'VIX > p80 → Long SVXY', cls: 'text-purple' },
-            { label: 'Backtest', value: '5Y · PF=1.46 · WR=67%', cls: 'text-muted' },
+            { label: 'Backtest', value: '5Y real · PF=0.65 · WR=67%', cls: 'text-muted' },
+          ]}
+        />
+        
+        <AgentCard
+          title="Pairs Trading — GLD-SLV"
+          icon="🔗"
+          href="/trades"
+          sessionName="PAIRS_TRADING"
+          balance={496.03}
+          pnl={-3.97}
+          winRate={42.9}
+          profitFactor={0.82}
+          openTrades={0}
+          totalTrades={7}
+          drawdown={1.4}
+          status="DEV"
+          color="orange"
+          extra={[
+            { label: '🟡 DEV', value: 'Cointegration z-score', cls: 'text-orange' },
+            { label: 'Backtest', value: '5Y · PF=0.82 · WR=43%', cls: 'text-muted' },
           ]}
         />
       </div>
 
       {/* Allocation + Equity charts */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         <div className="card">
           <AllocationChart data={[
             { agent: 'Crypto', balance: c.balance ?? 0 },

@@ -37,8 +37,6 @@ from core.poly_session_manager import PolySessionManager
 from core.poly_strategy_hub import PolyStrategyHub
 from data.polymarket_feed import PolymarketFeed
 from risk.poly_risk import PolyRiskManager
-from strategies.signal_based_poly import SignalBasedPolyStrategy
-
 SCAN_INTERVAL = _CFG.get('scan_interval_seconds', 300)
 INITIAL_BALANCE = _CFG.get('initial_paper_balance', 1000.0)
 MAX_DD_PCT = _CFG.get('risk', {}).get('max_session_drawdown_pct', 20.0)
@@ -176,8 +174,7 @@ def main():
         return
 
     feed = PolymarketFeed()
-    hub = PolyStrategyHub()          # Hub multi-estrategia (incluye SignalBasedPolyStrategy)
-    strategy = hub.get_strategy('signal_based') or SignalBasedPolyStrategy()  # fallback
+    hub = PolyStrategyHub()          # Hub multi-estrategia (carga solo las habilitadas en config)
     risk = PolyRiskManager()
     executor = PolyExecutor()
     monitor = PolyMonitor(feed)

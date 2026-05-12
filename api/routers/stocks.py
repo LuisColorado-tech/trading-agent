@@ -1,5 +1,5 @@
 """Router: agente de stocks (NYSE/NASDAQ — Alpaca paper)."""
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from api.db import q, q_one
 
 router = APIRouter()
@@ -7,25 +7,42 @@ router = APIRouter()
 UNIVERSE = ['TSLA', 'AAPL', 'AMZN', 'NVDA', 'META', 'QQQ', 'GLD', 'EEM', 'FXI', 'EWJ']
 
 
+def _get_active_stocks_session():
+    return q_one("SELECT id, started_at FROM stocks_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
+
+
 @router.get('/session')
-def get_session():
-    """Sesión activa + KPIs."""
+def get_session(scope: str = Query("session", description="session | all")):
+    """Sesión activa + KPIs. scope=all retorna stats históricas totales."""
     session = q_one("SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1")
     if not session:
         return {}
 
-    sid = session['id']
-    stats = q_one("""
-        SELECT
-            COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_closed,
-            COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
-            COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-            COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
-            COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
-            COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
-            COALESCE(SUM(notional) FILTER (WHERE status = 'OPEN'), 0) AS exposure
-        FROM stocks_trades WHERE session_id = :sid
-    """, {'sid': sid})
+    if scope == 'all':
+        stats = q_one("""
+            SELECT
+                COUNT(*) FILTER (WHERE status != 'OPEN') AS total_closed,
+                COUNT(*) FILTER (WHERE status != 'OPEN' AND pnl > 0) AS winners,
+                COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                COALESCE(SUM(pnl) FILTER (WHERE status != 'OPEN'), 0) AS total_pnl,
+                COALESCE(SUM(pnl) FILTER (WHERE status != 'OPEN' AND pnl > 0), 0) AS gross_profit,
+                COALESCE(ABS(SUM(pnl) FILTER (WHERE status != 'OPEN' AND pnl < 0)), 0) AS gross_loss,
+                COALESCE(SUM(notional) FILTER (WHERE status = 'OPEN'), 0) AS exposure
+            FROM stocks_trades
+        """)
+    else:
+        sid = session['id']
+        stats = q_one("""
+            SELECT
+                COUNT(*) FILTER (WHERE status != 'OPEN') AS total_closed,
+                COUNT(*) FILTER (WHERE status != 'OPEN' AND pnl > 0) AS winners,
+                COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
+                COALESCE(SUM(pnl) FILTER (WHERE status != 'OPEN'), 0) AS total_pnl,
+                COALESCE(SUM(pnl) FILTER (WHERE status != 'OPEN' AND pnl > 0), 0) AS gross_profit,
+                COALESCE(ABS(SUM(pnl) FILTER (WHERE status != 'OPEN' AND pnl < 0)), 0) AS gross_loss,
+                COALESCE(SUM(notional) FILTER (WHERE status = 'OPEN'), 0) AS exposure
+            FROM stocks_trades WHERE session_id = :sid
+        """, {'sid': sid})
 
     closed = stats['total_closed'] or 0
     winners = stats['winners'] or 0
@@ -44,10 +61,16 @@ def get_session():
 
 
 @router.get('/trades')
-def get_trades(limit: int = 200, symbol: str = None, status: str = None, strategy: str = None):
+def get_trades(limit: int = 200, symbol: str = None, status: str = None, strategy: str = None,
+               scope: str = Query("all", description="all | session")):
     """Historial de trades con filtros opcionales."""
     filters = ['1=1']
     params = {'limit': limit}
+    if scope == "session":
+        session = _get_active_stocks_session()
+        if session:
+            filters.append('session_id = :sid')
+            params['sid'] = session['id']
     if symbol:
         filters.append('symbol = :symbol')
         params['symbol'] = symbol.upper()
@@ -100,23 +123,59 @@ def get_equity_curve():
 
 
 @router.get('/universe')
-def get_universe():
-    """Stats por símbolo del universo (24h de trades)."""
-    rows = q("""
-        SELECT
-            symbol,
-            strategy,
-            COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_trades,
-            COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
-            COUNT(*) FILTER (WHERE status = 'OPEN') AS open_positions,
-            COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
-            COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
-            COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
-            MAX(opened_at) AS last_signal
-        FROM stocks_trades
-        GROUP BY symbol, strategy
-        ORDER BY total_pnl DESC
-    """)
+def get_universe(scope: str = Query("all", description="all | session")):
+    """Stats por símbolo del universo."""
+    if scope == "session":
+        session = _get_active_stocks_session()
+        if session:
+            rows = q("""
+                SELECT
+                    symbol,
+                    strategy,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_trades,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                    COUNT(*) FILTER (WHERE status = 'OPEN') AS open_positions,
+                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                    COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
+                    MAX(opened_at) AS last_signal
+                FROM stocks_trades
+                WHERE session_id = :sid
+                GROUP BY symbol, strategy
+                ORDER BY total_pnl DESC
+            """, {'sid': session['id']})
+        else:
+            rows = q("""
+                SELECT
+                    symbol,
+                    strategy,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_trades,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                    COUNT(*) FILTER (WHERE status = 'OPEN') AS open_positions,
+                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                    COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
+                    MAX(opened_at) AS last_signal
+                FROM stocks_trades
+                GROUP BY symbol, strategy
+                ORDER BY total_pnl DESC
+            """)
+    else:
+        rows = q("""
+            SELECT
+                symbol,
+                strategy,
+                COUNT(*) FILTER (WHERE status = 'CLOSED') AS total_trades,
+                COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
+                COUNT(*) FILTER (WHERE status = 'OPEN') AS open_positions,
+                COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
+                COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss,
+                MAX(opened_at) AS last_signal
+            FROM stocks_trades
+            GROUP BY symbol, strategy
+            ORDER BY total_pnl DESC
+        """)
 
     # Completar el universo con assets sin trades aún
     existing = {r['symbol'] for r in rows}
@@ -146,7 +205,21 @@ def get_universe():
 
 
 @router.get('/stats/by-strategy')
-def stats_by_strategy():
+def stats_by_strategy(scope: str = Query("all", description="all | session")):
+    if scope == "session":
+        session = _get_active_stocks_session()
+        if session:
+            return q("""
+                SELECT
+                    strategy,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED') AS trades,
+                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
+                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners
+                FROM stocks_trades
+                WHERE status = 'CLOSED' AND session_id = :sid
+                GROUP BY strategy
+                ORDER BY total_pnl DESC
+            """, {'sid': session['id']})
     return q("""
         SELECT
             strategy,
@@ -161,8 +234,21 @@ def stats_by_strategy():
 
 
 @router.get('/stats/daily-pnl')
-def daily_pnl():
+def daily_pnl(scope: str = Query("all", description="all | session")):
     """P&L por día de calendario para el heatmap."""
+    if scope == "session":
+        session = _get_active_stocks_session()
+        if session:
+            return q("""
+                SELECT
+                    DATE(closed_at) AS day,
+                    SUM(pnl) AS pnl,
+                    COUNT(*) AS trades
+                FROM stocks_trades
+                WHERE status = 'CLOSED' AND closed_at IS NOT NULL AND session_id = :sid
+                GROUP BY DATE(closed_at)
+                ORDER BY day ASC
+            """, {'sid': session['id']})
     return q("""
         SELECT
             DATE(closed_at) AS day,

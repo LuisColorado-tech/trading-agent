@@ -1,7 +1,7 @@
 import { fmtPnl } from '@/lib/fmt'
 import { clsx } from 'clsx'
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
+const API = '/api'
 
 async function getConsortium() {
   try {
@@ -33,53 +33,53 @@ export default async function ConsortiumWidget() {
 
   return (
     <div className="card border-green/15">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
         <div className="flex items-center gap-2">
           <span className="text-lg">🏦</span>
           <span className="font-semibold text-sm text-white tracking-tight">CONSORCIO ARTHAS</span>
         </div>
-        <span className="badge badge-green text-[10px]">{data.active_agents ?? 0}/5 activos</span>
+        <span className="badge badge-green text-[10px] self-start sm:self-auto">{data.active_agents ?? 0}/5 activos</span>
       </div>
 
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">Capital Total</div>
-          <div className="text-xl font-mono font-bold text-white">
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-1">Capital Total</div>
+          <div className="text-lg sm:text-xl font-mono font-bold text-white">
             ${cap.toLocaleString('en-US', { maximumFractionDigits: 0 })}
           </div>
         </div>
 
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">P&L Hoy</div>
-          <div className={clsx('text-xl font-mono font-bold', pnlColor)}>
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-1">P&L Hoy</div>
+          <div className={clsx('text-lg sm:text-xl font-mono font-bold', pnlColor)}>
             {fmtPnl(dp)}
           </div>
           {dpp !== 0 && (
-            <div className={clsx('text-xs font-mono mt-0.5', pnlColor)}>
+            <div className={clsx('text-[10px] sm:text-xs font-mono mt-0.5', pnlColor)}>
               {dpp >= 0 ? '+' : ''}{dpp}%
             </div>
           )}
         </div>
 
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">Drawdown</div>
-          <div className={clsx('text-xl font-mono font-bold', ddColor)}>
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-1">Drawdown</div>
+          <div className={clsx('text-lg sm:text-xl font-mono font-bold', ddColor)}>
             -{dd.toFixed(1)}%
           </div>
         </div>
 
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">Agentes</div>
-          <div className="text-xl font-mono font-bold text-blue">
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-1">Agentes</div>
+          <div className="text-lg sm:text-xl font-mono font-bold text-blue">
             {data.active_agents ?? 0}/5
           </div>
-          <div className="text-[10px] text-muted font-mono mt-0.5">live trading</div>
+          <div className="text-[9px] sm:text-[10px] text-muted font-mono mt-0.5">live trading</div>
         </div>
 
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-wider mb-1">Versión</div>
-          <div className="text-xl font-mono font-bold text-gold">v3</div>
-          <div className="text-[10px] text-muted font-mono mt-0.5">MIN_SCORE=75</div>
+          <div className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mb-1">Versión</div>
+          <div className="text-lg sm:text-xl font-mono font-bold text-gold">v3</div>
+          <div className="text-[9px] sm:text-[10px] text-muted font-mono mt-0.5">MIN_SCORE=75</div>
         </div>
       </div>
     </div>

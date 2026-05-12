@@ -133,10 +133,29 @@ class OptionsAgent:
         open_positions_final = self.session_mgr.get_open_positions(session['session_name'])
         self._publish_heartbeat(session)
 
+        # Build position status for log visibility
+        pos_details = []
+        margin_locked = 0.0
+        unrealized_est = 0.0
+        for p in open_positions_final:
+            inst = p.get('instrument_name', '?')
+            entry_btc = float(p.get('entry_premium_btc', 0))
+            margin = float(p.get('margin_required_usd', 0))
+            mark = self.strategy.get_current_mark_price(inst)
+            if mark is not None:
+                decay_pct = (1 - mark / entry_btc) * 100 if entry_btc > 0 else 0
+                pos_details.append(f'{inst[-12:]} @{mark:.4f}BTC ({decay_pct:+.0f}%)')
+                unrealized_est += (entry_btc - mark) * float(session.get('btc_price_at_entry', 80000))
+            else:
+                pos_details.append(f'{inst[-12:]} (no mark)')
+            margin_locked += margin
+
+        detail_str = ' | '.join(pos_details) if pos_details else 'none'
         logger.info(
-            f'OPTIONS CYCLE END | open={len(open_positions_final)} | '
+            f'OPTIONS CYCLE END | open={len(open_positions_final)} | [{detail_str}] | '
             f'balance=${float(session["current_balance_usd"]):.2f} | '
-            f'PnL=${float(session["total_pnl_usd"]):+.2f}'
+            f'PnL=${float(session["total_pnl_usd"]):+.2f} | '
+            f'margin=${margin_locked:.0f}'
         )
 
     # ── Gestión de posiciones expiradas ───────────────────────────────────────

@@ -36,7 +36,7 @@ SCAN_INTERVAL = 60  # segundos entre scans
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
 # SESSION_008: 5 assets — XAU/XAG eliminados (KuCoin no los soporta, usar GLD/SLV en stocks)
 # Backtest 24m: AVAX mejor asset (PF=1.10, Sharpe=1.03); BTC el único con PF<1.0 (0.99)
-ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ']
+ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ', 'LINK', 'AAVE', 'POL', 'XAU', 'XAG']
 TIMEFRAMES = ['15m', '1h']
 
 # DB engine for portfolio tracking
@@ -102,11 +102,12 @@ def get_portfolio(session: dict) -> dict:
 
 
 def get_open_trades(session: dict) -> list:
-    """Obtiene trades abiertos desde DB."""
+    """Obtiene trades abiertos desde DB (excluye Grid Stable — tiene su propio risk mgmt)."""
     with _engine.connect() as conn:
         rows = conn.execute(
             text(
                 "SELECT * FROM trades WHERE status = 'OPEN' "
+                "AND strategy != 'GRID_STABLE' "
                 "AND timestamp_open >= :session_start ORDER BY timestamp_open"
             ),
             {'session_start': session['started_at']},

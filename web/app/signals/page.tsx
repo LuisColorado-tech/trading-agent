@@ -16,7 +16,7 @@ export default async function SignalsPage() {
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white">Feed de Señales</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-white">Feed de Señales</h1>
         <p className="text-sm text-muted mt-1">Señales técnicas en tiempo real — Crypto + Stocks</p>
       </div>
 

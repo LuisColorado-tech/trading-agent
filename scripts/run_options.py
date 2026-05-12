@@ -62,11 +62,42 @@ def main():
     agent = OptionsAgent(underlying=underlying)
 
     cycle_count = 0
+    last_heartbeat_hour = -1
     while True:
         try:
             cycle_count += 1
             logger.info(f'--- OPTIONS CYCLE #{cycle_count} ---')
             agent.run_cycle()
+
+            # ── Telegram heartbeat cada 4h con estado de posiciones ──
+            now = datetime.now(timezone.utc)
+            if now.hour % 4 == 0 and now.hour != last_heartbeat_hour and now.minute < 10:
+                last_heartbeat_hour = now.hour
+                session = agent.session_mgr.ensure_active_session()
+                open_pos = agent.session_mgr.get_open_positions(session['session_name'])
+                balance = float(session['current_balance_usd'])
+                pnl = float(session['total_pnl_usd'])
+                pos_lines = []
+                for p in open_pos:
+                    inst = p.get('instrument_name', '?')
+                    entry_usd = float(p.get('entry_premium_usd', 0))
+                    mark = agent.strategy.get_current_mark_price(inst)
+                    if mark:
+                        btc_idx = agent.strategy._get_index_price() or 80000
+                        curr_usd = mark * btc_idx
+                        decay = (1 - mark / float(p.get('entry_premium_btc', 1))) * 100
+                        pos_lines.append(f'  {inst}: mark={mark:.4f}BTC (${curr_usd:.0f}) decay={decay:+.0f}%')
+                    else:
+                        pos_lines.append(f'  {inst}: (sin mark)')
+                session_name = session['session_name']
+                send_telegram(
+                    f'📊 <b>Options Heartbeat</b>\n'
+                    f'Sesión: {session_name}\n'
+                    f'Balance: <b>${balance:.2f}</b> | PnL: ${pnl:+.2f}\n'
+                    f'Posiciones ({len(open_pos)}):\n' +
+                    '\n'.join(pos_lines),
+                    silent=True,
+                )
         except KeyboardInterrupt:
             logger.info('OPTIONS AGENT: detenido por usuario')
             send_telegram('⏹ <b>Options Agent</b> detenido manualmente')

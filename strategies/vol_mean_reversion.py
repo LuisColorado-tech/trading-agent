@@ -131,15 +131,9 @@ class VolMeanReversionStrategy:
 
         if pnl_pct <= -self.stop_loss_pct:
             return True, 'STOP_LOSS'
-        if pnl_pct >= VolProfile(  # Usar TP del perfil
-            ticker=position.ticker,
-            description='temp',
-        ).take_profit_pct * (1 if get_vol_profile(position.ticker).direction == 'LONG' else -1):
-            pass  # TP verificado abajo
 
         profile = get_vol_profile(position.ticker)
-        tp = profile.take_profit_pct
-        if pnl_pct >= tp:
+        if profile.direction == 'LONG' and pnl_pct >= profile.take_profit_pct:
             return True, 'TAKE_PROFIT'
 
         return False, ''

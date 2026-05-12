@@ -27,7 +27,7 @@ export default async function GridBotPage() {
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">Grid Bot — Crypto Range</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">Grid Bot — Crypto Range</h1>
         <p className="text-sm text-muted mt-1">
           GRID_BOT · 7 activos · régimen RANGE/CHOPPY · cooldown post-SL · BUY+SELL
         </p>

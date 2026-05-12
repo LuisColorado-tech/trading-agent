@@ -1,45 +1,91 @@
+'use client'
+
 import { api } from '@/lib/api'
 import { fmt, fmtPnl, fmtPct, pnlClass } from '@/lib/fmt'
 import { clsx } from 'clsx'
+import { useEffect, useState } from 'react'
 
-export const revalidate = 30
+type Scope = 'session' | 'all'
 
-export default async function PolymarketPage() {
-  const [sessionRes, posRes, statsRes] = await Promise.allSettled([
-    api.polySession(),
-    api.polyPositions('limit=200'),
-    api.polyStats(),
-  ])
+export default function PolymarketPage() {
+  const [scope, setScope] = useState<Scope>('session')
+  const [session, setSession] = useState<any>({})
+  const [positions, setPositions] = useState<{ session: any[]; all: any[] }>({ session: [], all: [] })
+  const [stats, setStats] = useState<{ session: any; all: any }>({ session: {}, all: {} })
+  const [loading, setLoading] = useState(true)
 
-  const sess = sessionRes.status === 'fulfilled' ? sessionRes.value : {}
-  const pos = posRes.status === 'fulfilled' ? posRes.value : []
-  const st = statsRes.status === 'fulfilled' ? statsRes.value : {}
+  useEffect(() => {
+    setLoading(true)
+    Promise.allSettled([
+      api.polySession(),
+      api.polyPositions('scope=session&limit=200'),
+      api.polyPositions('scope=all&limit=200'),
+      api.polyStats('session'),
+      api.polyStats('all'),
+    ]).then(([sessRes, posSessRes, posAllRes, statsSessRes, statsAllRes]) => {
+      setSession(sessRes.status === 'fulfilled' ? sessRes.value : {})
+      setPositions({
+        session: posSessRes.status === 'fulfilled' ? posSessRes.value : [],
+        all: posAllRes.status === 'fulfilled' ? posAllRes.value : [],
+      })
+      setStats({
+        session: statsSessRes.status === 'fulfilled' ? statsSessRes.value : {},
+        all: statsAllRes.status === 'fulfilled' ? statsAllRes.value : {},
+      })
+      setLoading(false)
+    })
+  }, [])
 
-  const open = pos.filter((p: any) => p.status === 'OPEN')
-  const closed = pos.filter((p: any) => p.status === 'CLOSED')
+  const currentPositions = positions[scope]
+  const currentStats = stats[scope]
+  const open = currentPositions.filter((p: any) => p.status === 'OPEN')
+  const closed = currentPositions.filter((p: any) => p.status !== 'OPEN')
 
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">Polymarket — Prediction Markets</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">Polymarket — Prediction Markets</h1>
         <p className="text-sm text-muted mt-1">
-          {sess.session_name ?? '—'} · v3 edge fix · min=0.42
+          {session.session_name ?? '—'} · v3 edge fix · min=0.42
         </p>
+      </div>
+
+      {/* Scope Toggle */}
+      <div className="flex gap-2">
+        {([
+          ['session', '📌 Sesión'],
+          ['all', '📜 Histórico'],
+        ] as const).map(([key, label]) => (
+          <button
+            key={key}
+            onClick={() => setScope(key)}
+            className={clsx(
+              'px-4 py-1.5 rounded-full text-xs font-medium transition-colors',
+              scope === key
+                ? 'bg-gold/20 text-gold border border-gold/40'
+                : 'bg-surface text-muted border border-border hover:text-white hover:border-muted'
+            )}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       {/* KPIs */}
       <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 gap-3">
         {[
-          ['Balance', `$${fmt(st.balance ?? sess.current_balance ?? sess.initial_balance ?? 0, 0)}`, 'text-white'],
-          ['P&L', fmtPnl(st.total_pnl), pnlClass(st.total_pnl)],
-          ['Win Rate', fmtPct(st.win_rate), 'text-white'],
-          ['PF', fmt(st.profit_factor), (st.profit_factor ?? 0) >= 1.3 ? 'pos' : 'text-gold'],
-          ['Trades', st.total ?? 0, 'text-white'],
+          ['Balance', `$${fmt(currentStats.balance ?? session.current_balance ?? session.initial_balance ?? 0, 0)}`, 'text-white'],
+          ['P&L', fmtPnl(currentStats.total_pnl), pnlClass(currentStats.total_pnl)],
+          ['Win Rate', fmtPct(currentStats.win_rate), 'text-white'],
+          ['PF', fmt(currentStats.profit_factor), (currentStats.profit_factor ?? 0) >= 1.3 ? 'pos' : 'text-gold'],
+          ['Trades', currentStats.total ?? 0, 'text-white'],
           ['Abiertos', open.length, open.length > 0 ? 'text-purple' : 'text-muted'],
         ].map(([label, value, cls]) => (
           <div key={label as string} className="card text-center">
             <div className="text-[10px] text-muted uppercase tracking-wider mb-1">{label as string}</div>
-            <div className={clsx('text-base font-mono font-bold', cls as string)}>{value}</div>
+            <div className={clsx('text-base font-mono font-bold', cls as string)}>
+              {loading ? '—' : value}
+            </div>
           </div>
         ))}
       </div>
@@ -50,7 +96,9 @@ export default async function PolymarketPage() {
           Posiciones Abiertas
           {open.length > 0 && <span className="ml-2 badge badge-purple">{open.length}</span>}
         </div>
-        {open.length === 0 ? (
+        {loading ? (
+          <div className="text-sm text-muted text-center py-8">Cargando…</div>
+        ) : open.length === 0 ? (
           <div className="text-sm text-muted text-center py-8">Sin posiciones abiertas</div>
         ) : (
           <div className="overflow-x-auto">
@@ -68,7 +116,7 @@ export default async function PolymarketPage() {
               <tbody>
                 {open.map((p: any, i: number) => (
                   <tr key={i} className="border-b border-border/30 hover:bg-white/2">
-                    <td className="py-2 pr-4 font-mono text-white max-w-[200px] truncate">{p.event_title ?? p.slug}</td>
+                    <td className="py-2 pr-4 font-mono text-white max-w-[200px] truncate">{p.question ?? p.event_title ?? p.slug ?? '—'}</td>
                     <td className="py-2 pr-4 font-mono text-muted">{p.outcome}</td>
                     <td className="py-2 pr-4">
                       <span className={`badge ${p.side === 'BUY' ? 'badge-green' : 'badge-red'}`}>
@@ -76,7 +124,7 @@ export default async function PolymarketPage() {
                       </span>
                     </td>
                     <td className="py-2 pr-4 font-mono text-muted">${fmt(p.entry_price)}</td>
-                    <td className="py-2 pr-4 font-mono text-white">${fmt(p.size)}</td>
+                    <td className="py-2 pr-4 font-mono text-white">${fmt(p.shares ?? p.size ?? 0)}</td>
                     <td className="py-2 font-mono text-muted">
                       {p.timestamp_open ? new Date(p.timestamp_open).toLocaleDateString('es') : '—'}
                     </td>
@@ -94,7 +142,9 @@ export default async function PolymarketPage() {
           Historial de Trades
           <span className="ml-2 badge badge-muted">{closed.length}</span>
         </div>
-        {closed.length === 0 ? (
+        {loading ? (
+          <div className="text-sm text-muted text-center py-8">Cargando…</div>
+        ) : closed.length === 0 ? (
           <div className="text-sm text-muted text-center py-8">Sin trades cerrados</div>
         ) : (
           <div className="overflow-x-auto max-h-[400px] overflow-y-auto">
@@ -114,7 +164,7 @@ export default async function PolymarketPage() {
               <tbody>
                 {closed.slice(0, 100).map((p: any, i: number) => (
                   <tr key={i} className="border-b border-border/30 hover:bg-white/2">
-                    <td className="py-2 pr-4 font-mono text-white max-w-[180px] truncate">{p.event_title ?? p.slug}</td>
+                    <td className="py-2 pr-4 font-mono text-white max-w-[180px] truncate">{p.question ?? p.event_title ?? p.slug ?? '—'}</td>
                     <td className="py-2 pr-4 font-mono text-muted">{p.outcome}</td>
                     <td className="py-2 pr-4">
                       <span className={`badge ${p.side === 'BUY' ? 'badge-green' : 'badge-red'}`}>

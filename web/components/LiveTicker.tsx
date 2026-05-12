@@ -16,13 +16,13 @@ export default function LiveTicker() {
   }, [])
 
   return (
-    <div className="overflow-hidden bg-surface border-b border-border h-9 flex items-center">
+    <div className="overflow-hidden bg-surface border-b border-border h-7 sm:h-9 flex items-center">
       <div className="flex gap-0 animate-[scroll_40s_linear_infinite] whitespace-nowrap">
         {[...TICKERS, ...TICKERS].map((t, i) => {
           const p = prices[t]
           const chg = p?.change_pct ?? 0
           return (
-            <span key={i} className="inline-flex items-center gap-1.5 px-4 text-xs font-mono">
+            <span key={i} className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-4 text-[10px] sm:text-xs font-mono">
               <span className="text-muted">{t}</span>
               <span className="text-white">{p ? `$${fmt(p.price, p.price > 100 ? 2 : 4)}` : '—'}</span>
               <span className={pnlClass(chg)}>{fmtPct(chg)}</span>

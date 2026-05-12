@@ -63,13 +63,16 @@ class PolyStrategyHub:
 
     def _init_strategies(self):
         """Inicializa las estrategias habilitadas según config."""
-        # 1. Signal Based (siempre habilitada — es la estrategia base)
-        try:
-            from strategies.signal_based_poly import SignalBasedPolyStrategy
-            self._strategies['signal_based'] = SignalBasedPolyStrategy()
-            logger.info('POLY HUB: SignalBasedPolyStrategy loaded')
-        except Exception as e:
-            logger.error(f'POLY HUB: Failed to load SignalBasedPolyStrategy: {e}')
+        # 1. Signal Based (requiere enabled: true en config — deshabilitada May 2026)
+        if _STRATS_CFG.get('signal_based', {}).get('enabled', True):
+            try:
+                from strategies.signal_based_poly import SignalBasedPolyStrategy
+                self._strategies['signal_based'] = SignalBasedPolyStrategy()
+                logger.info('POLY HUB: SignalBasedPolyStrategy loaded')
+            except Exception as e:
+                logger.error(f'POLY HUB: Failed to load SignalBasedPolyStrategy: {e}')
+        else:
+            logger.info('POLY HUB: SignalBasedPolyStrategy DISABLED in config')
 
         # 2. Tail-End
         if _STRATS_CFG.get('tail_end', {}).get('enabled', True):

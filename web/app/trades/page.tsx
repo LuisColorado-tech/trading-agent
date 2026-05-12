@@ -39,7 +39,7 @@ export default async function TradesPage() {
   return (
     <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white">Diario de Trades</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-white">Diario de Trades</h1>
         <p className="text-sm text-muted mt-1">Historial unificado — Stocks · Crypto · Polymarket · BTC Direction · Options</p>
       </div>
 

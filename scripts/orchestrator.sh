@@ -57,9 +57,39 @@ case "$PHASE" in
     BT="—"
     NEXT="🏁 EXPANSIÓN COMPLETADA"
     ;;
+  dash_consortium)
+    NAME="DASH FASE 1 — Consorcio Live"
+    FILES="ConsortiumWidget, AllocationChart, ConsolidatedCalendar, nueva API"
+    BT="—"
+    NEXT="Dash Fase 2: Páginas Poly/Options/BTC Dir — May 4 08:00 UTC"
+    ;;
+  dash_pages)
+    NAME="DASH FASE 2 — Páginas Agentes Faltantes"
+    FILES="Poly/Options/BTC Dir pages, Trade journal unificado"
+    BT="—"
+    NEXT="Dash Fase 3: Risk Analytics — May 5 08:00 UTC"
+    ;;
+  dash_risk)
+    NAME="DASH FASE 3 — Risk & Performance"
+    FILES="Sharpe/Sortino/VaR, drawdown chart, monthly returns"
+    BT="—"
+    NEXT="Dash Fase 4: Real-time UX — May 6 08:00 UTC"
+    ;;
+  dash_realtime)
+    NAME="DASH FASE 4 — Tiempo Real & UX"
+    FILES="SSE ticker, notificaciones, sidebar, cards clickeables"
+    BT="—"
+    NEXT="Dash Fase 5: Grid Stable data — May 7 08:00 UTC"
+    ;;
+  dash_grid)
+    NAME="DASH FASE 5 — Grid Stable Real Data"
+    FILES="API Grid Stable, AgentCard real"
+    BT="—"
+    NEXT="🏁 Dashboard completo"
+    ;;
   *)
     echo "Unknown phase: $PHASE"
-    echo "Valid: grid_stable | basis_trade | vix | pairs | earnings | final_report"
+    echo "Valid: grid_stable | basis_trade | vix | pairs | earnings | final_report | dash_consortium | dash_pages | dash_risk | dash_realtime | dash_grid"
     exit 1
     ;;
 esac
@@ -103,35 +133,3 @@ curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
   > /dev/null
 
 exit 0
-
-  # ── Dashboard phases ──
-  dash_consortium)
-    NAME="DASH FASE 1 — Consorcio Live"
-    FILES="ConsortiumWidget, AllocationChart, ConsolidatedCalendar, nueva API"
-    BT="—"
-    NEXT="Dash Fase 2: Páginas Poly/Options/BTC Dir — May 4 08:00 UTC"
-    ;;
-  dash_pages)
-    NAME="DASH FASE 2 — Páginas Agentes Faltantes"
-    FILES="Poly/Options/BTC Dir pages, Trade journal unificado"
-    BT="—"
-    NEXT="Dash Fase 3: Risk Analytics — May 5 08:00 UTC"
-    ;;
-  dash_risk)
-    NAME="DASH FASE 3 — Risk & Performance"
-    FILES="Sharpe/Sortino/VaR, drawdown chart, monthly returns"
-    BT="—"
-    NEXT="Dash Fase 4: Real-time UX — May 6 08:00 UTC"
-    ;;
-  dash_realtime)
-    NAME="DASH FASE 4 — Tiempo Real & UX"
-    FILES="SSE ticker, notificaciones, sidebar, cards clickeables"
-    BT="—"
-    NEXT="Dash Fase 5: Grid Stable data — May 7 08:00 UTC"
-    ;;
-  dash_grid)
-    NAME="DASH FASE 5 — Grid Stable Real Data"
-    FILES="API Grid Stable, AgentCard real"
-    BT="—"
-    NEXT="🏁 Dashboard completo"
-    ;;

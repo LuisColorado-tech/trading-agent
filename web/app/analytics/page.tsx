@@ -2,31 +2,60 @@ import { api } from '@/lib/api'
 import { fmt, fmtPnl, pnlClass } from '@/lib/fmt'
 import { clsx } from 'clsx'
 import PnlCalendar from '@/components/PnlCalendar'
+import RiskPanel from '@/components/RiskPanel'
+import DrawdownChart from '@/components/DrawdownChart'
+import MonthlyReturns from '@/components/MonthlyReturns'
 
 export const revalidate = 60
 
+function buildEquityCurve(dailyPnl: { date: string; pnl: number }[]) {
+  let equity = 0
+  const peak = { val: 0 }
+  return dailyPnl.map((d) => {
+    equity += d.pnl
+    if (equity > peak.val) peak.val = equity
+    const drawdown = peak.val > 0 ? (peak.val - equity) / peak.val * 100 : 0
+    return { date: d.date, equity: Math.round(equity * 100) / 100, drawdown: Math.round(drawdown * 100) / 100 }
+  })
+}
+
 export default async function AnalyticsPage() {
-  const [stocksDailyRes, cryptoDailyRes, cryptoStatsRes, stocksStratRes] = await Promise.allSettled([
-    api.stocksDailyPnl(),
-    api.cryptoDailyPnl(),
-    api.cryptoStats(),
-    api.stocksByStrategy(),
-  ])
+  const [stocksDailyRes, cryptoDailyRes, cryptoStatsRes, stocksStratRes, riskRes, dailyPnlRes] =
+    await Promise.allSettled([
+      api.stocksDailyPnl(),
+      api.cryptoDailyPnl(),
+      api.cryptoStats(),
+      api.stocksByStrategy(),
+      api.risk(),
+      api.dailyPnl(),
+    ])
 
   const stocksDaily = stocksDailyRes.status === 'fulfilled' ? stocksDailyRes.value : []
   const cryptoDaily = cryptoDailyRes.status === 'fulfilled' ? cryptoDailyRes.value : []
   const cryptoStats = cryptoStatsRes.status === 'fulfilled' ? cryptoStatsRes.value : {}
   const stocksStrat = stocksStratRes.status === 'fulfilled' ? stocksStratRes.value : []
+  const riskData = riskRes.status === 'fulfilled' ? riskRes.value : null
+  const dailyPnlData = dailyPnlRes.status === 'fulfilled' ? dailyPnlRes.value : []
+  const equityData = buildEquityCurve(dailyPnlData)
 
   return (
-    <div className="space-y-8 animate-[fadeIn_0.4s_ease-out]">
+    <div className="space-y-6 animate-[fadeIn_0.4s_ease-out]">
       <div>
-        <h1 className="text-2xl font-bold text-white">Analytics</h1>
-        <p className="text-sm text-muted mt-1">P&L por día, distribución y atribución por agente</p>
+        <h1 className="text-xl sm:text-2xl font-bold text-white">Analytics</h1>
+        <p className="text-xs sm:text-sm text-muted mt-1">P&L por día, riesgo y atribución por agente</p>
+      </div>
+
+      {/* Risk Panel */}
+      <RiskPanel data={riskData} />
+
+      {/* Drawdown + Monthly returns */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+        <DrawdownChart data={equityData} />
+        <MonthlyReturns data={riskData?.monthly_returns ?? null} />
       </div>
 
       {/* PnL calendars */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
         <div className="card">
           <div className="text-sm font-semibold text-white mb-4">P&L Calendario — Stocks</div>
           <PnlCalendar data={stocksDaily} />
@@ -38,7 +67,7 @@ export default async function AnalyticsPage() {
       </div>
 
       {/* Crypto stats */}
-      <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
         {[
           { label: 'Win Rate Crypto', value: `${fmt(cryptoStats.win_rate ?? 0, 1)}%`, cls: 'text-white' },
           { label: 'Profit Factor Crypto', value: fmt(cryptoStats.profit_factor ?? 0), cls: (cryptoStats.profit_factor ?? 0) >= 1.5 ? 'pos' : 'text-gold' },
