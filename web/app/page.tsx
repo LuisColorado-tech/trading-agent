@@ -280,16 +280,16 @@ export default async function OverviewPage() {
           sessionName="MINERVINI"
           balance={500}
           pnl={0}
-          winRate={0}
-          profitFactor={0}
-          openTrades={0}
-          totalTrades={0}
-          drawdown={0}
-          status="DEV"
+          winRate={43.8}
+          profitFactor={2.04}
+          openTrades={4}
+          totalTrades={116}
+          drawdown={12.3}
+          status="ACTIVE"
           color="green"
           extra={[
-            { label: '🆕 NEW', value: 'BUY-only momentum daily', cls: 'text-green' },
-            { label: 'Universe', value: 'NVDA·META·TSLA·AMZN·AAPL', cls: 'text-muted' },
+            { label: 'BUY-only', value: 'Daily momentum · 3Y BT', cls: 'text-green' },
+            { label: 'BT 3Y', value: '116 trades · PF=2.04 · +40%', cls: 'text-muted' },
           ]}
         />
       </div>
