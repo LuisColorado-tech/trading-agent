@@ -12,7 +12,7 @@ set -a && source config/.env && set +a                     # cargar env vars par
 
 **Python**: SIEMPRE `/opt/trading/venv/bin/python3`, NUNCA `python3` del sistema.
 
-## Agentes activos (6)
+## Agentes activos (7)
 
 | Agente | Servicio systemd | Entry point | DB principal |
 |--------|-----------------|-------------|-------------|
@@ -22,6 +22,7 @@ set -a && source config/.env && set +a                     # cargar env vars par
 | PolySnipe (Up/Down 15m) | `polymarket-snipe` | `scripts/run_polymarket_snipe.py` | `snipe_trades` |
 | Stocks (Alpaca) | `stocks-agent` | `scripts/run_stocks.py` | `stocks_trades` |
 | Grid Stable Pairs | `grid-stable` | `agents/grid_stable_agent.py` | — |
+| Pairs Trading | `pairs-agent` | `agents/pairs_executor.py` | `trades` (strategy='PAIRS_TRADING') |
 
 ## Dónde modificar parámetros (orden correcto)
 
@@ -56,6 +57,9 @@ venv/bin/python3 scripts/backtest_options.py
 # Grid / Grid Stable
 venv/bin/python3 scripts/backtest_grid.py
 venv/bin/python3 scripts/backtest_grid_stable.py
+
+# Pairs Trading (nuevo)
+venv/bin/python3 scripts/backtest_pairs.py --pair GLD-SLV --years 5
 
 # Value Zone (nuevo)
 venv/bin/python3 scripts/backtest_value_zone.py
@@ -100,6 +104,8 @@ with e.connect() as c:
 - **BUY en TREND_MOMENTUM está BLOQUEADO** — backtest 2Y: -$6,151.
 - **BREAKOUT_DOWN con `allow_trend=False`** — WR 29%, PnL -$1,590. Bloqueado en `market_regime.py`.
 - **Cooldown post SL**: tras un STOP_LOSS o TRAILING_STOP, el asset entra en cooldown (60 min Crypto, 30 min Stocks). Si un agente "no hace nada", revisar `redis-cli keys 'cooldown:*'` antes de tocar código.
+- **Grid Stable bloquea TrendMomentum**: `get_open_trades()` en `run_trading.py` filtra `strategy != 'GRID_STABLE'` (fix May 12). Si TrendMomentum deja de abrir trades, verificar que Grid Stable trades no se estén contando en el RiskManager.
+- **TrendMomentum evalúa 10 activos**: `ASSETS = ['BTC','ETH','SOL','AVAX','INJ','LINK','AAVE','POL','XAU','XAG']` en `run_trading.py:39`.
 - **Halt persistente**: el drawdown halt sobrevive reinicios (verificado desde DB en cada ciclo). `redis-cli get halt:trading`.
 - **Trailing stop**: no es binario — es dinámico progresivo por escalones de R (ver `docs/TRAILING_DINAMICO.md`). Parámetros por asset en `asset_profiles.py`.
 - **Polymarket edge corregido en v3**: la fórmula anterior `abs(0.50 - price)` era una tautología. La actual usa `tf_conviction * 0.15` (conteo de señales macro 1h/4h). No revertir.
@@ -129,10 +135,10 @@ Cualquier modificación a:
 
 Usar los scripts de backtest listados arriba. Sin excepción.
 
-## Servicios systemd (8)
+## Servicios systemd (9)
 
 ```bash
-systemctl status trading-agent options-agent polymarket-agent polymarket-snipe stocks-agent dashboard-api dashboard-web grid-stable
+systemctl status trading-agent options-agent polymarket-agent polymarket-snipe stocks-agent dashboard-api dashboard-web grid-stable pairs-agent
 ```
 
 Dashboard: Next.js en `:3000`, FastAPI en `:8000`. Tras cambios en React: `cd /opt/trading/web && npm run build && systemctl restart dashboard-api dashboard-web`.

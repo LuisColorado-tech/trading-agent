@@ -95,78 +95,53 @@ scripts/
 
 ---
 
-## ESTADO ACTUAL DEL DASHBOARD — May 2, 2026
+## ESTADO DE EJECUCIÓN — May 12, 2026
 
-> **Última intervención**: Fix de crash + Fases 1-2 parciales del `DASHBOARD_IMPROVEMENT_PLAN.md`.
+> **Última intervención**: Fase 4 completada manual + fix TrendMomentum bloqueo + dashboard responsive + risk panel.
 
-### Fix aplicado
-- **Problema**: `Failed to find Server Action "x"` — build de Next.js obsoleto.
-- **Solución**: `rm -rf web/.next && npm run build` + `systemctl restart dashboard-web`.
+### Ejecución de fases
 
-### Páginas existentes (9/9 con detalle)
+| Fase | Fecha | Mecanismo | Estado | Nota |
+|------|-------|-----------|--------|------|
+| 1. Grid Stable | May 3 | system crontab | ✅ | Completado |
+| 2. Basis Trade | May 5 | system crontab | ✅ | Completado |
+| 3. VIX Mean Rev | May 7 | system crontab + manual | ✅ | opencode crasheó; completado manualmente May 9. Backtest 5Y: 18 trades, WR=66.7% |
+| 4. Pairs Trading | May 10 | Hermes cron + manual | ✅ | opencode falló; completado manualmente May 12. GLD-SLV 5Y: 7 trades, PF=0.82 |
+| 5. Earnings | May 13 | Hermes cron | ⏳ | Pendiente |
+| 6. Final Report | May 16 | Hermes cron | ⏳ | Pendiente |
 
-| Ruta | Archivo | Estado |
-|---|---|---|
-| `/` (Overview) | `web/app/page.tsx` | **OK** — ConsortiumWidget, AllocationChart, MiniEquity, 6 AgentCards con href |
-| `/stocks` | `web/app/stocks/page.tsx` | **OK** — preexistente |
-| `/crypto` | `web/app/crypto/page.tsx` | **OK** — preexistente |
-| `/polymarket` | `web/app/polymarket/page.tsx` | **NUEVO** — KPIs, posiciones abiertas/cerradas, historial |
-| `/options` | `web/app/options/page.tsx` | **NUEVO** — KPIs, primas, posiciones abiertas/cerradas |
-| `/btc-direction` | `web/app/btc-direction/page.tsx` | **NUEVO** — KPIs, WR por timeframe, historial trades |
-| `/grid-stable` | `web/app/grid-stable/page.tsx` | **NUEVO** — KPIs, estrategia, plan implementación |
-| `/trades` | `web/app/trades/page.tsx` | **MEJORADO** — Unifica 4 agentes (era 2: Stocks+Crypto, ahora +Poly+BTC Dir) |
-| `/signals` | `web/app/signals/page.tsx` | **OK** — preexistente |
-| `/analytics` | `web/app/analytics/page.tsx` | **OK** — preexistente |
-
-### Componentes actualizados
-
-| Componente | Cambio |
-|---|---|
-| `AgentCard.tsx` | Acepta `href` prop → wrappea en `<Link>` si se provee |
-| `Sidebar.tsx` | 9 links (era 6) — agregados Polymarket, Options, BTC Direction |
-| `lib/api.ts` | 4 métodos nuevos: `consortium`, `dailyPnl`, `polySession`, `polyPositions`, `optionsSession`, `optionsPositions`, `btcDirection` |
-
-### API endpoints existentes (FastAPI :8000)
-
-| Router | Endpoints | Estado |
-|---|---|---|
-| `overview.py` | `/` + `/consortium` + `/daily-pnl` | OK |
-| `stocks.py` | `/session`, `/trades`, `/trades/open`, `/trades/equity`, `/universe`, `/stats/by-strategy`, `/stats/daily-pnl` | OK |
-| `crypto.py` | `/portfolio`, `/portfolio/history`, `/trades`, `/trades/stats`, `/signals`, `/signals/heatmap`, `/ai`, `/stats/daily-pnl` | OK |
-| `polymarket.py` | `/session`, `/positions`, `/stats`, `/btc-direction` | OK |
-| `options.py` | `/session`, `/positions`, `/stats` | OK |
-| `live.py` | `/prices` (REST) + `/stream` (SSE, sin usar en frontend) | OK |
-
-### Grid Stable
-
-- El endpoint `/overview/consortium` ya calcula balance y P&L real desde `trades WHERE strategy='GRID_STABLE'`.
-- La página `/grid-stable` consume `consortium` + filtra `cryptoTrades` por `strategy='GRID_STABLE'`.
-- **Pendiente**: Un endpoint dedicado `/grid-stable/stats` según Fase 5 del plan.
-
-### Pendientes del DASHBOARD_IMPROVEMENT_PLAN.md
+### Dashboard Improvement Plan
 
 | Fase | Tarea | Estado |
-|---|---|---|
+|------|-------|--------|
 | 1.1 | ConsortiumWidget | **HECHO** |
 | 1.2 | AllocationChart donut | **HECHO** |
-| 1.3 | P&L consolidado heatmap | **HECHO** (endpoint `/overview/daily-pnl`, sin componente en frontend) |
-| 2.1 | Polymarket page | **HECHO** |
-| 2.2 | Options page | **HECHO** |
-| 2.3 | BTC Direction page | **HECHO** |
-| 2.4 | Trade journal unificado | **HECHO** (4 agentes, faltan filtros por fecha/asset) |
-| 3.1 | Risk panel (Sharpe, Sortino, VaR) | **PENDIENTE** |
-| 3.2 | Drawdown chart | **PENDIENTE** |
-| 3.3 | Monthly returns bars | **PENDIENTE** |
-| 4.1 | SSE live ticker | **PENDIENTE** (SSE endpoint existe en `/live/stream`) |
+| 1.3 | P&L consolidado heatmap | **HECHO** |
+| 2.1-2.4 | Páginas agentes | **HECHO** |
+| 3.1 | Risk panel (Sharpe, Sortino, VaR) | **HECHO** May 12 — componentes RiskPanel, DrawdownChart, MonthlyReturns + endpoint `/overview/risk` |
+| 3.2 | Drawdown chart | **HECHO** |
+| 3.3 | Monthly returns bars | **HECHO** |
+| 4.1 | SSE live ticker | **PENDIENTE** |
 | 4.2 | Notificaciones | **PENDIENTE** |
 | 4.3 | Sidebar + cards clickeables | **HECHO** |
-| 5.1 | Grid Stable API dedicada | **PENDIENTE** (datos reales ya usándose vía consortium) |
+| R | Dashboard responsive | **HECHO** May 12 — AppShell + hamburger mobile + todas las páginas responsive |
+| P | Pairs Trading AgentCard | **HECHO** — card en Overview, link en Sidebar |
 
-### Servicios
+### Fixes críticos aplicados
+
+| Fix | Fecha | Descripción |
+|-----|-------|-------------|
+| `orchestrator.sh` exit 0 bug | May 9 | Dashboard phases eran código muerto (exit 0 antes de los case) |
+| VIX backtest | May 9 | `scripts/backtest_vol.py` creado (faltaba en Fase 3) |
+| Cron duplicado | May 9 | System crontab phases 4-6 comentados (Hermes los maneja) |
+| TrendMomentum bloqueado | May 12 | `get_open_trades()` filtra `strategy != 'GRID_STABLE'` — Grid Stable bloqueaba RiskManager.MAX_CONCURRENT=2 |
+| ASSETS expandido | May 12 | TrendMomentum evalúa 10 activos (antes 5): +LINK, AAVE, POL, XAU, XAG |
+
+### Servicios (9 activos)
 
 ```
-dashboard-api.service  → FastAPI :8000 (uvicorn, 2 workers) — activo
-dashboard-web.service  → Next.js :3000 — activo
+trading-agent options-agent polymarket-agent polymarket-snipe
+stocks-agent grid-stable pairs-agent dashboard-api dashboard-web
 ```
 
 ### Notas para el futuro agente
@@ -175,4 +150,5 @@ dashboard-web.service  → Next.js :3000 — activo
 - **NO tocar** `web/.next/` a menos que haya errores de build.
 - Para rebuild: `rm -rf web/.next && cd web && npm run build && systemctl restart dashboard-web`.
 - El plan `DASHBOARD_IMPROVEMENT_PLAN.md` sigue vigente como guía de fases.
-- Los endpoints del backend (`api/routers/`) no se modificaron en esta intervención.
+- TrendMomentum y Grid Stable son independientes en RiskManager — no reinstroducir el bug de conteo unificado de trades abiertos.
+- Hermes cron maneja fases 4, 5, 6. System crontab maneja phases 1-3 (ya ejecutadas).
