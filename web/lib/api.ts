@@ -1,4 +1,4 @@
-const API = '/api'
+const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(`${API}${path}`)

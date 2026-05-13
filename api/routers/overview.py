@@ -354,7 +354,13 @@ def consortium():
         capital += gs_bal
         rows.append(('Grid Stable', 'GRID_STABLE', gs_bal))
 
-        # P&L diario (últimas 24h)
+        # Pairs Trading
+        pairs_pnl = q_one("SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'") or {}
+        pairs_bal = 500.0 + float(pairs_pnl.get('pnl') or 0)
+        capital += pairs_bal
+        rows.append(('Pairs Trading', 'PAIRS_TRADING', pairs_bal))
+
+        # P&L diario (últimas 24h) — todas las fuentes
         daily = q_one("""
             SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades
             WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
@@ -363,15 +369,41 @@ def consortium():
             SELECT COALESCE(SUM(pnl), 0) as pnl FROM poly_positions
             WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
         """) or {}
-        daily_pnl = float(daily.get('pnl') or 0) + float(daily_poly.get('pnl') or 0)
+        daily_options = q_one("""
+            SELECT COALESCE(SUM(pnl_usd), 0) as pnl FROM options_positions
+            WHERE status = 'CLOSED_MANUAL' AND closed_at >= NOW() - INTERVAL '24 hours'
+        """) or {}
+        daily_snipe = q_one("""
+            SELECT COALESCE(SUM(pnl_usdc), 0) as pnl FROM snipe_trades
+            WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
+        """) or {}
+        daily_pnl = (
+            float(daily.get('pnl') or 0) + float(daily_poly.get('pnl') or 0) +
+            float(daily_options.get('pnl') or 0) + float(daily_snipe.get('pnl') or 0)
+        )
 
-        # DD global
-        crypto_dd = q_one("SELECT drawdown_pct FROM portfolio ORDER BY timestamp DESC LIMIT 1") or {}
-        dd_pct = float(crypto_dd.get('drawdown_pct') or 0) * 100
+        # DD global: usar el mayor DD de todas las fuentes
+        crypto_dd = q_one("SELECT COALESCE(MAX(COALESCE(drawdown_pct, 0)), 0) as dd FROM portfolio") or {}
+        stocks_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown, 0)), 0) as dd FROM stocks_sessions") or {}
+        poly_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown, 0)), 0) as dd FROM poly_sessions") or {}
+        options_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown_pct, 0)), 0) as dd FROM options_sessions") or {}
+        dd_pct = max(
+            float(crypto_dd.get('dd') or 0) * 100,
+            float(stocks_dd.get('dd') or 0),
+            float(poly_dd.get('dd') or 0),
+            float(options_dd.get('dd') or 0),
+        )
 
-        # Agentes activos
-        services = q_one("SELECT COUNT(*) as c FROM paper_sessions WHERE status='ACTIVE'") or {}
-        active = int(services.get('c') or 0)
+        # Agentes activos: contar TODAS las sesiones activas
+        active = 0
+        for tbl in ['paper_sessions', 'stocks_sessions', 'poly_sessions', 'options_sessions', 'snipe_sessions']:
+            try:
+                c = q_one(f"SELECT COUNT(*) as c FROM {tbl} WHERE status='ACTIVE'") or {}
+                active += int(c.get('c') or 0)
+            except Exception:
+                pass
+        # Siempre al menos 1 (grid stable + cualquier otro)
+        active = max(active, len(rows))
 
         return {
             'capital_total': round(capital, 2),
