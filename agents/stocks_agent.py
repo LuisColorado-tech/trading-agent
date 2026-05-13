@@ -43,6 +43,7 @@ from core.stocks_profiles import get_stocks_profile, stocks_direction_allowed
 from data.stocks_feed import StocksFeed
 from strategies.stocks_momentum import StocksMomentumStrategy
 from strategies.stocks_trend_etf import StocksTrendEtfStrategy
+from strategies.stocks_minervini import StocksMinerviniStrategy
 
 
 # ── Parámetros globales del agente ────────────────────────────────────────────
@@ -66,13 +67,16 @@ STOCKS_UNIVERSE = [
 # Eliminados por PF < 1.0 en backtest 2Y:
 # NVDA 0.96, AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91
 CYCLE_INTERVAL_SECONDS = 60 * 5     # evaluar cada 5 minutos
-MAX_CONCURRENT_TRADES = 3
+MAX_CONCURRENT_TRADES = 4           # 3 TREND_ETF + 1 MINERVINI buffer
 MAX_RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade
-MAX_PORTFOLIO_EXPOSURE = 2.0        # 200% del balance total en stocks (fractional shares: notional >> balance)
-MAX_NOTIONAL_PER_TRADE = 0.80       # máx 80% del balance por trade individual (evita sobrexposición con SL muy ajustado)
+MAX_PORTFOLIO_EXPOSURE = 2.0        # 200% del balance total en stocks
+MAX_NOTIONAL_PER_TRADE = 0.80       # máx 80% del balance por trade individual
 MAX_DRAWDOWN_STOP = 0.10            # detener si balance cae 10%
 MIN_CONFLUENCE = 3                  # indicadores alineados mínimos
-XSIGNAL_LOOKBACK_HOURS = 48        # horas de lookback para xsignals boost
+XSIGNAL_LOOKBACK_HOURS = 48
+
+# Minervini — estrategia diaria BUY-only, universo independiente
+MINERVINI_STOCKS = ['NVDA', 'META', 'TSLA', 'AMZN', 'AAPL']
 
 
 class StocksAgent:
@@ -105,9 +109,10 @@ class StocksAgent:
         self._strategies = {
             'MOMENTUM':  StocksMomentumStrategy(),
             'TREND_ETF': StocksTrendEtfStrategy(),
+            'MINERVINI': StocksMinerviniStrategy(),
         }
-        # Mantener self.strategy apuntando al default para compatibilidad
         self.strategy = self._strategies['MOMENTUM']
+        self._last_minervini_date: str = ''  # daily tracker (YYYY-MM-DD)
 
         # Estado de trailing por trade (v3)
         self._trailing_state: dict[str, dict] = {}
@@ -172,12 +177,26 @@ class StocksAgent:
         self._macro_severity = self.feed.get_macro_severity()  # qué tan profundo es el bias (0.0–5.0 %)
         logger.info(f"Macro bias: {macro} (severity={self._macro_severity:.1f}%)")
 
-        # 5. Evaluar cada activo
+        # 5. Evaluar cada activo TREND_ETF/MOMENTUM
         for symbol in STOCKS_UNIVERSE:
             try:
                 self._evaluate_symbol(symbol, macro, open_trades)
             except Exception as e:
                 logger.error(f"Error evaluando {symbol}: {e}")
+
+        # 6. Minervini SEPA: evaluación diaria BUY-only (independiente de TREND_ETF)
+        today_str = now.strftime('%Y-%m-%d')
+        if self._last_minervini_date != today_str:
+            self._last_minervini_date = today_str
+            # Re-count open trades (may have changed after step 5)
+            open_trades_minervini = self.session_mgr.get_open_trades(self.session['id'])
+            n_minervini_open = sum(1 for t in open_trades_minervini if t.get('strategy') == 'MINERVINI')
+            if n_minervini_open < 2:  # max 2 Minervini positions
+                for symbol in MINERVINI_STOCKS:
+                    try:
+                        self._evaluate_minervini(symbol, macro, open_trades_minervini)
+                    except Exception as e:
+                        logger.error(f"Error Minervini {symbol}: {e}")
 
     def _evaluate_symbol(self, symbol: str, macro: str, open_trades: list):
         """Evalúa un símbolo y ejecuta trade si hay señal."""
@@ -317,6 +336,68 @@ class StocksAgent:
             strategy_name=strategy.NAME,
         )
 
+    # ── Minervini SEPA: evaluación diaria, BUY-only ───────────────────────
+
+    def _evaluate_minervini(self, symbol: str, macro: str, open_trades: list):
+        """Evalúa estrategia Minervini una vez por día con velas 1d."""
+        # Solo BUY. Minervini no opera en BEAR macro.
+        if macro == 'BEAR':
+            return
+
+        # Obtener velas diarias
+        df = self.feed.get_latest(symbol, '1d', 250)
+        if df is None or df.empty or len(df) < 50:
+            logger.warning(f"MINERVINI {symbol}: datos diarios insuficientes ({len(df) if df is not None else 0})")
+            return
+
+        ind = IndicatorEngine.calculate(df, symbol, '1d')
+        if ind is None:
+            return
+
+        strategy = self._strategies['MINERVINI']
+        result = strategy.score(ind)
+
+        if result['direction'] == 'NEUTRAL':
+            reasons_str = ', '.join(result.get('reasons', [])[:3])
+            logger.debug(f"MINERVINI {symbol}: NEUTRAL ({reasons_str})")
+            return
+
+        n_reasons = len(result.get('reasons', []))
+        reasons_str = ', '.join(result.get('reasons', []))
+        logger.info(
+            f"MINERVINI SIGNAL: {symbol} BUY score={result['score']} "
+            f"reasons={n_reasons} [{reasons_str}] "
+            f"SL=${result['stop_loss']:.2f} TP=${result['take_profit']:.2f}"
+        )
+
+        # Calcular tamaño: 1% riesgo, SL a 7%
+        balance = float(self.session.get('current_balance', 0))
+        if balance <= 0:
+            return
+
+        risk_usd = balance * 0.01  # 1% risk
+        sl_dist = abs(ind.close - result['stop_loss'])
+        if sl_dist <= 0:
+            return
+        qty = risk_usd / sl_dist
+        notional = qty * ind.close
+
+        # Ejecutar
+        self._execute_trade(
+            symbol=symbol,
+            direction='BUY',
+            price=ind.close,
+            qty=round(qty, 6),
+            notional=round(notional, 2),
+            stop_loss=result['stop_loss'],
+            take_profit=result['take_profit'],
+            reasons=result['reasons'],
+            xsignal_boost=0,
+            strategy_name='MINERVINI',
+        )
+
+    # ── Ejecución de trades ────────────────────────────────────────────────
+
     def _execute_trade(
         self, symbol, direction, price, qty, notional,
         stop_loss, take_profit, reasons, xsignal_boost=0, strategy_name='MOMENTUM',
@@ -353,9 +434,8 @@ class StocksAgent:
                             logger.error(f"No se pudo limpiar orden opuesta para {symbol} tras varios intentos. Abortando envío de nueva orden.")
                             return
 
-                # Usar notional tanto para BUY como SELL.
-                # Alpaca paper API soporta notional en market orders para ambos lados.
-                # qty entero solo como fallback si notional falla por disponibilidad.
+                # Usar notional para BUY. SELL intenta notional primero,
+                # luego fallback a qty entero (Alpaca paper no soporta fractional shorts).
                 order_kwargs: dict = dict(
                     symbol=symbol,
                     side=side,
@@ -368,12 +448,17 @@ class StocksAgent:
                 alpaca_order_id = order.get('id')
                 logger.info(f"Alpaca order {alpaca_order_id} enviada: {side} {symbol} ${notional:.2f}")
             except Exception as e:
-                # Si falla por notional en SELL, intentar con qty entero como fallback
                 err_str = str(e).lower()
-                if side == 'sell' and 'notional' in err_str and '403' not in err_str:
+                # SELL: Alpaca paper no acepta notional para shorts (422 "fractional orders
+                # cannot be sold short"). Fallback a qty entero para cualquier error de
+                # validación (422, 403, o lo que sea).
+                if side == 'sell':
                     try:
-                        logger.warning(f"SELL {symbol}: notional falló, intentando qty...")
                         int_qty = max(1, int(qty))
+                        if int_qty * price > balance * MAX_NOTIONAL_PER_TRADE:
+                            logger.warning(f"SELL {symbol}: qty fallback {int_qty} excede cap — saltando")
+                            return
+                        logger.info(f"SELL {symbol}: notional falló ({err_str[:60]}), intentando qty={int_qty}...")
                         order = self._alpaca.submit_order(
                             symbol=symbol, side='sell', order_type='market',
                             time_in_force='day', qty=int_qty,
@@ -383,14 +468,15 @@ class StocksAgent:
                         qty = int_qty
                         logger.info(f"Alpaca order {alpaca_order_id} (qty fallback): sell {symbol} x{int_qty}")
                     except Exception as e2:
-                        if '403' in str(e2) or 'available' in str(e2).lower():
-                            logger.warning(f"SELL {symbol}: sin shares disponibles para short — saltando (paper no soporta short)")
+                        err2 = str(e2).lower()
+                        if '403' in err2 or 'available' in err2:
+                            logger.warning(f"SELL {symbol}: sin shares para short — saltando")
                         else:
-                            logger.error(f"Error enviando orden Alpaca {symbol}: {e2}")
+                            logger.error(f"SELL {symbol}: error en fallback qty: {e2}")
                         return
                 else:
                     if '403' in err_str or 'available' in err_str:
-                        logger.warning(f"{side} {symbol}: sin disponibilidad en Alpaca paper — saltando")
+                        logger.warning(f"BUY {symbol}: sin disponibilidad — saltando")
                     else:
                         logger.error(f"Error enviando orden Alpaca {symbol}: {e}")
                         send_telegram(f"⚠️ Error orden Alpaca {symbol}: {e}")

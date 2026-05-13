@@ -45,6 +45,9 @@ class IndicatorSet:
     # Derived
     trend_direction: str   # 'UP' | 'DOWN' | 'SIDEWAYS'
     trend_strength: float  # 0-1
+    # Minervini daily indicators (defaults for non-daily timeframes)
+    ema150: float = 0.0
+    high_52w: float = 0.0
 
 
 class IndicatorEngine:
@@ -73,6 +76,12 @@ class IndicatorEngine:
             if len(df) >= 200
             else ema50
         )
+        ema150 = (
+            ta.trend.ema_indicator(c, window=150).iloc[-1]
+            if len(df) >= 150
+            else ema50
+        )
+        high_52w = float(h.max()) if len(df) > 0 else 0.0
 
         # RSI
         rsi = ta.momentum.rsi(c, window=14).iloc[-1]
@@ -156,4 +165,6 @@ class IndicatorEngine:
             adx_neg=adx_neg,
             trend_direction=trend_direction,
             trend_strength=float(trend_strength),
+            ema150=float(ema150),
+            high_52w=float(high_52w),
         )

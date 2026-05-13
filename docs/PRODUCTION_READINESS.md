@@ -1,9 +1,46 @@
 # Producción Readiness — TREND_MOMENTUM + GRIDs
 
-> Última auditoría: May 12, 2026
+> Última auditoría: May 13, 2026
 > Estrategias titulares para salida a producción
 
-## Estrategias activas
+---
+
+## MarketGuard — Auto-preservación en tiempo real
+
+Sistema de protección automática que monitorea condiciones extremas de mercado
+y ajusta el comportamiento del agente sin intervención manual.
+
+### Niveles de guarda
+
+| Nivel | ¿Qué hace? | Disparador |
+|-------|-----------|------------|
+| NORMAL | 100% operación | Sin anomalías |
+| CAUTION | 25-50% posición | Vol spike, flash rally, dead market |
+| DEFENSIVE | SELL pausado, BUY activo | Flash crash (esperar estabilizar) |
+| PAUSED | 0% — todo detenido | Emergency DD > 8% |
+
+### Circuit breakers
+
+| Guarda | Condición | Acción | Duración |
+|--------|-----------|--------|----------|
+| FLASH CRASH | BTC -3% en 15m | Pausa SELL, alerta Telegram | 30 min |
+| FLASH RALLY | BTC +3% en 15m | SELL a 0.25×, BUY habilitado | 30 min |
+| VOL SPIKE | ATR > 2× normal | Posición a 0.25× | Hasta normalizar |
+| DEAD MARKET | ATR < 0.5% por 6h | Posición a 0.5× | Hasta recuperar |
+| CONSECUTIVE SL | 4 SLs seguidas | Exposición reducida | 30 min |
+| EMERGENCY DD | Drawdown > 8% | Halt total | Hasta DD < 9% |
+
+### Alertas Telegram
+
+```
+🚨 FLASH CRASH — BTC -3.2% en 15m. SELL pausado 30min.
+🚀 FLASH RALLY — BTC +3.5% en 15m. SELL a 0.25×, BUY habilitado.
+⚠️ 4 STOP LOSS consecutivos. Exposición reducida 30min.
+```
+
+Estado actual consultable: `redis-cli keys 'guard:*'`
+
+---
 
 | # | Estrategia | All-time P&L | Trades | WR | Estado |
 |---|-----------|-------------|--------|-----|--------|

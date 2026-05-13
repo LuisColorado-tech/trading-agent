@@ -296,23 +296,23 @@ polymarket_snipe:
   assets:
     - btc
     - eth
-    - sol
-    - xrp
+    # - sol        # DESACTIVADO: PnL -$91 (8 losses/73 trades). DOWN direction problemático.
+    # - xrp        # DESACTIVADO: PnL -$191 (10 losses/59 trades). 17% loss rate, insostenible.
   snipe:
     min_minute: 13                  # Entrar en minuto 13
     max_minute: 14.5                # Hasta minuto 14.5
-    momentum_threshold_pct: 0.15    # Mínimo 0.15% de movimiento (subido 0.10→0.15: filtra oracle gaps)
-    max_entry_price: 0.96           # No comprar si el lado ganador > $0.96 (bajado 0.97→0.96)
-    min_entry_price: 0.90           # No comprar si < $0.90 (subido 0.88→0.90: R:R mínimo 1:9)
-    order_size_shares: 20           # Shares base por trade SNIPE (reducido 40→20: loss máx ~$18)
+    momentum_threshold_pct: 0.20    # Subido 0.15→0.20: filtrar señales débiles (May 13 analysis)
+    max_entry_price: 0.92           # Bajado 0.96→0.92: R:R mínimo 1:11.5. Entry >0.92 no rentable con WR 91%.
+    min_entry_price: 0.88           # Bajado 0.90→0.88: a precio bajo el R:R es favorable (1:7.3)
+    order_size_shares: 20           # Shares base por trade (pérdida máx ~$18 con entry 0.92)
     dynamic_sizing: true            # Tamaño inverso al precio: +shares si entry<$0.92, -shares si>$0.94
   arb:
     target_cost: 0.985              # Comprar YES+NO si suma < $0.985
     min_gap: 0.015                  # Gap mínimo de profit por share
     order_size_shares: 25           # Shares por lado en ARB
   risk:
-    max_daily_loss: 20.0            # USD máx de pérdida diaria (reducido 40→20)
-    max_concurrent_positions: 2     # Máx posiciones simultáneas (reducido 3→2)
+    max_daily_loss: 10.0            # USD máx de pérdida diaria (reducido 20→10: más rápido en parar)
+    max_concurrent_positions: 2     # Máx posiciones simultáneas
 
 # ══════════════════════════════════════════════════════════════════════════════
 # BASIS TRADE — Spot-Futures Funding Rate Capture (Market-Neutral)

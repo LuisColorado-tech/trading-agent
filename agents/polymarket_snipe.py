@@ -292,20 +292,18 @@ def evaluate_snipe(market: dict) -> dict | None:
 def snipe_dynamic_size(entry_price: float) -> int:
     """Ajusta el tamaño de la posición inversamente al precio de entrada.
     
-    R:R mejora a menor precio: entry=$0.90 → R:R=1:9, entry=$0.95 → R:R=1:19.
-    Más shares cuando el R:R es favorable, menos cuando el edge es mínimo.
+    Precios bajos = mejor R:R = más shares. Precios altos = peor R:R = menos shares.
+    Con max_entry_price=0.92 y base=20, pérdida máxima ~$18 por trade.
     """
     base = SNIPE_SIZE
     if not SNIPE_DYNAMIC:
         return base
-    if entry_price <= 0.90:
-        return min(base + 15, 40)
-    elif entry_price <= 0.92:
-        return min(base + 10, 35)
-    elif entry_price >= 0.95:
-        return max(base - 10, 10)
-    elif entry_price >= 0.94:
-        return max(base - 5, 10)
+    if entry_price <= 0.88:
+        return min(base + 10, 30)
+    elif entry_price <= 0.90:
+        return min(base + 5, 25)
+    elif entry_price >= 0.92:
+        return max(base - 8, 8)
     return base
 
 

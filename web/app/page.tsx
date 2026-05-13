@@ -272,6 +272,26 @@ export default async function OverviewPage() {
             { label: 'Backtest', value: '5Y · PF=0.82', cls: 'text-muted' },
           ]}
         />
+        
+        <AgentCard
+          title="Minervini SEPA"
+          icon="🚀"
+          href="/trades"
+          sessionName="MINERVINI"
+          balance={500}
+          pnl={0}
+          winRate={0}
+          profitFactor={0}
+          openTrades={0}
+          totalTrades={0}
+          drawdown={0}
+          status="DEV"
+          color="green"
+          extra={[
+            { label: '🆕 NEW', value: 'BUY-only momentum daily', cls: 'text-green' },
+            { label: 'Universe', value: 'NVDA·META·TSLA·AMZN·AAPL', cls: 'text-muted' },
+          ]}
+        />
       </div>
 
       {/* Allocation + Equity charts */}

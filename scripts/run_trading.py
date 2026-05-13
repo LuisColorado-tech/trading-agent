@@ -31,6 +31,7 @@ from agents.trade_monitor import TradeMonitor
 from core.portfolio_utils import build_portfolio_state
 from data.market_feed import ASSET_MAP
 from risk.risk_manager import PAPER_HALT_COOLDOWN_HOURS
+from core.market_guard import get_market_guard, GuardLevel
 
 SCAN_INTERVAL = 60  # segundos entre scans
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
@@ -221,6 +222,11 @@ def main():
                     executor.risk.register_close(
                         ct['asset'], ct.get('side', ''), reason=ct['close_reason']
                     )
+                    # MarketGuard: track consecutive SLs for auto-preservation
+                    if ct['close_reason'] == 'STOP_LOSS':
+                        guard.register_sl()
+                    else:
+                        guard.register_tp()
                 # Refresh portfolio after closing trades
                 portfolio = get_portfolio(session)
 
@@ -241,12 +247,28 @@ def main():
             signals = scanner.scan()
             logger.debug(f'Scan complete: {len(signals)} signals')
 
+            # 1b. MarketGuard — condiciones extremas de mercado
+            guard = get_market_guard()
+            guard_state = guard.check(feed=scanner.feed, portfolio=portfolio)
+            if guard_state.level != GuardLevel.NORMAL:
+                logger.warning(
+                    f'MarketGuard: {guard_state.level} — {guard_state.reason} '
+                    f'(mult={guard_state.position_multiplier})'
+                )
+
             # 2. Evaluar estrategias
             for asset in ASSETS:
                 for tf in TIMEFRAMES:
                     result = strategy.evaluate(asset, tf, portfolio)
                     if result.get('opportunity'):
                         signal = result['signal']
+                        # Aplicar MarketGuard multiplier al position_multiplier existente
+                        existing_mult = signal.get('position_multiplier', 1.0)
+                        signal['position_multiplier'] = existing_mult * guard_state.position_multiplier
+                        # Override BUY allowance in flash rally
+                        if guard_state.buy_allowed and signal['direction'] == 'BUY':
+                            signal['score'] = signal.get('score', 0) + 5
+                            signal.setdefault('reasons', []).append('FLASH_RALLY_BUY_OK')
                         logger.info(
                             f'Opportunity: {asset}/{tf} {signal["direction"]} '
                             f'score={signal["score"]}'
