@@ -353,37 +353,48 @@ class StocksAgent:
                             logger.error(f"No se pudo limpiar orden opuesta para {symbol} tras varios intentos. Abortando envío de nueva orden.")
                             return
 
-                # Alpaca solo acepta notional para BUY; SELL (short) requiere qty explícito
+                # Usar notional tanto para BUY como SELL.
+                # Alpaca paper API soporta notional en market orders para ambos lados.
+                # qty entero solo como fallback si notional falla por disponibilidad.
                 order_kwargs: dict = dict(
                     symbol=symbol,
                     side=side,
                     order_type='market',
                     time_in_force='day',
+                    notional=round(notional, 2),
                 )
-                if side == 'buy':
-                    order_kwargs['notional'] = round(notional, 2)
-                else:
-                    # Alpaca no permite short selling fraccionario: qty debe ser entero
-                    int_qty = max(1, int(qty))
-                    sell_notional = round(int_qty * price, 2)
-                    balance_now = float(self.session.get('current_balance', 0))
-                    if sell_notional > balance_now * MAX_NOTIONAL_PER_TRADE:
-                        logger.info(
-                            f"SELL {symbol}: {int_qty} share(s) = ${sell_notional:.2f} "
-                            f"excede cap ${balance_now * MAX_NOTIONAL_PER_TRADE:.2f} — saltando"
-                        )
-                        return
-                    qty = int_qty
-                    notional = sell_notional
-                    order_kwargs['qty'] = int_qty
                 logger.info(f"Validando orden: {order_kwargs}")
                 order = self._alpaca.submit_order(**order_kwargs)
                 alpaca_order_id = order.get('id')
                 logger.info(f"Alpaca order {alpaca_order_id} enviada: {side} {symbol} ${notional:.2f}")
             except Exception as e:
-                logger.error(f"Error enviando orden Alpaca {symbol}: {e}")
-                send_telegram(f"⚠️ Error orden Alpaca {symbol}: {e}")
-                return
+                # Si falla por notional en SELL, intentar con qty entero como fallback
+                err_str = str(e).lower()
+                if side == 'sell' and 'notional' in err_str and '403' not in err_str:
+                    try:
+                        logger.warning(f"SELL {symbol}: notional falló, intentando qty...")
+                        int_qty = max(1, int(qty))
+                        order = self._alpaca.submit_order(
+                            symbol=symbol, side='sell', order_type='market',
+                            time_in_force='day', qty=int_qty,
+                        )
+                        alpaca_order_id = order.get('id')
+                        notional = int_qty * price
+                        qty = int_qty
+                        logger.info(f"Alpaca order {alpaca_order_id} (qty fallback): sell {symbol} x{int_qty}")
+                    except Exception as e2:
+                        if '403' in str(e2) or 'available' in str(e2).lower():
+                            logger.warning(f"SELL {symbol}: sin shares disponibles para short — saltando (paper no soporta short)")
+                        else:
+                            logger.error(f"Error enviando orden Alpaca {symbol}: {e2}")
+                        return
+                else:
+                    if '403' in err_str or 'available' in err_str:
+                        logger.warning(f"{side} {symbol}: sin disponibilidad en Alpaca paper — saltando")
+                    else:
+                        logger.error(f"Error enviando orden Alpaca {symbol}: {e}")
+                        send_telegram(f"⚠️ Error orden Alpaca {symbol}: {e}")
+                    return
 
         # Registrar en PostgreSQL
         trade_id = self.session_mgr.open_trade(
