@@ -485,7 +485,7 @@ def check_polymarket() -> tuple:
 
 
 def check_stocks() -> tuple:
-    """Check del stocks agent (Alpaca NYSE/NASDAQ)."""
+    """Check del stocks agent (Alpaca NYSE/NASDAQ) + Minervini."""
     try:
         import subprocess
         r = subprocess.run(['systemctl', 'is-active', 'stocks-agent'], capture_output=True, text=True, timeout=5)
@@ -496,11 +496,57 @@ def check_stocks() -> tuple:
         conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
         row = _query_one(conn,
             "SELECT COUNT(*) FROM stocks_trades WHERE opened_at > now() - interval '24 hours'")
+        # Minervini specific
+        mv_row = _query_one(conn,
+            "SELECT COUNT(*) FROM stocks_trades WHERE strategy='MINERVINI' AND status='OPEN'")
         conn.close()
         count = int(row[0]) if row else 0
-        return True, f'📈 Stocks OK — {count} trades en 24h'
+        mv_open = int(mv_row[0]) if mv_row else 0
+        mv_str = f' · {mv_open} Minervini open' if mv_open > 0 else ''
+        return True, f'📈 Stocks OK — {count} trades en 24h{mv_str}'
     except Exception as e:
         return False, f'📈 Stocks error: {str(e)[:80]}'
+
+
+def check_options() -> tuple:
+    """Check del options agent (Deribit theta farming)."""
+    try:
+        import subprocess
+        r = subprocess.run(['systemctl', 'is-active', 'options-agent'], capture_output=True, text=True, timeout=5)
+        svc_active = r.stdout.strip() == 'active'
+        if not svc_active:
+            return False, '📣 Options servicio INACTIVO'
+
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        sess = _query_one(conn, "SELECT current_balance_usd FROM options_sessions WHERE status='ACTIVE' LIMIT 1")
+        op_open = int((_query_one(conn, "SELECT COUNT(*) FROM options_positions WHERE status='OPEN'") or [0])[0])
+        conn.close()
+        bal = float(sess[0]) if sess else 0
+        return True, f'📣 Options OK — ${bal:,.0f} | {op_open} open'
+    except Exception as e:
+        return False, f'📣 Options error: {str(e)[:80]}'
+
+
+def check_pairs() -> tuple:
+    """Check del Pairs Trading agent."""
+    try:
+        import subprocess
+        r = subprocess.run(['systemctl', 'is-active', 'pairs-agent'], capture_output=True, text=True, timeout=5)
+        svc_active = r.stdout.strip() == 'active'
+        if not svc_active:
+            return False, '🔗 Pairs servicio INACTIVO'
+
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        row = _query_one(conn,
+            "SELECT COUNT(*), COALESCE(SUM(pnl), 0) FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'")
+        conn.close()
+        count = int(row[0]) if row else 0
+        pnl = float(row[1]) if row else 0
+        if count == 0:
+            return True, '🔗 Pairs OK — esperando z-score >1.5'
+        return True, f'🔗 Pairs OK — {count} trades | PnL=${pnl:+.0f}'
+    except Exception as e:
+        return False, f'🔗 Pairs error: {str(e)[:80]}'
 
 
 def check_snipe() -> tuple:
@@ -715,6 +761,8 @@ def main():
         ('🔮 Polymarket', check_polymarket),
         ('🎯 PolySnipe', check_snipe),
         ('📈 Stocks', check_stocks),
+        ('📣 Options', check_options),
+        ('🔗 Pairs', check_pairs),
     ]
 
     results = []
