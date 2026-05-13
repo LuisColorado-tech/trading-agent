@@ -13,12 +13,13 @@ const cardColors: Record<string, 'green'|'blue'|'gold'|'purple'|'red'> = {
 }
 
 export default async function OverviewPage() {
-  const [overview, cryptoHistory, stocksEquity, consortiumRes, byStratRes] = await Promise.allSettled([
+  const [overview, cryptoHistory, stocksEquity, consortiumRes, byStratRes, pairsRes] = await Promise.allSettled([
     api.overview(),
     api.cryptoHistory(),
     api.stocksEquity(),
     api.consortium(),
     api.cryptoByStrategy(),
+    api.pairsSession(),
   ])
 
   const ov = overview.status === 'fulfilled' ? overview.value : {}
@@ -26,6 +27,7 @@ export default async function OverviewPage() {
   const seq = stocksEquity.status === 'fulfilled' ? stocksEquity.value : []
   const consortium = consortiumRes.status === 'fulfilled' ? consortiumRes.value : null
   const csStats = byStratRes.status === 'fulfilled' ? byStratRes.value : {}
+  const pairsData = pairsRes.status === 'fulfilled' ? pairsRes.value : null
 
   const s = ov.stocks ?? {}
   const c = ov.crypto ?? {}
@@ -252,22 +254,22 @@ export default async function OverviewPage() {
         />
         
         <AgentCard
-          title="Pairs Trading — GLD-SLV"
+          title="Pairs Trading"
           icon="🔗"
-          href="/trades"
+          href="/pairs"
           sessionName="PAIRS_TRADING"
-          balance={496.03}
-          pnl={-3.97}
-          winRate={42.9}
-          profitFactor={0.82}
-          openTrades={0}
-          totalTrades={7}
+          balance={pairsData ? 500 + (pairsData.total_pnl ?? 0) : 500}
+          pnl={pairsData?.total_pnl ?? 0}
+          winRate={pairsData?.total_trades > 0 ? pairsData.win_rate : 42.9}
+          profitFactor={pairsData?.total_trades > 0 ? pairsData.profit_factor : 0.82}
+          openTrades={pairsData?.open_trades ?? 0}
+          totalTrades={pairsData?.total_trades ?? 0}
           drawdown={1.4}
-          status="DEV"
+          status={pairsData ? 'ACTIVE' : 'DEV'}
           color="orange"
           extra={[
-            { label: '🟡 DEV', value: 'Cointegration z-score', cls: 'text-orange' },
-            { label: 'Backtest', value: '5Y · PF=0.82 · WR=43%', cls: 'text-muted' },
+            { label: 'pairs', value: 'GLD-SLV · BTC-ETH', cls: 'text-orange' },
+            { label: 'Backtest', value: '5Y · PF=0.82', cls: 'text-muted' },
           ]}
         />
       </div>

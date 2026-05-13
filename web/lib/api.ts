@@ -46,4 +46,6 @@ export const api = {
   },
   gridStableDaily:    () => get<any[]>('/grid-stable/stats/daily'),
   risk:               () => get<any>('/overview/risk'),
+  pairsSession:       () => get<any>('/pairs/session'),
+  get:                <T>(path: string) => get<T>(path),
 }
