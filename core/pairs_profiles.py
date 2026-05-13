@@ -63,7 +63,7 @@ PAIRS_PROFILES: dict[str, PairsProfile] = {
         stop_loss_z=4.0,
         max_hold_days=30,
         min_half_life=3,
-        max_half_life=30,
+        max_half_life=200,               # hl real ~150d, 30d era demasiado restrictivo
         max_capital_pct=0.08,
         notes='BTC vs ETH. Correlación 0.89. Ventana más corta (90d) por '
               'cambios estructurales en dominance. Half-life más rápida.',

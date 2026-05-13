@@ -107,9 +107,9 @@ class PairsFeed:
         return log_a - beta * log_b
 
     def calc_zscore(self, spread: pd.Series, window: int = 252) -> pd.Series:
-        """Z-score rodante del spread."""
-        mean = spread.rolling(window=window, min_periods=window).mean()
-        std = spread.rolling(window=window, min_periods=window).std()
+        """Z-score rodante del spread. Usa min_periods para trabajar con datos parciales."""
+        mean = spread.rolling(window=window, min_periods=max(60, window//4)).mean()
+        std = spread.rolling(window=window, min_periods=max(60, window//4)).std()
         std = std.replace(0, np.nan)
         return (spread - mean) / std
 

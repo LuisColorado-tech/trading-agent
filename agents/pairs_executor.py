@@ -191,6 +191,8 @@ def run_cycle():
         signal = strategy.evaluate(pair_name, INITIAL_BALANCE)
         if signal and signal.is_entry:
             _open_pair(signal)
+        elif signal:
+            logger.info(f'Pairs {pair_name}: {signal.signal} z={signal.z_score} hl={signal.half_life_days}d — {signal.reason}')
 
 
 def main():
