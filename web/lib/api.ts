@@ -1,7 +1,9 @@
-const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
+const API = typeof window !== 'undefined'
+  ? 'http://187.77.5.109:8000'      // browser → public IP
+  : process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'  // server → localhost
 
 async function get<T>(path: string): Promise<T> {
-  const res = await fetch(`${API}${path}`)
+  const res = await fetch(`${API}${path}`, { cache: 'no-store' })
   if (!res.ok) throw new Error(`API ${path} → ${res.status}`)
   return res.json()
 }
