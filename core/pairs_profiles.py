@@ -40,15 +40,15 @@ PAIRS_PROFILES: dict[str, PairsProfile] = {
         source='alpaca',
         hedge_ratio_window=252,
         refit_interval=21,
-        z_entry=2.0,
-        z_exit=0.0,
-        stop_loss_z=3.5,
-        max_hold_days=60,
-        min_half_life=5,
-        max_half_life=60,
+        z_entry=1.5,                     # May13: 2.0→1.5 (32→163 signal days/year)
+        z_exit=0.3,                      # 0.0→0.3 (avoid whipsaw near mean)
+        stop_loss_z=3.0,                 # 3.5→3.0 (tighter, z>3.0 is rare)
+        max_hold_days=90,                # 60→90 (spread can take months to revert)
+        min_half_life=3,                 # Relaxed minimum
+        max_half_life=200,               # 60→200 (don't filter by half-life)
         max_capital_pct=0.10,
-        notes='Oro vs Plata. Alta correlación 0.82. Cointegrados a largo plazo. '
-              'Trade de reversión clásico en commodities.',
+        notes='Oro vs Plata. z_entry 1.5 → ~30 trades/5Y (vs 7 at z=2.0). '
+              'Asymmetric: more short signals (GLD overperformed and reverts).',
     ),
 
     'BTC-ETH': PairsProfile(
@@ -58,10 +58,10 @@ PAIRS_PROFILES: dict[str, PairsProfile] = {
         source='kraken',
         hedge_ratio_window=90,
         refit_interval=7,
-        z_entry=2.5,
-        z_exit=0.5,
-        stop_loss_z=4.0,
-        max_hold_days=30,
+        z_entry=1.5,                     # May13: 2.5→1.5 (was generating 0 trades)
+        z_exit=0.3,
+        stop_loss_z=3.0,                 # 4.0→3.0
+        max_hold_days=60,                # 30→60
         min_half_life=3,
         max_half_life=200,               # hl real ~150d, 30d era demasiado restrictivo
         max_capital_pct=0.08,
