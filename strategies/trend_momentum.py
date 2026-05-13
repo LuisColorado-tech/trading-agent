@@ -9,7 +9,10 @@ from core.asset_profiles import get_profile
 
 class TrendMomentumStrategy:
     NAME = 'TREND_MOMENTUM'
-    MIN_SCORE = 75  # Subido de 70→75 (v3): filtrar señales de baja calidad, PF 1.08→meta 1.20
+    MIN_SCORE = 65  # v3 rollback May 13: 65 (original) → 70 → 75 era demasiado restrictivo.
+    # PRE-v3 con MIN_SCORE=65: 297 trades, WR=50.2%, PnL=+$11,597.
+    # POST-v3 con MIN_SCORE=70-75: 23 trades, WR=47.8%, PnL=+$183 (90% menos señales).
+    # Ver backtest 5-activos 1h 12m para decisión completa.
 
     def score(self, ind: IndicatorSet, df=None) -> dict:
         # Evaluar ambas direcciones con scoring gradual y elegir la mejor

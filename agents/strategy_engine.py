@@ -7,6 +7,7 @@ NOTE: MeanReversion deshabilitada — 0/8 win rate en paper, -$569 P&L.
 import json
 import os
 import sys
+import time
 from datetime import datetime, timezone
 
 import random
@@ -17,7 +18,7 @@ from sqlalchemy import create_engine
 sys.path.insert(0, '/opt/trading')
 
 from agents.indicators import IndicatorEngine
-from core.market_regime import classify_market_regime, regime_block_reason, strategy_allowed_in_regime
+from core.market_regime import classify_market_regime, regime_block_reason, strategy_allowed_in_regime, get_macro_bias, macro_position_multiplier, MacroBias
 from core.performance_guard import StrategyPerformanceGuard
 from core.claude_bridge import ClaudeBridge
 from data.market_feed import MarketFeed, ASSET_MAP
@@ -96,14 +97,17 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            # MeanReversionStrategy: desactivada permanentemente.
-            # allow_mean_reversion=False en TODOS los regímenes de market_regime.py
-            # + performance_guard bloqueó tras 0/8 WR en paper. Archivo conservado.
-            BtcDipBuyerStrategy(),
-            BreakoutStrategy(),
-            # Estrategias reverse-engineered de GitHub (activadas 2026-04-25)
+            # SMC_ORDER_BLOCKS: reactivada May 13 tras backtest 1h 12m 5-activos.
+            # 62 trades, WR=32%, PnL=+$558. PF > 1.0. 45% WR en BTC 24m (+$1,141).
             SmcOrderBlocksStrategy(),
+            # BTC_MICROSTRUCTURE: reactivada May 13 tras backtest 1h 12m 5-activos.
+            # 38 trades, WR=45%, PnL=+$1,292. Mejor WR de todas las estrategias.
             BtcMicrostructureStrategy(),
+            # ── ESTRATEGIAS PAUSADAS (sin backtest suficiente) ──
+            # BreakoutStrategy: 11 trades BT, WR=27%, +$54. Pocos trades, necesita más datos.
+            # BtcDipBuyerStrategy: 0 trades BT, sin validación.
+            # MeanReversionStrategy: 0/8 WR paper, descartada permanentemente.
+            # PullbackStateMachine: 2 trades BT, insuficiente.
         ]
         self.claude = ClaudeBridge()
         # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
@@ -118,6 +122,24 @@ class StrategyEngine:
             decode_responses=True,
         )
         self.guard = StrategyPerformanceGuard(db_url)
+        self._macro_bias: str | None = None
+        self._macro_last_update: float = 0
+
+    def _get_macro_bias(self) -> str:
+        """Obtiene el régimen macro usando BTC 1h como referencia. Cache 15 min."""
+        now = time.time()
+        if self._macro_bias is not None and (now - self._macro_last_update) < 900:
+            return self._macro_bias
+        try:
+            btc_df = self.feed.get_latest('BTC', '1h', n=250)
+            if not btc_df.empty and len(btc_df) >= 200:
+                self._macro_bias = get_macro_bias(btc_df)
+                self._macro_last_update = now
+                logger.info(f'Macro regime: {self._macro_bias}')
+                return self._macro_bias
+        except Exception:
+            pass
+        return self._macro_bias or MacroBias.RANGE
 
     def evaluate(self, asset: str, timeframe: str,
                  portfolio_context: dict = None) -> dict:
@@ -126,6 +148,9 @@ class StrategyEngine:
         current_hour = datetime.now(timezone.utc).hour
         if not hour_allowed(asset, current_hour):
             return {'opportunity': False, 'reason': f'hour_blocked:{current_hour}h_utc'}
+
+        # ── Macro regime: computar una vez por ciclo (cache 15 min) ──
+        macro_bias = self._get_macro_bias()
 
         df = self.feed.get_latest(asset, timeframe, n=250)
         if df.empty:
@@ -171,6 +196,13 @@ class StrategyEngine:
                     if regime.name == 'TREND_DOWN' and res['direction'] == 'SELL':
                         res['score'] = res.get('score', 0) + 8
                         res.setdefault('reasons', []).append('REGIME_TREND_DOWN_BONUS')
+                    # Macro regime alignment bonus: viento a favor = +10 score
+                    if macro_bias == MacroBias.BULL_RUN and res['direction'] == 'BUY':
+                        res['score'] = res.get('score', 0) + 10
+                        res.setdefault('reasons', []).append('MACRO_BULL_ALIGNED')
+                    elif macro_bias == MacroBias.BEAR_TREND and res['direction'] == 'SELL':
+                        res['score'] = res.get('score', 0) + 10
+                        res.setdefault('reasons', []).append('MACRO_BEAR_ALIGNED')
                     guard_reason = self.guard.assess_signal(asset, strategy.NAME)
                     if guard_reason:
                         blocked.append({'strategy': strategy.NAME, 'reason': guard_reason})
@@ -199,10 +231,14 @@ class StrategyEngine:
         best = max(results, key=lambda r: r['score'])
 
         # ── Filtro de dirección permitida por perfil de asset ──
-        if not direction_allowed(asset, best['direction']):
+        # Macro-regime override: en BULL_RUN se permite BUY aunque el perfil diga SELL-only.
+        # En BEAR_TREND y RANGE se respeta la restricción original del perfil.
+        if macro_bias == MacroBias.BULL_RUN and best['direction'] == 'BUY':
+            pass  # permitir BUY en bull run
+        elif not direction_allowed(asset, best['direction']):
             logger.info(
                 f'No opportunity {asset}/{timeframe}: direction_not_allowed '
-                f'dir={best["direction"]} asset={asset}'
+                f'dir={best["direction"]} asset={asset} macro={macro_bias}'
             )
             return {'opportunity': False, 'reason': f'direction_not_allowed:{best["direction"]}'}
 
@@ -273,11 +309,15 @@ class StrategyEngine:
             'trend': ind.trend_direction,
             'trend_strength': ind.trend_strength,
         }
+        best['macro_bias'] = macro_bias
+        best['position_multiplier'] = macro_position_multiplier(macro_bias, best['direction'])
 
         return {'opportunity': True, 'signal': best}
 
     def scan_all(self, portfolio_context: dict = None) -> list:
         """Evalúa todas las combinaciones asset/timeframe y devuelve oportunidades."""
+        # Pre-computar macro bias una vez por ciclo
+        self._get_macro_bias()
         opportunities = []
         for asset, info in ASSET_MAP.items():
             for tf in info['timeframes']:

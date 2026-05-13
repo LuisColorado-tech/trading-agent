@@ -98,7 +98,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'BTC': AssetProfile(
         asset='BTC',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=5,  # subido 3→5 (backtest 24m: único crypto con PF<1.0=0.99, filtrar señales débiles)
+        confluence_min=3,  # v3 rollback May 13: 3→5→3 (5 eliminaba 90% de señales BTC. PRE-v3: 32 trades +$3,145)
         sl_multiplier=1.3,
         tp_multiplier=2.8,
         trailing_activation_r=0.75,  # v3: 1.5→0.75 (activar antes, evita reversiones que borran ganancias)
@@ -175,7 +175,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'SOL': AssetProfile(
         asset='SOL',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=5,  # v3: 4→5 (MaxDD=41.3% en backtest v2, reducir entradas débiles)
+        confluence_min=4,  # v3 rollback May 13: 4→5→4 (65→2 trades SOL, -98% actividad)
         sl_multiplier=1.4,
         tp_multiplier=2.8,
         trailing_activation_r=1.0,
@@ -255,7 +255,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'INJ': AssetProfile(
         asset='INJ',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=5,  # v3: 4→5 (reducir entradas — INJ tiene el doble de riesgo por trade)
+        confluence_min=4,  # v3 rollback May 13: 4→5→4 (50→8 trades INJ, -84% actividad)
         sl_multiplier=1.8,  # v3: 1.3→1.8 (SL más amplio → posición más pequeña para mismo riesgo)
         tp_multiplier=3.5,  # v3: 2.6→3.5 (proporcional al SL para mantener R:R ~2:1)
         trailing_activation_r=1.0,  # v3: 2.0→1.0 (activar antes, pero más alto que resto por volatilidad INJ)

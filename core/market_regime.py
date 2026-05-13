@@ -106,3 +106,58 @@ def strategy_allowed_in_regime(strategy_name: str, regime: MarketRegime) -> bool
 
 def regime_block_reason(strategy_name: str, regime: MarketRegime) -> str:
     return f'REGIME_BLOCK:{strategy_name}:{regime.name}'
+
+
+# ── Macro Regime — BTC como faro del mercado crypto ──
+
+class MacroBias:
+    BULL_RUN = 'BULL_RUN'
+    BEAR_TREND = 'BEAR_TREND'
+    RANGE = 'RANGE'
+
+
+def get_macro_bias(btc_df) -> str:
+    """Clasifica el régimen macro usando BTC como referencia."""
+    import numpy as np
+    if btc_df is None or btc_df.empty or len(btc_df) < 200:
+        return MacroBias.RANGE
+
+    # Normalizar nombres de columna (market_feed usa 'close', otros usan 'Close')
+    col = 'close' if 'close' in btc_df.columns else 'Close'
+    closes = btc_df[col].values
+    ema200 = np.mean(closes[-200:])
+
+    # También calcular EMA50 para confirmación
+    ema50 = np.mean(closes[-50:]) if len(closes) >= 50 else ema200
+    current = closes[-1]
+
+    # Estructura de precios: últimos 20 candles
+    recent = closes[-20:]
+    highs = np.max(recent)
+    lows = np.min(recent)
+    mid = (highs + lows) / 2
+
+    # BULL_RUN: precio sobre EMA200 + EMA50 sobre EMA200 + precio cerca de máximos
+    if current > ema200 and ema50 > ema200 and current > mid:
+        return MacroBias.BULL_RUN
+
+    # BEAR_TREND: precio bajo EMA200 + EMA50 bajo EMA200 + precio cerca de mínimos
+    if current < ema200 and ema50 < ema200 and current < mid:
+        return MacroBias.BEAR_TREND
+
+    return MacroBias.RANGE
+
+
+def macro_position_multiplier(macro_bias: str, direction: str) -> float:
+    """Ajusta el multiplicador de posición según alineación con régimen macro.
+
+    BUY en BULL_RUN  → 1.0× (viento a favor)
+    SELL en BEAR_TREND → 1.0× (viento a favor)
+    Cualquier otra combinación → reducido
+    """
+    if macro_bias == MacroBias.BULL_RUN:
+        return 1.0 if direction == 'BUY' else 0.25
+    elif macro_bias == MacroBias.BEAR_TREND:
+        return 1.0 if direction == 'SELL' else 0.0
+    else:  # RANGE
+        return 0.5 if direction == 'SELL' else 0.0

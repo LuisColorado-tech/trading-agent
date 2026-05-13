@@ -26,7 +26,6 @@ MAX_CONCURRENT_TRADES    = 2      # Máximo trades abiertos simultáneamente (re
 MIN_RR_RATIO             = 1.5    # Ratio riesgo:recompensa mínimo
 SL_COOLDOWN_MINUTES      = 60     # Minutos de espera tras un SL antes de re-entrar al mismo asset
 TP_COOLDOWN_MINUTES      = 5      # Minutos de espera tras un TP/TRAILING antes de re-entrar
-DEAD_HOURS_UTC           = {1, 2, 3, 4, 9, 13, 14, 20, 22, 23}  # Backtest 24m: horas con WR < 31% — no operar
 SIGNAL_DEDUP_HOURS       = 4     # No reentrar mismo asset+dirección en N horas tras SL
 MAX_NOTIONAL_PCT         = 0.50   # Notional máximo por trade = 50% del balance (evitar apalancamiento)
 PAPER_HALT_COOLDOWN_HOURS = 3     # Reanudación autónoma sólo en paper tras cuarentena
@@ -129,15 +128,21 @@ class RiskManager:
                 claude_flags=[],
             )
 
-        # 0b. Filtro horario: bloquear horas con 0% WR histórico
+        # 0b. Filtro horario: solo aplicar horas bloqueadas por perfil de asset
+        # Los assets sin blocked_hours (nuevos, no calibrados) operan 24/7.
+        # La lista global DEAD_HOURS_UTC era demasiado restrictiva (10/24h bloqueadas)
+        # y bloqueaba señales fuertes (POL score=93 a hora 23).
         current_hour = datetime.now(timezone.utc).hour
-        if current_hour in DEAD_HOURS_UTC:
-            return RiskDecision(
-                approved=False, position_size=0, stop_loss=0,
-                take_profit=0, risk_amount=0,
-                reason=f'DEAD_HOUR:{current_hour}UTC',
-                claude_flags=[],
-            )
+        asset_name = signal.get('asset', '')
+        if asset_name:
+            from core.asset_profiles import hour_allowed
+            if not hour_allowed(asset_name, current_hour):
+                return RiskDecision(
+                    approved=False, position_size=0, stop_loss=0,
+                    take_profit=0, risk_amount=0,
+                    reason=f'ASSET_HOUR_BLOCKED:{asset_name}:{current_hour}UTC',
+                    claude_flags=[],
+                )
 
         total_balance = portfolio.get('total_balance', 0)
         current_exposure = portfolio.get('exposure_pct', 0)
@@ -223,6 +228,12 @@ class RiskManager:
             )
 
         risk_amount = total_balance * MAX_RISK_PER_TRADE_PCT
+
+        # 4o. Macro-regime position multiplier: reduce tamaño en contra-tendencia
+        macro_mult = signal.get('position_multiplier', 1.0)
+        if macro_mult < 1.0:
+            risk_amount *= macro_mult
+            logger.info(f'MACRO_SIZE: {signal.get("asset")} risk ×{macro_mult} (macro={signal.get("macro_bias","?")})')
 
         # 4p. Probation: reducir riesgo al 50% si la estrategia está en periodo de prueba
         if signal.get('on_probation'):
