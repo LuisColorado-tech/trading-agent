@@ -97,17 +97,16 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            # SMC_ORDER_BLOCKS: reactivada May 13 tras backtest 1h 12m 5-activos.
-            # 62 trades, WR=32%, PnL=+$558. PF > 1.0. 45% WR en BTC 24m (+$1,141).
-            SmcOrderBlocksStrategy(),
-            # BTC_MICROSTRUCTURE: reactivada May 13 tras backtest 1h 12m 5-activos.
-            # 38 trades, WR=45%, PnL=+$1,292. Mejor WR de todas las estrategias.
-            BtcMicrostructureStrategy(),
-            # ── ESTRATEGIAS PAUSADAS (sin backtest suficiente) ──
-            # BreakoutStrategy: 11 trades BT, WR=27%, +$54. Pocos trades, necesita más datos.
-            # BtcDipBuyerStrategy: 0 trades BT, sin validación.
-            # MeanReversionStrategy: 0/8 WR paper, descartada permanentemente.
-            # PullbackStateMachine: 2 trades BT, insuficiente.
+            # ── ESTRATEGIAS PAUSADAS (May 14: stability run) ──
+            # SMC_ORDER_BLOCKS: reactivada May 13, backtest 62 trades +$558.
+            #   Paper: 5 trades -$51 (May 14). En drawdown. Pausada para estabilidad.
+            # BTC_MICROSTRUCTURE: reactivada May 13, backtest 38 trades +$1,292.
+            #   Paper: 1 trade -$18 (May 14). Pausada para estabilidad.
+            # Ambas son rentables en backtest pero necesitan más validación paper.
+            # Se reactivarán cuando TREND_MOMENTUM esté estable 2+ semanas.
+            # SmcOrderBlocksStrategy(),
+            # BtcMicrostructureStrategy(),
+            # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy: pausadas.
         ]
         self.claude = ClaudeBridge()
         # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
