@@ -94,12 +94,9 @@ class TrendMomentumStrategy:
         score = 0
         reasons = []
 
-        # SOL tiene win rate 19% en BUY/TREND_UP (backtest 6m):
-        # requiere cruce EMA fuerte (1.007) en lugar del umbral suave (1.002).
-        ema_bull_threshold = 1.007 if ind.asset == 'SOL' else 1.002
-
-        # EMA alcista
-        if ind.ema20 > ind.ema50 * ema_bull_threshold:
+        # EMA alcista: umbral 1.005 (0.5% gap, simétrico con SELL).
+        # May14: 1.002/1.007→1.005 (BUY nunca generaba señales, 0 trades en 24h BULL_RUN)
+        if ind.ema20 > ind.ema50 * 1.005:
             score += 25
             reasons.append('EMA_BULL_CROSS')
             if ind.ema20 > ind.ema50 * 1.012:
@@ -111,10 +108,9 @@ class TrendMomentumStrategy:
             score += 15
             reasons.append('PRICE_ABOVE_EMA20')
 
-        # RSI en zona de momentum real (50-65). Reducido de 45-68 → 50-65 (v3):
-        # 45-50 incluía entradas débiles en rebotes; 65-68 incluía pre-sobrecompra.
-        # Penalización sobrecompra bajada a RSI>68 (antes >72) para ser más estrictos.
-        if 50 <= ind.rsi <= 65:
+        # RSI en zona de momentum (45-65). Ampliado 50-65→45-65 (May14):
+        # 45-50 captura pullbacks saludables en BULL_RUN que el rango anterior ignoraba.
+        if 45 <= ind.rsi <= 65:
             score += 20
             reasons.append(f'RSI_MOMENTUM_ZONE:{ind.rsi:.1f}')
         elif ind.rsi > 68:
@@ -131,12 +127,15 @@ class TrendMomentumStrategy:
             score += 10
             reasons.append(f'VOL_CONFIRM:{ind.vol_ratio:.2f}x')
 
-        # Espacio hasta BB superior: usando bb_pct en vez de distancia absoluta.
-        # La condición original (close < bb_upper * 0.97) nunca se cumplía en
-        # bandas estrechas (RANGE) porque bb_upper ya está < 3% sobre el precio.
+        # Espacio hasta BB superior
         if ind.bb_pct < 0.70:
             score += 10
             reasons.append('ROOM_TO_BB_UPPER')
+
+        # Sobre VWAP confirma presión compradora intradía (simétrico con SELL)
+        if ind.close > ind.vwap:
+            score += 8
+            reasons.append('ABOVE_VWAP')
 
         # SL/TP por perfil de asset (sustituye el heurístico generico)
         profile = get_profile(ind.asset)
