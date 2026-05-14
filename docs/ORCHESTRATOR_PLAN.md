@@ -95,9 +95,9 @@ scripts/
 
 ---
 
-## ESTADO DE EJECUCIÓN — May 12, 2026
+## ESTADO DE EJECUCIÓN — May 13, 2026
 
-> **Última intervención**: Fase 4 completada manual + fix TrendMomentum bloqueo + dashboard responsive + risk panel.
+> **Última intervención**: Fase 5 (Earnings) ejecutada parcialmente — archivos generados, timeout antes de activar.
 
 ### Ejecución de fases
 
@@ -105,10 +105,24 @@ scripts/
 |------|-------|-----------|--------|------|
 | 1. Grid Stable | May 3 | system crontab | ✅ | Completado |
 | 2. Basis Trade | May 5 | system crontab | ✅ | Completado |
-| 3. VIX Mean Rev | May 7 | system crontab + manual | ✅ | opencode crasheó; completado manualmente May 9. Backtest 5Y: 18 trades, WR=66.7% |
-| 4. Pairs Trading | May 10 | Hermes cron + manual | ✅ | opencode falló; completado manualmente May 12. GLD-SLV 5Y: 7 trades, PF=0.82 |
-| 5. Earnings | May 13 | Hermes cron | ⏳ | Pendiente |
-| 6. Final Report | May 16 | Hermes cron | ⏳ | Pendiente |
+| 3. VIX Mean Rev | May 7 | system crontab + manual | ✅ | opencode crasheó; completado manualmente May 9 |
+| 4. Pairs Trading | May 10 | Hermes cron + manual | ✅ | opencode falló; completado manualmente May 12-13 |
+| 5. Earnings Strangle | May 13 | Hermes cron | ⚠️ Parcial | opencode timeout 120s. Archivos creados pero config no activada |
+| 6. Final Report | **May 16** | Hermes cron | ⏳ | Próximo viernes 08:00 UTC |
+
+### Phase 5 — Earnings Strangle (May 13)
+
+Archivos generados automáticamente:
+- `agents/earnings_executor.py` ✅
+- `core/earnings_profiles.py` ✅
+- `data/earnings_calendar.py` ✅
+- `strategies/earnings_strangle.py` ✅
+
+Pendiente:
+- `scripts/backtest_earnings.py` ❌ (no creado, timeout)
+- `config/exchange_config.yaml` earnings_strangle: enabled (sigue false)
+- `systemd: earnings-agent.service` ❌ (no creado)
+- Dashboard earnings card ❌
 
 ### Dashboard Improvement Plan
 
@@ -118,24 +132,32 @@ scripts/
 | 1.2 | AllocationChart donut | **HECHO** |
 | 1.3 | P&L consolidado heatmap | **HECHO** |
 | 2.1-2.4 | Páginas agentes | **HECHO** |
-| 3.1 | Risk panel (Sharpe, Sortino, VaR) | **HECHO** May 12 — componentes RiskPanel, DrawdownChart, MonthlyReturns + endpoint `/overview/risk` |
+| 3.1 | Risk panel (Sharpe, Sortino, VaR) | **HECHO** |
 | 3.2 | Drawdown chart | **HECHO** |
 | 3.3 | Monthly returns bars | **HECHO** |
 | 4.1 | SSE live ticker | **PENDIENTE** |
 | 4.2 | Notificaciones | **PENDIENTE** |
 | 4.3 | Sidebar + cards clickeables | **HECHO** |
-| R | Dashboard responsive | **HECHO** May 12 — AppShell + hamburger mobile + todas las páginas responsive |
-| P | Pairs Trading AgentCard | **HECHO** — card en Overview, link en Sidebar |
+| R | Dashboard responsive | **HECHO** |
+| P | Pairs Trading AgentCard | **HECHO** |
+| H | Health check 15/15 agents | **HECHO** May 13 |
 
 ### Fixes críticos aplicados
 
 | Fix | Fecha | Descripción |
 |-----|-------|-------------|
-| `orchestrator.sh` exit 0 bug | May 9 | Dashboard phases eran código muerto (exit 0 antes de los case) |
-| VIX backtest | May 9 | `scripts/backtest_vol.py` creado (faltaba en Fase 3) |
-| Cron duplicado | May 9 | System crontab phases 4-6 comentados (Hermes los maneja) |
-| TrendMomentum bloqueado | May 12 | `get_open_trades()` filtra `strategy != 'GRID_STABLE'` — Grid Stable bloqueaba RiskManager.MAX_CONCURRENT=2 |
-| ASSETS expandido | May 12 | TrendMomentum evalúa 10 activos (antes 5): +LINK, AAVE, POL, XAU, XAG |
+| `orchestrator.sh` exit 0 bug | May 9 | Dashboard phases eran código muerto |
+| VIX backtest | May 9 | `scripts/backtest_vol.py` creado |
+| Cron duplicado | May 9 | System crontab phases 4-6 comentados |
+| TrendMomentum bloqueado | May 12 | `get_open_trades()` filtra Grid Stable |
+| ASSETS expandido | May 12 | 10 activos (era 5) |
+| MarketGuard | May 13 | 6 circuit breakers, cero permanentes |
+| Minervini SEPA | May 13 | BUY-only daily, 116 trades BT 3Y PF=2.04 |
+| PolySnipe recalibrado | May 13 | BTC/ETH only, entry max $0.92 |
+| Dashboard API URL | May 13 | api.ts → localhost:8000 + cache no-store |
+| Health check 15/15 | May 13 | Options + Pairs + Minervini tracking |
+| Duplicate heartbeat | May 13 | Hermes heartbeat disabled, solo systemd |
+| Hermes jobs.json | May 13 | Corrupted by edit, restored manually |
 
 ### Servicios (9 activos)
 
