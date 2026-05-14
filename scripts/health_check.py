@@ -549,6 +549,28 @@ def check_pairs() -> tuple:
         return False, f'🔗 Pairs error: {str(e)[:80]}'
 
 
+def check_kalshi_arb() -> tuple:
+    """Check del Kalshi Arbitrage agent."""
+    try:
+        import subprocess
+        r = subprocess.run(['systemctl', 'is-active', 'kalshi-arb-agent'], capture_output=True, text=True, timeout=5)
+        svc_active = r.stdout.strip() == 'active'
+        if not svc_active:
+            return False, '💰 Kalshi Arb servicio INACTIVO'
+
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        row = _query_one(conn,
+            "SELECT COUNT(*), COALESCE(SUM(profit_per_unit * position_size), 0) FROM kalshi_arbitrage WHERE timestamp > now() - interval '24 hours'")
+        count = int(row[0]) if row else 0
+        profit = float(row[1]) if row else 0
+        conn.close()
+        if count == 0:
+            return True, '💰 Kalshi Arb OK — sin oportunidades en 24h'
+        return True, f'💰 Kalshi Arb OK — {count} señales | profit ${profit:+.2f}'
+    except Exception as e:
+        return False, f'💰 Kalshi Arb error: {str(e)[:80]}'
+
+
 def check_snipe() -> tuple:
     """Check del PolyMarket SNIPE agent."""
     try:
@@ -763,6 +785,7 @@ def main():
         ('📈 Stocks', check_stocks),
         ('📣 Options', check_options),
         ('🔗 Pairs', check_pairs),
+        ('💰 Kalshi Arb', check_kalshi_arb),
     ]
 
     results = []

@@ -292,6 +292,26 @@ export default async function OverviewPage() {
             { label: 'BT 3Y', value: '116 trades · PF=2.04 · +40%', cls: 'text-muted' },
           ]}
         />
+        
+        <AgentCard
+          title="Kalshi Arbitrage"
+          icon="💰"
+          href="/kalshi-arb"
+          sessionName="KALSHI_ARB"
+          balance={500}
+          pnl={0}
+          winRate={100}
+          profitFactor={0}
+          openTrades={0}
+          totalTrades={0}
+          drawdown={0}
+          status="DEV"
+          color="gold"
+          extra={[
+            { label: '🆕 NEW', value: 'Poly ↔ Kalshi risk-free', cls: 'text-gold' },
+            { label: 'Math', value: 'cost < $1.00 = profit', cls: 'text-muted' },
+          ]}
+        />
       </div>
 
       {/* Allocation + Equity charts */}

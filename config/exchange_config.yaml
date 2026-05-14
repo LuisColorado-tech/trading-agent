@@ -375,7 +375,7 @@ pairs_trading:
 # EARNINGS STRANGLE — Strangles pre-earnings en mega-cap tech
 # ══════════════════════════════════════════════════════════════════════════════
 earnings_strangle:
-  enabled: false                      # Se activa en Fase 5
+  enabled: true                       # Activado May 13 — Fase 5 completada manualmente
   paper_trading: true
   initial_balance: 1000.0
   assets: [NVDA, TSLA, AAPL, META, AMZN]
