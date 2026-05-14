@@ -13,13 +13,14 @@ const cardColors: Record<string, 'green'|'blue'|'gold'|'purple'|'red'> = {
 }
 
 export default async function OverviewPage() {
-  const [overview, cryptoHistory, stocksEquity, consortiumRes, byStratRes, pairsRes] = await Promise.allSettled([
+  const [overview, cryptoHistory, stocksEquity, consortiumRes, byStratRes, pairsRes, healthRes] = await Promise.allSettled([
     api.overview(),
     api.cryptoHistory(),
     api.stocksEquity(),
     api.consortium(),
     api.cryptoByStrategy(),
     api.pairsSession(),
+    api.get<any>('/health/health-summary?days=7'),
   ])
 
   const ov = overview.status === 'fulfilled' ? overview.value : {}
@@ -28,6 +29,7 @@ export default async function OverviewPage() {
   const consortium = consortiumRes.status === 'fulfilled' ? consortiumRes.value : null
   const csStats = byStratRes.status === 'fulfilled' ? byStratRes.value : {}
   const pairsData = pairsRes.status === 'fulfilled' ? pairsRes.value : null
+  const healthData = healthRes.status === 'fulfilled' ? healthRes.value : null
 
   const s = ov.stocks ?? {}
   const c = ov.crypto ?? {}
@@ -71,6 +73,20 @@ export default async function OverviewPage() {
 
       {/* Consortium widget */}
       <ConsortiumWidget />
+
+      {/* Health semaphore bar */}
+      {healthData && !healthData.error && (
+        <div className="card border-border flex items-center gap-2 sm:gap-3 py-2 px-3 sm:px-4 overflow-x-auto">
+          <span className="text-[10px] sm:text-xs text-muted font-mono whitespace-nowrap">v1.0</span>
+          {healthData.agents?.slice(0, 8).map((a: any) => (
+            <span key={a.agent} className="flex items-center gap-1 text-[10px] sm:text-xs whitespace-nowrap" title={`${a.agent}: ${a.passing} | PF=${a.pf} WR=${a.wr}% ${a.trades}t`}>
+              <span>{a.emoji}</span>
+              <span className="text-muted hidden sm:inline">{a.agent.split('_')[0]}</span>
+            </span>
+          ))}
+          <span className="text-[9px] sm:text-[10px] text-muted ml-auto whitespace-nowrap">{healthData.summary} · {healthData.window_days}d</span>
+        </div>
+      )}
 
       {/* Agent cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">

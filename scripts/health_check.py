@@ -756,7 +756,49 @@ def _build_heartbeat(now: datetime) -> str:
 
     lines.append('  '.join(extras))
     lines.append(f'\n⏱️ Próximo heartbeat: ~{HEARTBEAT_HOURS}h | Alertas: cada 5min si hay fallos')
+
+    # Proactive alerts (only in heartbeat, not every 5min check)
+    alerts = _check_proactive_alerts(conn, now)
+    if alerts:
+        lines.append('\n⚠️ <b>Alertas proactivas:</b>')
+        for a in alerts:
+            lines.append(f'  • {a}')
+
+    conn.close()
     return '\n'.join(lines)
+
+
+def _check_proactive_alerts(conn, now) -> list[str]:
+    """Alertas proactivas: 24h sin trades, DD > 3%, balance estancado."""
+    alerts = []
+    try:
+        # 1. Agentes sin trades en 24h
+        for name, tbl, ts_col in [
+            ('TrendMomentum', 'trades', 'timestamp_close'),
+            ('Grid Bot', 'trades', 'timestamp_close'),
+            ('Stocks', 'stocks_trades', 'closed_at'),
+            ('PolyMarket', 'poly_positions', 'timestamp_close'),
+            ('Options', 'options_positions', 'closed_at'),
+            ('Snipe', 'snipe_trades', 'timestamp_close'),
+        ]:
+            cur = conn.cursor()
+            cur.execute(f"SELECT COUNT(*) FROM {tbl} WHERE {ts_col} >= NOW() - INTERVAL '24 hours'")
+            n = int((cur.fetchone() or [0])[0])
+            if n == 0:
+                alerts.append(f'⏸️ {name}: 0 trades en 24h')
+
+        # 2. DD diario > 3%
+        cur = conn.cursor()
+        cur.execute("SELECT COALESCE(SUM(pnl), 0) FROM trades WHERE timestamp_close::date = CURRENT_DATE")
+        daily = float((cur.fetchone() or [0])[0])
+        cur.execute("SELECT total_balance FROM portfolio ORDER BY timestamp DESC LIMIT 1")
+        bal = float((cur.fetchone() or [0])[0] or 10000)
+        if daily < 0 and abs(daily) / bal > 0.03:
+            alerts.append(f'📉 DD diario ${daily:+.0f} ({daily/bal*100:.1f}%) — supera 3%')
+
+    except Exception:
+        pass
+    return alerts
 
 
 def main():

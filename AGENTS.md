@@ -1,7 +1,18 @@
-# AGENTS.md — Arthas Trading System
+# AGENTS.md — Arthas Trading System v1.0
 
 > Entry point para sesiones de OpenCode. Lee esto primero, luego `docs/AI_MASTER.md`.
 > Cada línea responde: "¿Un agente lo ignoraría sin este aviso?"
+> **Tag**: `v1.0-stable` — baseline de producción, Mayo 14 2026.
+
+## Regla de oro v1.0
+
+**Cualquier cambio de parámetros requiere:**
+1. `git tag v1.X-stable` antes del cambio
+2. 72h mínimo de observación post-cambio
+3. Si PF empeora → `git checkout v1.X-stable` (revertir)
+4. Si PF mejora 2 semanas → nuevo tag `v1.X+1-stable`
+
+**Sin excepción.** La calibración v3 rompió TREND_MOMENTUM por 2 semanas porque no seguimos esto.
 
 ## Setup obligatorio al iniciar sesión
 

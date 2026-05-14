@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routers import stocks, crypto, polymarket, options, live, overview, pairs, kalshi_arb
+from api.routers import stocks, crypto, polymarket, options, live, overview, pairs, kalshi_arb, health
 from api.routers.grid_stable import router as grid_stable_router
 
 app = FastAPI(title='Trading Agent API', version='1.0.0')
@@ -32,6 +32,7 @@ app.include_router(live.router,     prefix='/live',     tags=['live'])
 app.include_router(grid_stable_router, prefix='/grid-stable', tags=['grid-stable'])
 app.include_router(pairs.router,  prefix='/pairs',  tags=['pairs'])
 app.include_router(kalshi_arb.router, prefix='/kalshi-arb', tags=['kalshi-arb'])
+app.include_router(health.router, prefix='/health', tags=['health'])
 
 
 @app.get('/health')
