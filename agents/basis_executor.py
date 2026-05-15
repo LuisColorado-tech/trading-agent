@@ -22,9 +22,53 @@ load_dotenv('/opt/trading/config/.env')
 import yaml
 from sqlalchemy import create_engine, text
 
-from data.kraken_futures_feed import KrakenFuturesFeed
 from strategies.basis_trade import BasisTradeStrategy, BasisTradePosition
 from core.notifications import send_telegram
+
+# ── OKX Funding Feed (Kraken Futures API requiere key separada) ──
+import ccxt
+_okx = ccxt.okx({'enableRateLimit': True})
+
+class OKXFundingFeed:
+    """Feed de funding rates usando OKX (sin API key)."""
+    SYMBOLS = {'BTC': 'BTC/USDT:USDT', 'ETH': 'ETH/USDT:USDT'}
+    INTERVALS_PER_DAY = 3.0
+
+    def get_funding_rate_annual(self, asset: str) -> Optional[float]:
+        symbol = self.SYMBOLS.get(asset)
+        if not symbol:
+            return None
+        try:
+            r = _okx.fetch_funding_rate(symbol)
+            rate = float(r.get('fundingRate', 0) or 0)
+            return rate * self.INTERVALS_PER_DAY * 365 * 100
+        except Exception:
+            return None
+
+    def get_spot_price(self, asset: str) -> Optional[float]:
+        try:
+            pair = f'{asset}/USDT'
+            ticker = _okx.fetch_ticker(pair)
+            return float(ticker.get('last', 0)) if ticker else None
+        except Exception:
+            return None
+
+    def get_futures_price(self, asset: str) -> Optional[float]:
+        """Precio del futuro (mark price del swap perpetuo)."""
+        try:
+            symbol = self.SYMBOLS.get(asset)
+            if not symbol:
+                return None
+            ticker = _okx.fetch_ticker(symbol)
+            return float(ticker.get('last', 0)) if ticker else None
+        except Exception:
+            return None
+
+    def get_avg_funding_annual(self, asset: str, _days: int = 30) -> Optional[float]:
+        """Funding rate anualizado promedio (usamos el actual como proxy)."""
+        return self.get_funding_rate_annual(asset)
+
+okx_feed = OKXFundingFeed()
 
 
 with open('/opt/trading/config/exchange_config.yaml') as f:
@@ -40,7 +84,7 @@ db_url = (
     f"/{os.getenv('POSTGRES_DB', 'trading_agent')}"
 )
 engine = create_engine(db_url)
-feed = KrakenFuturesFeed(paper=True)
+feed = okx_feed
 strategy = BasisTradeStrategy(CFG)
 
 logger.info(f"BasisExecutor: {len(CFG.get('contracts', []))} contratos, "
@@ -122,20 +166,13 @@ def close_basis_trade(trade: dict, reason: str, pnl: float, exit_price: float):
 
 
 def run_cycle():
-    """Un ciclo de evaluación del Basis Trade."""
-    n_open = count_open()
-    if n_open >= MAX_POSITIONS:
-        return
-
-    capital = INITIAL_BALANCE
-
+    """Un ciclo de evaluacion de funding rates."""
     for asset in strategy.contracts:
-        if count_open() >= MAX_POSITIONS:
-            break
-
         funding_annual = feed.get_funding_rate_annual(asset)
         if funding_annual is None:
+            logger.debug(f'BASIS {asset}: sin datos de funding')
             continue
+        logger.info(f'BASIS {asset}: funding={funding_annual:.1f}%/yr min={strategy.min_funding}%')
 
         spot = feed.get_spot_price(asset)
         fut = feed.get_futures_price(asset)
