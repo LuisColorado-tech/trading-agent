@@ -281,6 +281,10 @@ def evaluate_snipe(market: dict) -> dict | None:
         return None
 
     direction = 'UP' if move_pct > 0 else 'DOWN'
+    # May15: UP-only filter. DOWN tiene 89% WR (vs 95% UP), 20/25 losses son DOWN.
+    snipe_direction = _CFG.get('snipe', {}).get('direction', 'BOTH')
+    if snipe_direction == 'UP' and direction != 'UP':
+        return None
     est_win_rate = 99.0 if abs(move_pct) >= 0.20 else 98.0
     return {
         'direction': direction, 'open_price': open_price,

@@ -301,11 +301,12 @@ polymarket_snipe:
   snipe:
     min_minute: 13                  # Entrar en minuto 13
     max_minute: 14.5                # Hasta minuto 14.5
-    momentum_threshold_pct: 0.20    # Subido 0.15→0.20: filtrar señales débiles (May 13 analysis)
-    max_entry_price: 0.92           # Bajado 0.96→0.92: R:R mínimo 1:11.5. Entry >0.92 no rentable con WR 91%.
-    min_entry_price: 0.88           # Bajado 0.90→0.88: a precio bajo el R:R es favorable (1:7.3)
-    order_size_shares: 20           # Shares base por trade (pérdida máx ~$18 con entry 0.92)
-    dynamic_sizing: true            # Tamaño inverso al precio: +shares si entry<$0.92, -shares si>$0.94
+    momentum_threshold_pct: 0.25    # Subido 0.20→0.25: solo momentum muy fuerte (May 15)
+    max_entry_price: 0.95           # 0.92→0.95: UP-only tiene WR 95%, puede pagar más
+    min_entry_price: 0.90           # 0.88→0.90: R:R mínimo 1:9 (10% profit / 90% loss)
+    order_size_shares: 15           # 20→15: pérdida máx ~$14 (vs $18 antes)
+    dynamic_sizing: true
+    direction: UP                   # Solo UP. DOWN tiene 89% WR (vs 95% UP), 20/25 losses son DOWN
   arb:
     target_cost: 0.985              # Comprar YES+NO si suma < $0.985
     min_gap: 0.015                  # Gap mínimo de profit por share
