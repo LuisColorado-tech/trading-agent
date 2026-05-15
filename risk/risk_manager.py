@@ -22,7 +22,6 @@ MAX_PORTFOLIO_EXPOSURE   = 0.05   # 5% máximo total en posiciones abiertas
 STOP_LOSS_ATR_MULTIPLIER = 1.5    # Stop = Entry - (1.5 × ATR)
 TAKE_PROFIT_ATR_MULT     = 2.5    # TP = Entry + (2.5 × ATR)
 MAX_DRAWDOWN_STOP        = 0.10   # 10% drawdown → parar todo el trading
-MAX_CONCURRENT_TRADES    = 2      # Máximo trades abiertos simultáneamente (reducido 3→2: v3 mejora PF)
 MIN_RR_RATIO             = 1.5    # Ratio riesgo:recompensa mínimo
 SL_COOLDOWN_MINUTES      = 60     # Minutos de espera tras un SL antes de re-entrar al mismo asset
 TP_COOLDOWN_MINUTES      = 5      # Minutos de espera tras un TP/TRAILING antes de re-entrar
@@ -30,6 +29,19 @@ SIGNAL_DEDUP_HOURS       = 4     # No reentrar mismo asset+dirección en N horas
 MAX_NOTIONAL_PCT         = 0.50   # Notional máximo por trade = 50% del balance (evitar apalancamiento)
 PAPER_HALT_COOLDOWN_HOURS = 3     # Reanudación autónoma sólo en paper tras cuarentena
 PAPER_AUTO_RESUME_MAX_DD = 0.09   # Sólo reanudar si el DD actual ya bajó por debajo de 9%
+
+# ─── LÍMITES DE CONCURRENCIA POR ESTRATEGIA ───────────────────────
+# Cada estrategia tiene sus propios slots. No compiten entre sí.
+# El límite global de exposición (MAX_PORTFOLIO_EXPOSURE) sigue siendo el techo.
+MAX_CONCURRENT_BY_STRATEGY = {
+    'TREND_MOMENTUM': 2,
+    'SMC_ORDER_BLOCKS': 1,
+    'BTC_MICROSTRUCTURE': 1,
+    'BREAKOUT': 1,
+    'BTC_DIP_BUYER': 1,
+    'MEAN_REVERSION': 1,
+}
+MAX_CONCURRENT_DEFAULT = 2  # Para estrategias no listadas
 # ───────────────────────────────────────────────────────────────────
 
 
@@ -169,12 +181,20 @@ class RiskManager:
                 reason='MAX_EXPOSURE_REACHED', claude_flags=[],
             )
 
-        # 3. Trades concurrentes
-        if n_open >= MAX_CONCURRENT_TRADES:
+        # 3. Trades concurrentes por estrategia (slots independientes)
+        strategy_name = signal.get('strategy', '')
+        max_for_strategy = MAX_CONCURRENT_BY_STRATEGY.get(strategy_name, MAX_CONCURRENT_DEFAULT)
+        # Contar solo trades de la misma estrategia
+        n_open_this_strategy = sum(
+            1 for t in open_trades
+            if (t.get('strategy') or '') == strategy_name
+        )
+        if n_open_this_strategy >= max_for_strategy:
             return RiskDecision(
                 approved=False, position_size=0, stop_loss=0,
                 take_profit=0, risk_amount=0,
-                reason='MAX_CONCURRENT_TRADES', claude_flags=[],
+                reason=f'MAX_CONCURRENT_{strategy_name}:{n_open_this_strategy}/{max_for_strategy}',
+                claude_flags=[],
             )
 
         # 3b. Máximo 1 trade abierto por activo (evitar concentración)

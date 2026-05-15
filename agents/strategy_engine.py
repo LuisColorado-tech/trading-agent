@@ -97,16 +97,13 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            # ── ESTRATEGIAS PAUSADAS (May 14: stability run) ──
-            # SMC_ORDER_BLOCKS: reactivada May 13, backtest 62 trades +$558.
-            #   Paper: 5 trades -$51 (May 14). En drawdown. Pausada para estabilidad.
-            # BTC_MICROSTRUCTURE: reactivada May 13, backtest 38 trades +$1,292.
-            #   Paper: 1 trade -$18 (May 14). Pausada para estabilidad.
-            # Ambas son rentables en backtest pero necesitan más validación paper.
-            # Se reactivarán cuando TREND_MOMENTUM esté estable 2+ semanas.
-            # SmcOrderBlocksStrategy(),
-            # BtcMicrostructureStrategy(),
-            # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy: pausadas.
+            # Reactivadas May 15 con slots independientes por estrategia.
+            # Ya no compiten con TREND_MOMENTUM por MAX_CONCURRENT_TRADES.
+            # Cada una tiene su propio cupo: TREND=2, SMC=1, BTC_MICRO=1.
+            SmcOrderBlocksStrategy(),
+            BtcMicrostructureStrategy(),
+            # ── PAUSADAS ──
+            # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy
         ]
         self.claude = ClaudeBridge()
         # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
