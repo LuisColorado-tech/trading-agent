@@ -72,6 +72,12 @@ venv/bin/python3 scripts/backtest_grid_stable.py
 # Pairs Trading (nuevo)
 venv/bin/python3 scripts/backtest_pairs.py --pair GLD-SLV --years 5
 
+# Minervini SEPA (nuevo)
+venv/bin/python3 scripts/backtest_minervini.py --years 3
+
+# Earnings Strangle (archivado)
+venv/bin/python3 scripts/backtest_earnings.py --years 3
+
 # Value Zone (nuevo)
 venv/bin/python3 scripts/backtest_value_zone.py
 ```
@@ -123,6 +129,7 @@ with e.connect() as c:
 - **Polymarket `max_spread`**: antes configurado en YAML pero no aplicado en código (bug corregido v3). Ahora se fuerza en `polymarket_feed.py`.
 - **`DEAD_HOURS_UTC`**: horas donde WR < 31% en backtest 24m. Si un asset no opera en ciertas horas, es por esto.
 - **Stocks solo opera en horario NYSE** (14:30-21:00 UTC, L-V). Fuera de ese horario espera.
+- **PolySnipe: solo UP, solo BTC/ETH** (May 15 fix). DOWN direction tenía 89% WR (vs 95% UP) y generaba 80% de pérdidas. Entry zone: $0.90-0.95, 15 shares, momentum >0.25%. Loss max $14/trade.
 
 ## Protocolo para analizar un agente
 
@@ -146,10 +153,10 @@ Cualquier modificación a:
 
 Usar los scripts de backtest listados arriba. Sin excepción.
 
-## Servicios systemd (9)
+## Servicios systemd (11)
 
 ```bash
-systemctl status trading-agent options-agent polymarket-agent polymarket-snipe stocks-agent dashboard-api dashboard-web grid-stable pairs-agent
+systemctl status trading-agent options-agent polymarket-agent polymarket-snipe stocks-agent dashboard-api dashboard-web grid-stable pairs-agent basis-agent vix-agent
 ```
 
 Dashboard: Next.js en `:3000`, FastAPI en `:8000`. Tras cambios en React: `cd /opt/trading/web && npm run build && systemctl restart dashboard-api dashboard-web`.
