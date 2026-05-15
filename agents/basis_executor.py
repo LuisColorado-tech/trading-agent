@@ -68,6 +68,14 @@ class OKXFundingFeed:
         """Funding rate anualizado promedio (usamos el actual como proxy)."""
         return self.get_funding_rate_annual(asset)
 
+    def get_basis_pct(self, asset: str) -> Optional[float]:
+        """Diferencia porcentual entre futuro y spot."""
+        spot = self.get_spot_price(asset)
+        fut = self.get_futures_price(asset)
+        if spot and fut and spot > 0:
+            return (fut - spot) / spot * 100
+        return None
+
 okx_feed = OKXFundingFeed()
 
 
