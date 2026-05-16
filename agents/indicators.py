@@ -48,6 +48,13 @@ class IndicatorSet:
     # Minervini daily indicators (defaults for non-daily timeframes)
     ema150: float = 0.0
     high_52w: float = 0.0
+    # EMA Ribbon (defaults for non-ribbon timeframes)
+    ema8: float = 0.0
+    ema13: float = 0.0
+    ema21: float = 0.0
+    ema34: float = 0.0
+    ema55: float = 0.0
+    stoch_k: float = 0.0
 
 
 class IndicatorEngine:
@@ -82,6 +89,17 @@ class IndicatorEngine:
             else ema50
         )
         high_52w = float(h.max()) if len(df) > 0 else 0.0
+
+        # EMA Ribbon (8, 13, 21, 34, 55)
+        ema8 = ta.trend.ema_indicator(c, window=8).iloc[-1] if len(df) >= 8 else ema20
+        ema13 = ta.trend.ema_indicator(c, window=13).iloc[-1] if len(df) >= 13 else ema20
+        ema21 = ta.trend.ema_indicator(c, window=21).iloc[-1] if len(df) >= 21 else ema20
+        ema34 = ta.trend.ema_indicator(c, window=34).iloc[-1] if len(df) >= 34 else ema20
+        ema55 = ta.trend.ema_indicator(c, window=55).iloc[-1] if len(df) >= 55 else ema20
+
+        # Stochastic
+        stoch_k = ta.momentum.StochasticOscillator(high=h, low=lo, close=c, window=14, smooth_window=3).stoch().iloc[-1]
+        stoch_k = float(stoch_k) if not np.isnan(stoch_k) else 50.0
 
         # RSI
         rsi = ta.momentum.rsi(c, window=14).iloc[-1]
@@ -167,4 +185,10 @@ class IndicatorEngine:
             trend_strength=float(trend_strength),
             ema150=float(ema150),
             high_52w=float(high_52w),
+            ema8=float(ema8),
+            ema13=float(ema13),
+            ema21=float(ema21),
+            ema34=float(ema34),
+            ema55=float(ema55),
+            stoch_k=float(stoch_k),
         )

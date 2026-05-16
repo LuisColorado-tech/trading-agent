@@ -35,6 +35,15 @@ set -a && source config/.env && set +a                     # cargar env vars par
 | Grid Stable Pairs | `grid-stable` | `agents/grid_stable_agent.py` | — |
 | Pairs Trading | `pairs-agent` | `agents/pairs_executor.py` | `trades` (strategy='PAIRS_TRADING') |
 
+## Estrategias crypto activas (strategy_engine.py)
+
+| Estrategia | Tipo | Slots | Fuente |
+|-----------|------|-------|--------|
+| TREND_MOMENTUM | SELL + BUY condicional | 2 | Original v3 |
+| EMA_RIBBON | BUY trend-following | 1 | GitHub Hunter v2 (crypto-trader 15⭐) |
+| SMC_ORDER_BLOCKS | BUY+SELL ICT | 1 | GitHub Hunter v1 (1590⭐) |
+| BTC_MICROSTRUCTURE | BUY+SELL multi-indicator | 1 | GitHub Hunter v1 (156⭐) |
+
 ## Dónde modificar parámetros (orden correcto)
 
 1. **Parámetros de estrategia/riesgo**: `config/exchange_config.yaml` — NUNCA hardcodear en `.py`

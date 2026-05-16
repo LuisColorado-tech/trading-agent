@@ -28,6 +28,7 @@ from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
 from strategies.smc_order_blocks import SmcOrderBlocksStrategy
 from strategies.btc_microstructure import BtcMicrostructureStrategy
+from strategies.ema_ribbon import EMARibbonStrategy
 from core.asset_profiles import get_profile, hour_allowed, direction_allowed
 
 
@@ -97,9 +98,7 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            # Reactivadas May 15 con slots independientes por estrategia.
-            # Ya no compiten con TREND_MOMENTUM por MAX_CONCURRENT_TRADES.
-            # Cada una tiene su propio cupo: TREND=2, SMC=1, BTC_MICRO=1.
+            EMARibbonStrategy(),                # GitHub Hunter v2: EMA Ribbon trend-following BUY
             SmcOrderBlocksStrategy(),
             BtcMicrostructureStrategy(),
             # ── PAUSADAS ──

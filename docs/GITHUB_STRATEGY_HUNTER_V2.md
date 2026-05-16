@@ -18,10 +18,32 @@
 ```
 Keywords: 量化交易, 套利, 网格交易, 加密货币, backtest, python
 ```
-| Repo | ⭐ | Descripción |
-|------|-----|-------------|
-| 51bitquant/howtrader | 910 | Framework quant crypto |
-| *pendiente expandir* | — | — |
+| Repo | ⭐ | Descripción | Resultado |
+|------|-----|-------------|-----------|
+| 51bitquant/howtrader | 910 | Framework quant crypto (fork VNPY) | Framework muy grande, no estrategia individual |
+| *pendiente expandir* | — | — | — |
+
+### Global — Estrategias encontradas y evaluadas
+
+| Repo | ⭐ | Estrategia | ¿Adaptable? | Estado |
+|------|-----|-----------|-------------|--------|
+| **andrewboyley/crypto-trader** | 15 | EMA Ribbon (5 EMAs + RSI + Stochastic) | ✅ Simple, 70 líneas | **ADAPTADA May 16 → strategies/ema_ribbon.py** |
+| eshan-kaul/PairsTrading-Crypto | 12 | Pares cointegrados Engle-Granger | ⚠️ Similar a nuestro Pairs actual | Evaluar mejora |
+| johann-clouie/crypto-trading-bot | 4 | Funding rate arb multi-exchange | ❌ Muy complejo (websockets, orderbook) | Descartado |
+| brokermr810/QuantDinger | 5333 | Plataforma quant completa | ❌ Reemplazaría todo el sistema | Arquitectura de referencia |
+| Drakkar-Software/OctoBot | 5927 | Bot multi-estrategia | ❌ 118 issues, muy pesado | Descartado |
+
+### EMA Ribbon — Evaluación de viabilidad
+
+**Frecuencia de señal**: EMA alineado 22-36% de días. Con RSI<65: 13-22%.
+Con 10 activos: 5-8 entradas/mes. Frecuencia ideal.
+
+**Broker viability**: Cualquier exchange con spot trading. Binance, Kraken, OKX.
+NO requiere futuros, NO requiere margen. Capital mínimo $100.
+
+**Riesgo**: SL 5%, TP 15% (R:R 3:1). Con WR estimada 40-50%, EV positivo.
+**Complementariedad**: BUY-only complementa SELL de TrendMomentum.
+**Independencia**: Slots separados (1 para EMA_RIBBON), no compite con TREND_MOMENTUM.
 
 ### Ruso (Русский) — Fuerte tradición matemática
 ```
