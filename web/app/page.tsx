@@ -328,6 +328,26 @@ export default async function OverviewPage() {
             { label: 'Math', value: 'cost < $1.00 = profit', cls: 'text-muted' },
           ]}
         />
+        
+        <AgentCard
+          title="EMA Ribbon"
+          icon="🎀"
+          href="/trades"
+          sessionName="EMA_RIBBON"
+          balance={500}
+          pnl={0}
+          winRate={29}
+          profitFactor={2.39}
+          openTrades={0}
+          totalTrades={88}
+          drawdown={12}
+          status="DEV"
+          color="blue"
+          extra={[
+            { label: '🆕 GHv2', value: '5 EMA cascade · BUY-only', cls: 'text-blue' },
+            { label: 'BT 2Y', value: '88 trades · PF=2.39', cls: 'text-muted' },
+          ]}
+        />
       </div>
 
       {/* Allocation + Equity charts */}
