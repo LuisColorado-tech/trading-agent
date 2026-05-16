@@ -336,11 +336,11 @@ export default async function OverviewPage() {
           sessionName="EMA_RIBBON"
           balance={500}
           pnl={0}
-          winRate={29}
-          profitFactor={2.39}
+          winRate={0}
+          profitFactor={0}
           openTrades={0}
-          totalTrades={88}
-          drawdown={12}
+          totalTrades={0}
+          drawdown={0}
           status="DEV"
           color="blue"
           extra={[
