@@ -10,6 +10,7 @@ import sys
 import time
 import json
 import uuid
+import traceback
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -137,7 +138,7 @@ def open_basis_trade(signal, spot_price: float, capital: float):
             INSERT INTO trades (id, asset, side, strategy, entry_price, stop_loss, take_profit,
                                 position_size, position_pct, pnl, status, close_reason, paper_trade,
                                 timestamp_open, metadata)
-            VALUES (:id, :asset, 'BUY', 'BASIS_TRADE', :entry, NULL, NULL,
+            VALUES (:id, :asset, 'BUY', 'BASIS_TRADE', :entry, 0, 0,
                     :size, 0, 0, 'OPEN', NULL, true, :now, CAST(:meta AS jsonb))
         """), {
             'id': trade_id,
@@ -189,7 +190,7 @@ def run_cycle():
 
         signal = strategy.evaluate(asset, funding_annual, spot, fut, basis, avg_30d)
         if signal and signal.is_valid:
-            open_basis_trade(signal, spot, capital)
+            open_basis_trade(signal, spot, INITIAL_BALANCE)
 
 
 def monitor_positions():
@@ -239,8 +240,8 @@ def main():
             if cycle % 60 == 0:
                 n = count_open()
                 logger.info(f"BasisTrade cycle {cycle}: {n} posiciones abiertas")
-        except Exception as e:
-            logger.error(f"BasisTrade cycle error: {e}")
+        except Exception:
+            logger.error(f"BasisTrade cycle error:\n{traceback.format_exc()}")
         time.sleep(CHECK_INTERVAL)
 
 

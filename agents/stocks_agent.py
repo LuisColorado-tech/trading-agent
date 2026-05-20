@@ -40,6 +40,7 @@ from agents.indicators import IndicatorEngine
 from core.market_regime import classify_market_regime
 from core.notifications import send_telegram
 from core.stocks_profiles import get_stocks_profile, stocks_direction_allowed
+from core.direction_guard import is_allowed as direction_guard_allowed
 from data.stocks_feed import StocksFeed
 from strategies.stocks_momentum import StocksMomentumStrategy
 from strategies.stocks_trend_etf import StocksTrendEtfStrategy
@@ -274,9 +275,14 @@ class StocksAgent:
             if result['direction'] != direction:
                 return
 
-        # Verificar dirección permitida
+        # Verificar dirección permitida (perfil estático)
         if not stocks_direction_allowed(symbol, direction):
             logger.debug(f"{symbol}: dirección {direction} no permitida por perfil")
+            return
+
+        # Verificar dirección permitida (guard dinámico por rendimiento)
+        if not direction_guard_allowed(symbol, direction):
+            logger.info(f"{symbol}: dirección {direction} bloqueada por DirectionGuard (WR bajo)")
             return
 
         # Confluencia mínima
@@ -455,7 +461,8 @@ class StocksAgent:
                 if side == 'sell':
                     try:
                         int_qty = max(1, int(qty))
-                        if int_qty * price > balance * MAX_NOTIONAL_PER_TRADE:
+                        _bal = float(self.session.get('current_balance', 0))
+                        if _bal > 0 and int_qty * price > _bal * MAX_NOTIONAL_PER_TRADE:
                             logger.warning(f"SELL {symbol}: qty fallback {int_qty} excede cap — saltando")
                             return
                         logger.info(f"SELL {symbol}: notional falló ({err_str[:60]}), intentando qty={int_qty}...")
@@ -707,6 +714,8 @@ class StocksAgent:
                 'pnl': round(unreal_pnl, 2),
             })
 
+        from core.direction_guard import get_blocked
+        
         return {
             'session': session['session_name'],
             'balance': float(session.get('current_balance', 0)),
@@ -714,4 +723,5 @@ class StocksAgent:
             'positions': positions,
             'market_open': self._is_nyse_open(datetime.now(timezone.utc)),
             'macro_bias': self.feed.get_macro_bias(),
+            'direction_guard': get_blocked(),
         }

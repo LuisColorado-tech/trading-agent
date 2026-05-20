@@ -83,6 +83,7 @@ class VolMeanReversionStrategy:
         # Señal de entrada
         if vix_data['signal'] == 'ENTRY':
             if contango and contango >= self.min_contango:
+                vix_pct = int(vix_data["vix_percentile"]) if vix_data.get("vix_percentile") else 0
                 return VolSignal(
                     ticker=ticker,
                     signal='ENTRY',
@@ -90,9 +91,10 @@ class VolMeanReversionStrategy:
                     vix_percentile=vix_data['vix_percentile'],
                     contango_annual=contango,
                     product_price=product_price,
-                    reason=f'VIX alto (p{int(vix_data["vix_percentile"])}%) + contango {contango:.1f}%/yr',
+                    reason=f'VIX alto (p{vix_pct}%) + contango {contango:.1f}%/yr',
                 )
             else:
+                c = contango or 0
                 return VolSignal(
                     ticker=ticker,
                     signal='HOLD',
@@ -100,7 +102,7 @@ class VolMeanReversionStrategy:
                     vix_percentile=vix_data['vix_percentile'],
                     contango_annual=contango,
                     product_price=product_price,
-                    reason=f'VIX alto pero contango {contango:.1f}% < {self.min_contango}% mínimo',
+                    reason=f'VIX alto pero contango {c:.1f}% < {self.min_contango}% mínimo',
                 )
 
         # Señal de salida

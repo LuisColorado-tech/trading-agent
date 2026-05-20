@@ -26,10 +26,12 @@ from strategies.breakout import BreakoutStrategy
 from strategies.btc_dip_buyer import BtcDipBuyerStrategy
 from strategies.mean_reversion import MeanReversionStrategy
 from strategies.trend_momentum import TrendMomentumStrategy
+from strategies.trend_momentum_v2 import TrendMomentumStrategyV2
 from strategies.smc_order_blocks import SmcOrderBlocksStrategy
 from strategies.btc_microstructure import BtcMicrostructureStrategy
 from strategies.ema_ribbon import EMARibbonStrategy
 from core.asset_profiles import get_profile, hour_allowed, direction_allowed
+from core.direction_guard import crypto_is_allowed
 
 
 # ── Confluencia mínima para pasar señal ─────────────────────────────
@@ -104,6 +106,8 @@ class StrategyEngine:
             # ── PAUSADAS ──
             # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy
         ]
+        # ── v2 (BaseStrategy) — ejecución en paralelo para validación ──
+        self._v2_tm = TrendMomentumStrategyV2()
         self.claude = ClaudeBridge()
         # LLM_CALL_SAMPLE_RATE: fracción de señales que consultan al LLM (1.0 = todas).
         # Con 0.10, el LLM se invoca en ~1 de cada 10 señales que pasan confluence.
@@ -135,6 +139,55 @@ class StrategyEngine:
         except Exception:
             pass
         return self._macro_bias or MacroBias.RANGE
+
+    def _compare_v2(self, ind, regime, macro_bias, v1_results: list):
+        """Ejecuta TrendMomentumStrategyV2 y compara con v1. Log divergence."""
+        try:
+            v2_signal = self._v2_tm.detect(ind, regime, macro_bias)
+
+            # Find v1 TM result
+            v1_tm = next((r for r in v1_results if r.get("strategy") == "TREND_MOMENTUM"), None)
+
+            if v2_signal is None and v1_tm is None:
+                return  # ambos NEUTRAL — OK
+            if v2_signal is None and v1_tm is not None:
+                logger.warning(
+                    f"STRATEGY V2 DIVERGENCE [{ind.asset}]: "
+                    f"v1={v1_tm.get('direction')} score={v1_tm.get('score')} | v2=NEUTRAL"
+                )
+                return
+            if v2_signal is not None and v1_tm is None:
+                logger.warning(
+                    f"STRATEGY V2 DIVERGENCE [{ind.asset}]: "
+                    f"v1=NEUTRAL | v2={v2_signal.direction.value} score={v2_signal.score}"
+                )
+                return
+
+            # v1 score includes regime+macro bonuses applied by the engine
+            # v2 score is raw (pre-bonus). Compare directions only — scores will differ
+            # by the bonus amount (8 for TREND_DOWN SELL, 10 for macro alignment).
+            v1_dir = v1_tm.get("direction", "?")
+            v2_dir = v2_signal.direction.value
+            if v1_dir != v2_dir:
+                logger.warning(
+                    f"STRATEGY V2 DIVERGENCE [{ind.asset}]: "
+                    f"v1={v1_dir} score={v1_tm.get('score')} | v2={v2_dir} score={v2_signal.score}"
+                )
+            # Score comparison: v2 raw score should be v1 score minus bonuses
+            expected_v2 = v1_tm.get("score", 0)
+            if regime.name == 'TREND_DOWN' and v1_dir == 'SELL':
+                expected_v2 -= 8
+            if macro_bias == MacroBias.BULL_RUN and v1_dir == 'BUY':
+                expected_v2 -= 10
+            elif macro_bias == MacroBias.BEAR_TREND and v1_dir == 'SELL':
+                expected_v2 -= 10
+            if abs(v2_signal.score - expected_v2) > 0.5:
+                logger.warning(
+                    f"STRATEGY V2 SCORE DIVERGENCE [{ind.asset}]: "
+                    f"v1_raw={expected_v2} | v2={v2_signal.score} | v1_final={v1_tm.get('score')}"
+                )
+        except Exception as e:
+            logger.error(f"Strategy v2 comparison error: {e}")
 
     def evaluate(self, asset: str, timeframe: str,
                  portfolio_context: dict = None) -> dict:
@@ -209,6 +262,9 @@ class StrategyEngine:
             except Exception as e:
                 logger.error(f'Strategy {strategy.NAME} error: {e}')
 
+        # ── v2 comparison: validar que TrendMomentumStrategyV2 genera misma señal ──
+        self._compare_v2(ind, regime, macro_bias, results)
+
         if not results:
             if blocked:
                 block_summary = ', '.join(f"{b['strategy']}:{b['reason']}" for b in blocked)
@@ -236,6 +292,15 @@ class StrategyEngine:
                 f'dir={best["direction"]} asset={asset} macro={macro_bias}'
             )
             return {'opportunity': False, 'reason': f'direction_not_allowed:{best["direction"]}'}
+
+        # ── DirectionGuard dinámico (crypto): bloquear direcciones con WR < 30% ──
+        if best.get('strategy') == 'TREND_MOMENTUM':
+            if not crypto_is_allowed(asset, best['direction']):
+                logger.info(
+                    f'No opportunity {asset}/{timeframe}: crypto_direction_guard '
+                    f'dir={best["direction"]} (WR bajo histórico)'
+                )
+                return {'opportunity': False, 'reason': f'direction_guard:{best["direction"]}'}
 
         # ── Filtro de confluencia: diferenciado por tipo de estrategia ──
         if best.get('strategy') == 'MEAN_REVERSION':

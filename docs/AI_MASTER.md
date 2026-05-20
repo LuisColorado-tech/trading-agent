@@ -1,15 +1,17 @@
 # ARTHAS TRADING SYSTEM — Índice Maestro para IA
 
 > **Entry point para IA.** Lee este archivo primero. Tiempo estimado: 2 minutos.
-> Última actualización: Mayo 2026 (post-auditoría v3 — mejoras en 3 agentes)
+> Última actualización: Mayo 20, 2026 (post-auditoría general + Strategy Architecture v2)
 
 ---
 
 ## 1. Qué es este sistema
 
-Sistema de trading algorítmico 100% automatizado corriendo en un VPS Linux. Tiene 4 agentes independientes que operan en mercados distintos. Todo es paper trading actualmente (simulado sin capital real).
+Sistema de trading algorítmico 100% automatizado corriendo en un VPS Linux. Tiene agentes independientes que operan en mercados distintos. Todo es paper trading actualmente (simulado sin capital real).
 
-**El objetivo**: validar estrategias en paper, llegar a métricas mínimas (WR ≥ 40%, Profit Factor ≥ 1.5, 3 meses consistentes), y después fondear con $300 USDC para operar en vivo.
+**El objetivo**: validar estrategias en paper, llegar a métricas mínimas (WR ≥ 40%, Profit Factor ≥ 1.5, 3 meses consistentes), y después fondear para operar en vivo.
+
+**Estado actual**: SESSION_011 (crypto $1,000) + STOCKS_SESSION_011 (stocks $1,000). Rumbo a validación de 3 meses para producción.
 
 ---
 
@@ -20,11 +22,13 @@ Sistema de trading algorítmico 100% automatizado corriendo en un VPS Linux. Tie
 | VPS | `187.77.5.109` — srv1347416 — Linux |
 | Python | `3.12` — SIEMPRE usar `/opt/trading/venv/bin/python3` |
 | PostgreSQL | `postgresql://trading:Tr4d1ng_Ag3nt_2026!@localhost:5432/trading_agent` |
-| Redis | `localhost:6379` — pub/sub, cooldowns, deduplicación |
+| Redis | `localhost:6379` — pub/sub, cooldowns, DirectionGuard, deduplicación |
 | Directorio base | `/opt/trading/` |
 | GitHub | `https://github.com/LuisColorado-tech/trading-agent.git` branch `master` |
-| Dashboard | `http://187.77.5.109:3000` (Next.js) |
-| Telegram bot | TOKEN `8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE`, CHAT `999936393` |
+| Dashboard Arthas | `http://187.77.5.109:3000` (Next.js) |
+| Dashboard Homerun | `http://187.77.5.109:3001` (React — prediction markets) |
+| Telegram | TOKEN `8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE`, CHAT `999936393` |
+| Docker | `docker compose` para Homerun (prediction markets) |
 
 ### Variables de entorno críticas
 
@@ -33,7 +37,6 @@ Sistema de trading algorítmico 100% automatizado corriendo en un VPS Linux. Tie
 set -a && source /opt/trading/config/.env && set +a
 
 # Variables principales:
-DB_URL=postgresql://trading:Tr4d1ng_Ag3nt_2026!@localhost:5432/trading_agent
 POSTGRES_USER=trading
 POSTGRES_PASSWORD=Tr4d1ng_Ag3nt_2026!
 POSTGRES_HOST=localhost
@@ -42,264 +45,285 @@ POSTGRES_DB=trading_agent
 REDIS_HOST=localhost
 REDIS_PORT=6379
 PAPER_TRADING=true
-DERIBIT_CLIENT_ID=<en .env>
-DERIBIT_CLIENT_SECRET=<en .env>
-POLYMARKET_API_KEY=<en .env>
 TELEGRAM_BOT_TOKEN=8179816401:AAHF3xprmPeauuOapGDD9idQrLsv8Dl2EYE
 TELEGRAM_CHAT_ID=999936393
 ```
 
 ---
 
-## 3. Los 5 Agentes
+## 3. Agentes Activos
 
-| Agente | Estado | Mercado | Resultado | Doc completa |
+| Agente | Estado | Mercado | Sesión | Balance | Doc |
 |---|---|---|---|---|---|
-| **Trading Agent** | ✅ ACTIVO v3 | Crypto/Metales spot | PF=1.08, Sharpe=1.91 backtest 24m | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
-| **Options Agent** | ✅ ACTIVO | BTC PUT OTM (Deribit) | paper_mode, sin resultados aún | [AI_OPTIONS_AGENT.md](AI_OPTIONS_AGENT.md) |
-| **Polymarket Agent** | ✅ ACTIVO v3 | Mercados de predicción crypto | PF=0.37 históricamente, bugs corregidos v3 | [AI_POLYMARKET_AGENT.md](AI_POLYMARKET_AGENT.md) |
-| **PolyMarket SNIPE** | ✅ NUEVO v1 | Up/Down 15m (SNIPE+ARB) | WR 94% documentado externamente | [AI_POLYMARKET_SNIPE.md](AI_POLYMARKET_SNIPE.md) |
-| **Stocks Agent** | ✅ ACTIVO v3 | NYSE/NASDAQ (Alpaca) | PF=1.18 backtest 24m, SLV PF=1.30 | [AI_STOCKS_AGENT.md](AI_STOCKS_AGENT.md) |
-| **Grid Stable** | ✅ ACTIVO v1 | ETH/BTC, LINK/BTC pares estables | PF=1.84, Sharpe=2.20 backtest 12m | — |
-| ~~BTC Direction~~ | ❌ REEMPLAZADO | "BTC sube o baja en X min" | WR 0%, PnL -$497 — reemplazado por PolySnipe | — |
+| **Trading Agent** | ✅ ACTIVO | Crypto/Metales (10 assets) | SESSION_011 | $1,000 | [AI_TRADING_AGENT.md](AI_TRADING_AGENT.md) |
+| **Stocks Agent** | ✅ ACTIVO | NYSE/NASDAQ (Alpaca) | STOCKS_SESSION_011 | $1,000 | [AI_STOCKS_AGENT.md](AI_STOCKS_AGENT.md) |
+| **Options Agent** | ✅ ACTIVO | BTC PUT OTM (Deribit) | OPTIONS_SESSION_001 | $1,717 | [AI_OPTIONS_AGENT.md](AI_OPTIONS_AGENT.md) |
+| **PolySnipe** | ✅ ACTIVO | Up/Down 15m (Polymarket) | SNIPE_SESSION | $500 | [AI_POLYMARKET_SNIPE.md](AI_POLYMARKET_SNIPE.md) |
+| **Grid Stable** | ✅ ACTIVO | ETH/BTC, LINK/BTC | SESSION_011 | — | — |
+| **Pairs** | ✅ ACTIVO | GLD-SLV, BTC-ETH | — | — | — |
+| **VIX** | ✅ ACTIVO | Volatilidad (SVXY) | — | — | — |
+| **Homerun** | ✅ ACTIVO | Prediction markets (Docker) | Shadow mode | — | En evaluación |
+
+### Agentes Desactivados
+
+| Agente | Razón | Fecha |
+|---|---|---|
+| **Polymarket Agent** | ❌ -$985 acumulado, WR 27%, edge inexistente | May 19 |
+| **Basis Trade Agent** | ❌ Bug crítico: drenó $346 en 5h (trade_monitor cerraba posiciones a $0) | May 20 |
+| **Kalshi Arbitrage** | ❌ 0 trades, Kalshi API no funcional desde este VPS | May 20 |
+| **BTC Direction** | ❌ WR 0%, PnL -$497 — reemplazado por PolySnipe | Legacy |
 
 ---
 
-## 4. Servicios systemd (8 servicios)
+## 4. Estrategias Crypto Activas (strategy_engine.py)
+
+| Estrategia | Tipo | Slots | PnL SESSION_011 | Fuente |
+|---|---|---|---|---|
+| **TREND_MOMENTUM** | SELL + BUY condicional | 2 | +$189 | Original v3 |
+| **GRID_BOT** | Grid en RANGE/CHOPPY | 3 | +$1,142 | Original |
+| **GRID_STABLE** | Grid pares estables | — | +$684 | Original |
+| **SMC_ORDER_BLOCKS** | BUY+SELL ICT | 1 | +$101 (histórico) | GitHub 1590⭐ |
+| **BTC_MICROSTRUCTURE** | BUY+SELL multi-indicator | 1 | +$120 (histórico) | GitHub 156⭐ |
+| **EMA_RIBBON** | BUY trend-following | 1 | 0 trades | GitHub 15⭐ — incompatible con arquitectura SELL-only |
+
+### DirectionGuard (crypto + stocks)
+
+Sistema de auto-protección que bloquea direcciones (BUY/SELL) con WR < 30% en ≥15 trades. Redis-backed, cooldown 72h.
+
+- **Crypto**: integrado en `strategy_engine.py` vía `crypto_is_allowed()`. Sin bloqueos activos.
+- **Stocks**: integrado en `stocks_agent.py` vía `direction_guard_allowed()`. EEM/BUY bloqueado.
+
+---
+
+## 5. Servicios systemd
 
 ```bash
 # Ver estado de todos:
-systemctl status trading-agent options-agent polymarket-agent polymarket-snipe dashboard-api dashboard-web trading-health grid-stable telegram-bot
-
-# Reiniciar un agente:
-systemctl restart polymarket-snipe
+systemctl status trading-agent options-agent polymarket-snipe stocks-agent dashboard-api dashboard-web trading-health grid-stable pairs-agent vix-agent
 
 # Ver logs en tiempo real:
-journalctl -u polymarket-snipe -f
-
-# Ver últimas 50 líneas:
-journalctl -u polymarket-snipe -n 50 --no-pager
+journalctl -u <servicio> -f
 ```
 
 | Servicio | Archivo | Descripción |
 |---|---|---|
-| `trading-agent` | `scripts/run_trading.py` | Ciclo principal Trading |
-| `options-agent` | `scripts/run_options.py` | Ciclo Options Theta Farming |
-| `polymarket-agent` | `scripts/run_polymarket.py` | Ciclo Polymarket |
-| `polymarket-snipe` | `scripts/run_polymarket_snipe.py` | SNIPE+ARB Up/Down 15m |
+| `trading-agent` | `scripts/run_trading.py` | Ciclo principal Trading (10 assets, incluye XAU/XAG reactivados) |
+| `options-agent` | `scripts/run_options.py` | Theta Farming BTC PUTs |
+| `polymarket-snipe` | `scripts/run_polymarket_snipe.py` | SNIPE Up/Down 15m |
+| `stocks-agent` | `scripts/run_stocks.py` | NYSE/NASDAQ Momentum + Minervini |
 | `dashboard-api` | `api/main.py` | FastAPI en :8000 |
 | `dashboard-web` | `web/` | Next.js React en :3000 |
-| `trading-health` | `scripts/health_check.py` | Health check periódico |
-| `grid-stable` | `agents/grid_stable_agent.py` | Grid Bot pares estables ETH/BTC, LINK/BTC |
-| `telegram-bot` | — | Bot de notificaciones |
+| `trading-health` | `scripts/health_check.py` | Health check cada 5min (15 checks, monitorea 8 agentes) |
+| `grid-stable` | `agents/grid_stable_agent.py` | Grid pares estables ETH/BTC, LINK/BTC |
+| `pairs-agent` | `agents/pairs_executor.py` | Pairs Trading GLD-SLV, BTC-ETH |
+| `vix-agent` | `agents/vol_executor.py` | VIX Mean Reversion |
+
+### Servicios Docker (Homerun)
+
+```bash
+cd /opt/homerun && docker compose ps      # estado
+cd /opt/homerun && docker compose logs -f # logs
+```
 
 ---
 
-## 5. Comandos de diagnóstico rápido
+## 6. Comandos de diagnóstico rápido
 
 ```bash
 # Contexto completo del sistema (USAR SIEMPRE AL INICIAR SESIÓN IA):
 cd /opt/trading && venv/bin/python3 scripts/ai_context.py
 
-# Estado de la DB (sesión paper activa):
+# Estado de sesiones activas:
 set -a && source config/.env && set +a
 venv/bin/python3 -c "
 from sqlalchemy import create_engine, text; import os
 e = create_engine(os.environ['DB_URL'])
 with e.connect() as c:
-    r = c.execute(text(\"SELECT session_name, status, final_balance-initial_balance as pnl FROM paper_sessions ORDER BY started_at DESC LIMIT 3\")).fetchall()
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, final_balance-initial_balance as pnl FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC\")).fetchall()
     [print(row) for row in r]
 "
 
-# Trades abiertos ahora:
+# Trades abiertos:
 venv/bin/python3 -c "
 from sqlalchemy import create_engine, text; import os
 e = create_engine(os.environ['DB_URL'])
 with e.connect() as c:
-    r = c.execute(text(\"SELECT asset, strategy, side, entry_price FROM trades WHERE status='OPEN' ORDER BY timestamp_open DESC\")).fetchall()
+    r = c.execute(text(\"SELECT asset, strategy, side, entry_price FROM trades WHERE status='OPEN'\")).fetchall()
     print(f'{len(r)} trades abiertos'); [print(' ', row) for row in r]
 "
 
-# Redis cooldowns/halts activos:
-redis-cli keys 'cooldown:*' ; redis-cli keys 'halt:*'
+# Redis cooldowns/halts/guards:
+redis-cli keys 'cooldown:*' ; redis-cli keys 'halt:*' ; redis-cli keys 'direction_guard:*'
 
-# Ver errores del agente principal hoy:
-journalctl -u trading-agent --since today --no-pager | grep -i error | tail -20
+# Errores de todos los agentes:
+journalctl -u trading-agent --since today --no-pager | grep -i error | tail -10
+
+# Validación Strategy v1 vs v2:
+journalctl -u trading-agent --since today --no-pager | grep "STRATEGY V2"
 ```
 
 ---
 
-## 6. Estructura de archivos clave
+## 7. Estructura de archivos clave
 
 ```
 /opt/trading/
 ├── agents/
-│   ├── strategy_engine.py      # Orquestador: escanea assets, evalúa señales
+│   ├── strategy_engine.py      # Orquestador + v2 comparison
 │   ├── trade_monitor.py        # Monitorea trades abiertos, aplica trailing
 │   ├── execution_agent.py      # Ejecuta órdenes (paper o real)
-│   ├── options_agent.py        # Orquestador del Options Agent
 │   ├── grid_agent.py           # Grid Bot (RANGE/CHOPPY)
 │   ├── grid_stable_agent.py    # Grid Stable Bot (ETH/BTC, LINK/BTC)
-│   ├── polymarket_snipe.py     # SNIPE+ARB Up/Down 15m
-│   └── market_scanner.py       # Scanner de mercados para Polymarket
+│   ├── stocks_agent.py         # Stocks agent + DirectionGuard
+│   ├── options_agent.py        # Options theta farming
+│   ├── polymarket_snipe.py     # SNIPE Up/Down 15m
+│   └── vol_executor.py         # VIX Mean Reversion
 ├── strategies/
-│   ├── trend_momentum.py       # SELL en TREND_DOWN/BREAKOUT_DOWN
-│   ├── breakout.py             # Breakout con vol_ratio ≥ 2.0
-│   ├── mean_reversion.py       # DESACTIVADA (0 wins paper)
-│   ├── prediction.py           # DESACTIVADA (ENABLED=False, sin API key)
-│   ├── theta_farming.py        # Theta Farming: vender PUTs BTC OTM
-│   └── signal_based_poly.py    # Polymarket: 60% edge mínimo por señal técnica
+│   ├── base.py                 # 🆕 BaseStrategy (contrato v2)
+│   ├── trend_momentum.py       # TREND_MOMENTUM v1 (original)
+│   ├── trend_momentum_v2.py    # 🆕 TREND_MOMENTUM v2 (BaseStrategy)
+│   ├── smc_order_blocks.py     # SMC Order Blocks (ICT)
+│   ├── btc_microstructure.py   # BTC Microstructure
+│   ├── ema_ribbon.py           # EMA Ribbon (inactivo: arquitectura SELL-only)
+│   ├── breakout.py             # DESACTIVADO
+│   ├── mean_reversion.py       # DESACTIVADO (0 wins paper)
+│   └── theta_farming.py        # Options Theta Farming
 ├── core/
-│   ├── market_regime.py        # Clasificador de régimen (TREND_DOWN/UP/RANGE/CHOPPY)
-│   ├── asset_profiles.py       # Parámetros SL/TP/trailing por asset
-│   ├── performance_guard.py    # Bloqueo/probación por rendimiento
-│   ├── paper_session_manager.py # Gestión de sesiones paper
-│   ├── deribit_session_manager.py # Auth Deribit (mutex, deadlock fix)
+│   ├── direction_guard.py      # 🆕 DirectionGuard (crypto + stocks)
+│   ├── market_regime.py        # Clasificador de régimen
+│   ├── asset_profiles.py       # SL/TP/trailing por asset (incluye XAU/XAG)
+│   ├── stocks_profiles.py      # Perfiles stocks (GLD/SLV con umbrales bajados)
+│   ├── performance_guard.py    # Circuit breaker por estrategia
+│   ├── paper_session_manager.py
+│   ├── alpaca_session_manager.py
 │   └── notifications.py        # Telegram
 ├── risk/
-│   └── risk_manager.py         # RiskManager INMUTABLE — autoridad final
+│   └── risk_manager.py         # RiskManager INMUTABLE
 ├── data/
-│   ├── market_feed.py          # Datos OHLCV (Kraken/OKX via CCXT)
-│   └── polymarket_feed.py      # Feed de mercados Polymarket
-├── btc_direction/
-│   ├── btc_multifeed.py        # Feed multi-TF (5m/15m/4H/1H/Daily)
-│   ├── btc_direction_feed.py   # Feed single-TF (legacy)
-│   ├── btc_direction_strategy.py # Evaluación de señales momentum
-│   └── btc_direction_executor.py # Ejecución y settlement de trades
+│   ├── market_feed.py          # OHLCV (Kraken/OKX via CCXT)
+│   └── polymarket_feed.py
 ├── config/
-│   ├── exchange_config.yaml    # Todos los parámetros de los 4 agentes
+│   ├── exchange_config.yaml    # XAU/XAG reactivados en OKX (swap)
 │   └── .env                    # Variables de entorno (no en git)
 ├── scripts/
-│   ├── ai_context.py           # Briefing completo → USAR AL INICIAR IA
-│   ├── run_trading.py          # Entry point Trading Agent
-│   ├── run_options.py          # Entry point Options Agent
-│   ├── run_polymarket.py       # Entry point Polymarket Agent
-│   ├── run_polymarket_snipe.py # Entry point PolyMarket SNIPE Agent
-│   ├── health_check.py         # Health check con alertas Telegram
-│   └── backfill_btc_direction.py # Backfill de outcomes BTC Direction
+│   ├── run_trading.py          # Entry point (get_open_trades excluye BASIS_TRADE)
+│   ├── run_stocks.py           # Entry point stocks
+│   ├── run_options.py
+│   ├── run_polymarket_snipe.py
+│   ├── health_check.py         # Health check 15 checks, 8 agentes, noise filter
+│   └── ai_context.py
 └── docs/
     ├── AI_MASTER.md            # Este archivo
-    ├── AI_TRADING_AGENT.md     # Doc Trading Agent
-    ├── AI_OPTIONS_AGENT.md     # Doc Options Agent
-    ├── AI_POLYMARKET_AGENT.md  # Doc Polymarket Agent
-    ├── AI_POLYMARKET_SNIPE.md  # Doc PolyMarket SNIPE Agent
-    ├── AI_BTC_DIRECTION_AGENT.md # Doc BTC Direction (legacy)
-    ├── BTC_DIRECTION_IMPROVEMENT_PLAN.md # Plan mejora
-    ├── ARCHITECTURE.md         # Arquitectura técnica general
-    └── CHANGELOG.md            # Historial de cambios
+    ├── STRATEGY_ARCHITECTURE_V2.md  # 🆕 Plan de adopción arquitectura Homerun
+    ├── AI_TRADING_AGENT.md
+    ├── AI_OPTIONS_AGENT.md
+    ├── AI_STOCKS_AGENT.md
+    └── CHANGELOG.md
+```
+
+### Homerun (prediction markets)
+
+```
+/opt/homerun/                    # Plataforma de prediction markets (Docker)
+├── docker-compose.yml           # 7 contenedores (postgres, redis, backend, frontend, 3 workers)
+├── .env                         # Puertos 3001/8001/5433/6380 (sin conflicto con Arthas)
+└── backend/services/strategies/ # 15+ estrategias (basic, crypto, cross-platform, etc.)
 ```
 
 ---
 
-## 7. Base de datos — Tablas principales
+## 8. Base de datos — Tablas principales
 
 ```sql
--- Tablas del Trading Agent:
+-- Trading Agent:
 paper_sessions          -- sesiones paper (ACTIVE/CLOSED)
 portfolio               -- estado del portafolio (balance, DD, PnL)
 trades                  -- todos los trades (OPEN/CLOSED)
+market_data             -- velas OHLCV cacheadas
 
--- Tablas del Options Agent:
-options_sessions        -- sesiones options paper
-options_positions       -- posiciones options (31 columnas)
-options_market_data     -- snapshots de IVs y precios
+-- Stocks Agent:
+stocks_sessions         -- sesiones stocks paper
+stocks_trades           -- trades individuales
 
--- Tablas del Polymarket Agent:
-poly_sessions           -- sesiones polymarket
-poly_positions          -- posiciones polymarket
-poly_markets            -- mercados indexados
+-- Options Agent:
+options_sessions        -- sesiones options
+options_positions       -- posiciones (31 columnas)
 
--- Tablas del PolyMarket SNIPE Agent:
-snipe_trades            -- trades SNIPE+ARB 15m
-snipe_sessions          -- sesiones snipe paper
+-- Polymarket SNIPE:
+snipe_trades            -- trades SNIPE 15m
+snipe_sessions          -- sesiones snipe
 
--- Tablas compartidas:
-signals                 -- señales técnicas (escribe Trading, leen Poly y BTC Direction)
-btc_direction_trades    -- trades específicos del BTC Direction Agent
+-- Kalshi Arbitrage (legacy, sin uso):
+kalshi_arbitrage        -- señales de arbitraje (0 trades)
 
--- Queries útiles:
-SELECT session_name, status, total_trades, winning_trades,
-       final_balance - initial_balance as pnl
-FROM paper_sessions ORDER BY started_at DESC LIMIT 5;
-
-SELECT asset, strategy, side, pnl, close_reason, timestamp_close
-FROM trades WHERE status='CLOSED'
-ORDER BY timestamp_close DESC LIMIT 20;
+-- Señales:
+signals                 -- señales técnicas
 ```
 
 ---
 
-## 8. Historial de decisiones importantes
+## 9. Historial de decisiones importantes
 
 | Fecha | Decisión | Razón |
 |---|---|---|
-| Feb 2026 | BUY bloqueado en TREND_UP | Backtest 2Y: -$6,151 |
+| May 19 | **Polymarket Agent desactivado** | -$985 acumulado, WR 27%, edge inexistente |
+| May 19 | **Basis Trade Agent desactivado** | Bug crítico: trade_monitor cerraba posiciones a $0, drenó $346 en 5h |
+| May 19 | **Kalshi Arb Agent desactivado** | 0 trades, Kalshi API no funcional desde este VPS |
+| May 19 | **XAU/XAG reactivados en crypto** | +$4,447 paper real en SESSION_008. Removidos por error basado en backtest con símbolo equivocado. Reactivados en OKX (swap): XAU/USD:USD, XAG/USDT:USDT |
+| May 19 | **GLD/SLV umbrales bajados** | confluence_min 3→2, min_atr reducido. Solo 3 trades en 30 días. |
+| May 19 | **DirectionGuard creado** | Bloqueo automático de direcciones con WR < 30% en ≥15 trades. Crypto + Stocks. |
+| May 19 | **Health check expandido** | Monitorea 8 agentes (antes solo trading-agent). Noise filter para APIs externas. |
+| May 19 | **Sesiones reseteadas a $1,000** | SESSION_011 (crypto) + STOCKS_SESSION_011 (stocks). Capital de validación pre-producción. |
+| May 19 | **pnl_pct columna ampliada** | NUMERIC(8,6)→NUMERIC(10,6). Evita overflow con PnL ≥ 100%. |
+| May 19 | **get_open_trades() excluye BASIS_TRADE** | Prevención de bug que causó el drenaje de $346. |
+| May 19 | **Homerun desplegado** | Plataforma prediction markets en Docker. Shadow mode. Puerto 3001. |
+| May 20 | **Strategy Architecture v2 — Etapa 1** | BaseStrategy + TrendMomentumStrategyV2 corriendo en paralelo. Validación 48h. |
+| May 20 | **Alpaca API errores downgradeados** | ERROR→WARNING para 422/403 (manejados con fallback). |
+| May 20 | **Stocks balance fix** | NameError `balance` corregido en fallback de ejecución SELL. |
+| Abr 2026 | BUY bloqueado en TREND_UP | Backtest 2Y: -$6,151 |
 | Mar 2026 | Binance → Kraken+OKX | HTTP 451 geo-restriction en este VPS |
-| Mar 2026 | MEAN_REVERSION desactivada paper | 8 trades, 0 wins, -$569 |
-| Abr 2026 | PREDICTION_LLM desactivado | 43 trades, 0 wins, -$582, sin OpenAI API key |
-| Abr 2026 | Polymarket edge 10% → 15% | Mejorar R:R, filtrar mercados ajustados |
-| Abr 2026 | Polymarket max_position 4% → 2.5% | Reducir DD mientras se valida edge |
-| Abr 2026 | Options IV Rank 30d → 252d | 30d era demasiado corto, 252d estándar del sector |
-| Abr 2026 | BTC Direction bug fix settlement | `/markets?conditionId=` → `/events?slug=` (endpoint correcto) |
-| Abr 2026 | Deadlock fix deribit_session_manager | `_update_peak_and_drawdown(conn=None)` reutiliza tx |
-| Abr 2026 | **Stocks agent: 3 bugs corregidos** | NameError `strategy_name`, Alpaca 422 fractional SELL → qty entero, `decimal.Decimal` aritmética en `close_trade()` |
-| Abr 2026 | **Crypto v3: MIN_SCORE 65→70** | Filtra señales de baja calidad en BTC+INJ; reduce overtrade |
-| Abr 2026 | **Crypto v3: BUY zone RSI 45-68 → 50-65** | Evita entradas tardías y RSI sobrecomprado |
-| Abr 2026 | **BREAKOUT_DOWN `allow_trend=False`** | WR 29%, PnL -$1,590 en backtest 2Y — bloqueado |
-| Abr 2026 | **SOL `confluence_min` 4→5, `trailing_offset_r` 0.75→1.0** | MaxDD SOL 41.3%→24.2%; wicks prematuros con 0.75 |
-| Abr 2026 | **INJ `confluence_min` 3→4** | 1166 trades WR=34% -$2,607 con min=3; filtrado mejorado |
-| Abr 2026 | **ETH RSI SELL zone específica (25-50, guard <25)** | Regresión v3: cutoff 30-50 bloqueaba señales válidas RSI 25-30 en ETH — fix restaura +$6,281 |
+| Mar 2026 | MEAN_REVERSION desactivada | 8 trades, 0 wins, -$569 |
+| Abr 2026 | PREDICTION_LLM desactivado | 43 trades, 0 wins, -$582 |
 
 ---
 
-## 9. Estado actual (Mayo 2026 — post-auditoría v3 + Expansión Fase 1)
+## 10. Estado actual (Mayo 20, 2026 — Post-auditoría)
 
-
-
-- **SESSION_009**: ACTIVA. Balance $10,000. Crypto v3: MIN_SCORE=75, DEAD_HOURS extendido, INJ riesgo normalizado, trailing 0.75R, MAX_CONCURRENT=2.
-
-- **Stocks v3**: STOCKS_SESSION_001 ($220). Trailing implementado, xsignal fix, ATR filters, macro gradient.
-
-- **Polymarket v3**: POLY_SESSION_005 ($1,000). Edge formula corregida, min_price_yes=0.42, max_spread enforce, Kelly realista.
-
-- **Grid Stable v1**: NUEVO. ETH/BTC + LINK/BTC. Backtest 12m: PF=1.84, DD=0.3%%, Sharpe=2.20. 10 niveles por par.
-
-- **Fortalezas**: 4 agentes activos generando. SLV primer activo stocks con PF≥1.30. Grid Stable complementa con baja volatilidad.
-
-- **Expansión**: 5 nuevas líneas en desarrollo (Basis Trade, VIX, Pairs, Earnings, Grid Stable).
-
-- **Camino a fondeo**: $300 USDC. Ver docs/IMPROVEMENT_PLAN.md y docs/EXPANSION_PLAN.md.
-
-
+- **SESSION_011**: ACTIVA. $1,000. 10 assets incluyendo XAU/XAG reactivados. DirectionGuard activo en crypto.
+- **STOCKS_SESSION_011**: ACTIVA. $1,000. DirectionGuard activo (EEM/BUY bloqueado). GLD/SLV con umbrales reducidos.
+- **Homerun**: Desplegado en Docker. Shadow mode. Evaluando estrategias para posible adopción.
+- **Strategy v2**: TrendMomentumStrategyV2 en validación paralela con v1. 0 divergencias de dirección.
+- **Fortalezas**: 8 agentes activos. GRID_BOT y GRID_STABLE son los pilares (+$1,826 combinados). DirectionGuard protege de direcciones perdedoras. Health check monitorea todos los agentes.
+- **Rumbo a producción**: Validar 3 meses con PF ≥ 1.5. SESSION_011 inició May 20.
+- **Plan arquitectónico**: [STRATEGY_ARCHITECTURE_V2.md](STRATEGY_ARCHITECTURE_V2.md) — 4 etapas para adoptar patrones de Homerun.
 
 ---
 
-
-
-## 10. Flujo de trabajo para nueva IA
+## 11. Flujo de trabajo para nueva IA
 
 ```
 1. Lee este archivo (AI_MASTER.md)
 2. Ejecuta: cd /opt/trading && venv/bin/python3 scripts/ai_context.py
-3. Lee el doc específico del agente que te interesa (AI_*.md)
-4. Para modificar parámetros: edita config/exchange_config.yaml
+3. Revisa docs/STRATEGY_ARCHITECTURE_V2.md para el plan de migración
+4. Para modificar parámetros: edita config/exchange_config.yaml o Redis keys
 5. Para cambios de código: edita el archivo específico indicado en el doc
 6. Para ver logs: journalctl -u <servicio> -n 50 --no-pager
 7. Para reiniciar tras cambios: systemctl restart <servicio>
 8. Siempre usar: /opt/trading/venv/bin/python3 (NUNCA python3 del sistema)
+9. Homerun: cd /opt/homerun && docker compose ps / logs
 ```
 
 ---
 
-## 11. ⚡ ACTIVACIÓN LIVE TRADING — Instrucciones para IA
+## 12. ⚡ ACTIVACIÓN LIVE TRADING
 
-> **LEER ESTO si Lucho dice que ya fondeó y quiere activar el trading real.**
-> Plan acordado: ~$300 USD iniciales en mitad de 2026. $220 → Kraken, $80 → Polymarket.
+> **LEER ESTO cuando se haya fondeado y se quiera activar trading real.**
+> Capital objetivo: ~$300-500 USD. $220 → Kraken, resto → Alpaca.
 
-### Prerequisitos — verificar ANTES de activar
+### Prerequisitos
 
 ```bash
-# 1. Confirmar que hay 3 meses de paper con Profit Factor ≥ 1.5:
+# 1. Confirmar 3 meses de paper con PF ≥ 1.5:
 cd /opt/trading && set -a && source config/.env && set +a
 venv/bin/python3 -c "
 from sqlalchemy import create_engine, text; import os
@@ -309,158 +333,44 @@ with e.connect() as c:
         SELECT session_name, total_trades, winning_trades,
                ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr_pct,
                final_balance - initial_balance as pnl
-        FROM paper_sessions WHERE status=\'CLOSED\' ORDER BY started_at DESC LIMIT 5
+        FROM paper_sessions WHERE status=''CLOSED'' ORDER BY started_at DESC LIMIT 5
     ''')).fetchall()
     [print(row) for row in r]
 "
 
-# 2. Confirmar que las API keys de Kraken están en .env (no CHANGE_ME):
+# 2. Confirmar API keys de Kraken:
 grep 'KRAKEN_API_KEY' /opt/trading/config/.env
 ```
 
-### Pasos de activación (en orden exacto)
+### Pasos de activación
 
-**Paso 1 — Agregar API keys de Kraken al .env:**
 ```bash
-nano /opt/trading/config/.env
-# Cambiar:
-#   KRAKEN_API_KEY=CHANGE_ME  →  KRAKEN_API_KEY=<key real de Kraken>
-#   KRAKEN_SECRET=CHANGE_ME   →  KRAKEN_SECRET=<secret real de Kraken>
-```
+# Paso 1 — API keys en .env:
+#   KRAKEN_API_KEY=<key real>  |  KRAKEN_SECRET=<secret real>
 
-**Paso 2 — Activar live trading:**
-```bash
-# En /opt/trading/config/.env, cambiar:
+# Paso 2 — Activar live:
 #   PAPER_TRADING=true  →  PAPER_TRADING=false
-#   ENVIRONMENT=development  →  ENVIRONMENT=production
-#   INITIAL_CAPITAL=220  (agregar esta línea — el balance real depositado en Kraken)
-```
+#   ENVIRONMENT=development → production
+#   INITIAL_CAPITAL=220
 
-**Paso 3 — Verificar parámetros del RiskManager para $220:**
-```
-El RiskManager en /opt/trading/risk/risk_manager.py tiene estos parámetros inmutables:
-  MAX_RISK_PER_TRADE_PCT = 0.005   → 0.5% de $220 = $1.10 por trade (adecuado)
-  MAX_PORTFOLIO_EXPOSURE = 0.05    → 5% de $220 = $11 en posiciones abiertas (adecuado)
-  MAX_DRAWDOWN_STOP      = 0.10    → 10% de $220 = $22 de pérdida → parar todo
-  MAX_CONCURRENT_TRADES  = 3       → máximo 3 trades a la vez
-NO cambiar estos parámetros — están calibrados con backtest 2Y.
-```
-
-**Paso 4 — Reiniciar el agente principal:**
-```bash
+# Paso 3 — Reiniciar agente:
 systemctl restart trading-agent
-sleep 5
 journalctl -u trading-agent -n 20 --no-pager
-# Confirmar que no dice PAPER MODE en los logs
-```
+# Confirmar que NO dice PAPER MODE
 
-**Paso 5 — Verificar primera orden:**
-```bash
-# El agente tomará la primera señal que aparezca (puede tardar minutos u horas)
+# Paso 4 — Verificar primera orden:
 journalctl -u trading-agent -f
-# Buscar: "LIVE ORDER PLACED" o "Executing trade" sin "[PAPER]"
+# Buscar: "LIVE ORDER PLACED"
 ```
-
-### Capital de Polymarket ($80)
-- Polymarket NO usa las API keys de Kraken — usa la wallet CLOB configurada en .env
-- Para activar: cambiar `PAPER_TRADING=false` ya lo activa también en Polymarket
-- Verificar saldo en la wallet antes de reiniciar polymarket-agent
 
 ### ⚠️ Qué NO hacer
-- NO cambiar los parámetros del RiskManager — están calibrados
-- NO activar OKX ni Deribit todavía — capital insuficiente
-- NO subir `LLM_CALL_SAMPLE_RATE` por encima de 0.20 — el costo sube exponencialmente
-- NO borrar las paper_sessions — son el historial de validación del edge
+- NO cambiar parámetros del RiskManager — calibrados con backtest 2Y
+- NO activar OKX ni Deribit con capital insuficiente
+- NO borrar paper_sessions — historial de validación del edge
+- NO ejecutar estrategias no validadas en live
 
-### Si algo sale mal
+### Revertir a paper
 ```bash
-# Revertir a paper inmediatamente:
 sed -i 's/PAPER_TRADING=false/PAPER_TRADING=true/' /opt/trading/config/.env
 systemctl restart trading-agent
-# Notificar a Lucho por Telegram automáticamente via health_check
 ```
-
----
-
-## 12. 📈 STOCKS AGENT — Agente de Acciones NYSE/NASDAQ
-
-**Estado**: ✅ ACTIVO — paper trading con claves Alpaca configuradas. STOCKS_SESSION_001 ($220). 3 bugs corregidos el 28 Abr 2026.
-
-### Arquitectura
-
-| Componente | Archivo | Descripción |
-|---|---|---|
-| Broker client | `core/alpaca_session_manager.py` | API REST Alpaca (paper/live) |
-| Data layer | `data/stocks_feed.py` | OHLCV via Alpaca+yfinance fallback |
-| Perfiles | `core/stocks_profiles.py` | 8 activos calibrados |
-| Estrategia | `strategies/stocks_momentum.py` | Momentum + xsignal boost |
-| Agente | `agents/stocks_agent.py` | Orquestador principal |
-| Entry point | `scripts/run_stocks.py` | CLI y loop |
-| Servicio | `stocks-agent.service` | systemd |
-
-### Universo de activos
-`NVDA`, `TSLA`, `AAPL`, `META`, `AMZN`, `SPY`, `QQQ`, `GLD`
-
-SPY y QQQ actúan también como indicadores de **macro bias**: si ambos están en tendencia bajista, el agente bloquea BUY en acciones individuales.
-
-### xsignals Integration
-- Tabla: `xsignals_signals` en PostgreSQL (mismo DB)
-- Lookback: últimas 48h por ticker + perfil
-- @aguti00: WR=71.4% a 48h (21 señales validadas con yfinance) → **boost real**
-- Boost: +15 puntos al score de StocksMomentumStrategy si señal alineada con conf≥55
-
-### Tablas DB nuevas
-```sql
-stocks_sessions  -- sesiones paper/live
-stocks_trades    -- trades individuales
-stocks_ohlcv     -- cache de velas OHLCV
-```
-
-### Comandos systemd
-```bash
-systemctl start stocks-agent    # iniciar
-systemctl stop stocks-agent     # detener
-systemctl status stocks-agent   # estado
-journalctl -u stocks-agent -f   # logs en tiempo real
-```
-
-### Comandos Telegram
-```
-/stocks        → estado actual (sesión, balance, trades abiertos, macro bias)
-/stocks_status → igual que /stocks
-```
-
-### Activación (cuando tengas claves Alpaca)
-```bash
-# 1. Crear cuenta en https://alpaca.markets → gratis
-# 2. Ir a Paper Trading → API Keys → Generate
-# 3. Añadir a /opt/trading/config/.env:
-ALPACA_API_KEY=<tu key>
-ALPACA_SECRET_KEY=<tu secret>
-
-# 4. Verificar acceso:
-cd /opt/trading && set -a && source config/.env && set +a
-venv/bin/python3 scripts/run_stocks.py --status
-
-# 5. Iniciar en paper:
-systemctl enable stocks-agent
-systemctl start stocks-agent
-
-# 6. Ver logs:
-journalctl -u stocks-agent -f
-```
-
-### Parámetros de riesgo
-```
-MAX_RISK_PER_TRADE_PCT  = 1.0%   → $2.20 por trade con $220
-MAX_PORTFOLIO_EXPOSURE  = 8.0%   → $17.60 en stocks simultáneos
-MAX_CONCURRENT_TRADES   = 3
-MAX_DRAWDOWN_STOP       = 10%    → parar si pierde $22
-```
-
-### Criterios para live con Alpaca
-- 4 semanas en paper con PF ≥ 1.3
-- Al menos 20 trades cerrados
-- Máximo drawdown ≤ 8% en paper
-- Macro bias BULL o NEUTRAL en SPY/QQQ
-

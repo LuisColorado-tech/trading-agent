@@ -207,18 +207,18 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
     # Mayor spread → SL un poco más amplio; horario más amplio (commodities)
     'GLD': StocksProfile(
         symbol='GLD',
-        confluence_min=3,
+        confluence_min=2,              # v2: 3→2 (muy pocas señales)
         allowed_directions=frozenset({'BUY', 'SELL'}),
         sl_multiplier=1.2,
         tp_multiplier=2.5,
         trailing_activation_r=1.0,
         trailing_step_r=0.25,
         trailing_offset_r=0.60,
-        min_atr_pct=0.003,
+        min_atr_pct=0.001,             # v2: 0.003→0.001 (1 solo trade en 30d)
         use_macro_filter=False,
         strategy_name='TREND_ETF',
         use_regime_filter=False,
-        notes='ETF Oro. May12: SL 1.0→1.2, TP 2.0→2.5, trail 1.0R.',
+        notes='ETF Oro. May19: confluence 3→2, min_atr 0.003→0.001 (inactivo).',
     ),
 
     # ═══════════════════════════════════════════════════════════════════════════
@@ -317,18 +317,18 @@ STOCKS_PROFILES: dict[str, StocksProfile] = {
     # use_macro_filter=False: plata es hedge, se mueve opuesto al ciclo macro
     'SLV': StocksProfile(
         symbol='SLV',
-        confluence_min=3,
+        confluence_min=2,              # v2: 3→2 (0 trades post-May12)
         allowed_directions=frozenset({'SELL'}),
         sl_multiplier=1.3,
         tp_multiplier=2.5,
         trailing_activation_r=1.2,
         trailing_step_r=0.25,
         trailing_offset_r=0.75,
-        min_atr_pct=0.004,
+        min_atr_pct=0.002,             # v2: 0.004→0.002 (0 trades en 30d)
         use_macro_filter=False,
         strategy_name='TREND_ETF',
         use_regime_filter=False,
-        notes='ETF Plata. May12: SELL only (0% WR paper). SL 1.1→1.3, TP 2.2→2.5, trail 1.2R.',
+        notes='ETF Plata. May19: confluence 3→2, min_atr 0.004→0.002 (inactivo).',
     ),
     # ── Productos de volatilidad (VIX Mean Reversion) ──
     # Gestionados por estrategia VOL_MEAN_REVERSION, no por MOMENTUM/TREND_ETF.

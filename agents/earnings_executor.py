@@ -265,8 +265,14 @@ def monitor_positions():
         earnings_passed = False
         if earnings_date_str:
             try:
-                ed = datetime.fromisoformat(earnings_date_str.replace('Z', '+00:00'))
-                earnings_passed = datetime.now(timezone.utc) > ed + timedelta(days=strategy.days_after)
+                if isinstance(earnings_date_str, str):
+                    ed = datetime.fromisoformat(earnings_date_str.replace('Z', '+00:00'))
+                elif isinstance(earnings_date_str, (int, float)):
+                    ed = datetime.fromtimestamp(float(earnings_date_str), tz=timezone.utc)
+                else:
+                    ed = None
+                if ed:
+                    earnings_passed = datetime.now(timezone.utc) > ed + timedelta(days=strategy.days_after)
             except (ValueError, TypeError):
                 pass
 

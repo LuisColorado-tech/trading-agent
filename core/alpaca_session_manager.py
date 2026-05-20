@@ -53,7 +53,7 @@ class AlpacaClient:
         url = f"{self.base_url}{path}"
         r = requests.post(url, headers=self._headers, json=payload or {}, timeout=15)
         if not r.ok:
-            logger.error(f"Alpaca API error {r.status_code} {path}: {r.text}")
+            logger.warning(f"Alpaca API {r.status_code} {path}: {r.text[:200]}")
         r.raise_for_status()
         return r.json()
 

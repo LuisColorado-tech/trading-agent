@@ -12,6 +12,7 @@ import os
 import sys
 import time
 import uuid
+import traceback
 from datetime import datetime, timezone
 
 import yaml
@@ -115,11 +116,14 @@ def run_cycle():
         vix_at_entry=signal.vix_spot,
     )
 
+    vix_str = f'{signal.vix_spot:.1f}' if signal.vix_spot is not None else 'N/A'
+    pct_str = f'{signal.vix_percentile:.0f}' if signal.vix_percentile is not None else 'N/A'
+    cg_str = f'{signal.contango_annual:.1f}' if signal.contango_annual is not None else 'N/A'
     send_telegram(
         f'📉 <b>VIX ENTRY</b> {ticker}\n'
-        f'VIX: {signal.vix_spot:.1f} (p{signal.vix_percentile:.0f})\n'
+        f'VIX: {vix_str} (p{pct_str})\n'
         f'Entry: ${price:.2f} | Size: {size:.2f} shares\n'
-        f'Contango: {signal.contango_annual:.1f}%/yr\n'
+        f'Contango: {cg_str}%/yr\n'
         f'<code>{signal.reason}</code>'
     )
     logger.info(f'VIX ENTRY: {ticker} @ ${price:.2f} VIX={signal.vix_spot}')
@@ -132,8 +136,8 @@ def main():
     while True:
         try:
             run_cycle()
-        except Exception as e:
-            logger.error(f'VIX cycle error: {e}')
+        except Exception:
+            logger.error(f'VIX cycle error:\n{traceback.format_exc()}')
         time.sleep(CHECK_INTERVAL)
 
 

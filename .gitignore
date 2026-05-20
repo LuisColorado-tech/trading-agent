@@ -43,3 +43,4 @@ data/*.parquet
 # ── Backups y archivos temporales ────────────────────────────────────
 *.bak
 reports/
+config/kalshi_private_key.pem

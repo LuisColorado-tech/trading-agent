@@ -103,12 +103,12 @@ def get_portfolio(session: dict) -> dict:
 
 
 def get_open_trades(session: dict) -> list:
-    """Obtiene trades abiertos desde DB (excluye Grid Stable — tiene su propio risk mgmt)."""
+    """Obtiene trades abiertos desde DB (excluye Grid Stable y Basis Trade — risk mgmt independiente)."""
     with _engine.connect() as conn:
         rows = conn.execute(
             text(
                 "SELECT * FROM trades WHERE status = 'OPEN' "
-                "AND strategy != 'GRID_STABLE' "
+                "AND strategy NOT IN ('GRID_STABLE', 'BASIS_TRADE') "
                 "AND timestamp_open >= :session_start ORDER BY timestamp_open"
             ),
             {'session_start': session['started_at']},

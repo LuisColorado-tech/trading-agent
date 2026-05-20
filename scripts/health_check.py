@@ -208,22 +208,55 @@ def check_recent_cycles() -> tuple:
     return False, f'Sin ciclos completados en {MAX_CYCLE_AGE_MIN} min — posible crash loop'
 
 
+AGENT_SERVICES = [
+    'trading-agent',
+    'options-agent',
+    'polymarket-snipe',
+    'stocks-agent',
+    'grid-stable',
+    'pairs-agent',
+    'basis-agent',
+    'vix-agent',
+]
+
+
 def check_log_errors() -> tuple:
-    """Check 3: ¿Hay errores en los logs recientes?"""
+    """Check 3: ¿Hay errores en los logs recientes de TODOS los agentes?"""
     since = get_recent_journal_since(5)
-    code, out = run_cmd(
-        f'journalctl -u trading-agent.service --since "{since}" '
-        '--no-pager -o cat 2>/dev/null | grep -ciE "ERROR|SyntaxError|Exception|Traceback"'
+    total_errors = 0
+    agent_errors = []
+    # Ruido conocido: no necesita atencion
+    NOISE = (
+        'possibly delisted',
+        'Yahoo error',
+        'No data found, symbol may be delisted',
+        'Temporary failure in name resolution',
+        'NameResolutionError',
+        'ConnectTimeoutError',
+        'Max retries exceeded',
+        'RemoteDisconnected',
+        'Read timed out',
+        'does not have market symbol',
     )
-    n = int(out) if out.isdigit() else 0
-    if n == 0:
+    noise_filter = ' | '.join(f'grep -v "{p}"' for p in NOISE)
+    for svc in AGENT_SERVICES:
+        code, out = run_cmd(
+            f'journalctl -u {svc}.service --since "{since}" '
+            f'--no-pager -o cat 2>/dev/null | grep -iE "ERROR|SyntaxError|Exception|Traceback" {noise_filter} | grep -ciE "ERROR|SyntaxError|Exception|Traceback"'
+        )
+        n = int(out) if out.isdigit() else 0
+        if n > 0:
+            total_errors += n
+            # Obtener el último error de este agente
+            _, last_err = run_cmd(
+                f'journalctl -u {svc}.service --since "{since}" '
+                '--no-pager -o cat 2>/dev/null | grep -iE "ERROR|SyntaxError|Exception" | tail -1'
+            )
+            agent_errors.append(f'{svc}:{n} errs')
+    if total_errors == 0:
         return True, 'Sin errores en logs'
-    # Obtener el último error
-    _, last_err = run_cmd(
-        f'journalctl -u trading-agent.service --since "{since}" '
-        '--no-pager -o cat 2>/dev/null | grep -iE "ERROR|SyntaxError|Exception" | tail -1'
-    )
-    return False, f'{n} errores en 5 min. Último: {last_err[:200]}'
+    err_summary = ', '.join(agent_errors)
+    return False, f'{total_errors} errores en 5 min ({err_summary})'
 
 
 def check_db_connection() -> tuple:
@@ -460,30 +493,6 @@ def check_grid_bot() -> tuple:
         return False, f'📊 Grid error: {str(e)[:150]}'
 
 
-def check_polymarket() -> tuple:
-    """Check del servicio Polymarket."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'polymarket-agent'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '🔮 Polymarket servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG)
-        cur = conn.cursor()
-        cur.execute("SELECT session_name, current_balance, total_trades FROM poly_sessions WHERE status='ACTIVE' LIMIT 1")
-        row = cur.fetchone()
-        cur.execute("SELECT COUNT(*) FROM poly_positions WHERE status='OPEN'")
-        open_c = cur.fetchone()[0]
-        conn.close()
-
-        if not row:
-            return True, '🔮 Poly: sin sesión activa'
-        return True, f'🔮 Poly: {row[0]} ${float(row[1]):,.2f} | {open_c} pos | {row[2]} trades'
-    except Exception as e:
-        return False, f'🔮 Poly error: {str(e)[:100]}'
-
-
 def check_stocks() -> tuple:
     """Check del stocks agent (Alpaca NYSE/NASDAQ) + Minervini."""
     try:
@@ -547,28 +556,6 @@ def check_pairs() -> tuple:
         return True, f'🔗 Pairs OK — {count} trades | PnL=${pnl:+.0f}'
     except Exception as e:
         return False, f'🔗 Pairs error: {str(e)[:80]}'
-
-
-def check_kalshi_arb() -> tuple:
-    """Check del Kalshi Arbitrage agent."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'kalshi-arb-agent'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '💰 Kalshi Arb servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
-        row = _query_one(conn,
-            "SELECT COUNT(*), COALESCE(SUM(profit_per_unit * position_size), 0) FROM kalshi_arbitrage WHERE timestamp > now() - interval '24 hours'")
-        count = int(row[0]) if row else 0
-        profit = float(row[1]) if row else 0
-        conn.close()
-        if count == 0:
-            return True, '💰 Kalshi Arb OK — sin oportunidades en 24h'
-        return True, f'💰 Kalshi Arb OK — {count} señales | profit ${profit:+.2f}'
-    except Exception as e:
-        return False, f'💰 Kalshi Arb error: {str(e)[:80]}'
 
 
 def check_snipe() -> tuple:
@@ -760,7 +747,7 @@ def _build_heartbeat(now: datetime) -> str:
     # Proactive alerts (only in heartbeat, not every 5min check)
     alerts = _check_proactive_alerts(conn, now)
     if alerts:
-        lines.append('\n⚠️ <b>Alertas proactivas:</b>')
+        lines.append('\n⚠️ <b>Alertas:</b>')
         for a in alerts:
             lines.append(f'  • {a}')
 
@@ -768,26 +755,38 @@ def _build_heartbeat(now: datetime) -> str:
     return '\n'.join(lines)
 
 
+def _is_nyse_open(now: datetime) -> bool:
+    """NYSE opera L-V 14:30-21:00 UTC."""
+    if now.weekday() >= 5:  # Saturday=5, Sunday=6
+        return False
+    hour = now.hour + now.minute / 60
+    return 14.5 <= hour < 21.0
+
+
 def _check_proactive_alerts(conn, now) -> list[str]:
-    """Alertas proactivas: 24h sin trades, DD > 3%, balance estancado."""
+    """Alertas proactivas: solo anomalías reales, no falsos positivos."""
     alerts = []
     try:
-        # 1. Agentes sin trades en 24h
+        # 1. Solo alertar agentes de alta frecuencia si no operan
         for name, tbl, ts_col in [
             ('TrendMomentum', 'trades', 'timestamp_close'),
             ('Grid Bot', 'trades', 'timestamp_close'),
-            ('Stocks', 'stocks_trades', 'closed_at'),
-            ('PolyMarket', 'poly_positions', 'timestamp_close'),
-            ('Options', 'options_positions', 'closed_at'),
-            ('Snipe', 'snipe_trades', 'timestamp_close'),
         ]:
             cur = conn.cursor()
             cur.execute(f"SELECT COUNT(*) FROM {tbl} WHERE {ts_col} >= NOW() - INTERVAL '24 hours'")
             n = int((cur.fetchone() or [0])[0])
             if n == 0:
-                alerts.append(f'⏸️ {name}: 0 trades en 24h')
+                alerts.append(f'⏸️ {name}: 0 trades en 24h (anómalo)')
 
-        # 2. DD diario > 3%
+        # 2. Stocks: solo alertar si NYSE está abierto
+        if _is_nyse_open(now):
+            cur = conn.cursor()
+            cur.execute("SELECT COUNT(*) FROM stocks_trades WHERE closed_at >= NOW() - INTERVAL '24 hours'")
+            n = int((cur.fetchone() or [0])[0])
+            if n == 0:
+                alerts.append('⏸️ Stocks: 0 trades en 24h con NYSE abierto (anómalo)')
+
+        # 3. DD diario > 3%
         cur = conn.cursor()
         cur.execute("SELECT COALESCE(SUM(pnl), 0) FROM trades WHERE timestamp_close::date = CURRENT_DATE")
         daily = float((cur.fetchone() or [0])[0])
@@ -796,8 +795,16 @@ def _check_proactive_alerts(conn, now) -> list[str]:
         if daily < 0 and abs(daily) / bal > 0.03:
             alerts.append(f'📉 DD diario ${daily:+.0f} ({daily/bal*100:.1f}%) — supera 3%')
 
+        # 4. Halt activo
+        import subprocess
+        r = subprocess.run(['redis-cli', 'get', 'halt:trading'], capture_output=True, text=True, timeout=3)
+        halt_val = r.stdout.strip() if r.returncode == 0 else ''
+        if halt_val and halt_val != '0':
+            alerts.append(f'⚠️ HALT activo: {halt_val}')
+
     except Exception:
         pass
+    return alerts
     return alerts
 
 
@@ -822,12 +829,10 @@ def main():
         ('💹 Trades', check_trades_coherent),
         ('🔒 Balance', check_balance_stuck),
         ('🤖 Grid Bot', check_grid_bot),
-        ('🔮 Polymarket', check_polymarket),
         ('🎯 PolySnipe', check_snipe),
         ('📈 Stocks', check_stocks),
         ('📣 Options', check_options),
         ('🔗 Pairs', check_pairs),
-        ('💰 Kalshi Arb', check_kalshi_arb),
     ]
 
     results = []
