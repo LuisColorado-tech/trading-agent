@@ -1,0 +1,17 @@
+{
+  "session": 3,
+  "topic": "Slots SMC_ORDER_BLOCKS y BTC_MICROSTRUCTURE",
+  "timestamp": "2026-05-25T06:32:33.666452+00:00",
+  "votes": {
+    "QUANT": "\u26a0\ufe0f",
+    "QUANT_reason": "Debuggear conteo primero. El slot no es el cuello de botella.",
+    "TECHNICAL": "\u2705",
+    "TECHNICAL_reason": "BTC=2 (activo), SMC=1 (lento por dise\u00f1o).",
+    "RISK": "\u2705",
+    "RISK_reason": "Riesgo de 2 slots = aceptable. Verificar bug de conteo.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "Impacto marginal en PnL global. Sin drama."
+  },
+  "result": "3-0-1 \u2014 Subir slots",
+  "action": "MAX_CONCURRENT_BY_STRATEGY: SMC=2, BTC=2 en risk_manager.py"
+}

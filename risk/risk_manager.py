@@ -35,8 +35,8 @@ PAPER_AUTO_RESUME_MAX_DD = 0.09   # Sólo reanudar si el DD actual ya bajó por 
 # El límite global de exposición (MAX_PORTFOLIO_EXPOSURE) sigue siendo el techo.
 MAX_CONCURRENT_BY_STRATEGY = {
     'TREND_MOMENTUM': 2,
-    'SMC_ORDER_BLOCKS': 1,
-    'BTC_MICROSTRUCTURE': 1,
+    'SMC_ORDER_BLOCKS': 2,        # Council #3 May 25: 1→2 (generando señales)
+    'BTC_MICROSTRUCTURE': 2,      # Council #3 May 25: 1→2 (generando señales)
     'BREAKOUT': 1,
     'BTC_DIP_BUYER': 1,
     'MEAN_REVERSION': 1,

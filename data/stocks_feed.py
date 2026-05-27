@@ -126,19 +126,43 @@ class StocksFeed:
         return (now.hour == 14 and now.minute >= 30) or (15 <= now.hour <= 20)
 
     def get_price(self, symbol: str) -> float:
-        """Precio actual (último trade)."""
+        """Precio actual (último trade). Retorna None si el dato es stale o congelado."""
         symbol = symbol.upper()
+        
         if self._alpaca_available:
             try:
                 trade = self._alpaca.get_latest_trade(symbol)
-                return float(trade.get('p', 0))
-            except Exception:
-                pass
-        # Fallback: última fila de 1m de yfinance
-        df = self._fetch_yfinance(symbol, '1m', 5)
-        if not df.empty:
-            return float(df.iloc[-1]['close'])
-        return 0.0
+                price = float(trade.get('p', 0))
+                ts = trade.get('t', '')
+                
+                # Validar frescura del timestamp
+                if ts:
+                    from datetime import datetime as dt
+                    try:
+                        trade_time = dt.fromisoformat(ts.replace('Z', '+00:00'))
+                        age = (dt.now(timezone.utc) - trade_time).total_seconds()
+                        if age > 300:  # 5 minutos → stale
+                            logger.warning(f"STOCKS FEED: stale {symbol} last trade {age:.0f}s ago")
+                            return None
+                    except (ValueError, TypeError):
+                        pass
+                
+                # Detectar precio congelado (mismo precio por >5 min)
+                if not hasattr(self, '_last_price'):
+                    self._last_price = {}
+                last = self._last_price.get(symbol)
+                if last and abs(price - last['price']) < 0.01:
+                    from datetime import datetime as dt
+                    frozen_secs = (dt.now(timezone.utc) - last['ts']).total_seconds()
+                    if frozen_secs > 300:
+                        logger.warning(f"STOCKS FEED: frozen {symbol} ${price:.2f} for {frozen_secs:.0f}s")
+                        return None
+                
+                self._last_price[symbol] = {'price': price, 'ts': dt.now(timezone.utc)}
+                return price
+            except Exception as e:
+                logger.debug(f"STOCKS FEED: price error {symbol}: {e}")
+        return None  # Sin dato fresco → no operar
 
     def get_macro_bias(self) -> str:
         """Bias macro basado en SPY y QQQ.

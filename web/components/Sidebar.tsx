@@ -10,11 +10,9 @@ const NAV = [
   { href: '/crypto',       label: 'TrendMomentum',    icon: TrendingDown },
   { href: '/grid-bot',     label: 'Grid Bot',         icon: Grid3X3 },
   { href: '/grid-stable',  label: 'Grid Stable',      icon: Layers },
-  { href: '/pairs',         label: 'Pairs Trading',    icon: Link2 },
-  { href: '/polymarket',   label: 'Polymarket',       icon: Coins },
+  { href: '/pairs',        label: 'Pairs Trading',    icon: Link2 },
   { href: '/options',      label: 'Options',          icon: Gem },
   { href: '/snipe',        label: 'PolySnipe',        icon: Target },
-  { href: '/btc-direction',label: 'BTC Dir (old)',    icon: Bitcoin },
   { href: '/trades',       label: 'Trades',           icon: Activity },
   { href: '/signals',      label: 'Señales',          icon: BarChart2 },
   { href: '/analytics',    label: 'Analytics',        icon: PieChart },
@@ -49,7 +47,7 @@ export default function Sidebar({ open, onClose, isMobile }: Props) {
             <span className="text-xl">⚡</span>
             <div>
               <div className="text-sm font-semibold text-white tracking-tight">ARTHAS</div>
-              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v3</div>
+              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v1.1</div>
             </div>
           </div>
           <button
@@ -69,7 +67,7 @@ export default function Sidebar({ open, onClose, isMobile }: Props) {
             <span className="text-xl">⚡</span>
             <div>
               <div className="text-sm font-semibold text-white tracking-tight">ARTHAS</div>
-              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v3</div>
+              <div className="text-[10px] text-muted font-mono tracking-widest uppercase">Trading v1.1</div>
             </div>
           </div>
         </div>

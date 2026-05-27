@@ -9,7 +9,7 @@ import { clsx } from 'clsx'
 export const revalidate = 30
 
 const cardColors: Record<string, 'green'|'blue'|'gold'|'purple'|'red'> = {
-  stocks: 'green', crypto: 'blue', polymarket: 'purple', options: 'gold', snipe: 'green', btc_direction: 'red',
+  stocks: 'green', crypto: 'blue', options: 'gold', snipe: 'green',
 }
 
 export default async function OverviewPage() {
@@ -60,7 +60,7 @@ export default async function OverviewPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
           <p className="text-xs sm:text-sm text-muted mt-1">
-            {activeCount}/8 agentes activos · paper trading · v4
+            {activeCount}/8 agentes activos · paper trading · v1.1
           </p>
         </div>
         <div className="sm:text-right">
@@ -121,7 +121,10 @@ export default async function OverviewPage() {
           drawdown={c.drawdown_pct ? c.drawdown_pct * 100 : 0}
           status={c.status}
           color={cardColors.crypto}
-          extra={[{ label: 'v3', value: 'MIN_SCORE=75·7 assets', cls: 'text-blue' }]}
+          extra={[
+            { label: 'v1.1', value: 'DirectionGuard · XAU/XAG OKX', cls: 'text-blue' },
+            { label: 'Assets', value: 'BTC·ETH·SOL·AVAX·INJ·LINK·AAVE·POL·XAU·XAG', cls: 'text-muted' },
+          ]}
         />
 
         <AgentCard
@@ -129,7 +132,7 @@ export default async function OverviewPage() {
           icon="📊"
           href="/grid-bot"
           sessionName="GRID_BOT"
-          balance={10000}
+          balance={c.balance ?? 1000}
           pnl={gb.total_pnl ?? 0}
           winRate={gb.win_rate ?? 0}
           profitFactor={gb.profit_factor ?? 0}
@@ -145,20 +148,15 @@ export default async function OverviewPage() {
         />
 
         <AgentCard
-          title="Polymarket v3"
+          title="Homerun — Pred.Markets"
           icon="🔮"
-          href="/polymarket"
-          sessionName={p.session_name}
-          balance={p.balance}
-          pnl={p.total_pnl}
-          winRate={p.win_rate}
-          profitFactor={p.profit_factor}
-          openTrades={p.open_trades}
-          totalTrades={p.total_trades}
-          drawdown={p.max_drawdown}
-          status={p.status}
-          color={cardColors.polymarket}
-          extra={[{ label: 'v3', value: 'edge fix · min=0.42', cls: 'text-purple' }]}
+          sessionName="Shadow mode · PC externa"
+          status="OFF"
+          color="purple"
+          extra={[
+            { label: '📍', value: 'Migrado a PC Omarchy', cls: 'text-gold' },
+            { label: 'Estado', value: 'En instalación', cls: 'text-muted' },
+          ]}
         />
 
         <AgentCard
@@ -195,21 +193,6 @@ export default async function OverviewPage() {
         />
 
         <AgentCard
-          title="BTC Direction (old)"
-          icon="₿"
-          href="/btc-direction"
-          balance={171}
-          pnl={b.total_pnl}
-          winRate={b.win_rate}
-          profitFactor={b.profit_factor}
-          openTrades={b.open_trades}
-          totalTrades={b.total_trades}
-          status={b.status}
-          color={cardColors.btc_direction}
-          extra={[{ label: '⚠', value: 'Reemplazado por SNIPE', cls: 'text-red' }]}
-        />
-
-        <AgentCard
           title="Grid Stable — ETH/BTC"
           icon="📐"
           href="/grid-stable"
@@ -226,26 +209,6 @@ export default async function OverviewPage() {
           extra={[
             { label: 'v1', value: `PF=1.84 · $${(gsBalance ?? 500) - 500 > 0 ? '+' : ''}${((gsBalance ?? 500) - 500).toFixed(0)}`, cls: 'text-gold' },
             { label: 'Backtest', value: 'ETH/BTC 12m', cls: 'text-muted' },
-          ]}
-        />
-
-        <AgentCard
-          title="Basis Trade — Spot+Futures"
-          icon="📊"
-          href="/trades"
-          sessionName="BASIS_TRADE"
-          balance={500}
-          pnl={0}
-          winRate={0}
-          profitFactor={0}
-          openTrades={0}
-          totalTrades={0}
-          drawdown={0}
-          status="DEV"
-          color="blue"
-          extra={[
-            { label: '🟡 DEV', value: 'Funding 8%+ APY', cls: 'text-blue' },
-            { label: 'Backtest', value: 'PF=∞ · WR=100%', cls: 'text-muted' },
           ]}
         />
 
@@ -308,44 +271,24 @@ export default async function OverviewPage() {
             { label: 'BT 3Y', value: '116 trades · PF=2.04 · +40%', cls: 'text-muted' },
           ]}
         />
-        
+
         <AgentCard
-          title="Kalshi Arbitrage"
-          icon="💰"
-          href="/kalshi-arb"
-          sessionName="KALSHI_ARB"
-          balance={500}
-          pnl={0}
-          winRate={100}
-          profitFactor={0}
-          openTrades={0}
-          totalTrades={0}
-          drawdown={0}
-          status="DEV"
-          color="gold"
-          extra={[
-            { label: '🆕 NEW', value: 'Poly ↔ Kalshi risk-free', cls: 'text-gold' },
-            { label: 'Math', value: 'cost < $1.00 = profit', cls: 'text-muted' },
-          ]}
-        />
-        
-        <AgentCard
-          title="EMA Ribbon"
-          icon="🎀"
+          title="DirectionGuard"
+          icon="🛡️"
           href="/trades"
-          sessionName="EMA_RIBBON"
-          balance={500}
+          sessionName="Auto-bloqueo WR<30%"
+          balance={0}
           pnl={0}
           winRate={0}
           profitFactor={0}
           openTrades={0}
           totalTrades={0}
           drawdown={0}
-          status="DEV"
-          color="blue"
+          status="ACTIVE"
+          color="green"
           extra={[
-            { label: '🆕 GHv2', value: '5 EMA cascade · BUY-only', cls: 'text-blue' },
-            { label: 'BT 2Y', value: '88 trades · PF=2.39', cls: 'text-muted' },
+            { label: 'v1', value: 'Crypto + Stocks · 72h cooldown', cls: 'text-green' },
+            { label: 'Redis', value: 'direction_guard:*', cls: 'text-muted' },
           ]}
         />
       </div>
@@ -356,7 +299,6 @@ export default async function OverviewPage() {
           <AllocationChart data={[
             { agent: 'Crypto', balance: c.balance ?? 0 },
             { agent: 'Stocks', balance: s.balance ?? 0 },
-            { agent: 'Polymarket', balance: p.balance ?? 0 },
             { agent: 'Options', balance: o.balance ?? 0 },
             { agent: 'PolySnipe', balance: sp.balance ?? 0 },
             { agent: 'Grid Stable', balance: gsBalance },
@@ -378,7 +320,7 @@ export default async function OverviewPage() {
         <span>·</span>
         <span>API: FastAPI :8000</span>
         <span>·</span>
-        <span>Frontend: Next.js 14 · v4</span>
+        <span>Frontend: Next.js 14 · v1.1</span>
         <span>·</span>
         <span className="text-green">Streamlit desactivado</span>
       </div>

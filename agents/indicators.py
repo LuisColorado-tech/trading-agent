@@ -136,11 +136,29 @@ class IndicatorEngine:
         vol_sma20 = v.rolling(20).mean().iloc[-1]
         vol_ratio = v.iloc[-1] / vol_sma20 if vol_sma20 > 0 else 1.0
 
-        # Trend direction
+        # Trend direction — v1.1: MACD confirmation for ambiguous EMA alignment.
+        # When EMAs disagree with price or gap is tiny, MACD breaks the tie.
+        macd_line_val = float(macd_obj.macd().iloc[-1])
+        macd_signal_val = float(macd_obj.macd_signal().iloc[-1])
+        macd_bullish = macd_line_val > macd_signal_val
+        macd_bearish = macd_line_val < macd_signal_val
+        
         if ema20 > ema50 and c.iloc[-1] > ema20:
             trend_direction = 'UP'
         elif ema20 < ema50 and c.iloc[-1] < ema20:
             trend_direction = 'DOWN'
+        elif ema20 > ema50 and macd_bullish:
+            # EMA bullish pero precio entre EMAs → MACD confirma UP
+            trend_direction = 'UP'
+        elif ema20 < ema50 and macd_bearish:
+            # EMA bearish pero precio entre EMAs → MACD confirma DOWN
+            trend_direction = 'DOWN'
+        elif c.iloc[-1] < ema20 and c.iloc[-1] < ema50 and macd_bearish:
+            # Precio bajo ambas EMAs + MACD bearish → DOWN débil
+            trend_direction = 'DOWN'
+        elif c.iloc[-1] > ema20 and c.iloc[-1] > ema50 and macd_bullish:
+            # Precio sobre ambas EMAs + MACD bullish → UP débil
+            trend_direction = 'UP'
         else:
             trend_direction = 'SIDEWAYS'
 

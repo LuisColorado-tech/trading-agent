@@ -522,7 +522,7 @@ class StocksAgent:
             symbol = trade['symbol']
             try:
                 price = self.feed.get_price(symbol)
-                if price <= 0:
+                if price is None or price <= 0:
                     continue
 
                 entry = float(trade['entry_price'])
@@ -702,6 +702,8 @@ class StocksAgent:
         positions = []
         for t in open_trades:
             price = self.feed.get_price(t['symbol'])
+            if price is None:
+                continue
             if t['direction'] == 'BUY':
                 unreal_pnl = (price - float(t['entry_price'])) * float(t['qty'])
             else:

@@ -36,7 +36,7 @@ class AssetProfile:
     asset: str
 
     # ── Señal ───────────────────────────────────────────────────────
-    confluence_min: int = 3
+    confluence_min: int = 2  # v1.1 Council #5 May 25: 3→2 (default)
     allowed_directions: FrozenSet[str] = field(default_factory=lambda: frozenset({'BUY', 'SELL'}))
 
     # ── SL / TP ─────────────────────────────────────────────────────
@@ -98,7 +98,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'BTC': AssetProfile(
         asset='BTC',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=3,  # v3 rollback May 13: 3→5→3 (5 eliminaba 90% de señales BTC. PRE-v3: 32 trades +$3,145)
+        confluence_min=2,  # v1.1 Council #5 May 25: 3→2 (más señales en baja vol)
         sl_multiplier=1.3,
         tp_multiplier=2.8,
         trailing_activation_r=0.75,  # v3: 1.5→0.75 (activar antes, evita reversiones que borran ganancias)
@@ -136,7 +136,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'ETH': AssetProfile(
         asset='ETH',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=4,
+        confluence_min=3,
         sl_multiplier=1.4,
         tp_multiplier=2.8,
         trailing_activation_r=1.0,
@@ -175,7 +175,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'SOL': AssetProfile(
         asset='SOL',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=4,  # v3 rollback May 13: 4→5→4 (65→2 trades SOL, -98% actividad)
+        confluence_min=3,  # v1.1 Council #5 May 25: 4→3 (more signals)
         sl_multiplier=1.4,
         tp_multiplier=2.8,
         trailing_activation_r=1.0,
@@ -214,7 +214,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'AVAX': AssetProfile(
         asset='AVAX',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=3,
+        confluence_min=2,  # v1.1 Council #5 May 25: 3→2
         sl_multiplier=1.5,
         tp_multiplier=2.6,
         trailing_activation_r=0.75,  # v3: 1.2→0.75 (activar antes, AVAX tiene movimientos rápidos)
@@ -255,7 +255,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     'INJ': AssetProfile(
         asset='INJ',
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=4,  # v3 rollback May 13: 4→5→4 (50→8 trades INJ, -84% actividad)
+        confluence_min=3,  # v3 rollback May 13: 4→5→4 (50→8 trades INJ, -84% actividad)
         sl_multiplier=1.8,  # v3: 1.3→1.8 (SL más amplio → posición más pequeña para mismo riesgo)
         tp_multiplier=3.5,  # v3: 2.6→3.5 (proporcional al SL para mantener R:R ~2:1)
         trailing_activation_r=1.0,  # v3: 2.0→1.0 (activar antes, pero más alto que resto por volatilidad INJ)
@@ -343,7 +343,7 @@ def get_profile(asset: str) -> AssetProfile:
     return AssetProfile(
         asset=asset,
         allowed_directions=frozenset({'SELL'}),
-        confluence_min=4,
+        confluence_min=3,
         sl_multiplier=1.5,
         tp_multiplier=2.5,
         trailing_activation_r=1.0,

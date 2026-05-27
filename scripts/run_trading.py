@@ -61,7 +61,9 @@ def get_portfolio(session: dict) -> dict:
         open_trades = conn.execute(
             text(
                 "SELECT entry_price, stop_loss, position_size FROM trades "
-                "WHERE status = 'OPEN' AND timestamp_open >= :session_start"
+                "WHERE status = 'OPEN' "
+                "AND strategy NOT IN ('GRID_STABLE', 'BASIS_TRADE', 'GRID_BOT') "
+                "AND timestamp_open >= :session_start"
             ),
             {'session_start': session_start},
         ).fetchall()
@@ -103,12 +105,12 @@ def get_portfolio(session: dict) -> dict:
 
 
 def get_open_trades(session: dict) -> list:
-    """Obtiene trades abiertos desde DB (excluye Grid Stable y Basis Trade — risk mgmt independiente)."""
+    """Obtiene trades abiertos desde DB (excluye Grids y Basis — risk mgmt independiente)."""
     with _engine.connect() as conn:
         rows = conn.execute(
             text(
                 "SELECT * FROM trades WHERE status = 'OPEN' "
-                "AND strategy NOT IN ('GRID_STABLE', 'BASIS_TRADE') "
+                "AND strategy NOT IN ('GRID_STABLE', 'BASIS_TRADE', 'GRID_BOT') "
                 "AND timestamp_open >= :session_start ORDER BY timestamp_open"
             ),
             {'session_start': session['started_at']},
