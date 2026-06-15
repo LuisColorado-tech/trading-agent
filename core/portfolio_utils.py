@@ -18,8 +18,8 @@ def calculate_total_notional(open_trades: Iterable[Mapping]) -> float:
     )
 
 
-def calculate_peak_balance(balance: float, *candidate_peaks: Optional[float]) -> float:
-    peak_candidates = [balance]
+def calculate_peak_balance(balance: float, *candidate_peaks: Optional[float], floor: float = 0.0) -> float:
+    peak_candidates = [balance, floor]
     peak_candidates.extend(float(peak) for peak in candidate_peaks if peak is not None)
     return max(peak_candidates) if peak_candidates else balance
 
@@ -37,11 +37,13 @@ def build_portfolio_state(
     historical_peak_balance: Optional[float] = None,
     historical_max_drawdown: float = 0.0,
     halt_triggered: bool = False,
+    initial_capital: float = 0.0,
 ) -> dict:
     peak_balance = calculate_peak_balance(
         balance,
         latest_peak_balance,
         historical_peak_balance,
+        floor=initial_capital,
     )
     exposure_value = calculate_risk_exposure(open_trades)
     total_notional = calculate_total_notional(open_trades)

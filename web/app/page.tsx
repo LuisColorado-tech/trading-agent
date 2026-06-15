@@ -60,7 +60,7 @@ export default async function OverviewPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">ARTHAS Trading System</h1>
           <p className="text-xs sm:text-sm text-muted mt-1">
-            {activeCount}/8 agentes activos · paper trading · v1.1
+            {activeCount}/5 agentes activos · paper trading · v1.1
           </p>
         </div>
         <div className="sm:text-right">
@@ -160,35 +160,37 @@ export default async function OverviewPage() {
         />
 
         <AgentCard
-          title="Options — Deribit"
-          icon="📣"
+          title="Options [DESACTIVADO]"
+          icon="🚫"
           href="/options"
-          sessionName={o.session_name}
-          balance={o.balance}
-          pnl={o.total_pnl}
-          winRate={o.win_rate}
-          openTrades={o.open_trades}
-          totalTrades={o.total_trades}
-          status={o.status}
+          sessionName="Council #9"
+          balance={1386.40}
+          pnl={-613.60}
+          winRate={56.2}
+          openTrades={0}
+          totalTrades={16}
+          status="INACTIVE"
           color={cardColors.options}
-          extra={o.total_premium ? [{ label: 'Primas', value: `$${o.total_premium}`, cls: 'text-gold' }] : []}
+          extra={[
+            { label: 'Cierre', value: 'BTC puts -$2,389 en 6 SL seguidos', cls: 'text-red' },
+            { label: 'Peak', value: '$2,852 → $1,386 (-51%)', cls: 'text-muted' },
+          ]}
         />
 
         <AgentCard
-          title="PolySnipe — SNIPE+ARB"
-          icon="🎯"
+          title="PolySnipe [DESACTIVADO]"
+          icon="🚫"
           href="/snipe"
-          sessionName={sp.session_name}
-          balance={sp.balance}
-          pnl={sp.total_pnl}
-          winRate={sp.win_rate}
-          openTrades={sp.open_trades}
-          totalTrades={sp.total_trades}
-          status={sp.status}
+          sessionName="Council #7"
+          balance={0}
+          pnl={-150.37}
+          winRate={91.8}
+          openTrades={0}
+          totalTrades={341}
+          status="INACTIVE"
           color={cardColors.snipe}
           extra={[
-            { label: 'v1', value: 'SNIPE + ARB 15m', cls: 'text-green' },
-            { label: 'Ref', value: 'LuciferForge 94% WR', cls: 'text-muted' },
+            { label: 'Cierre', value: 'Edge negativo estructural', cls: 'text-red' },
           ]}
         />
 
@@ -212,26 +214,7 @@ export default async function OverviewPage() {
           ]}
         />
 
-        <AgentCard
-          title="VIX Mean Reversion"
-          icon="📉"
-          href="/trades"
-          sessionName="VOL_MEAN_REVERSION"
-          balance={514.50}
-          pnl={14.50}
-          winRate={66.7}
-          profitFactor={0.65}
-          openTrades={0}
-          totalTrades={18}
-          drawdown={4.0}
-          status="DEV"
-          color="purple"
-          extra={[
-            { label: '🟡 DEV', value: 'VIX > p80 → Long SVXY', cls: 'text-purple' },
-            { label: 'Backtest', value: '5Y real · PF=0.65 · WR=67%', cls: 'text-muted' },
-          ]}
-        />
-        
+
         <AgentCard
           title="Pairs Trading"
           icon="🔗"
@@ -251,46 +234,6 @@ export default async function OverviewPage() {
             { label: 'Backtest', value: '5Y · PF=0.82', cls: 'text-muted' },
           ]}
         />
-        
-        <AgentCard
-          title="Minervini SEPA"
-          icon="🚀"
-          href="/trades"
-          sessionName="MINERVINI"
-          balance={500}
-          pnl={0}
-          winRate={43.8}
-          profitFactor={2.04}
-          openTrades={4}
-          totalTrades={116}
-          drawdown={12.3}
-          status="ACTIVE"
-          color="green"
-          extra={[
-            { label: 'BUY-only', value: 'Daily momentum · 3Y BT', cls: 'text-green' },
-            { label: 'BT 3Y', value: '116 trades · PF=2.04 · +40%', cls: 'text-muted' },
-          ]}
-        />
-
-        <AgentCard
-          title="DirectionGuard"
-          icon="🛡️"
-          href="/trades"
-          sessionName="Auto-bloqueo WR<30%"
-          balance={0}
-          pnl={0}
-          winRate={0}
-          profitFactor={0}
-          openTrades={0}
-          totalTrades={0}
-          drawdown={0}
-          status="ACTIVE"
-          color="green"
-          extra={[
-            { label: 'v1', value: 'Crypto + Stocks · 72h cooldown', cls: 'text-green' },
-            { label: 'Redis', value: 'direction_guard:*', cls: 'text-muted' },
-          ]}
-        />
       </div>
 
       {/* Allocation + Equity charts */}
@@ -300,7 +243,6 @@ export default async function OverviewPage() {
             { agent: 'Crypto', balance: c.balance ?? 0 },
             { agent: 'Stocks', balance: s.balance ?? 0 },
             { agent: 'Options', balance: o.balance ?? 0 },
-            { agent: 'PolySnipe', balance: sp.balance ?? 0 },
             { agent: 'Grid Stable', balance: gsBalance },
           ]} />
         </div>

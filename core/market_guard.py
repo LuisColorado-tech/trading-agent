@@ -59,6 +59,8 @@ class MarketGuard:
     DEAD_ACTIVE_HOURS = frozenset({8,9,10,11,12,13,14,15,16,17,18,19,20,21})  # Solo en horario activo
     CONSECUTIVE_SL_LIMIT = 4       # N SLs seguidas → reducir
     EMERGENCY_DD = 0.08            # 8% DD → halt temprano
+    DEGRADED_DD = 0.05             # 5% DD → reducción de tamaño al 25%
+    DEGRADED_MULT = 0.25           # Multiplier en modo degradado
     PAUSE_MINUTES = 30             # Minutos de pausa tras flash crash/rally
 
     def __init__(self):
@@ -88,6 +90,13 @@ class MarketGuard:
                 state.position_multiplier = 0.0
                 self._set_guard('emergency', f'DD {dd*100:.1f}%', 3600)
                 logger.critical(f'MARKETGUARD: EMERGENCY — DD {dd*100:.1f}%')
+                return state
+            if dd >= self.DEGRADED_DD:
+                state.level = GuardLevel.SOFT_PAUSE
+                state.reason = f'DEGRADED_DD:{dd*100:.1f}%'
+                state.position_multiplier = self.DEGRADED_MULT
+                self._set_guard('degraded', f'DD {dd*100:.1f}%', 1800)
+                logger.warning(f'MARKETGUARD: DEGRADED — DD {dd*100:.1f}%, trading at {self.DEGRADED_MULT}x')
                 return state
 
         # ── 2. BT Price data for market conditions ──

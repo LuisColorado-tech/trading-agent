@@ -261,6 +261,12 @@ class RiskManager:
             logger.info(f'PROBATION: {signal.get("asset")} risk reduced to ${risk_amount:.2f} (50% of normal)')
 
         position_size = risk_amount / risk_per_unit
+        if position_size <= 0 or (isinstance(position_size, float) and position_size < 1e-8):
+            return RiskDecision(
+                approved=False, position_size=0, stop_loss=stop_loss,
+                take_profit=take_profit, risk_amount=risk_amount,
+                reason='ZERO_POSITION_SIZE', claude_flags=[],
+            )
         position_value = position_size * entry_price
         risk_pct = risk_amount / total_balance if total_balance > 0 else 0
 

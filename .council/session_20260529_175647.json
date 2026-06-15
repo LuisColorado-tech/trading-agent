@@ -1,0 +1,14 @@
+{
+  "topic": "Revision post-update v1.2: TM +102.60 (68% WR), GRID_BOT +31.78 (47%), GRID_STABLE +94.71 (45%), STOCKS -2.29 (58%). Total +226.80. Debiles: XAG/ETH en GRID_BOT, EEM/FXI en stocks. Solo opinion.",
+  "timestamp": "2026-05-29T17:56:47.529145+00:00",
+  "votes": {
+    "QUANT": "\u2705",
+    "QUANT_reason": "TM 68% WR +102 es excelente. GRID_STABLE +94 con 45% WR es buen volumen. Preocupa XAG (27% WR) y ETH (33%) en GRID_BOT. Sugiero revisar perfiles XAG/ETH.",
+    "TECHNICAL": "\u26a0\ufe0f",
+    "TECHNICAL_reason": "GRID_BOT: 45 SL vs 32 TP (ratio 1.4:1) ineficiente. GRID_STABLE compensa con avg loss -0.24. Recomiendo trailing stop en GRID_BOT para XAG como ya existe en AVAX.",
+    "RISK": "\u26a0\ufe0f",
+    "RISK_reason": "STOCKS -2.29 total pero tendencia up (87.5% WR hoy). EEM 33% WR outlier. GLD y SVXY solidos. Evaluar si EEM y FXI siguen en portfolio.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "Portfolio +226.80 post-update, 319 trades, TM es motor (68% WR). No tocar parametros ahora, observar 1 semana mas. Rumbo a live trading firme."
+  }
+}

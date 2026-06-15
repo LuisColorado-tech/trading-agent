@@ -148,21 +148,18 @@ set -a && source config/.env && set +a                     # cargar env vars
 
 **Python**: SIEMPRE `/opt/trading/venv/bin/python3`, NUNCA `python3` del sistema.
 
-## Agentes activos (6 systemd + Homerun externo)
+## Agentes activos (4 systemd + Homerun externo)
 
 | Agente | Servicio | Entry point | Sesión |
 |--------|----------|-------------|--------|
 | Trading (Crypto/Metales) | `trading-agent` | `scripts/run_trading.py` | SESSION_011 ($1,000) |
 | Stocks (Alpaca) | `stocks-agent` | `scripts/run_stocks.py` | STOCKS_SESSION_011 ($1,000) |
-| Options (Theta Farming) | `options-agent` | `scripts/run_options.py` | OPTIONS_SESSION_001 |
-| PolySnipe (Up/Down 15m) | `polymarket-snipe` | `scripts/run_polymarket_snipe.py` | SNIPE_SESSION |
 | Grid Stable Pairs | `grid-stable` | `agents/grid_stable_agent.py` | Compartida |
 | Pairs Trading | `pairs-agent` | `agents/pairs_executor.py` | Compartida |
-| VIX Mean Reversion | `vix-agent` | `agents/vol_executor.py` | — |
 | Homerun (Prediction Mkts) | PC externa Omarchy | Docker | Shadow mode |
 
 ### Desactivados
-Polymarket Agent, Basis Trade Agent, Kalshi Arbitrage, BTC Direction.
+Polymarket Agent, Basis Trade Agent, Kalshi Arbitrage, BTC Direction, PolySnipe (Council #7: edge negativo), VIX Mean Reversion (Council #8: feed roto), EMA_RIBBON (Council #6: inactiva, bloqueaba TM), Options Theta Farming (Council #9: -$613, DD 30.7%, BTC puts sin edge).
 
 ## Estrategias crypto activas
 
@@ -184,6 +181,10 @@ Polymarket Agent, Basis Trade Agent, Kalshi Arbitrage, BTC Direction.
 | MAX_CONCURRENT SMC/BTC | `risk/risk_manager.py` | 1 → 2 slots | #3 (3-0-1) |
 | available_cash fix | `scripts/run_trading.py` | GRID_BOT excluido de get_open_trades | Directo |
 | confluence_min | `core/asset_profiles.py` | 3→2, 4→3 por activo | #5 (4-0) |
+| EMA_RIBBON desactivada | `strategy_engine.py` | Movida a PAUSADAS (trade stale SOL cerrado) | #6 (3-0-1) |
+| PolySnipe cerrado | `systemd` | Stop + disable (edge negativo -$150) | #7 (0-2-2) |
+| VIX pausado | `systemd` | Stop + disable (feed Yahoo roto, 0 actividad 48h) | #8 (directo) |
+| Options pausado | `systemd` | Stop + disable (-$613, DD 30.7%, BTC puts sin edge) | #9 (0-3-1) |
 
 ### Trading Council
 
@@ -196,7 +197,7 @@ Actas en `/opt/trading/.council/`. Documentación: `docs/TRADING_COUNCIL.md`.
 ## Servicios systemd
 
 ```bash
-systemctl status trading-agent options-agent polymarket-snipe stocks-agent dashboard-api dashboard-web grid-stable pairs-agent vix-agent trading-health
+systemctl status trading-agent stocks-agent dashboard-api dashboard-web grid-stable pairs-agent trading-health
 ```
 
 ## Documentación
@@ -209,3 +210,4 @@ systemctl status trading-agent options-agent polymarket-snipe stocks-agent dashb
 | `docs/STOCKS_IMPROVEMENT_PLAN.md` | Análisis forense + plan de mejora stocks |
 | `docs/TRADING_COUNCIL.md` | Sistema de consejo multi-agente |
 | `docs/OMARCHY_HOMERUN_GUIDE.md` | Guía instalación Homerun en PC externa |
+| `specs/OPERATIONAL_SAFEGUARDS.md` | P1/P2/P3: DD desde capital, circuit breaker, guard degradado |

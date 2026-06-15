@@ -86,6 +86,7 @@ def get_portfolio(session: dict) -> dict:
         historical_peak = float(stats.historical_peak) if stats else None
         historical_max_drawdown = float(stats.historical_max_drawdown) if stats else 0.0
         halt_triggered = bool(stats.halt_triggered) if stats else False
+        init_cap = float(session.get('initial_balance', 10000.0))
         portfolio = build_portfolio_state(
             balance=balance,
             open_trades=[dict(t._mapping) for t in open_trades],
@@ -93,6 +94,7 @@ def get_portfolio(session: dict) -> dict:
             historical_peak_balance=historical_peak,
             historical_max_drawdown=historical_max_drawdown,
             halt_triggered=halt_triggered,
+            initial_capital=init_cap,
         )
         portfolio['last_halt_breach_at'] = stats.last_halt_breach_at if stats else None
         return portfolio
@@ -101,6 +103,7 @@ def get_portfolio(session: dict) -> dict:
         open_trades=[],
         latest_peak_balance=float(session.get('initial_balance', 10000.0)),
         historical_peak_balance=float(session.get('initial_balance', 10000.0)),
+        initial_capital=float(session.get('initial_balance', 10000.0)),
     )
 
 
@@ -207,12 +210,15 @@ def main():
     # ────────────────────────────────────────────────────────────────
 
     cycle_count = 0
+    crash_count = 0
+    crash_window_start = 0.0  # timestamp del primer crash en la ventana de 5 min
 
     while True:
         try:
             cycle_count += 1
 
             # 0. MONITOREAR TRADES ABIERTOS — cerrar SL/TP
+            guard = get_market_guard()
             closed_trades = monitor.check_open_trades(portfolio, session)
             if closed_trades:
                 for ct in closed_trades:
@@ -250,7 +256,6 @@ def main():
             logger.debug(f'Scan complete: {len(signals)} signals')
 
             # 1b. MarketGuard — condiciones extremas de mercado
-            guard = get_market_guard()
             guard_state = guard.check(feed=scanner.feed, portfolio=portfolio)
             if guard_state.level != GuardLevel.NORMAL:
                 logger.warning(
@@ -302,6 +307,9 @@ def main():
 
             logger.info(f'Cycle {cycle_count} complete. Next scan in {SCAN_INTERVAL}s. '
                         f'Balance: ${portfolio["total_balance"]:,.2f}')
+            # Reset crash counter on successful cycle
+            crash_count = 0
+            crash_window_start = 0.0
             time.sleep(SCAN_INTERVAL)
 
         except KeyboardInterrupt:
@@ -309,6 +317,22 @@ def main():
             break
         except Exception as e:
             logger.error(f'Main loop error: {e}')
+            now = time.time()
+            if crash_window_start == 0.0:
+                crash_window_start = now
+            crash_count += 1
+            elapsed = now - crash_window_start
+            if crash_count >= 3 and elapsed <= 300:
+                logger.critical(
+                    f'CIRCUIT BREAKER: {crash_count} crashes in {elapsed:.0f}s — HALTING AGENT'
+                )
+                executor.risk._trading_halted = True
+                executor.risk._halt_reason = f'CIRCUIT_BREAKER:{crash_count}crashes'
+                break
+            elif elapsed > 300:
+                # Reset window if more than 5 min since first crash
+                crash_count = 1
+                crash_window_start = now
             time.sleep(10)
 
 

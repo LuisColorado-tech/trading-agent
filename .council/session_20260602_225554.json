@@ -1,0 +1,14 @@
+{
+  "topic": "Auditoria TM Jun 2: 49 trades, 87.8% WR, +82.27. PnL verificado 49/49 match, 0 solapamientos. Patron: compounding agresivo (5 reentradas consecutivas al mismo asset+TP). TM fue 91% del PnL diario. GRID_BOT debil (-0), Options bajo agua (UNI puts -113%/-50%), GRID_STABLE consistente (+9), STOCKS OK (+7).",
+  "timestamp": "2026-06-02T22:55:54.241779+00:00",
+  "votes": {
+    "QUANT": "\u2705",
+    "QUANT_reason": "TM junio 2: 49 trades, 87.8% WR, +$282.27. Auditoria confirma PnL real: 49/49 match, 0 solapamientos. El patron es compounding agresivo: hasta 5 reentradas consecutivas al mismo asset/direccion con TP identico (LINK 5x +$38, AVAX 5x +$37, ETH 5x +$42, LINK 5x +$47). Size crece con el balance \u2014 legitimo. Hoy demuestra que TM funciona en tendencia definida.",
+    "TECHNICAL": "\u26a0\ufe0f",
+    "TECHNICAL_reason": "El SIGNAL_DEDUP solo se activa en SL, no en TP. Esto permite reentrada inmediata post-TP: bueno para aprovechar tendencias, pero peligroso si el mercado revierte. ETH lo mostro: 5 TP seguidos y el 6to fue SL (-$4.22 con el size mas grande). Recomiendo: dedup parcial post-TP (30-60 min en vez de nada) para espaciar entradas y evitar concentracion.",
+    "RISK": "\u26a0\ufe0f",
+    "RISK_reason": "El compounding sin limite expone el capital a una perdida concentrada. Si el 6to trade de LINK hubiera sido SL en vez de TP, la perdida habria sido -$7.65 (size=75), borrando 1 de los 5 TP. El riesgo es aceptable (2% del balance) pero hay que monitorear. GRID_BOT hoy fue debil (-$10, 30% WR). Options esta bajo agua (UNI puts -113% y -50%).",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "Portfolio global: +$308.95 hoy, +$380 en 3 dias. TM es el motor (91% del PnL diario). GRID_STABLE consistente (+$19). La asignacion de capital es correcta: TM merece el mayor peso. Rumbo a live trading solido. Observar si TM puede replicar este dia en otras condiciones de mercado."
+  }
+}

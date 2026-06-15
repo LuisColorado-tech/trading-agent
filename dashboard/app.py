@@ -171,10 +171,9 @@ if not closed_trades.empty:
 st.sidebar.title('🤖 Trading Agent v2.1')
 st.sidebar.markdown(f"**Entorno:** `{os.getenv('ENVIRONMENT', 'dev')}`")
 st.sidebar.markdown(f"**Modo:** `{'📝 PAPER' if os.getenv('PAPER_TRADING','true')=='true' else '🔴 LIVE'}`")
-st.sidebar.markdown('**Estrategias activas (7):**')
+st.sidebar.markdown('**Estrategias activas (5):**')
 st.sidebar.markdown(
-    '📉 TrendMomentum SELL · ⚡ GridBot RANGE · 🎯 PolySnipe · '
-    '🔮 SignalBased Poly · 📊 ThetaFarming · 📈 StocksMom · 🗃️ GridStable'
+    '📉 TrendMomentum SELL · ⚡ GridBot RANGE · 📊 ThetaFarming · 📈 StocksMom · 🗃️ GridStable'
 )
 st.sidebar.markdown('---')
 
@@ -941,158 +940,51 @@ with tab5:
 
     st.markdown('---')
 
-    # ── Sección 3: PolyMarket SNIPE — Late-entry + ARB ───────────
-    st.markdown('### 🎯 PolyMarket SNIPE — Late-entry + ARB')
+    # ── Sección 3: PolyMarket SNIPE — DESACTIVADO (Council #7) ──
+    st.markdown('### 🎯 PolyMarket SNIPE — `[DESACTIVADO]`')
+    st.caption('Council #7 (0-2-2): 341 trades, 91.8% WR, PnL -$150.37. Edge negativo estructural. Capital redistribuido a TM + Grids.')
 
     if not snipe_df.empty:
-        snipe_open   = snipe_df[snipe_df['status'] == 'OPEN']
         snipe_closed = snipe_df[snipe_df['status'] == 'CLOSED']
-
         pnl_snipe   = snipe_closed['pnl_usdc'].astype(float).sum() if not snipe_closed.empty else 0.0
         wins_snipe  = int((snipe_closed['outcome'] == 'WIN').sum()) if not snipe_closed.empty else 0
         total_snipe = len(snipe_closed)
         wr_snipe    = (wins_snipe / total_snipe * 100) if total_snipe > 0 else 0.0
 
-        init_snipe = 500.0
-        locked     = snipe_open['cost_usdc'].astype(float).sum() if not snipe_open.empty else 0.0
-        bal_snipe  = init_snipe + pnl_snipe - locked
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric('📈 P&L Final', f'${pnl_snipe:+,.2f}')
+        c2.metric('🎯 Win Rate', f'{wr_snipe:.1f}%')
+        c3.metric('🔒 Cerradas', total_snipe)
+        c4.metric('📉 Motivo', 'Edge negativo')
 
-        c1, c2, c3, c4, c5 = st.columns(5)
-        c1.metric('💰 Balance', f'${bal_snipe:,.2f}', delta=f'{bal_snipe - init_snipe:+,.2f}')
-        c2.metric('📈 P&L Total', f'${pnl_snipe:+,.2f}')
-        c3.metric('🎯 Win Rate', f'{wr_snipe:.1f}%')
-        c4.metric('🔓 Abiertas', len(snipe_open))
-        c5.metric('🔒 Cerradas', total_snipe)
-
-        # P&L por estrategia
         if not snipe_closed.empty:
-            st.markdown('##### P&L por Estrategia')
-            pnl_strat = snipe_closed.groupby('strategy').agg(
-                trades=('pnl_usdc', 'count'),
-                pnl=('pnl_usdc', lambda x: float(x.astype(float).sum())),
-                wins=('outcome', lambda x: int((x == 'WIN').sum())),
-            ).reset_index()
-            pnl_strat['win_rate'] = (pnl_strat['wins'] / pnl_strat['trades'] * 100).round(1)
-
-            fig_strat = go.Figure(go.Bar(
-                x=pnl_strat['strategy'], y=pnl_strat['pnl'],
-                marker_color=['#4CAF50' if v >= 0 else '#f44336' for v in pnl_strat['pnl']],
-                text=pnl_strat['pnl'].apply(lambda x: f'${x:+.2f}'),
-                textposition='outside',
-            ))
-            fig_strat.update_layout(height=250, margin=dict(l=0, r=0, t=10, b=0),
-                                    yaxis_title='P&L (USDC)')
-            st.plotly_chart(fig_strat, use_container_width=True)
-
-        # Posiciones abiertas
-        if not snipe_open.empty:
-            st.markdown(f'##### 🔓 Abiertas ({len(snipe_open)})')
-            open_snipe = snipe_open[['asset', 'strategy', 'direction', 'entry_price',
-                                     'shares', 'cost_usdc', 'move_pct', 'timestamp_open']].copy()
-            open_snipe['entry_price'] = open_snipe['entry_price'].apply(lambda x: f'${float(x):.4f}')
-            open_snipe['cost_usdc']   = open_snipe['cost_usdc'].apply(lambda x: f'${float(x):.2f}')
-            open_snipe['move_pct']    = open_snipe['move_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
-            open_snipe.columns = ['Asset', 'Estrategia', 'Dir', 'Entrada',
-                                  'Shares', 'Costo', 'Move %', 'Abierto']
-            st.dataframe(open_snipe, use_container_width=True, hide_index=True)
-
-        # Historial
-        if not snipe_closed.empty:
-            st.markdown(f'##### 🔒 Historial ({total_snipe})')
-            hist_snipe = snipe_closed[['asset', 'strategy', 'direction', 'outcome',
-                                       'entry_price', 'pnl_usdc', 'move_pct',
+            st.markdown('##### 🔒 Historial Final')
+            hist_snipe = snipe_closed[['asset', 'direction', 'outcome', 'entry_price',
+                                       'pnl_usdc', 'move_pct',
                                        'timestamp_open', 'timestamp_close']].copy()
             hist_snipe['entry_price'] = hist_snipe['entry_price'].apply(lambda x: f'${float(x):.4f}')
             hist_snipe['pnl_usdc']    = hist_snipe['pnl_usdc'].apply(lambda x: f'${float(x):+.2f}' if pd.notna(x) else '—')
             hist_snipe['move_pct']    = hist_snipe['move_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
-            hist_snipe.columns = ['Asset', 'Estrategia', 'Dir', 'Outcome', 'Entrada',
+            hist_snipe.columns = ['Asset', 'Dir', 'Outcome', 'Entrada',
                                   'P&L', 'Move %', 'Abierto', 'Cerrado']
             st.dataframe(hist_snipe, use_container_width=True, hide_index=True)
-    else:
-        st.info('PolySnipe aún no ha ejecutado trades. El agente está esperando mercados en minuto 13-14.5.')
 
     st.markdown('---')
 
-    # ── Sección 4: BTC Direction (DEPRECATED — Reemplazado por PolySnipe) ─
+    # ── Sección 4: BTC Direction (DEPRECATED) ─
     st.markdown('### ₿ BTC Direction — MULTI-TF `[DEPRECATED]`')
-    st.caption('Reemplazado por PolyMarket SNIPE Agent. WR=0%, 183 trades, -$497. Parado.')
+    st.caption('WR=0%, 183 trades, -$497. Reemplazado por PolySnipe → DESACTIVADO.')
 
     if not btcd_df.empty:
-        btcd_open   = btcd_df[btcd_df['status'] == 'OPEN']
         btcd_closed = btcd_df[btcd_df['status'] == 'CLOSED']
-
-        # KPIs
         pnl_btcd   = btcd_closed['pnl_usdc'].astype(float).sum() if not btcd_closed.empty else 0.0
-        wins_btcd  = int((btcd_closed['pnl_usdc'].astype(float) > 0).sum()) if not btcd_closed.empty else 0
         total_btcd = len(btcd_closed)
-        wr_btcd    = (wins_btcd / total_btcd * 100) if total_btcd > 0 else 0.0
 
-        # Calcular balance actual
-        init_btcd = 500.0  # initial_paper_balance del config
-        locked    = btcd_open['cost_usdc'].astype(float).sum() if not btcd_open.empty else 0.0
-        bal_btcd  = init_btcd + pnl_btcd - locked
-
-        c1, c2, c3, c4, c5 = st.columns(5)
-        c1.metric('💰 Balance', f'${bal_btcd:,.2f}', delta=f'{bal_btcd - init_btcd:+,.2f}')
-        c2.metric('📈 P&L Total', f'${pnl_btcd:+,.2f}')
-        c3.metric('🎯 Win Rate', f'{wr_btcd:.1f}%')
-        c4.metric('🔓 Abiertas', len(btcd_open))
-        c5.metric('🔒 Cerradas', total_btcd)
-
-        # P&L por timeframe
-        if not btcd_closed.empty and 'timeframe' in btcd_closed.columns:
-            tf_avail = btcd_closed['timeframe'].dropna()
-            if not tf_avail.empty:
-                st.markdown('##### P&L por Timeframe')
-                pnl_tf = btcd_closed.groupby('timeframe').agg(
-                    trades=('pnl_usdc', 'count'),
-                    pnl=('pnl_usdc', lambda x: float(x.astype(float).sum())),
-                    wins=('pnl_usdc', lambda x: int((x.astype(float) > 0).sum())),
-                ).reset_index()
-                pnl_tf['win_rate'] = (pnl_tf['wins'] / pnl_tf['trades'] * 100).round(1)
-
-                fig_tf = go.Figure(go.Bar(
-                    x=pnl_tf['timeframe'], y=pnl_tf['pnl'],
-                    marker_color=['#4CAF50' if v >= 0 else '#f44336' for v in pnl_tf['pnl']],
-                    text=pnl_tf['pnl'].apply(lambda x: f'${x:+.2f}'),
-                    textposition='outside',
-                ))
-                fig_tf.update_layout(height=250, margin=dict(l=0, r=0, t=10, b=0),
-                                     yaxis_title='P&L (USDC)')
-                st.plotly_chart(fig_tf, use_container_width=True)
-
-        # Posiciones abiertas
-        if not btcd_open.empty:
-            st.markdown(f'##### 🔓 Abiertas ({len(btcd_open)})')
-            open_btcd = btcd_open[['timeframe', 'direction', 'market_slug',
-                                   'entry_price', 'shares', 'cost_usdc',
-                                   'btc_5m_pct', 'confidence', 'timestamp_open']].copy()
-            open_btcd['entry_price'] = open_btcd['entry_price'].apply(lambda x: f'{float(x):.3f}')
-            open_btcd['cost_usdc']   = open_btcd['cost_usdc'].apply(lambda x: f'${float(x):.2f}')
-            open_btcd['btc_5m_pct']  = open_btcd['btc_5m_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
-            open_btcd['confidence']  = open_btcd['confidence'].apply(lambda x: f'{float(x):.2f}' if pd.notna(x) else '—')
-            open_btcd.columns = ['TF', 'Dir', 'Slug', 'Entrada', 'Shares',
-                                 'Costo', 'BTC 5m %', 'Conf', 'Abierto']
-            st.dataframe(open_btcd, use_container_width=True, hide_index=True)
-
-        # Historial
-        st.markdown(f'##### 🔒 Historial ({total_btcd})')
-        if not btcd_closed.empty:
-            hist_btcd = btcd_closed[['timeframe', 'direction', 'outcome', 'market_slug',
-                                     'entry_price', 'pnl_usdc',
-                                     'btc_5m_pct', 'timestamp_open', 'timestamp_close']].copy()
-            hist_btcd['entry_price'] = hist_btcd['entry_price'].apply(lambda x: f'{float(x):.3f}')
-            hist_btcd['pnl_usdc']    = hist_btcd['pnl_usdc'].apply(lambda x: f'${float(x):+.2f}' if pd.notna(x) else '—')
-            hist_btcd['btc_5m_pct']  = hist_btcd['btc_5m_pct'].apply(lambda x: f'{float(x):+.3f}%' if pd.notna(x) else '—')
-            hist_btcd.columns = ['TF', 'Dirección', 'Outcome', 'Slug', 'Entrada',
-                                 'P&L', 'BTC 5m %', 'Abierto', 'Cerrado']
-            st.dataframe(hist_btcd, use_container_width=True, hide_index=True)
-        else:
-            st.info('Sin trades cerrados de BTC Direction aún.')
+        c1, c2 = st.columns(2)
+        c1.metric('📈 P&L Final', f'${pnl_btcd:+,.2f}')
+        c2.metric('🔒 Cerradas', total_btcd)
     else:
-        st.info('BTC Direction aún no ha ejecutado trades. El agente está corriendo y esperando señal.')
-        st.caption('ℹ️ El agente evalúa mercados 5m/15m/4H/1H/Daily cada 30s. '
-                   'Solo entra cuando BTC momentum > 0.15% y el precio Polymarket no lo tiene descontado.')
+        st.info('Sin datos de BTC Direction.')
 
 
 # ══════════════════════════════════════════════════════════════════

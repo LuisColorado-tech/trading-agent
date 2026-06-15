@@ -100,11 +100,11 @@ class StrategyEngine:
         )
         self.strategies = [
             TrendMomentumStrategy(),
-            EMARibbonStrategy(),                # GitHub Hunter v2: EMA Ribbon trend-following BUY
             SmcOrderBlocksStrategy(),
             BtcMicrostructureStrategy(),
             # ── PAUSADAS ──
             # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy
+            # EMARibbonStrategy(),                # Council #6 (3-0-1): inactiva desde May 26, bloqueaba TM
         ]
         # ── v2 (BaseStrategy) — ejecución en paralelo para validación ──
         self._v2_tm = TrendMomentumStrategyV2()

@@ -210,13 +210,9 @@ def check_recent_cycles() -> tuple:
 
 AGENT_SERVICES = [
     'trading-agent',
-    'options-agent',
-    'polymarket-snipe',
     'stocks-agent',
     'grid-stable',
     'pairs-agent',
-    'basis-agent',
-    'vix-agent',
 ]
 
 
@@ -518,22 +514,8 @@ def check_stocks() -> tuple:
 
 
 def check_options() -> tuple:
-    """Check del options agent (Deribit theta farming)."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'options-agent'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '📣 Options servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
-        sess = _query_one(conn, "SELECT current_balance_usd FROM options_sessions WHERE status='ACTIVE' LIMIT 1")
-        op_open = int((_query_one(conn, "SELECT COUNT(*) FROM options_positions WHERE status='OPEN'") or [0])[0])
-        conn.close()
-        bal = float(sess[0]) if sess else 0
-        return True, f'📣 Options OK — ${bal:,.0f} | {op_open} open'
-    except Exception as e:
-        return False, f'📣 Options error: {str(e)[:80]}'
+    """Check del options agent — DESACTIVADO por Council #9 (0-3-1)."""
+    return True, '📣 Options DESACTIVADO — Council #9: -$613, DD 30.7%, BTC puts sin edge'
 
 
 def check_pairs() -> tuple:
@@ -559,24 +541,8 @@ def check_pairs() -> tuple:
 
 
 def check_snipe() -> tuple:
-    """Check del PolyMarket SNIPE agent."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'polymarket-snipe'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '🎯 PolySnipe servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
-        row = _query_one(conn,
-            "SELECT COUNT(*) FROM snipe_trades WHERE timestamp_open > now() - interval '6 hours'")
-        conn.close()
-        count = int(row[0]) if row else 0
-        if count == 0:
-            return True, '🎯 SNIPE sin trades en 6h — esperando ventana 13-14.5min'
-        return True, f'🎯 SNIPE OK — {count} trades en 6h'
-    except Exception as e:
-        return False, f'🎯 SNIPE check error: {str(e)[:80]}'
+    """Check del PolyMarket SNIPE agent — DESACTIVADO por Council #7 (0-2-2)."""
+    return True, '🎯 PolySnipe DESACTIVADO — Council #7: edge negativo (-$150 en 341 trades)'
 
 
 def _query_one(conn, sql: str, params=None):

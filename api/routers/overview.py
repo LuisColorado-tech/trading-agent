@@ -119,57 +119,6 @@ def overview(scope: str = Query("session", description="session | all")):
     except Exception:
         result['crypto'] = {'status': 'error'}
 
-    # ── Polymarket ──
-    try:
-        if scope == "session":
-            sess = q_one("SELECT * FROM poly_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-            if not sess:
-                sess = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1")
-            if sess:
-                sname = sess['session_name']
-                stats = q_one("""
-                    SELECT
-                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_RESET') AS total,
-                        COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
-                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
-                        COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
-                        COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
-                    FROM poly_positions WHERE session_name = :sn
-                """, {'sn': sname}) or {}
-        else:
-            sess = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1") or {}
-            sname = sess.get('session_name', 'all')
-            stats = q_one("""
-                SELECT
-                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND close_reason != 'SESSION_RESET') AS total,
-                    COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl > 0) AS winners,
-                    COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
-                    COALESCE(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl > 0), 0) AS gross_profit,
-                    COALESCE(ABS(SUM(pnl) FILTER (WHERE status = 'CLOSED' AND pnl < 0)), 0) AS gross_loss
-                FROM poly_positions
-            """) or {}
-        if sess:
-            closed = int(stats.get('total') or 0)
-            winners = int(stats.get('winners') or 0)
-            gp = float(stats.get('gross_profit') or 0)
-            gl = float(stats.get('gross_loss') or 0)
-            result['polymarket'] = {
-                'session_name': sname,
-                'balance': float(sess.get('current_balance') or sess.get('initial_balance') or 1000),
-                'initial_balance': float(sess.get('initial_balance') or 1000),
-                'total_pnl': round(float(stats.get('total_pnl') or 0), 2),
-                'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
-                'profit_factor': round(gp / gl, 2) if gl > 0 else 0,
-                'open_trades': int(stats.get('open_count') or 0),
-                'total_trades': closed,
-                'max_drawdown': float(sess.get('max_drawdown') or 0),
-                'status': sess.get('status', 'no_data'),
-            }
-    except Exception:
-        result['polymarket'] = {'status': 'error'}
-
     # ── Options ──
     try:
         if scope == "session":
@@ -217,76 +166,6 @@ def overview(scope: str = Query("session", description="session | all")):
     except Exception:
         result['options'] = {'status': 'error'}
 
-    # ── PolySnipe ──
-    try:
-        if scope == "session":
-            snipe_s = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-            if not snipe_s:
-                snipe_s = q_one("SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1")
-            if snipe_s:
-                snipe_st = q_one("""
-                    SELECT
-                        COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
-                        COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
-                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                        COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
-                    FROM snipe_trades
-                    WHERE timestamp_open >= :started_at
-                """, {'started_at': snipe_s['started_at']}) or {}
-        else:
-            snipe_s = q_one("SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1")
-            if snipe_s:
-                snipe_st = q_one("""
-                    SELECT
-                        COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
-                        COUNT(*) FILTER (WHERE outcome = 'WIN') AS winners,
-                        COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                        COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl
-                    FROM snipe_trades
-                """) or {}
-        if snipe_s:
-            closed = int(snipe_st.get('total') or 0)
-            winners = int(snipe_st.get('winners') or 0)
-            result['snipe'] = {
-                'session_name': snipe_s['session_name'],
-                'balance': round(500.0 + float(snipe_st.get('total_pnl') or 0), 2),
-                'initial_balance': 500.0,
-                'total_pnl': round(float(snipe_st.get('total_pnl') or 0), 2),
-                'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
-                'open_trades': int(snipe_st.get('open_count') or 0),
-                'total_trades': closed,
-                'status': snipe_s['status'],
-            }
-    except Exception:
-        result['snipe'] = {'status': 'error'}
-
-    # ── BTC Direction (DEPRECATED) ──
-    try:
-        btcd = q_one("""
-            SELECT
-                COUNT(*) FILTER (WHERE status = 'CLOSED') AS total,
-                COUNT(*) FILTER (WHERE status = 'CLOSED' AND pnl_usdc > 0) AS winners,
-                COUNT(*) FILTER (WHERE status = 'OPEN') AS open_count,
-                COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED'), 0) AS total_pnl,
-                COALESCE(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED' AND pnl_usdc > 0), 0) AS gross_profit,
-                COALESCE(ABS(SUM(pnl_usdc) FILTER (WHERE status = 'CLOSED' AND pnl_usdc < 0)), 0) AS gross_loss
-            FROM btc_direction_trades
-        """) or {}
-        closed = int(btcd.get('total') or 0)
-        winners = int(btcd.get('winners') or 0)
-        gp = float(btcd.get('gross_profit') or 0)
-        gl = float(btcd.get('gross_loss') or 0)
-        result['btc_direction'] = {
-            'total_pnl': round(float(btcd.get('total_pnl') or 0), 2),
-            'win_rate': round(winners / closed * 100, 1) if closed > 0 else 0,
-            'profit_factor': round(gp / gl, 2) if gl > 0 else 0,
-            'open_trades': int(btcd.get('open_count') or 0),
-            'total_trades': closed,
-            'status': 'active' if closed > 0 else 'no_data',
-        }
-    except Exception:
-        result['btc_direction'] = {'status': 'error'}
-
     return result
 
 
@@ -319,15 +198,6 @@ def consortium():
             capital += sb
             rows.append(('Stocks', ss['session_name'], sb))
 
-        # Polymarket
-        ps = q_one("SELECT * FROM poly_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
-        if not ps:
-            ps = q_one("SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1")
-        if ps:
-            pb = float(ps['current_balance'] or ps['initial_balance'] or 0)
-            capital += pb
-            rows.append(('Polymarket', ps['session_name'], pb))
-
         # Options
         os_ = q_one("SELECT * FROM options_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1")
         if not os_:
@@ -336,17 +206,6 @@ def consortium():
             ob = float(os_['current_balance_usd'] or os_['initial_balance_usd'] or 0)
             capital += ob
             rows.append(('Options', os_['session_name'], ob))
-
-        # PolySnipe
-        try:
-            ss = q_one("SELECT * FROM snipe_sessions WHERE status='ACTIVE' LIMIT 1")
-            if ss:
-                snp = q_one("SELECT COALESCE(SUM(pnl_usdc), 0) as pnl FROM snipe_trades WHERE status='CLOSED'") or {}
-                sb = 500.0 + float(snp.get('pnl') or 0)
-                capital += sb
-                rows.append(('PolySnipe', ss['session_name'], sb))
-        except Exception:
-            pass
 
         # Grid Stable
         gs_pnl = q_one("SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'") or {}
@@ -365,44 +224,34 @@ def consortium():
             SELECT COALESCE(SUM(pnl), 0) as pnl FROM trades
             WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
         """) or {}
-        daily_poly = q_one("""
-            SELECT COALESCE(SUM(pnl), 0) as pnl FROM poly_positions
-            WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
-        """) or {}
         daily_options = q_one("""
             SELECT COALESCE(SUM(pnl_usd), 0) as pnl FROM options_positions
             WHERE status = 'CLOSED_MANUAL' AND closed_at >= NOW() - INTERVAL '24 hours'
         """) or {}
-        daily_snipe = q_one("""
-            SELECT COALESCE(SUM(pnl_usdc), 0) as pnl FROM snipe_trades
-            WHERE status='CLOSED' AND timestamp_close >= NOW() - INTERVAL '24 hours'
-        """) or {}
         daily_pnl = (
-            float(daily.get('pnl') or 0) + float(daily_poly.get('pnl') or 0) +
-            float(daily_options.get('pnl') or 0) + float(daily_snipe.get('pnl') or 0)
+            float(daily.get('pnl') or 0) +
+            float(daily_options.get('pnl') or 0)
         )
 
         # DD global: usar el mayor DD de todas las fuentes
         crypto_dd = q_one("SELECT COALESCE(MAX(COALESCE(drawdown_pct, 0)), 0) as dd FROM portfolio") or {}
         stocks_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown, 0)), 0) as dd FROM stocks_sessions") or {}
-        poly_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown, 0)), 0) as dd FROM poly_sessions") or {}
         options_dd = q_one("SELECT COALESCE(MAX(COALESCE(max_drawdown_pct, 0)), 0) as dd FROM options_sessions") or {}
         dd_pct = max(
             float(crypto_dd.get('dd') or 0) * 100,
             float(stocks_dd.get('dd') or 0),
-            float(poly_dd.get('dd') or 0),
             float(options_dd.get('dd') or 0),
         )
 
         # Agentes activos: contar TODAS las sesiones activas
         active = 0
-        for tbl in ['paper_sessions', 'stocks_sessions', 'poly_sessions', 'options_sessions', 'snipe_sessions']:
+        for tbl in ['paper_sessions', 'stocks_sessions', 'options_sessions']:
             try:
                 c = q_one(f"SELECT COUNT(*) as c FROM {tbl} WHERE status='ACTIVE'") or {}
                 active += int(c.get('c') or 0)
             except Exception:
                 pass
-        # Siempre al menos 1 (grid stable + cualquier otro)
+        # Grid stable + Pairs siempre activos
         active = max(active, len(rows))
 
         return {

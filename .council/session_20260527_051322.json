@@ -1,0 +1,14 @@
+{
+  "topic": "EMA_RIBBON bloquea TM con DUPLICATE_ASSET:SOL (1 trade BUY abierto desde May 26). Opciones: (A) Desactivar EMA_RIBBON + cerrar trade. (B) Revertir exclusion. (C) Dejar excluida como GRID_BOT.",
+  "timestamp": "2026-05-27T05:13:22.287533+00:00",
+  "votes": {
+    "QUANT": "\u2705",
+    "QUANT_reason": "TM 381 trades PnL=$12K \u2014 costo de oportunidad de mantener EMA_RIBBON activa con 1 trade stale es alto.",
+    "TECHNICAL": "\u2705",
+    "TECHNICAL_reason": "Estructura t\u00e9cnica: SOL SELL score=83 consistente, EMAs no alineadas para BUY. Mercado favorece SELL.",
+    "RISK": "\u26a0\ufe0f",
+    "RISK_reason": "Cerrar trade stale SOL manualmente antes. Si cierra en p\u00e9rdida, que no contamine m\u00e9tricas de TM ni SESSION_011.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "EMA_RIBBON complementa TM solo si est\u00e1 activa. Si no genera se\u00f1ales desde May 26, desactivar. Reactivar cuando el r\u00e9gimen lo permita."
+  }
+}

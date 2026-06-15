@@ -49,15 +49,6 @@ AGENT_THRESHOLDS = {
         'strategy_filter': "1=1",  # all stocks strategies
         'pnl_col': 'pnl',
     },
-    'MINERVINI': {
-        'min_pf': 1.20,
-        'min_wr': 40.0,
-        'min_trades': 2,
-        'max_dd': 8.0,
-        'table': 'stocks_trades',
-        'strategy_filter': "strategy='MINERVINI'",
-        'pnl_col': 'pnl',
-    },
     'OPTIONS': {
         'min_pf': 1.00,
         'min_wr': 50.0,
@@ -66,24 +57,6 @@ AGENT_THRESHOLDS = {
         'table': 'options_positions',
         'strategy_filter': "status='CLOSED'",
         'pnl_col': 'pnl_usd',
-    },
-    'POLYMARKET': {
-        'min_pf': 0.80,
-        'min_wr': 40.0,
-        'min_trades': 3,
-        'max_dd': 15.0,
-        'table': 'poly_positions',
-        'strategy_filter': "status='CLOSED'",
-        'pnl_col': 'pnl',
-    },
-    'SNIPE': {
-        'min_pf': 1.00,
-        'min_wr': 85.0,
-        'min_trades': 10,
-        'max_dd': 5.0,
-        'table': 'snipe_trades',
-        'strategy_filter': "status='CLOSED'",
-        'pnl_col': 'pnl_usdc',
     },
 }
 
@@ -147,7 +120,7 @@ def check_agent_health(conn, agent_name: str, days: int = 7) -> dict:
         if agent_name == 'TREND_MOMENTUM':
             cur.execute("SELECT COALESCE(drawdown_pct, 0) FROM portfolio ORDER BY timestamp DESC LIMIT 1")
             dd_pct = float((cur.fetchone() or [0])[0] or 0) * 100
-        elif agent_name in ('STOCKS', 'MINERVINI'):
+        elif agent_name == 'STOCKS':
             cur.execute("SELECT COALESCE(MAX(max_drawdown), 0) FROM stocks_sessions WHERE status='ACTIVE'")
             dd_pct = float((cur.fetchone() or [0])[0] or 0)
         elif agent_name == 'OPTIONS':

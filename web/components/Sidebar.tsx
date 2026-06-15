@@ -12,7 +12,7 @@ const NAV = [
   { href: '/grid-stable',  label: 'Grid Stable',      icon: Layers },
   { href: '/pairs',        label: 'Pairs Trading',    icon: Link2 },
   { href: '/options',      label: 'Options',          icon: Gem },
-  { href: '/snipe',        label: 'PolySnipe',        icon: Target },
+  { href: '/snipe',        label: 'PolySnipe [OFF]',  icon: Target },
   { href: '/trades',       label: 'Trades',           icon: Activity },
   { href: '/signals',      label: 'Señales',          icon: BarChart2 },
   { href: '/analytics',    label: 'Analytics',        icon: PieChart },
@@ -104,7 +104,7 @@ export default function Sidebar({ open, onClose, isMobile }: Props) {
         </div>
         <div className="flex flex-wrap gap-1">
           <span className="badge badge-green text-[9px]">v3</span>
-          <span className="badge badge-blue text-[9px]">8 agents</span>
+          <span className="badge badge-blue text-[9px]">5 agents</span>
         </div>
       </div>
     </aside>
