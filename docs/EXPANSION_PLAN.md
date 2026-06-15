@@ -359,11 +359,25 @@ Arrancar **Fase 1 (Grid Stable)**. Es la de menor riesgo, menor esfuerzo (extien
 
 ## Historial de implementación
 
-| Fecha | Fase | Estado | Resultado backtest | Commit |
-|---|---|---|---|---|
-| 2026-05-01 | 1 — Grid Stable | ✅ COMPLETADA | ETH/BTC: PF=1.84, DD=0.3%, Sharpe=2.20 | a3119e4 |
-| 2026-05-03 | 2 — Basis Trade | ✅ COMPLETADA (May 8) | BTC: 11% APY, ETH: 8% APY (sintético, sin datos API reales) | — |
-| 2026-05-05 | 3 — VIX Mean Rev | ✅ COMPLETADA (May 8) | SVXY 5Y: PF=1.46, WR=67%, DD=3.7%, 6.1% retorno | — |
-| 2026-05-10 | 4 — Pairs Trading | ⏳ Programado (Hermes cron) | — | — |
-| 2026-05-13 | 5 — Earnings Strangle | ⏳ Programado (Hermes cron) | — | — |
-| 2026-05-16 | 6 — Reporte Final | ⏳ Programado (Hermes cron) | — | — |
+| Fecha | Fase | Estado | Resultado backtest | Realidad paper | Commit |
+|---|---|---|---|---|---|
+| 2026-05-01 | 1 — Grid Stable | ✅ COMPLETADA | ETH/BTC: PF=1.84, DD=0.3%, Sharpe=2.20 | ✅ VIVO: +$1,531, 2,732 trades, 46.4% WR. Única línea rentable de las 5. | a3119e4 |
+| 2026-05-03 | 2 — Basis Trade | ❌ FALLÓ (May 20) | BTC: 11% APY, ETH: 8% APY (sintético, sin datos API reales) | ❌ MUERTO: -$850 en 36 trades, 0% WR. Sin datos reales de Kraken Futures. Código archivado en .archive/basis_executor.py. Council: cierre por pérdidas. | — |
+| 2026-05-05 | 3 — VIX Mean Rev | ⏸️ PAUSADO (Jun 15) | SVXY 5Y: PF=1.46, WR=67%, DD=3.7% | ❌ INVIABLE: PF real 0.65. Yahoo Finance rompió ^VX=F. 0 trades en 48h. Servicio detenido (Council #8). Backtest PF=1.46 no se replicó en vivo. | — |
+| 2026-05-10 | 4 — Pairs Trading | ⏸️ PAUSADO | — | ❌ INACTIVO: PF=0.82. 0 trades cerrados. z-score de GLD-SLV nunca llega a 2.0. ~4 oportunidades/año. Servicio corriendo pero sin actividad real. | — |
+| 2026-05-13 | 5 — Earnings Strangle | ⚪ NUNCA INICIADO | — | No construido. Requiere Alpaca Options API + calendario earnings. Posible pero no prioritario. | — |
+
+---
+
+## Lecciones aprendidas (Jun 2026)
+
+1. **Backtest ≠ realidad**: VIX mostró PF=1.46 en backtest 5Y, en vivo dio PF=0.65. El backtest usaba datos ideales de Yahoo que no existen en producción.
+2. **Sin API real no hay estrategia**: Basis Trade se construyó con datos sintéticos. Cuando se conectó a Kraken Futures real, no funcionó.
+3. **Si no genera señales, no es un producto**: Pairs Trading lleva semanas corriendo sin un solo trade. GLD-SLV no es suficiente — se necesitan 5+ pares para tener frecuencia decente.
+4. **Grid Stable es la excepción**: Misma infraestructura que GRID_BOT, datos reales desde el día 1, backtest confirmado en vivo. Esa es la fórmula.
+
+## Próximos pasos
+
+- Buscar estrategias con **datos reales disponibles** (CCXT, Alpaca) y **backtest verificable en vivo**
+- Ingeniería inversa de repos open-source con historial comprobable (GitHub Strategy Hunter v2)
+- Priorizar estrategias que operen en **todos los regímenes** (no solo TREND_DOWN como TM)
