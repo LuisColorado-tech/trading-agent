@@ -37,6 +37,12 @@ exchanges:
       POL:
         pair: POL/USD            # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas (Kraken no tiene POL/USDT)
         timeframes: [1m, 5m, 15m, 1h]
+      DOT:
+        pair: DOT/USD            # Polkadot — Top 20, alta liquidez, tendencias definidas
+        timeframes: [1m, 5m, 15m, 1h]
+      ADA:
+        pair: ADA/USD            # Cardano — Top 10, volumen consistente, volatilidad media
+        timeframes: [1m, 5m, 15m, 1h]
 
   # ── Exchange secundario: OKX ──
   # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
@@ -70,6 +76,12 @@ exchanges:
         timeframes: [1m, 5m, 15m, 1h]
       POL:
         pair: POL/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      DOT:
+        pair: DOT/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      ADA:
+        pair: ADA/USDT
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
         pair: XAU/USD:USD         # Oro spot (reactivado May 19: +$1,338 paper SESSION_008, PF=10.99)
@@ -280,6 +292,32 @@ grid_stable:
       min_rr: 1.50
       max_per_asset: 2
       risk_fraction: 0.25
+    DAI/USDT:
+      enabled: true
+      exchange: kraken
+      fallback: okx
+      grid_levels: 20
+      grid_range_candles: 50
+      min_range_pct: 0.0001
+      max_range_pct: 0.002
+      tp_ratio: 1.50
+      sl_ratio: 0.40
+      min_rr: 1.30
+      max_per_asset: 3
+      risk_fraction: 0.10
+    USDC/USDT:
+      enabled: true
+      exchange: kraken
+      fallback: okx
+      grid_levels: 20
+      grid_range_candles: 50
+      min_range_pct: 0.00005
+      max_range_pct: 0.001
+      tp_ratio: 1.50
+      sl_ratio: 0.40
+      min_rr: 1.30
+      max_per_asset: 3
+      risk_fraction: 0.10
   risk:
     max_concurrent_total: 5        # Máximo trades grid stable abiertos
     max_drawdown_pct: 10.0         # Halt si DD > 10%

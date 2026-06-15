@@ -30,6 +30,7 @@ from strategies.trend_momentum_v2 import TrendMomentumStrategyV2
 from strategies.smc_order_blocks import SmcOrderBlocksStrategy
 from strategies.btc_microstructure import BtcMicrostructureStrategy
 from strategies.ema_ribbon import EMARibbonStrategy
+from strategies.rsi_reversal import RSIReversalStrategy
 from core.asset_profiles import get_profile, hour_allowed, direction_allowed
 from core.direction_guard import crypto_is_allowed
 
@@ -105,6 +106,7 @@ class StrategyEngine:
             # ── PAUSADAS ──
             # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy
             # EMARibbonStrategy(),                # Council #6 (3-0-1): inactiva desde May 26, bloqueaba TM
+            # RSIReversalStrategy(),               # Council #12 pendiente: BUY oversold en TREND_UP
         ]
         # ── v2 (BaseStrategy) — ejecución en paralelo para validación ──
         self._v2_tm = TrendMomentumStrategyV2()

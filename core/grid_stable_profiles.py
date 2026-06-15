@@ -82,6 +82,42 @@ GRID_STABLE_PROFILES: dict[str, GridStableProfile] = {
         blocked_hours_utc=None,
         notes='SL ensanchado 0.50→0.65 para filtrar noise. TP ajustado para mantener RR=3.0.',
     ),
+
+    # ── DAI/USDT — Stablecoin peg ─────────────────────────────────
+    # Spread 0.01-0.05%. Movimiento microscópico. Grid ultra-denso.
+    'DAI/USDT': GridStableProfile(
+        pair='DAI/USDT',
+        grid_levels=20,
+        grid_range_candles=50,
+        min_range_pct=0.0001,
+        max_range_pct=0.002,
+        tp_ratio=1.50,
+        sl_ratio=0.40,
+        min_rr=1.30,
+        max_per_asset=3,
+        risk_fraction=0.10,
+        min_bars_in_range=30,
+        blocked_hours_utc=None,
+        notes='Stablecoin peg: DAI/USDT. Grid ultra-denso (20 niveles). Spread microscopico.',
+    ),
+
+    # ── USDC/USDT — Stablecoin peg ─────────────────────────────────
+    # Spread 0.005-0.03%. El par mas estable. Grid ultra-denso.
+    'USDC/USDT': GridStableProfile(
+        pair='USDC/USDT',
+        grid_levels=20,
+        grid_range_candles=50,
+        min_range_pct=0.00005,
+        max_range_pct=0.001,
+        tp_ratio=1.50,
+        sl_ratio=0.40,
+        min_rr=1.30,
+        max_per_asset=3,
+        risk_fraction=0.10,
+        min_bars_in_range=30,
+        blocked_hours_utc=None,
+        notes='Stablecoin peg: USDC/USDT. Grid ultra-denso (20 niveles). El par mas estable del mercado.',
+    ),
 }
 
 
