@@ -545,6 +545,21 @@ def check_snipe() -> tuple:
     return True, '🎯 PolySnipe DESACTIVADO — Council #7: edge negativo (-$150 en 341 trades)'
 
 
+def check_rsi_reversal() -> tuple:
+    """Check del RSI Reversal — BUY oversold en TREND_UP (Council #12, 3-0-1)."""
+    try:
+        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
+        row = _query_one(conn,
+            "SELECT COUNT(*) FROM trades WHERE strategy='RSI_REVERSAL' AND timestamp_open > now() - interval '48 hours'")
+        conn.close()
+        count = int(row[0]) if row else 0
+        if count == 0:
+            return True, '🔄 RSI Reversal sin trades — esperando TREND_UP (régimen actual no permite BUY)'
+        return True, f'🔄 RSI Reversal OK — {count} trades en 48h'
+    except Exception as e:
+        return False, f'🔄 RSI Reversal error: {str(e)[:80]}'
+
+
 def _query_one(conn, sql: str, params=None):
     """Helper: ejecuta query y devuelve (None, ...) si falla."""
     try:
@@ -609,6 +624,12 @@ def _build_heartbeat(now: datetime) -> str:
         "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND strategy='GRID_STABLE'") or [0])[0])
     gs_t, gs_w, gs_pnl, gs_wr = _pnl_and_wr(conn, 'trades', "strategy='GRID_STABLE'")
     gs_bal = round(500.0 + gs_pnl, 2)
+
+    # ── 3b. RSI Reversal (Council #12, 3-0-1) ──
+    rsi_t, rsi_w, rsi_pnl, rsi_wr = _pnl_and_wr(conn, 'trades', "strategy='RSI_REVERSAL'")
+    rsi_open = int((_query_one(conn,
+        "SELECT COUNT(*) FROM trades WHERE status='OPEN' AND strategy='RSI_REVERSAL'") or [0])[0])
+    rsi_bal = round(500.0 + rsi_pnl, 2)
 
     # ── 4. Stocks ──
     stocks = _query_one(conn, "SELECT session_name, current_balance FROM stocks_sessions WHERE status='ACTIVE' LIMIT 1")
@@ -678,6 +699,7 @@ def _build_heartbeat(now: datetime) -> str:
         ('💰 TrendMom', tm_bal, tm_open, tm_pnl, tm_wr),
         ('📊 GridBot ', tm_bal, gb_open_t, gb_pnl, gb_wr),
         ('📐 GridStab', gs_bal, gs_open, gs_pnl, gs_wr),
+        ('🔄 RSI Rev ', rsi_bal, rsi_open, rsi_pnl, rsi_wr),
         ('📈 Stocks  ', st_bal, st_open, st_pnl, st_wr),
         ('🔮 Poly    ', po_bal, po_open, po_pnl, po_wr),
         ('📣 Options ', op_bal, op_open, op_pnl, 0.0),
@@ -795,6 +817,7 @@ def main():
         ('💹 Trades', check_trades_coherent),
         ('🔒 Balance', check_balance_stuck),
         ('🤖 Grid Bot', check_grid_bot),
+        ('🔄 RSI Reversal', check_rsi_reversal),
         ('🎯 PolySnipe', check_snipe),
         ('📈 Stocks', check_stocks),
         ('📣 Options', check_options),
