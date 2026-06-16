@@ -103,10 +103,10 @@ class StrategyEngine:
             TrendMomentumStrategy(),
             SmcOrderBlocksStrategy(),
             BtcMicrostructureStrategy(),
+            RSIReversalStrategy(),               # Council #12 (3-0-1): BUY oversold en TREND_UP, session SESSION_RSI_001
             # ── PAUSADAS ──
             # BreakoutStrategy, BtcDipBuyerStrategy, MeanReversionStrategy
             # EMARibbonStrategy(),                # Council #6 (3-0-1): inactiva desde May 26, bloqueaba TM
-            # RSIReversalStrategy(),               # Council #12 pendiente: BUY oversold en TREND_UP
         ]
         # ── v2 (BaseStrategy) — ejecución en paralelo para validación ──
         self._v2_tm = TrendMomentumStrategyV2()

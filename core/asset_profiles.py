@@ -97,7 +97,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     #   range_candles=35: rango más estable en BTC (movimientos deliberados)
     'BTC': AssetProfile(
         asset='BTC',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=2,  # v1.1 Council #5 May 25: 3→2 (más señales en baja vol)
         sl_multiplier=1.3,
         tp_multiplier=2.8,
@@ -135,7 +135,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     #   levels=5: menos niveles para mejorar calidad y reducir exposición simultánea
     'ETH': AssetProfile(
         asset='ETH',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,
         sl_multiplier=1.4,
         tp_multiplier=2.8,
@@ -174,7 +174,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     #   range_candles=25: SOL cambia de régimen más rápido, rango más fresco
     'SOL': AssetProfile(
         asset='SOL',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,  # v1.1 Council #5 May 25: 4→3 (more signals)
         sl_multiplier=1.4,
         tp_multiplier=2.8,
@@ -213,7 +213,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     #   range_candles=25: movimientos rápidos, rango fresco más relevante
     'AVAX': AssetProfile(
         asset='AVAX',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=2,  # v1.1 Council #5 May 25: 3→2
         sl_multiplier=1.5,
         tp_multiplier=2.6,
@@ -254,7 +254,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     #   range_candles=20: INJ es el más volátil, rango muy fresco
     'INJ': AssetProfile(
         asset='INJ',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,  # v3 rollback May 13: 4→5→4 (50→8 trades INJ, -84% actividad)
         sl_multiplier=1.8,  # v3: 1.3→1.8 (SL más amplio → posición más pequeña para mismo riesgo)
         tp_multiplier=3.5,  # v3: 2.6→3.5 (proporcional al SL para mantener R:R ~2:1)
@@ -291,7 +291,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     # TP amplio (×3.0) para compensar el ATR bajo con mejor ratio
     'XAU': AssetProfile(
         asset='XAU',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,
         sl_multiplier=1.2,
         tp_multiplier=3.0,
@@ -316,7 +316,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
     # (el bug de 1-min que inflaba SESSION_003 ocurría con ATR≈0)
     'XAG': AssetProfile(
         asset='XAG',
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,
         sl_multiplier=1.3,
         tp_multiplier=2.8,
@@ -342,7 +342,7 @@ def get_profile(asset: str) -> AssetProfile:
     # Perfil genérico para assets sin perfil específico (LINK, POL, AAVE...)
     return AssetProfile(
         asset=asset,
-        allowed_directions=frozenset({'SELL'}),
+        allowed_directions=frozenset({'SELL', 'BUY'}),
         confluence_min=3,
         sl_multiplier=1.5,
         tp_multiplier=2.5,
