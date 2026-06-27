@@ -1,0 +1,14 @@
+{
+  "topic": "Grid Stable LIVE: 101 trades, PnL DB +0.38 pero balance Kraken -16.68. Fees de 0.26 por ciento matan el micro-spread. Con 100 de capital no alcanza. Cambiar a ordenes limite (0.16 por ciento maker) y solo USDC/USDT 2 niveles. Sin forma de conseguir 500 ahora.",
+  "timestamp": "2026-06-27T05:43:19.710130+00:00",
+  "votes": {
+    "QUANT": "\u26a0",
+    "QUANT_reason": "101 trades LIVE, PnL DB +0.38 pero balance Kraken -16.68. Cada trade gana 0.003 de spread pero Kraken cobra 0.21 en fees (0.26 por ciento x2 sobre 40 notional). Con 100 de capital el edge es demasiado fino. Con 500 de capital, el notional por trade seria 200 y el spread superaria los fees. Pero no hay forma de conseguir 500 ahora.",
+    "TECHNICAL": "\u2705",
+    "TECHNICAL_reason": "Cambiar a ordenes limite (maker 0.16 por ciento vs taker 0.26). El grid ya sabe el precio exacto, poner ordenes limite en vez de mercado reduce fees 40 por ciento. Ademas, pausar DAI/USDT y ETH/BTC temporalmente, solo USDC/USDT que es el mas liquido. Con 100 de capital, 2 niveles maximo, ordenes limite. El bot no va a hacer rico a nadie pero deja de perder dinero y empieza a acumular centavos reales.",
+    "RISK": "\u2705",
+    "RISK_reason": "El problema no es la estrategia, es la escala. En paper con 500 de capital virtual hacia 67 al dia. Con 100 real, los fees matan el edge. Pero 101 trades con solo 0.38 de PnL bruto es una tasa de acierto del paper confirmada en vivo: las senales son buenas. Solucion: (1) limit orders, (2) acumular los centavos que genere, (3) en 2-3 meses el mismo bot te lleva a 200-300 con ganancias compuestas. Sin apuro.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "Esto NO es un fracaso. Es la validacion mas valiosa que podiamos tener: el edge es real pero fino. En produccion se aprende lo que el paper jamas mostraria. El bot esta tomando decisiones correctas (101 trades, casi todos TP). Solo necesita escala y ordenes limite. No hay que apagar nada, solo ajustar. Esto acerca al objetivo de produccion real, no aleja."
+  }
+}

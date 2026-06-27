@@ -1,0 +1,14 @@
+{
+  "topic": "RSI Reversal: bajar umbral a RSI menor a 35 y confluence_min=1. SL=1.5x ATR, riesgo limitado. Activar con condiciones?",
+  "timestamp": "2026-06-17T13:51:01.706448+00:00",
+  "votes": {
+    "QUANT": "\u26a0",
+    "QUANT_reason": "RSI<35 activaria ADA, WR bajaria de 62 a 52 por ciento pero EV sigue positivo. max 1 trade, 0.3 riesgo. Si WR menor a 40 en 20 trades: revertir.",
+    "TECHNICAL": "\u26a0",
+    "TECHNICAL_reason": "Riesgos: confluence pide 3 factores pero en oversold RSI_OK/MACD/EMA no alinean. Bajar confluence_min a 1 para RSI. ZERO_SIZE guard cubre RSI - verificado. SL=1.5x ATR.",
+    "RISK": "\u2705",
+    "RISK_reason": "Riesgo real: comprar en cuchillo si BTC sigue bajando. Con riesgo limitado, perder 10 seguidos son solo -60 dolares. Aceptable.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "Activar con condiciones. Si no hay crash real (RSI menor a 25), la estrategia no muestra su potencial. Pero la diversificacion BUY complementa el SELL de TM."
+  }
+}

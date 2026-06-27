@@ -35,6 +35,7 @@ load_dotenv('/opt/trading/config/.env')
 
 class GuardLevel:
     NORMAL = 'NORMAL'
+    SOFT_PAUSE = 'SOFT_PAUSE'      # 5-8% DD → reduced to 0.25×
     CAUTION = 'CAUTION'
     DEFENSIVE = 'DEFENSIVE'
     PAUSED = 'PAUSED'
