@@ -1,6 +1,11 @@
 """
 ExecutionAgent — Ejecuta trades aprobados por RiskManager.
 Paper mode por defecto. Persiste en PostgreSQL y publica en Redis.
+
+Modos de entrada (Fase 4):
+  - 'taker': market order, fill instantáneo al precio de señal. Default.
+  - 'limit_maker': orden límite, fill solo si vela posterior toca el precio.
+    El trade queda en status PENDING_LIMIT hasta que TradeMonitor lo confirme.
 """
 import json
 import os
@@ -20,6 +25,12 @@ load_dotenv('/opt/trading/config/.env')
 from core.claude_bridge import ClaudeBridge
 from core.paper_session_manager import PaperSessionManager
 from risk.risk_manager import RiskManager, RiskDecision
+
+# ── Configuración de entrada ───────────────────────────────────────
+# Fase 4: 'taker' = fill instantáneo, 'limit_maker' = esperar touch de vela.
+# Ver docs/PLAN_EJECUCION_15PCT.md §FASE 4.
+ENTRY_ORDER_TYPE = 'limit_maker'
+MAKER_TIMEOUT_CANDLES = 3
 
 
 class ExecutionAgent:
@@ -101,6 +112,9 @@ class ExecutionAgent:
         active_session = self.session_manager.get_active_session() if self.paper_mode else None
         entry_price = signal['indicators']['price']
         initial_risk = abs(entry_price - decision.stop_loss)
+        order_type = ENTRY_ORDER_TYPE if self.paper_mode else 'taker'
+        trade_status = 'PENDING_LIMIT' if (self.paper_mode and ENTRY_ORDER_TYPE == 'limit_maker') else 'OPEN'
+
         trade_data = {
             'id': trade_id,
             'asset': asset,
@@ -122,9 +136,13 @@ class ExecutionAgent:
                 'initial_risk': initial_risk,
                 'regime': signal.get('market_regime', 'unknown'),
                 'timeframe': signal.get('timeframe', '15m'),
+                'entry_order_type': order_type,
+                'limit_price': entry_price,
+                'maker_timeout_candles': MAKER_TIMEOUT_CANDLES,
+                'maker_pending_since': datetime.now(timezone.utc).isoformat(),
             }),
         }
-        self._save_trade(trade_data)
+        self._save_trade(trade_data, trade_status)
 
         # 4. Claude explanation (no bloquea ejecución)
         try:
@@ -162,6 +180,16 @@ class ExecutionAgent:
         return {'executed': True, 'trade_id': trade_id, 'order': order}
 
     def _simulate_order(self, signal: dict, decision: RiskDecision) -> dict:
+        if ENTRY_ORDER_TYPE == 'limit_maker' and self.paper_mode:
+            return {
+                'id': f'PAPER_{uuid.uuid4().hex[:8]}',
+                'symbol': f'{signal["asset"]}/USDT',
+                'side': signal['direction'],
+                'amount': decision.position_size,
+                'price': signal['indicators']['price'],
+                'type': 'limit',
+                'status': 'open',
+            }
         return {
             'id': f'PAPER_{uuid.uuid4().hex[:8]}',
             'symbol': f'{signal["asset"]}/USDT',
@@ -172,20 +200,20 @@ class ExecutionAgent:
             'status': 'closed',
         }
 
-    def _save_trade(self, data: dict):
+    def _save_trade(self, data: dict, status: str = 'OPEN'):
         with self.engine.begin() as conn:
             conn.execute(
                 text("""
                     INSERT INTO trades
                         (id, asset, side, strategy, entry_price, stop_loss,
                          take_profit, position_size, position_pct,
-                         paper_trade, timestamp_open, metadata)
+                         paper_trade, timestamp_open, metadata, status)
                     VALUES
                         (:id, :asset, :side, :strategy, :entry_price, :stop_loss,
                          :take_profit, :position_size, :position_pct,
-                         :paper_trade, :timestamp_open, CAST(:metadata AS jsonb))
+                         :paper_trade, :timestamp_open, CAST(:metadata AS jsonb), :status)
                 """),
-                data,
+                {**data, 'status': status},
             )
 
     def _save_explanation(self, trade_id: str, asset: str,

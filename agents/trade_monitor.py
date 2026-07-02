@@ -8,6 +8,10 @@ Ciclo por trade:
   4. Cerrar trade: calcular PnL, actualizar DB, ajustar portfolio
   5. Publicar evento en Redis
 
+Fase 4 — Maker execution:
+  - check_pending_limits(): confirma/cancela órdenes límite pendientes
+  - _close_trade() usa entry_order_type y exit_order_type para fee real
+
 Trailing dinámico progresivo:
   - Activación: profit ≥ 1.0R → SL a break-even
   - Cada +0.5R de profit → SL avanza +0.5R adicional
@@ -17,11 +21,12 @@ Trailing dinámico progresivo:
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 from typing import Optional
 
 import redis
+import pandas as pd
 from dotenv import load_dotenv
 from loguru import logger
 from sqlalchemy import create_engine, text
@@ -59,15 +64,23 @@ class TradeMonitor:
         self.feed = MarketFeed()
 
     def check_open_trades(self, portfolio: dict, session: dict = None) -> list:
-        """Revisa todos los trades abiertos y cierra los que alcanzan SL/TP.
+        """Revisa todos los trades abiertos (y pending limits) y cierra los que alcanzan SL/TP.
 
         Returns:
             Lista de dicts con trades cerrados en este ciclo.
         """
         self._current_session = session
+
+        # Fase 4: confirmar/cancelar órdenes límite pendientes
+        filled, cancelled = self.check_pending_limits()
+        for t in filled:
+            logger.info(f"MAKER FILL: {t['asset']} limit={t['limit_price']} → confirmed")
+        for t in cancelled:
+            logger.info(f"MAKER TIMEOUT: {t['asset']} {t['reason']}")
+
         open_trades = self._get_open_trades(session)
         if not open_trades:
-            return []
+            return filled + cancelled
 
         closed = []
         for trade in open_trades:
@@ -90,23 +103,144 @@ class TradeMonitor:
                     f"PnL=${result['pnl']:+.2f} ({result['pnl_pct']:+.2f}%)"
                 )
 
-        return closed
+        return closed + filled + cancelled
 
     def _get_open_trades(self, session: dict = None) -> list:
         with self.engine.connect() as conn:
             if session:
                 rows = conn.execute(
                     text(
-                        "SELECT * FROM trades WHERE status = 'OPEN' "
+                        "SELECT * FROM trades WHERE status IN ('OPEN','PENDING_LIMIT') "
                         "AND timestamp_open >= :session_start ORDER BY timestamp_open"
                     ),
                     {'session_start': session['started_at']},
                 ).fetchall()
             else:
                 rows = conn.execute(
-                    text("SELECT * FROM trades WHERE status = 'OPEN' ORDER BY timestamp_open")
+                    text("SELECT * FROM trades WHERE status IN ('OPEN','PENDING_LIMIT') ORDER BY timestamp_open")
                 ).fetchall()
         return [dict(r._mapping) for r in rows]
+
+    def _get_pending_limits(self) -> list:
+        """Trades en estado PENDING_LIMIT (Fase 4)."""
+        with self.engine.connect() as conn:
+            rows = conn.execute(
+                text("SELECT * FROM trades WHERE status = 'PENDING_LIMIT' ORDER BY timestamp_open")
+            ).fetchall()
+        return [dict(r._mapping) for r in rows]
+
+    def check_pending_limits(self) -> tuple[list, list]:
+        """Fase 4: confirma o cancela órdenes límite pendientes.
+
+        Para cada trade PENDING_LIMIT:
+          - Obtiene la última vela 1m del activo
+          - Si high/low cruzó el limit_price → fill (promueve a OPEN)
+          - Si pasaron > MAKER_TIMEOUT_CANDLES velas → cancelar
+
+        Returns:
+            (filled_trades, cancelled_trades) — listas de dicts.
+        """
+        pending = self._get_pending_limits()
+        if not pending:
+            return [], []
+
+        filled = []
+        cancelled = []
+        now = datetime.now(timezone.utc)
+
+        for trade in pending:
+            meta = trade.get('metadata') or {}
+            if isinstance(meta, str):
+                meta = json.loads(meta)
+
+            limit_price = float(meta.get('limit_price', trade['entry_price']))
+            timeout = int(meta.get('maker_timeout_candles', 3))
+            pending_since_str = meta.get('maker_pending_since')
+
+            # Obtener última vela 1m para verificar touch
+            try:
+                df = self.feed.fetch_ohlcv(trade['asset'], '1m', limit=timeout + 2)
+            except Exception as e:
+                logger.warning(f"MAKER: no OHLCV data for {trade['asset']}: {e}")
+                continue
+
+            if df.empty or len(df) < 2:
+                continue
+
+            # Determinar cuántas velas han pasado desde que se creó la orden
+            if pending_since_str:
+                pending_since = datetime.fromisoformat(pending_since_str)
+                if pending_since.tzinfo is None:
+                    pending_since = pending_since.replace(tzinfo=timezone.utc)
+                candles_elapsed = sum(1 for _, row in df.iterrows()
+                                      if pd.Timestamp(row.name).tz_convert(timezone.utc) > pending_since)
+            else:
+                candles_elapsed = len(df) - 1
+
+            touched = False
+            # Revisar las velas DESPUÉS de la primera (la vela actual no cuenta)
+            for _, bar in df.iloc[1:].iterrows():
+                high = float(bar['high'])
+                low = float(bar['low'])
+                if trade['side'] == 'BUY':
+                    if low <= limit_price:
+                        touched = True
+                        break
+                else:  # SELL
+                    if high >= limit_price:
+                        touched = True
+                        break
+
+            if touched:
+                # Fill: promover a OPEN
+                self._promote_pending_limit(trade, limit_price)
+                filled.append({
+                    'trade_id': str(trade['id']),
+                    'asset': trade['asset'],
+                    'limit_price': limit_price,
+                })
+            elif candles_elapsed >= timeout:
+                # Timeout: cancelar
+                self._cancel_pending_limit(trade)
+                cancelled.append({
+                    'trade_id': str(trade['id']),
+                    'asset': trade['asset'],
+                    'reason': f'MAKER_TIMEOUT_{candles_elapsed}/{timeout}',
+                })
+
+        return filled, cancelled
+
+    def _promote_pending_limit(self, trade: dict, limit_price: float):
+        """Convierte un trade PENDING_LIMIT → OPEN al precio límite."""
+        meta = trade.get('metadata') or {}
+        if isinstance(meta, str):
+            meta = json.loads(meta)
+        meta['maker_filled_at'] = datetime.now(timezone.utc).isoformat()
+        meta['fill_price'] = limit_price
+
+        with self.engine.begin() as conn:
+            conn.execute(
+                text("""
+                    UPDATE trades SET status = 'OPEN', entry_price = :entry_price,
+                    metadata = CAST(:meta AS jsonb)
+                    WHERE id = :id
+                """),
+                {
+                    'entry_price': limit_price,
+                    'meta': json.dumps(meta),
+                    'id': trade['id'],
+                },
+            )
+
+    def _cancel_pending_limit(self, trade: dict):
+        """Cancela un trade PENDING_LIMIT por timeout."""
+        with self.engine.begin() as conn:
+            conn.execute(
+                text("UPDATE trades SET status = 'CANCELLED', close_reason = 'MAKER_TIMEOUT', "
+                     "pnl = 0, pnl_gross = 0, fee_paid = 0, pnl_pct = 0, "
+                     "timestamp_close = :ts WHERE id = :id"),
+                {'ts': datetime.now(timezone.utc), 'id': trade['id']},
+            )
 
     def _get_current_price(self, asset: str) -> Optional[float]:
         """Obtiene el último precio de cierre del activo desde market_data."""
@@ -333,7 +467,16 @@ class TradeMonitor:
 
         exchange = ASSET_MAP.get(trade['asset'], {}).get('exchange')
         if exchange:
-            pnl, fee_paid = calc_net_pnl(pnl_gross, entry_price, exit_price, position_size, exchange)
+            # Fase 4: usar los tipos de orden reales de entry y exit
+            meta = trade.get('metadata') or {}
+            if isinstance(meta, str):
+                meta = json.loads(meta)
+            entry_ot = meta.get('entry_order_type', 'taker')
+            exit_ot = 'maker' if close_reason == 'TAKE_PROFIT' else 'taker'
+            pnl, fee_paid = calc_net_pnl(
+                pnl_gross, entry_price, exit_price, position_size, exchange,
+                entry_order_type=entry_ot, exit_order_type=exit_ot,
+            )
         else:
             logger.warning(f"COST_MODEL: {trade['asset']} sin exchange en ASSET_MAP, PnL sin fees")
             pnl, fee_paid = pnl_gross, 0.0

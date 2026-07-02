@@ -6,49 +6,11 @@
 # Verificado en vivo 2026-03-16 desde VPS srv1347416
 
 exchanges:
-  # ── Exchange primario: Kraken ──
-  # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
-  kraken:
-    enabled: true
-    role: primary
-    ccxt_id: kraken
-    sandbox: false
-    rate_limit: true
-    assets:
-      BTC:
-        pair: BTC/USDT
-        timeframes: [1m, 5m, 15m, 1h]
-      ETH:
-        pair: ETH/USDT
-        timeframes: [1m, 5m, 15m, 1h]
-      SOL:
-        pair: SOL/USDT
-        timeframes: [1m, 5m, 15m, 1h]
-      AVAX:
-        pair: AVAX/USDT          # Avalanche — alta volatilidad, buenas correcciones bajistas
-        timeframes: [1m, 5m, 15m, 1h]
-      LINK:
-        pair: LINK/USDT          # Chainlink — correlación baja con BTC, buenas bajadas técnicas
-        timeframes: [1m, 5m, 15m, 1h]
-      # INJ: solo disponible en OKX/USDT — Kraken tiene INJ/EUR e INJ/USD únicamente
-      AAVE:
-        pair: AAVE/USD           # Aave DeFi — buenas correcciones técnicas profundas (Kraken no tiene AAVE/USDT)
-        timeframes: [1m, 5m, 15m, 1h]
-      POL:
-        pair: POL/USD            # Polygon (ex-MATIC) — alta vol, buenas bajadas bajistas (Kraken no tiene POL/USDT)
-        timeframes: [1m, 5m, 15m, 1h]
-      DOT:
-        pair: DOT/USD            # Polkadot — Top 20, alta liquidez, tendencias definidas
-        timeframes: [1m, 5m, 15m, 1h]
-      ADA:
-        pair: ADA/USD            # Cardano — Top 10, volumen consistente, volatilidad media
-        timeframes: [1m, 5m, 15m, 1h]
-
-  # ── Exchange secundario: OKX ──
-  # Crypto spot: BTC/USDT, ETH/USDT, SOL/USDT
+  # ── Exchange primario: OKX (maker 0.08% vs Kraken 0.16%) ──
+  # Fase 4: OKX preferido para todos los dual-listed por menor fee maker.
   okx:
     enabled: true
-    role: secondary
+    role: primary
     ccxt_id: okx
     sandbox: false
     rate_limit: true
@@ -84,12 +46,47 @@ exchanges:
         pair: ADA/USDT
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
-        pair: XAU/USD:USD         # Oro spot (reactivado May 19: +$1,338 paper SESSION_008, PF=10.99)
+        pair: XAU/USD:USD
         timeframes: [15m, 1h]
       XAG:
-        pair: XAG/USDT:USDT       # Plata spot (reactivado May 19: +$3,108 paper SESSION_008, PF=6.68)
+        pair: XAG/USDT:USDT
         timeframes: [15m, 1h]
-      # XAU/XAG removidos May 2026 y reactivados May 19 en OKX (Kraken no tiene metales spot)
+
+  # ── Exchange secundario: Kraken (fallback) ──
+  kraken:
+    enabled: true
+    role: secondary
+    ccxt_id: kraken
+    sandbox: false
+    rate_limit: true
+    assets:
+      BTC:
+        pair: BTC/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      ETH:
+        pair: ETH/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      SOL:
+        pair: SOL/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      AVAX:
+        pair: AVAX/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      LINK:
+        pair: LINK/USDT
+        timeframes: [1m, 5m, 15m, 1h]
+      AAVE:
+        pair: AAVE/USD
+        timeframes: [1m, 5m, 15m, 1h]
+      POL:
+        pair: POL/USD
+        timeframes: [1m, 5m, 15m, 1h]
+      DOT:
+        pair: DOT/USD
+        timeframes: [1m, 5m, 15m, 1h]
+      ADA:
+        pair: ADA/USD
+        timeframes: [1m, 5m, 15m, 1h]
 
   # ── Backup: Binance US ──
   # Solo crypto (BTC, ETH). Volumen bajo. Usar si Kraken/OKX fallan.

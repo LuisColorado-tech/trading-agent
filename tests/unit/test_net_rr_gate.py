@@ -86,23 +86,23 @@ class TestNetRRGate:
         assert 'cost=' in decision.reason
 
     def test_breakeven_boundary(self, base_portfolio, no_open_trades):
-        """Alrededor del punto de equilibrio, con riesgo 1% (< 2× costo) para
-        que ambos casos pasen el gate bruto (RR ≥ 1.5) y sea el gate NETO el
-        que decida: ganancia = riesgo + costo → aprueba; un poco menos → rechaza."""
+        """Alrededor del punto de equilibrio. Fase 4: BTC rutea a OKX.
+        Con risk_pct menor, el gate bruto (1.5) se alcanza pero el neto falla."""
         rm = _make_risk_manager()
         entry = 100_000.0
-        cost_pct = round_trip_cost_pct('kraken')
-        risk_pct = 0.01
+        cost_pct = round_trip_cost_pct('okx')   # 0.50%
+        risk_pct = 0.005                        # más chico para crear gap bruto vs neto
 
-        gain_pct_ok = risk_pct + cost_pct + 1e-5   # net RR apenas sobre 1.0, gross ~1.68
+        gain_pct_ok = risk_pct + cost_pct + 1e-5   # net RR apenas sobre 1.0
         signal = _tight_grid_signal(entry=entry, risk_pct=risk_pct,
                                     gross_rr=gain_pct_ok / risk_pct)
         decision = rm.evaluate(signal, base_portfolio, no_open_trades)
         assert decision.approved, decision.reason
 
-        gain_pct_bad = risk_pct + cost_pct - 0.001  # net RR 0.9, gross ~1.58 (pasa gate bruto)
+        gain_pct_bad = risk_pct + cost_pct - 0.001  # gross RR=1.8 (pasa), net RR=0.8 (falla)
         signal = _tight_grid_signal(entry=entry, risk_pct=risk_pct,
                                     gross_rr=gain_pct_bad / risk_pct)
         decision = rm.evaluate(signal, base_portfolio, no_open_trades)
         assert not decision.approved
+        assert 'INSUFFICIENT_NET_RR' in decision.reason
         assert 'INSUFFICIENT_NET_RR' in decision.reason

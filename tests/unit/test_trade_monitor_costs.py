@@ -65,7 +65,11 @@ class TestCloseTradeNetPnl:
 
         params = _captured_update_params(monitor)
         gross_expected = (76500.0 - 75000.0) * 0.1  # +150
-        net_expected, fee_expected = net_pnl(gross_expected, 75000.0, 76500.0, 0.1, 'kraken')
+        # BTC → OKX (Fase 4). Fase 4: TP usa maker en exit, entry es taker por defecto
+        net_expected, fee_expected = net_pnl(
+            gross_expected, 75000.0, 76500.0, 0.1, 'okx',
+            entry_order_type='taker', exit_order_type='maker',
+        )
 
         assert params['pnl_gross'] == pytest.approx(gross_expected)
         assert params['fee_paid'] == pytest.approx(fee_expected)
