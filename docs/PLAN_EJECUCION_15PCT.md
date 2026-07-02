@@ -101,6 +101,20 @@ reserva 15%.
 **Aceptación**: `git log --oneline -3` muestra el commit del retrofit encima de
 `52d350e` (v1.4). `python3 -m py_compile` pasa en todos los archivos del retrofit.
 
+**✅ COMPLETADO (Jul 2, 2026)**: rebase hecho localmente vía `git bundle` (evita dar
+credenciales de push a la VPS — se trajo el historial de v1.4 con `git bundle create
+--all` en la VPS + `scp` + `git fetch bundle` local). `cost-retrofit` quedó rebaseado
+sobre `52d350e` sin conflictos manuales (git auto-merging combinó el retune de
+LINK/BTC con los perfiles DAI/USDT y USDC/USDT que agregó la VPS). Commit final:
+`3b1afe9`. **Pendiente**: push a GitHub — el push desde la VPS o desde local requiere
+un PAT con `contents:write` sobre `LuisColorado-tech/trading-agent` que el usuario
+debe proveer (el `gh` local está autenticado como `lcolorado-bnc`, otra cuenta, sin
+acceso de escritura confirmado a este repo). No es bloqueador para las Fases 2-4,
+que pueden avanzar sobre el commit local; sí es necesario antes de que la VPS haga
+`git pull` en Fase 3.4 — en ese punto, la vía más simple es: push a GitHub desde
+local con el PAT correcto, y en la VPS `git pull origin master` (solo lectura,
+como ya está configurado).
+
 ---
 
 ## FASE 2 — Fix de unidades del sizing + caps de notional (1-2 días)
@@ -131,9 +145,13 @@ max_notional = balance * 0.50
 if notional_usd > max_notional:
     size = max_notional / (level.price * quote_rate)
 ```
-Además: **guard de distancia mínima de SL** — si
-`abs(level.price - level.sl)/level.price < round_trip_cost_pct(exchange)`,
-rechazar el nivel (una distancia de SL menor que el costo es ruido, no señal).
+**⚠️ Corrección durante la ejecución (Jul 2)**: NO agregar un guard de "distancia
+mínima de SL vs costo" en `open_trade`. Se implementó y se revirtió al escribir
+el test: una comparación cruda `sl_dist_pct < cost_pct` NO es equivalente al
+`net_rr` real `(gain_pct - cost_pct) / risk_pct` y rechaza niveles de LINK/BTC
+retuneado que el gate correcto (en `strategies/grid_stable.py::build_grid`, única
+vía de llamada a `open_trade`) ya aprueba. El gate de costos vive SOLO en
+`build_grid` — no duplicarlo en `open_trade` con una regla distinta.
 
 ### 2.3 `agents/grid_agent.py` — mismo cap de notional
 GRID_BOT opera pares USD-quoted (unidades OK) pero no tiene cap. Añadir el mismo
@@ -157,6 +175,19 @@ snapshots de portfolio con `available_cash < 0`:
 SELECT COUNT(*) FROM portfolio WHERE available_cash < 0
   AND timestamp > NOW() - INTERVAL '24 hours';  -- debe dar 0
 ```
+
+**✅ COMPLETADO (Jul 2, 2026)**: implementado `quote_to_usd_rate()`, sizing
+corregido y cap de notional en `agents/grid_stable_agent.py::open_trade`, cap de
+notional en `agents/grid_agent.py` (import `MAX_NOTIONAL_PCT`), conversión de
+PnL a USD en `close_trade`. Verificado con réplica matemática standalone (sin
+pytest, no disponible localmente): bug viejo pedía notional de **$8.1M en cuenta
+de $500** (8,125× el balance) para un nivel ETH/BTC típico; con el fix queda
+capeado a $250 (50% del balance), consistente en pares BTC-quoted y USDT-quoted.
+Tests en `tests/unit/test_sizing_units.py` — **pendientes de correr en la VPS**
+(requieren pandas/ccxt/sqlalchemy, no instalados en el entorno de desarrollo
+local). **Corrección de diseño durante la ejecución**: se descartó un guard de
+"distancia mínima de SL vs costo" en `open_trade` por ser inconsistente con el
+gate de `net_rr` real — ver nota en el bloque 2.2 arriba.
 
 ---
 

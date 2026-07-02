@@ -34,7 +34,7 @@ from core.asset_profiles import get_profile, hour_allowed
 from core.market_regime import classify_market_regime
 from data.market_feed import MarketFeed, ASSET_MAP
 from strategies.grid_bot import GridBotStrategy, GridConfig, GridLevel
-from risk.risk_manager import MAX_RISK_PER_TRADE_PCT
+from risk.risk_manager import MAX_RISK_PER_TRADE_PCT, MAX_NOTIONAL_PCT
 
 # ── Parámetros del grid agent ──────────────────────────────────────
 GRID_MAX_PER_ASSET   = 2     # máx trades GRID_BOT abiertos simultáneos por asset
@@ -193,6 +193,14 @@ class GridAgent:
             if risk_per_unit < 1e-10:
                 return None
             position_size = risk_amount / risk_per_unit
+
+            # 9b. Cap de notional: GridAgent inserta trades directo a DB, sin pasar
+            # por RiskManager (que tiene su propio MAX_NOTIONAL_PCT) — sin este cap
+            # una señal con SL muy ceñido puede pedir un tamaño desproporcionado.
+            notional = position_size * level.price
+            max_notional = total_balance * MAX_NOTIONAL_PCT
+            if notional > max_notional:
+                position_size = max_notional / level.price
 
             # 10. Abrir trade
             trade_id = self._open_trade(

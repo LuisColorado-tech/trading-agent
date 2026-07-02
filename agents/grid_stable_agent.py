@@ -30,10 +30,42 @@ from agents.indicators import IndicatorEngine
 from core.grid_stable_profiles import GRID_STABLE_PROFILES, get_grid_stable_profile
 from core.cost_model import net_pnl as calc_net_pnl
 from data.market_feed import MarketFeed
+from risk.risk_manager import MAX_RISK_PER_TRADE_PCT
 from strategies.grid_stable import GridStableStrategy
 from core.notifications import send_telegram
 
 GRID_STABLE_EXCHANGE = 'kraken'  # ETH/BTC y LINK/BTC operan en Kraken
+
+# ── Conversión moneda de cotización → USD ──────────────────────────
+# Bug corregido Jul 2026: pares BTC-quoted (ETH/BTC, LINK/BTC) calculaban
+# size = riesgo_USD / distancia_precio_BTC sin convertir moneda, produciendo
+# posiciones de millones de tokens (visto en vivo: SELL 7.8M LINK en cuenta
+# de $500). Ver docs/FEASIBILITY_STUDY.md §6c y docs/PLAN_EJECUCION_15PCT.md Fase 2.
+_quote_rate_cache: dict = {}
+_QUOTE_RATE_TTL_SECONDS = 60
+
+
+def quote_to_usd_rate(pair: str) -> float:
+    """Tasa quote→USD para un par de GRID_STABLE.
+    'ETH/BTC', 'LINK/BTC' → precio BTC/USDT actual. 'DAI/USDT', 'USDC/USDT' → 1.0."""
+    quote = pair.split('/')[-1]
+    if quote != 'BTC':
+        return 1.0
+    cached = _quote_rate_cache.get('BTC')
+    now = time.time()
+    if cached and now - cached[1] < _QUOTE_RATE_TTL_SECONDS:
+        return cached[0]
+    try:
+        ex = _get_exchange_stable()
+        ticker = ex.fetch_ticker('BTC/USDT')
+        rate = float(ticker['close'])
+    except Exception as e:
+        logger.error(f'quote_to_usd_rate BTC/USDT: {e}')
+        if cached:
+            return cached[0]
+        raise
+    _quote_rate_cache['BTC'] = (rate, now)
+    return rate
 
 # ── Config ──
 with open('/opt/trading/config/exchange_config.yaml') as f:
@@ -118,11 +150,32 @@ def open_levels(pair: str) -> set:
 
 
 def open_trade(pair: str, level, profile, price: float):
-    """Abre un trade grid stable y lo persiste en DB."""
+    """Abre un trade grid stable y lo persiste en DB.
+
+    El nivel ya pasó el gate de RR neto en strategies/grid_stable.py::build_grid
+    (única vía de llamada, desde run_cycle) — no se re-valida el costo acá con
+    una regla distinta, porque una comparación cruda distancia-SL-vs-costo NO es
+    equivalente al net_rr real y puede rechazar niveles que sí son rentables
+    (ej. LINK/BTC retuneado: sl_dist ~0.4% del precio, por debajo del costo
+    round-trip ~0.68%, pero con gain_pct suficiente para net_rr > 1.0).
+    """
     balance = INITIAL_BALANCE
-    risk_usd = balance * 0.005 * profile.risk_fraction
     sl_dist = abs(level.sl - level.price)
-    size = risk_usd / sl_dist if sl_dist > 0 else 0
+    if sl_dist <= 0:
+        return
+
+    quote_rate = quote_to_usd_rate(pair)           # USD por 1 unidad de la moneda de cotización
+    risk_usd = balance * MAX_RISK_PER_TRADE_PCT * profile.risk_fraction
+    risk_quote = risk_usd / quote_rate              # riesgo convertido a la moneda de cotización del par
+    size = risk_quote / sl_dist
+
+    # Cap de notional: nunca más del 50% del balance del agente, en USD.
+    # grid_stable_agent no pasa por RiskManager, así que este es el único cap.
+    notional_usd = size * level.price * quote_rate
+    max_notional = balance * 0.50
+    if notional_usd > max_notional:
+        size = max_notional / (level.price * quote_rate)
+
     if size <= 0:
         return
 
@@ -164,13 +217,27 @@ def _fetch_current_price(pair: str) -> Optional[float]:
         return None
 
 
-def close_trade(trade: dict, exit_price: float, reason: str, pnl_gross: float):
-    """Cierra un trade grid stable en DB. Aplica cooldown si fue SL para evitar re-entry."""
+def close_trade(trade: dict, exit_price: float, reason: str, pnl_gross_quote: float):
+    """Cierra un trade grid stable en DB. Aplica cooldown si fue SL para evitar re-entry.
+
+    pnl_gross_quote llega en la moneda de cotización del par (BTC para ETH/BTC y
+    LINK/BTC, USDT≈USD para los stables) — se convierte a USD antes de calcular
+    costos y persistir, porque el resto del sistema (dashboards, metrics.py,
+    core/cost_model.py) trata la columna `pnl` como USD.
+    """
     now = datetime.now(timezone.utc)
     entry_price = float(trade['entry_price'])
     size = float(trade['position_size'])
-    pnl, fee_paid = calc_net_pnl(pnl_gross, entry_price, exit_price, size, GRID_STABLE_EXCHANGE)
-    pnl_pct = (pnl / (entry_price * size)) * 100 if size else 0
+    pair = trade['asset']
+
+    quote_rate = quote_to_usd_rate(pair)
+    entry_usd = entry_price * quote_rate
+    exit_usd = exit_price * quote_rate
+    pnl_gross_usd = pnl_gross_quote * quote_rate
+
+    pnl, fee_paid = calc_net_pnl(pnl_gross_usd, entry_usd, exit_usd, size, GRID_STABLE_EXCHANGE)
+    pnl_pct = (pnl / (entry_usd * size)) * 100 if size else 0
+    pnl_gross = pnl_gross_usd
     with engine.begin() as conn:
         conn.execute(text("""
             UPDATE trades SET status='CLOSED', exit_price=:ep, close_reason=:reason,
