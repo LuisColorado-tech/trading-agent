@@ -72,12 +72,8 @@ GRID_STABLE_PROFILES: dict[str, GridStableProfile] = {
 
     # ── LINK/BTC ─────────────────────────────────────────────────
     # Más volátil que ETH/BTC (~2×), rango 3-6%.
-    # Retuneado Jul 2026 (docs/FEASIBILITY_STUDY.md): con 8 niveles y fee
-    # round-trip real de Kraken (~0.68%), el spacing por nivel no cubre el
-    # costo salvo en el extremo alto del rango (net RR<1 casi siempre).
-    # 4 niveles + min_range 3.0% deja margen sobre el punto de equilibrio
-    # (net RR=1.0 en spacing≈0.52%) — sobrevive en la banda 3.0%-5.0%, que es
-    # donde el par realmente opera según las notas originales (3-6%).
+    # Retuneado Jul 2026: 4 niveles, min_range 3.0%. Fase 4: exchange OKX
+    # (LINK dual-listed en Kraken y OKX, OKX maker 0.10% vs Kraken 0.25%).
     'LINK/BTC': GridStableProfile(
         pair='LINK/BTC',
         grid_levels=4,
@@ -90,10 +86,11 @@ GRID_STABLE_PROFILES: dict[str, GridStableProfile] = {
         max_per_asset=2,
         risk_fraction=0.25,
         min_bars_in_range=35,
+        exchange='okx',
+        fallback='kraken',
         blocked_hours_utc=None,
-        notes='SL ensanchado 0.50→0.65 para filtrar noise. TP ajustado para RR=3.0 bruto. '
-              'Niveles 8→4 y min_range 0.8%→2.6% (Jul 2026): a 8 niveles el spacing no '
-              'cubría el fee round-trip de Kraken en la mayor parte del rango. Ver FEASIBILITY_STUDY.md.',
+        notes='Fase 4: exchange OKX (maker 0.10%). SL ensanchado 0.65. '
+              'Niveles 4, min_range 3.0%. Ver FEASIBILITY_STUDY.md.',
     ),
 
     # ── DAI/USDT — Stablecoin peg ─────────────────────────────────

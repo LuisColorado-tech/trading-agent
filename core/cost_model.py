@@ -32,8 +32,8 @@ class FeeSchedule:
 FEE_SCHEDULES: dict[str, FeeSchedule] = {
     # Kraken spot, tier base. Pares USDT. Verificado vs ccxt 2026-07-02.
     'kraken': FeeSchedule(maker_pct=0.0025, taker_pct=0.0040, slippage_pct=0.0008),
-    # OKX spot, tier regular (no VIP). Peor liquidez en XAUT/XAG que Kraken en BTC/ETH.
-    'okx': FeeSchedule(maker_pct=0.0008, taker_pct=0.0010, slippage_pct=0.0015),
+    # OKX spot, tier regular (no VIP). Verificado vs ccxt 2026-07-02.
+    'okx': FeeSchedule(maker_pct=0.0010, taker_pct=0.0015, slippage_pct=0.0015),
     # Alpaca: $0 comisión nominal, pero SEC fee + FINRA TAF en ventas + spread bid/ask real.
     'alpaca': FeeSchedule(maker_pct=0.0000, taker_pct=0.0000, slippage_pct=0.0010),
     # Deribit options/futures: fee cobrado en BTC, aproximado aquí como % del notional.
