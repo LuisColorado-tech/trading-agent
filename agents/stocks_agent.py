@@ -77,7 +77,7 @@ MIN_CONFLUENCE = 3                  # indicadores alineados mínimos
 XSIGNAL_LOOKBACK_HOURS = 48
 
 # Minervini — estrategia diaria BUY-only, universo independiente
-MINERVINI_STOCKS = ['NVDA', 'META', 'TSLA', 'AMZN', 'AAPL']
+MINERVINI_STOCKS = []  # Podados Jul 2026: edge negativo (ver FEASIBILITY_STUDY)
 
 
 class StocksAgent:
