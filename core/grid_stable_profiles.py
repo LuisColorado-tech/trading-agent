@@ -61,17 +61,28 @@ GRID_STABLE_PROFILES: dict[str, GridStableProfile] = {
         risk_fraction=0.20,
         min_bars_in_range=40,
         blocked_hours_utc=None,
-        notes='Par más líquido. SL ensanchado 0.40→0.60 (evita noise). Risk reducido 0.30→0.20 (fase validación).',
+        notes='Par más líquido. SL ensanchado 0.40→0.60 (evita noise). Risk reducido 0.30→0.20 (fase validación). '
+              '⚠️ Jul 2026: con fee round-trip real de Kraken (~0.68%), este par NO cubre costos con '
+              'niveles/rango actuales (net RR<1 en casi todo el rango 0.5%-3%, incluso reduciendo niveles). '
+              'El gate de RiskManager/GridStable rechazará casi toda señal — está protegido, no productivo. '
+              'Para reactivarlo hace falta o (a) ejecución 100% maker/limit en ambas patas (reduce el costo a '
+              '~0.32%, vuelve viable en el extremo alto del rango), o (b) subir max_range_pct por encima de 3% '
+              '(riesgo: puede empezar a confundir tendencia con rango). Ver docs/FEASIBILITY_STUDY.md.',
     ),
 
     # ── LINK/BTC ─────────────────────────────────────────────────
     # Más volátil que ETH/BTC (~2×), rango 3-6%.
-    # Menos niveles (8), TP ligeramente más amplio.
+    # Retuneado Jul 2026 (docs/FEASIBILITY_STUDY.md): con 8 niveles y fee
+    # round-trip real de Kraken (~0.68%), el spacing por nivel no cubre el
+    # costo salvo en el extremo alto del rango (net RR<1 casi siempre).
+    # 4 niveles + min_range 3.0% deja margen sobre el punto de equilibrio
+    # (net RR=1.0 en spacing≈0.52%) — sobrevive en la banda 3.0%-5.0%, que es
+    # donde el par realmente opera según las notas originales (3-6%).
     'LINK/BTC': GridStableProfile(
         pair='LINK/BTC',
-        grid_levels=8,
+        grid_levels=4,
         grid_range_candles=50,
-        min_range_pct=0.008,
+        min_range_pct=0.030,
         max_range_pct=0.050,
         tp_ratio=1.95,
         sl_ratio=0.65,
@@ -80,7 +91,9 @@ GRID_STABLE_PROFILES: dict[str, GridStableProfile] = {
         risk_fraction=0.25,
         min_bars_in_range=35,
         blocked_hours_utc=None,
-        notes='SL ensanchado 0.50→0.65 para filtrar noise. TP ajustado para mantener RR=3.0.',
+        notes='SL ensanchado 0.50→0.65 para filtrar noise. TP ajustado para RR=3.0 bruto. '
+              'Niveles 8→4 y min_range 0.8%→2.6% (Jul 2026): a 8 niveles el spacing no '
+              'cubría el fee round-trip de Kraken en la mayor parte del rango. Ver FEASIBILITY_STUDY.md.',
     ),
 
     # ── DAI/USDT — Stablecoin peg ─────────────────────────────────

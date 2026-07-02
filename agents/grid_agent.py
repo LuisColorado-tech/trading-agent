@@ -32,7 +32,7 @@ sys.path.insert(0, '/opt/trading')
 from agents.indicators import IndicatorEngine
 from core.asset_profiles import get_profile, hour_allowed
 from core.market_regime import classify_market_regime
-from data.market_feed import MarketFeed
+from data.market_feed import MarketFeed, ASSET_MAP
 from strategies.grid_bot import GridBotStrategy, GridConfig, GridLevel
 from risk.risk_manager import MAX_RISK_PER_TRADE_PCT
 
@@ -152,6 +152,7 @@ class GridAgent:
                 sl_ratio=profile.grid_sl_ratio,
                 min_rr=profile.grid_min_rr,
                 range_candles=profile.grid_range_candles,
+                exchange=ASSET_MAP.get(asset, {}).get('exchange', 'kraken'),
             )
             if grid is None:
                 return None

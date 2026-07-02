@@ -15,6 +15,8 @@ from loguru import logger
 import sys
 sys.path.insert(0, '/opt/trading')
 from core.claude_bridge import ClaudeBridge
+from core.cost_model import round_trip_cost_pct, MIN_NET_RR_RATIO
+from data.market_feed import ASSET_MAP
 
 # ─── PARÁMETROS INMUTABLES ─────────────────────────────────────────
 MAX_RISK_PER_TRADE_PCT   = 0.005  # 0.5% del portafolio por trade (óptimo backtest 2Y)
@@ -22,7 +24,9 @@ MAX_PORTFOLIO_EXPOSURE   = 0.05   # 5% máximo total en posiciones abiertas
 STOP_LOSS_ATR_MULTIPLIER = 1.5    # Stop = Entry - (1.5 × ATR)
 TAKE_PROFIT_ATR_MULT     = 2.5    # TP = Entry + (2.5 × ATR)
 MAX_DRAWDOWN_STOP        = 0.10   # 10% drawdown → parar todo el trading
-MIN_RR_RATIO             = 1.5    # Ratio riesgo:recompensa mínimo
+MIN_RR_RATIO             = 1.5    # Ratio riesgo:recompensa mínimo (bruto, sobre precio)
+# MIN_NET_RR_RATIO (RR mínimo después de fee+slippage) vive en core/cost_model.py —
+# compartido con strategies/grid_stable.py, que tiene risk propio y no pasa por acá.
 SL_COOLDOWN_MINUTES      = 60     # Minutos de espera tras un SL antes de re-entrar al mismo asset
 TP_COOLDOWN_MINUTES      = 5      # Minutos de espera tras un TP/TRAILING antes de re-entrar
 SIGNAL_DEDUP_HOURS       = 4     # No reentrar mismo asset+dirección en N horas tras SL
@@ -295,7 +299,7 @@ class RiskManager:
                 reason='MAX_EXPOSURE_WITH_NEW_TRADE', claude_flags=[],
             )
 
-        # 5. R:R ratio mínimo
+        # 5. R:R ratio mínimo (bruto, sobre precio — no conoce fees)
         rr = abs(take_profit - entry_price) / risk_per_unit
         if rr < MIN_RR_RATIO:
             return RiskDecision(
@@ -303,6 +307,23 @@ class RiskManager:
                 take_profit=take_profit, risk_amount=risk_amount,
                 reason=f'INSUFFICIENT_RR:{rr:.2f}', claude_flags=[],
             )
+
+        # 5b. R:R neto de costos reales (fee + slippage estimado del exchange)
+        exchange = ASSET_MAP.get(signal.get('asset', ''), {}).get('exchange')
+        if exchange and entry_price > 0:
+            gain_pct = abs(take_profit - entry_price) / entry_price
+            risk_pct_price = risk_per_unit / entry_price
+            cost_pct = round_trip_cost_pct(exchange)
+            net_rr = (gain_pct - cost_pct) / risk_pct_price if risk_pct_price else 0
+            if net_rr < MIN_NET_RR_RATIO:
+                return RiskDecision(
+                    approved=False, position_size=0, stop_loss=stop_loss,
+                    take_profit=take_profit, risk_amount=risk_amount,
+                    reason=f'INSUFFICIENT_NET_RR:{net_rr:.2f}_cost={cost_pct:.4f}',
+                    claude_flags=[],
+                )
+        else:
+            logger.warning(f'COST_MODEL: {signal.get("asset")} sin exchange en ASSET_MAP, RR neto no verificado')
 
         # 6. Claude anomaly check
         claude_anomaly = self.claude.call(

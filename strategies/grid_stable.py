@@ -19,6 +19,7 @@ import pandas as pd
 
 from agents.indicators import IndicatorSet
 from strategies.grid_bot import GridLevel
+from core.cost_model import round_trip_cost_pct, MIN_NET_RR_RATIO
 
 
 @dataclass
@@ -44,6 +45,15 @@ class GridStableStrategy:
             profile: GridStableProfile con parámetros por par.
         """
         self.profile = profile
+
+    @staticmethod
+    def _net_rr(level_price: float, tp: float, sl: float, cost_pct: float) -> float:
+        """RR de un nivel después de restar fee+slippage estimado del round-trip."""
+        gain_pct = abs(tp - level_price) / level_price
+        risk_pct = abs(sl - level_price) / level_price
+        if risk_pct <= 0:
+            return 0.0
+        return (gain_pct - cost_pct) / risk_pct
 
     def build_grid(self, df: pd.DataFrame, ind: IndicatorSet) -> Optional[GridStableConfig]:
         """Construye una grid de niveles si el par está en rango.
@@ -91,6 +101,7 @@ class GridStableStrategy:
         # Generar niveles
         levels = []
         current = ind.close
+        cost_pct = round_trip_cost_pct(p.exchange)
         for i in range(1, p.grid_levels + 1):
             level_price = low + i * spacing
 
@@ -99,7 +110,8 @@ class GridStableStrategy:
                 tp = level_price * (1 - spacing / level_price * p.tp_ratio)
                 sl = level_price * (1 + spacing / level_price * p.sl_ratio)
                 rr = (level_price - tp) / (sl - level_price) if (sl - level_price) > 0 else 0
-                if rr >= p.min_rr:
+                net_rr = self._net_rr(level_price, tp, sl, cost_pct)
+                if rr >= p.min_rr and net_rr >= MIN_NET_RR_RATIO:
                     levels.append(GridLevel(
                         price=round(level_price, 8), direction='SELL',
                         tp=round(tp, 8), sl=round(sl, 8),
@@ -111,7 +123,8 @@ class GridStableStrategy:
                 tp = level_price * (1 + spacing / level_price * p.tp_ratio)
                 sl = level_price * (1 - spacing / level_price * p.sl_ratio)
                 rr = (tp - level_price) / (level_price - sl) if (level_price - sl) > 0 else 0
-                if rr >= p.min_rr:
+                net_rr = self._net_rr(level_price, tp, sl, cost_pct)
+                if rr >= p.min_rr and net_rr >= MIN_NET_RR_RATIO:
                     levels.append(GridLevel(
                         price=round(level_price, 8), direction='BUY',
                         tp=round(tp, 8), sl=round(sl, 8),

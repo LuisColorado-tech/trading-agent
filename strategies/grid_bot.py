@@ -20,6 +20,7 @@ from typing import List, Optional
 import pandas as pd
 
 from agents.indicators import IndicatorSet
+from core.cost_model import round_trip_cost_pct, MIN_NET_RR_RATIO
 
 # ── Parámetros ────────────────────────────────────────────────────
 GRID_DEFAULT_LEVELS = 6       # niveles dentro del rango
@@ -64,7 +65,8 @@ class GridBotStrategy:
                        tp_ratio: float = TP_RATIO,
                        sl_ratio: float = SL_BUFFER_RATIO,
                        min_rr: float = MIN_RR_GRID,
-                       range_candles: int = GRID_RANGE_CANDLES) -> Optional[GridConfig]:
+                       range_candles: int = GRID_RANGE_CANDLES,
+                       exchange: str = 'kraken') -> Optional[GridConfig]:
         """
         Calcula los niveles de grid basados en el rango de las últimas N velas.
 
@@ -72,6 +74,10 @@ class GridBotStrategy:
         globales por defecto, pero cada asset puede pasar los valores de su AssetProfile
         (grid_tp_ratio, grid_sl_ratio, grid_min_rr, grid_range_candles) para
         comportamiento personalizado.
+
+        Cada nivel debe además cubrir el costo real del round-trip (fee + slippage
+        del exchange, core/cost_model.py): GridAgent inserta trades directo a DB sin
+        pasar por RiskManager, así que este es el único gate de costos para GRID_BOT.
 
         Returns:
             GridConfig con todos los niveles, o None si el rango no es válido.
@@ -102,6 +108,7 @@ class GridBotStrategy:
 
         current_price = ind.close
         levels = []
+        cost_pct = round_trip_cost_pct(exchange)
 
         for i in range(n_levels + 1):
             level_price = buffered_low + i * grid_spacing
@@ -115,7 +122,8 @@ class GridBotStrategy:
                 if risk_per_unit < 1e-10:
                     continue
                 rr = reward_per_unit / risk_per_unit
-                if rr >= min_rr:
+                net_rr = (reward_per_unit / level_price - cost_pct) / (risk_per_unit / level_price)
+                if rr >= min_rr and net_rr >= MIN_NET_RR_RATIO:
                     levels.append(GridLevel(
                         price=round(level_price, 8),
                         direction='SELL',
@@ -134,7 +142,8 @@ class GridBotStrategy:
                 if risk_per_unit < 1e-10:
                     continue
                 rr = reward_per_unit / risk_per_unit
-                if rr >= min_rr:
+                net_rr = (reward_per_unit / level_price - cost_pct) / (risk_per_unit / level_price)
+                if rr >= min_rr and net_rr >= MIN_NET_RR_RATIO:
                     levels.append(GridLevel(
                         price=round(level_price, 8),
                         direction='BUY',

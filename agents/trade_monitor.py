@@ -31,6 +31,7 @@ load_dotenv('/opt/trading/config/.env')
 
 from core.portfolio_utils import calculate_drawdown, calculate_peak_balance, calculate_risk_exposure, calculate_total_notional
 from core.asset_profiles import get_profile
+from core.cost_model import net_pnl as calc_net_pnl
 from data.market_feed import MarketFeed, ASSET_MAP
 
 # ── Trailing Dinámico: parámetros (v2 — más agresivo) ────────────
@@ -72,8 +73,8 @@ class TradeMonitor:
         for trade in open_trades:
             result = self._evaluate_trade(trade)
             if result:
-                self._close_trade(trade, result['exit_price'],
-                                  result['close_reason'], portfolio)
+                close_info = self._close_trade(trade, result['exit_price'],
+                                               result['close_reason'], portfolio)
                 closed.append({
                     'trade_id': str(trade['id']),
                     'asset': trade['asset'],
@@ -81,8 +82,8 @@ class TradeMonitor:
                     'entry_price': float(trade['entry_price']),
                     'exit_price': result['exit_price'],
                     'close_reason': result['close_reason'],
-                    'pnl': result['pnl'],
-                    'pnl_pct': result['pnl_pct'],
+                    'pnl': close_info['pnl'],
+                    'pnl_pct': close_info['pnl_pct'],
                 })
                 logger.info(
                     f"TRADE CLOSED: {trade['asset']} {result['close_reason']} "
@@ -315,16 +316,27 @@ class TradeMonitor:
         }))
 
     def _close_trade(self, trade: dict, exit_price: float,
-                     close_reason: str, portfolio: dict):
-        """Cierra un trade: actualiza DB (trade + portfolio) y publica en Redis."""
+                     close_reason: str, portfolio: dict) -> dict:
+        """Cierra un trade: actualiza DB (trade + portfolio) y publica en Redis.
+
+        Returns:
+            dict con pnl (neto), pnl_gross, fee_paid y pnl_pct del cierre.
+        """
         entry_price = float(trade['entry_price'])
         position_size = float(trade['position_size'])
         side = trade['side']
 
         if side == 'BUY':
-            pnl = (exit_price - entry_price) * position_size
+            pnl_gross = (exit_price - entry_price) * position_size
         else:
-            pnl = (entry_price - exit_price) * position_size
+            pnl_gross = (entry_price - exit_price) * position_size
+
+        exchange = ASSET_MAP.get(trade['asset'], {}).get('exchange')
+        if exchange:
+            pnl, fee_paid = calc_net_pnl(pnl_gross, entry_price, exit_price, position_size, exchange)
+        else:
+            logger.warning(f"COST_MODEL: {trade['asset']} sin exchange en ASSET_MAP, PnL sin fees")
+            pnl, fee_paid = pnl_gross, 0.0
 
         pnl_pct = (pnl / (entry_price * position_size)) * 100 if entry_price else 0
 
@@ -339,6 +351,8 @@ class TradeMonitor:
                         exit_price = :exit_price,
                         close_reason = :close_reason,
                         pnl = :pnl,
+                        pnl_gross = :pnl_gross,
+                        fee_paid = :fee_paid,
                         pnl_pct = :pnl_pct,
                         timestamp_close = :ts_close
                     WHERE id = :id
@@ -347,6 +361,8 @@ class TradeMonitor:
                     'exit_price': exit_price,
                     'close_reason': close_reason,
                     'pnl': pnl,
+                    'pnl_gross': pnl_gross,
+                    'fee_paid': fee_paid,
                     'pnl_pct': pnl_pct,
                     'ts_close': now,
                     'id': trade['id'],
@@ -450,9 +466,17 @@ class TradeMonitor:
         logger.info(
             f"CLOSED {trade['asset']} {trade['side']}: "
             f"entry={entry_price:.2f} exit={exit_price:.2f} "
-            f"PnL=${pnl:+.2f} ({pnl_pct:+.2f}%) reason={close_reason} "
+            f"PnL neto=${pnl:+.2f} (bruto=${pnl_gross:+.2f} fee=${fee_paid:.2f}) "
+            f"({pnl_pct:+.2f}%) reason={close_reason} "
             f"New balance=${new_balance:,.2f}"
         )
+
+        return {
+            'pnl': pnl,
+            'pnl_gross': pnl_gross,
+            'fee_paid': fee_paid,
+            'pnl_pct': pnl_pct,
+        }
 
 
 # ── CLI test ──

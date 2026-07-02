@@ -28,9 +28,12 @@ load_dotenv('/opt/trading/config/.env')
 import ccxt
 from agents.indicators import IndicatorEngine
 from core.grid_stable_profiles import GRID_STABLE_PROFILES, get_grid_stable_profile
+from core.cost_model import net_pnl as calc_net_pnl
 from data.market_feed import MarketFeed
 from strategies.grid_stable import GridStableStrategy
 from core.notifications import send_telegram
+
+GRID_STABLE_EXCHANGE = 'kraken'  # ETH/BTC y LINK/BTC operan en Kraken
 
 # ── Config ──
 with open('/opt/trading/config/exchange_config.yaml') as f:
@@ -161,18 +164,23 @@ def _fetch_current_price(pair: str) -> Optional[float]:
         return None
 
 
-def close_trade(trade: dict, exit_price: float, reason: str, pnl: float):
+def close_trade(trade: dict, exit_price: float, reason: str, pnl_gross: float):
     """Cierra un trade grid stable en DB. Aplica cooldown si fue SL para evitar re-entry."""
     now = datetime.now(timezone.utc)
-    pnl_pct = (pnl / (float(trade['entry_price']) * float(trade['position_size']))) * 100 if float(trade['position_size']) else 0
+    entry_price = float(trade['entry_price'])
+    size = float(trade['position_size'])
+    pnl, fee_paid = calc_net_pnl(pnl_gross, entry_price, exit_price, size, GRID_STABLE_EXCHANGE)
+    pnl_pct = (pnl / (entry_price * size)) * 100 if size else 0
     with engine.begin() as conn:
         conn.execute(text("""
             UPDATE trades SET status='CLOSED', exit_price=:ep, close_reason=:reason,
-                pnl=:pnl, pnl_pct=:pnl_pct, timestamp_close=:now
+                pnl=:pnl, pnl_gross=:pnl_gross, fee_paid=:fee_paid,
+                pnl_pct=:pnl_pct, timestamp_close=:now
             WHERE id=:id
         """), {
             'id': trade['id'], 'ep': exit_price, 'reason': reason,
-            'pnl': round(pnl, 8), 'pnl_pct': round(pnl_pct, 2), 'now': now,
+            'pnl': round(pnl, 8), 'pnl_gross': round(pnl_gross, 8),
+            'fee_paid': round(fee_paid, 8), 'pnl_pct': round(pnl_pct, 2), 'now': now,
         })
 
     # Cooldown post-SL: bloquea re-entrada inmediata (Redis + intra-ciclo)
@@ -184,7 +192,8 @@ def close_trade(trade: dict, exit_price: float, reason: str, pnl: float):
 
     logger.info(
         f"GRID_STABLE CLOSE: {trade['asset']} {reason} | "
-        f"entry={trade['entry_price']:.8f} exit={exit_price:.8f} PnL=${pnl:.4f}"
+        f"entry={trade['entry_price']:.8f} exit={exit_price:.8f} "
+        f"PnL neto=${pnl:.4f} (bruto=${pnl_gross:.4f} fee=${fee_paid:.4f})"
     )
 
 
