@@ -50,6 +50,7 @@ exchanges:
         timeframes: [15m, 1h]
       XAG:
         pair: XAG/USDT:USDT     # Plata linear perpetual (OKX no tiene XAG spot)
+        timeframes: [15m, 1h]
 
   # ── Exchange secundario: Kraken (fallback) ──
   kraken:
