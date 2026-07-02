@@ -46,11 +46,10 @@ exchanges:
         pair: ADA/USDT
         timeframes: [1m, 5m, 15m, 1h]
       XAU:
-        pair: XAU/USD:USD
+        pair: XAUT/USDT         # Tether Gold (OKX no tiene XAU spot, XAUT trackea oro)
         timeframes: [15m, 1h]
       XAG:
-        pair: XAG/USDT:USDT
-        timeframes: [15m, 1h]
+        pair: XAG/USDT:USDT     # Plata linear perpetual (OKX no tiene XAG spot)
 
   # ── Exchange secundario: Kraken (fallback) ──
   kraken:
