@@ -50,23 +50,23 @@ from strategies.stocks_minervini import StocksMinerviniStrategy
 # ── Parámetros globales del agente ────────────────────────────────────────────
 
 STOCKS_UNIVERSE = [
-    # Acciones individuales — MOMENTUM strategy, PF post-ADX
-    'TSLA',  # PF=1.23
-    'AMZN',  # PF=1.18
-    # Removidos May 2026 (PF<1.15, lastre): NVDA PF=1.09, META PF=1.03, AAPL PF=1.16
-    # ETFs USA
-    'QQQ',   # PF=1.07 — TREND_ETF strategy
-    'GLD',   # PF=1.21 — TREND_ETF strategy, bull run oro 2024-26
-    'SLV',   # PF=1.31 — ETF Plata, WR=37.2%, MaxDD=14.3%
-    # ETFs internacionales
-    'EEM',   # PF=1.23 — Emergentes
-    'FXI',   # PF=1.23 — China
-    'EWJ',   # PF=1.18 — Japón
-    # Productos de volatilidad (VIX Mean Reversion — Fase 3)
-    'SVXY',  # ProShares Short VIX — monitoreo de precio, gestión vía VOL_MEAN_REVERSION
+    # Poda Jul 2026 (docs/FEASIBILITY_STUDY.md §6c, docs/PLAN_EJECUCION_15PCT.md Fase 3.3):
+    # edge neto real por símbolo sobre 429 trades cerrados (Alpaca, sin comisión —
+    # el edge negativo es puro slippage/estrategia, no fees). Solo quedan los
+    # 2 con edge positivo confirmado; el resto se removió por diluir el agregado.
+    'FXI',   # 67 trades, edge +1.708%/trade, PnL +$416
+    'GLD',   # 70 trades, edge +0.371%/trade, PnL +$217
 ]
-# Eliminados por PF < 1.0 en backtest 2Y:
-# NVDA 0.96, AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91
+# Removidos Jul 2026 (edge neto negativo, 429 trades analizados):
+#   QQQ  -0.276%/trade (132 trades, -$477) — además tuvo bug de fake trades May 2026
+#   EEM  -1.856%/trade (79 trades, -$547)
+#   SVXY -0.076%/trade (47 trades, -$31)
+#   EWJ  -0.191%/trade (13 trades, -$4)
+#   SLV  -0.731%/trade (2 trades, -$3 — muestra chica, removido por consistencia con el resto)
+#   TSLA/AMZN: muestra insuficiente (2-3 trades c/u) para confirmar edge, removidos
+#   hasta tener más datos — no reintroducir sin volumen de trades que lo respalde.
+# Removidos May 2026 (PF<1.15 en backtest, antes de esta poda): NVDA, META, AAPL
+# Eliminados por PF < 1.0 en backtest 2Y: AAPL 0.81, META 0.88, AMZN 0.88, SPY 0.93, EWZ 0.91
 CYCLE_INTERVAL_SECONDS = 60 * 5     # evaluar cada 5 minutos
 MAX_CONCURRENT_TRADES = 4           # 3 TREND_ETF + 1 MINERVINI buffer
 MAX_RISK_PER_TRADE_PCT = 0.01       # 1% del balance por trade

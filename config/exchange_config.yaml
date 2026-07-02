@@ -265,59 +265,30 @@ grid_stable:
   paper_trading: true
   initial_balance: 500.0           # Capital pequeño dedicado
   cycle_interval_seconds: 120      # Escanear cada 2 minutos (más frecuente que grid normal)
+  # Poda Jul 2026 (docs/FEASIBILITY_STUDY.md §6c/§6b, Fase 3.3 del plan de ejecución):
+  # verificado contra 8,729 trades históricos. ETH/BTC, DAI/USDT y USDC/USDT tienen
+  # WR>99% pero neto real NEGATIVO (-$70 a -$104/trade) una vez restado el fee real
+  # de Kraken — el WR alto era la firma de una estrategia fee-blind, no de edge real.
+  # Los parámetros numéricos de abajo (grid_levels, tp_ratio, etc.) NO se leen en
+  # runtime — agents/grid_stable_agent.py toma la estrategia real de
+  # core/grid_stable_profiles.py. Solo `enabled` importa acá.
   pairs:
     ETH/BTC:
-      enabled: true
+      enabled: false   # net RR<1 en TODO su rango permitido, ni en el mejor caso. Ver FEASIBILITY_STUDY §3b.
       exchange: kraken
       fallback: okx
-      grid_levels: 10
-      grid_range_candles: 50
-      min_range_pct: 0.005
-      max_range_pct: 0.030
-      tp_ratio: 1.80
-      sl_ratio: 0.60
-      min_rr: 1.50
-      max_per_asset: 3
-      risk_fraction: 0.20
     LINK/BTC:
-      enabled: true
+      enabled: true    # retuneado (ver core/grid_stable_profiles.py): net RR +1.26 a +1.95 en su rango
       exchange: kraken
       fallback: okx
-      grid_levels: 8
-      grid_range_candles: 50
-      min_range_pct: 0.008
-      max_range_pct: 0.050
-      tp_ratio: 1.95
-      sl_ratio: 0.65
-      min_rr: 1.50
-      max_per_asset: 2
-      risk_fraction: 0.25
     DAI/USDT:
-      enabled: true
+      enabled: false   # WR 99.3% pero -$70/trade neto real (1,617 trades). Fee-blind.
       exchange: kraken
       fallback: okx
-      grid_levels: 20
-      grid_range_candles: 50
-      min_range_pct: 0.0001
-      max_range_pct: 0.002
-      tp_ratio: 1.50
-      sl_ratio: 0.40
-      min_rr: 1.30
-      max_per_asset: 3
-      risk_fraction: 0.10
     USDC/USDT:
-      enabled: true
+      enabled: false   # WR 99.6% pero -$104/trade neto real (1,179 trades). Fee-blind.
       exchange: kraken
       fallback: okx
-      grid_levels: 20
-      grid_range_candles: 50
-      min_range_pct: 0.00005
-      max_range_pct: 0.001
-      tp_ratio: 1.50
-      sl_ratio: 0.40
-      min_rr: 1.30
-      max_per_asset: 3
-      risk_fraction: 0.10
   risk:
     max_concurrent_total: 5        # Máximo trades grid stable abiertos
     max_drawdown_pct: 10.0         # Halt si DD > 10%

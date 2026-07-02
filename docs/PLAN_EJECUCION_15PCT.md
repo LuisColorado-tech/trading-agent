@@ -206,23 +206,43 @@ WHERE strategy='GRID_STABLE' AND status='OPEN';
 ```
 
 ### 3.3 Poda de universos (decisiones CERRADAS, con evidencia)
-- **`config/exchange_config.yaml`**:
-  - `grid_stable.pairs`: `DAI/USDT.enabled: false`, `USDC/USDT.enabled: false`,
-    `ETH/BTC.enabled: false`. Solo `LINK/BTC: true` (con perfil retuneado).
-  - Quitar `INJ` y `SOL` de los activos de TREND (o marcar `enabled: false` si el
-    formato lo permite; si no, quitarlos del mapa de assets).
-- **Stocks** (`core/stocks_profiles.py`): dejar activos solo FXI y GLD. Desactivar
-  QQQ, EEM, NVDA, META, SVXY, EWJ, SLV (poner su flag/profile en inactivo según el
-  patrón existente del archivo).
-- **Polymarket**: `systemctl stop polymarket-snipe && systemctl disable polymarket-snipe`
-  (y cualquier otro servicio poly activo). NO borrar código ni datos.
-- Servicios que siguen: `trading-agent`, `stocks-agent`, `dashboard-*`. `grid-stable`
-  se re-habilita SOLO al terminar Fase 2+3 (con LINK/BTC únicamente).
+- **`config/exchange_config.yaml`**: ✅ HECHO. `grid_stable.pairs`:
+  `DAI/USDT.enabled: false`, `USDC/USDT.enabled: false`, `ETH/BTC.enabled: false`.
+  Solo `LINK/BTC: true`. (Nota: se limpiaron también los campos numéricos por par
+  del YAML — están muertos en runtime, `agents/grid_stable_agent.py` solo lee
+  `enabled`; la estrategia real viene de `core/grid_stable_profiles.py`.)
+- **INJ/SOL en TREND — ⚠️ NO EJECUTADO, decisión pendiente**: `ASSET_MAP` (que
+  determina qué assets opera CUALQUIER estrategia del servicio `trading-agent`,
+  incluida GRID_BOT/SMC/BTC_MICRO) es global — no hay separación por estrategia
+  a nivel de config. El edge negativo de INJ/SOL (§0 hallazgo 2) se midió SOLO
+  para TREND_MOMENTUM. Remover INJ/SOL de `scripts/run_trading.py::ASSETS` los
+  sacaría de TODAS las estrategias sin evidencia equivalente para GRID_BOT/SMC/
+  BTC_MICRO en esos mismos activos. Antes de tocarlo: correr la misma query de
+  edge neto (§FASE 5) desagregada por estrategia+activo para INJ y SOL. Si sigue
+  negativo en todas, remover de `ASSETS`. Si alguna estrategia SÍ tiene edge
+  positivo en INJ/SOL, implementar filtro por estrategia (no existe hoy) en vez
+  de tocar el mapa global. `core/direction_guard.py` (WR<30% → bloqueo) ya da
+  protección parcial mientras tanto.
+- **Stocks** (`agents/stocks_agent.py::STOCKS_UNIVERSE`): ✅ HECHO. Solo `FXI`,
+  `GLD`. Removidos: QQQ, EEM, SVXY, EWJ, SLV, TSLA, AMZN (edge negativo o
+  muestra insuficiente — detalle en comentarios del archivo). NVDA/META ya
+  habían sido removidos en Mayo 2026 (PF<1.15), antes de esta poda.
+- **Polymarket**: ✅ VERIFICADO — no hay servicio ni proceso Polymarket corriendo
+  en la VPS (ya estaba desactivado, consistente con AGENTS.md "Desactivados").
+  Nada que hacer.
+- Servicios activos al Jul 2: `trading-agent`, `stocks-agent`, `pairs-agent`,
+  `dashboard-*`, `options-agent` (verificar si tiene trades reales antes de
+  tocarlo — no analizado en esta pasada). `grid-stable` PARADO (Fase previa a
+  este plan) — se re-habilita SOLO al terminar el deploy de código (3.4), con
+  LINK/BTC únicamente.
 
-### 3.4 Deploy código a la VPS
+### 3.4 Deploy código a la VPS — ⚠️ BLOQUEADO, requiere acción del usuario
 ```bash
-# desde el clon local reconciliado:
-git push origin master
+# desde el clon local reconciliado (rama cost-retrofit, commit hasta ahora: ver git log):
+git push origin master   # BLOQUEADO: requiere PAT con contents:write sobre
+                          # LuisColorado-tech/trading-agent. El gh CLI local está
+                          # autenticado como lcolorado-bnc (otra cuenta) sin
+                          # acceso de escritura confirmado a este repo.
 # en la VPS:
 cd /opt/trading && git pull origin master
 venv/bin/python3 -m pytest tests/unit/test_cost_model.py tests/unit/test_net_rr_gate.py \
@@ -235,6 +255,13 @@ systemctl start grid-stable && systemctl enable grid-stable   # solo LINK/BTC ac
 **Aceptación**: preflight exit 0; tests verdes; en logs aparecen cierres con
 `PnL neto=... (bruto=... fee=...)`; señales rechazadas con `INSUFFICIENT_NET_RR`
 visibles en `journalctl -u trading-agent | grep REJECTED`.
+
+**✅ COMPLETADO (Jul 2, 2026) — todo lo que no requería el push**: migración 007
+aplicada en producción (verificado: columnas `pnl_gross`/`fee_paid` existen), 2
+trades huérfanos de GRID_STABLE cerrados administrativamente
+(`ADMIN_CLOSE_SIZING_BUG`), poda de `exchange_config.yaml` y `stocks_agent.py`
+completa. **Pendiente exclusivamente del PAT de GitHub**: push del código
+reconciliado + `git pull` en la VPS + reinicio de servicios + `preflight_live.py`.
 
 ---
 
