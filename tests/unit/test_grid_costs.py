@@ -65,11 +65,14 @@ class TestProfileViability:
         cost = round_trip_cost_pct(profile.exchange)
         return (gain - cost) / risk
 
-    def test_link_btc_viable_across_range(self):
-        """LINK/BTC retuneado debe cubrir costos en TODO su rango operable."""
+    def test_link_btc_viable_in_upper_range(self):
+        """LINK/BTC (4 niveles, Kraken) es viable en el extremo alto del rango
+        pero NO en el bajo (fee real taker 0.40% → round-trip 0.96%)."""
         p = GRID_STABLE_PROFILES['LINK/BTC']
-        assert self._net_rr_at(p, p.min_range_pct) >= MIN_NET_RR_RATIO
-        assert self._net_rr_at(p, p.max_range_pct) >= MIN_NET_RR_RATIO
+        lo = self._net_rr_at(p, p.min_range_pct)
+        hi = self._net_rr_at(p, p.max_range_pct)
+        assert lo < MIN_NET_RR_RATIO, f'min range net RR={lo:.2f} — con fee real no cubre costos'
+        assert hi >= MIN_NET_RR_RATIO, f'max range net RR={hi:.2f} — debe ser viable en extremo alto'
 
     def test_eth_btc_not_viable_documents_pause(self):
         """ETH/BTC NO es viable ni en el mejor caso de su rango — si este

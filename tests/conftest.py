@@ -70,7 +70,7 @@ def btc_buy_signal():
         'timeframe': '15m',
         'score': 80,
         'stop_loss': 74000.0,      # entry - 1.5*ATR (ATR≈666)
-        'take_profit': 76665.0,     # entry + 2.5*ATR
+        'take_profit': 77000.0,     # entry + 3.0*ATR (net RR≥1 con fee Kraken 0.96%)
         'indicators': {
             'price': 75000.0,
             'rsi': 55.0,
