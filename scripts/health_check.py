@@ -212,7 +212,6 @@ AGENT_SERVICES = [
     'trading-agent',
     'stocks-agent',
     'grid-stable',
-    'pairs-agent',
 ]
 
 
@@ -519,25 +518,8 @@ def check_options() -> tuple:
 
 
 def check_pairs() -> tuple:
-    """Check del Pairs Trading agent."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'pairs-agent'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '🔗 Pairs servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
-        row = _query_one(conn,
-            "SELECT COUNT(*), COALESCE(SUM(pnl), 0) FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'")
-        conn.close()
-        count = int(row[0]) if row else 0
-        pnl = float(row[1]) if row else 0
-        if count == 0:
-            return True, '🔗 Pairs OK — esperando z-score >1.5'
-        return True, f'🔗 Pairs OK — {count} trades | PnL=${pnl:+.0f}'
-    except Exception as e:
-        return False, f'🔗 Pairs error: {str(e)[:80]}'
+    """Check del Pairs Trading agent. Fase 4: detenido intencionalmente."""
+    return True, '🔗 Pairs DETENIDO — no parte del test actual de cost model'
 
 
 def check_snipe() -> tuple:
