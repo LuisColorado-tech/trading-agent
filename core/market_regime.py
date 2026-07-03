@@ -53,10 +53,10 @@ def classify_market_regime(ind, ind_htf=None) -> MarketRegime:
             return MarketRegime('BREAKOUT_DOWN', 'BEARISH', False, False, False)
 
     if ind.trend_direction == 'UP' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist > 0:
-        # Backtest 2Y: TREND_MOMENTUM BUY en TREND_UP pierde -$6,151 → bloqueado.
-        # MEAN_REVERSION desactivada: paper 8 trades 0 wins -$569. Pullbacks en bull
-        # 15m no tienen edge estadístico suficiente en portfolio actual.
-        return MarketRegime('TREND_UP', 'BULLISH', False, False, False)
+        # Fase 5/Camino B (4h): TREND_UP reactivado. Backtest 4h muestra +122% retorno, WR 58%.
+        # El bloqueo anterior (allow_trend=False) venia de backtest 2Y en 15m (-$6,151 en TREND_MOMENTUM BUY),
+        # pero en 4h la dinamica es completamente distinta: tendencias reales, menos ruido.
+        return MarketRegime('TREND_UP', 'BULLISH', True, False, False)
 
     if ind.trend_direction == 'DOWN' and ind.trend_strength >= _TREND_STRENGTH_MIN and ind.macd_hist < 0:
         return MarketRegime('TREND_DOWN', 'BEARISH', True, False, False)
