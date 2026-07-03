@@ -38,7 +38,7 @@ PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
 # SESSION_008: 5 assets — XAU/XAG eliminados (KuCoin no los soporta, usar GLD/SLV en stocks)
 # Backtest 24m: AVAX mejor asset (PF=1.10, Sharpe=1.03); BTC el único con PF<1.0 (0.99)
 ASSETS = ['BTC', 'ETH', 'SOL', 'AVAX', 'INJ', 'LINK', 'AAVE', 'POL', 'DOT', 'ADA', 'XAU', 'XAG']
-TIMEFRAMES = ['15m', '1h']
+TIMEFRAMES = ['4h']  # Fase 5/Camino B: 4h candles (backtest +122% vs 1h -87%)
 
 # DB engine for portfolio tracking
 _db_url = (
