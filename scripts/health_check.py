@@ -210,7 +210,6 @@ def check_recent_cycles() -> tuple:
 
 AGENT_SERVICES = [
     'trading-agent',
-    'stocks-agent',
     'grid-stable',
 ]
 
@@ -489,27 +488,8 @@ def check_grid_bot() -> tuple:
 
 
 def check_stocks() -> tuple:
-    """Check del stocks agent (Alpaca NYSE/NASDAQ) + Minervini."""
-    try:
-        import subprocess
-        r = subprocess.run(['systemctl', 'is-active', 'stocks-agent'], capture_output=True, text=True, timeout=5)
-        svc_active = r.stdout.strip() == 'active'
-        if not svc_active:
-            return False, '📈 Stocks servicio INACTIVO'
-
-        conn = psycopg2.connect(**DB_CONFIG, connect_timeout=5)
-        row = _query_one(conn,
-            "SELECT COUNT(*) FROM stocks_trades WHERE opened_at > now() - interval '24 hours'")
-        # Minervini specific
-        mv_row = _query_one(conn,
-            "SELECT COUNT(*) FROM stocks_trades WHERE strategy='MINERVINI' AND status='OPEN'")
-        conn.close()
-        count = int(row[0]) if row else 0
-        mv_open = int(mv_row[0]) if mv_row else 0
-        mv_str = f' · {mv_open} Minervini open' if mv_open > 0 else ''
-        return True, f'📈 Stocks OK — {count} trades en 24h{mv_str}'
-    except Exception as e:
-        return False, f'📈 Stocks error: {str(e)[:80]}'
+    """Stocks agent cerrado (Jul 3, 2026). Backtest no mostro edge."""
+    return True, '📈 Stocks CERRADO — sin edge en backtest (Capítulo cerrado)'
 
 
 def check_options() -> tuple:
