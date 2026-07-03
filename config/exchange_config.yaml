@@ -17,40 +17,40 @@ exchanges:
     assets:
       BTC:
         pair: BTC/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       ETH:
         pair: ETH/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       SOL:
         pair: SOL/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       AVAX:
         pair: AVAX/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       LINK:
         pair: LINK/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       INJ:
         pair: INJ/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       AAVE:
         pair: AAVE/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       POL:
         pair: POL/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       DOT:
         pair: DOT/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       ADA:
         pair: ADA/USDT
-        timeframes: [1m, 5m, 15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       XAU:
         pair: XAUT/USDT         # Tether Gold (OKX no tiene XAU spot, XAUT trackea oro)
-        timeframes: [15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
       XAG:
         pair: XAG/USDT:USDT     # Plata linear perpetual (OKX no tiene XAG spot)
-        timeframes: [15m, 1h]
+        timeframes: [4h]   # Fase 5: 4h > 1h (backtest +122% vs -87%)
 
   # ── Exchange secundario: Kraken (fallback) ──
   kraken:

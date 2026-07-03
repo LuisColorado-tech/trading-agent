@@ -33,7 +33,7 @@ from data.market_feed import ASSET_MAP
 from risk.risk_manager import PAPER_HALT_COOLDOWN_HOURS
 from core.market_guard import get_market_guard, GuardLevel
 
-SCAN_INTERVAL = 60  # segundos entre scans
+SCAN_INTERVAL = 300  # Fase 5: 60→300 (4h candles, no necesario scanear cada minuto)
 PORTFOLIO_SNAPSHOT_INTERVAL = 5  # snapshot cada N ciclos (~5 min)
 # SESSION_008: 5 assets — XAU/XAG eliminados (KuCoin no los soporta, usar GLD/SLV en stocks)
 # Backtest 24m: AVAX mejor asset (PF=1.10, Sharpe=1.03); BTC el único con PF<1.0 (0.99)
