@@ -19,7 +19,7 @@ class MarketRegime:
 # Valor previo 0.18 era demasiado restrictivo: en mercados de tendencia moderada
 # (ej. BTC en rally sostenido) el régimen caía siempre en CHOPPY y ambas
 # estrategias quedaban bloqueadas sin operar.
-_TREND_STRENGTH_MIN = 0.08   # v1.1: 0.12→0.08 (Council #2 May 21). 0.12 demasiado restrictivo en baja vol.
+_TREND_STRENGTH_MIN = 0.05   # v1.2: 0.08→0.05. 0.08 demasiado restrictivo en fines de semana/baja vol.
 _TREND_STRENGTH_MIN_DOWN = 0.20  # reservado — backtest 2Y mostró que 0.20 destruye SOL (+71%→0%). No usar.
 
 

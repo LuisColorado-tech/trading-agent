@@ -220,7 +220,8 @@ class StrategyEngine:
 
         # Si ningún flag está activo (CHOPPY), salir rápido sin evaluar estrategias
         any_allowed = (regime.allow_trend or regime.allow_mean_reversion
-                       or regime.allow_breakout or regime.allow_dip_buy)
+                       or regime.allow_breakout or regime.allow_dip_buy
+                       or regime.allow_grid)
         if not any_allowed:
             logger.info(f'No opportunity {asset}/{timeframe}: CHOPPY (régimen inactivo)')
             return {'opportunity': False, 'reason': 'choppy'}
