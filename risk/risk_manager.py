@@ -38,14 +38,14 @@ PAPER_AUTO_RESUME_MAX_DD = 0.09   # Sólo reanudar si el DD actual ya bajó por 
 # Cada estrategia tiene sus propios slots. No compiten entre sí.
 # El límite global de exposición (MAX_PORTFOLIO_EXPOSURE) sigue siendo el techo.
 MAX_CONCURRENT_BY_STRATEGY = {
-    'TREND_MOMENTUM': 2,
-    'SMC_ORDER_BLOCKS': 2,        # Council #3 May 25: 1→2 (generando señales)
-    'BTC_MICROSTRUCTURE': 2,      # Council #3 May 25: 1→2 (generando señales)
+    'TREND_MOMENTUM': 5,        # Council Jul 3: 2→5 (señales score 100+ rechazadas por slots llenos)
+    'SMC_ORDER_BLOCKS': 4,      # Council Jul 3: 2→4
+    'BTC_MICROSTRUCTURE': 3,    # Council Jul 3: 2→3
     'BREAKOUT': 1,
     'BTC_DIP_BUYER': 1,
     'MEAN_REVERSION': 1,
 }
-MAX_CONCURRENT_DEFAULT = 2  # Para estrategias no listadas
+MAX_CONCURRENT_DEFAULT = 3  # Council Jul 3: 2→3
 # ───────────────────────────────────────────────────────────────────
 
 
