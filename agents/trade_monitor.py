@@ -40,7 +40,7 @@ from core.cost_model import net_pnl as calc_net_pnl
 from data.market_feed import MarketFeed, ASSET_MAP
 
 # ── Trailing Dinámico: parámetros (v2 — más agresivo) ────────────
-TRAILING_ACTIVATION_R = 0.75  # Activar trailing antes para proteger ganancias
+TRAILING_ACTIVATION_R = 1.25  # Fase 5: 0.75→1.25 (dejar correr ganadores, backtest mostro WR 17% letal)
 TRAILING_STEP_R = 0.3         # Escalones más finos para seguir mejor el precio
 TRAILING_OFFSET_R = 0.75      # SL más ceñido al precio
 

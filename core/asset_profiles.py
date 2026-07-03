@@ -44,7 +44,7 @@ class AssetProfile:
     tp_multiplier: float = 2.5
 
     # ── Trailing dinámico ───────────────────────────────────────────
-    trailing_activation_r: float = 0.75   # R a partir del cual se activa
+    trailing_activation_r: float = 1.25   # Fase 5: 0.75→1.25. R a partir del cual se activa el trailing
     trailing_step_r: float = 0.30         # Escalón de avance
     trailing_offset_r: float = 0.75       # Distancia SL al pico
 
@@ -101,7 +101,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         confluence_min=2,  # v1.1 Council #5 May 25: 3→2 (más señales en baja vol)
         sl_multiplier=1.3,
         tp_multiplier=2.8,
-        trailing_activation_r=0.75,  # v3: 1.5→0.75 (activar antes, evita reversiones que borran ganancias)
+        trailing_activation_r=1.25,  # Fase 5: 0.75→1.25
         trailing_step_r=0.40,
         trailing_offset_r=0.80,
         blocked_hours_utc=frozenset({0, 20, 21, 22, 23}),
@@ -139,7 +139,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         confluence_min=3,
         sl_multiplier=1.4,
         tp_multiplier=2.8,
-        trailing_activation_r=1.0,
+        trailing_activation_r=1.25,  # Fase 5: 1.0→1.25
         trailing_step_r=0.30,
         trailing_offset_r=0.70,
         allowed_hours_utc=frozenset({5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 18, 19}),
@@ -178,7 +178,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         confluence_min=3,  # v1.1 Council #5 May 25: 4→3 (more signals)
         sl_multiplier=1.4,
         tp_multiplier=2.8,
-        trailing_activation_r=1.0,
+        trailing_activation_r=1.25,  # Fase 5: 1.0→1.25
         trailing_step_r=0.30,
         trailing_offset_r=1.0,  # v3: 0.75→1.0 (wicks grandes de SOL activan SL prematuro)
         blocked_hours_utc=frozenset({0, 1, 2, 13, 20, 21, 22, 23}),
@@ -258,7 +258,7 @@ ASSET_PROFILES: dict[str, AssetProfile] = {
         confluence_min=3,  # v3 rollback May 13: 4→5→4 (50→8 trades INJ, -84% actividad)
         sl_multiplier=1.8,  # v3: 1.3→1.8 (SL más amplio → posición más pequeña para mismo riesgo)
         tp_multiplier=3.5,  # v3: 2.6→3.5 (proporcional al SL para mantener R:R ~2:1)
-        trailing_activation_r=1.0,  # v3: 2.0→1.0 (activar antes, pero más alto que resto por volatilidad INJ)
+        trailing_activation_r=1.25,  # Fase 5: 1.0→1.25  # v3: 2.0→1.0 (activar antes, pero más alto que resto por volatilidad INJ)
         trailing_step_r=0.40,
         trailing_offset_r=0.60,
         blocked_hours_utc=frozenset({4, 21, 22, 23}),
@@ -346,7 +346,7 @@ def get_profile(asset: str) -> AssetProfile:
         confluence_min=3,
         sl_multiplier=1.5,
         tp_multiplier=2.5,
-        trailing_activation_r=1.0,
+        trailing_activation_r=1.25,  # Fase 5: 1.0→1.25
         trailing_step_r=0.30,
         trailing_offset_r=0.75,
         require_candle_close=True,
