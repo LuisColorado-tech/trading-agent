@@ -28,9 +28,10 @@ from risk.risk_manager import RiskManager, RiskDecision
 
 # ── Configuración de entrada ───────────────────────────────────────
 # Fase 4: 'taker' = fill instantáneo, 'limit_maker' = esperar touch de vela.
-# Ver docs/PLAN_EJECUCION_15PCT.md §FASE 4.
-ENTRY_ORDER_TYPE = 'limit_maker'
-MAKER_TIMEOUT_CANDLES = 3
+# Council Jul 4: 4h + maker timeout = 12h de espera → paraliza el sistema con poco capital.
+# En 4h la vela ya es suficientemente lenta — el maker no aporta precisión extra.
+ENTRY_ORDER_TYPE = 'taker'
+MAKER_TIMEOUT_CANDLES = 1
 
 
 class ExecutionAgent:
