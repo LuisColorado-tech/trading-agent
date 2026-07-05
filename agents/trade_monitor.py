@@ -519,8 +519,7 @@ class TradeMonitor:
         remaining_open = self._get_open_trades(session=getattr(self, '_current_session', None))
         total_risk_exposure = calculate_risk_exposure(remaining_open)
         new_exposure_pct = total_risk_exposure / new_balance if new_balance > 0 else 0
-        total_notional = calculate_total_notional(remaining_open)
-        new_cash = new_balance - total_notional
+        new_cash = new_balance - total_risk_exposure
 
         historical_peak = self._get_historical_peak_balance()
         new_peak = calculate_peak_balance(

@@ -51,7 +51,7 @@ def build_portfolio_state(
 
     return {
         'total_balance': balance,
-        'available_cash': balance - total_notional,
+        'available_cash': balance - exposure_value,   # Fase 5: usar exposicion de RIESGO, no notional
         'exposure_pct': exposure_value / balance if balance > 0 else 0.0,
         'drawdown_pct': drawdown_pct,
         'peak_balance': peak_balance,
