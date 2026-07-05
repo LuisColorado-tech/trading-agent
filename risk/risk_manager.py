@@ -38,14 +38,14 @@ PAPER_AUTO_RESUME_MAX_DD = 0.09   # Sólo reanudar si el DD actual ya bajó por 
 # Cada estrategia tiene sus propios slots. No compiten entre sí.
 # El límite global de exposición (MAX_PORTFOLIO_EXPOSURE) sigue siendo el techo.
 MAX_CONCURRENT_BY_STRATEGY = {
-    'TREND_MOMENTUM': 2,        # Council Jul 5: 5→2 ($500 compartido entre 11 activos, no $500 c/u como backtest)
-    'SMC_ORDER_BLOCKS': 1,      # Council Jul 5: 4→1
-    'BTC_MICROSTRUCTURE': 1,    # Council Jul 5: 3→1
+    'TREND_MOMENTUM': 5,        # Council Jul 5: $500/activo (igual que backtest)
+    'SMC_ORDER_BLOCKS': 4,
+    'BTC_MICROSTRUCTURE': 3,
     'BREAKOUT': 1,
     'BTC_DIP_BUYER': 1,
     'MEAN_REVERSION': 1,
 }
-MAX_CONCURRENT_DEFAULT = 1  # Council Jul 5: 3→1
+MAX_CONCURRENT_DEFAULT = 3
 # ───────────────────────────────────────────────────────────────────
 
 
@@ -201,13 +201,13 @@ class RiskManager:
                 claude_flags=[],
             )
 
-        # 3b. Máximo 1 trade abierto por activo (evitar concentración)
+        # 3b. Máximo 3 trades abiertos por activo (Fase 5: $500/activo permite hasta 3 entradas)
         asset_name = signal.get('asset', '')
         asset_open_count = sum(
             1 for t in open_trades
             if (t.get('asset') or t.get('asset', '')) == asset_name
         )
-        if asset_open_count >= 1:
+        if asset_open_count >= 3:
             return RiskDecision(
                 approved=False, position_size=0, stop_loss=0,
                 take_profit=0, risk_amount=0,

@@ -204,7 +204,7 @@ def main():
     # Evita que señales acumuladas durante el reinicio disparen múltiples
     # entradas simultáneas sin contexto de mercado actualizado.
     import time as _time
-    _warmup_sec = 10  # Fase 4: 180→10 para iteracion rapida de pruebas
+    _warmup_sec = 10  # iteracion rapida de pruebas
     logger.info(f'Startup warm-up: {_warmup_sec}s antes del primer ciclo de trading...')
     _time.sleep(_warmup_sec)
     # ────────────────────────────────────────────────────────────────
