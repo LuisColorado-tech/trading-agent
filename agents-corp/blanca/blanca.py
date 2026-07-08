@@ -1,22 +1,11 @@
 """
-Blanca — Personal AI Assistant to the President of Agents Corp
-
-Role: Bridge between the company and the President. Like Alfred to Bruce Wayne.
-- All CEOs report to Blanca, not directly to the President
-- Blanca filters: only critical/strategic matters reach the President via Telegram
-- Blanca makes operational decisions autonomously
-- Blanca consults an internal advisory council for complex decisions
-- Blanca runs 24/7 as a systemd service
-
-Council members:
-  - Strategist: long-term vision, resource allocation
-  - Analyst: data-driven decisions, metrics
-  - Guardian: risk assessment, security, worst-case
-  - Diplomat: stakeholder communication, PR
-
-Memory: PostgreSQL tables for persistent context, decisions, and history.
+Blanca v2 — Presidential AI Assistant
+- 2 daily briefings: 08:00 and 20:00 UTC
+- Only escalates: services down >1h, customer complaints, critical errors
+- CEOs report to Blanca, not to President
+- Controls the Telegram chat
 """
-import os, sys, json, time, urllib.request
+import os, sys, json, time, socket, subprocess
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict
 
@@ -24,283 +13,166 @@ sys.path.insert(0, '/opt/agents-corp')
 sys.path.insert(0, '/opt/trading')
 from dotenv import load_dotenv
 load_dotenv('/opt/trading/config/.env')
+import psycopg2
+import urllib.request
 
-DS_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-
-
-# ─── Council of Advisors ───────────────────────────────────────────
-
-COUNCIL = {
-    "Strategist": {
-        "emoji": "♟️", "role": "Estratega",
-        "prompt": "You are the Strategist on Blanca's Advisory Council. Focus on long-term vision, resource allocation, market positioning, and competitive advantage. Be bold. Recommend YES or NO with reasoning in 2-3 sentences."
-    },
-    "Analyst": {
-        "emoji": "📈", "role": "Analista",
-        "prompt": "You are the Data Analyst on Blanca's Advisory Council. Focus on metrics, trends, numbers. Be precise. Recommend YES or NO based on data patterns with specific metrics in 2-3 sentences."
-    },
-    "Guardian": {
-        "emoji": "🛡️", "role": "Guardián",
-        "prompt": "You are the Risk Guardian on Blanca's Advisory Council. Focus on worst-case scenarios, security, legal exposure, reputation risk. Be conservative. Recommend YES or NO based on risk assessment in 2-3 sentences."
-    },
-    "Diplomat": {
-        "emoji": "🤝", "role": "Diplomática",
-        "prompt": "You are the Communications Diplomat on Blanca's Advisory Council. Focus on stakeholder impact, messaging, brand perception, customer experience. Be pragmatic. Recommend YES or NO based on communication impact in 2-3 sentences."
-    },
+DS_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+DB = {
+    'host': os.getenv('POSTGRES_HOST'), 'port': int(os.getenv('POSTGRES_PORT', '5432')),
+    'user': os.getenv('POSTGRES_USER'), 'password': os.getenv('POSTGRES_PASSWORD'),
+    'dbname': os.getenv('POSTGRES_DB'), 'connect_timeout': 5,
 }
 
-
-# ─── Database ──────────────────────────────────────────────────────
-
-import psycopg2
-DB_CONFIG = {
-    'host': os.getenv('POSTGRES_HOST', 'localhost'),
-    'port': int(os.getenv('POSTGRES_PORT', '5432')),
-    'user': os.getenv('POSTGRES_USER'),
-    'password': os.getenv('POSTGRES_PASSWORD'),
-    'dbname': os.getenv('POSTGRES_DB', 'trading_agent'),
-    'connect_timeout': 5,
-}
-
-def db_execute(sql: str, params: tuple = None, fetch: bool = False):
-    conn = psycopg2.connect(**DB_CONFIG)
-    cur = conn.cursor()
+def db(sql, params=None, fetch=False):
+    conn = psycopg2.connect(**DB); cur = conn.cursor()
     cur.execute(sql, params)
-    if fetch:
-        result = cur.fetchall()
-        cur.close(); conn.close()
-        return result
-    conn.commit()
-    cur.close(); conn.close()
+    r = cur.fetchall() if fetch else None
+    conn.commit(); cur.close(); conn.close()
+    return r
 
-
-# ─── LLM Engine ────────────────────────────────────────────────────
-
-def call_deepseek(system_prompt: str, user_prompt: str, temperature: float = 0.5) -> str:
-    if not DS_KEY: return "NO_API_KEY"
-    payload = json.dumps({
-        "model": "deepseek-chat",
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ],
-        "max_tokens": 500, "temperature": temperature,
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.deepseek.com/v1/chat/completions", data=payload,
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {DS_KEY}"})
-    try:
-        resp = urllib.request.urlopen(req, timeout=45)
-        return json.loads(resp.read())["choices"][0]["message"]["content"]
-    except Exception as e:
-        return f"LLM_ERROR: {str(e)[:100]}"
-
-
-def send_telegram(text: str):
+def tg(text: str):
     if not TOKEN or not CHAT_ID: return
-    payload = {'chat_id': CHAT_ID, 'text': text, 'parse_mode': 'HTML'}
-    data = json.dumps(payload).encode()
-    req = urllib.request.Request(
+    payload = json.dumps({'chat_id': CHAT_ID, 'text': text, 'parse_mode': 'HTML'}).encode()
+    urllib.request.urlopen(urllib.request.Request(
         f'https://api.telegram.org/bot{TOKEN}/sendMessage',
-        data=data, headers={'Content-Type': 'application/json'})
-    try: urllib.request.urlopen(req, timeout=10)
-    except: pass
+        data=payload, headers={'Content-Type': 'application/json'}), timeout=10)
 
+def log(msg): print(f'{datetime.now(timezone.utc).strftime("%H:%M:%S")} | 🤍 Blanca | {msg}')
 
-# ─── Blanca Core ───────────────────────────────────────────────────
+# ─── Service monitoring ────────────────────────────────────────────
+
+SERVICES = {
+    'deepapi':    {'port': 9001, 'service': 'operator-deepapi',    'ceo': '🤖 CEO DeepAPI'},
+    'priceguard': {'port': 9002, 'service': 'operator-priceguard', 'ceo': '📊 CEO PriceGuard'},
+    'viralbot':   {'port': None,  'service': 'operator-viralbot',   'ceo': '📱 CEO ViralBot'},
+    'leadgen':    {'port': 9003, 'service': 'operator-leadgen',    'ceo': '🎯 CEO LeadGen'},
+    'funding':    {'port': None,  'service': 'funding-agent',       'ceo': '💹 Funding Agent'},
+}
+
+def check_port(port):
+    if not port: return True
+    try:
+        s = socket.socket(); s.settimeout(3)
+        s.connect(('localhost', port)); s.close(); return True
+    except: return False
+
+def check_service(name):
+    r = subprocess.run(['systemctl', 'is-active', name], capture_output=True, text=True)
+    return r.stdout.strip() == 'active'
+
+# ─── Blanca ────────────────────────────────────────────────────────
 
 class Blanca:
     def __init__(self):
-        self.name = "Blanca"
-        self.emoji = "🤍"
-        self.start_time = datetime.now(timezone.utc)
         self.cycles = 0
-        self.log(f"Blanca online. Protecting the President's time.")
-
-    def log(self, msg: str, level: str = "INFO"):
-        ts = datetime.now(timezone.utc).strftime('%H:%M:%S')
-        print(f'{ts} | {self.emoji} Blanca | {msg}')
+        self.last_briefing = None
+        self.services_down_since = {}
+        self.critical_events = []
 
     def run_cycle(self):
         self.cycles += 1
-        self._process_inbox()
-        self._review_pending_decisions()
-        self._update_context()
-        self._save_snapshot()
 
-    # ─── Inbox Processing ──────────────────────────────────────
+        # 1. Check all business services
+        for bid, info in SERVICES.items():
+            port_ok = check_port(info['port'])
+            svc_ok = check_service(info['service'])
 
-    def _process_inbox(self):
-        """Read incoming messages from agents and process them."""
-        rows = db_execute(
-            "SELECT id, from_agent, subject, body, category, urgency FROM blanca_inbox WHERE status='pending' ORDER BY created_at LIMIT 5",
-            fetch=True)
-
-        for row in rows:
-            msg_id, agent, subject, body, category, urgency = row
-            self.log(f"Processing: [{urgency}] {agent}: {subject[:60]}")
-
-            if urgency == 'critical':
-                # Immediate escalation to President
-                self._escalate(agent, subject, body, urgency)
-                db_execute("UPDATE blanca_inbox SET status='escalated', blanca_decision='President notified', escalated=true, resolved_at=NOW() WHERE id=%s", (msg_id,))
-            elif urgency == 'high':
-                # Consult council, then decide
-                decision = self._consult_council(agent, subject, body, category)
-                if decision.get('escalate'):
-                    self._escalate(agent, subject, body, urgency)
-                    db_execute("UPDATE blanca_inbox SET status='escalated', blanca_decision=%s, escalated=true, resolved_at=NOW() WHERE id=%s",
-                              (decision['summary'], msg_id))
-                else:
-                    db_execute("UPDATE blanca_inbox SET status='resolved', blanca_decision=%s, resolved_at=NOW() WHERE id=%s",
-                              (decision['summary'], msg_id))
+            if not svc_ok and not port_ok:
+                now = datetime.now(timezone.utc)
+                if bid not in self.services_down_since:
+                    self.services_down_since[bid] = now
+                downtime = (now - self.services_down_since[bid]).total_seconds()
+                if downtime > 3600:  # >1 hour
+                    self._alert_critical(bid, info, downtime)
             else:
-                # Routine: resolve autonomously
-                db_execute("UPDATE blanca_inbox SET status='resolved', blanca_decision='Routine - resolved autonomously', resolved_at=NOW() WHERE id=%s",
-                          (msg_id,))
+                self.services_down_since.pop(bid, None)
 
-    def _review_pending_decisions(self):
-        """Review unresolved decisions and escalate if stuck."""
-        rows = db_execute(
-            "SELECT id, summary FROM blanca_decisions WHERE resolved=false AND created_at < NOW() - INTERVAL '24 hours'",
-            fetch=True)
-        if rows:
-            for row in rows:
-                self._escalate("Blanca", f"Decision pendiente >24h", row[1], "warning")
-                db_execute("UPDATE blanca_decisions SET escalated_to_president=true WHERE id=%s", (row[0],))
+        # 2. Check for unresolved work orders >6h
+        stale = db("SELECT COUNT(*) FROM work_orders WHERE status='open' AND created_at < NOW() - INTERVAL '6 hours'", fetch=True)
+        if stale and stale[0][0] > 3:
+            self._alert_critical('dev', {'ceo': '🔧 Development'}, 21600)
 
-    def _update_context(self):
-        """Keep Blanca's context fresh."""
-        # Store current state snapshot
-        state = json.dumps({
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "cycles": self.cycles,
-            "uptime_hours": (datetime.now(timezone.utc) - self.start_time).total_seconds() / 3600,
-        })
-        db_execute(
-            "INSERT INTO blanca_memory (category, key, value, importance) VALUES ('state', 'runtime', %s, 'routine') ON CONFLICT (category, key) DO UPDATE SET value=%s, updated_at=NOW()",
-            (state, state))
+        # 3. Briefings at 08:00 and 20:00 UTC
+        now = datetime.now(timezone.utc)
+        if now.hour in (8, 20) and now.minute < 5:
+            today = now.date()
+            if self.last_briefing != (today, now.hour):
+                self._send_briefing(now.hour)
+                self.last_briefing = (today, now.hour)
 
-    def _save_snapshot(self):
-        """Save quick snapshot every cycle."""
-        pass  # Data already persited through DB operations
+        # 4. Save state
+        db("INSERT INTO blanca_memory (category, key, value, importance) VALUES ('state', 'runtime', %s, 'routine') ON CONFLICT (category, key) DO UPDATE SET value=%s, updated_at=NOW()",
+           (json.dumps({'cycles': self.cycles, 'timestamp': now.isoformat()}),) * 2)
 
-    # ─── Council Consultation ──────────────────────────────────
-
-    def _consult_council(self, agent: str, subject: str, body: str, category: str) -> dict:
-        """Convene Blanca's advisory council for a decision."""
-        self.log(f"Convening council for: {subject[:60]}")
-
-        context = f"""Context from {agent}:
-Category: {category}
-Subject: {subject}
-Details: {body[:1000]}
-
-Question: Should this be escalated to the President immediately, or can Blanca handle it autonomously? Answer YES to escalate, NO to handle."""
-
-        votes = {}
-        recommendations = []
-        for name, info in COUNCIL.items():
-            response = call_deepseek(info['prompt'], context, temperature=0.4)
-            vote_yes = response.strip().upper().startswith('YES')
-            votes[name] = {"vote": "YES" if vote_yes else "NO", "reasoning": response}
-            recommendations.append(f"{info['emoji']} {name}: {response[:150]}")
-            self.log(f"  {info['emoji']} {name}: {'ESCALATE' if vote_yes else 'HANDLE'}")
-
-        yes_count = sum(1 for v in votes.values() if v['vote'] == 'YES')
-        escalate = yes_count >= 2  # Majority vote to escalate
-
-        decision_summary = "ESCALATE to President" if escalate else f"Handled autonomously ({yes_count}/4 votes to escalate)"
-
-        # Store decision
-        context_json = json.dumps({"body": body[:500], "category": category})
-        votes_json = json.dumps(votes)
-        db_execute(
-            "INSERT INTO blanca_decisions (source, summary, context, decision, council_consulted, council_votes, resolved) VALUES (%s, %s, %s, %s, true, %s, true)",
-            (agent, subject, context_json, decision_summary, votes_json))
-
-        recs_text = '\n'.join(recommendations)
-        return {"escalate": escalate, "summary": decision_summary, "votes": votes, "council": recs_text}
-
-    # ─── Presidential Communication ────────────────────────────
-
-    def _escalate(self, agent: str, subject: str, body: str, urgency: str):
-        """Send message to President. ONLY for truly important matters."""
-        emoji_map = {'critical': '🚨', 'high': '⚠️', 'warning': '📋'}
-        emoji = emoji_map.get(urgency, 'ℹ️')
-
-        msg = f'{emoji} <b>Blanca — {urgency.upper()}</b>\n'
-        msg += f'<b>From:</b> {agent}\n'
-        msg += f'<b>Subject:</b> {subject}\n\n'
-        msg += f'{body[:800]}\n\n'
+    def _alert_critical(self, bid, info, downtime):
+        """Only send Telegram for CRITICAL issues."""
+        hours = downtime / 3600
+        msg = f'<b>🚨 CRÍTICO — {info["ceo"]}</b>\n'
+        msg += f'Servicio <b>{info["service"]}</b> caído por <b>{hours:.1f}h</b>\n'
+        msg += f'Puerto {info["port"]} no responde\n\n'
         msg += f'<i>— Blanca 🤍 | {datetime.now(timezone.utc).strftime("%H:%M UTC")}</i>'
+        tg(msg)
+        log(f'CRITICAL: {bid} down {hours:.1f}h')
 
-        send_telegram(msg)
-        self.log(f"Escalated to President: {subject[:60]}")
+    def _send_briefing(self, hour):
+        """Daily briefing to President. Only important stuff."""
+        period = 'AM' if hour == 8 else 'PM'
 
-    def send_update(self):
-        """Daily briefing to President (only if there's relevant news)."""
-        # Count pending items
-        pending = db_execute("SELECT COUNT(*) FROM blanca_inbox WHERE status='pending'", fetch=True)
-        decisions = db_execute("SELECT COUNT(*) FROM blanca_decisions WHERE resolved=false", fetch=True)
-        escalated = db_execute("SELECT COUNT(*) FROM blanca_inbox WHERE escalated=true AND resolved_at > NOW() - INTERVAL '24 hours'", fetch=True)
+        # Gather info
+        businesses_ok = 0; businesses_down = 0
+        down_list = []
+        for bid, info in SERVICES.items():
+            if check_service(info['service']):
+                businesses_ok += 1
+            else:
+                businesses_down += 1
+                down_list.append(info['ceo'])
 
-        p_count = pending[0][0] if pending else 0
-        d_count = decisions[0][0] if decisions else 0
-        e_count = escalated[0][0] if escalated else 0
+        # Work orders
+        open_wo = db("SELECT COUNT(*) FROM work_orders WHERE status='open'", fetch=True)[0][0]
+        resolved_24h = db("SELECT COUNT(*) FROM work_orders WHERE resolved_at > NOW() - INTERVAL '24 hours'", fetch=True)[0][0]
 
-        if p_count == 0 and d_count == 0 and e_count == 0:
-            return  # Nothing to report
+        # Recent CEO reports
+        reports = db("SELECT business_id, summary, issues_found, issues_resolved FROM ceo_reports WHERE created_at > NOW() - INTERVAL '12 hours' ORDER BY created_at DESC LIMIT 5", fetch=True)
 
-        msg = f'<b>🤍 Blanca — Daily Briefing</b>\n'
-        msg += f'{datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}\n\n'
-        msg += f'Pending inbox: {p_count}\n'
-        msg += f'Open decisions: {d_count}\n'
-        msg += f'Escalated (24h): {e_count}\n\n'
+        # Customer complaints
+        complaints = db("SELECT COUNT(*) FROM ceo_reports WHERE created_at > NOW() - INTERVAL '24 hours' AND issues_found > issues_resolved", fetch=True)[0][0]
 
-        # Top pending items
-        if p_count > 0:
-            rows = db_execute("SELECT from_agent, subject, urgency FROM blanca_inbox WHERE status='pending' ORDER BY CASE urgency WHEN 'critical' THEN 1 WHEN 'high' THEN 2 ELSE 3 END, created_at LIMIT 3", fetch=True)
-            msg += '<b>Top pending:</b>\n'
-            for r in rows:
-                msg += f'  [{r[2]}] {r[0]}: {r[1][:80]}\n'
+        msg = f'<b>🤍 Blanca — Briefing {period} | {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}</b>\n\n'
+        msg += f'<b>Servicios:</b> {businesses_ok}/{len(SERVICES)} operativos\n'
+        if down_list:
+            msg += f'<b>⚠️ Caídos:</b> {", ".join(down_list)}\n'
+        msg += f'<b>Órdenes de trabajo:</b> {open_wo} abiertas | {resolved_24h} resueltas (24h)\n'
+        msg += f'<b>Quejas clientes:</b> {complaints} pendientes\n\n'
 
-        msg += f'\n<i>Routine matters handled autonomously.</i>'
-        send_telegram(msg)
+        if reports:
+            msg += '<b>Últimos reportes CEO:</b>\n'
+            for r in reports:
+                tag = '⚠️' if r[2] > r[3] else '✅'
+                msg += f'{tag} <b>{r[0]}</b>: {r[1][:80]}\n'
 
-    # ─── Main Loop ─────────────────────────────────────────────
+        # Store briefing
+        db("INSERT INTO blanca_briefings (briefing_type, summary, businesses_reported, services_down) VALUES (%s, %s, %s, %s)",
+           (f'daily_{period.lower()}', msg[:500], businesses_ok, down_list))
+
+        tg(msg)
+        log(f'Briefing {period} sent: {businesses_ok}/{len(SERVICES)} up, {open_wo} open WOs')
 
     def main_loop(self):
-        self.log("Blanca's systems active. Filtering the noise.")
-        last_daily = None
+        log('Blanca v2 online. 2 daily briefings. Critical-only escalation.')
         while True:
             try:
                 self.run_cycle()
-
-                # Daily briefing at 08:00 UTC
-                now = datetime.now(timezone.utc)
-                if now.hour == 8 and now.minute < 5 and last_daily != now.date():
-                    self.send_update()
-                    last_daily = now.date()
-
-                time.sleep(60)  # Check every minute
+                time.sleep(60)
             except KeyboardInterrupt:
-                self.log("Shutting down. The President's time is safe.")
+                log('Shutdown.')
                 break
             except Exception as e:
-                self.log(f"Error: {e}")
+                log(f'Error: {e}')
                 time.sleep(60)
 
 
-# ─── Entry Point ───────────────────────────────────────────────────
-
 if __name__ == '__main__':
-    blanca = Blanca()
-
-    # Check if DeepSeek API key is available
-    if not DS_KEY:
-        blanca.log("WARNING: No DeepSeek API key. Council will be unavailable.")
-
-    blanca.main_loop()
+    Blanca().main_loop()
