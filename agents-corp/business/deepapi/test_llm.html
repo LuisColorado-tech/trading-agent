@@ -1,0 +1,65 @@
+import logging
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+import uvicorn
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="Hello World App")
+
+HTML_CONTENT = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+"""
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    """Serve the Hello World HTML page."""
+    logger.info("Serving Hello World page")
+    return HTMLResponse(content=HTML_CONTENT, status_code=200)
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy"}
+
+if __name__ == "__main__":
+    logger.info("Starting Hello World server on port 9001")
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=9001,
+        reload=False,
+        log_level="info"
+    )

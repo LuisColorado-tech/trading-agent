@@ -1,0 +1,438 @@
+import logging
+from pathlib import Path
+from typing import Optional
+
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="DeepAPI Documentation", version="1.0.0")
+
+# Try to serve static files if directory exists
+static_dir = Path(__file__).parent / "static"
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+    logger.info(f"Serving static files from {static_dir}")
+else:
+    logger.warning(f"Static directory {static_dir} not found, continuing without static files")
+
+# HTML template for the documentation page
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepAPI Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #0a0a0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid #1a1a2e;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-section {
+            padding: 4rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, #12121a, #1a1a2e);
+            border: 1px solid #2a2a3e;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 3rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 1rem 0;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .plan-description {
+            color: #888;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #1a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: #888;
+            border: 2px solid #2a2a3e;
+        }
+
+        .cta-button.outline:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .docs-section {
+            padding: 4rem 0;
+            border-top: 1px solid #1a1a2e;
+        }
+
+        .docs-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .endpoint {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .method {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .method.get { background: #1a3a2e; color: #4ade80; }
+        .method.post { background: #1a2a3e; color: #60a5fa; }
+        .method.put { background: #2a1a3e; color: #c084fc; }
+        .method.delete { background: #3e1a1a; color: #f87171; }
+
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .endpoint-desc {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid #1a1a2e;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DeepAPI</h1>
+            <p class="subtitle">Enterprise-grade API for AI-powered document processing and analysis</p>
+        </header>
+
+        <section class="pricing-section">
+            <h2 style="text-align: center; color: #fff; font-size: 2rem; margin-bottom: 1rem;">Simple, Transparent Pricing</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 3rem;">Choose the plan that fits your needs</p>
+            
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Free</div>
+                    <div class="plan-price">$0 <span>/month</span></div>
+                    <p class="plan-description">Perfect for getting started and testing the API</p>
+                    <ul class="features-list">
+                        <li><span class="feature-icon">✓</span> 100 API calls per day</li>
+                        <li><span class="feature-icon">✓</span> Basic document processing</li>
+                        <li><span class="feature-icon">✓</span> 1 concurrent request</li>
+                        <li><span class="feature-icon">✓</span> Community support</li>
+                        <li><span class="feature-icon">✓</span> 7-day history retention</li>
+                    </ul>
+                    <button class="cta-button outline" onclick="alert('Free plan selected')">Get Started</button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">$49 <span>/month</span></div>
+                    <p class="plan-description">For professionals and small teams</p>
+                    <ul class="features-list">
+                        <li><span class="feature-icon">✓</span> 10,000 API calls per day</li>
+                        <li><span class="feature-icon">✓</span> Advanced document processing</li>
+                        <li><span class="feature-icon">✓</span> 10 concurrent requests</li>
+                        <li><span class="feature-icon">✓</span> Priority email support</li>
+                        <li><span class="feature-icon">✓</span> 30-day history retention</li>
+                        <li><span class="feature-icon">✓</span> Custom integrations</li>
+                        <li><span class="feature-icon">✓</span> API analytics dashboard</li>
+                    </ul>
+                    <button class="cta-button primary" onclick="alert('Pro plan selected')">Subscribe Now</button>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Business</div>
+                    <div class="plan-price">$199 <span>/month</span></div>
+                    <p class="plan-description">For organizations with advanced needs</p>
+                    <ul class="features-list">
+                        <li><span class="feature-icon">✓</span> Unlimited API calls</li>
+                        <li><span class="feature-icon">✓</span> Enterprise document processing</li>
+                        <li><span class="feature-icon">✓</span> Unlimited concurrent requests</li>
+                        <li><span class="feature-icon">✓</span> 24/7 phone & email support</li>
+                        <li><span class="feature-icon">✓</span> 1-year history retention</li>
+                        <li><span class="feature-icon">✓</span> Custom integrations</li>
+                        <li><span class="feature-icon">✓</span> Advanced analytics & reporting</li>
+                        <li><span class="feature-icon">✓</span> Dedicated infrastructure</li>
+                        <li><span class="feature-icon">✓</span> SLA guarantee (99.99%)</li>
+                    </ul>
+                    <button class="cta-button secondary" onclick="alert('Business plan selected')">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="docs-section">
+            <h2>API Documentation</h2>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/api/v1/health</span>
+                </div>
+                <p class="endpoint-desc">Check API health status and availability</p>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-path">/api/v1/documents/process</span>
+                </div>
+                <p class="endpoint-desc">Process a document and extract structured data</p>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/api/v1/documents/{id}</span>
+                </div>
+                <p class="endpoint-desc">Retrieve processed document results by ID</p>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method delete">DELETE</span>
+                    <span class="endpoint-path">/api/v1/documents/{id}</span>
+                </div>
+                <p class="endpoint-desc">Delete a processed document and its results</p>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/api/v1/usage</span>
+                </div>
+                <p class="endpoint-desc">Get current API usage statistics and limits</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 DeepAPI. All rights reserved. | Built with ❤️ by Agents Corp</p>
+        </footer>
+    </div>
+</body>
+</html>
+"""
+
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    """Serve the main documentation page."""
+    try:
+        logger.info("Serving documentation page")
+        return HTMLResponse(content=HTML_TEMPLATE, status_code=200)
+    except Exception as e:
+        logger.error(f"Error serving documentation page: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/docs", response_class=HTMLResponse)
+async def docs_page():
+    """Redirect /docs to root."""
+    try:
+        logger.info("Serving documentation page from /docs")
+        return HTMLResponse(content=HTML_TEMPLATE, status_code=200)
+    except Exception as e:
+        logger.error(f"Error serving documentation page: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy", "service": "deepapi-documentation"}
+
+if __name__ == "__main__":
+    import uvicorn
+    logger.info("Starting DeepAPI Documentation server on port 9001")
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=9001,
+        log_level="info"
+    )
