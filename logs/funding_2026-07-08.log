@@ -35,3 +35,6 @@
 2026-07-09 00:08:36.009 | INFO     | __main__:main:320 - Cycle 6 complete. Next scan in 3600s
 2026-07-09 01:08:36.034 | INFO     | __main__:scan:103 - Scan: balance=$3959 | 3 open positions
 2026-07-09 01:08:43.016 | INFO     | __main__:main:320 - Cycle 7 complete. Next scan in 3600s
+2026-07-09 02:08:43.022 | INFO     | __main__:scan:103 - Scan: balance=$3955 | 3 open positions
+2026-07-09 02:08:47.102 | INFO     | __main__:_open:179 - OPEN INJ: $500 | spot=4.86 perp=4.85 | rate=0.0072%/8h annual=8.2%
+2026-07-09 02:08:51.154 | INFO     | __main__:main:320 - Cycle 8 complete. Next scan in 3600s

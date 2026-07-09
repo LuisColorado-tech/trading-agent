@@ -222,7 +222,7 @@ DOCS_PT = """<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta na
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
 .nav{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.nav .logo{margin-right:auto}.nav .links{margin-left:20px}
 .nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
-.lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
+.lang-switch{display:flex;gap:6px;margin-right:20px}.lang-switch a{color:#8b949e;text-decoration:none;padding:6px 12px;border-radius:6px;font-size:.82em;font-weight:600;border:1px solid #30363d;transition:all .2s}.lang-switch a.active{color:#fff;background:#1f6feb;border-color:#1f6feb}.lang-switch a:hover:not(.active){color:#58a6ff;background:#161b22}.nav .links a{color:#8b949e;text-decoration:none;margin-left:20px;font-size:.9em;transition:color .2s}.nav .links a:hover{color:#58a6ff}
 .hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
 .hero h1{font-size:3em;font-weight:800;background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
 .hero p{font-size:1.25em;color:#8b949e;line-height:1.6;margin-bottom:30px}
@@ -273,7 +273,7 @@ DOCS_EN = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta na
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
 .nav{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.nav .logo{margin-right:auto}.nav .links{margin-left:20px}
 .nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
-.lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
+.lang-switch{display:flex;gap:6px;margin-right:20px}.lang-switch a{color:#8b949e;text-decoration:none;padding:6px 12px;border-radius:6px;font-size:.82em;font-weight:600;border:1px solid #30363d;transition:all .2s}.lang-switch a.active{color:#fff;background:#1f6feb;border-color:#1f6feb}.lang-switch a:hover:not(.active){color:#58a6ff;background:#161b22}.nav .links a{color:#8b949e;text-decoration:none;margin-left:20px;font-size:.9em;transition:color .2s}.nav .links a:hover{color:#58a6ff}
 .hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
 .hero h1{font-size:3em;font-weight:800;background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
 .hero p{font-size:1.25em;color:#8b949e;line-height:1.6;margin-bottom:30px}
