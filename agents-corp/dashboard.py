@@ -72,7 +72,7 @@ table{{width:100%;border-collapse:collapse}}th,td{{padding:10px;text-align:left;
 .footer{{text-align:center;padding:30px;color:#8b949e;font-size:.8em;border-top:1px solid #30363d;margin-top:40px}}
 @media(max-width:640px){{.hero h1{{font-size:1.8em}}.biz-grid{{grid-template-columns:1fr}}}}
 </style></head><body>
-<nav class="nav"><a class="logo" href="/">🤍 Agents Corp</a><a href="/deepapi/">DeepAPI</a><a href="/priceguard/">PriceGuard</a><a href="/leadgen/">LeadGen</a><a href="https://github.com/LuisColorado-tech/trading-agent" target="_blank">GitHub</a></nav>
+<nav class="nav"><a class="logo" href="/">🤍 Agents Corp</a><span style="color:#8b949e;font-size:.8em;margin-left:10px">🔐 Admin</span><a href="/deepapi/">DeepAPI 🌐</a><a href="/priceguard/">PriceGuard 🌐</a><a href="/leadgen/">LeadGen 🌐</a><a href="https://github.com/LuisColorado-tech/trading-agent" target="_blank">GitHub</a></nav>
 <div class="hero"><h1>Agents Corp</h1><p>AI-powered businesses running 24/7 on a VPS</p></div>
 <div class="container">
 <div class="stats"><div class="stat"><div class="num">{api_users}</div><div class="lbl">API Users</div></div><div class="stat"><div class="num">{funding}</div><div class="lbl">Funding Active</div></div><div class="stat"><div class="num">{wo}</div><div class="lbl">Open Tasks</div></div></div>

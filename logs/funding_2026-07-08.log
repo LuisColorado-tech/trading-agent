@@ -38,3 +38,9 @@
 2026-07-09 02:08:43.022 | INFO     | __main__:scan:103 - Scan: balance=$3955 | 3 open positions
 2026-07-09 02:08:47.102 | INFO     | __main__:_open:179 - OPEN INJ: $500 | spot=4.86 perp=4.85 | rate=0.0072%/8h annual=8.2%
 2026-07-09 02:08:51.154 | INFO     | __main__:main:320 - Cycle 8 complete. Next scan in 3600s
+2026-07-09 03:08:51.248 | INFO     | __main__:scan:103 - Scan: balance=$3449 | 4 open positions
+2026-07-09 03:08:56.634 | INFO     | __main__:_close:263 - CLOSED AAVE: net_pnl=$-7.45 | reason=FUNDING_BELOW_THRESHOLD_5.0%
+2026-07-09 03:08:56.635 | INFO     | __main__:monitor:236 - CLOSE AAVE: funding 5.0% < 8% threshold
+2026-07-09 03:08:58.081 | INFO     | __main__:_close:263 - CLOSED LINK: net_pnl=$-10.25 | reason=FUNDING_BELOW_THRESHOLD_7.9%
+2026-07-09 03:08:58.081 | INFO     | __main__:monitor:236 - CLOSE LINK: funding 7.9% < 8% threshold
+2026-07-09 03:08:58.091 | INFO     | __main__:main:320 - Cycle 9 complete. Next scan in 3600s
