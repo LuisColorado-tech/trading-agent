@@ -1,0 +1,1313 @@
+2026-07-08 15:59:30.647 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-08 15:59:30.663 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-08 15:59:30.667 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-08 15:59:30.756 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $5,089.02
+2026-07-08 15:59:30.759 | INFO     | __main__:main:208 - Startup warm-up: 10s antes del primer ciclo de trading...
+2026-07-08 15:59:44.339 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.25
+2026-07-08 15:59:44.734 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-08 15:59:45.138 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.26
+2026-07-08 15:59:45.138 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:45.621 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.03
+2026-07-08 15:59:45.622 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:46.014 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-08 15:59:46.015 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:46.365 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ BB_LOWER_TOUCH dir=BUY str=0.96
+2026-07-08 15:59:46.365 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-08 15:59:46.777 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.16
+2026-07-08 15:59:47.137 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-08 15:59:47.137 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL VOLUME_SPIKE dir=NEUTRAL str=0.74
+2026-07-08 15:59:47.479 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.04
+2026-07-08 15:59:47.480 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:47.859 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-08 15:59:47.859 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:48.264 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.05
+2026-07-08 15:59:48.265 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:48.265 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.60
+2026-07-08 15:59:48.691 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.04
+2026-07-08 15:59:48.692 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 15:59:48.692 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=0.66
+2026-07-08 15:59:48.692 | INFO     | agents.market_scanner:scan:71 - Scan complete: 23 signals across 12 assets
+2026-07-08 15:59:48.694 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 15:59:48.694 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 15:59:48.694 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 15:59:48.734 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:48.735 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 15:59:48.757 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.252)
+2026-07-08 15:59:48.772 | WARNING  | agents.strategy_engine:_compare_v2:162 - STRATEGY V2 DIVERGENCE [ETH]: v1=NEUTRAL | v2=BUY score=65
+2026-07-08 15:59:48.772 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity ETH/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:RANGE, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:RANGE, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:RANGE]
+2026-07-08 15:59:48.789 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.263)
+2026-07-08 15:59:48.804 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity AVAX/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 15:59:48.818 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 15:59:48.834 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.172)
+2026-07-08 15:59:48.850 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.160)
+2026-07-08 15:59:48.916 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=113
+2026-07-08 15:59:48.917 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 15:59:48.933 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity DOT/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 15:59:48.948 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.342)
+2026-07-08 15:59:48.981 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity XAU/4h: no_signal (regime=TREND_DOWN trend=0.051)
+2026-07-08 15:59:49.010 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity XAG/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:RANGE, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:RANGE, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:RANGE]
+2026-07-08 15:59:49.101 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.116 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.137 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.153 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.174 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.192 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.208 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.223 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.240 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.253 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.265 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.277 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.296 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.310 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.327 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.343 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.362 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.379 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.405 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.424 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.446 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.467 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.498 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7725min (max=45min)
+2026-07-08 15:59:49.514 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7740min (max=180min)
+2026-07-08 15:59:49.526 | INFO     | __main__:main:308 - Cycle 1 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:04:50.013 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:04:50.014 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:50.015 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:04:50.465 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:04:50.466 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:50.897 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:04:50.898 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:51.310 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:04:51.311 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:04:51.783 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:04:51.783 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:52.682 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:04:53.068 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:04:53.439 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:04:53.440 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:53.893 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:04:53.894 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:04:54.395 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:04:54.395 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:54.815 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:04:54.815 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:04:54.816 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:04:54.816 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:04:54.817 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:04:54.817 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:04:54.817 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:04:54.850 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:04:54.880 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:04:54.898 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:04:54.926 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:04:54.940 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:04:54.940 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:04:54.966 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:04:54.995 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:04:55.022 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:04:57.554 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] signal_interpretation for POL: 85% conf, 2491ms
+2026-07-08 16:04:57.554 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:04:57.561 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:04:57.591 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:04:57.598 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:04:57.598 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:04:57.625 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:04:57.661 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:04:57.693 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:04:57.706 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.725 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.742 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.761 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.782 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.800 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.822 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.840 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.861 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.881 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.902 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.922 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.946 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:57.964 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:57.990 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:58.008 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:58.034 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:58.057 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:58.080 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:58.093 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:58.116 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:58.136 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:58.159 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7730min (max=45min)
+2026-07-08 16:04:58.179 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7745min (max=180min)
+2026-07-08 16:04:58.198 | INFO     | __main__:main:308 - Cycle 2 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:09:58.569 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:09:58.570 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:09:58.570 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:09:58.992 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:09:58.992 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:09:59.401 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:09:59.402 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:09:59.809 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:09:59.811 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:10:00.314 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:10:00.315 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:10:01.265 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:10:01.904 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:10:02.400 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:10:02.400 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:10:02.939 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:10:02.940 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:10:03.443 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:10:03.444 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:10:03.885 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:10:03.886 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:10:03.887 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:10:03.888 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:10:03.888 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:10:03.889 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:10:03.890 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:10:03.913 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:10:03.940 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:10:03.973 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:10:04.020 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:10:04.027 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:10:04.027 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:10:04.059 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:10:04.091 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:10:04.125 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:10:04.170 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:10:04.175 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:10:04.210 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:10:04.214 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:10:04.215 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:10:04.237 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:10:04.267 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:10:04.293 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:10:04.304 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.323 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.347 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.367 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.387 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.408 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.429 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.449 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.475 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.496 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.521 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.536 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.556 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.573 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.605 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.622 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.636 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.652 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.671 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.688 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.723 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.748 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.775 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7735min (max=45min)
+2026-07-08 16:10:04.793 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7750min (max=180min)
+2026-07-08 16:10:04.811 | INFO     | __main__:main:308 - Cycle 3 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:15:05.382 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:15:05.383 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:05.383 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:15:05.821 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:15:05.822 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:06.250 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:15:06.251 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:06.771 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:15:06.772 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:15:07.367 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:15:07.369 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:08.331 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:15:08.805 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:15:09.217 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:15:09.218 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:09.691 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:15:09.693 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:15:10.099 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:15:10.099 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:10.604 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:15:10.604 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:15:10.604 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:15:10.605 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:15:10.605 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:15:10.605 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:15:10.605 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:15:10.613 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:10.614 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 16:15:10.639 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:15:10.664 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:15:10.688 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:15:10.716 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:15:10.723 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:15:10.723 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:15:10.746 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:15:10.815 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:15:10.838 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:15:10.870 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:15:10.873 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:15:10.900 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:15:10.902 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:15:10.902 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:15:10.944 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:15:10.977 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:15:11.034 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:15:11.040 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.054 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.070 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.083 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.097 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.112 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.127 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.141 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.156 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.170 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.191 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.210 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.231 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.259 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.298 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.326 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.372 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.389 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.406 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.419 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.436 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.453 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.472 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7740min (max=45min)
+2026-07-08 16:15:11.487 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7755min (max=180min)
+2026-07-08 16:15:11.500 | INFO     | __main__:main:308 - Cycle 4 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:20:11.961 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:20:11.963 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:11.967 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:20:12.423 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:20:12.424 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:12.761 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:20:12.761 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:13.302 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:20:13.303 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:20:13.765 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:20:13.765 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:14.661 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:20:15.106 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:20:15.577 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:20:15.578 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:16.136 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:20:16.137 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:20:16.657 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:20:16.658 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:17.243 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:20:17.243 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:20:17.244 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:20:17.244 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:20:17.245 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:20:17.245 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:20:17.245 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:20:17.271 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:20:17.302 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:20:17.329 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:20:17.368 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:20:17.374 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:20:17.374 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:20:17.399 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:20:17.419 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:20:17.443 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:20:17.485 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:20:17.489 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:20:17.530 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:20:17.538 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:20:17.539 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:20:17.566 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:20:17.597 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:20:17.627 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:20:17.643 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.666 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.690 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.722 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.750 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.768 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.791 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.809 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.831 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.860 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.881 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.898 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.920 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.935 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:17.956 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:17.972 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:18.007 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:18.026 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:18.047 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:18.064 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:18.085 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:18.102 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:18.118 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7745min (max=45min)
+2026-07-08 16:20:18.133 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7760min (max=180min)
+2026-07-08 16:20:18.181 | INFO     | __main__:main:308 - Cycle 5 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:25:18.699 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:25:18.700 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:18.701 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:25:19.168 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:25:19.168 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:19.652 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:25:19.653 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:20.143 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:25:20.143 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:25:20.556 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:25:20.557 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:21.503 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:25:22.083 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:25:22.566 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:25:22.567 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:23.016 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:25:23.017 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:25:23.392 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:25:23.392 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:23.880 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:25:23.881 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:25:23.882 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:25:23.884 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:25:23.884 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:25:23.885 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:25:23.887 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:25:23.910 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:25:23.932 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:25:23.947 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:25:23.976 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:25:23.978 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:25:23.979 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:25:24.003 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:25:24.027 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:25:24.049 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:25:24.083 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:25:24.086 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:25:24.110 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:25:24.113 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:25:24.113 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:25:24.141 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:25:24.174 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:25:24.216 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:25:24.226 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.243 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.263 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.282 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.302 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.318 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.339 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.356 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.377 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.392 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.411 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.428 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.455 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.470 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.489 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.507 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.526 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.545 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.563 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.585 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.607 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.625 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.650 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7750min (max=45min)
+2026-07-08 16:25:24.669 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7765min (max=180min)
+2026-07-08 16:25:24.684 | INFO     | __main__:main:308 - Cycle 6 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:30:25.237 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:30:25.239 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:25.240 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:30:25.685 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:30:25.685 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:26.201 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:30:26.202 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:26.777 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:30:26.779 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:30:27.291 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:30:27.292 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:28.340 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:30:28.770 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:30:29.310 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:30:29.310 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:29.685 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:30:29.685 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:30:30.074 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:30:30.075 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:30.578 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:30:30.580 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:30:30.581 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:30:30.581 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:30:30.582 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:30:30.583 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:30:30.585 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:30:30.597 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:30.598 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 16:30:30.612 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:30:30.630 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:30:30.655 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:30:30.695 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:30:30.698 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:30:30.700 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:30:30.726 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:30:30.756 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:30:30.786 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:30:30.830 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:30:30.832 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:30:30.872 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:30:30.876 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:30:30.877 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:30:30.914 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:30:30.937 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:30:30.968 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:30:30.974 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:30.987 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.001 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.020 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.032 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.042 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.060 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.071 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.092 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.110 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.124 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.146 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.171 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.188 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.215 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.235 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.265 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.285 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.315 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.338 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.365 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.388 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.445 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7756min (max=45min)
+2026-07-08 16:30:31.461 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7771min (max=180min)
+2026-07-08 16:30:31.477 | INFO     | __main__:main:308 - Cycle 7 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:35:31.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:35:31.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:31.903 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:35:32.334 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:35:32.335 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:32.690 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:35:32.690 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:33.103 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:35:33.104 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:35:33.565 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:35:33.565 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:34.466 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:35:35.018 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:35:35.529 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:35:35.531 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:35.984 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:35:35.984 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:35:36.497 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:35:36.498 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:36.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:35:36.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:35:36.903 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:35:36.903 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:35:36.903 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:35:36.903 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:35:36.904 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:35:36.923 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:35:36.945 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:35:36.971 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:35:37.015 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:35:37.022 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:35:37.023 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:35:37.050 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:35:37.071 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:35:37.087 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:35:37.111 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:35:37.112 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:35:37.129 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:35:37.131 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:35:37.131 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:35:37.145 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:35:37.165 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:35:37.183 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:35:37.197 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.217 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.229 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.242 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.264 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.278 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.303 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.317 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.335 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.350 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.365 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.379 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.394 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.412 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.433 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.448 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.463 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.477 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.491 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.507 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.532 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.547 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.568 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7761min (max=45min)
+2026-07-08 16:35:37.588 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7776min (max=180min)
+2026-07-08 16:35:37.605 | INFO     | __main__:main:308 - Cycle 8 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:40:38.010 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:40:38.010 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:38.011 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:40:38.402 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:40:38.402 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:38.880 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:40:38.881 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:39.384 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:40:39.387 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:40:39.842 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:40:39.844 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:40.752 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:40:41.217 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:40:41.687 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:40:41.689 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:42.080 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:40:42.081 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:40:42.538 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:40:42.539 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:42.946 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:40:42.947 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:40:42.949 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:40:42.950 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:40:42.951 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:40:42.951 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:40:42.952 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:40:42.970 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:40:42.995 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:40:43.029 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:40:45.056 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] signal_interpretation for AVAX: 75% conf, 1985ms
+2026-07-08 16:40:45.057 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:40:45.064 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:40:45.065 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:40:45.096 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:40:45.118 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:40:45.151 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:40:45.184 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:40:45.188 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:40:45.218 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:40:45.222 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:40:45.222 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:40:45.246 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:40:45.278 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:40:45.314 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:40:45.331 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.351 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.373 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.391 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.431 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.473 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.509 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.546 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.570 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.588 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.612 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.636 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.680 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.705 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.741 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.772 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.807 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.827 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.858 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.879 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.900 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.925 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.952 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7766min (max=45min)
+2026-07-08 16:40:45.974 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7781min (max=180min)
+2026-07-08 16:40:45.992 | INFO     | __main__:main:308 - Cycle 9 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:45:46.403 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:45:46.403 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:46.404 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:45:46.793 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:45:46.794 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:47.253 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:45:47.254 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:47.756 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:45:47.757 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:45:48.258 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:45:48.259 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:49.159 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:45:49.660 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:45:50.033 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:45:50.034 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:50.453 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:45:50.455 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:45:50.905 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:45:50.906 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:51.273 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:45:51.273 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:45:51.274 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:45:51.274 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:45:51.274 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:45:51.274 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:45:51.274 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:45:51.278 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:51.279 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 16:45:51.292 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:45:51.308 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:45:51.326 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:45:51.359 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:45:51.364 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:45:51.364 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:45:51.385 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:45:51.400 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:45:51.422 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:45:53.735 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] signal_interpretation for POL: 85% conf, 2260ms
+2026-07-08 16:45:53.736 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:45:53.738 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:45:53.757 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:45:53.759 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:45:53.759 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:45:53.776 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:45:53.806 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:45:53.833 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:45:53.838 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:53.852 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:53.873 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:53.888 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:53.912 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:53.926 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:53.941 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:53.956 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:53.973 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:53.989 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.004 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.022 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.043 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.059 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.075 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.100 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.123 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.145 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.161 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.175 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.195 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.212 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.234 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7771min (max=45min)
+2026-07-08 16:45:54.254 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7786min (max=180min)
+2026-07-08 16:45:54.275 | INFO     | __main__:main:308 - Cycle 10 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:50:54.644 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:50:54.645 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:54.647 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:50:55.039 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:50:55.040 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:55.511 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:50:55.512 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:55.946 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:50:55.947 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:50:56.445 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:50:56.445 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:57.253 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:50:57.686 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:50:58.146 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:50:58.147 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:58.500 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:50:58.501 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:50:58.890 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:50:58.890 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:59.360 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:50:59.362 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:50:59.363 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:50:59.365 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:50:59.367 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:50:59.367 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:50:59.367 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:50:59.387 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:50:59.415 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:50:59.436 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:50:59.463 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:50:59.466 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:50:59.467 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:50:59.488 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:50:59.507 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:50:59.526 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:50:59.567 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:50:59.568 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:50:59.589 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:50:59.592 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:50:59.592 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:50:59.607 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:50:59.631 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:50:59.648 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:50:59.654 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.667 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.686 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.706 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.730 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.754 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.783 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.805 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.833 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.856 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.871 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.891 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.919 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.935 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.953 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:50:59.974 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:50:59.994 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:51:00.017 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:51:00.043 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:51:00.070 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:51:00.092 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:51:00.111 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:51:00.136 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7776min (max=45min)
+2026-07-08 16:51:00.159 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7791min (max=180min)
+2026-07-08 16:51:00.178 | INFO     | __main__:main:308 - Cycle 11 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 16:56:00.592 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:56:00.593 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:00.593 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 16:56:01.068 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 16:56:01.070 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:01.566 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 16:56:01.567 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:02.042 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:56:02.044 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:56:02.436 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 16:56:02.437 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:03.401 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 16:56:03.888 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 16:56:04.260 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 16:56:04.260 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:04.798 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 16:56:04.799 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 16:56:05.188 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 16:56:05.189 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:05.686 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 16:56:05.687 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 16:56:05.688 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 16:56:05.688 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 16:56:05.689 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 16:56:05.689 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 16:56:05.689 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 16:56:05.710 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 16:56:05.734 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 16:56:05.784 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 16:56:05.815 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 16:56:05.821 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:56:05.821 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 16:56:05.847 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 16:56:05.871 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 16:56:05.904 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 16:56:05.945 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 16:56:05.947 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 16:56:05.982 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 16:56:05.987 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 16:56:05.987 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 16:56:06.008 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 16:56:06.028 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 16:56:06.051 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 16:56:06.057 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.072 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.092 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.113 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.145 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.169 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.201 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.227 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.260 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.281 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.301 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.328 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.356 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.382 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.413 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.435 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.461 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.480 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.500 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.521 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.546 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.567 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.605 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7781min (max=45min)
+2026-07-08 16:56:06.628 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7796min (max=180min)
+2026-07-08 16:56:06.649 | INFO     | __main__:main:308 - Cycle 12 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:01:07.212 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:01:07.213 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:07.214 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:01:07.683 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:01:07.683 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:08.072 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:01:08.073 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:08.628 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:01:08.629 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:01:09.167 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:01:09.167 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:10.226 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:01:10.720 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:01:11.316 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:01:11.317 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:11.778 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:01:11.779 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:01:12.293 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:01:12.294 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:13.032 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:01:13.032 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:01:13.033 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:01:13.033 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:01:13.033 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:01:13.035 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:01:13.036 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:01:13.045 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.046 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 17:01:13.068 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:01:13.091 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:01:13.113 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:01:13.147 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:01:13.151 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:01:13.152 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:01:13.182 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:01:13.212 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:01:13.246 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:01:13.297 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:01:13.300 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:01:13.340 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:01:13.343 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:01:13.344 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:01:13.380 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:01:13.419 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:01:13.477 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:01:13.483 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.520 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.560 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.577 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.602 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.626 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.659 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.680 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.710 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.732 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.752 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.770 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.791 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.810 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.829 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.849 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.876 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.896 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.922 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.938 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:13.964 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:13.990 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:14.021 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7786min (max=45min)
+2026-07-08 17:01:14.036 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7801min (max=180min)
+2026-07-08 17:01:14.050 | INFO     | __main__:main:308 - Cycle 13 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:06:14.430 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:06:14.430 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:14.431 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:06:14.842 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:06:14.843 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:15.304 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:06:15.305 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:15.777 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:06:15.777 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:06:16.242 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:06:16.244 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:17.214 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:06:17.678 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:06:18.148 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:06:18.149 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:18.644 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:06:18.645 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:06:19.122 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:06:19.124 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:19.581 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:06:19.581 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:06:19.581 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:06:19.582 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:06:19.583 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:06:19.583 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:06:19.583 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:06:19.600 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:06:19.623 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:06:19.648 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:06:19.684 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:06:19.695 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:06:19.696 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:06:19.719 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:06:19.743 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:06:19.769 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:06:19.804 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:06:19.806 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:06:19.834 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:06:19.839 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:06:19.839 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:06:19.860 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:06:19.886 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:06:19.915 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:06:19.925 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:19.942 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:19.965 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:19.983 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.038 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.072 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.096 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.114 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.139 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.158 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.183 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.207 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.243 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.274 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.298 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.316 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.349 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.370 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.391 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.412 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.437 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.466 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.491 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7791min (max=45min)
+2026-07-08 17:06:20.521 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7806min (max=180min)
+2026-07-08 17:06:20.543 | INFO     | __main__:main:308 - Cycle 14 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:11:21.016 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:11:21.017 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:21.018 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:11:21.506 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:11:21.506 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:21.944 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:11:21.945 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:22.403 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:11:22.404 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:11:22.857 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:11:22.858 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:23.830 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:11:24.303 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:11:24.803 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:11:24.804 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:25.254 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:11:25.255 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:11:25.706 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:11:25.708 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:26.231 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:11:26.232 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:11:26.232 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:11:26.232 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:11:26.232 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:11:26.232 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:11:26.232 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:11:26.256 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:11:26.275 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:11:26.294 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:11:26.328 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:11:26.334 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:11:26.334 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:11:26.360 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:11:26.385 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:11:26.413 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:11:26.468 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:11:26.470 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:11:26.503 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:11:26.507 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:11:26.508 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:11:26.532 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:11:26.562 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:11:26.595 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:11:26.606 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.631 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.664 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.687 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.716 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.741 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.759 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.779 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.805 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.825 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.848 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.871 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.904 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.920 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.944 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:26.964 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:26.992 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:27.013 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:27.043 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:27.070 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:27.092 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:27.110 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:27.133 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7796min (max=45min)
+2026-07-08 17:11:27.152 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7811min (max=180min)
+2026-07-08 17:11:27.174 | INFO     | __main__:main:308 - Cycle 15 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:16:27.524 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:16:27.525 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:27.525 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:16:27.914 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:16:27.914 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:28.311 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:16:28.312 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:28.686 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:16:28.687 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:16:29.170 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:16:29.170 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:29.936 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:16:30.309 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:16:30.715 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:16:30.716 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:31.032 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:16:31.032 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:16:31.425 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:16:31.426 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:31.779 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:16:31.780 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:16:31.781 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:16:31.784 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:16:31.784 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:16:31.784 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:16:31.784 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:16:31.790 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:31.791 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 17:16:31.816 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:16:31.841 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:16:31.859 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:16:31.883 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:16:31.885 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:16:31.885 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:16:31.904 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:16:31.920 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:16:31.945 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:16:31.985 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:16:31.987 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:16:32.010 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:16:32.012 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:16:32.013 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:16:32.030 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:16:32.054 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:16:32.072 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:16:32.080 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.096 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.133 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.160 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.185 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.205 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.227 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.244 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.259 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.287 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.322 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.342 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.366 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.389 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.411 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.428 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.448 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.473 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.493 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.512 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.527 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.542 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.566 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7802min (max=45min)
+2026-07-08 17:16:32.580 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7817min (max=180min)
+2026-07-08 17:16:32.595 | INFO     | __main__:main:308 - Cycle 16 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:21:32.959 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:21:32.959 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:32.959 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:21:33.345 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:21:33.348 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:33.766 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:21:33.766 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:34.168 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:21:34.169 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:21:34.519 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:21:34.521 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:35.286 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:21:35.644 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:21:36.025 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:21:36.025 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:36.377 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:21:36.377 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:21:36.854 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:21:36.854 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:37.211 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:21:37.212 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:21:37.213 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:21:37.214 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:21:37.217 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:21:37.217 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:21:37.217 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:21:37.245 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:21:37.266 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:21:37.288 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:21:37.320 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:21:37.322 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:21:37.322 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:21:37.342 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:21:37.372 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:21:37.396 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:21:37.435 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:21:37.440 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:21:37.471 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:21:37.474 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:21:37.474 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:21:37.492 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:21:37.515 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:21:37.543 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:21:37.559 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.580 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.598 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.615 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.628 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.646 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.663 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.682 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.701 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.714 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.733 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.748 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.767 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.786 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.814 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.833 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.858 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.874 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.899 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.922 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.954 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:37.970 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:37.992 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7807min (max=45min)
+2026-07-08 17:21:38.017 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7822min (max=180min)
+2026-07-08 17:21:38.031 | INFO     | __main__:main:308 - Cycle 17 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:26:38.430 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:26:38.431 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:38.431 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:26:38.904 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:26:38.904 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:39.356 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:26:39.356 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:39.726 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:26:39.727 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:26:40.170 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:26:40.171 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:40.924 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:26:41.332 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:26:41.811 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:26:41.813 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:42.340 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:26:42.341 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:26:42.687 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:26:42.688 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:43.068 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:26:43.070 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:26:43.070 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:26:43.071 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:26:43.073 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:26:43.073 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:26:43.073 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:26:43.092 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:26:43.119 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:26:43.135 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:26:43.157 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:26:43.159 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:26:43.159 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:26:43.176 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:26:43.192 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:26:43.214 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:26:43.238 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:26:43.240 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:26:45.607 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] signal_interpretation for DOT: 83% conf, 2346ms
+2026-07-08 17:26:45.607 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:26:45.612 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:26:45.612 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:26:45.629 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:26:45.651 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:26:45.667 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:26:45.674 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.692 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.709 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.725 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.744 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.760 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.778 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.790 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.818 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.841 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.859 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.878 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.901 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.918 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.938 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:45.957 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:45.985 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:46.007 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:46.037 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:46.061 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:46.095 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:46.123 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:46.155 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7812min (max=45min)
+2026-07-08 17:26:46.174 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7827min (max=180min)
+2026-07-08 17:26:46.189 | INFO     | __main__:main:308 - Cycle 18 complete. Next scan in 300s. Balance: $5,089.02
+2026-07-08 17:31:46.623 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:31:46.623 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:46.624 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.47
+2026-07-08 17:31:46.982 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-08 17:31:46.982 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:47.379 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.21
+2026-07-08 17:31:47.380 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:47.770 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:31:47.770 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:31:48.182 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-08 17:31:48.184 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:48.894 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.14
+2026-07-08 17:31:49.258 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-08 17:31:49.667 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.08
+2026-07-08 17:31:49.668 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:50.025 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-08 17:31:50.027 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-08 17:31:50.371 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU RSI_OVERSOLD dir=BUY str=0.03
+2026-07-08 17:31:50.371 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:50.752 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BEAR dir=SELL str=0.10
+2026-07-08 17:31:50.753 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG RSI_OVERSOLD dir=BUY str=0.13
+2026-07-08 17:31:50.754 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-08 17:31:50.755 | INFO     | agents.market_scanner:scan:71 - Scan complete: 22 signals across 12 assets
+2026-07-08 17:31:50.755 | INFO     | core.market_guard:_set_guard:241 - MARKETGUARD: guard:degraded ACTIVE for 1800s (DD 7.5%)
+2026-07-08 17:31:50.755 | WARNING  | core.market_guard:check:100 - MARKETGUARD: DEGRADED — DD 7.5%, trading at 0.25x
+2026-07-08 17:31:50.756 | WARNING  | __main__:main:261 - MarketGuard: SOFT_PAUSE — DEGRADED_DD:7.5% (mult=0.25)
+2026-07-08 17:31:50.763 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:50.764 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-08 17:31:50.785 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity BTC/4h: no_signal (regime=TREND_DOWN trend=0.211)
+2026-07-08 17:31:50.810 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ETH/4h: no_signal (regime=TREND_DOWN trend=0.385)
+2026-07-08 17:31:50.828 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity SOL/4h: no_signal (regime=TREND_DOWN trend=0.210)
+2026-07-08 17:31:50.848 | INFO     | __main__:main:279 - Opportunity: AVAX/4h SELL score=68
+2026-07-08 17:31:50.849 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: AVAX risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:31:50.849 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:1.04
+2026-07-08 17:31:50.864 | INFO     | agents.strategy_engine:evaluate:274 - No opportunity INJ/4h: BLOCKED [TREND_MOMENTUM:REGIME_BLOCK:TREND_MOMENTUM:CHOPPY, SMC_ORDER_BLOCKS:REGIME_BLOCK:SMC_ORDER_BLOCKS:CHOPPY, BTC_MICROSTRUCTURE:REGIME_BLOCK:BTC_MICROSTRUCTURE:CHOPPY]
+2026-07-08 17:31:50.880 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity LINK/4h: no_signal (regime=TREND_DOWN trend=0.123)
+2026-07-08 17:31:50.895 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity AAVE/4h: no_signal (regime=TREND_DOWN trend=0.140)
+2026-07-08 17:31:50.916 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=103
+2026-07-08 17:31:50.918 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: DUPLICATE_ASSET:POL
+2026-07-08 17:31:50.936 | INFO     | __main__:main:279 - Opportunity: DOT/4h SELL score=83
+2026-07-08 17:31:50.937 | INFO     | risk.risk_manager:evaluate:260 - MACRO_SIZE: DOT risk ×0.0625 (macro=BULL_RUN)
+2026-07-08 17:31:50.937 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_RR:0.83
+2026-07-08 17:31:50.953 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_DOWN trend=0.291)
+2026-07-08 17:31:50.971 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAU/4h: low_confluence 0/3 factors=[] dir=BUY score=65 regime=RANGE
+2026-07-08 17:31:50.992 | INFO     | agents.strategy_engine:evaluate:321 - No opportunity XAG/4h: low_confluence 1/3 factors=['VOLUME_UP'] dir=BUY score=65 regime=TREND_DOWN
+2026-07-08 17:31:50.997 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.012 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.027 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.041 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.057 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.071 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.082 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.097 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AVAX/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.113 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.127 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.142 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.156 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.171 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.186 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.203 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.216 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.231 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.244 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.257 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.268 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.282 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.296 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.312 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/15m latest=2026-07-03 07:15:00+00:00, age=7817min (max=45min)
+2026-07-08 17:31:51.326 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7832min (max=180min)
+2026-07-08 17:31:51.338 | INFO     | __main__:main:308 - Cycle 19 complete. Next scan in 300s. Balance: $5,089.02

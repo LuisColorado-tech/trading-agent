@@ -1,0 +1,1208 @@
+2026-04-28 17:34:41.603 | INFO     | core.poly_strategy_hub:_init_strategies:69 - POLY HUB: SignalBasedPolyStrategy loaded
+2026-04-28 17:34:41.619 | INFO     | core.poly_strategy_hub:_init_strategies:78 - POLY HUB: TailEndPolyStrategy loaded
+2026-04-28 17:34:41.619 | INFO     | core.poly_strategy_hub:_init_strategies:109 - POLY HUB: 2 strategies active: ['signal_based', 'tail_end']
+2026-04-28 17:34:41.643 | INFO     | __main__:main:186 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_004 Balance: $672.15
+2026-04-28 17:34:41.646 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 17:34:42.358 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 17:34:44.807 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 17:34:46.113 | INFO     | __main__:main:388 - Cycle 1 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 17:39:46.118 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 17:39:46.851 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.790
+2026-04-28 17:39:49.205 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 17:39:50.503 | INFO     | __main__:main:388 - Cycle 2 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 17:44:50.506 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 17:44:51.206 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 17:45:00.041 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 17:45:00.047 | INFO     | __main__:main:252 - Cycle 3: Scanned 1 markets, saved 1
+2026-04-28 17:45:01.501 | INFO     | __main__:main:388 - Cycle 3 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 17:50:01.507 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 17:50:02.453 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 17:50:04.797 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 17:50:04.801 | INFO     | __main__:main:252 - Cycle 4: Scanned 1 markets, saved 1
+2026-04-28 17:50:06.050 | INFO     | __main__:main:388 - Cycle 4 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 17:55:06.054 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 17:55:06.814 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 17:55:08.778 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 17:55:10.343 | INFO     | __main__:main:388 - Cycle 5 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:00:10.349 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:00:11.088 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:00:17.147 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:00:18.477 | INFO     | __main__:main:388 - Cycle 6 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:05:18.480 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:05:19.168 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 18:05:21.095 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:05:22.385 | INFO     | __main__:main:388 - Cycle 7 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:10:22.389 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:10:23.122 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:10:25.110 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:10:25.114 | INFO     | __main__:main:252 - Cycle 8: Scanned 1 markets, saved 1
+2026-04-28 18:10:26.355 | INFO     | __main__:main:388 - Cycle 8 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:15:26.360 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:15:27.105 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:15:29.182 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:15:30.495 | INFO     | __main__:main:388 - Cycle 9 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:20:30.499 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:20:31.228 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:20:33.709 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:20:34.987 | INFO     | __main__:main:388 - Cycle 10 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:25:34.991 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:25:35.716 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 18:25:37.748 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:25:37.756 | INFO     | __main__:main:252 - Cycle 11: Scanned 1 markets, saved 1
+2026-04-28 18:25:38.941 | INFO     | __main__:main:388 - Cycle 11 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:30:38.944 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:30:39.667 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:30:42.115 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:30:42.120 | INFO     | __main__:main:252 - Cycle 12: Scanned 1 markets, saved 1
+2026-04-28 18:30:43.437 | INFO     | __main__:main:388 - Cycle 12 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:35:43.441 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:35:44.179 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:35:46.443 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:35:46.448 | INFO     | __main__:main:252 - Cycle 13: Scanned 1 markets, saved 1
+2026-04-28 18:35:47.740 | INFO     | __main__:main:388 - Cycle 13 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:40:47.743 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:40:48.477 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:40:50.663 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:40:50.667 | INFO     | __main__:main:252 - Cycle 14: Scanned 1 markets, saved 1
+2026-04-28 18:40:51.885 | INFO     | __main__:main:388 - Cycle 14 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:45:51.888 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:45:52.617 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:45:55.055 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 18:45:55.060 | INFO     | __main__:main:252 - Cycle 15: Scanned 1 markets, saved 1
+2026-04-28 18:45:56.255 | INFO     | __main__:main:388 - Cycle 15 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:50:56.258 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:50:57.009 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:50:59.276 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:51:00.634 | INFO     | __main__:main:388 - Cycle 16 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 18:56:00.637 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 18:56:01.368 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 18:56:03.453 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 18:56:04.706 | INFO     | __main__:main:388 - Cycle 17 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:01:04.709 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:01:05.443 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:01:07.748 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:01:09.021 | INFO     | __main__:main:388 - Cycle 18 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:06:09.024 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:06:09.753 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:06:10.773 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 19:06:10.777 | INFO     | __main__:main:252 - Cycle 19: Scanned 1 markets, saved 1
+2026-04-28 19:06:12.052 | INFO     | __main__:main:388 - Cycle 19 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:11:12.056 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:11:12.780 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:11:15.465 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 19:11:15.470 | INFO     | __main__:main:252 - Cycle 20: Scanned 1 markets, saved 1
+2026-04-28 19:11:16.730 | INFO     | __main__:main:388 - Cycle 20 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:16:16.734 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:16:17.456 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:16:19.972 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:16:21.242 | INFO     | __main__:main:388 - Cycle 21 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:21:21.246 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:21:21.972 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:21:24.373 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:21:25.660 | INFO     | __main__:main:388 - Cycle 22 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:26:25.664 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:26:26.364 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 19:26:28.769 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:26:30.012 | INFO     | __main__:main:388 - Cycle 23 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:31:30.017 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:31:30.747 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:31:33.181 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:31:34.443 | INFO     | __main__:main:388 - Cycle 24 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:36:34.448 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:36:35.206 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:36:37.635 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:36:38.836 | INFO     | __main__:main:388 - Cycle 25 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:41:38.842 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:41:39.652 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:41:42.415 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:41:43.651 | INFO     | __main__:main:388 - Cycle 26 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:46:43.654 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:46:44.385 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:46:46.432 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-28 19:46:47.624 | INFO     | __main__:main:388 - Cycle 27 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:51:47.627 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:51:48.370 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:51:50.436 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 19:51:50.441 | INFO     | __main__:main:252 - Cycle 28: Scanned 1 markets, saved 1
+2026-04-28 19:51:51.701 | INFO     | __main__:main:388 - Cycle 28 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 19:56:51.704 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 19:56:52.421 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 19:56:54.644 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 19:56:54.648 | INFO     | __main__:main:252 - Cycle 29: Scanned 1 markets, saved 1
+2026-04-28 19:56:55.885 | INFO     | __main__:main:388 - Cycle 29 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:01:55.888 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:01:56.610 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-28 20:01:58.795 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:01:58.800 | INFO     | __main__:main:252 - Cycle 30: Scanned 1 markets, saved 1
+2026-04-28 20:02:00.010 | INFO     | __main__:main:388 - Cycle 30 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:07:00.018 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:07:00.754 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.810
+2026-04-28 20:07:02.734 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:07:02.740 | INFO     | __main__:main:252 - Cycle 31: Scanned 1 markets, saved 1
+2026-04-28 20:07:04.160 | INFO     | __main__:main:388 - Cycle 31 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:12:04.164 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:12:04.952 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 20:12:06.927 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:12:06.931 | INFO     | __main__:main:252 - Cycle 32: Scanned 1 markets, saved 1
+2026-04-28 20:12:08.288 | INFO     | __main__:main:388 - Cycle 32 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:17:08.291 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:17:09.050 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.815
+2026-04-28 20:17:11.145 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:17:11.149 | INFO     | __main__:main:252 - Cycle 33: Scanned 1 markets, saved 1
+2026-04-28 20:17:12.539 | INFO     | __main__:main:388 - Cycle 33 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:22:12.543 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:22:13.278 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.815
+2026-04-28 20:22:15.489 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:22:15.498 | INFO     | __main__:main:252 - Cycle 34: Scanned 1 markets, saved 1
+2026-04-28 20:22:16.750 | INFO     | __main__:main:388 - Cycle 34 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:27:16.754 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:27:17.449 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 20:27:19.931 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:27:19.936 | INFO     | __main__:main:252 - Cycle 35: Scanned 1 markets, saved 1
+2026-04-28 20:27:21.254 | INFO     | __main__:main:388 - Cycle 35 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:32:21.257 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:32:22.012 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-28 20:32:24.596 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:32:24.600 | INFO     | __main__:main:252 - Cycle 36: Scanned 1 markets, saved 1
+2026-04-28 20:32:25.856 | INFO     | __main__:main:388 - Cycle 36 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:37:25.859 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:37:26.595 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 20:37:28.992 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:37:28.997 | INFO     | __main__:main:252 - Cycle 37: Scanned 1 markets, saved 1
+2026-04-28 20:37:29.196 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Southampton FC vs. Ipswich Town FC end in a draw? → YES
+2026-04-28 20:37:29.197 | INFO     | __main__:main:257 - Resolved 1 markets
+2026-04-28 20:37:30.277 | INFO     | __main__:main:388 - Cycle 37 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:42:30.281 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:42:30.999 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-28 20:42:33.402 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:42:33.406 | INFO     | __main__:main:252 - Cycle 38: Scanned 1 markets, saved 1
+2026-04-28 20:42:34.501 | INFO     | __main__:main:388 - Cycle 38 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:47:34.505 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:47:35.240 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-28 20:47:37.280 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:47:37.286 | INFO     | __main__:main:252 - Cycle 39: Scanned 1 markets, saved 1
+2026-04-28 20:47:38.637 | INFO     | __main__:main:388 - Cycle 39 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:52:38.640 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:52:39.356 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 20:52:41.673 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:52:41.679 | INFO     | __main__:main:252 - Cycle 40: Scanned 1 markets, saved 1
+2026-04-28 20:52:42.813 | INFO     | __main__:main:388 - Cycle 40 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 20:57:42.817 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 20:57:43.556 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 20:57:45.607 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 20:57:45.613 | INFO     | __main__:main:252 - Cycle 41: Scanned 1 markets, saved 1
+2026-04-28 20:57:46.645 | INFO     | __main__:main:388 - Cycle 41 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:02:46.649 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:02:47.344 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-28 21:02:49.385 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:02:49.390 | INFO     | __main__:main:252 - Cycle 42: Scanned 1 markets, saved 1
+2026-04-28 21:02:50.675 | INFO     | __main__:main:388 - Cycle 42 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:07:50.679 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:07:51.423 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-28 21:07:53.401 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:07:53.405 | INFO     | __main__:main:252 - Cycle 43: Scanned 1 markets, saved 1
+2026-04-28 21:07:54.487 | INFO     | __main__:main:388 - Cycle 43 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:12:54.492 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:12:55.249 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-28 21:12:57.316 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:12:57.320 | INFO     | __main__:main:252 - Cycle 44: Scanned 1 markets, saved 1
+2026-04-28 21:12:58.397 | INFO     | __main__:main:388 - Cycle 44 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:17:58.403 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:17:59.155 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-28 21:18:01.219 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:18:01.229 | INFO     | __main__:main:252 - Cycle 45: Scanned 1 markets, saved 1
+2026-04-28 21:18:02.432 | INFO     | __main__:main:388 - Cycle 45 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:23:02.436 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:23:03.180 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-28 21:23:05.282 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:23:05.287 | INFO     | __main__:main:252 - Cycle 46: Scanned 1 markets, saved 1
+2026-04-28 21:23:06.364 | INFO     | __main__:main:388 - Cycle 46 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:28:06.369 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:28:07.093 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-28 21:28:09.122 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:28:09.127 | INFO     | __main__:main:252 - Cycle 47: Scanned 1 markets, saved 1
+2026-04-28 21:28:10.170 | INFO     | __main__:main:388 - Cycle 47 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:33:10.176 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:33:10.894 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 21:33:12.311 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:33:12.315 | INFO     | __main__:main:252 - Cycle 48: Scanned 1 markets, saved 1
+2026-04-28 21:33:13.334 | INFO     | __main__:main:388 - Cycle 48 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:38:13.337 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:38:14.085 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 21:38:16.526 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:38:16.530 | INFO     | __main__:main:252 - Cycle 49: Scanned 1 markets, saved 1
+2026-04-28 21:38:17.658 | INFO     | __main__:main:388 - Cycle 49 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:43:17.661 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:43:18.403 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 21:43:20.752 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:43:20.756 | INFO     | __main__:main:252 - Cycle 50: Scanned 1 markets, saved 1
+2026-04-28 21:43:21.827 | INFO     | __main__:main:388 - Cycle 50 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:48:21.830 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:48:22.536 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 21:48:24.637 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:48:24.642 | INFO     | __main__:main:252 - Cycle 51: Scanned 1 markets, saved 1
+2026-04-28 21:48:25.729 | INFO     | __main__:main:388 - Cycle 51 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:53:25.732 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:53:26.487 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 21:53:28.826 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:53:28.830 | INFO     | __main__:main:252 - Cycle 52: Scanned 1 markets, saved 1
+2026-04-28 21:53:29.865 | INFO     | __main__:main:388 - Cycle 52 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 21:58:29.867 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 21:58:30.586 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-28 21:58:32.593 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 21:58:32.598 | INFO     | __main__:main:252 - Cycle 53: Scanned 1 markets, saved 1
+2026-04-28 21:58:33.685 | INFO     | __main__:main:388 - Cycle 53 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:03:33.690 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:03:34.437 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:03:36.342 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:03:36.347 | INFO     | __main__:main:252 - Cycle 54: Scanned 1 markets, saved 1
+2026-04-28 22:03:37.411 | INFO     | __main__:main:388 - Cycle 54 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:08:37.414 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:08:38.133 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:08:40.149 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:08:40.153 | INFO     | __main__:main:252 - Cycle 55: Scanned 1 markets, saved 1
+2026-04-28 22:08:41.206 | INFO     | __main__:main:388 - Cycle 55 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:13:41.210 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:13:41.980 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:13:43.832 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:13:43.839 | INFO     | __main__:main:252 - Cycle 56: Scanned 1 markets, saved 1
+2026-04-28 22:13:44.885 | INFO     | __main__:main:388 - Cycle 56 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:18:44.889 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:18:45.657 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:18:47.326 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:18:47.330 | INFO     | __main__:main:252 - Cycle 57: Scanned 1 markets, saved 1
+2026-04-28 22:18:48.358 | INFO     | __main__:main:388 - Cycle 57 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:23:48.361 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:23:49.114 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:23:51.035 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:23:51.040 | INFO     | __main__:main:252 - Cycle 58: Scanned 1 markets, saved 1
+2026-04-28 22:23:52.100 | INFO     | __main__:main:388 - Cycle 58 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:28:52.104 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:28:52.830 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:28:54.751 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:28:54.756 | INFO     | __main__:main:252 - Cycle 59: Scanned 1 markets, saved 1
+2026-04-28 22:28:55.785 | INFO     | __main__:main:388 - Cycle 59 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:33:55.789 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:33:56.501 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:33:58.501 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:33:58.505 | INFO     | __main__:main:252 - Cycle 60: Scanned 1 markets, saved 1
+2026-04-28 22:33:59.532 | INFO     | __main__:main:388 - Cycle 60 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:38:59.535 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:39:00.224 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:39:02.432 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:39:02.439 | INFO     | __main__:main:252 - Cycle 61: Scanned 1 markets, saved 1
+2026-04-28 22:39:03.679 | INFO     | __main__:main:388 - Cycle 61 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:44:03.683 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:44:04.404 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:44:06.082 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:44:06.086 | INFO     | __main__:main:252 - Cycle 62: Scanned 1 markets, saved 1
+2026-04-28 22:44:07.180 | INFO     | __main__:main:388 - Cycle 62 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:49:07.183 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:49:07.950 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:49:08.904 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:49:08.909 | INFO     | __main__:main:252 - Cycle 63: Scanned 1 markets, saved 1
+2026-04-28 22:49:10.205 | INFO     | __main__:main:388 - Cycle 63 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:54:10.208 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:54:10.952 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 22:54:12.987 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:54:12.992 | INFO     | __main__:main:252 - Cycle 64: Scanned 1 markets, saved 1
+2026-04-28 22:54:14.042 | INFO     | __main__:main:388 - Cycle 64 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 22:59:14.045 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 22:59:14.763 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 22:59:16.795 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 22:59:16.799 | INFO     | __main__:main:252 - Cycle 65: Scanned 1 markets, saved 1
+2026-04-28 22:59:17.895 | INFO     | __main__:main:388 - Cycle 65 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:04:17.898 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:04:18.603 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:04:20.639 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:04:20.643 | INFO     | __main__:main:252 - Cycle 66: Scanned 1 markets, saved 1
+2026-04-28 23:04:21.875 | INFO     | __main__:main:388 - Cycle 66 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:09:21.878 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:09:22.598 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:09:24.580 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:09:24.584 | INFO     | __main__:main:252 - Cycle 67: Scanned 1 markets, saved 1
+2026-04-28 23:09:25.642 | INFO     | __main__:main:388 - Cycle 67 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:14:25.646 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:14:26.370 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:14:28.183 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:14:28.187 | INFO     | __main__:main:252 - Cycle 68: Scanned 1 markets, saved 1
+2026-04-28 23:14:29.269 | INFO     | __main__:main:388 - Cycle 68 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:19:29.272 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:19:30.012 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:19:32.489 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:19:32.493 | INFO     | __main__:main:252 - Cycle 69: Scanned 1 markets, saved 1
+2026-04-28 23:19:33.596 | INFO     | __main__:main:388 - Cycle 69 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:24:33.606 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:24:34.367 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:24:36.460 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:24:36.466 | INFO     | __main__:main:252 - Cycle 70: Scanned 1 markets, saved 1
+2026-04-28 23:24:37.490 | INFO     | __main__:main:388 - Cycle 70 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:29:37.492 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:29:38.238 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:29:40.239 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:29:40.244 | INFO     | __main__:main:252 - Cycle 71: Scanned 1 markets, saved 1
+2026-04-28 23:29:41.302 | INFO     | __main__:main:388 - Cycle 71 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:34:41.306 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:34:42.020 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:34:44.017 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:34:44.022 | INFO     | __main__:main:252 - Cycle 72: Scanned 1 markets, saved 1
+2026-04-28 23:34:45.106 | INFO     | __main__:main:388 - Cycle 72 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:39:45.110 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:39:45.850 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:39:47.871 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:39:47.875 | INFO     | __main__:main:252 - Cycle 73: Scanned 1 markets, saved 1
+2026-04-28 23:39:48.928 | INFO     | __main__:main:388 - Cycle 73 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:44:48.931 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:44:49.684 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-28 23:44:51.728 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:44:51.735 | INFO     | __main__:main:252 - Cycle 74: Scanned 1 markets, saved 1
+2026-04-28 23:44:52.787 | INFO     | __main__:main:388 - Cycle 74 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:49:52.790 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:49:53.698 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 23:49:56.171 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:49:56.175 | INFO     | __main__:main:252 - Cycle 75: Scanned 1 markets, saved 1
+2026-04-28 23:49:57.217 | INFO     | __main__:main:388 - Cycle 75 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-28 23:54:57.220 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-28 23:54:57.956 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-28 23:54:59.843 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-28 23:54:59.847 | INFO     | __main__:main:252 - Cycle 76: Scanned 1 markets, saved 1
+2026-04-28 23:55:00.921 | INFO     | __main__:main:388 - Cycle 76 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:00:00.929 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:00:01.764 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-29 00:00:05.616 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:00:05.622 | INFO     | __main__:main:252 - Cycle 77: Scanned 1 markets, saved 1
+2026-04-29 00:00:05.848 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the Fed decrease interest rates by 25 bps after the Apr → NO
+2026-04-29 00:00:06.045 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the Fed decide differently in the next three decisions  → NO
+2026-04-29 00:00:06.387 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will there be no change in Fed interest rates after the Apri → YES
+2026-04-29 00:00:06.602 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the Fed Pause–Pause–Pause in the next three decisions ( → YES
+2026-04-29 00:00:06.798 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the Fed increase interest rates by 25+ bps after the Ap → NO
+2026-04-29 00:00:06.967 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the Fed Pause–Pause–Cut in the next three decisions (Ja → NO
+2026-04-29 00:00:07.235 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Fed rate cut by April 2026 meeting? → NO
+2026-04-29 00:00:07.419 | INFO     | __main__:main:257 - Resolved 7 markets
+2026-04-29 00:00:10.009 | INFO     | __main__:main:388 - Cycle 77 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:05:10.020 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:05:10.747 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:05:12.631 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:05:12.636 | INFO     | __main__:main:252 - Cycle 78: Scanned 1 markets, saved 1
+2026-04-29 00:05:13.862 | INFO     | __main__:main:388 - Cycle 78 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:10:13.865 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:10:14.674 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:10:16.658 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:10:16.663 | INFO     | __main__:main:252 - Cycle 79: Scanned 1 markets, saved 1
+2026-04-29 00:10:18.034 | INFO     | __main__:main:388 - Cycle 79 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:15:18.038 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:15:18.750 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.785
+2026-04-29 00:15:20.597 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:15:20.604 | INFO     | __main__:main:252 - Cycle 80: Scanned 1 markets, saved 1
+2026-04-29 00:15:21.881 | INFO     | __main__:main:388 - Cycle 80 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:20:21.885 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:20:22.589 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:20:24.621 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:20:24.626 | INFO     | __main__:main:252 - Cycle 81: Scanned 1 markets, saved 1
+2026-04-29 00:20:25.919 | INFO     | __main__:main:388 - Cycle 81 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:25:25.924 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:25:26.666 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.790
+2026-04-29 00:25:28.995 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:25:29.000 | INFO     | __main__:main:252 - Cycle 82: Scanned 1 markets, saved 1
+2026-04-29 00:25:30.295 | INFO     | __main__:main:388 - Cycle 82 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:30:30.298 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:30:31.027 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.790
+2026-04-29 00:30:33.068 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:30:33.074 | INFO     | __main__:main:252 - Cycle 83: Scanned 1 markets, saved 1
+2026-04-29 00:30:34.423 | INFO     | __main__:main:388 - Cycle 83 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:35:34.430 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:35:35.124 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:35:37.114 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:35:37.120 | INFO     | __main__:main:252 - Cycle 84: Scanned 1 markets, saved 1
+2026-04-29 00:35:38.433 | INFO     | __main__:main:388 - Cycle 84 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:40:38.436 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:40:39.236 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.790
+2026-04-29 00:40:41.317 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:40:41.323 | INFO     | __main__:main:252 - Cycle 85: Scanned 1 markets, saved 1
+2026-04-29 00:40:42.586 | INFO     | __main__:main:388 - Cycle 85 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:45:42.589 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:45:43.324 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:45:45.444 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:45:45.449 | INFO     | __main__:main:252 - Cycle 86: Scanned 1 markets, saved 1
+2026-04-29 00:45:46.807 | INFO     | __main__:main:388 - Cycle 86 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:50:46.810 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:50:47.533 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 00:50:49.592 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:50:49.597 | INFO     | __main__:main:252 - Cycle 87: Scanned 1 markets, saved 1
+2026-04-29 00:50:50.853 | INFO     | __main__:main:388 - Cycle 87 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 00:55:50.856 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 00:55:51.579 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.810
+2026-04-29 00:55:53.032 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 00:55:53.039 | INFO     | __main__:main:252 - Cycle 88: Scanned 1 markets, saved 1
+2026-04-29 00:55:54.317 | INFO     | __main__:main:388 - Cycle 88 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:00:54.320 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:00:55.067 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.815
+2026-04-29 01:00:56.504 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:00:56.511 | INFO     | __main__:main:252 - Cycle 89: Scanned 1 markets, saved 1
+2026-04-29 01:00:57.841 | INFO     | __main__:main:388 - Cycle 89 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:05:57.846 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:06:02.615 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.815
+2026-04-29 01:06:04.072 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:06:04.078 | INFO     | __main__:main:252 - Cycle 90: Scanned 1 markets, saved 1
+2026-04-29 01:06:05.381 | INFO     | __main__:main:388 - Cycle 90 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:11:05.386 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:11:06.142 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.810
+2026-04-29 01:11:08.227 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:11:08.233 | INFO     | __main__:main:252 - Cycle 91: Scanned 1 markets, saved 1
+2026-04-29 01:11:09.536 | INFO     | __main__:main:388 - Cycle 91 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:16:09.540 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:16:10.274 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.810
+2026-04-29 01:16:12.502 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:16:12.507 | INFO     | __main__:main:252 - Cycle 92: Scanned 1 markets, saved 1
+2026-04-29 01:16:13.713 | INFO     | __main__:main:388 - Cycle 92 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:21:13.718 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:21:14.428 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-29 01:21:16.818 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:21:16.825 | INFO     | __main__:main:252 - Cycle 93: Scanned 1 markets, saved 1
+2026-04-29 01:21:18.123 | INFO     | __main__:main:388 - Cycle 93 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:26:18.129 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:26:18.841 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 01:26:21.031 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:26:21.038 | INFO     | __main__:main:252 - Cycle 94: Scanned 1 markets, saved 1
+2026-04-29 01:26:22.402 | INFO     | __main__:main:388 - Cycle 94 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:31:22.405 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:31:23.157 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-29 01:31:25.240 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:31:25.245 | INFO     | __main__:main:252 - Cycle 95: Scanned 1 markets, saved 1
+2026-04-29 01:31:26.533 | INFO     | __main__:main:388 - Cycle 95 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:36:26.537 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:36:27.249 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-29 01:36:29.379 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 01:36:29.386 | INFO     | __main__:main:252 - Cycle 96: Scanned 2 markets, saved 2
+2026-04-29 01:36:30.699 | INFO     | __main__:main:388 - Cycle 96 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:41:30.703 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:41:31.453 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.800
+2026-04-29 01:41:34.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:41:34.022 | INFO     | __main__:main:252 - Cycle 97: Scanned 1 markets, saved 1
+2026-04-29 01:41:35.298 | INFO     | __main__:main:388 - Cycle 97 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:46:35.309 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:46:36.036 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-29 01:46:38.620 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:46:38.628 | INFO     | __main__:main:252 - Cycle 98: Scanned 1 markets, saved 1
+2026-04-29 01:46:39.955 | INFO     | __main__:main:388 - Cycle 98 complete | Evaluated: 0 | Executed: 0 | Open: 5 | Exposure: $89.80 | Balance: $672.15 | PnL: $-238.05 | Next scan in 300s
+2026-04-29 01:51:39.957 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.
+2026-04-29 01:51:40.682 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.805
+2026-04-29 01:51:40.899 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [STOP_LOSS]: "Will the price of Bitcoin be above $76,000 on Apri" NO exit@0.270 PnL=$-7.64
+2026-04-29 01:51:40.910 | INFO     | __main__:main:212 - Position closed: STOP_LOSS PnL=$-7.64 (-44.3%)
+2026-04-29 01:51:43.264 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:51:43.269 | INFO     | __main__:main:252 - Cycle 99: Scanned 1 markets, saved 1
+2026-04-29 01:51:44.621 | INFO     | __main__:main:388 - Cycle 99 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 01:56:44.624 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 01:56:45.352 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-29 01:56:47.227 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 01:56:47.232 | INFO     | __main__:main:252 - Cycle 100: Scanned 1 markets, saved 1
+2026-04-29 01:56:48.644 | INFO     | __main__:main:388 - Cycle 100 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:01:48.649 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:01:49.377 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:01:51.390 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:01:51.396 | INFO     | __main__:main:252 - Cycle 101: Scanned 1 markets, saved 1
+2026-04-29 02:01:52.721 | INFO     | __main__:main:388 - Cycle 101 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:06:52.725 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:06:53.492 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:06:55.517 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:06:55.525 | INFO     | __main__:main:252 - Cycle 102: Scanned 1 markets, saved 1
+2026-04-29 02:06:56.872 | INFO     | __main__:main:388 - Cycle 102 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:11:56.875 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:11:57.610 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:11:59.859 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:11:59.865 | INFO     | __main__:main:252 - Cycle 103: Scanned 1 markets, saved 1
+2026-04-29 02:12:01.231 | INFO     | __main__:main:388 - Cycle 103 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:17:01.240 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:17:02.016 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:17:04.211 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:17:04.215 | INFO     | __main__:main:252 - Cycle 104: Scanned 1 markets, saved 1
+2026-04-29 02:17:05.537 | INFO     | __main__:main:388 - Cycle 104 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:22:05.544 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:22:06.281 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:22:08.423 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:22:08.427 | INFO     | __main__:main:252 - Cycle 105: Scanned 1 markets, saved 1
+2026-04-29 02:22:09.740 | INFO     | __main__:main:388 - Cycle 105 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:27:09.746 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:27:10.481 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-29 02:27:12.591 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:27:12.598 | INFO     | __main__:main:252 - Cycle 106: Scanned 1 markets, saved 1
+2026-04-29 02:27:13.891 | INFO     | __main__:main:388 - Cycle 106 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:32:13.895 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:32:14.625 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.815
+2026-04-29 02:32:16.552 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:32:16.557 | INFO     | __main__:main:252 - Cycle 107: Scanned 1 markets, saved 1
+2026-04-29 02:32:17.782 | INFO     | __main__:main:388 - Cycle 107 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:37:17.785 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:37:18.489 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.820
+2026-04-29 02:37:20.682 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:37:20.689 | INFO     | __main__:main:252 - Cycle 108: Scanned 1 markets, saved 1
+2026-04-29 02:37:22.114 | INFO     | __main__:main:388 - Cycle 108 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:42:22.120 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:42:22.819 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-29 02:42:24.693 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:42:24.698 | INFO     | __main__:main:252 - Cycle 109: Scanned 1 markets, saved 1
+2026-04-29 02:42:26.109 | INFO     | __main__:main:388 - Cycle 109 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:47:26.113 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:47:26.841 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.825
+2026-04-29 02:47:28.920 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:47:28.927 | INFO     | __main__:main:252 - Cycle 110: Scanned 1 markets, saved 1
+2026-04-29 02:47:30.349 | INFO     | __main__:main:388 - Cycle 110 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:52:30.352 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:52:31.060 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:52:33.353 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:52:33.364 | INFO     | __main__:main:252 - Cycle 111: Scanned 1 markets, saved 1
+2026-04-29 02:52:34.672 | INFO     | __main__:main:388 - Cycle 111 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 02:57:34.675 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 02:57:35.421 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 02:57:37.453 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 02:57:37.459 | INFO     | __main__:main:252 - Cycle 112: Scanned 1 markets, saved 1
+2026-04-29 02:57:38.740 | INFO     | __main__:main:388 - Cycle 112 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 03:02:38.743 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 03:02:39.466 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 03:02:41.229 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:02:41.239 | INFO     | __main__:main:252 - Cycle 113: Scanned 1 markets, saved 1
+2026-04-29 03:02:42.524 | INFO     | __main__:main:388 - Cycle 113 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 03:07:42.527 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 03:07:43.221 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 03:07:45.066 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:07:45.073 | INFO     | __main__:main:252 - Cycle 114: Scanned 1 markets, saved 1
+2026-04-29 03:07:46.507 | INFO     | __main__:main:388 - Cycle 114 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 03:12:46.512 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 03:12:47.241 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.830
+2026-04-29 03:12:48.772 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:12:48.779 | INFO     | __main__:main:252 - Cycle 115: Scanned 1 markets, saved 1
+2026-04-29 03:12:50.196 | INFO     | __main__:main:388 - Cycle 115 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 03:17:50.199 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 03:17:50.998 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.840
+2026-04-29 03:17:52.975 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:17:52.980 | INFO     | __main__:main:252 - Cycle 116: Scanned 1 markets, saved 1
+2026-04-29 03:17:54.322 | INFO     | __main__:main:388 - Cycle 116 complete | Evaluated: 0 | Executed: 0 | Open: 4 | Exposure: $72.56 | Balance: $681.74 | PnL: $-245.69 | Next scan in 300s
+2026-04-29 03:22:54.325 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 31.8% >= 20% pero aún hay 4 posiciones abiertas. Esperando cierre.
+2026-04-29 03:22:55.051 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $72,000 April 27-May 3?" nuevo high=0.850
+2026-04-29 03:22:55.061 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [TAKE_PROFIT]: "Will Bitcoin dip to $72,000 April 27-May 3?" NO exit@0.850 PnL=$+1.46
+2026-04-29 03:22:55.065 | INFO     | __main__:main:212 - Position closed: TAKE_PROFIT PnL=$+1.46 (+8.3%)
+2026-04-29 03:22:57.889 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:22:57.895 | INFO     | __main__:main:252 - Cycle 117: Scanned 1 markets, saved 1
+2026-04-29 03:22:59.321 | INFO     | __main__:main:388 - Cycle 117 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:27:59.326 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:28:02.178 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:28:02.191 | INFO     | __main__:main:252 - Cycle 118: Scanned 1 markets, saved 1
+2026-04-29 03:28:03.598 | INFO     | __main__:main:388 - Cycle 118 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:33:03.605 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:33:06.673 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 03:33:06.677 | INFO     | __main__:main:252 - Cycle 119: Scanned 1 markets, saved 1
+2026-04-29 03:33:08.082 | INFO     | __main__:main:388 - Cycle 119 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:38:08.093 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:38:10.493 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 03:38:11.882 | INFO     | __main__:main:388 - Cycle 120 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:43:11.889 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:43:14.818 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 03:43:16.301 | INFO     | __main__:main:388 - Cycle 121 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:48:16.305 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:48:19.022 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 03:48:20.376 | INFO     | __main__:main:388 - Cycle 122 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:53:20.380 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:53:22.875 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 03:53:24.316 | INFO     | __main__:main:388 - Cycle 123 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 03:58:24.321 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 03:58:27.174 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 03:58:28.589 | INFO     | __main__:main:388 - Cycle 124 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:03:28.593 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:03:30.724 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:03:32.153 | INFO     | __main__:main:388 - Cycle 125 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:08:32.156 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:08:34.984 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:08:36.399 | INFO     | __main__:main:388 - Cycle 126 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:13:36.402 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:13:39.192 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:13:40.554 | INFO     | __main__:main:388 - Cycle 127 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:18:40.557 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:18:43.135 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:18:44.631 | INFO     | __main__:main:388 - Cycle 128 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:23:44.635 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:23:47.299 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:23:48.684 | INFO     | __main__:main:388 - Cycle 129 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:28:48.692 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:28:51.235 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:28:52.619 | INFO     | __main__:main:388 - Cycle 130 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:33:52.625 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:33:55.475 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:33:56.804 | INFO     | __main__:main:388 - Cycle 131 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:38:56.809 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:38:59.421 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:39:00.870 | INFO     | __main__:main:388 - Cycle 132 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:44:00.878 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:44:01.262 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.770
+2026-04-29 04:44:04.020 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:44:05.430 | INFO     | __main__:main:388 - Cycle 133 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:49:05.434 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:49:05.808 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.765
+2026-04-29 04:49:08.357 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:49:09.717 | INFO     | __main__:main:388 - Cycle 134 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:54:09.722 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:54:10.086 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.765
+2026-04-29 04:54:12.359 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:54:14.010 | INFO     | __main__:main:388 - Cycle 135 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 04:59:14.015 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 04:59:16.479 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 04:59:17.916 | INFO     | __main__:main:388 - Cycle 136 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:04:17.919 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:04:20.868 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:04:22.206 | INFO     | __main__:main:388 - Cycle 137 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:09:22.210 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:09:22.570 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.765
+2026-04-29 05:09:25.450 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:09:26.841 | INFO     | __main__:main:388 - Cycle 138 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:14:26.845 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:14:30.412 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:14:31.739 | INFO     | __main__:main:388 - Cycle 139 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:19:31.747 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:19:35.002 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:19:36.399 | INFO     | __main__:main:388 - Cycle 140 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:24:36.407 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:24:39.754 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:24:41.158 | INFO     | __main__:main:388 - Cycle 141 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:29:41.161 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:29:44.375 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:29:45.753 | INFO     | __main__:main:388 - Cycle 142 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:34:45.757 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:34:49.144 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:34:50.617 | INFO     | __main__:main:388 - Cycle 143 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:39:50.621 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:39:52.981 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:39:54.346 | INFO     | __main__:main:388 - Cycle 144 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:44:54.351 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:44:57.066 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:44:58.649 | INFO     | __main__:main:388 - Cycle 145 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:49:58.657 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:50:01.881 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:50:03.595 | INFO     | __main__:main:388 - Cycle 146 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 05:55:03.611 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 05:55:06.721 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 05:55:08.243 | INFO     | __main__:main:388 - Cycle 147 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:00:08.255 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:00:12.873 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:00:15.372 | INFO     | __main__:main:388 - Cycle 148 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:05:15.377 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:05:18.225 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:05:20.351 | INFO     | __main__:main:388 - Cycle 149 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:10:20.360 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:10:23.165 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:10:24.739 | INFO     | __main__:main:388 - Cycle 150 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:15:24.742 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:15:27.840 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:15:29.685 | INFO     | __main__:main:388 - Cycle 151 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:20:29.692 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:20:33.168 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:20:34.604 | INFO     | __main__:main:388 - Cycle 152 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:25:34.609 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:25:38.077 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:25:39.657 | INFO     | __main__:main:388 - Cycle 153 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:30:39.660 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:30:42.741 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:30:44.240 | INFO     | __main__:main:388 - Cycle 154 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:35:44.245 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:35:47.344 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:35:49.133 | INFO     | __main__:main:388 - Cycle 155 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:40:49.142 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:40:52.943 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:40:54.607 | INFO     | __main__:main:388 - Cycle 156 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:45:54.613 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:45:56.071 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:45:58.508 | INFO     | __main__:main:388 - Cycle 157 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:50:58.513 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:50:59.836 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:51:01.752 | INFO     | __main__:main:388 - Cycle 158 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 06:56:01.767 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 06:56:03.305 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 06:56:04.802 | INFO     | __main__:main:388 - Cycle 159 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:01:04.807 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:01:06.108 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:01:07.696 | INFO     | __main__:main:388 - Cycle 160 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:06:07.702 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:06:09.094 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:06:10.798 | INFO     | __main__:main:388 - Cycle 161 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:11:10.803 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:11:14.624 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:11:16.265 | INFO     | __main__:main:388 - Cycle 162 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:16:16.270 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:16:19.832 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:16:22.694 | INFO     | __main__:main:388 - Cycle 163 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:21:22.709 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:21:26.465 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:21:27.927 | INFO     | __main__:main:388 - Cycle 164 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:26:27.931 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:26:31.229 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:26:32.746 | INFO     | __main__:main:388 - Cycle 165 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:31:32.757 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:31:50.829 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 07:31:50.829 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 10 pages, found 0 qualifying markets
+2026-04-29 07:31:52.330 | INFO     | __main__:main:388 - Cycle 166 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:36:52.334 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:36:55.514 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:36:57.117 | INFO     | __main__:main:388 - Cycle 167 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:41:57.121 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:42:00.250 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:42:01.905 | INFO     | __main__:main:388 - Cycle 168 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:47:01.914 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:47:05.225 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:47:06.752 | INFO     | __main__:main:388 - Cycle 169 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:52:06.761 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:52:09.607 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 07:52:11.231 | INFO     | __main__:main:388 - Cycle 170 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 07:57:11.235 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 07:57:28.028 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 07:57:28.029 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 7 pages, found 0 qualifying markets
+2026-04-29 07:57:29.594 | INFO     | __main__:main:388 - Cycle 171 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:02:29.599 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:02:31.553 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:02:33.038 | INFO     | __main__:main:388 - Cycle 172 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:07:33.043 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:07:48.865 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 08:07:48.866 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 4 pages, found 0 qualifying markets
+2026-04-29 08:07:50.376 | INFO     | __main__:main:388 - Cycle 173 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:12:50.379 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:12:51.631 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:12:53.246 | INFO     | __main__:main:388 - Cycle 174 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:17:53.251 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:17:54.567 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:17:55.969 | INFO     | __main__:main:388 - Cycle 175 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:22:55.972 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:22:57.232 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:23:13.136 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 08:23:13.200 | INFO     | __main__:main:388 - Cycle 176 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:28:13.207 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:28:14.562 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:28:16.163 | INFO     | __main__:main:388 - Cycle 177 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:33:16.171 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:33:17.601 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:33:19.058 | INFO     | __main__:main:388 - Cycle 178 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:38:19.061 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:38:20.337 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:38:21.753 | INFO     | __main__:main:388 - Cycle 179 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:43:21.756 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:43:23.042 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:43:24.587 | INFO     | __main__:main:388 - Cycle 180 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:48:24.590 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:48:25.923 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:48:27.432 | INFO     | __main__:main:388 - Cycle 181 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:53:27.437 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:53:28.744 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:53:30.195 | INFO     | __main__:main:388 - Cycle 182 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 08:58:30.199 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 08:58:31.490 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 08:58:32.895 | INFO     | __main__:main:388 - Cycle 183 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:03:32.900 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:03:34.254 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:03:49.683 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 09:03:49.750 | INFO     | __main__:main:388 - Cycle 184 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:08:49.754 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:08:51.021 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:08:52.445 | INFO     | __main__:main:388 - Cycle 185 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:13:52.447 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:13:53.723 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:13:55.265 | INFO     | __main__:main:388 - Cycle 186 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:18:55.271 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:18:56.641 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:18:58.229 | INFO     | __main__:main:388 - Cycle 187 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:23:58.234 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:23:58.605 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.765
+2026-04-29 09:24:00.233 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:24:01.983 | INFO     | __main__:main:388 - Cycle 188 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:29:02.004 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:29:02.378 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.765
+2026-04-29 09:29:04.003 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:29:05.497 | INFO     | __main__:main:388 - Cycle 189 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:34:05.502 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:34:05.887 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.775
+2026-04-29 09:34:07.494 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:34:09.065 | INFO     | __main__:main:388 - Cycle 190 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:39:09.069 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:39:09.461 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.785
+2026-04-29 09:39:11.241 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:39:12.789 | INFO     | __main__:main:388 - Cycle 191 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:44:12.794 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:44:13.156 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.785
+2026-04-29 09:44:17.886 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:44:19.547 | INFO     | __main__:main:388 - Cycle 192 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:49:19.555 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:49:19.920 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.815
+2026-04-29 09:49:22.113 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:49:23.574 | INFO     | __main__:main:388 - Cycle 193 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:54:23.577 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:54:23.948 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.845
+2026-04-29 09:54:24.132 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.785
+2026-04-29 09:54:26.265 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:54:27.852 | INFO     | __main__:main:388 - Cycle 194 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.89 | Balance: $700.88 | PnL: $-244.23 | Next scan in 300s
+2026-04-29 09:59:27.855 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 29.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 09:59:28.222 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $75,000 in April?" nuevo high=0.855
+2026-04-29 09:59:28.231 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [TAKE_PROFIT]: "Will Bitcoin dip to $75,000 in April?" NO exit@0.855 PnL=$+10.32
+2026-04-29 09:59:28.412 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 09:59:28.416 | INFO     | __main__:main:212 - Position closed: TAKE_PROFIT PnL=$+10.32 (+56.9%)
+2026-04-29 09:59:30.565 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 09:59:32.028 | INFO     | __main__:main:388 - Cycle 195 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:04:32.031 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:04:32.406 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 10:04:33.167 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 10:04:34.700 | INFO     | __main__:main:388 - Cycle 196 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:09:34.703 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:09:35.071 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.785
+2026-04-29 10:09:51.935 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 10:09:51.935 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 10 pages, found 1 qualifying markets
+2026-04-29 10:09:51.945 | INFO     | __main__:main:252 - Cycle 197: Scanned 1 markets, saved 1
+2026-04-29 10:09:57.517 | INFO     | __main__:main:388 - Cycle 197 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:14:57.521 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:14:57.871 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 10:15:00.952 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 10:15:00.960 | INFO     | __main__:main:252 - Cycle 198: Scanned 1 markets, saved 1
+2026-04-29 10:15:16.746 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 10:15:16.919 | INFO     | __main__:main:388 - Cycle 198 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:20:16.922 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:20:17.300 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 10:20:20.538 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 10:20:22.201 | INFO     | __main__:main:388 - Cycle 199 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:25:22.210 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:25:22.583 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.790
+2026-04-29 10:25:25.490 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 10:25:25.494 | INFO     | __main__:main:252 - Cycle 200: Scanned 1 markets, saved 1
+2026-04-29 10:25:27.198 | INFO     | __main__:main:388 - Cycle 200 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:30:27.205 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:30:27.579 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.795
+2026-04-29 10:30:30.867 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 10:30:30.872 | INFO     | __main__:main:252 - Cycle 201: Scanned 1 markets, saved 1
+2026-04-29 10:30:32.555 | INFO     | __main__:main:388 - Cycle 201 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:35:32.560 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:35:32.930 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.790
+2026-04-29 10:35:49.314 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 10:35:49.314 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 7 pages, found 2 qualifying markets
+2026-04-29 10:35:49.322 | INFO     | __main__:main:252 - Cycle 202: Scanned 2 markets, saved 2
+2026-04-29 10:35:51.098 | INFO     | __main__:main:388 - Cycle 202 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:40:51.101 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:40:51.464 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 10:40:52.590 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 10:40:52.594 | INFO     | __main__:main:252 - Cycle 203: Scanned 1 markets, saved 1
+2026-04-29 10:40:54.307 | INFO     | __main__:main:388 - Cycle 203 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:45:54.312 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:45:54.667 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 10:45:56.392 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 10:45:57.980 | INFO     | __main__:main:388 - Cycle 204 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:50:57.984 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:50:58.344 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 10:50:59.347 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 10:51:01.019 | INFO     | __main__:main:388 - Cycle 205 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 10:56:01.026 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 10:56:01.410 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.775
+2026-04-29 10:56:02.559 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 10:56:04.466 | INFO     | __main__:main:388 - Cycle 206 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $729.35 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:01:04.469 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 27.1% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 11:01:06.042 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:01:08.120 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.605 | Edge: 0.105 | prob=0.71 | "Will the price of Bitcoin be above $78,000 on April 29?"
+2026-04-29 11:01:08.120 | INFO     | core.poly_strategy_hub:evaluate_all:215 - POLY HUB: 1 signals found: SIGNAL_BASED=1
+2026-04-29 11:01:08.121 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will the price of Bitcoin be above $78,0" shares=30.1 cost=$18.23 edge=+10.5%
+2026-04-29 11:01:08.149 | INFO     | agents.poly_executor:execute:123 - POLY EXECUTED: NO "Will the price of Bitcoin be above $78,000 on Apri" shares=30.1 @ $0.605 cost=$18.23
+2026-04-29 11:01:08.157 | INFO     | __main__:main:366 - POLY TRADE [SIGNAL_BASED]: NO "Will the price of Bitcoin be above $78,000 on April 29?" edge=+10.5% cost=$18.23
+2026-04-29 11:01:08.551 | INFO     | __main__:main:388 - Cycle 207 complete | Evaluated: 1 | Executed: 1 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:06:08.554 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:06:08.927 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 11:06:10.644 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:06:25.874 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 11:06:31.083 | INFO     | __main__:main:388 - Cycle 208 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:11:31.086 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:11:32.922 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:11:34.820 | INFO     | __main__:main:388 - Cycle 209 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:16:34.824 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:16:35.200 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.775
+2026-04-29 11:16:36.709 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:16:38.459 | INFO     | __main__:main:388 - Cycle 210 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:21:38.463 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:21:40.413 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:21:41.906 | INFO     | __main__:main:388 - Cycle 211 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:26:41.910 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:26:42.438 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $78,000 on Apri" nuevo high=0.765
+2026-04-29 11:26:43.785 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:26:45.450 | INFO     | __main__:main:388 - Cycle 212 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:31:45.452 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:31:47.856 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:31:49.569 | INFO     | __main__:main:388 - Cycle 213 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:36:49.572 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:36:49.939 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 11:36:51.642 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:36:53.467 | INFO     | __main__:main:388 - Cycle 214 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:41:53.470 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:41:53.839 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 11:41:55.753 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:41:57.658 | INFO     | __main__:main:388 - Cycle 215 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:46:57.662 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:46:58.031 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.775
+2026-04-29 11:46:59.949 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:47:01.687 | INFO     | __main__:main:388 - Cycle 216 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:52:01.691 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:52:02.048 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 11:52:04.654 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:52:06.312 | INFO     | __main__:main:388 - Cycle 217 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 11:57:06.323 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 11:57:06.708 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.780
+2026-04-29 11:57:08.910 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 11:57:10.485 | INFO     | __main__:main:388 - Cycle 218 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 12:02:10.490 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 12:02:10.890 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will Bitcoin dip to $74,000 April 27-May 3?" nuevo high=0.770
+2026-04-29 12:02:12.910 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:02:28.908 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 12:02:28.973 | INFO     | __main__:main:388 - Cycle 219 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 12:07:28.975 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 12:07:29.527 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $78,000 on Apri" nuevo high=0.785
+2026-04-29 12:07:30.319 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:07:31.953 | INFO     | __main__:main:388 - Cycle 220 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 12:12:31.956 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 12:12:32.485 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $78,000 on Apri" nuevo high=0.785
+2026-04-29 12:12:33.239 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:12:34.928 | INFO     | __main__:main:388 - Cycle 221 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 12:17:34.932 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 12:17:35.465 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $78,000 on Apri" nuevo high=0.825
+2026-04-29 12:17:37.361 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:17:39.035 | INFO     | __main__:main:388 - Cycle 222 complete | Evaluated: 0 | Executed: 0 | Open: 3 | Exposure: $54.98 | Balance: $711.12 | PnL: $-233.91 | Next scan in 300s
+2026-04-29 12:22:39.038 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 28.9% >= 20% pero aún hay 3 posiciones abiertas. Esperando cierre.
+2026-04-29 12:22:39.636 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $78,000 on Apri" nuevo high=0.875
+2026-04-29 12:22:39.639 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [TAKE_PROFIT]: "Will the price of Bitcoin be above $78,000 on Apri" NO exit@0.875 PnL=$+8.14
+2026-04-29 12:22:39.641 | INFO     | __main__:main:212 - Position closed: TAKE_PROFIT PnL=$+8.14 (+44.6%)
+2026-04-29 12:22:54.858 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:22:56.765 | INFO     | __main__:main:388 - Cycle 223 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:27:56.768 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:28:00.998 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:28:02.681 | INFO     | __main__:main:388 - Cycle 224 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:33:02.684 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:33:06.466 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:33:08.325 | INFO     | __main__:main:388 - Cycle 225 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:38:08.330 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:38:12.184 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:38:13.819 | INFO     | __main__:main:388 - Cycle 226 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:43:13.823 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:43:20.063 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:43:21.775 | INFO     | __main__:main:388 - Cycle 227 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:48:21.780 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:48:39.370 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 12:48:39.371 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 7 pages, found 0 qualifying markets
+2026-04-29 12:48:41.109 | INFO     | __main__:main:388 - Cycle 228 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:53:41.113 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:53:42.243 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:53:58.049 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 12:53:58.112 | INFO     | __main__:main:388 - Cycle 229 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 12:58:58.115 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 12:58:59.264 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 12:59:00.981 | INFO     | __main__:main:388 - Cycle 230 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:04:00.986 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:04:03.303 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 13:04:06.092 | INFO     | __main__:main:388 - Cycle 231 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:09:06.095 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:09:08.468 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 13:09:10.080 | INFO     | __main__:main:388 - Cycle 232 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:14:10.084 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:14:26.008 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 13:14:26.009 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 5 pages, found 0 qualifying markets
+2026-04-29 13:14:27.653 | INFO     | __main__:main:388 - Cycle 233 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:19:27.657 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:19:29.433 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 13:19:31.231 | INFO     | __main__:main:388 - Cycle 234 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:24:31.234 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:24:32.791 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 13:24:34.757 | INFO     | __main__:main:388 - Cycle 235 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:29:34.761 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:29:36.289 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-04-29 13:29:38.216 | INFO     | __main__:main:388 - Cycle 236 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:34:38.220 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:34:53.886 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 13:34:53.886 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 3 pages, found 0 qualifying markets
+2026-04-29 13:34:56.052 | INFO     | __main__:main:388 - Cycle 237 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:39:56.057 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:39:57.328 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 13:39:57.334 | INFO     | __main__:main:252 - Cycle 238: Scanned 1 markets, saved 1
+2026-04-29 13:39:59.125 | INFO     | __main__:main:388 - Cycle 238 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:44:59.130 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:45:00.338 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 13:45:00.343 | INFO     | __main__:main:252 - Cycle 239: Scanned 2 markets, saved 2
+2026-04-29 13:45:15.835 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 13:45:15.915 | INFO     | __main__:main:388 - Cycle 239 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:50:15.920 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:50:17.061 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 13:50:17.066 | INFO     | __main__:main:252 - Cycle 240: Scanned 2 markets, saved 2
+2026-04-29 13:50:32.296 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 13:50:37.480 | INFO     | __main__:main:388 - Cycle 240 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 13:55:37.484 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 13:55:38.729 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 13:55:38.732 | INFO     | __main__:main:252 - Cycle 241: Scanned 2 markets, saved 2
+2026-04-29 13:55:40.569 | INFO     | __main__:main:388 - Cycle 241 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:00:40.574 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:00:41.858 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:00:41.863 | INFO     | __main__:main:252 - Cycle 242: Scanned 2 markets, saved 2
+2026-04-29 14:00:43.995 | INFO     | __main__:main:388 - Cycle 242 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:05:44.000 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:05:45.200 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 14:05:45.206 | INFO     | __main__:main:252 - Cycle 243: Scanned 1 markets, saved 1
+2026-04-29 14:06:01.296 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 14:06:01.411 | INFO     | __main__:main:388 - Cycle 243 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:11:01.417 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:11:02.703 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:11:02.707 | INFO     | __main__:main:252 - Cycle 244: Scanned 2 markets, saved 2
+2026-04-29 14:11:24.229 | ERROR    | data.polymarket_feed:scan_15min_markets:496 - POLY FEED 15min: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 14:11:24.232 | INFO     | __main__:main:388 - Cycle 244 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:16:24.239 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:16:25.404 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:16:25.408 | INFO     | __main__:main:252 - Cycle 245: Scanned 2 markets, saved 2
+2026-04-29 14:16:27.040 | INFO     | __main__:main:388 - Cycle 245 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:21:27.044 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:21:28.277 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:21:28.282 | INFO     | __main__:main:252 - Cycle 246: Scanned 2 markets, saved 2
+2026-04-29 14:21:30.169 | INFO     | __main__:main:388 - Cycle 246 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:26:30.173 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:26:31.351 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:26:31.356 | INFO     | __main__:main:252 - Cycle 247: Scanned 2 markets, saved 2
+2026-04-29 14:26:33.286 | INFO     | __main__:main:388 - Cycle 247 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:31:33.292 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:31:34.467 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 14:31:34.471 | INFO     | __main__:main:252 - Cycle 248: Scanned 1 markets, saved 1
+2026-04-29 14:31:36.491 | INFO     | __main__:main:388 - Cycle 248 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:36:36.497 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:36:37.714 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:36:37.719 | INFO     | __main__:main:252 - Cycle 249: Scanned 2 markets, saved 2
+2026-04-29 14:36:39.438 | INFO     | __main__:main:388 - Cycle 249 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:41:39.441 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:41:50.549 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 14:41:50.552 | INFO     | __main__:main:252 - Cycle 250: Scanned 1 markets, saved 1
+2026-04-29 14:41:52.576 | INFO     | __main__:main:388 - Cycle 250 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:46:52.580 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:46:56.547 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 14:46:56.555 | INFO     | __main__:main:252 - Cycle 251: Scanned 1 markets, saved 1
+2026-04-29 14:46:59.453 | INFO     | __main__:main:388 - Cycle 251 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:51:59.457 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:52:03.194 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:52:03.199 | INFO     | __main__:main:252 - Cycle 252: Scanned 2 markets, saved 2
+2026-04-29 14:52:19.639 | ERROR    | data.polymarket_feed:scan_tail_end_markets:372 - POLY FEED tail_end: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 14:52:19.713 | INFO     | __main__:main:388 - Cycle 252 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 14:57:19.716 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 14:57:21.605 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 14:57:21.609 | INFO     | __main__:main:252 - Cycle 253: Scanned 2 markets, saved 2
+2026-04-29 14:57:23.535 | INFO     | __main__:main:388 - Cycle 253 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:02:23.538 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:02:40.802 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=15)
+2026-04-29 15:02:40.802 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 8 pages, found 1 qualifying markets
+2026-04-29 15:02:40.804 | INFO     | __main__:main:252 - Cycle 254: Scanned 1 markets, saved 1
+2026-04-29 15:02:48.777 | INFO     | __main__:main:388 - Cycle 254 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:07:48.780 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:07:50.310 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:07:50.315 | INFO     | __main__:main:252 - Cycle 255: Scanned 2 markets, saved 2
+2026-04-29 15:07:51.955 | INFO     | __main__:main:388 - Cycle 255 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:12:51.958 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:12:54.142 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:12:54.146 | INFO     | __main__:main:252 - Cycle 256: Scanned 2 markets, saved 2
+2026-04-29 15:12:56.127 | INFO     | __main__:main:388 - Cycle 256 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:17:56.130 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:17:58.356 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:17:58.360 | INFO     | __main__:main:252 - Cycle 257: Scanned 2 markets, saved 2
+2026-04-29 15:18:00.074 | INFO     | __main__:main:388 - Cycle 257 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:23:00.092 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:23:02.297 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:23:02.303 | INFO     | __main__:main:252 - Cycle 258: Scanned 2 markets, saved 2
+2026-04-29 15:23:04.578 | INFO     | __main__:main:388 - Cycle 258 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:28:04.581 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:28:06.879 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:28:06.884 | INFO     | __main__:main:252 - Cycle 259: Scanned 2 markets, saved 2
+2026-04-29 15:28:08.608 | INFO     | __main__:main:388 - Cycle 259 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:33:08.611 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:33:12.782 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:33:12.787 | INFO     | __main__:main:252 - Cycle 260: Scanned 2 markets, saved 2
+2026-04-29 15:33:17.221 | INFO     | __main__:main:388 - Cycle 260 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:38:17.224 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:38:21.449 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:38:21.453 | INFO     | __main__:main:252 - Cycle 261: Scanned 2 markets, saved 2
+2026-04-29 15:38:23.417 | INFO     | __main__:main:388 - Cycle 261 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:43:23.420 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:43:26.282 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:43:26.286 | INFO     | __main__:main:252 - Cycle 262: Scanned 2 markets, saved 2
+2026-04-29 15:43:34.247 | INFO     | __main__:main:388 - Cycle 262 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:48:34.250 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:48:36.467 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:48:36.472 | INFO     | __main__:main:252 - Cycle 263: Scanned 2 markets, saved 2
+2026-04-29 15:48:40.774 | INFO     | __main__:main:388 - Cycle 263 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:53:40.778 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:53:45.070 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:53:45.075 | INFO     | __main__:main:252 - Cycle 264: Scanned 2 markets, saved 2
+2026-04-29 15:53:53.494 | INFO     | __main__:main:388 - Cycle 264 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 15:58:53.498 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 15:58:55.755 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 15:58:55.759 | INFO     | __main__:main:252 - Cycle 265: Scanned 2 markets, saved 2
+2026-04-29 15:58:58.500 | INFO     | __main__:main:388 - Cycle 265 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:03:58.507 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:04:01.611 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 16:04:01.618 | INFO     | __main__:main:252 - Cycle 266: Scanned 1 markets, saved 1
+2026-04-29 16:04:01.824 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be above $76,000 on April 29? → NO
+2026-04-29 16:04:02.001 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be above $78,000 on April 29? → NO
+2026-04-29 16:04:02.233 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be between $76,000 and $78,000 on  → NO
+2026-04-29 16:04:02.423 | INFO     | __main__:main:257 - Resolved 3 markets
+2026-04-29 16:04:05.353 | INFO     | __main__:main:388 - Cycle 266 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:09:05.358 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:09:09.298 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 16:09:09.302 | INFO     | __main__:main:252 - Cycle 267: Scanned 1 markets, saved 1
+2026-04-29 16:09:21.007 | INFO     | __main__:main:388 - Cycle 267 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:14:21.011 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:14:29.245 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 16:14:29.248 | INFO     | __main__:main:252 - Cycle 268: Scanned 1 markets, saved 1
+2026-04-29 16:14:39.923 | INFO     | __main__:main:388 - Cycle 268 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:19:39.928 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:19:45.513 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 16:19:45.519 | INFO     | __main__:main:252 - Cycle 269: Scanned 1 markets, saved 1
+2026-04-29 16:19:50.070 | INFO     | __main__:main:388 - Cycle 269 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:24:50.076 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:24:57.822 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:24:57.827 | INFO     | __main__:main:252 - Cycle 270: Scanned 2 markets, saved 2
+2026-04-29 16:25:05.992 | INFO     | __main__:main:388 - Cycle 270 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:30:05.999 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:30:10.601 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-04-29 16:30:10.608 | INFO     | __main__:main:252 - Cycle 271: Scanned 1 markets, saved 1
+2026-04-29 16:30:18.670 | INFO     | __main__:main:388 - Cycle 271 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:35:18.672 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:35:39.113 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:35:39.117 | INFO     | __main__:main:252 - Cycle 272: Scanned 2 markets, saved 2
+2026-04-29 16:35:52.496 | INFO     | __main__:main:388 - Cycle 272 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:40:52.499 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:41:11.170 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:41:11.174 | INFO     | __main__:main:252 - Cycle 273: Scanned 2 markets, saved 2
+2026-04-29 16:41:33.072 | INFO     | __main__:main:388 - Cycle 273 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:46:33.076 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:46:41.879 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:46:41.884 | INFO     | __main__:main:252 - Cycle 274: Scanned 2 markets, saved 2
+2026-04-29 16:46:53.868 | INFO     | __main__:main:388 - Cycle 274 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:51:53.872 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:51:55.159 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:51:55.163 | INFO     | __main__:main:252 - Cycle 275: Scanned 2 markets, saved 2
+2026-04-29 16:52:03.615 | INFO     | __main__:main:388 - Cycle 275 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 16:57:03.620 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 16:57:09.384 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 16:57:09.388 | INFO     | __main__:main:252 - Cycle 276: Scanned 2 markets, saved 2
+2026-04-29 16:57:21.571 | INFO     | __main__:main:388 - Cycle 276 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:02:21.575 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:02:23.258 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 17:02:23.262 | INFO     | __main__:main:252 - Cycle 277: Scanned 2 markets, saved 2
+2026-04-29 17:02:38.233 | INFO     | __main__:main:388 - Cycle 277 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:07:38.237 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:07:50.058 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 17:07:50.066 | INFO     | __main__:main:252 - Cycle 278: Scanned 2 markets, saved 2
+2026-04-29 17:08:06.361 | INFO     | __main__:main:388 - Cycle 278 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:13:06.364 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:13:11.843 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 17:13:11.848 | INFO     | __main__:main:252 - Cycle 279: Scanned 2 markets, saved 2
+2026-04-29 17:13:23.807 | INFO     | __main__:main:388 - Cycle 279 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:18:23.811 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:18:26.548 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 17:18:26.553 | INFO     | __main__:main:252 - Cycle 280: Scanned 2 markets, saved 2
+2026-04-29 17:18:36.615 | INFO     | __main__:main:388 - Cycle 280 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:23:36.619 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:23:48.172 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-29 17:23:48.177 | INFO     | __main__:main:252 - Cycle 281: Scanned 2 markets, saved 2
+2026-04-29 17:24:02.235 | INFO     | __main__:main:388 - Cycle 281 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:29:02.238 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:29:12.510 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-29 17:29:12.515 | INFO     | __main__:main:252 - Cycle 282: Scanned 3 markets, saved 3
+2026-04-29 17:29:21.182 | INFO     | __main__:main:388 - Cycle 282 complete | Evaluated: 0 | Executed: 0 | Open: 2 | Exposure: $36.74 | Balance: $737.49 | PnL: $-225.77 | Next scan in 300s
+2026-04-29 17:34:21.187 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.3% >= 20% pero aún hay 2 posiciones abiertas. Esperando cierre.
+2026-04-29 17:34:33.605 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-29 17:34:33.610 | INFO     | __main__:main:252 - Cycle 283: Scanned 3 markets, saved 3

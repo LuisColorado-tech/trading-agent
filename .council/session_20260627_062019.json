@@ -1,0 +1,14 @@
+{
+  "topic": "Propuesta: arbitraje cross-exchange OKX vs Kraken, market-neutral, solo opera si spread > fees. TM y Grids se pausan - paper sin fees es irreal. Es un reboot del proyecto con enfoque completamente diferente.",
+  "timestamp": "2026-06-27T06:20:19.390941+00:00",
+  "votes": {
+    "QUANT": "\u2705",
+    "QUANT_reason": "Propuesta: arbitraje cross-exchange OKX vs Kraken. Sin prediccion de precio, sin tendencias. El bot monitorea 10 activos 24/7 y solo opera cuando spread > fees + margen. Si no hay oportunidad, no opera - risk-free por diseno. Usa la misma infraestructura (CCXT, Python, Redis). Diferente a todo lo que hicimos: no es trading, es arbitraje puro. Si spread nunca abre, perdida = 0.",
+    "TECHNICAL": "\u2705",
+    "TECHNICAL_reason": "TM y Grids en paper: los numeros sin fees son irreales. Con fees de Kraken, TM pierde -$0.43 por trade, GRID_BOT -$4.93. En OKX mejoraria pero el margen es muy fino. Propongo: PAUSAR (no borrar) TM y Grids. El codigo queda. Si el arbitraje no funciona, volvemos. Pero seguir corriendo paper sin fees es enganarnos.",
+    "RISK": "\u26a0\ufe0f",
+    "RISK_reason": "Riesgos del arbitraje: (1) OKX y Kraken necesitan ambos tener fondos. Capital inicial estimado $200-300 ($100 en cada exchange). (2) Latencia: si el precio se mueve entre que compras y vendes, el spread desaparece. Necesita ejecucion rapida. (3) Retiros entre exchanges tienen fees - conviene mantener balance en ambos. (4) No es infinitamente escalable - el spread se cierra con volumen.",
+    "PORTFOLIO": "\u2705",
+    "PORTFOLIO_reason": "El creador esta agotado y con razon. Esto es un reboot, no una continuacion. Estrategia nueva, enfoque nuevo, riesgo diferente. Si el arbitraje funciona, es ingreso pasivo real sin depender de tendencias. Si no, cerramos el proyecto con dignidad sabiendo que exploramos todas las opciones."
+  }
+}

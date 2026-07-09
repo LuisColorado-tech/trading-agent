@@ -1,0 +1,13 @@
+2026-03-28 16:36:20.330 | INFO     | __main__:polling_loop:193 - Telegram bot started — listening for commands...
+2026-03-28 16:36:27.210 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 1s
+2026-03-28 16:36:32.725 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 2s
+2026-03-28 16:36:34.970 | INFO     | __main__:process_message:186 - Conversación libre: Hola
+2026-03-28 16:36:36.326 | INFO     | __main__:send_message:112 - Mensaje enviado OK (52 chars)
+2026-03-28 16:36:40.849 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 1s
+2026-03-28 16:36:43.802 | INFO     | __main__:process_message:186 - Conversación libre: Cómo vas
+2026-03-28 16:36:44.904 | INFO     | __main__:send_message:112 - Mensaje enviado OK (117 chars)
+2026-03-28 16:36:45.771 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 1s
+2026-03-28 16:36:50.968 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 2s
+2026-03-28 16:36:58.468 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 4s
+2026-03-28 16:37:06.982 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 8s
+2026-03-28 16:37:20.279 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 16s

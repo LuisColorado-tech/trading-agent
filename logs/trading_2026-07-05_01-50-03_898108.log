@@ -1,0 +1,193 @@
+2026-07-05 01:50:13.677 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-05 01:50:13.694 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-05 01:50:13.698 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-05 01:50:13.792 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $500.00
+2026-07-05 01:50:13.795 | INFO     | __main__:main:208 - Startup warm-up: 10s antes del primer ciclo de trading...
+2026-07-05 01:50:26.096 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-05 01:50:26.401 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-05 01:50:26.402 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH RSI_OVERBOUGHT dir=SELL str=0.06
+2026-07-05 01:50:26.748 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.61
+2026-07-05 01:50:27.068 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 01:50:27.419 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.36
+2026-07-05 01:50:27.749 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.09
+2026-07-05 01:50:28.073 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 01:50:28.409 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-05 01:50:28.731 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 01:50:29.060 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.54
+2026-07-05 01:50:29.061 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA RSI_OVERBOUGHT dir=SELL str=0.30
+2026-07-05 01:50:29.407 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 01:50:29.728 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-05 01:50:29.728 | INFO     | agents.market_scanner:scan:71 - Scan complete: 14 signals across 12 assets
+2026-07-05 01:50:29.735 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 07:25:00+00:00, age=2545min (max=3min)
+2026-07-05 01:50:29.756 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=2570min (max=180min)
+2026-07-05 01:50:29.758 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-05 01:50:29.790 | INFO     | __main__:main:279 - Opportunity: BTC/4h BUY score=70
+2026-07-05 01:50:31.378 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] anomaly_check for BTC: 0% conf, 1583ms
+2026-07-05 01:50:31.378 | INFO     | risk.risk_manager:evaluate:353 - RISK APPROVED: BTC 0.003710 units risk=$2.50 RR=2.58
+2026-07-05 01:50:34.034 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] explain_trade for BTC: 70% conf, 2613ms
+2026-07-05 01:50:34.037 | WARNING  | agents.execution_agent:execute:167 - Claude explanation failed (non-critical): (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...00 balance, making this a low-conviction entry.', ARRAY['low...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                    INSERT INTO claude_explanations
+                        (task_type, asset, trade_id, input_payload, result,
+                         confidence, reasoning, flags, latency_ms)
+                    VALUES
+                        (%(task_type)s, %(asset)s, %(trade_id)s, %(input_payload)s, %(result)s,
+                         %(confidence)s, %(reasoning)s, %(flags)s, %(latency_ms)s)
+                ]
+[parameters: {'task_type': 'explain_trade', 'asset': 'BTC', 'trade_id': 'bc945950-2298-4ad0-83c5-6fbce3178e3c', 'input_payload': '{}', 'result': '{"result": "Buying 0.00371 BTC at $63,140.60 with a stop loss at $62,466.81 and take profit at $64,882.08, risking $2.50 (0.5% of $500 balance) based ... (383 characters truncated) ... nimal relative to the $500 balance, making this a low-conviction entry.", "flags": ["low_position_size", "rsi_near_overbought"], "_latency_ms": 2613}', 'confidence': 70, 'reasoning': 'The trade is approved with 4 bullish confluence factors and a macro bull run bias, but the RSI at 68.5 is near overbought territory and the position  ... (12 characters truncated) ...  small (0.5% exposure), limiting upside impact. The risk amount of $2.50 is minimal relative to the $500 balance, making this a low-conviction entry.', 'flags': ['low_position_size', 'rsi_near_overbought'], 'latency_ms': 2613}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-05 01:50:34.039 | INFO     | agents.execution_agent:execute:177 - TRADE EXECUTED: bc945950-2298-4ad0-83c5-6fbce3178e3c BTC BUY 0.003710 @ 63140.6
+2026-07-05 01:50:34.039 | INFO     | __main__:main:290 - Executed trade: bc945950-2298-4ad0-83c5-6fbce3178e3c
+2026-07-05 01:50:34.078 | INFO     | __main__:main:279 - Opportunity: INJ/4h BUY score=103
+2026-07-05 01:50:35.484 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] anomaly_check for INJ: 0% conf, 1404ms
+2026-07-05 01:50:35.486 | INFO     | risk.risk_manager:evaluate:353 - RISK APPROVED: INJ 14.995797 units risk=$2.50 RR=1.94
+2026-07-05 01:50:38.025 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] explain_trade for INJ: 85% conf, 2535ms
+2026-07-05 01:50:38.027 | WARNING  | agents.execution_agent:execute:167 - Claude explanation failed (non-critical): (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...further upside potential without overextension.', ARRAY['pap...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                    INSERT INTO claude_explanations
+                        (task_type, asset, trade_id, input_payload, result,
+                         confidence, reasoning, flags, latency_ms)
+                    VALUES
+                        (%(task_type)s, %(asset)s, %(trade_id)s, %(input_payload)s, %(result)s,
+                         %(confidence)s, %(reasoning)s, %(flags)s, %(latency_ms)s)
+                ]
+[parameters: {'task_type': 'explain_trade', 'asset': 'INJ', 'trade_id': 'a4edbcd4-40bf-47e9-8106-19aa1a9e82a5', 'input_payload': '{}', 'result': '{"result": "Buy order approved for INJ at $4.813 with 0.5% position size, targeting $5.137 with a stop at $4.646, supported by strong trend momentum  ... (290 characters truncated) ... of 53.3 and room to the upper Bollinger Band suggest further upside potential without overextension.", "flags": ["paper_trade"], "_latency_ms": 2535}', 'confidence': 85, 'reasoning': 'Multiple bullish confluences (5 factors) and a macro bull bias align with the trend-following strategy, while the 2.5 USD risk is well within the 500 USD portfolio. The moderate RSI of 53.3 and room to the upper Bollinger Band suggest further upside potential without overextension.', 'flags': ['paper_trade'], 'latency_ms': 2535}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-05 01:50:38.027 | INFO     | agents.execution_agent:execute:177 - TRADE EXECUTED: a4edbcd4-40bf-47e9-8106-19aa1a9e82a5 INJ BUY 14.995797 @ 4.813
+2026-07-05 01:50:38.027 | INFO     | __main__:main:290 - Executed trade: a4edbcd4-40bf-47e9-8106-19aa1a9e82a5
+2026-07-05 01:50:38.049 | INFO     | __main__:main:279 - Opportunity: LINK/4h BUY score=83
+2026-07-05 01:50:39.698 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] anomaly_check for LINK: 0% conf, 1647ms
+2026-07-05 01:50:39.698 | INFO     | risk.risk_manager:evaluate:353 - RISK APPROVED: LINK 17.505402 units risk=$2.50 RR=1.67
+2026-07-05 01:50:41.770 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] explain_trade for LINK: 83% conf, 2068ms
+2026-07-05 01:50:41.773 | WARNING  | agents.execution_agent:execute:167 - Claude explanation failed (non-critical): (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...ade is paper only with no real capital at risk.', ARRAY['pap...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                    INSERT INTO claude_explanations
+                        (task_type, asset, trade_id, input_payload, result,
+                         confidence, reasoning, flags, latency_ms)
+                    VALUES
+                        (%(task_type)s, %(asset)s, %(trade_id)s, %(input_payload)s, %(result)s,
+                         %(confidence)s, %(reasoning)s, %(flags)s, %(latency_ms)s)
+                ]
+[parameters: {'task_type': 'explain_trade', 'asset': 'LINK', 'trade_id': 'a63ee5ef-47cc-4919-ad6c-7434941212ca', 'input_payload': '{}', 'result': '{"result": "BUY order for LINK at $8.007, position size 17.505 (0.5% of portfolio), with stop loss at $7.864 and take profit at $8.245.", "confidence ... (176 characters truncated) ... th a 2.5% stop loss based on ATR of 0.095, and the trade is paper only with no real capital at risk.", "flags": ["paper_trade"], "_latency_ms": 2068}', 'confidence': 83, 'reasoning': 'Strong bullish confluence from EMA cross, MACD, VWAP, and macro alignment in a TREND_UP regime with RSI at 66.4, not overbought. Risk is tightly managed with a 2.5% stop loss based on ATR of 0.095, and the trade is paper only with no real capital at risk.', 'flags': ['paper_trade'], 'latency_ms': 2068}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-05 01:50:41.774 | INFO     | agents.execution_agent:execute:177 - TRADE EXECUTED: a63ee5ef-47cc-4919-ad6c-7434941212ca LINK BUY 17.505402 @ 8.007
+2026-07-05 01:50:41.774 | INFO     | __main__:main:290 - Executed trade: a63ee5ef-47cc-4919-ad6c-7434941212ca
+2026-07-05 01:50:41.800 | INFO     | agents.strategy_engine:evaluate:302 - No opportunity AAVE/4h: crypto_direction_guard dir=BUY (WR bajo histórico)
+2026-07-05 01:50:41.816 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=78
+2026-07-05 01:50:41.818 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:50:41.839 | INFO     | __main__:main:279 - Opportunity: DOT/4h BUY score=93
+2026-07-05 01:50:41.842 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:50:41.858 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_UP trend=0.539)
+2026-07-05 01:50:41.922 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:41.940 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:41.967 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:41.989 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.005 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:42.021 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.037 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:42.052 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.066 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:42.081 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.095 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:42.108 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.121 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=2556min (max=45min)
+2026-07-05 01:50:42.140 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=2571min (max=180min)
+2026-07-05 01:50:42.154 | INFO     | __main__:main:308 - Cycle 1 complete. Next scan in 300s. Balance: $500.00
+2026-07-05 01:55:42.483 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-05 01:55:42.791 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-05 01:55:42.791 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH RSI_OVERBOUGHT dir=SELL str=0.06
+2026-07-05 01:55:43.132 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.61
+2026-07-05 01:55:43.473 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 01:55:43.790 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.36
+2026-07-05 01:55:44.122 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.09
+2026-07-05 01:55:44.486 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 01:55:44.897 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-05 01:55:45.254 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 01:55:45.585 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.54
+2026-07-05 01:55:45.585 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA RSI_OVERBOUGHT dir=SELL str=0.30
+2026-07-05 01:55:45.980 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 01:55:46.339 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-05 01:55:46.339 | INFO     | agents.market_scanner:scan:71 - Scan complete: 14 signals across 12 assets
+2026-07-05 01:55:46.347 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 07:25:00+00:00, age=2551min (max=3min)
+2026-07-05 01:55:46.364 | INFO     | __main__:main:279 - Opportunity: BTC/4h BUY score=70
+2026-07-05 01:55:46.366 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_SMC_ORDER_BLOCKS:1/1
+2026-07-05 01:55:46.387 | INFO     | __main__:main:279 - Opportunity: INJ/4h BUY score=103
+2026-07-05 01:55:46.389 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:55:46.412 | INFO     | __main__:main:279 - Opportunity: LINK/4h BUY score=83
+2026-07-05 01:55:46.414 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:55:46.431 | INFO     | agents.strategy_engine:evaluate:302 - No opportunity AAVE/4h: crypto_direction_guard dir=BUY (WR bajo histórico)
+2026-07-05 01:55:46.449 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=78
+2026-07-05 01:55:46.451 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:55:46.471 | INFO     | __main__:main:279 - Opportunity: DOT/4h BUY score=93
+2026-07-05 01:55:46.473 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: MAX_CONCURRENT_TREND_MOMENTUM:2/2
+2026-07-05 01:55:46.488 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_UP trend=0.539)
+2026-07-05 01:55:46.494 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.506 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.519 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.531 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.549 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.561 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.573 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.585 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.597 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.608 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.619 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.629 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.640 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=2561min (max=45min)
+2026-07-05 01:55:46.650 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=2576min (max=180min)
+2026-07-05 01:55:46.660 | INFO     | __main__:main:308 - Cycle 2 complete. Next scan in 300s. Balance: $500.00
+2026-07-05 02:00:47.007 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-05 02:00:47.353 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-05 02:00:47.354 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH RSI_OVERBOUGHT dir=SELL str=0.06
+2026-07-05 02:00:47.703 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.61
+2026-07-05 02:00:48.046 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 02:00:48.381 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.36
+2026-07-05 02:00:48.791 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.09
+2026-07-05 02:00:49.120 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 02:00:49.445 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-05 02:00:49.775 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.12
+2026-07-05 02:00:50.103 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.54
+2026-07-05 02:00:50.104 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA RSI_OVERBOUGHT dir=SELL str=0.30
+2026-07-05 02:00:50.453 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.35
+2026-07-05 02:00:50.768 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-05 02:00:50.769 | INFO     | agents.market_scanner:scan:71 - Scan complete: 14 signals across 12 assets
+2026-07-05 02:00:50.774 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 07:25:00+00:00, age=2556min (max=3min)
+2026-07-05 02:00:50.791 | INFO     | __main__:main:279 - Opportunity: BTC/4h BUY score=70
+2026-07-05 02:00:50.793 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_CASH:53<234
+2026-07-05 02:00:50.812 | INFO     | __main__:main:279 - Opportunity: INJ/4h BUY score=103
+2026-07-05 02:00:50.814 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_CASH:53<72
+2026-07-05 02:00:50.835 | INFO     | __main__:main:279 - Opportunity: LINK/4h BUY score=83
+2026-07-05 02:00:50.839 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_CASH:53<140
+2026-07-05 02:00:50.859 | INFO     | agents.strategy_engine:evaluate:302 - No opportunity AAVE/4h: crypto_direction_guard dir=BUY (WR bajo histórico)
+2026-07-05 02:00:50.878 | INFO     | __main__:main:279 - Opportunity: POL/4h BUY score=78
+2026-07-05 02:00:50.880 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_CASH:53<146
+2026-07-05 02:00:50.897 | INFO     | __main__:main:279 - Opportunity: DOT/4h BUY score=93
+2026-07-05 02:00:50.898 | INFO     | agents.execution_agent:execute:72 - Trade REJECTED: INSUFFICIENT_CASH:53<134
+2026-07-05 02:00:50.909 | INFO     | agents.strategy_engine:evaluate:278 - No opportunity ADA/4h: no_signal (regime=TREND_UP trend=0.539)
+2026-07-05 02:00:50.919 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:50.931 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:50.943 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:50.954 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: INJ/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:50.967 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:50.978 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: LINK/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:50.989 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:50.999 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: AAVE/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:51.011 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:51.023 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: POL/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:51.036 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:51.046 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: DOT/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:51.059 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/15m latest=2026-07-03 07:15:00+00:00, age=2566min (max=45min)
+2026-07-05 02:00:51.069 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ADA/1h latest=2026-07-03 07:00:00+00:00, age=2581min (max=180min)
+2026-07-05 02:00:51.077 | INFO     | __main__:main:308 - Cycle 3 complete. Next scan in 300s. Balance: $5,500.00

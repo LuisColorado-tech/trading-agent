@@ -1,0 +1,732 @@
+2026-05-04 07:33:33.574 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 07:33:33.622 | INFO     | __main__:main:252 - Cycle 855: Scanned 1 markets, saved 1
+2026-05-04 07:33:34.876 | INFO     | __main__:main:388 - Cycle 855 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 07:38:37.394 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 07:38:37.398 | INFO     | __main__:main:252 - Cycle 856: Scanned 1 markets, saved 1
+2026-05-04 07:38:38.725 | INFO     | __main__:main:388 - Cycle 856 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 07:43:40.878 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 07:43:42.114 | INFO     | __main__:main:388 - Cycle 857 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 07:48:44.055 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 07:48:44.058 | INFO     | __main__:main:252 - Cycle 858: Scanned 1 markets, saved 1
+2026-05-04 07:48:45.305 | INFO     | __main__:main:388 - Cycle 858 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 07:53:47.326 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 07:53:47.329 | INFO     | __main__:main:252 - Cycle 859: Scanned 1 markets, saved 1
+2026-05-04 07:53:48.488 | INFO     | __main__:main:388 - Cycle 859 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 07:58:50.506 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 07:58:51.719 | INFO     | __main__:main:388 - Cycle 860 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:03:53.968 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:03:55.184 | INFO     | __main__:main:388 - Cycle 861 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:08:57.263 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:08:58.463 | INFO     | __main__:main:388 - Cycle 862 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:14:00.659 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:14:01.986 | INFO     | __main__:main:388 - Cycle 863 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:19:04.274 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:19:05.487 | INFO     | __main__:main:388 - Cycle 864 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:24:07.576 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:24:08.811 | INFO     | __main__:main:388 - Cycle 865 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:29:10.946 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:29:12.174 | INFO     | __main__:main:388 - Cycle 866 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:34:14.401 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:34:15.629 | INFO     | __main__:main:388 - Cycle 867 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:39:17.469 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:39:18.692 | INFO     | __main__:main:388 - Cycle 868 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:44:20.774 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:44:21.948 | INFO     | __main__:main:388 - Cycle 869 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:49:24.037 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:49:25.272 | INFO     | __main__:main:388 - Cycle 870 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:54:27.277 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:54:28.483 | INFO     | __main__:main:388 - Cycle 871 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 08:59:30.758 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 08:59:31.976 | INFO     | __main__:main:388 - Cycle 872 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:04:34.024 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:04:35.299 | INFO     | __main__:main:388 - Cycle 873 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:09:37.527 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:09:38.745 | INFO     | __main__:main:388 - Cycle 874 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:14:40.890 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:14:42.083 | INFO     | __main__:main:388 - Cycle 875 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:19:44.305 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:19:45.479 | INFO     | __main__:main:388 - Cycle 876 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:24:47.641 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:24:48.794 | INFO     | __main__:main:388 - Cycle 877 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:29:50.925 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:29:52.191 | INFO     | __main__:main:388 - Cycle 878 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:34:54.356 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:34:55.539 | INFO     | __main__:main:388 - Cycle 879 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:39:57.596 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:39:58.798 | INFO     | __main__:main:388 - Cycle 880 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:45:00.885 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:45:02.287 | INFO     | __main__:main:388 - Cycle 881 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:50:04.534 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 09:50:05.808 | INFO     | __main__:main:388 - Cycle 882 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 09:55:08.164 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 09:55:08.175 | INFO     | __main__:main:252 - Cycle 883: Scanned 1 markets, saved 1
+2026-05-04 09:55:09.406 | INFO     | __main__:main:388 - Cycle 883 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:00:11.649 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 10:00:11.658 | INFO     | __main__:main:252 - Cycle 884: Scanned 1 markets, saved 1
+2026-05-04 10:00:12.884 | INFO     | __main__:main:388 - Cycle 884 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:05:14.987 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:05:16.226 | INFO     | __main__:main:388 - Cycle 885 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:10:18.452 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:10:19.643 | INFO     | __main__:main:388 - Cycle 886 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:15:22.006 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:15:23.238 | INFO     | __main__:main:388 - Cycle 887 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:20:25.288 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:20:26.558 | INFO     | __main__:main:388 - Cycle 888 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:25:28.635 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:25:29.970 | INFO     | __main__:main:388 - Cycle 889 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:30:32.284 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:30:33.492 | INFO     | __main__:main:388 - Cycle 890 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:35:35.569 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:35:36.808 | INFO     | __main__:main:388 - Cycle 891 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:40:39.066 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:40:40.287 | INFO     | __main__:main:388 - Cycle 892 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:45:42.511 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:45:43.773 | INFO     | __main__:main:388 - Cycle 893 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:50:45.847 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:50:47.170 | INFO     | __main__:main:388 - Cycle 894 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 10:55:49.073 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 10:55:50.377 | INFO     | __main__:main:388 - Cycle 895 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:00:52.558 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:00:53.747 | INFO     | __main__:main:388 - Cycle 896 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:05:56.083 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:05:57.287 | INFO     | __main__:main:388 - Cycle 897 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:10:59.535 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:11:00.775 | INFO     | __main__:main:388 - Cycle 898 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:16:02.944 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:16:04.239 | INFO     | __main__:main:388 - Cycle 899 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:21:06.210 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:21:07.598 | INFO     | __main__:main:388 - Cycle 900 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:26:09.733 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:26:10.939 | INFO     | __main__:main:388 - Cycle 901 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:31:13.220 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:31:14.418 | INFO     | __main__:main:388 - Cycle 902 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:36:16.234 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:36:17.474 | INFO     | __main__:main:388 - Cycle 903 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:41:20.231 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:41:21.718 | INFO     | __main__:main:388 - Cycle 904 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:46:25.115 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:46:26.504 | INFO     | __main__:main:388 - Cycle 905 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:51:28.633 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:51:29.924 | INFO     | __main__:main:388 - Cycle 906 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 11:56:32.085 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 11:56:33.296 | INFO     | __main__:main:388 - Cycle 907 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:01:35.519 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:01:36.816 | INFO     | __main__:main:388 - Cycle 908 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:06:39.044 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:06:40.335 | INFO     | __main__:main:388 - Cycle 909 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:11:42.855 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:11:44.058 | INFO     | __main__:main:388 - Cycle 910 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:16:46.423 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:16:47.667 | INFO     | __main__:main:388 - Cycle 911 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:21:49.823 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:21:51.080 | INFO     | __main__:main:388 - Cycle 912 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:26:53.321 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:26:54.513 | INFO     | __main__:main:388 - Cycle 913 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:31:57.009 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:31:58.252 | INFO     | __main__:main:388 - Cycle 914 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:37:00.576 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:37:02.052 | INFO     | __main__:main:388 - Cycle 915 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:42:04.521 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:42:05.770 | INFO     | __main__:main:388 - Cycle 916 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:47:08.001 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:47:09.306 | INFO     | __main__:main:388 - Cycle 917 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:52:11.614 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:52:12.920 | INFO     | __main__:main:388 - Cycle 918 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 12:57:15.276 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 12:57:16.559 | INFO     | __main__:main:388 - Cycle 919 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:02:18.979 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:02:20.457 | INFO     | __main__:main:388 - Cycle 920 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:07:23.210 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:07:24.490 | INFO     | __main__:main:388 - Cycle 921 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:12:26.737 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:12:28.055 | INFO     | __main__:main:388 - Cycle 922 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:17:30.772 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:17:32.256 | INFO     | __main__:main:388 - Cycle 923 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:22:34.897 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:22:36.267 | INFO     | __main__:main:388 - Cycle 924 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:27:38.154 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:27:39.365 | INFO     | __main__:main:388 - Cycle 925 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:32:41.863 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:32:43.050 | INFO     | __main__:main:388 - Cycle 926 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:37:45.467 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:37:46.739 | INFO     | __main__:main:388 - Cycle 927 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:42:49.188 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:42:50.687 | INFO     | __main__:main:388 - Cycle 928 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:47:53.414 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:47:55.222 | INFO     | __main__:main:388 - Cycle 929 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:52:57.717 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:52:59.226 | INFO     | __main__:main:388 - Cycle 930 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 13:58:01.665 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 13:58:03.016 | INFO     | __main__:main:388 - Cycle 931 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:03:05.679 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:03:06.928 | INFO     | __main__:main:388 - Cycle 932 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:08:09.295 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:08:10.584 | INFO     | __main__:main:388 - Cycle 933 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:13:12.857 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:13:14.159 | INFO     | __main__:main:388 - Cycle 934 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:18:16.484 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:18:17.895 | INFO     | __main__:main:388 - Cycle 935 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:23:20.392 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:23:21.701 | INFO     | __main__:main:388 - Cycle 936 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:28:24.162 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:28:25.405 | INFO     | __main__:main:388 - Cycle 937 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:33:27.738 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:33:29.031 | INFO     | __main__:main:388 - Cycle 938 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:38:31.415 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:38:32.631 | INFO     | __main__:main:388 - Cycle 939 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:43:35.001 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:43:36.277 | INFO     | __main__:main:388 - Cycle 940 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:48:38.677 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:48:39.930 | INFO     | __main__:main:388 - Cycle 941 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $992.95 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:53:42.137 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 14:53:42.152 | INFO     | __main__:main:252 - Cycle 942: Scanned 1 markets, saved 1
+2026-05-04 14:53:43.430 | INFO     | strategies.signal_based_poly:evaluate:423 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: UP_EVENT | Side: YES @ 0.545 | Edge: 0.150 | prob=0.59 | "Will the price of Bitcoin be above $80,000 on May 5?"
+2026-05-04 14:53:43.430 | INFO     | core.poly_strategy_hub:evaluate_all:215 - POLY HUB: 1 signals found: SIGNAL_BASED=1
+2026-05-04 14:53:43.432 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: YES "Will the price of Bitcoin be above $80,0" shares=27.3 cost=$14.89 edge=+15.0%
+2026-05-04 14:53:43.467 | INFO     | agents.poly_executor:execute:123 - POLY EXECUTED: YES "Will the price of Bitcoin be above $80,000 on May " shares=27.3 @ $0.545 cost=$14.89
+2026-05-04 14:53:43.471 | INFO     | __main__:main:366 - POLY TRADE [SIGNAL_BASED]: YES "Will the price of Bitcoin be above $80,000 on May 5?" edge=+15.0% cost=$14.89
+2026-05-04 14:53:43.888 | INFO     | __main__:main:388 - Cycle 942 complete | Evaluated: 1 | Executed: 1 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 14:58:46.412 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 14:58:47.632 | INFO     | __main__:main:388 - Cycle 943 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:03:50.156 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:03:50.161 | INFO     | __main__:main:252 - Cycle 944: Scanned 1 markets, saved 1
+2026-05-04 15:03:51.447 | INFO     | __main__:main:388 - Cycle 944 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:08:54.062 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:08:54.066 | INFO     | __main__:main:252 - Cycle 945: Scanned 1 markets, saved 1
+2026-05-04 15:08:55.557 | INFO     | __main__:main:388 - Cycle 945 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:13:58.117 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:13:58.122 | INFO     | __main__:main:252 - Cycle 946: Scanned 1 markets, saved 1
+2026-05-04 15:13:59.342 | INFO     | __main__:main:388 - Cycle 946 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:19:01.893 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:19:01.899 | INFO     | __main__:main:252 - Cycle 947: Scanned 1 markets, saved 1
+2026-05-04 15:19:03.168 | INFO     | __main__:main:388 - Cycle 947 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:24:06.092 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 15:24:07.327 | INFO     | __main__:main:388 - Cycle 948 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:29:09.793 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:29:09.797 | INFO     | __main__:main:252 - Cycle 949: Scanned 1 markets, saved 1
+2026-05-04 15:29:11.018 | INFO     | __main__:main:388 - Cycle 949 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:34:13.370 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:34:13.375 | INFO     | __main__:main:252 - Cycle 950: Scanned 1 markets, saved 1
+2026-05-04 15:34:14.823 | INFO     | __main__:main:388 - Cycle 950 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:39:17.372 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 15:39:18.694 | INFO     | __main__:main:388 - Cycle 951 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:44:21.659 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:44:21.662 | INFO     | __main__:main:252 - Cycle 952: Scanned 1 markets, saved 1
+2026-05-04 15:44:22.915 | INFO     | __main__:main:388 - Cycle 952 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:49:25.524 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:49:25.528 | INFO     | __main__:main:252 - Cycle 953: Scanned 1 markets, saved 1
+2026-05-04 15:49:26.731 | INFO     | __main__:main:388 - Cycle 953 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:54:29.276 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:54:29.281 | INFO     | __main__:main:252 - Cycle 954: Scanned 1 markets, saved 1
+2026-05-04 15:54:30.531 | INFO     | __main__:main:388 - Cycle 954 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 15:59:33.057 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 15:59:33.061 | INFO     | __main__:main:252 - Cycle 955: Scanned 1 markets, saved 1
+2026-05-04 15:59:34.464 | INFO     | __main__:main:388 - Cycle 955 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:04:37.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:04:37.020 | INFO     | __main__:main:252 - Cycle 956: Scanned 1 markets, saved 1
+2026-05-04 16:04:37.203 | INFO     | data.polymarket_feed:check_resolutions:309 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be above $80,000 on May 4? → YES
+2026-05-04 16:04:37.372 | INFO     | __main__:main:257 - Resolved 1 markets
+2026-05-04 16:04:38.548 | INFO     | __main__:main:388 - Cycle 956 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:09:41.094 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:09:41.099 | INFO     | __main__:main:252 - Cycle 957: Scanned 1 markets, saved 1
+2026-05-04 16:09:42.371 | INFO     | __main__:main:388 - Cycle 957 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:14:44.791 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:14:44.796 | INFO     | __main__:main:252 - Cycle 958: Scanned 1 markets, saved 1
+2026-05-04 16:14:46.002 | INFO     | __main__:main:388 - Cycle 958 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:19:49.176 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:19:49.180 | INFO     | __main__:main:252 - Cycle 959: Scanned 1 markets, saved 1
+2026-05-04 16:19:50.509 | INFO     | __main__:main:388 - Cycle 959 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:24:53.126 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:24:53.130 | INFO     | __main__:main:252 - Cycle 960: Scanned 1 markets, saved 1
+2026-05-04 16:24:54.339 | INFO     | __main__:main:388 - Cycle 960 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:29:56.966 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:29:56.972 | INFO     | __main__:main:252 - Cycle 961: Scanned 1 markets, saved 1
+2026-05-04 16:29:58.239 | INFO     | __main__:main:388 - Cycle 961 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:35:00.990 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:35:00.995 | INFO     | __main__:main:252 - Cycle 962: Scanned 1 markets, saved 1
+2026-05-04 16:35:02.797 | INFO     | __main__:main:388 - Cycle 962 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:40:05.367 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:40:05.371 | INFO     | __main__:main:252 - Cycle 963: Scanned 1 markets, saved 1
+2026-05-04 16:40:06.680 | INFO     | __main__:main:388 - Cycle 963 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:45:09.604 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:45:09.609 | INFO     | __main__:main:252 - Cycle 964: Scanned 1 markets, saved 1
+2026-05-04 16:45:10.892 | INFO     | __main__:main:388 - Cycle 964 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:50:13.365 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:50:13.371 | INFO     | __main__:main:252 - Cycle 965: Scanned 1 markets, saved 1
+2026-05-04 16:50:14.592 | INFO     | __main__:main:388 - Cycle 965 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 16:55:16.945 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 16:55:16.949 | INFO     | __main__:main:252 - Cycle 966: Scanned 1 markets, saved 1
+2026-05-04 16:55:18.156 | INFO     | __main__:main:388 - Cycle 966 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:00:20.565 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 17:00:20.570 | INFO     | __main__:main:252 - Cycle 967: Scanned 1 markets, saved 1
+2026-05-04 17:00:21.972 | INFO     | __main__:main:388 - Cycle 967 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:05:24.589 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 17:05:24.592 | INFO     | __main__:main:252 - Cycle 968: Scanned 1 markets, saved 1
+2026-05-04 17:05:25.816 | INFO     | __main__:main:388 - Cycle 968 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:10:28.498 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 17:10:28.507 | INFO     | __main__:main:252 - Cycle 969: Scanned 1 markets, saved 1
+2026-05-04 17:10:29.835 | INFO     | __main__:main:388 - Cycle 969 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:15:32.404 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:15:33.686 | INFO     | __main__:main:388 - Cycle 970 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:20:36.236 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:20:37.796 | INFO     | __main__:main:388 - Cycle 971 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:25:40.235 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:25:41.777 | INFO     | __main__:main:388 - Cycle 972 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:30:44.615 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:30:46.068 | INFO     | __main__:main:388 - Cycle 973 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:35:47.514 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:35:48.773 | INFO     | __main__:main:388 - Cycle 974 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:40:51.350 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:40:52.693 | INFO     | __main__:main:388 - Cycle 975 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:45:55.116 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 17:45:55.121 | INFO     | __main__:main:252 - Cycle 976: Scanned 1 markets, saved 1
+2026-05-04 17:45:56.380 | INFO     | __main__:main:388 - Cycle 976 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:50:59.023 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 17:50:59.029 | INFO     | __main__:main:252 - Cycle 977: Scanned 1 markets, saved 1
+2026-05-04 17:51:00.329 | INFO     | __main__:main:388 - Cycle 977 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 17:56:03.125 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 17:56:04.402 | INFO     | __main__:main:388 - Cycle 978 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:01:07.007 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 18:01:08.461 | INFO     | __main__:main:388 - Cycle 979 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:06:10.874 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 18:06:12.185 | INFO     | __main__:main:388 - Cycle 980 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:11:14.914 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 18:11:16.163 | INFO     | __main__:main:388 - Cycle 981 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:16:18.551 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 18:16:19.794 | INFO     | __main__:main:388 - Cycle 982 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:21:21.940 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 18:21:23.241 | INFO     | __main__:main:388 - Cycle 983 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:26:25.602 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:26:25.606 | INFO     | __main__:main:252 - Cycle 984: Scanned 1 markets, saved 1
+2026-05-04 18:26:26.857 | INFO     | __main__:main:388 - Cycle 984 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:31:29.401 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:31:29.408 | INFO     | __main__:main:252 - Cycle 985: Scanned 1 markets, saved 1
+2026-05-04 18:31:30.723 | INFO     | __main__:main:388 - Cycle 985 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:36:33.107 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:36:33.113 | INFO     | __main__:main:252 - Cycle 986: Scanned 1 markets, saved 1
+2026-05-04 18:36:34.436 | INFO     | __main__:main:388 - Cycle 986 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:41:36.950 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:41:36.954 | INFO     | __main__:main:252 - Cycle 987: Scanned 1 markets, saved 1
+2026-05-04 18:41:38.169 | INFO     | __main__:main:388 - Cycle 987 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:46:40.828 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:46:40.834 | INFO     | __main__:main:252 - Cycle 988: Scanned 1 markets, saved 1
+2026-05-04 18:46:42.090 | INFO     | __main__:main:388 - Cycle 988 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:51:44.471 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:51:44.474 | INFO     | __main__:main:252 - Cycle 989: Scanned 1 markets, saved 1
+2026-05-04 18:51:45.740 | INFO     | __main__:main:388 - Cycle 989 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 18:56:48.168 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 18:56:48.172 | INFO     | __main__:main:252 - Cycle 990: Scanned 1 markets, saved 1
+2026-05-04 18:56:49.400 | INFO     | __main__:main:388 - Cycle 990 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:01:51.566 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 19:01:51.570 | INFO     | __main__:main:252 - Cycle 991: Scanned 1 markets, saved 1
+2026-05-04 19:01:52.851 | INFO     | __main__:main:388 - Cycle 991 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:06:55.424 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 19:06:55.431 | INFO     | __main__:main:252 - Cycle 992: Scanned 1 markets, saved 1
+2026-05-04 19:06:56.746 | INFO     | __main__:main:388 - Cycle 992 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:11:59.382 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 19:11:59.392 | INFO     | __main__:main:252 - Cycle 993: Scanned 1 markets, saved 1
+2026-05-04 19:12:00.664 | INFO     | __main__:main:388 - Cycle 993 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:17:03.436 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 19:17:03.443 | INFO     | __main__:main:252 - Cycle 994: Scanned 1 markets, saved 1
+2026-05-04 19:17:04.739 | INFO     | __main__:main:388 - Cycle 994 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:22:07.285 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:22:07.294 | INFO     | __main__:main:252 - Cycle 995: Scanned 2 markets, saved 2
+2026-05-04 19:22:08.648 | INFO     | __main__:main:388 - Cycle 995 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:27:11.304 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:27:11.310 | INFO     | __main__:main:252 - Cycle 996: Scanned 2 markets, saved 2
+2026-05-04 19:27:12.695 | INFO     | __main__:main:388 - Cycle 996 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:32:15.439 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:32:15.445 | INFO     | __main__:main:252 - Cycle 997: Scanned 2 markets, saved 2
+2026-05-04 19:32:16.771 | INFO     | __main__:main:388 - Cycle 997 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:37:19.376 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:37:19.381 | INFO     | __main__:main:252 - Cycle 998: Scanned 2 markets, saved 2
+2026-05-04 19:37:20.631 | INFO     | __main__:main:388 - Cycle 998 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:42:23.030 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:42:23.038 | INFO     | __main__:main:252 - Cycle 999: Scanned 2 markets, saved 2
+2026-05-04 19:42:24.225 | INFO     | __main__:main:388 - Cycle 999 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:47:27.016 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:47:27.022 | INFO     | __main__:main:252 - Cycle 1000: Scanned 2 markets, saved 2
+2026-05-04 19:47:28.266 | INFO     | __main__:main:388 - Cycle 1000 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:52:30.480 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:52:30.484 | INFO     | __main__:main:252 - Cycle 1001: Scanned 2 markets, saved 2
+2026-05-04 19:52:31.835 | INFO     | __main__:main:388 - Cycle 1001 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 19:57:34.276 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 19:57:34.282 | INFO     | __main__:main:252 - Cycle 1002: Scanned 2 markets, saved 2
+2026-05-04 19:57:35.594 | INFO     | __main__:main:388 - Cycle 1002 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:02:38.114 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:02:38.121 | INFO     | __main__:main:252 - Cycle 1003: Scanned 2 markets, saved 2
+2026-05-04 20:02:39.456 | INFO     | __main__:main:388 - Cycle 1003 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:07:42.093 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:07:42.099 | INFO     | __main__:main:252 - Cycle 1004: Scanned 2 markets, saved 2
+2026-05-04 20:07:43.438 | INFO     | __main__:main:388 - Cycle 1004 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:12:46.004 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:12:46.014 | INFO     | __main__:main:252 - Cycle 1005: Scanned 2 markets, saved 2
+2026-05-04 20:12:47.275 | INFO     | __main__:main:388 - Cycle 1005 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:17:49.868 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 20:17:49.871 | INFO     | __main__:main:252 - Cycle 1006: Scanned 1 markets, saved 1
+2026-05-04 20:17:51.149 | INFO     | __main__:main:388 - Cycle 1006 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:22:53.616 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 20:22:53.620 | INFO     | __main__:main:252 - Cycle 1007: Scanned 1 markets, saved 1
+2026-05-04 20:22:54.881 | INFO     | __main__:main:388 - Cycle 1007 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:27:57.582 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:27:57.587 | INFO     | __main__:main:252 - Cycle 1008: Scanned 2 markets, saved 2
+2026-05-04 20:27:58.880 | INFO     | __main__:main:388 - Cycle 1008 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:33:01.789 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:33:01.796 | INFO     | __main__:main:252 - Cycle 1009: Scanned 2 markets, saved 2
+2026-05-04 20:33:03.238 | INFO     | __main__:main:388 - Cycle 1009 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:38:05.775 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:38:05.781 | INFO     | __main__:main:252 - Cycle 1010: Scanned 2 markets, saved 2
+2026-05-04 20:38:07.185 | INFO     | __main__:main:388 - Cycle 1010 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:43:09.917 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:43:09.924 | INFO     | __main__:main:252 - Cycle 1011: Scanned 2 markets, saved 2
+2026-05-04 20:43:11.337 | INFO     | __main__:main:388 - Cycle 1011 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:48:13.396 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:48:13.402 | INFO     | __main__:main:252 - Cycle 1012: Scanned 2 markets, saved 2
+2026-05-04 20:48:14.613 | INFO     | __main__:main:388 - Cycle 1012 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:53:16.992 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:53:16.998 | INFO     | __main__:main:252 - Cycle 1013: Scanned 2 markets, saved 2
+2026-05-04 20:53:18.292 | INFO     | __main__:main:388 - Cycle 1013 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 20:58:20.766 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 20:58:20.771 | INFO     | __main__:main:252 - Cycle 1014: Scanned 2 markets, saved 2
+2026-05-04 20:58:22.072 | INFO     | __main__:main:388 - Cycle 1014 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:03:24.566 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 21:03:24.574 | INFO     | __main__:main:252 - Cycle 1015: Scanned 2 markets, saved 2
+2026-05-04 21:03:25.883 | INFO     | __main__:main:388 - Cycle 1015 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:08:28.404 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 21:08:28.410 | INFO     | __main__:main:252 - Cycle 1016: Scanned 2 markets, saved 2
+2026-05-04 21:08:29.656 | INFO     | __main__:main:388 - Cycle 1016 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:13:32.274 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 21:13:32.282 | INFO     | __main__:main:252 - Cycle 1017: Scanned 2 markets, saved 2
+2026-05-04 21:13:33.848 | INFO     | __main__:main:388 - Cycle 1017 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:18:36.312 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 21:18:36.318 | INFO     | __main__:main:252 - Cycle 1018: Scanned 2 markets, saved 2
+2026-05-04 21:18:37.590 | INFO     | __main__:main:388 - Cycle 1018 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:23:40.402 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 21:23:40.409 | INFO     | __main__:main:252 - Cycle 1019: Scanned 2 markets, saved 2
+2026-05-04 21:23:41.933 | INFO     | __main__:main:388 - Cycle 1019 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:28:44.683 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:28:44.688 | INFO     | __main__:main:252 - Cycle 1020: Scanned 1 markets, saved 1
+2026-05-04 21:28:46.036 | INFO     | __main__:main:388 - Cycle 1020 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:33:48.624 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:33:48.628 | INFO     | __main__:main:252 - Cycle 1021: Scanned 1 markets, saved 1
+2026-05-04 21:33:49.901 | INFO     | __main__:main:388 - Cycle 1021 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:38:52.369 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:38:52.374 | INFO     | __main__:main:252 - Cycle 1022: Scanned 1 markets, saved 1
+2026-05-04 21:38:53.605 | INFO     | __main__:main:388 - Cycle 1022 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:43:56.166 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:43:56.170 | INFO     | __main__:main:252 - Cycle 1023: Scanned 1 markets, saved 1
+2026-05-04 21:43:57.551 | INFO     | __main__:main:388 - Cycle 1023 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:49:00.167 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:49:00.171 | INFO     | __main__:main:252 - Cycle 1024: Scanned 1 markets, saved 1
+2026-05-04 21:49:01.470 | INFO     | __main__:main:388 - Cycle 1024 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:54:04.244 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:54:04.249 | INFO     | __main__:main:252 - Cycle 1025: Scanned 1 markets, saved 1
+2026-05-04 21:54:05.626 | INFO     | __main__:main:388 - Cycle 1025 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 21:59:07.901 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 21:59:07.905 | INFO     | __main__:main:252 - Cycle 1026: Scanned 1 markets, saved 1
+2026-05-04 21:59:09.208 | INFO     | __main__:main:388 - Cycle 1026 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:04:11.846 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 22:04:11.852 | INFO     | __main__:main:252 - Cycle 1027: Scanned 1 markets, saved 1
+2026-05-04 22:04:13.264 | INFO     | __main__:main:388 - Cycle 1027 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:09:16.447 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 22:09:16.453 | INFO     | __main__:main:252 - Cycle 1028: Scanned 1 markets, saved 1
+2026-05-04 22:09:18.068 | INFO     | __main__:main:388 - Cycle 1028 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:14:48.187 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 22:15:01.612 | INFO     | __main__:main:388 - Cycle 1029 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:20:04.355 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 22:20:05.802 | INFO     | __main__:main:388 - Cycle 1030 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:25:08.078 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 22:25:09.309 | INFO     | __main__:main:388 - Cycle 1031 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:30:11.786 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 22:30:13.037 | INFO     | __main__:main:388 - Cycle 1032 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:35:15.425 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-04 22:35:17.030 | INFO     | __main__:main:388 - Cycle 1033 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:40:19.498 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 22:40:19.504 | INFO     | __main__:main:252 - Cycle 1034: Scanned 1 markets, saved 1
+2026-05-04 22:40:20.793 | INFO     | __main__:main:388 - Cycle 1034 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:45:23.200 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 22:45:23.206 | INFO     | __main__:main:252 - Cycle 1035: Scanned 1 markets, saved 1
+2026-05-04 22:45:24.417 | INFO     | __main__:main:388 - Cycle 1035 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:50:26.751 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-04 22:50:26.757 | INFO     | __main__:main:252 - Cycle 1036: Scanned 1 markets, saved 1
+2026-05-04 22:50:27.969 | INFO     | __main__:main:388 - Cycle 1036 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 22:55:30.715 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 22:55:30.757 | INFO     | __main__:main:252 - Cycle 1037: Scanned 2 markets, saved 2
+2026-05-04 22:55:32.139 | INFO     | __main__:main:388 - Cycle 1037 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:00:34.784 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:00:34.790 | INFO     | __main__:main:252 - Cycle 1038: Scanned 2 markets, saved 2
+2026-05-04 23:00:36.122 | INFO     | __main__:main:388 - Cycle 1038 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:05:38.444 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:05:38.451 | INFO     | __main__:main:252 - Cycle 1039: Scanned 2 markets, saved 2
+2026-05-04 23:05:39.674 | INFO     | __main__:main:388 - Cycle 1039 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:10:42.096 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:10:42.101 | INFO     | __main__:main:252 - Cycle 1040: Scanned 2 markets, saved 2
+2026-05-04 23:10:43.371 | INFO     | __main__:main:388 - Cycle 1040 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:15:46.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:15:46.026 | INFO     | __main__:main:252 - Cycle 1041: Scanned 2 markets, saved 2
+2026-05-04 23:15:47.489 | INFO     | __main__:main:388 - Cycle 1041 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:20:49.942 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:20:49.946 | INFO     | __main__:main:252 - Cycle 1042: Scanned 2 markets, saved 2
+2026-05-04 23:20:51.394 | INFO     | __main__:main:388 - Cycle 1042 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:25:53.957 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:25:53.961 | INFO     | __main__:main:252 - Cycle 1043: Scanned 2 markets, saved 2
+2026-05-04 23:25:55.202 | INFO     | __main__:main:388 - Cycle 1043 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:30:57.802 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:30:57.807 | INFO     | __main__:main:252 - Cycle 1044: Scanned 2 markets, saved 2
+2026-05-04 23:30:59.090 | INFO     | __main__:main:388 - Cycle 1044 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:36:01.483 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:36:01.509 | INFO     | __main__:main:252 - Cycle 1045: Scanned 2 markets, saved 2
+2026-05-04 23:36:02.954 | INFO     | __main__:main:388 - Cycle 1045 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:41:05.700 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:41:05.705 | INFO     | __main__:main:252 - Cycle 1046: Scanned 2 markets, saved 2
+2026-05-04 23:41:06.957 | INFO     | __main__:main:388 - Cycle 1046 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:46:09.397 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:46:09.402 | INFO     | __main__:main:252 - Cycle 1047: Scanned 2 markets, saved 2
+2026-05-04 23:46:10.681 | INFO     | __main__:main:388 - Cycle 1047 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:51:13.557 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:51:13.562 | INFO     | __main__:main:252 - Cycle 1048: Scanned 2 markets, saved 2
+2026-05-04 23:51:14.818 | INFO     | __main__:main:388 - Cycle 1048 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-04 23:56:17.480 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-04 23:56:17.484 | INFO     | __main__:main:252 - Cycle 1049: Scanned 2 markets, saved 2
+2026-05-04 23:56:18.723 | INFO     | __main__:main:388 - Cycle 1049 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:01:21.444 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:01:21.450 | INFO     | __main__:main:252 - Cycle 1050: Scanned 2 markets, saved 2
+2026-05-05 00:01:21.643 | INFO     | data.polymarket_feed:check_resolutions:309 - POLY FEED: Market RESOLVED: Will Vivek Ramaswamy win the 2026 Ohio Governor Republican p → YES
+2026-05-05 00:01:21.882 | INFO     | __main__:main:257 - Resolved 1 markets
+2026-05-05 00:01:22.994 | INFO     | __main__:main:388 - Cycle 1050 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:06:25.170 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:06:25.174 | INFO     | __main__:main:252 - Cycle 1051: Scanned 2 markets, saved 2
+2026-05-05 00:06:26.659 | INFO     | __main__:main:388 - Cycle 1051 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:11:28.747 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:11:28.751 | INFO     | __main__:main:252 - Cycle 1052: Scanned 2 markets, saved 2
+2026-05-05 00:11:30.099 | INFO     | __main__:main:388 - Cycle 1052 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:16:32.628 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:16:32.635 | INFO     | __main__:main:252 - Cycle 1053: Scanned 2 markets, saved 2
+2026-05-05 00:16:33.946 | INFO     | __main__:main:388 - Cycle 1053 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:21:36.285 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:21:36.292 | INFO     | __main__:main:252 - Cycle 1054: Scanned 2 markets, saved 2
+2026-05-05 00:21:37.632 | INFO     | __main__:main:388 - Cycle 1054 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:26:39.915 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:26:39.920 | INFO     | __main__:main:252 - Cycle 1055: Scanned 2 markets, saved 2
+2026-05-05 00:26:41.158 | INFO     | __main__:main:388 - Cycle 1055 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:31:43.687 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:31:43.692 | INFO     | __main__:main:252 - Cycle 1056: Scanned 2 markets, saved 2
+2026-05-05 00:31:44.923 | INFO     | __main__:main:388 - Cycle 1056 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:36:47.431 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:36:47.437 | INFO     | __main__:main:252 - Cycle 1057: Scanned 2 markets, saved 2
+2026-05-05 00:36:48.694 | INFO     | __main__:main:388 - Cycle 1057 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:41:51.344 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:41:51.348 | INFO     | __main__:main:252 - Cycle 1058: Scanned 2 markets, saved 2
+2026-05-05 00:41:52.570 | INFO     | __main__:main:388 - Cycle 1058 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:46:55.078 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:46:55.082 | INFO     | __main__:main:252 - Cycle 1059: Scanned 2 markets, saved 2
+2026-05-05 00:46:56.392 | INFO     | __main__:main:388 - Cycle 1059 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:51:58.684 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 00:51:58.688 | INFO     | __main__:main:252 - Cycle 1060: Scanned 2 markets, saved 2
+2026-05-05 00:51:59.933 | INFO     | __main__:main:388 - Cycle 1060 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 00:57:02.453 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 00:57:02.458 | INFO     | __main__:main:252 - Cycle 1061: Scanned 1 markets, saved 1
+2026-05-05 00:57:03.691 | INFO     | __main__:main:388 - Cycle 1061 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:02:06.373 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:02:06.377 | INFO     | __main__:main:252 - Cycle 1062: Scanned 1 markets, saved 1
+2026-05-05 01:02:07.672 | INFO     | __main__:main:388 - Cycle 1062 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:07:10.068 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-05-05 01:07:10.074 | INFO     | __main__:main:252 - Cycle 1063: Scanned 2 markets, saved 2
+2026-05-05 01:07:11.352 | INFO     | __main__:main:388 - Cycle 1063 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:12:13.746 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:12:13.751 | INFO     | __main__:main:252 - Cycle 1064: Scanned 1 markets, saved 1
+2026-05-05 01:12:14.983 | INFO     | __main__:main:388 - Cycle 1064 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:17:17.613 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:17:17.618 | INFO     | __main__:main:252 - Cycle 1065: Scanned 1 markets, saved 1
+2026-05-05 01:17:18.817 | INFO     | __main__:main:388 - Cycle 1065 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:22:21.405 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:22:21.409 | INFO     | __main__:main:252 - Cycle 1066: Scanned 1 markets, saved 1
+2026-05-05 01:22:22.627 | INFO     | __main__:main:388 - Cycle 1066 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:27:25.313 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:27:25.317 | INFO     | __main__:main:252 - Cycle 1067: Scanned 1 markets, saved 1
+2026-05-05 01:27:26.637 | INFO     | __main__:main:388 - Cycle 1067 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:32:35.050 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:32:35.054 | INFO     | __main__:main:252 - Cycle 1068: Scanned 1 markets, saved 1
+2026-05-05 01:32:36.799 | INFO     | __main__:main:388 - Cycle 1068 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:37:39.107 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:37:39.111 | INFO     | __main__:main:252 - Cycle 1069: Scanned 1 markets, saved 1
+2026-05-05 01:37:40.384 | INFO     | __main__:main:388 - Cycle 1069 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:42:44.142 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:42:44.145 | INFO     | __main__:main:252 - Cycle 1070: Scanned 1 markets, saved 1
+2026-05-05 01:42:45.450 | INFO     | __main__:main:388 - Cycle 1070 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:47:47.839 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+2026-05-05 01:47:47.843 | INFO     | __main__:main:252 - Cycle 1071: Scanned 1 markets, saved 1
+2026-05-05 01:47:49.073 | INFO     | __main__:main:388 - Cycle 1071 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:52:51.423 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 01:52:52.622 | INFO     | __main__:main:388 - Cycle 1072 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 01:57:55.397 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 01:57:56.761 | INFO     | __main__:main:388 - Cycle 1073 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:03:04.517 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:03:08.015 | INFO     | __main__:main:388 - Cycle 1074 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:08:10.950 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:08:12.620 | INFO     | __main__:main:388 - Cycle 1075 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:13:16.185 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:13:17.472 | INFO     | __main__:main:388 - Cycle 1076 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:18:20.816 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:18:22.204 | INFO     | __main__:main:388 - Cycle 1077 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:23:24.512 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:23:25.723 | INFO     | __main__:main:388 - Cycle 1078 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:28:28.511 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:28:29.736 | INFO     | __main__:main:388 - Cycle 1079 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:33:38.481 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:33:43.113 | INFO     | __main__:main:388 - Cycle 1080 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:38:46.087 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:38:47.539 | INFO     | __main__:main:388 - Cycle 1081 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:43:51.020 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:43:52.302 | INFO     | __main__:main:388 - Cycle 1082 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:48:55.373 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:48:57.040 | INFO     | __main__:main:388 - Cycle 1083 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:53:59.397 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:54:00.720 | INFO     | __main__:main:388 - Cycle 1084 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 02:59:04.458 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 02:59:05.805 | INFO     | __main__:main:388 - Cycle 1085 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:04:12.105 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:04:19.956 | INFO     | __main__:main:388 - Cycle 1086 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:09:22.505 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:09:23.728 | INFO     | __main__:main:388 - Cycle 1087 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:14:26.244 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:14:27.592 | INFO     | __main__:main:388 - Cycle 1088 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:19:30.232 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:19:31.530 | INFO     | __main__:main:388 - Cycle 1089 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:24:34.044 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:24:35.369 | INFO     | __main__:main:388 - Cycle 1090 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:29:37.773 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:29:39.008 | INFO     | __main__:main:388 - Cycle 1091 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:34:51.241 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:34:58.010 | INFO     | __main__:main:388 - Cycle 1092 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:39:58.204 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 03:40:00.762 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:40:02.442 | INFO     | __main__:main:388 - Cycle 1093 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:45:02.650 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 03:45:05.268 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:45:06.497 | INFO     | __main__:main:388 - Cycle 1094 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:50:06.686 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 03:50:09.068 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:50:10.308 | INFO     | __main__:main:388 - Cycle 1095 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 03:55:10.515 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 03:55:12.719 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 03:55:13.958 | INFO     | __main__:main:388 - Cycle 1096 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:00:14.184 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 04:00:16.918 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:00:18.513 | INFO     | __main__:main:388 - Cycle 1097 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:05:18.889 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 04:05:24.415 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:05:26.902 | INFO     | __main__:main:388 - Cycle 1098 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:10:29.347 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:10:30.542 | INFO     | __main__:main:388 - Cycle 1099 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:15:33.027 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:15:34.266 | INFO     | __main__:main:388 - Cycle 1100 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:20:34.456 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 04:20:36.631 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:20:37.842 | INFO     | __main__:main:388 - Cycle 1101 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:25:38.036 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 04:25:40.228 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:25:41.392 | INFO     | __main__:main:388 - Cycle 1102 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:30:43.585 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:30:44.749 | INFO     | __main__:main:388 - Cycle 1103 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:35:47.016 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:35:48.259 | INFO     | __main__:main:388 - Cycle 1104 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:40:48.448 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 04:40:50.397 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:40:51.605 | INFO     | __main__:main:388 - Cycle 1105 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:45:53.935 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:45:55.151 | INFO     | __main__:main:388 - Cycle 1106 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:50:55.337 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 04:50:57.552 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:50:58.819 | INFO     | __main__:main:388 - Cycle 1107 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 04:55:59.012 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 04:56:01.164 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 04:56:02.528 | INFO     | __main__:main:388 - Cycle 1108 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:01:02.735 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 05:01:05.076 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:01:06.627 | INFO     | __main__:main:388 - Cycle 1109 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:06:06.820 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 05:06:09.028 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:06:10.268 | INFO     | __main__:main:388 - Cycle 1110 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:11:10.490 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 05:11:12.765 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:11:14.021 | INFO     | __main__:main:388 - Cycle 1111 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:16:14.221 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 05:16:16.353 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:16:17.541 | INFO     | __main__:main:388 - Cycle 1112 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:21:17.728 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 05:21:19.866 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:21:21.264 | INFO     | __main__:main:388 - Cycle 1113 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:26:21.459 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.825
+2026-05-05 05:26:23.577 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:26:24.846 | INFO     | __main__:main:388 - Cycle 1114 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:31:25.033 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.815
+2026-05-05 05:31:27.231 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:31:28.437 | INFO     | __main__:main:388 - Cycle 1115 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:36:28.627 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.845
+2026-05-05 05:36:31.371 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:36:33.143 | INFO     | __main__:main:388 - Cycle 1116 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:41:33.358 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.845
+2026-05-05 05:41:35.530 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:41:36.976 | INFO     | __main__:main:388 - Cycle 1117 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:46:37.171 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.805
+2026-05-05 05:46:39.355 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:46:40.550 | INFO     | __main__:main:388 - Cycle 1118 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:51:40.742 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.815
+2026-05-05 05:51:43.006 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:51:44.187 | INFO     | __main__:main:388 - Cycle 1119 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 05:56:44.382 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.795
+2026-05-05 05:56:46.539 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 05:56:47.774 | INFO     | __main__:main:388 - Cycle 1120 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:01:47.975 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.795
+2026-05-05 06:01:50.202 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:01:51.451 | INFO     | __main__:main:388 - Cycle 1121 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:06:51.639 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 06:06:53.883 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:06:55.083 | INFO     | __main__:main:388 - Cycle 1122 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:11:55.273 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 06:11:57.365 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:11:58.549 | INFO     | __main__:main:388 - Cycle 1123 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:16:58.770 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 06:17:00.766 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:17:02.194 | INFO     | __main__:main:388 - Cycle 1124 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:22:02.410 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 06:22:04.893 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:22:06.211 | INFO     | __main__:main:388 - Cycle 1125 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:27:08.552 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:27:09.794 | INFO     | __main__:main:388 - Cycle 1126 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:32:12.157 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:32:13.429 | INFO     | __main__:main:388 - Cycle 1127 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:37:13.627 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.775
+2026-05-05 06:37:15.781 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:37:17.093 | INFO     | __main__:main:388 - Cycle 1128 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:42:17.284 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 06:42:19.565 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:42:20.945 | INFO     | __main__:main:388 - Cycle 1129 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:47:21.149 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.765
+2026-05-05 06:47:24.381 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:47:25.637 | INFO     | __main__:main:388 - Cycle 1130 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:52:25.830 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.795
+2026-05-05 06:52:27.942 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:52:29.171 | INFO     | __main__:main:388 - Cycle 1131 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 06:57:29.362 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.795
+2026-05-05 06:57:31.585 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 06:57:32.902 | INFO     | __main__:main:388 - Cycle 1132 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:02:33.092 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.785
+2026-05-05 07:02:34.976 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:02:36.198 | INFO     | __main__:main:388 - Cycle 1133 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:07:36.398 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.795
+2026-05-05 07:07:38.552 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:07:39.855 | INFO     | __main__:main:388 - Cycle 1134 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:12:40.042 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.805
+2026-05-05 07:12:42.026 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:12:43.231 | INFO     | __main__:main:388 - Cycle 1135 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:17:43.416 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.815
+2026-05-05 07:17:45.572 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:17:46.760 | INFO     | __main__:main:388 - Cycle 1136 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:22:46.947 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.815
+2026-05-05 07:22:48.921 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:22:50.131 | INFO     | __main__:main:388 - Cycle 1137 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s
+2026-05-05 07:27:50.317 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $80,000 on May " nuevo high=0.835
+2026-05-05 07:27:52.479 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-05 07:27:53.710 | INFO     | __main__:main:388 - Cycle 1138 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.89 | Balance: $978.05 | PnL: $-7.05 | Next scan in 300s

@@ -1,0 +1,718 @@
+2026-04-22 18:37:11 | INFO    | ════════════════════════════════════════════════════════════════
+2026-04-22 18:37:11 | INFO    | BTC DIRECTION MULTI-TF — AGENTE INICIANDO
+2026-04-22 18:37:11 | INFO    | Config:        /opt/trading/btc_direction/btc_direction_config.yaml
+2026-04-22 18:37:11 | INFO    | Paper mode:    True
+2026-04-22 18:37:11 | INFO    | Balance init:  $500.00 USDC
+2026-04-22 18:37:11 | INFO    | Max trade:     $20.00 USDC
+2026-04-22 18:37:11 | INFO    | Timeframes:    5m · 15m · 4H (determinístico) + 1H · Daily (scan)
+2026-04-22 18:37:11 | INFO    | ════════════════════════════════════════════════════════════════
+2026-04-22 18:37:12 | INFO    | Balance actual (desde DB): $460.80 USDC
+2026-04-22 18:37:12 | INFO    | MULTIFEED: BTC 15M   Up=0.735 Down=0.265 | rem=467s | slug=btc-updown-15m-1776882600
+2026-04-22 18:37:12 | INFO    | MULTIFEED: BTC 1H    Up=0.635 Down=0.365 | rem=1367s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:37:12 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=1367s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:37:13 | INFO    | MULTIFEED: SOL 1H    Up=0.955 Down=0.045 | rem=1367s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:37:13 | INFO    | MULTIFEED: XRP 1H    Up=0.710 Down=0.290 | rem=1367s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:37:13 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4967s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:37:13 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4966s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:37:17 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4963s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:37:17 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4963s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:37:17 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8562s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:37:17 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8562s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:37:18 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8562s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:37:18 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8562s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:37:18 | INFO    | MULTIFEED: BTC DAILY Up=0.395 Down=0.605 | rem=76961s | slug=bitcoin-up-or-down-on-april-23-2026
+2026-04-22 18:37:19 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:37:19 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=12 SELL=18 NEUTRAL=0 | precio_poly=0.045 edge=+0.455
+2026-04-22 18:37:49 | ERROR   | [Ciclo 2] Error inesperado: (psycopg2.OperationalError) SSL connection has been closed unexpectedly
+
+[SQL: SELECT id, slot_ts, condition_id, direction, shares, cost_usdc, timeframe, end_ts FROM btc_direction_trades WHERE status = 'OPEN']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-22 18:38:19 | INFO    | MULTIFEED: BTC 15M   Up=0.555 Down=0.445 | rem=400s | slug=btc-updown-15m-1776882600
+2026-04-22 18:38:20 | INFO    | MULTIFEED: BTC 1H    Up=0.575 Down=0.425 | rem=1300s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:20 | INFO    | MULTIFEED: ETH 1H    Up=0.355 Down=0.645 | rem=1300s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:20 | INFO    | MULTIFEED: SOL 1H    Up=0.955 Down=0.045 | rem=1299s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:20 | INFO    | MULTIFEED: XRP 1H    Up=0.585 Down=0.415 | rem=1299s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:20 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4899s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:21 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4899s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:21 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4899s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:21 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4899s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:21 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8498s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:21 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8498s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:22 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8498s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:22 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8498s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:22 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:38:22 | WARNING | STRATEGY: DB signals error para BTC: (psycopg2.OperationalError) SSL connection has been closed unexpectedly
+
+[SQL: 
+                    SELECT direction, COUNT(*) as cnt
+                    FROM signals
+                    WHERE asset = %(asset)s
+                      AND timestamp > now() - interval '10 minutes'
+                    GROUP BY direction
+                    ORDER BY cnt DESC
+                ]
+[parameters: {'asset': 'BTC'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-22 18:38:24 | INFO    | STRATEGY: SENAL ETH Up conf=0.98 | ETH Up conf=0.98 | ETH DB 10m: BUY=10 SELL=0 NEUTRAL=0 | precio_poly=0.355 edge=+0.145
+2026-04-22 18:38:24 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=10 SELL=15 NEUTRAL=0 | precio_poly=0.045 edge=+0.455
+2026-04-22 18:38:54 | INFO    | MULTIFEED: BTC 15M   Up=0.705 Down=0.295 | rem=365s | slug=btc-updown-15m-1776882600
+2026-04-22 18:38:54 | INFO    | MULTIFEED: BTC 1H    Up=0.645 Down=0.355 | rem=1265s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:55 | INFO    | MULTIFEED: ETH 1H    Up=0.435 Down=0.565 | rem=1265s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:55 | INFO    | MULTIFEED: SOL 1H    Up=0.955 Down=0.045 | rem=1265s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:55 | INFO    | MULTIFEED: XRP 1H    Up=0.635 Down=0.365 | rem=1265s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:38:55 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4864s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:55 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4864s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4864s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4864s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8464s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8463s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8463s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8463s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:38:56 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:38:56 | INFO    | STRATEGY: SENAL ETH Up conf=0.72 | ETH Up conf=0.72 | ETH DB 10m: BUY=10 SELL=0 NEUTRAL=0 | precio_poly=0.435 edge=+0.065
+2026-04-22 18:38:56 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=10 SELL=15 NEUTRAL=0 | precio_poly=0.045 edge=+0.455
+2026-04-22 18:39:27 | INFO    | MULTIFEED: BTC 15M   Up=0.725 Down=0.275 | rem=333s | slug=btc-updown-15m-1776882600
+2026-04-22 18:39:27 | INFO    | MULTIFEED: BTC 1H    Up=0.645 Down=0.355 | rem=1233s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:39:27 | INFO    | MULTIFEED: ETH 1H    Up=0.425 Down=0.575 | rem=1232s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:39:27 | INFO    | MULTIFEED: SOL 1H    Up=0.965 Down=0.035 | rem=1232s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:39:27 | INFO    | MULTIFEED: XRP 1H    Up=0.645 Down=0.355 | rem=1232s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:39:28 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4832s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:39:28 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4832s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:39:28 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4832s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:39:28 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4831s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:39:28 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8431s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:39:29 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8431s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:39:29 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8431s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:39:29 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8431s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:39:29 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:39:29 | INFO    | STRATEGY: SENAL ETH Up conf=0.75 | ETH Up conf=0.75 | ETH DB 10m: BUY=8 SELL=0 NEUTRAL=0 | precio_poly=0.425 edge=+0.075
+2026-04-22 18:39:29 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=8 SELL=12 NEUTRAL=0 | precio_poly=0.035 edge=+0.465
+2026-04-22 18:39:59 | INFO    | MULTIFEED: BTC 15M   Up=0.765 Down=0.235 | rem=300s | slug=btc-updown-15m-1776882600
+2026-04-22 18:39:59 | INFO    | MULTIFEED: BTC 1H    Up=0.645 Down=0.355 | rem=1200s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: ETH 1H    Up=0.415 Down=0.585 | rem=1200s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: SOL 1H    Up=0.965 Down=0.035 | rem=1200s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: XRP 1H    Up=0.685 Down=0.315 | rem=1200s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4799s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4799s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:00 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4799s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:01 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4799s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:01 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8399s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:01 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8398s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:01 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8398s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:02 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8398s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:02 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:40:02 | INFO    | STRATEGY: SENAL ETH Up conf=0.78 | ETH Up conf=0.78 | ETH DB 10m: BUY=8 SELL=0 NEUTRAL=0 | precio_poly=0.415 edge=+0.085
+2026-04-22 18:40:02 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=8 SELL=12 NEUTRAL=0 | precio_poly=0.035 edge=+0.465
+2026-04-22 18:40:32 | INFO    | MULTIFEED: BTC 5M    Up=0.685 Down=0.315 | rem=268s | slug=btc-updown-5m-1776883200
+2026-04-22 18:40:32 | INFO    | MULTIFEED: BTC 1H    Up=0.715 Down=0.285 | rem=1167s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:32 | INFO    | MULTIFEED: ETH 1H    Up=0.530 Down=0.470 | rem=1167s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:32 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=1167s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:33 | INFO    | MULTIFEED: XRP 1H    Up=0.715 Down=0.285 | rem=1167s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:40:33 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4767s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:33 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4766s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:33 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4766s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:33 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4766s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:40:34 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8366s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:34 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8366s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:34 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8365s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:34 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8365s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:40:34 | INFO    | MULTIFEED: 14 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:40:34 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=10 SELL=15 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:41:04 | INFO    | MULTIFEED: BTC 5M    Up=0.655 Down=0.345 | rem=235s | slug=btc-updown-5m-1776883200
+2026-04-22 18:41:05 | INFO    | MULTIFEED: BTC 1H    Up=0.725 Down=0.275 | rem=1135s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:05 | INFO    | MULTIFEED: ETH 1H    Up=0.555 Down=0.445 | rem=1135s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:05 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=1134s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:05 | INFO    | MULTIFEED: XRP 1H    Up=0.715 Down=0.285 | rem=1134s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:05 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4734s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:06 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4734s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:06 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4734s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:06 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4734s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:06 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8333s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:06 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8333s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:07 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8333s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:07 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8333s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:07 | INFO    | MULTIFEED: 14 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:41:07 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=8 SELL=12 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:41:37 | INFO    | MULTIFEED: BTC 5M    Up=0.675 Down=0.325 | rem=202s | slug=btc-updown-5m-1776883200
+2026-04-22 18:41:37 | INFO    | MULTIFEED: BTC 1H    Up=0.735 Down=0.265 | rem=1102s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:37 | INFO    | MULTIFEED: ETH 1H    Up=0.545 Down=0.455 | rem=1102s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:38 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=1102s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:38 | INFO    | MULTIFEED: XRP 1H    Up=0.715 Down=0.285 | rem=1102s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:41:38 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4702s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:38 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4701s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:38 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4701s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4701s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8301s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8301s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8300s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8300s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:41:39 | INFO    | MULTIFEED: 14 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:41:39 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=10 SELL=15 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:42:09 | INFO    | MULTIFEED: BTC 1H    Up=0.705 Down=0.295 | rem=1070s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:10 | INFO    | MULTIFEED: ETH 1H    Up=0.535 Down=0.465 | rem=1070s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:10 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=1070s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:10 | INFO    | MULTIFEED: XRP 1H    Up=0.715 Down=0.285 | rem=1070s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:10 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4669s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:10 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4669s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4669s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4669s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8269s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8268s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8268s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8268s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:11 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:42:11 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=10 SELL=15 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:42:42 | INFO    | MULTIFEED: BTC 1H    Up=0.735 Down=0.265 | rem=1038s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:42 | INFO    | MULTIFEED: ETH 1H    Up=0.635 Down=0.365 | rem=1038s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:42 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=1037s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:42 | INFO    | MULTIFEED: XRP 1H    Up=0.715 Down=0.285 | rem=1037s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:42 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4637s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:43 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4637s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:43 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4637s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:43 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4637s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:42:43 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8236s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:44 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8236s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:44 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8236s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:44 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8235s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:42:45 | INFO    | MULTIFEED: BTC 1H    Up=0.735 Down=0.265 | rem=1034s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:46 | INFO    | MULTIFEED: BTC DAILY Up=0.405 Down=0.595 | rem=76634s | slug=bitcoin-up-or-down-on-april-23-2026
+2026-04-22 18:42:47 | INFO    | MULTIFEED: ETH 1H    Up=0.705 Down=0.295 | rem=1032s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:42:48 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:42:48 | INFO    | STRATEGY: SENAL SOL Down conf=0.70 | SOL Down conf=0.70 | SOL DB 10m: BUY=8 SELL=12 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:43:18 | INFO    | MULTIFEED: BTC 1H    Up=0.785 Down=0.215 | rem=1002s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:18 | INFO    | MULTIFEED: ETH 1H    Up=0.745 Down=0.255 | rem=1001s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:18 | INFO    | MULTIFEED: SOL 1H    Up=0.985 Down=0.015 | rem=1001s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:19 | INFO    | MULTIFEED: XRP 1H    Up=0.740 Down=0.260 | rem=1001s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:19 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4601s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:19 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4601s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:19 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4600s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:19 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4600s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:20 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8200s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:20 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8200s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:20 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8200s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:20 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8199s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:20 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:43:20 | INFO    | STRATEGY: SENAL SOL Down conf=0.73 | SOL Down conf=0.73 | SOL DB 10m: BUY=10 SELL=16 NEUTRAL=0 | precio_poly=0.015 edge=+0.485
+2026-04-22 18:43:50 | INFO    | MULTIFEED: BTC 1H    Up=0.805 Down=0.195 | rem=969s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:50 | INFO    | MULTIFEED: ETH 1H    Up=0.720 Down=0.280 | rem=969s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:51 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=969s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:51 | INFO    | MULTIFEED: XRP 1H    Up=0.725 Down=0.275 | rem=969s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:43:51 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4568s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:51 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4568s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4568s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4568s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8168s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8167s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8167s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8167s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:43:52 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:43:52 | INFO    | STRATEGY: SENAL SOL Down conf=0.73 | SOL Down conf=0.73 | SOL DB 10m: BUY=10 SELL=16 NEUTRAL=0 | precio_poly=0.025 edge=+0.475
+2026-04-22 18:44:23 | INFO    | MULTIFEED: BTC 1H    Up=0.815 Down=0.185 | rem=937s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:23 | INFO    | MULTIFEED: ETH 1H    Up=0.695 Down=0.305 | rem=937s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:23 | INFO    | MULTIFEED: SOL 1H    Up=0.985 Down=0.015 | rem=936s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:23 | INFO    | MULTIFEED: XRP 1H    Up=0.735 Down=0.265 | rem=936s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:23 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4536s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:24 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4536s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:24 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4536s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:24 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4535s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:24 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8135s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:24 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8135s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:25 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8135s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:25 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8135s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:25 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:44:25 | INFO    | STRATEGY: SENAL SOL Down conf=0.74 | SOL Down conf=0.74 | SOL DB 10m: BUY=8 SELL=13 NEUTRAL=0 | precio_poly=0.015 edge=+0.485
+2026-04-22 18:44:55 | INFO    | MULTIFEED: BTC 1H    Up=0.745 Down=0.255 | rem=905s | slug=bitcoin-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:55 | INFO    | MULTIFEED: ETH 1H    Up=0.465 Down=0.535 | rem=904s | slug=ethereum-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:55 | INFO    | MULTIFEED: SOL 1H    Up=0.975 Down=0.025 | rem=904s | slug=solana-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:56 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=904s | slug=xrp-up-or-down-april-22-2026-2pm-et
+2026-04-22 18:44:56 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=4504s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:56 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4504s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:56 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4503s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:56 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4503s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:44:57 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8103s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:57 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8103s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:57 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8103s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:57 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8102s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:44:57 | INFO    | MULTIFEED: 13 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:44:57 | INFO    | STRATEGY: SENAL ETH Up conf=0.62 | ETH Up conf=0.62 | ETH DB 10m: BUY=10 SELL=2 NEUTRAL=1 | precio_poly=0.465 edge=+0.035
+2026-04-22 18:44:57 | INFO    | STRATEGY: SENAL SOL Down conf=0.76 | SOL Down conf=0.76 | SOL DB 10m: BUY=10 SELL=17 NEUTRAL=0 | precio_poly=0.025 edge=+0.474
+2026-04-22 18:45:27 | INFO    | MULTIFEED: BTC 5M    Up=0.515 Down=0.485 | rem=272s | slug=btc-updown-5m-1776883500
+2026-04-22 18:45:28 | INFO    | MULTIFEED: BTC 15M   Up=0.505 Down=0.495 | rem=872s | slug=btc-updown-15m-1776883500
+2026-04-22 18:45:28 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4472s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:45:28 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4472s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:45:28 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4471s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:45:28 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4471s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:45:29 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8071s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:45:29 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8071s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:45:29 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8071s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:45:29 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8070s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:45:29 | INFO    | MULTIFEED: 13 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, BTC daily, ETH 1h]
+2026-04-22 18:45:59 | INFO    | MULTIFEED: BTC 5M    Up=0.765 Down=0.235 | rem=240s | slug=btc-updown-5m-1776883500
+2026-04-22 18:46:00 | INFO    | MULTIFEED: BTC 15M   Up=0.625 Down=0.375 | rem=840s | slug=btc-updown-15m-1776883500
+2026-04-22 18:46:00 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4440s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:00 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4439s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:00 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4439s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:00 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4439s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:01 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8039s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:01 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8039s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:01 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8038s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:01 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8038s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:01 | INFO    | MULTIFEED: 13 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, BTC daily, ETH 1h]
+2026-04-22 18:46:31 | INFO    | MULTIFEED: BTC 5M    Up=0.705 Down=0.295 | rem=208s | slug=btc-updown-5m-1776883500
+2026-04-22 18:46:32 | INFO    | MULTIFEED: BTC 15M   Up=0.635 Down=0.365 | rem=808s | slug=btc-updown-15m-1776883500
+2026-04-22 18:46:32 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4408s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:32 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4407s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:32 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4407s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:32 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4407s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:46:33 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=8007s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:33 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=8007s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:33 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=8006s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:33 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=8006s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:46:33 | INFO    | MULTIFEED: 13 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, BTC daily, ETH 1h]
+2026-04-22 18:47:03 | INFO    | MULTIFEED: BTC 15M   Up=0.625 Down=0.355 | rem=776s | slug=btc-updown-15m-1776883500
+2026-04-22 18:47:04 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4376s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:04 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4376s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:04 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4375s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:04 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4375s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:04 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7975s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:05 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7975s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:05 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7975s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:05 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7974s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:05 | INFO    | MULTIFEED: 12 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, BTC daily, ETH 1h]
+2026-04-22 18:47:35 | INFO    | MULTIFEED: BTC 15M   Up=0.635 Down=0.365 | rem=744s | slug=btc-updown-15m-1776883500
+2026-04-22 18:47:35 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4344s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:36 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4344s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:36 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4344s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:36 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4343s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:47:36 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7943s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:36 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7943s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:37 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7943s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:37 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7943s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:47:37 | INFO    | MULTIFEED: 12 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, BTC daily, ETH 1h]
+2026-04-22 18:47:37 | INFO    | STATS: trades=107 open=2 closed=105 wins=0 (0.0%) | P&L=$+0.00 balance=$460.80
+2026-04-22 18:48:07 | INFO    | MULTIFEED: BTC 15M   Up=0.685 Down=0.315 | rem=713s | slug=btc-updown-15m-1776883500
+2026-04-22 18:48:07 | INFO    | MULTIFEED: BTC 1H    Up=0.485 Down=0.515 | rem=4312s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:07 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4312s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:08 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4312s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:08 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4312s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:08 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7912s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:08 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7911s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:08 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7911s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:09 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7911s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:11 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:48:41 | INFO    | MULTIFEED: BTC 15M   Up=0.795 Down=0.205 | rem=679s | slug=btc-updown-15m-1776883500
+2026-04-22 18:48:41 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4278s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:41 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4278s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:42 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4278s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:42 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4278s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:48:42 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7878s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:42 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7877s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:42 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7877s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:43 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7877s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:48:44 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:49:14 | INFO    | MULTIFEED: BTC 15M   Up=0.825 Down=0.175 | rem=645s | slug=btc-updown-15m-1776883500
+2026-04-22 18:49:14 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4245s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4245s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4245s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4245s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7844s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7844s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:15 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7844s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:16 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7844s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:18 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:49:48 | INFO    | MULTIFEED: BTC 15M   Up=0.915 Down=0.085 | rem=611s | slug=btc-updown-15m-1776883500
+2026-04-22 18:49:49 | INFO    | MULTIFEED: BTC 1H    Up=0.490 Down=0.510 | rem=4211s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:49 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=4211s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:49 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4210s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:49 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4210s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:49:49 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7810s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:50 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7810s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:50 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7810s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:50 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7810s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:49:51 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:50:21 | INFO    | MULTIFEED: BTC 5M    Up=0.285 Down=0.715 | rem=278s | slug=btc-updown-5m-1776883800
+2026-04-22 18:50:21 | INFO    | MULTIFEED: BTC 15M   Up=0.865 Down=0.135 | rem=578s | slug=btc-updown-15m-1776883500
+2026-04-22 18:50:22 | INFO    | MULTIFEED: BTC 1H    Up=0.485 Down=0.515 | rem=4178s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:22 | INFO    | MULTIFEED: ETH 1H    Up=0.500 Down=0.500 | rem=4178s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:22 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4177s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:22 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4177s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:22 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7777s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:23 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7777s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:23 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7777s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:23 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7776s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:25 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:50:25 | INFO    | STRATEGY: SENAL BTC Up conf=0.70 | BTC Up conf=0.70 | BTC DB 10m: BUY=12 SELL=8 NEUTRAL=0 | precio_poly=0.285 edge=+0.215
+2026-04-22 18:50:55 | INFO    | MULTIFEED: BTC 5M    Up=0.375 Down=0.625 | rem=245s | slug=btc-updown-5m-1776883800
+2026-04-22 18:50:55 | INFO    | MULTIFEED: BTC 15M   Up=0.895 Down=0.105 | rem=545s | slug=btc-updown-15m-1776883500
+2026-04-22 18:50:55 | INFO    | MULTIFEED: BTC 1H    Up=0.485 Down=0.515 | rem=4144s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:55 | INFO    | MULTIFEED: ETH 1H    Up=0.500 Down=0.500 | rem=4144s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=4144s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4144s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7744s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7743s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7743s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:56 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7743s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:50:58 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:50:58 | INFO    | STRATEGY: SENAL BTC Up conf=0.62 | BTC Up conf=0.62 | BTC DB 10m: BUY=12 SELL=8 NEUTRAL=0 | precio_poly=0.375 edge=+0.125
+2026-04-22 18:51:28 | INFO    | MULTIFEED: BTC 5M    Up=0.310 Down=0.685 | rem=212s | slug=btc-updown-5m-1776883800
+2026-04-22 18:51:28 | INFO    | MULTIFEED: BTC 15M   Up=0.895 Down=0.105 | rem=511s | slug=btc-updown-15m-1776883500
+2026-04-22 18:51:28 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=4111s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=4111s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=4111s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4111s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7710s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7710s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:51:29 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7710s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:51:30 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7710s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:51:31 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:52:04 | INFO    | MULTIFEED: BTC 15M   Up=0.935 Down=0.065 | rem=475s | slug=btc-updown-15m-1776883500
+2026-04-22 18:52:05 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=4075s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:05 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=4075s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:05 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=4074s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:05 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4074s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:05 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7674s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:06 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7674s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:06 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7674s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:06 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7673s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:07 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:52:40 | INFO    | MULTIFEED: BTC 15M   Up=0.965 Down=0.035 | rem=440s | slug=btc-updown-15m-1776883500
+2026-04-22 18:52:40 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=4039s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:40 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=4039s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:40 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=4039s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:41 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4039s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:52:41 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7639s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:41 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7638s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:41 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7638s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:42 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7638s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:52:43 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:53:15 | INFO    | MULTIFEED: BTC 15M   Up=0.985 Down=0.015 | rem=404s | slug=btc-updown-15m-1776883500
+2026-04-22 18:53:16 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=4004s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:16 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=4004s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:16 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=4003s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:16 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=4003s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:16 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7603s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:17 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7603s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:17 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7603s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:17 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7602s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:18 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:53:51 | INFO    | MULTIFEED: BTC 15M   Up=0.965 Down=0.035 | rem=369s | slug=btc-updown-15m-1776883500
+2026-04-22 18:53:51 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=3968s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:51 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3968s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:51 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3968s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:52 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=3968s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:53:52 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7568s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:52 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7568s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:52 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7567s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:52 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7567s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:53:54 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:54:26 | INFO    | MULTIFEED: BTC 15M   Up=0.965 Down=0.035 | rem=333s | slug=btc-updown-15m-1776883500
+2026-04-22 18:54:27 | INFO    | MULTIFEED: BTC 1H    Up=0.475 Down=0.525 | rem=3933s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:54:27 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3933s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:54:27 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3933s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:54:27 | INFO    | MULTIFEED: XRP 1H    Up=0.485 Down=0.515 | rem=3932s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:54:27 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7532s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:54:28 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7532s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:54:28 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7532s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:54:28 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7532s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:54:30 | INFO    | MULTIFEED: 9 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:55:03 | INFO    | MULTIFEED: BTC 5M    Up=0.465 Down=0.535 | rem=297s | slug=btc-updown-5m-1776884100
+2026-04-22 18:55:03 | INFO    | MULTIFEED: BTC 1H    Up=0.485 Down=0.515 | rem=3896s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:03 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3896s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:04 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3896s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:04 | INFO    | MULTIFEED: XRP 1H    Up=0.490 Down=0.510 | rem=3896s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:04 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7496s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:04 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7495s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:04 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7495s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:05 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7495s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:06 | INFO    | MULTIFEED: 9 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h]
+2026-04-22 18:55:38 | INFO    | MULTIFEED: BTC 5M    Up=0.355 Down=0.655 | rem=261s | slug=btc-updown-5m-1776884100
+2026-04-22 18:55:39 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3861s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:39 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3861s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:39 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3861s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:39 | INFO    | MULTIFEED: XRP 1H    Up=0.490 Down=0.510 | rem=3860s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:55:39 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7460s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:39 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7460s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:40 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7460s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:40 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7460s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:55:41 | INFO    | MULTIFEED: BTC DAILY Up=0.435 Down=0.565 | rem=75859s | slug=bitcoin-up-or-down-on-april-23-2026
+2026-04-22 18:55:42 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:56:14 | INFO    | MULTIFEED: BTC 5M    Up=0.255 Down=0.745 | rem=225s | slug=btc-updown-5m-1776884100
+2026-04-22 18:56:14 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3825s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:15 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3825s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:15 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3825s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:15 | INFO    | MULTIFEED: XRP 1H    Up=0.490 Down=0.510 | rem=3824s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:15 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7424s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:15 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7424s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:16 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7424s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:16 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7424s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:16 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:56:49 | INFO    | MULTIFEED: BTC 5M    Up=0.135 Down=0.865 | rem=191s | slug=btc-updown-5m-1776884100
+2026-04-22 18:56:49 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3790s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:49 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3790s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:50 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3790s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:50 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3790s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:56:50 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7389s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:51 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7389s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:51 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7388s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:51 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7388s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:56:51 | INFO    | MULTIFEED: 10 mercados activos [BTC 5m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:57:25 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3755s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:25 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3755s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:25 | INFO    | MULTIFEED: SOL 1H    Up=0.485 Down=0.515 | rem=3754s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:25 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3754s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:26 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7354s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:57:26 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7353s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:57:26 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7353s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:57:27 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7353s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:57:27 | INFO    | MULTIFEED: 9 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:57:58 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3721s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:59 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3721s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:59 | INFO    | MULTIFEED: SOL 1H    Up=0.490 Down=0.510 | rem=3720s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:57:59 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3720s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:58:00 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7320s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:00 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7319s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:00 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7319s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:00 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7319s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:00 | INFO    | MULTIFEED: 9 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:58:32 | INFO    | MULTIFEED: BTC 1H    Up=0.465 Down=0.535 | rem=3687s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:58:33 | INFO    | MULTIFEED: ETH 1H    Up=0.495 Down=0.505 | rem=3687s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:58:33 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=3687s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:58:33 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3686s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:58:34 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7286s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:34 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7286s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:34 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7285s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:34 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7285s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:58:34 | INFO    | MULTIFEED: 9 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:59:06 | INFO    | MULTIFEED: BTC 1H    Up=0.460 Down=0.540 | rem=3653s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:06 | INFO    | MULTIFEED: ETH 1H    Up=0.545 Down=0.455 | rem=3653s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:07 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=3653s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:07 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3652s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:07 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7252s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:08 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7252s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:08 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7252s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:08 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7251s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:08 | INFO    | MULTIFEED: 9 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 18:59:10 | INFO    | STATS: trades=107 open=2 closed=105 wins=0 (0.0%) | P&L=$+0.00 balance=$460.80
+2026-04-22 18:59:40 | INFO    | MULTIFEED: BTC 1H    Up=0.460 Down=0.540 | rem=3620s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:40 | INFO    | MULTIFEED: ETH 1H    Up=0.545 Down=0.455 | rem=3619s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:40 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=3619s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:40 | INFO    | MULTIFEED: XRP 1H    Up=0.495 Down=0.505 | rem=3619s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 18:59:41 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7219s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:41 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7219s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:41 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7218s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:41 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7218s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 18:59:41 | INFO    | MULTIFEED: 9 mercados activos [BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:00:13 | INFO    | MULTIFEED: BTC 5M    Up=0.205 Down=0.795 | rem=287s | slug=btc-updown-5m-1776884400
+2026-04-22 19:00:13 | INFO    | MULTIFEED: BTC 15M   Up=0.325 Down=0.675 | rem=887s | slug=btc-updown-15m-1776884400
+2026-04-22 19:00:13 | INFO    | MULTIFEED: BTC 1H    Up=0.395 Down=0.605 | rem=3586s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:13 | INFO    | MULTIFEED: ETH 1H    Up=0.500 Down=0.495 | rem=3586s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: SOL 1H    Up=0.405 Down=0.595 | rem=3586s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: XRP 1H    Up=0.475 Down=0.525 | rem=3586s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7186s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7185s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: SOL 1H    Up=0.500 Down=0.500 | rem=7185s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:14 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7185s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:15 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10785s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:15 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10785s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:15 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10784s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:15 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10784s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:15 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:00:50 | INFO    | MULTIFEED: BTC 5M    Up=0.095 Down=0.905 | rem=249s | slug=btc-updown-5m-1776884400
+2026-04-22 19:00:51 | INFO    | MULTIFEED: BTC 15M   Up=0.185 Down=0.815 | rem=849s | slug=btc-updown-15m-1776884400
+2026-04-22 19:00:51 | INFO    | MULTIFEED: BTC 1H    Up=0.305 Down=0.695 | rem=3549s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:51 | INFO    | MULTIFEED: ETH 1H    Up=0.405 Down=0.585 | rem=3548s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:51 | INFO    | MULTIFEED: SOL 1H    Up=0.435 Down=0.565 | rem=3548s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:51 | INFO    | MULTIFEED: XRP 1H    Up=0.395 Down=0.605 | rem=3548s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:00:52 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7148s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:52 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7148s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:52 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=7148s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:52 | INFO    | MULTIFEED: XRP 1H    Up=0.500 Down=0.500 | rem=7147s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:00:52 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10747s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:53 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10747s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:53 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10747s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:53 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10746s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:00:54 | INFO    | MULTIFEED: BTC DAILY Up=0.395 Down=0.605 | rem=75545s | slug=bitcoin-up-or-down-on-april-23-2026
+2026-04-22 19:00:56 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:00:59 | INFO    | STRATEGY: SENAL ETH Up conf=0.82 | ETH Up conf=0.82 | ETH DB 10m: BUY=16 SELL=0 NEUTRAL=0 | precio_poly=0.405 edge=+0.095
+2026-04-22 19:01:31 | INFO    | MULTIFEED: BTC 5M    Up=0.045 Down=0.955 | rem=208s | slug=btc-updown-5m-1776884400
+2026-04-22 19:01:31 | INFO    | MULTIFEED: BTC 15M   Up=0.125 Down=0.875 | rem=808s | slug=btc-updown-15m-1776884400
+2026-04-22 19:01:31 | INFO    | MULTIFEED: BTC 1H    Up=0.275 Down=0.725 | rem=3508s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:01:32 | INFO    | MULTIFEED: ETH 1H    Up=0.390 Down=0.610 | rem=3508s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:01:32 | INFO    | MULTIFEED: SOL 1H    Up=0.380 Down=0.620 | rem=3508s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:01:32 | INFO    | MULTIFEED: XRP 1H    Up=0.380 Down=0.620 | rem=3507s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:01:32 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7107s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:01:32 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7107s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:01:33 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=7107s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:01:33 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=7107s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:01:33 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10707s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:01:33 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10706s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:01:33 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10706s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:01:34 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10706s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:01:34 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:01:36 | INFO    | STRATEGY: SENAL ETH Up conf=0.87 | ETH Up conf=0.87 | ETH DB 10m: BUY=15 SELL=0 NEUTRAL=0 | precio_poly=0.390 edge=+0.110
+2026-04-22 19:01:36 | INFO    | STRATEGY: SENAL SOL Up conf=0.73 | SOL Up conf=0.73 | SOL DB 10m: BUY=18 SELL=9 NEUTRAL=2 | precio_poly=0.380 edge=+0.120
+2026-04-22 19:02:09 | INFO    | MULTIFEED: BTC 15M   Up=0.115 Down=0.885 | rem=771s | slug=btc-updown-15m-1776884400
+2026-04-22 19:02:09 | INFO    | MULTIFEED: BTC 1H    Up=0.285 Down=0.715 | rem=3471s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:09 | INFO    | MULTIFEED: ETH 1H    Up=0.385 Down=0.615 | rem=3471s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:09 | INFO    | MULTIFEED: SOL 1H    Up=0.345 Down=0.655 | rem=3470s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:09 | INFO    | MULTIFEED: XRP 1H    Up=0.385 Down=0.615 | rem=3470s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7070s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7070s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=7070s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=7069s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10669s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:10 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10669s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:11 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10669s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:11 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10669s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:11 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:02:12 | INFO    | STRATEGY: SENAL ETH Up conf=0.88 | ETH Up conf=0.88 | ETH DB 10m: BUY=15 SELL=0 NEUTRAL=0 | precio_poly=0.385 edge=+0.115
+2026-04-22 19:02:12 | INFO    | STRATEGY: SENAL SOL Up conf=0.83 | SOL Up conf=0.83 | SOL DB 10m: BUY=18 SELL=9 NEUTRAL=2 | precio_poly=0.345 edge=+0.155
+2026-04-22 19:02:45 | INFO    | MULTIFEED: BTC 15M   Up=0.175 Down=0.825 | rem=735s | slug=btc-updown-15m-1776884400
+2026-04-22 19:02:45 | INFO    | MULTIFEED: BTC 1H    Up=0.320 Down=0.680 | rem=3435s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:45 | INFO    | MULTIFEED: ETH 1H    Up=0.395 Down=0.605 | rem=3434s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:45 | INFO    | MULTIFEED: SOL 1H    Up=0.375 Down=0.625 | rem=3434s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:45 | INFO    | MULTIFEED: XRP 1H    Up=0.415 Down=0.585 | rem=3434s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:02:46 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7034s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:46 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7034s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:46 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=7034s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:46 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=7033s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:02:46 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10633s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:47 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10633s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:47 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10633s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:47 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10633s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:02:47 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:02:47 | INFO    | STRATEGY: SENAL BTC Up conf=0.83 | BTC Up conf=0.83 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.175 edge=+0.325
+2026-04-22 19:02:47 | INFO    | STRATEGY: SENAL BTC Up conf=0.83 | BTC Up conf=0.83 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.320 edge=+0.180
+2026-04-22 19:02:47 | INFO    | STRATEGY: SENAL ETH Up conf=0.85 | ETH Up conf=0.85 | ETH DB 10m: BUY=18 SELL=0 NEUTRAL=0 | precio_poly=0.395 edge=+0.105
+2026-04-22 19:02:47 | INFO    | STRATEGY: SENAL SOL Up conf=0.84 | SOL Up conf=0.84 | SOL DB 10m: BUY=22 SELL=9 NEUTRAL=2 | precio_poly=0.375 edge=+0.125
+2026-04-22 19:03:17 | INFO    | MULTIFEED: BTC 15M   Up=0.185 Down=0.815 | rem=702s | slug=btc-updown-15m-1776884400
+2026-04-22 19:03:17 | INFO    | MULTIFEED: BTC 1H    Up=0.355 Down=0.645 | rem=3402s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: ETH 1H    Up=0.435 Down=0.565 | rem=3402s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: SOL 1H    Up=0.375 Down=0.615 | rem=3402s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: XRP 1H    Up=0.410 Down=0.590 | rem=3402s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=7001s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=7001s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:18 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=7001s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=7001s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10601s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10601s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10600s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10600s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:19 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:03:19 | INFO    | STRATEGY: SENAL BTC Up conf=0.83 | BTC Up conf=0.83 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.185 edge=+0.315
+2026-04-22 19:03:19 | INFO    | STRATEGY: SENAL BTC Up conf=0.82 | BTC Up conf=0.82 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.355 edge=+0.145
+2026-04-22 19:03:19 | INFO    | STRATEGY: SENAL ETH Up conf=0.72 | ETH Up conf=0.72 | ETH DB 10m: BUY=18 SELL=0 NEUTRAL=0 | precio_poly=0.435 edge=+0.065
+2026-04-22 19:03:19 | INFO    | STRATEGY: SENAL SOL Up conf=0.92 | SOL Up conf=0.92 | SOL DB 10m: BUY=20 SELL=6 NEUTRAL=2 | precio_poly=0.375 edge=+0.125
+2026-04-22 19:03:50 | INFO    | MULTIFEED: BTC 15M   Up=0.105 Down=0.895 | rem=670s | slug=btc-updown-15m-1776884400
+2026-04-22 19:03:50 | INFO    | MULTIFEED: BTC 1H    Up=0.275 Down=0.725 | rem=3370s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:50 | INFO    | MULTIFEED: ETH 1H    Up=0.395 Down=0.605 | rem=3370s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:50 | INFO    | MULTIFEED: SOL 1H    Up=0.395 Down=0.605 | rem=3369s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:50 | INFO    | MULTIFEED: XRP 1H    Up=0.395 Down=0.605 | rem=3369s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:03:51 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6969s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:51 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6969s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:51 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6969s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:51 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6968s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:03:51 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10568s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:52 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10568s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:52 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10568s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:52 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10568s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:03:52 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:03:52 | INFO    | STRATEGY: SENAL BTC Up conf=0.83 | BTC Up conf=0.83 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.105 edge=+0.395
+2026-04-22 19:03:52 | INFO    | STRATEGY: SENAL BTC Up conf=0.83 | BTC Up conf=0.83 | BTC DB 10m: BUY=14 SELL=7 NEUTRAL=0 | precio_poly=0.275 edge=+0.225
+2026-04-22 19:03:52 | INFO    | STRATEGY: SENAL ETH Up conf=0.85 | ETH Up conf=0.85 | ETH DB 10m: BUY=18 SELL=0 NEUTRAL=0 | precio_poly=0.395 edge=+0.105
+2026-04-22 19:03:52 | INFO    | STRATEGY: SENAL SOL Up conf=0.85 | SOL Up conf=0.85 | SOL DB 10m: BUY=20 SELL=6 NEUTRAL=2 | precio_poly=0.395 edge=+0.105
+2026-04-22 19:04:22 | INFO    | MULTIFEED: BTC 15M   Up=0.065 Down=0.935 | rem=637s | slug=btc-updown-15m-1776884400
+2026-04-22 19:04:22 | INFO    | MULTIFEED: BTC 1H    Up=0.235 Down=0.765 | rem=3337s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:22 | INFO    | MULTIFEED: ETH 1H    Up=0.345 Down=0.655 | rem=3337s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:23 | INFO    | MULTIFEED: SOL 1H    Up=0.335 Down=0.665 | rem=3337s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:23 | INFO    | MULTIFEED: XRP 1H    Up=0.345 Down=0.655 | rem=3337s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:23 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6936s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:23 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6936s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6936s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6936s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10536s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10535s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10535s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10535s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:24 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:04:24 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.065 edge=+0.435
+2026-04-22 19:04:24 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.235 edge=+0.265
+2026-04-22 19:04:24 | INFO    | STRATEGY: SENAL ETH Up conf=1.00 | ETH Up conf=1.00 | ETH DB 10m: BUY=21 SELL=0 NEUTRAL=0 | precio_poly=0.345 edge=+0.155
+2026-04-22 19:04:24 | INFO    | STRATEGY: SENAL SOL Up conf=1.00 | SOL Up conf=1.00 | SOL DB 10m: BUY=23 SELL=7 NEUTRAL=2 | precio_poly=0.335 edge=+0.165
+2026-04-22 19:04:55 | INFO    | MULTIFEED: BTC 15M   Up=0.075 Down=0.925 | rem=605s | slug=btc-updown-15m-1776884400
+2026-04-22 19:04:55 | INFO    | MULTIFEED: BTC 1H    Up=0.255 Down=0.745 | rem=3305s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:55 | INFO    | MULTIFEED: ETH 1H    Up=0.375 Down=0.625 | rem=3304s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:55 | INFO    | MULTIFEED: SOL 1H    Up=0.345 Down=0.655 | rem=3304s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:55 | INFO    | MULTIFEED: XRP 1H    Up=0.335 Down=0.665 | rem=3304s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:04:56 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6904s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:56 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6904s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:56 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6904s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:56 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6903s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:04:56 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10503s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:57 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10503s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:57 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10503s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:57 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10503s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:04:57 | INFO    | MULTIFEED: 14 mercados activos [BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:04:57 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.075 edge=+0.425
+2026-04-22 19:04:57 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.255 edge=+0.245
+2026-04-22 19:04:57 | INFO    | STRATEGY: SENAL ETH Up conf=0.92 | ETH Up conf=0.92 | ETH DB 10m: BUY=20 SELL=0 NEUTRAL=0 | precio_poly=0.375 edge=+0.125
+2026-04-22 19:04:57 | INFO    | STRATEGY: SENAL SOL Up conf=1.00 | SOL Up conf=1.00 | SOL DB 10m: BUY=20 SELL=5 NEUTRAL=2 | precio_poly=0.345 edge=+0.155
+2026-04-22 19:05:27 | INFO    | MULTIFEED: BTC 5M    Up=0.285 Down=0.715 | rem=272s | slug=btc-updown-5m-1776884700
+2026-04-22 19:05:27 | INFO    | MULTIFEED: BTC 15M   Up=0.045 Down=0.955 | rem=572s | slug=btc-updown-15m-1776884400
+2026-04-22 19:05:27 | INFO    | MULTIFEED: BTC 1H    Up=0.195 Down=0.805 | rem=3272s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:05:28 | INFO    | MULTIFEED: ETH 1H    Up=0.325 Down=0.675 | rem=3272s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:05:28 | INFO    | MULTIFEED: SOL 1H    Up=0.300 Down=0.700 | rem=3272s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:05:28 | INFO    | MULTIFEED: XRP 1H    Up=0.315 Down=0.685 | rem=3271s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:05:28 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6871s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:05:28 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6871s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:05:29 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6871s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:05:29 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6871s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:05:29 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10470s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:05:29 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10470s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:05:29 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10470s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:05:30 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10470s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:05:30 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:05:30 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.285 edge=+0.215
+2026-04-22 19:05:30 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.045 edge=+0.455
+2026-04-22 19:05:30 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=15 SELL=3 NEUTRAL=0 | precio_poly=0.195 edge=+0.305
+2026-04-22 19:05:30 | INFO    | STRATEGY: SENAL ETH Up conf=1.00 | ETH Up conf=1.00 | ETH DB 10m: BUY=20 SELL=0 NEUTRAL=0 | precio_poly=0.325 edge=+0.175
+2026-04-22 19:05:30 | INFO    | STRATEGY: SENAL SOL Up conf=1.00 | SOL Up conf=1.00 | SOL DB 10m: BUY=20 SELL=5 NEUTRAL=2 | precio_poly=0.300 edge=+0.200
+2026-04-22 19:06:00 | INFO    | MULTIFEED: BTC 5M    Up=0.605 Down=0.400 | rem=240s | slug=btc-updown-5m-1776884700
+2026-04-22 19:06:00 | INFO    | MULTIFEED: BTC 15M   Up=0.105 Down=0.895 | rem=540s | slug=btc-updown-15m-1776884400
+2026-04-22 19:06:00 | INFO    | MULTIFEED: BTC 1H    Up=0.265 Down=0.735 | rem=3239s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:00 | INFO    | MULTIFEED: ETH 1H    Up=0.415 Down=0.585 | rem=3239s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: SOL 1H    Up=0.335 Down=0.665 | rem=3239s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: XRP 1H    Up=0.340 Down=0.660 | rem=3239s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6839s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6838s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6838s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:01 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6838s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:02 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10438s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:02 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10438s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:02 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10437s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:02 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10437s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:03 | INFO    | MULTIFEED: BTC DAILY Up=0.350 Down=0.645 | rem=75236s | slug=bitcoin-up-or-down-on-april-23-2026
+2026-04-22 19:06:05 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:06:05 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=18 SELL=2 NEUTRAL=0 | precio_poly=0.105 edge=+0.395
+2026-04-22 19:06:05 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=18 SELL=2 NEUTRAL=0 | precio_poly=0.265 edge=+0.235
+2026-04-22 19:06:05 | INFO    | STRATEGY: SENAL ETH Up conf=0.78 | ETH Up conf=0.78 | ETH DB 10m: BUY=22 SELL=0 NEUTRAL=0 | precio_poly=0.415 edge=+0.085
+2026-04-22 19:06:05 | INFO    | STRATEGY: SENAL SOL Up conf=1.00 | SOL Up conf=1.00 | SOL DB 10m: BUY=22 SELL=6 NEUTRAL=2 | precio_poly=0.335 edge=+0.165
+2026-04-22 19:06:35 | INFO    | MULTIFEED: BTC 5M    Up=0.535 Down=0.465 | rem=204s | slug=btc-updown-5m-1776884700
+2026-04-22 19:06:36 | INFO    | MULTIFEED: BTC 15M   Up=0.055 Down=0.945 | rem=504s | slug=btc-updown-15m-1776884400
+2026-04-22 19:06:36 | INFO    | MULTIFEED: BTC 1H    Up=0.255 Down=0.745 | rem=3204s | slug=bitcoin-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:36 | INFO    | MULTIFEED: ETH 1H    Up=0.395 Down=0.605 | rem=3204s | slug=ethereum-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:36 | INFO    | MULTIFEED: SOL 1H    Up=0.325 Down=0.675 | rem=3203s | slug=solana-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:36 | INFO    | MULTIFEED: XRP 1H    Up=0.315 Down=0.685 | rem=3203s | slug=xrp-up-or-down-april-22-2026-3pm-et
+2026-04-22 19:06:36 | INFO    | MULTIFEED: BTC 1H    Up=0.495 Down=0.505 | rem=6803s | slug=bitcoin-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:37 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=6803s | slug=ethereum-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:37 | INFO    | MULTIFEED: SOL 1H    Up=0.520 Down=0.480 | rem=6803s | slug=solana-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:37 | INFO    | MULTIFEED: XRP 1H    Up=0.510 Down=0.490 | rem=6802s | slug=xrp-up-or-down-april-22-2026-4pm-et
+2026-04-22 19:06:37 | INFO    | MULTIFEED: BTC 1H    Up=0.505 Down=0.495 | rem=10402s | slug=bitcoin-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:37 | INFO    | MULTIFEED: ETH 1H    Up=0.505 Down=0.495 | rem=10402s | slug=ethereum-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:38 | INFO    | MULTIFEED: SOL 1H    Up=0.505 Down=0.495 | rem=10402s | slug=solana-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:38 | INFO    | MULTIFEED: XRP 1H    Up=0.505 Down=0.495 | rem=10402s | slug=xrp-up-or-down-april-22-2026-5pm-et
+2026-04-22 19:06:38 | INFO    | MULTIFEED: 15 mercados activos [BTC 5m, BTC 15m, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC 1h, ETH 1h, SOL 1h, XRP 1h, BTC daily]
+2026-04-22 19:06:38 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=18 SELL=2 NEUTRAL=0 | precio_poly=0.055 edge=+0.445
+2026-04-22 19:06:38 | INFO    | STRATEGY: SENAL BTC Up conf=1.00 | BTC Up conf=1.00 | BTC DB 10m: BUY=18 SELL=2 NEUTRAL=0 | precio_poly=0.255 edge=+0.245
+2026-04-22 19:06:38 | INFO    | STRATEGY: SENAL ETH Up conf=0.85 | ETH Up conf=0.85 | ETH DB 10m: BUY=22 SELL=0 NEUTRAL=0 | precio_poly=0.395 edge=+0.105
+2026-04-22 19:06:38 | INFO    | STRATEGY: SENAL SOL Up conf=1.00 | SOL Up conf=1.00 | SOL DB 10m: BUY=20 SELL=5 NEUTRAL=2 | precio_poly=0.325 edge=+0.175

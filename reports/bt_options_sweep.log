@@ -1,0 +1,41 @@
+2026-04-28 04:20:37.116 | INFO     | __main__:main:552 - SWEEP PARAMÉTRICO — 5 variantes × 2 activos
+2026-04-28 04:20:37.116 | INFO     | __main__:run_sweep:384 - Precargando datos BTC...
+2026-04-28 04:20:38.629 | INFO     | __main__:fetch_ohlcv:138 - [BTC] 745 días descargados (2024-04-14 → 2026-04-28)
+2026-04-28 04:20:38.647 | INFO     | __main__:run_sweep:384 - Precargando datos ETH...
+2026-04-28 04:20:40.073 | INFO     | __main__:fetch_ohlcv:138 - [ETH] 745 días descargados (2024-04-14 → 2026-04-28)
+2026-04-28 04:20:40.295 | INFO     | __main__:run_sweep:407 - [Baseline] completado
+2026-04-28 04:20:40.479 | INFO     | __main__:run_sweep:407 - [A-Conservadora] completado
+2026-04-28 04:20:40.674 | INFO     | __main__:run_sweep:407 - [B-SoloStrike] completado
+2026-04-28 04:20:40.844 | INFO     | __main__:run_sweep:407 - [C-SoloFiltroIV] completado
+2026-04-28 04:20:41.011 | INFO     | __main__:run_sweep:407 - [D-Equilibrada] completado
+
+==============================================================================
+SWEEP — BTC   (objetivo: PF≥1.10 AND MaxDD≤40%)
+==============================================================================
+  Variante              OTM%  IVmin  Stop  MaxP  Trades    WR%     PF       PnL   MaxDD%   OK?
+  ----------------------------------------------------------------------------
+  A-Conservadora         10%     25   3.0     2     240  85.4%   1.17 $  289.16    23.3%     ✅
+  B-SoloStrike           10%     15   2.0     3     276  78.3%   1.10 $  184.60    18.4%     ✅
+  D-Equilibrada           9%     25   2.5     2     265  80.4%   1.05 $  118.49    35.7%     ❌
+  C-SoloFiltroIV          7%     30   2.0     2     264  73.1%   0.90 $ -508.36    63.6%     ❌
+  Baseline                7%     15   2.0     3     269  72.1%   0.81 $ -982.76    74.2%     ❌
+
+==============================================================================
+SWEEP — ETH   (objetivo: PF≥1.10 AND MaxDD≤40%)
+==============================================================================
+  Variante              OTM%  IVmin  Stop  MaxP  Trades    WR%     PF       PnL   MaxDD%   OK?
+  ----------------------------------------------------------------------------
+  C-SoloFiltroIV          7%     30   2.0     2     289  67.1%   0.81 $-1138.14    79.6%     ❌
+  B-SoloStrike           10%     15   2.0     3     450  70.9%   0.78 $-1027.64    70.9%     ❌
+  Baseline                7%     15   2.0     3     351  68.4%   0.75 $-1834.06    93.3%     ❌
+  A-Conservadora         10%     25   3.0     2     301  76.4%   0.73 $ -993.99    66.9%     ❌
+  D-Equilibrada           9%     25   2.5     2     311  72.0%   0.70 $-1422.65    85.6%     ❌
+
+==============================================================================
+SELECCIÓN DE GANADOR (PF≥1.10 y MaxDD≤40% en todos los activos)
+==============================================================================
+
+  ⚠️  Ninguna variante cumple PF≥1.10 y MaxDD≤40% en todos los activos.
+  Mejor disponible: A-Conservadora  (PF promedio=0.95, MaxDD=66.9%)
+
+CSV guardado: /opt/trading/reports/bt_options_sweep.csv

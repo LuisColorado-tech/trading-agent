@@ -1,0 +1,3 @@
+2026-07-03 22:14:39.702 | INFO     | __main__:polling_loop:808 - Telegram bot started — listening for commands...
+2026-07-03 22:14:51.335 | ERROR    | __main__:polling_loop:850 - Polling error: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2026-07-03 22:15:04.549 | ERROR    | __main__:polling_loop:832 - Conflict 409 — hay otra instancia activa. Cerrando este proceso.

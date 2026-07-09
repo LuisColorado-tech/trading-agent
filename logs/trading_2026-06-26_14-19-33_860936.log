@@ -1,0 +1,52 @@
+2026-06-26 14:19:37.140 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-26 14:19:37.154 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-26 14:19:37.156 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-26 14:19:37.208 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: SESSION_011 Balance: $2,307.72
+2026-06-26 14:19:37.213 | INFO     | __main__:main:208 - Startup warm-up: 180s antes del primer ciclo de trading...
+2026-06-26 14:22:37.249 | WARNING  | agents.trade_monitor:_evaluate_trade:159 - No price data for LINK/BTC, skipping trade check
+2026-06-26 14:22:37.253 | WARNING  | agents.trade_monitor:_evaluate_trade:159 - No price data for ETH/BTC, skipping trade check
+2026-06-26 14:22:37.256 | WARNING  | agents.trade_monitor:_evaluate_trade:159 - No price data for ETH/BTC, skipping trade check
+2026-06-26 14:22:39.778 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.47
+2026-06-26 14:22:42.120 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BEAR dir=SELL str=0.09
+2026-06-26 14:22:43.297 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BEAR dir=SELL str=0.29
+2026-06-26 14:22:44.505 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.66
+2026-06-26 14:22:44.505 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.99
+2026-06-26 14:22:45.715 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH RSI_OVERBOUGHT dir=SELL str=0.10
+2026-06-26 14:22:45.715 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-06-26 14:22:45.715 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH VOLUME_SPIKE dir=NEUTRAL str=0.84
+2026-06-26 14:22:46.920 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BEAR dir=SELL str=0.17
+2026-06-26 14:22:46.921 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH VOLUME_SPIKE dir=NEUTRAL str=0.89
+2026-06-26 14:22:48.094 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BEAR dir=SELL str=0.44
+2026-06-26 14:22:49.345 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.66
+2026-06-26 14:22:50.505 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.38
+2026-06-26 14:22:50.506 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL RSI_OVERBOUGHT dir=SELL str=0.40
+2026-06-26 14:22:50.507 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_UPPER_TOUCH dir=SELL str=1.00
+2026-06-26 14:22:50.508 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-06-26 14:22:51.699 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.28
+2026-06-26 14:22:51.699 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL RSI_OVERBOUGHT dir=SELL str=0.01
+2026-06-26 14:22:51.700 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_UPPER_TOUCH dir=SELL str=1.00
+2026-06-26 14:22:52.926 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.04
+2026-06-26 14:22:54.162 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=1.00
+2026-06-26 14:22:54.163 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX RSI_OVERBOUGHT dir=SELL str=0.01
+2026-06-26 14:22:56.549 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.05
+2026-06-26 14:22:57.730 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BEAR dir=SELL str=0.15
+2026-06-26 14:22:59.111 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=1.00
+2026-06-26 14:22:59.112 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=1.00
+2026-06-26 14:23:00.310 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-06-26 14:23:01.477 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BEAR dir=SELL str=0.13
+2026-06-26 14:23:02.597 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BEAR dir=SELL str=0.32
+2026-06-26 14:23:03.916 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.42
+2026-06-26 14:23:05.014 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.31
+2026-06-26 14:23:05.014 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-06-26 14:23:06.204 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.40
+2026-06-26 14:23:07.436 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BULL dir=BUY str=0.48
+2026-06-26 14:23:07.437 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE BB_UPPER_TOUCH dir=SELL str=1.00
+2026-06-26 14:23:07.437 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-06-26 14:23:08.534 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.71
+2026-06-26 14:23:12.210 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BEAR dir=SELL str=0.19
+2026-06-26 14:23:13.420 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.59
+2026-06-26 14:23:14.530 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.21
+2026-06-26 14:23:15.772 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-06-26 14:23:15.772 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=0.46
+2026-06-26 14:23:16.904 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BEAR dir=SELL str=0.43
+2026-06-26 14:23:18.106 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37

@@ -1,0 +1,6 @@
+FASE 3 — RISK ANALYTICS
+========================
+Lee /opt/trading/docs/DASHBOARD_IMPROVEMENT_PLAN.md FASE 3.
+Implementa Sharpe/Sortino/VaR, drawdown chart, monthly returns.
+Agrega RiskPanel.tsx, DrawdownChart.tsx, MonthlyReturns.tsx.
+NO modifiques agentes de trading.

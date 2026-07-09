@@ -1,0 +1,202 @@
+═════════════════════════════════════════════════════════════════
+  INFORME DE MONITOREO DE ESTRATEGIAS — 2026-04-25 20:37 UTC
+═════════════════════════════════════════════════════════════════
+
+## 0. RESUMEN EJECUTIVO
+
+  Estado global:   🔴 ALERTA CRÍTICA
+  Anomalías:       🔴 3 críticas | 🟡 1 alertas | ℹ️  2 info
+  Timestamp:       2026-04-25 20:37 UTC
+
+  Portfolio:       Balance $11,529.32 | PnL $+0.00 | Drawdown 🟢 2.10% | Exposición 0.3%
+  Trades abiertos: 1
+    • XAG SELL | strat=GRID_BOT | entry=75.8000
+
+
+─────────────────────────────────────────────────────────────────
+
+## 1. TRADING AGENT
+   Sesión: PAPER_SESSION_008 | Inicio: 2026-04-12 | Balance: $10,092.23
+
+   Métricas globales (286 trades):
+     WR:            🟢 52.4%
+     Profit Factor: 🟢 1.401
+     Sharpe:        🟢 8.234
+     PnL total:     🟢 $+1,521.79
+     Avg win:       $+35.47 | Avg loss: $-27.93
+     Expectancy:    $+5.3210/trade
+
+   --- Por Estrategia ---
+
+   Trend Momentum     |   85 trades | WR 🟢 55.3% | PF 🟢1.85 | PnL $ +669.30 | avg_win=$+30.92 avg_loss=$-20.63 | último: 2026-04-24
+   SMC Order Blocks   | Sin trades aún (nueva — activada Apr 25)
+   BTC Microstructure | Sin trades aún (nueva — activada Apr 25)
+   Grid Bot           |  201 trades | WR 🟢 51.2% | PF 🟢1.28 | PnL $ +852.50 | avg_win=$+37.54 avg_loss=$-30.76 | último: 2026-04-25
+   Mean Reversion     | Sin trades aún 
+
+   --- Señales generadas (incluyendo rechazadas por RiskManager) ---
+     EMA_CROSS_BULL         | 289072 señales | score_avg=0.5 | confluence_avg=10.00
+     EMA_CROSS_BEAR         | 242094 señales | score_avg=0.5 | confluence_avg=10.00
+     RSI_OVERBOUGHT         | 75906 señales | score_avg=0.4 | confluence_avg=10.00
+     VOLUME_SPIKE           | 73866 señales | score_avg=0.9 | confluence_avg=10.00
+     BB_UPPER_TOUCH         | 70503 señales | score_avg=1.0 | confluence_avg=10.00
+     RSI_OVERSOLD           | 68973 señales | score_avg=0.4 | confluence_avg=10.00
+     BB_LOWER_TOUCH         | 60845 señales | score_avg=1.0 | confluence_avg=10.00
+
+   --- Por Asset ---
+
+     AVAX  |   38 trades | WR 🟢 55.3% | PF 🟢1.87 | PnL $ +403.17
+     XAG   |   36 trades | WR 🟢 58.3% | PF 🟢1.75 | PnL $ +360.09
+     ETH   |   54 trades | WR 🟢 53.7% | PF 🟢1.52 | PnL $ +325.21
+     INJ   |   58 trades | WR 🟢 51.7% | PF 🟢1.33 | PnL $ +241.02
+     SOL   |   53 trades | WR 🟢 49.1% | PF 🟢1.27 | PnL $ +197.20
+     XAU   |    8 trades | WR 🟢 50.0% | PF 🟢1.23 | PnL $  +30.99
+     BTC   |   39 trades | WR 🟢 48.7% | PF 🟡0.94 | PnL $  -35.89
+
+   --- Razones de Cierre ---
+     STOP_LOSS        |  136 ( 47.6%) | PnL $-3,798.23
+     TAKE_PROFIT      |   84 ( 29.4%) | PnL $+4,491.32
+     TRAILING_STOP    |   66 ( 23.1%) | PnL $+828.71
+
+   --- Últimos 20 Trades ---
+     ✗ INJ   SELL | $ -32.13 | STOP_LOSS      | GRID_BOT               | 2026-04-25 06:05
+     ✗ INJ   SELL | $ -32.64 | STOP_LOSS      | GRID_BOT               | 2026-04-25 01:48
+     ✗ INJ   SELL | $ -32.32 | STOP_LOSS      | GRID_BOT               | 2026-04-25 00:42
+     ✓ BTC   SELL | $ +58.85 | TAKE_PROFIT    | GRID_BOT               | 2026-04-24 22:41
+     ✗ AVAX  SELL | $ -33.35 | STOP_LOSS      | GRID_BOT               | 2026-04-24 20:56
+     ✓ XAU   SELL | $ +41.97 | TAKE_PROFIT    | GRID_BOT               | 2026-04-24 20:07
+     ✓ XAG   SELL | $ +46.69 | TAKE_PROFIT    | GRID_BOT               | 2026-04-24 19:46
+     ✗ INJ   SELL | $ -28.10 | STOP_LOSS      | GRID_BOT               | 2026-04-24 17:29
+     ✗ XAG   SELL | $ -28.35 | STOP_LOSS      | GRID_BOT               | 2026-04-24 15:46
+     ✗ ETH   SELL | $ -33.80 | STOP_LOSS      | GRID_BOT               | 2026-04-24 15:46
+     ✗ AVAX  SELL | $ -33.42 | STOP_LOSS      | GRID_BOT               | 2026-04-24 15:25
+     ✗ SOL   SELL | $ -32.11 | STOP_LOSS      | GRID_BOT               | 2026-04-24 14:40
+     ✓ XAU   SELL | $ +42.19 | TAKE_PROFIT    | GRID_BOT               | 2026-04-24 12:57
+     ✗ XAG   SELL | $ -39.97 | STOP_LOSS      | TREND_MOMENTUM         | 2026-04-24 11:16
+     ✗ BTC   SELL | $ -36.82 | STOP_LOSS      | GRID_BOT               | 2026-04-24 11:03
+     ✗ AVAX  SELL | $ -33.81 | STOP_LOSS      | GRID_BOT               | 2026-04-24 11:03
+     ✓ SOL   SELL | $ +64.30 | TAKE_PROFIT    | GRID_BOT               | 2026-04-24 09:11
+     ✓ XAG   SELL | $ +15.62 | TRAILING_STOP  | TREND_MOMENTUM         | 2026-04-24 09:01
+     ✗ ETH   SELL | $ -33.77 | STOP_LOSS      | GRID_BOT               | 2026-04-24 08:22
+     ✗ BTC   SELL | $ -31.95 | STOP_LOSS      | GRID_BOT               | 2026-04-24 05:43
+
+─────────────────────────────────────────────────────────────────
+
+## 2. POLYMARKET AGENT
+   Sesión: POLY_SESSION_004 | Inicio: 2026-04-25 | Balance: $666.73
+
+   Métricas globales (10 trades):
+     WR:              🔴 0.0%
+     Profit Factor:   🔴 0.000
+     PnL total:       🔴 $-179.53
+     Avg win:         $+0.00 | Avg loss: $-17.95
+     Edge declarado (avg): 35.3%
+
+   --- Por Estrategia Polymarket ---
+
+   Signal Based       | Sin trades aún
+   Tail End           | Sin trades aún
+   Late Entry         | Sin trades aún
+   Legged Arb         | Sin trades aún
+   Combinatorial Arb  | Sin trades aún
+
+   --- Posiciones Abiertas (8) ---
+     combinatorial        | NO | entry=0.495 | shares=34.5 | cost=$17.10 | edge=0.3%
+     combinatorial        | NO | entry=0.615 | shares=28.5 | cost=$17.51 | edge=0.2%
+     combinatorial        | NO | entry=0.565 | shares=31.3 | cost=$17.69 | edge=0.2%
+     combinatorial        | NO | entry=0.545 | shares=33.3 | cost=$18.15 | edge=0.3%
+     legged_arb           | YES | entry=0.245 | shares=76.0 | cost=$18.61 | edge=0.3%
+     legged_arb           | YES | entry=0.210 | shares=90.9 | cost=$19.09 | edge=0.3%
+     legged_arb           | YES | entry=0.200 | shares=103.0 | cost=$20.60 | edge=0.3%
+     combinatorial        | NO | entry=0.200 | shares=125.0 | cost=$25.00 | edge=0.6%
+
+   --- Razones de Cierre Polymarket ---
+     RESOLVED_LOSS        |    6 trades | PnL $-130.66
+     STOP_LOSS            |    4 trades | PnL $-48.86
+
+─────────────────────────────────────────────────────────────────
+
+## 3. BTC DIRECTION AGENT
+
+   Histórico total (105 trades):
+     WR:            🔴 27.6%
+     Profit Factor: 🔴 0.775
+     PnL total:     🔴 $-329.05
+
+   Rolling 50 trades (50 disponibles):
+     WR rolling-50: 🔴 26.0% | PnL rolling: $-198.84
+     Tendencia:     estable →
+
+   --- Por Dirección ---
+     Up       |   67 trades | WR  32.8% | PnL $-6.06
+     Down     |   38 trades | WR  18.4% | PnL $-322.99
+
+─────────────────────────────────────────────────────────────────
+
+## 4. ESTADO SISTEMA (Redis)
+
+   Cooldowns activos:    0
+   Halts activos:        0
+   Dedups activos:       0
+   PG Bloqueadas:        0
+   PG Probation:         0
+
+─────────────────────────────────────────────────────────────────
+
+## 5. ANOMALÍAS Y ALERTAS DETECTADAS
+
+   🔴 [CRIT] Polymarket/legged_arb: WR 0.0% — muy bajo para mercados de predicción
+   🔴 [CRIT] Polymarket/legged_arb: Profit Factor 0.00 — edge destruido
+   🔴 [CRIT] BTC Direction: WR histórico 27.6% — sin edge validado (105 trades, PnL $-329.05)
+   🟡 [WARN] Polymarket/legged_arb: Edge calibration drift: declarado=29.6% vs real=-100.0% (gap=129.6pp)
+   ℹ️ [INFO] Trading/SMC_ORDER_BLOCKS: Estrategia nueva activada (Apr 25) — aún sin trades ejecutados
+   ℹ️ [INFO] Trading/BTC_MICROSTRUCTURE: Estrategia nueva activada (Apr 25) — aún sin trades ejecutados
+
+─────────────────────────────────────────────────────────────────
+
+## 6. ANÁLISIS ESTRATEGIAS NUEVAS (activadas Apr 25, 2026)
+
+   SMC Order Blocks  :
+     Estado:          EN RODAJE
+     Señales generadas (tabla signals): 0
+     Trades ejecutados: 0
+     ⚠️  Sin actividad — verificar que el servicio trading-agent está corriendo
+         y que el régimen de mercado permite activación de SMC_ORDER_BLOCKS
+
+   BTC Microstructure:
+     Estado:          EN RODAJE
+     Señales generadas (tabla signals): 0
+     Trades ejecutados: 0
+     ⚠️  Sin actividad — verificar que el servicio trading-agent está corriendo
+         y que el régimen de mercado permite activación de BTC_MICROSTRUCTURE
+
+   Signal Based Poly (reemplaza arquitectura LLM):
+     Estado:    Sin trades aún
+     Contexto:  Versión LLM generó -$581 en 43 trades. Esta versión usa
+                señales BTC técnicas (BtcDirectionStrategy + MarketRegime)
+                sin consultar LLM para decisiones de entrada.
+
+─────────────────────────────────────────────────────────────────
+
+## 7. EQUITY CURVE — Trading Agent
+
+   Día          |   PnL día |   Acumulado |    Balance | Trades
+   -------------+-----------+-------------+------------+-------
+   2026-04-12   | +   35.53 |      +35.53 | $10,127.76 |   9
+   2026-04-13   |   -16.91 |      +18.62 | $10,110.85 |  26
+   2026-04-14   | +  317.81 |     +336.42 | $10,428.65 |  27
+   2026-04-15   | +   99.80 |     +436.22 | $10,528.45 |  21
+   2026-04-16   |   -94.39 |     +341.83 | $10,434.06 |  16
+   2026-04-17   |  -134.02 |     +207.81 | $10,300.04 |  18
+   2026-04-18   | +  371.24 |     +579.05 | $10,671.28 |  19
+   2026-04-19   | +  551.64 |    +1130.70 | $11,222.93 |  38
+   2026-04-20   | +   46.13 |    +1176.83 | $11,269.06 |  24
+   2026-04-21   | +   84.96 |    +1261.79 | $11,354.02 |  27
+   2026-04-22   | +   52.48 |    +1314.27 | $11,406.50 |   5
+   2026-04-23   | +  360.75 |    +1675.02 | $11,767.25 |  32
+   2026-04-24   |   -56.13 |    +1618.89 | $11,711.12 |  21
+   2026-04-25   |   -97.09 |    +1521.79 | $11,614.02 |   3
+
+═════════════════════════════════════════════════════════════════
+  Fin del informe — 2026-04-25 20:37 UTC
+═════════════════════════════════════════════════════════════════

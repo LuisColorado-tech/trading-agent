@@ -1,0 +1,1204 @@
+2026-04-19 20:41:00.620 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 20:41:03.217 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 20:41:03.224 | INFO     | __main__:main:192 - Cycle 1422: Scanned 6 markets, saved 6
+2026-04-19 20:41:03.623 | INFO     | __main__:main:308 - Cycle 1422 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 20:46:04.552 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 20:46:07.134 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 20:46:07.145 | INFO     | __main__:main:192 - Cycle 1423: Scanned 5 markets, saved 5
+2026-04-19 20:46:07.534 | INFO     | __main__:main:308 - Cycle 1423 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 20:51:08.449 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 20:51:11.002 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 20:51:11.010 | INFO     | __main__:main:192 - Cycle 1424: Scanned 5 markets, saved 5
+2026-04-19 20:51:11.408 | INFO     | __main__:main:308 - Cycle 1424 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 20:56:12.255 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 20:56:15.019 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 20:56:15.028 | INFO     | __main__:main:192 - Cycle 1425: Scanned 5 markets, saved 5
+2026-04-19 20:56:15.399 | INFO     | __main__:main:308 - Cycle 1425 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:01:16.320 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:01:18.992 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:01:19.004 | INFO     | __main__:main:192 - Cycle 1426: Scanned 6 markets, saved 6
+2026-04-19 21:01:19.383 | INFO     | __main__:main:308 - Cycle 1426 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:06:20.279 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:06:22.684 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:06:22.693 | INFO     | __main__:main:192 - Cycle 1427: Scanned 6 markets, saved 6
+2026-04-19 21:06:23.077 | INFO     | __main__:main:308 - Cycle 1427 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:11:23.958 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:11:26.347 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:11:26.356 | INFO     | __main__:main:192 - Cycle 1428: Scanned 6 markets, saved 6
+2026-04-19 21:11:26.755 | INFO     | __main__:main:308 - Cycle 1428 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:16:27.599 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:16:29.924 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:16:29.934 | INFO     | __main__:main:192 - Cycle 1429: Scanned 6 markets, saved 6
+2026-04-19 21:16:30.301 | INFO     | __main__:main:308 - Cycle 1429 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:21:31.196 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:21:33.487 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 21:21:33.498 | INFO     | __main__:main:192 - Cycle 1430: Scanned 5 markets, saved 5
+2026-04-19 21:21:33.900 | INFO     | __main__:main:308 - Cycle 1430 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:26:34.844 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:26:37.101 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:26:37.111 | INFO     | __main__:main:192 - Cycle 1431: Scanned 6 markets, saved 6
+2026-04-19 21:26:37.513 | INFO     | __main__:main:308 - Cycle 1431 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:31:38.406 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:31:40.665 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:31:40.674 | INFO     | __main__:main:192 - Cycle 1432: Scanned 6 markets, saved 6
+2026-04-19 21:31:41.058 | INFO     | __main__:main:308 - Cycle 1432 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:36:41.954 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:36:44.325 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:36:44.331 | INFO     | __main__:main:192 - Cycle 1433: Scanned 6 markets, saved 6
+2026-04-19 21:36:44.739 | INFO     | __main__:main:308 - Cycle 1433 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:41:45.637 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:41:47.854 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:41:47.864 | INFO     | __main__:main:192 - Cycle 1434: Scanned 6 markets, saved 6
+2026-04-19 21:41:48.245 | INFO     | __main__:main:308 - Cycle 1434 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:46:49.165 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:46:51.129 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:46:51.137 | INFO     | __main__:main:192 - Cycle 1435: Scanned 6 markets, saved 6
+2026-04-19 21:46:51.535 | INFO     | __main__:main:308 - Cycle 1435 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:51:52.384 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:51:54.950 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 21:51:54.956 | INFO     | __main__:main:192 - Cycle 1436: Scanned 6 markets, saved 6
+2026-04-19 21:51:55.339 | INFO     | __main__:main:308 - Cycle 1436 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 21:56:56.208 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 21:56:58.562 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 21:56:58.570 | INFO     | __main__:main:192 - Cycle 1437: Scanned 5 markets, saved 5
+2026-04-19 21:56:58.947 | INFO     | __main__:main:308 - Cycle 1437 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.71 | Balance: $745.99 | PnL: $-738.58 | Next scan in 300s
+2026-04-19 22:01:59.880 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:02:00.110 | INFO     | agents.poly_monitor:_close_position:182 - POLY CLOSE [TAKE_PROFIT]: "Will the price of Bitcoin be above $76,000 on Apri" NO exit@0.880 PnL=$+13.99
+2026-04-19 22:02:00.313 | INFO     | agents.poly_monitor:_close_resolved:158 - POLY CLOSE [RESOLVED_LOSS]: "Will Bitcoin dip to $74,000 on April 19?" NO PnL=$-31.08 (-100.0%)
+2026-04-19 22:02:00.320 | INFO     | __main__:main:177 - Position closed: TAKE_PROFIT PnL=$+13.99 (+45.5%)
+2026-04-19 22:02:00.713 | INFO     | __main__:main:177 - Position closed: RESOLVED_LOSS PnL=$-31.08 (-100.0%)
+2026-04-19 22:02:03.424 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 22:02:03.432 | INFO     | __main__:main:192 - Cycle 1438: Scanned 5 markets, saved 5
+2026-04-19 22:02:03.837 | INFO     | __main__:main:308 - Cycle 1438 complete | Evaluated: 3 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $790.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:07:04.713 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:07:06.582 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 22:07:06.593 | INFO     | __main__:main:192 - Cycle 1439: Scanned 5 markets, saved 5
+2026-04-19 22:07:07.013 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: DOWN_EVENT | Side: NO @ 0.698 | Edge: 0.198 | prob=0.90 | "Will Bitcoin dip to $73,000 on April 19?"
+2026-04-19 22:07:07.014 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will Bitcoin dip to $73,000 on April 19?" shares=45.3 cost=$31.63 edge=+19.8%
+2026-04-19 22:07:07.019 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will Bitcoin dip to $73,000 on April 19?" shares=45.3 @ $0.698 cost=$31.63
+2026-04-19 22:07:07.020 | INFO     | __main__:main:292 - POLY TRADE: NO "Will Bitcoin dip to $73,000 on April 19?" edge=+19.8% cost=$31.63
+2026-04-19 22:07:07.418 | INFO     | __main__:main:308 - Cycle 1439 complete | Evaluated: 5 | Executed: 1 | Open: 6 | Exposure: $188.48 | Balance: $759.13 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:12:08.292 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:12:10.306 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-19 22:12:10.315 | INFO     | __main__:main:192 - Cycle 1440: Scanned 7 markets, saved 7
+2026-04-19 22:12:10.701 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: DOWN_EVENT | Side: NO @ 0.325 | Edge: 0.175 | prob=0.50 | "Will Ethereum dip to $2,250 on April 19?"
+2026-04-19 22:12:10.701 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will Ethereum dip to $2,250 on April 19?" shares=93.4 cost=$30.37 edge=+17.5%
+2026-04-19 22:12:10.704 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will Ethereum dip to $2,250 on April 19?" shares=93.4 @ $0.325 cost=$30.37
+2026-04-19 22:12:10.705 | INFO     | __main__:main:292 - POLY TRADE: NO "Will Ethereum dip to $2,250 on April 19?" edge=+17.5% cost=$30.37
+2026-04-19 22:12:11.149 | INFO     | __main__:main:308 - Cycle 1440 complete | Evaluated: 5 | Executed: 1 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:17:11.984 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:17:13.905 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-19 22:17:13.912 | INFO     | __main__:main:192 - Cycle 1441: Scanned 7 markets, saved 7
+2026-04-19 22:17:14.293 | INFO     | __main__:main:308 - Cycle 1441 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:22:15.167 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:22:17.731 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-19 22:22:17.743 | INFO     | __main__:main:192 - Cycle 1442: Scanned 7 markets, saved 7
+2026-04-19 22:22:18.123 | INFO     | __main__:main:308 - Cycle 1442 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:27:19.046 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:27:21.524 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 22:27:21.533 | INFO     | __main__:main:192 - Cycle 1443: Scanned 6 markets, saved 6
+2026-04-19 22:27:21.940 | INFO     | __main__:main:308 - Cycle 1443 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:32:22.833 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:32:25.158 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-19 22:32:25.166 | INFO     | __main__:main:192 - Cycle 1444: Scanned 7 markets, saved 7
+2026-04-19 22:32:25.547 | INFO     | __main__:main:308 - Cycle 1444 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:37:26.450 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:37:29.112 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 22:37:29.127 | INFO     | __main__:main:192 - Cycle 1445: Scanned 6 markets, saved 6
+2026-04-19 22:37:29.537 | INFO     | __main__:main:308 - Cycle 1445 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:42:30.430 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:42:33.133 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 22:42:33.140 | INFO     | __main__:main:192 - Cycle 1446: Scanned 6 markets, saved 6
+2026-04-19 22:42:33.520 | INFO     | __main__:main:308 - Cycle 1446 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:47:34.358 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:47:37.032 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 22:47:37.044 | INFO     | __main__:main:192 - Cycle 1447: Scanned 6 markets, saved 6
+2026-04-19 22:47:37.429 | INFO     | __main__:main:308 - Cycle 1447 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:52:38.280 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:52:40.394 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 22:52:40.401 | INFO     | __main__:main:192 - Cycle 1448: Scanned 5 markets, saved 5
+2026-04-19 22:52:40.771 | INFO     | __main__:main:308 - Cycle 1448 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 22:57:41.645 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 22:57:43.848 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 22:57:43.855 | INFO     | __main__:main:192 - Cycle 1449: Scanned 5 markets, saved 5
+2026-04-19 22:57:44.245 | INFO     | __main__:main:308 - Cycle 1449 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:02:45.122 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:02:47.294 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-19 23:02:47.305 | INFO     | __main__:main:192 - Cycle 1450: Scanned 5 markets, saved 5
+2026-04-19 23:02:47.690 | INFO     | __main__:main:308 - Cycle 1450 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:07:48.610 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:07:50.740 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:07:50.748 | INFO     | __main__:main:192 - Cycle 1451: Scanned 6 markets, saved 6
+2026-04-19 23:07:51.167 | INFO     | __main__:main:308 - Cycle 1451 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:12:52.065 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:12:54.475 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:12:54.482 | INFO     | __main__:main:192 - Cycle 1452: Scanned 6 markets, saved 6
+2026-04-19 23:12:54.865 | INFO     | __main__:main:308 - Cycle 1452 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:17:55.765 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:17:57.865 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:17:57.874 | INFO     | __main__:main:192 - Cycle 1453: Scanned 6 markets, saved 6
+2026-04-19 23:17:58.261 | INFO     | __main__:main:308 - Cycle 1453 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:22:59.143 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:23:01.447 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-19 23:23:01.456 | INFO     | __main__:main:192 - Cycle 1454: Scanned 7 markets, saved 7
+2026-04-19 23:23:01.850 | INFO     | __main__:main:308 - Cycle 1454 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:28:02.686 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:28:05.315 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:28:05.323 | INFO     | __main__:main:192 - Cycle 1455: Scanned 6 markets, saved 6
+2026-04-19 23:28:05.714 | INFO     | __main__:main:308 - Cycle 1455 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:33:06.580 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:33:08.995 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:33:09.003 | INFO     | __main__:main:192 - Cycle 1456: Scanned 6 markets, saved 6
+2026-04-19 23:33:09.385 | INFO     | __main__:main:308 - Cycle 1456 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:38:10.353 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:38:12.864 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:38:12.872 | INFO     | __main__:main:192 - Cycle 1457: Scanned 6 markets, saved 6
+2026-04-19 23:38:13.256 | INFO     | __main__:main:308 - Cycle 1457 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:43:14.138 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:43:16.783 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:43:16.790 | INFO     | __main__:main:192 - Cycle 1458: Scanned 6 markets, saved 6
+2026-04-19 23:43:17.182 | INFO     | __main__:main:308 - Cycle 1458 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:48:18.145 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:48:20.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:48:20.025 | INFO     | __main__:main:192 - Cycle 1459: Scanned 6 markets, saved 6
+2026-04-19 23:48:20.415 | INFO     | __main__:main:308 - Cycle 1459 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:53:21.276 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:53:22.662 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:53:22.669 | INFO     | __main__:main:192 - Cycle 1460: Scanned 6 markets, saved 6
+2026-04-19 23:53:23.049 | INFO     | __main__:main:308 - Cycle 1460 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-19 23:58:23.914 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-19 23:58:25.898 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-19 23:58:25.906 | INFO     | __main__:main:192 - Cycle 1461: Scanned 6 markets, saved 6
+2026-04-19 23:58:26.313 | INFO     | __main__:main:308 - Cycle 1461 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-20 00:03:27.160 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:03:29.412 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 00:03:29.421 | INFO     | __main__:main:192 - Cycle 1462: Scanned 6 markets, saved 6
+2026-04-20 00:03:29.803 | INFO     | __main__:main:308 - Cycle 1462 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-20 00:08:30.626 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:08:33.103 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:08:33.112 | INFO     | __main__:main:192 - Cycle 1463: Scanned 5 markets, saved 5
+2026-04-20 00:08:33.480 | INFO     | __main__:main:308 - Cycle 1463 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-20 00:13:34.396 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:13:36.667 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:13:36.672 | INFO     | __main__:main:192 - Cycle 1464: Scanned 5 markets, saved 5
+2026-04-20 00:13:37.059 | INFO     | __main__:main:308 - Cycle 1464 complete | Evaluated: 4 | Executed: 0 | Open: 7 | Exposure: $218.84 | Balance: $728.76 | PnL: $-755.67 | Next scan in 300s
+2026-04-20 00:18:37.961 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:18:38.150 | INFO     | agents.poly_monitor:_close_position:182 - POLY CLOSE [TAKE_PROFIT]: "Will Bitcoin dip to $73,000 on April 19?" NO exit@0.895 PnL=$+8.96
+2026-04-20 00:18:38.345 | INFO     | __main__:main:177 - Position closed: TAKE_PROFIT PnL=$+8.96 (+28.3%)
+2026-04-20 00:18:40.642 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:18:40.651 | INFO     | __main__:main:192 - Cycle 1465: Scanned 5 markets, saved 5
+2026-04-20 00:18:41.025 | INFO     | __main__:main:308 - Cycle 1465 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:23:50.962 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 503089481229...: PolyApiException[status_code=None, error_message=Request exception!]
+2026-04-20 00:23:57.121 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:24:34.087 | ERROR    | data.polymarket_feed:scan_markets:83 - POLY FEED: Gamma API error: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2026-04-20 00:24:34.088 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 3 pages, found 1 qualifying markets
+2026-04-20 00:24:34.091 | INFO     | __main__:main:192 - Cycle 1466: Scanned 1 markets, saved 1
+2026-04-20 00:24:40.409 | INFO     | __main__:main:308 - Cycle 1466 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:29:41.284 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:29:43.115 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:29:43.123 | INFO     | __main__:main:192 - Cycle 1467: Scanned 5 markets, saved 5
+2026-04-20 00:29:43.500 | INFO     | __main__:main:308 - Cycle 1467 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:34:44.353 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:34:46.386 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:34:46.394 | INFO     | __main__:main:192 - Cycle 1468: Scanned 5 markets, saved 5
+2026-04-20 00:34:46.766 | INFO     | __main__:main:308 - Cycle 1468 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:39:47.653 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:39:49.705 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:39:49.713 | INFO     | __main__:main:192 - Cycle 1469: Scanned 5 markets, saved 5
+2026-04-20 00:39:50.096 | INFO     | __main__:main:308 - Cycle 1469 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:44:50.970 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:44:53.207 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:44:53.214 | INFO     | __main__:main:192 - Cycle 1470: Scanned 5 markets, saved 5
+2026-04-20 00:44:53.599 | INFO     | __main__:main:308 - Cycle 1470 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:49:54.475 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:49:56.538 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:49:56.545 | INFO     | __main__:main:192 - Cycle 1471: Scanned 5 markets, saved 5
+2026-04-20 00:49:56.933 | INFO     | __main__:main:308 - Cycle 1471 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 00:54:57.902 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 00:54:59.820 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 00:54:59.827 | INFO     | __main__:main:192 - Cycle 1472: Scanned 5 markets, saved 5
+2026-04-20 00:55:00.243 | INFO     | __main__:main:308 - Cycle 1472 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 01:00:01.180 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:00:04.983 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 01:00:05.004 | INFO     | __main__:main:192 - Cycle 1473: Scanned 5 markets, saved 5
+2026-04-20 01:00:05.473 | INFO     | __main__:main:308 - Cycle 1473 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 01:05:06.321 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:05:07.676 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 01:05:07.685 | INFO     | __main__:main:192 - Cycle 1474: Scanned 5 markets, saved 5
+2026-04-20 01:05:08.065 | INFO     | __main__:main:308 - Cycle 1474 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 01:10:08.956 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:10:11.384 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:10:11.393 | INFO     | __main__:main:192 - Cycle 1475: Scanned 4 markets, saved 4
+2026-04-20 01:10:11.756 | INFO     | __main__:main:308 - Cycle 1475 complete | Evaluated: 4 | Executed: 0 | Open: 6 | Exposure: $187.21 | Balance: $769.35 | PnL: $-746.72 | Next scan in 300s
+2026-04-20 01:15:12.616 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:15:12.804 | INFO     | agents.poly_monitor:_close_position:182 - POLY CLOSE [TAKE_PROFIT]: "Will Ethereum dip to $2,250 on April 19?" NO exit@0.865 PnL=$+50.45
+2026-04-20 01:15:12.807 | INFO     | __main__:main:177 - Position closed: TAKE_PROFIT PnL=$+50.45 (+166.2%)
+2026-04-20 01:15:15.439 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:15:15.448 | INFO     | __main__:main:192 - Cycle 1476: Scanned 4 markets, saved 4
+2026-04-20 01:15:15.821 | INFO     | __main__:main:308 - Cycle 1476 complete | Evaluated: 4 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:20:16.704 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:20:18.718 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:20:18.726 | INFO     | __main__:main:192 - Cycle 1477: Scanned 4 markets, saved 4
+2026-04-20 01:20:19.113 | INFO     | __main__:main:308 - Cycle 1477 complete | Evaluated: 4 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:25:20.027 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:25:21.827 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:25:21.833 | INFO     | __main__:main:192 - Cycle 1478: Scanned 4 markets, saved 4
+2026-04-20 01:25:22.221 | INFO     | __main__:main:308 - Cycle 1478 complete | Evaluated: 4 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:30:23.064 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:30:24.980 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:30:24.988 | INFO     | __main__:main:192 - Cycle 1479: Scanned 4 markets, saved 4
+2026-04-20 01:30:25.362 | INFO     | __main__:main:308 - Cycle 1479 complete | Evaluated: 4 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:35:26.244 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:35:28.241 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 01:35:28.249 | INFO     | __main__:main:192 - Cycle 1480: Scanned 4 markets, saved 4
+2026-04-20 01:35:28.630 | INFO     | __main__:main:308 - Cycle 1480 complete | Evaluated: 4 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:40:29.508 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:40:31.519 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 01:40:31.527 | INFO     | __main__:main:192 - Cycle 1481: Scanned 5 markets, saved 5
+2026-04-20 01:40:31.914 | INFO     | __main__:main:308 - Cycle 1481 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:45:32.847 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:45:34.881 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 01:45:34.890 | INFO     | __main__:main:192 - Cycle 1482: Scanned 5 markets, saved 5
+2026-04-20 01:45:35.328 | INFO     | __main__:main:308 - Cycle 1482 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:50:36.257 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:50:38.058 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 01:50:38.068 | INFO     | __main__:main:192 - Cycle 1483: Scanned 6 markets, saved 6
+2026-04-20 01:50:38.475 | INFO     | __main__:main:308 - Cycle 1483 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 01:55:39.387 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 01:55:41.124 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 01:55:41.134 | INFO     | __main__:main:192 - Cycle 1484: Scanned 6 markets, saved 6
+2026-04-20 01:55:41.530 | INFO     | __main__:main:308 - Cycle 1484 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:00:42.552 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:00:44.725 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:00:44.735 | INFO     | __main__:main:192 - Cycle 1485: Scanned 6 markets, saved 6
+2026-04-20 02:00:45.190 | INFO     | __main__:main:308 - Cycle 1485 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:05:46.118 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:05:48.093 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:05:48.102 | INFO     | __main__:main:192 - Cycle 1486: Scanned 6 markets, saved 6
+2026-04-20 02:05:48.502 | INFO     | __main__:main:308 - Cycle 1486 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:10:49.389 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:10:51.455 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:10:51.462 | INFO     | __main__:main:192 - Cycle 1487: Scanned 6 markets, saved 6
+2026-04-20 02:10:51.876 | INFO     | __main__:main:308 - Cycle 1487 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:15:52.839 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:15:54.799 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:15:54.808 | INFO     | __main__:main:192 - Cycle 1488: Scanned 6 markets, saved 6
+2026-04-20 02:15:55.212 | INFO     | __main__:main:308 - Cycle 1488 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:20:56.181 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:20:57.859 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:20:57.870 | INFO     | __main__:main:192 - Cycle 1489: Scanned 6 markets, saved 6
+2026-04-20 02:20:58.261 | INFO     | __main__:main:308 - Cycle 1489 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:25:59.112 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:26:01.065 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:26:01.074 | INFO     | __main__:main:192 - Cycle 1490: Scanned 6 markets, saved 6
+2026-04-20 02:26:01.471 | INFO     | __main__:main:308 - Cycle 1490 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:31:02.346 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:31:04.295 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:31:04.305 | INFO     | __main__:main:192 - Cycle 1491: Scanned 6 markets, saved 6
+2026-04-20 02:31:04.698 | INFO     | __main__:main:308 - Cycle 1491 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:36:05.606 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:36:07.876 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:36:07.895 | INFO     | __main__:main:192 - Cycle 1492: Scanned 6 markets, saved 6
+2026-04-20 02:36:08.285 | INFO     | __main__:main:308 - Cycle 1492 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:41:09.155 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:41:10.940 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:41:10.948 | INFO     | __main__:main:192 - Cycle 1493: Scanned 6 markets, saved 6
+2026-04-20 02:41:11.480 | INFO     | __main__:main:308 - Cycle 1493 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:46:12.333 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:46:14.080 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:46:14.090 | INFO     | __main__:main:192 - Cycle 1494: Scanned 6 markets, saved 6
+2026-04-20 02:46:14.492 | INFO     | __main__:main:308 - Cycle 1494 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:51:15.415 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:51:17.159 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:51:17.167 | INFO     | __main__:main:192 - Cycle 1495: Scanned 6 markets, saved 6
+2026-04-20 02:51:17.566 | INFO     | __main__:main:308 - Cycle 1495 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 02:56:18.461 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 02:56:20.080 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 02:56:20.094 | INFO     | __main__:main:192 - Cycle 1496: Scanned 6 markets, saved 6
+2026-04-20 02:56:20.506 | INFO     | __main__:main:308 - Cycle 1496 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:01:21.394 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:01:23.356 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:01:23.369 | INFO     | __main__:main:192 - Cycle 1497: Scanned 6 markets, saved 6
+2026-04-20 03:01:23.758 | INFO     | __main__:main:308 - Cycle 1497 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:06:24.677 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:06:26.506 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:06:26.523 | INFO     | __main__:main:192 - Cycle 1498: Scanned 6 markets, saved 6
+2026-04-20 03:06:26.928 | INFO     | __main__:main:308 - Cycle 1498 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:11:27.822 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:11:29.825 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:11:29.834 | INFO     | __main__:main:192 - Cycle 1499: Scanned 6 markets, saved 6
+2026-04-20 03:11:30.229 | INFO     | __main__:main:308 - Cycle 1499 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:16:31.130 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:16:33.344 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:16:33.358 | INFO     | __main__:main:192 - Cycle 1500: Scanned 6 markets, saved 6
+2026-04-20 03:16:33.761 | INFO     | __main__:main:308 - Cycle 1500 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:21:34.723 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:21:36.672 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:21:36.680 | INFO     | __main__:main:192 - Cycle 1501: Scanned 6 markets, saved 6
+2026-04-20 03:21:37.061 | INFO     | __main__:main:308 - Cycle 1501 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:26:37.919 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:26:39.924 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:26:39.930 | INFO     | __main__:main:192 - Cycle 1502: Scanned 6 markets, saved 6
+2026-04-20 03:26:40.303 | INFO     | __main__:main:308 - Cycle 1502 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:31:41.173 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:31:43.385 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:31:43.398 | INFO     | __main__:main:192 - Cycle 1503: Scanned 6 markets, saved 6
+2026-04-20 03:31:43.796 | INFO     | __main__:main:308 - Cycle 1503 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:36:44.745 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:36:46.580 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:36:46.590 | INFO     | __main__:main:192 - Cycle 1504: Scanned 6 markets, saved 6
+2026-04-20 03:36:46.978 | INFO     | __main__:main:308 - Cycle 1504 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:41:47.852 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:41:49.485 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:41:49.494 | INFO     | __main__:main:192 - Cycle 1505: Scanned 6 markets, saved 6
+2026-04-20 03:41:49.878 | INFO     | __main__:main:308 - Cycle 1505 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:46:50.776 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:46:51.758 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:46:51.769 | INFO     | __main__:main:192 - Cycle 1506: Scanned 6 markets, saved 6
+2026-04-20 03:46:52.137 | INFO     | __main__:main:308 - Cycle 1506 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:51:53.021 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:51:54.137 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:51:54.147 | INFO     | __main__:main:192 - Cycle 1507: Scanned 6 markets, saved 6
+2026-04-20 03:51:54.536 | INFO     | __main__:main:308 - Cycle 1507 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 03:56:55.456 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 03:56:56.593 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 03:56:56.601 | INFO     | __main__:main:192 - Cycle 1508: Scanned 6 markets, saved 6
+2026-04-20 03:56:56.993 | INFO     | __main__:main:308 - Cycle 1508 complete | Evaluated: 5 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:01:57.920 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:01:59.571 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:01:59.580 | INFO     | __main__:main:192 - Cycle 1509: Scanned 6 markets, saved 6
+2026-04-20 04:02:00.184 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Bitcoin dip to $68,000 April 13-19? → NO
+2026-04-20 04:02:00.284 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 863674594835...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:00.394 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 696533498174...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:00.605 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Bitcoin reach $84,000 April 13-19? → NO
+2026-04-20 04:02:00.802 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Bitcoin reach $80,000 April 13-19? → NO
+2026-04-20 04:02:01.002 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Solana reach $100 April 13-19? → NO
+2026-04-20 04:02:01.216 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Bitcoin reach $82,000 April 13-19? → NO
+2026-04-20 04:02:01.313 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:01.413 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 479267083788...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:01.520 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 538948395195...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:01.614 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 965307600914...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:01.717 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 209220071423...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:01.815 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 562074921656...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:02.015 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Ethereum reach $2,500 April 13-19? → NO
+2026-04-20 04:02:02.111 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 100845451631...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:02.230 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 103916198457...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:02:02.434 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Bitcoin dip to $73,000 on April 19? → NO
+2026-04-20 04:02:02.632 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will Ethereum dip to $2,250 on April 19? → NO
+2026-04-20 04:02:02.632 | INFO     | __main__:main:197 - Resolved 8 markets
+2026-04-20 04:02:02.698 | INFO     | __main__:main:308 - Cycle 1509 complete | Evaluated: 6 | Executed: 0 | Open: 5 | Exposure: $156.85 | Balance: $850.17 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:07:03.557 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:07:05.338 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:07:05.348 | INFO     | __main__:main:192 - Cycle 1510: Scanned 6 markets, saved 6
+2026-04-20 04:07:05.733 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.610 | Edge: 0.110 | prob=0.72 | "Will the price of Ethereum be above $2,300 on April 20?"
+2026-04-20 04:07:05.735 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will the price of Ethereum be above $2,3" shares=55.7 cost=$34.01 edge=+11.0%
+2026-04-20 04:07:05.797 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will the price of Ethereum be above $2,300 on Apri" shares=55.7 @ $0.610 cost=$34.01
+2026-04-20 04:07:05.802 | INFO     | __main__:main:292 - POLY TRADE: NO "Will the price of Ethereum be above $2,300 on April 20?" edge=+11.0% cost=$34.01
+2026-04-20 04:07:06.194 | INFO     | __main__:main:308 - Cycle 1510 complete | Evaluated: 6 | Executed: 1 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:12:07.108 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:12:09.177 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:12:09.189 | INFO     | __main__:main:192 - Cycle 1511: Scanned 6 markets, saved 6
+2026-04-20 04:12:09.617 | INFO     | __main__:main:308 - Cycle 1511 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:17:10.524 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:17:12.686 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:17:12.694 | INFO     | __main__:main:192 - Cycle 1512: Scanned 6 markets, saved 6
+2026-04-20 04:17:13.092 | INFO     | __main__:main:308 - Cycle 1512 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:22:13.983 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:22:16.144 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:22:16.156 | INFO     | __main__:main:192 - Cycle 1513: Scanned 6 markets, saved 6
+2026-04-20 04:22:16.568 | INFO     | __main__:main:308 - Cycle 1513 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:27:17.479 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:27:19.210 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:27:19.222 | INFO     | __main__:main:192 - Cycle 1514: Scanned 6 markets, saved 6
+2026-04-20 04:27:19.612 | INFO     | __main__:main:308 - Cycle 1514 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:32:20.548 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:32:22.934 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:32:22.945 | INFO     | __main__:main:192 - Cycle 1515: Scanned 6 markets, saved 6
+2026-04-20 04:32:23.340 | INFO     | __main__:main:308 - Cycle 1515 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:37:24.223 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:37:26.828 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:37:26.843 | INFO     | __main__:main:192 - Cycle 1516: Scanned 6 markets, saved 6
+2026-04-20 04:37:27.238 | INFO     | __main__:main:308 - Cycle 1516 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:42:28.145 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:42:30.411 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:42:30.426 | INFO     | __main__:main:192 - Cycle 1517: Scanned 6 markets, saved 6
+2026-04-20 04:42:30.815 | INFO     | __main__:main:308 - Cycle 1517 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:47:31.668 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:47:34.085 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:47:34.096 | INFO     | __main__:main:192 - Cycle 1518: Scanned 6 markets, saved 6
+2026-04-20 04:47:34.472 | INFO     | __main__:main:308 - Cycle 1518 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:52:35.363 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:52:37.206 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:52:37.214 | INFO     | __main__:main:192 - Cycle 1519: Scanned 6 markets, saved 6
+2026-04-20 04:52:37.607 | INFO     | __main__:main:308 - Cycle 1519 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 04:57:38.489 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 04:57:40.286 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 04:57:40.295 | INFO     | __main__:main:192 - Cycle 1520: Scanned 6 markets, saved 6
+2026-04-20 04:57:40.683 | INFO     | __main__:main:308 - Cycle 1520 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:02:41.597 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:02:43.301 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 05:02:43.311 | INFO     | __main__:main:192 - Cycle 1521: Scanned 6 markets, saved 6
+2026-04-20 05:02:43.782 | INFO     | __main__:main:308 - Cycle 1521 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:07:44.627 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:07:46.009 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 05:07:46.019 | INFO     | __main__:main:192 - Cycle 1522: Scanned 6 markets, saved 6
+2026-04-20 05:07:46.388 | INFO     | __main__:main:308 - Cycle 1522 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:12:47.234 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:12:49.560 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 05:12:49.571 | INFO     | __main__:main:192 - Cycle 1523: Scanned 6 markets, saved 6
+2026-04-20 05:12:49.948 | INFO     | __main__:main:308 - Cycle 1523 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:17:50.823 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:17:52.883 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 05:17:52.890 | INFO     | __main__:main:192 - Cycle 1524: Scanned 6 markets, saved 6
+2026-04-20 05:17:53.272 | INFO     | __main__:main:308 - Cycle 1524 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:22:54.159 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:22:56.141 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 05:22:56.149 | INFO     | __main__:main:192 - Cycle 1525: Scanned 6 markets, saved 6
+2026-04-20 05:22:56.526 | INFO     | __main__:main:308 - Cycle 1525 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:27:57.420 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:27:59.471 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:27:59.481 | INFO     | __main__:main:192 - Cycle 1526: Scanned 5 markets, saved 5
+2026-04-20 05:27:59.856 | INFO     | __main__:main:308 - Cycle 1526 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:33:00.713 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:33:02.908 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:33:02.922 | INFO     | __main__:main:192 - Cycle 1527: Scanned 5 markets, saved 5
+2026-04-20 05:33:03.303 | INFO     | __main__:main:308 - Cycle 1527 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:38:04.190 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:38:06.322 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:38:06.330 | INFO     | __main__:main:192 - Cycle 1528: Scanned 5 markets, saved 5
+2026-04-20 05:38:06.732 | INFO     | __main__:main:308 - Cycle 1528 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:43:07.628 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:43:09.742 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:43:09.762 | INFO     | __main__:main:192 - Cycle 1529: Scanned 5 markets, saved 5
+2026-04-20 05:43:10.142 | INFO     | __main__:main:308 - Cycle 1529 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:48:11.038 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:48:13.031 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:48:13.047 | INFO     | __main__:main:192 - Cycle 1530: Scanned 5 markets, saved 5
+2026-04-20 05:48:13.443 | INFO     | __main__:main:308 - Cycle 1530 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:53:14.467 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:53:16.408 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:53:16.416 | INFO     | __main__:main:192 - Cycle 1531: Scanned 5 markets, saved 5
+2026-04-20 05:53:16.796 | INFO     | __main__:main:308 - Cycle 1531 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 05:58:17.671 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 05:58:19.793 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 05:58:19.804 | INFO     | __main__:main:192 - Cycle 1532: Scanned 5 markets, saved 5
+2026-04-20 05:58:20.231 | INFO     | __main__:main:308 - Cycle 1532 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:03:21.101 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:03:22.949 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 06:03:22.959 | INFO     | __main__:main:192 - Cycle 1533: Scanned 5 markets, saved 5
+2026-04-20 06:03:23.360 | INFO     | __main__:main:308 - Cycle 1533 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:08:24.265 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:08:26.183 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 06:08:26.199 | INFO     | __main__:main:192 - Cycle 1534: Scanned 5 markets, saved 5
+2026-04-20 06:08:26.595 | INFO     | __main__:main:308 - Cycle 1534 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:13:27.472 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:13:29.474 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 06:13:29.485 | INFO     | __main__:main:192 - Cycle 1535: Scanned 5 markets, saved 5
+2026-04-20 06:13:29.864 | INFO     | __main__:main:308 - Cycle 1535 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:18:30.725 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:18:32.702 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 06:18:32.725 | INFO     | __main__:main:192 - Cycle 1536: Scanned 5 markets, saved 5
+2026-04-20 06:18:33.110 | INFO     | __main__:main:308 - Cycle 1536 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:23:34.022 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:23:35.916 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 06:23:35.929 | INFO     | __main__:main:192 - Cycle 1537: Scanned 5 markets, saved 5
+2026-04-20 06:23:36.324 | INFO     | __main__:main:308 - Cycle 1537 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:28:37.196 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:28:39.448 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:28:39.464 | INFO     | __main__:main:192 - Cycle 1538: Scanned 6 markets, saved 6
+2026-04-20 06:28:39.845 | INFO     | __main__:main:308 - Cycle 1538 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:33:40.748 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:33:43.169 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:33:43.180 | INFO     | __main__:main:192 - Cycle 1539: Scanned 6 markets, saved 6
+2026-04-20 06:33:43.564 | INFO     | __main__:main:308 - Cycle 1539 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:38:44.478 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:38:46.689 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:38:46.700 | INFO     | __main__:main:192 - Cycle 1540: Scanned 6 markets, saved 6
+2026-04-20 06:38:47.125 | INFO     | __main__:main:308 - Cycle 1540 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:43:48.029 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:43:50.348 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:43:50.372 | INFO     | __main__:main:192 - Cycle 1541: Scanned 6 markets, saved 6
+2026-04-20 06:43:50.781 | INFO     | __main__:main:308 - Cycle 1541 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:48:51.613 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:48:53.494 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:48:53.506 | INFO     | __main__:main:192 - Cycle 1542: Scanned 6 markets, saved 6
+2026-04-20 06:48:53.916 | INFO     | __main__:main:308 - Cycle 1542 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:53:54.822 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:53:56.770 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:53:56.778 | INFO     | __main__:main:192 - Cycle 1543: Scanned 6 markets, saved 6
+2026-04-20 06:53:57.204 | INFO     | __main__:main:308 - Cycle 1543 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 06:58:58.051 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 06:59:00.213 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 06:59:00.240 | INFO     | __main__:main:192 - Cycle 1544: Scanned 6 markets, saved 6
+2026-04-20 06:59:00.645 | INFO     | __main__:main:308 - Cycle 1544 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:04:01.492 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:04:03.252 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:04:03.271 | INFO     | __main__:main:192 - Cycle 1545: Scanned 6 markets, saved 6
+2026-04-20 07:04:03.639 | INFO     | __main__:main:308 - Cycle 1545 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:09:04.538 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:09:07.029 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:09:07.039 | INFO     | __main__:main:192 - Cycle 1546: Scanned 6 markets, saved 6
+2026-04-20 07:09:07.560 | INFO     | __main__:main:308 - Cycle 1546 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:14:08.447 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:14:10.636 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:14:10.657 | INFO     | __main__:main:192 - Cycle 1547: Scanned 6 markets, saved 6
+2026-04-20 07:14:11.060 | INFO     | __main__:main:308 - Cycle 1547 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:19:11.955 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:19:14.221 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:19:14.232 | INFO     | __main__:main:192 - Cycle 1548: Scanned 6 markets, saved 6
+2026-04-20 07:19:14.610 | INFO     | __main__:main:308 - Cycle 1548 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:24:15.468 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:24:17.670 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:24:17.681 | INFO     | __main__:main:192 - Cycle 1549: Scanned 6 markets, saved 6
+2026-04-20 07:24:18.062 | INFO     | __main__:main:308 - Cycle 1549 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:29:18.960 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:29:21.076 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 07:29:21.087 | INFO     | __main__:main:192 - Cycle 1550: Scanned 5 markets, saved 5
+2026-04-20 07:29:21.490 | INFO     | __main__:main:308 - Cycle 1550 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:34:22.359 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:34:24.903 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 07:34:24.910 | INFO     | __main__:main:192 - Cycle 1551: Scanned 5 markets, saved 5
+2026-04-20 07:34:25.290 | INFO     | __main__:main:308 - Cycle 1551 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:39:26.152 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:39:28.518 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:39:28.528 | INFO     | __main__:main:192 - Cycle 1552: Scanned 6 markets, saved 6
+2026-04-20 07:39:28.920 | INFO     | __main__:main:308 - Cycle 1552 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:44:29.825 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:44:32.288 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:44:32.297 | INFO     | __main__:main:192 - Cycle 1553: Scanned 6 markets, saved 6
+2026-04-20 07:44:32.666 | INFO     | __main__:main:308 - Cycle 1553 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:49:33.547 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:49:35.447 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 07:49:35.459 | INFO     | __main__:main:192 - Cycle 1554: Scanned 5 markets, saved 5
+2026-04-20 07:49:35.880 | INFO     | __main__:main:308 - Cycle 1554 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:54:36.733 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:54:38.657 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 07:54:38.668 | INFO     | __main__:main:192 - Cycle 1555: Scanned 5 markets, saved 5
+2026-04-20 07:54:39.062 | INFO     | __main__:main:308 - Cycle 1555 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 07:59:39.902 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 07:59:41.675 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 07:59:41.689 | INFO     | __main__:main:192 - Cycle 1556: Scanned 6 markets, saved 6
+2026-04-20 07:59:42.060 | INFO     | __main__:main:308 - Cycle 1556 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:04:42.952 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:04:44.914 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:04:44.926 | INFO     | __main__:main:192 - Cycle 1557: Scanned 6 markets, saved 6
+2026-04-20 08:04:45.318 | INFO     | __main__:main:308 - Cycle 1557 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:09:46.213 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:09:48.568 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:09:48.578 | INFO     | __main__:main:192 - Cycle 1558: Scanned 6 markets, saved 6
+2026-04-20 08:09:48.971 | INFO     | __main__:main:308 - Cycle 1558 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:14:49.901 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:14:52.190 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:14:52.209 | INFO     | __main__:main:192 - Cycle 1559: Scanned 6 markets, saved 6
+2026-04-20 08:14:52.598 | INFO     | __main__:main:308 - Cycle 1559 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:19:53.486 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:19:55.919 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:19:55.929 | INFO     | __main__:main:192 - Cycle 1560: Scanned 6 markets, saved 6
+2026-04-20 08:19:56.336 | INFO     | __main__:main:308 - Cycle 1560 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:24:57.160 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:24:59.673 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 08:24:59.686 | INFO     | __main__:main:192 - Cycle 1561: Scanned 5 markets, saved 5
+2026-04-20 08:25:00.062 | INFO     | __main__:main:308 - Cycle 1561 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:30:00.990 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:30:04.073 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:30:04.096 | INFO     | __main__:main:192 - Cycle 1562: Scanned 6 markets, saved 6
+2026-04-20 08:30:04.523 | INFO     | __main__:main:308 - Cycle 1562 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:35:05.361 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:35:07.429 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:35:07.438 | INFO     | __main__:main:192 - Cycle 1563: Scanned 6 markets, saved 6
+2026-04-20 08:35:07.803 | INFO     | __main__:main:308 - Cycle 1563 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:40:08.643 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:40:10.896 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:40:10.910 | INFO     | __main__:main:192 - Cycle 1564: Scanned 6 markets, saved 6
+2026-04-20 08:40:11.291 | INFO     | __main__:main:308 - Cycle 1564 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:45:12.156 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:45:14.269 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:45:14.278 | INFO     | __main__:main:192 - Cycle 1565: Scanned 6 markets, saved 6
+2026-04-20 08:45:14.651 | INFO     | __main__:main:308 - Cycle 1565 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:50:15.540 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:50:17.557 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:50:17.567 | INFO     | __main__:main:192 - Cycle 1566: Scanned 6 markets, saved 6
+2026-04-20 08:50:17.951 | INFO     | __main__:main:308 - Cycle 1566 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 08:55:18.808 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 08:55:20.808 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 08:55:20.818 | INFO     | __main__:main:192 - Cycle 1567: Scanned 6 markets, saved 6
+2026-04-20 08:55:21.209 | INFO     | __main__:main:308 - Cycle 1567 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:00:22.092 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:00:24.022 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 09:00:24.037 | INFO     | __main__:main:192 - Cycle 1568: Scanned 6 markets, saved 6
+2026-04-20 09:00:24.419 | INFO     | __main__:main:308 - Cycle 1568 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:05:25.284 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:05:26.995 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 09:05:27.009 | INFO     | __main__:main:192 - Cycle 1569: Scanned 6 markets, saved 6
+2026-04-20 09:05:27.399 | INFO     | __main__:main:308 - Cycle 1569 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:10:28.279 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:10:30.099 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 09:10:30.113 | INFO     | __main__:main:192 - Cycle 1570: Scanned 6 markets, saved 6
+2026-04-20 09:10:30.494 | INFO     | __main__:main:308 - Cycle 1570 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:15:31.349 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:15:33.365 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 09:15:33.377 | INFO     | __main__:main:192 - Cycle 1571: Scanned 5 markets, saved 5
+2026-04-20 09:15:33.770 | INFO     | __main__:main:308 - Cycle 1571 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:20:34.639 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:20:36.354 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 09:20:36.360 | INFO     | __main__:main:192 - Cycle 1572: Scanned 5 markets, saved 5
+2026-04-20 09:20:36.739 | INFO     | __main__:main:308 - Cycle 1572 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:25:37.582 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:25:39.704 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 09:25:39.715 | INFO     | __main__:main:192 - Cycle 1573: Scanned 5 markets, saved 5
+2026-04-20 09:25:40.074 | INFO     | __main__:main:308 - Cycle 1573 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:30:40.969 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:30:42.901 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 09:30:42.909 | INFO     | __main__:main:192 - Cycle 1574: Scanned 5 markets, saved 5
+2026-04-20 09:30:43.338 | INFO     | __main__:main:308 - Cycle 1574 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:35:44.169 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:35:46.394 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 09:35:46.401 | INFO     | __main__:main:192 - Cycle 1575: Scanned 4 markets, saved 4
+2026-04-20 09:35:46.774 | INFO     | __main__:main:308 - Cycle 1575 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:40:47.622 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:40:49.794 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 09:40:49.801 | INFO     | __main__:main:192 - Cycle 1576: Scanned 4 markets, saved 4
+2026-04-20 09:40:50.198 | INFO     | __main__:main:308 - Cycle 1576 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:45:51.087 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:45:53.135 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 09:45:53.142 | INFO     | __main__:main:192 - Cycle 1577: Scanned 4 markets, saved 4
+2026-04-20 09:45:53.510 | INFO     | __main__:main:308 - Cycle 1577 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:50:54.373 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:50:55.987 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 09:50:56.023 | INFO     | __main__:main:192 - Cycle 1578: Scanned 4 markets, saved 4
+2026-04-20 09:50:56.402 | INFO     | __main__:main:308 - Cycle 1578 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 09:55:57.224 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 09:55:59.396 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 09:55:59.402 | INFO     | __main__:main:192 - Cycle 1579: Scanned 4 markets, saved 4
+2026-04-20 09:55:59.758 | INFO     | __main__:main:308 - Cycle 1579 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:01:00.677 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:01:02.793 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:01:02.801 | INFO     | __main__:main:192 - Cycle 1580: Scanned 4 markets, saved 4
+2026-04-20 10:01:03.175 | INFO     | __main__:main:308 - Cycle 1580 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:06:04.007 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:06:05.964 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:06:05.971 | INFO     | __main__:main:192 - Cycle 1581: Scanned 4 markets, saved 4
+2026-04-20 10:06:06.347 | INFO     | __main__:main:308 - Cycle 1581 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:11:07.215 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:11:09.170 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:11:09.180 | INFO     | __main__:main:192 - Cycle 1582: Scanned 5 markets, saved 5
+2026-04-20 10:11:09.547 | INFO     | __main__:main:308 - Cycle 1582 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:16:10.368 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:16:12.441 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:16:12.448 | INFO     | __main__:main:192 - Cycle 1583: Scanned 5 markets, saved 5
+2026-04-20 10:16:12.813 | INFO     | __main__:main:308 - Cycle 1583 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:21:13.650 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:21:15.737 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:21:15.751 | INFO     | __main__:main:192 - Cycle 1584: Scanned 5 markets, saved 5
+2026-04-20 10:21:16.134 | INFO     | __main__:main:308 - Cycle 1584 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:26:17.000 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:26:19.523 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:26:19.528 | INFO     | __main__:main:192 - Cycle 1585: Scanned 5 markets, saved 5
+2026-04-20 10:26:19.910 | INFO     | __main__:main:308 - Cycle 1585 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:31:20.753 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:31:23.214 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:31:23.229 | INFO     | __main__:main:192 - Cycle 1586: Scanned 5 markets, saved 5
+2026-04-20 10:31:23.626 | INFO     | __main__:main:308 - Cycle 1586 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:36:24.554 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:36:26.607 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 10:36:26.624 | INFO     | __main__:main:192 - Cycle 1587: Scanned 5 markets, saved 5
+2026-04-20 10:36:27.005 | INFO     | __main__:main:308 - Cycle 1587 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:41:27.846 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:41:29.771 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:41:29.779 | INFO     | __main__:main:192 - Cycle 1588: Scanned 4 markets, saved 4
+2026-04-20 10:41:30.142 | INFO     | __main__:main:308 - Cycle 1588 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:46:30.969 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:46:32.748 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:46:32.756 | INFO     | __main__:main:192 - Cycle 1589: Scanned 4 markets, saved 4
+2026-04-20 10:46:33.135 | INFO     | __main__:main:308 - Cycle 1589 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:51:33.989 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:51:35.012 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:51:35.022 | INFO     | __main__:main:192 - Cycle 1590: Scanned 4 markets, saved 4
+2026-04-20 10:51:35.386 | INFO     | __main__:main:308 - Cycle 1590 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 10:56:36.224 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 10:56:37.750 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 10:56:37.758 | INFO     | __main__:main:192 - Cycle 1591: Scanned 4 markets, saved 4
+2026-04-20 10:56:38.114 | INFO     | __main__:main:308 - Cycle 1591 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:01:38.963 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:01:40.683 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:01:40.691 | INFO     | __main__:main:192 - Cycle 1592: Scanned 4 markets, saved 4
+2026-04-20 11:01:41.080 | INFO     | __main__:main:308 - Cycle 1592 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:06:41.966 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:06:44.137 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:06:44.148 | INFO     | __main__:main:192 - Cycle 1593: Scanned 4 markets, saved 4
+2026-04-20 11:06:44.511 | INFO     | __main__:main:308 - Cycle 1593 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:11:45.404 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:11:47.285 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:11:47.294 | INFO     | __main__:main:192 - Cycle 1594: Scanned 4 markets, saved 4
+2026-04-20 11:11:47.683 | INFO     | __main__:main:308 - Cycle 1594 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:16:48.536 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:16:50.500 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:16:50.515 | INFO     | __main__:main:192 - Cycle 1595: Scanned 4 markets, saved 4
+2026-04-20 11:16:50.892 | INFO     | __main__:main:308 - Cycle 1595 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:21:51.728 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:21:53.890 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:21:53.897 | INFO     | __main__:main:192 - Cycle 1596: Scanned 4 markets, saved 4
+2026-04-20 11:21:54.294 | INFO     | __main__:main:308 - Cycle 1596 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:26:55.147 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:26:57.121 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:26:57.128 | INFO     | __main__:main:192 - Cycle 1597: Scanned 4 markets, saved 4
+2026-04-20 11:26:57.500 | INFO     | __main__:main:308 - Cycle 1597 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:31:58.340 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:32:00.491 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:32:00.508 | INFO     | __main__:main:192 - Cycle 1598: Scanned 4 markets, saved 4
+2026-04-20 11:32:00.870 | INFO     | __main__:main:308 - Cycle 1598 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:37:01.671 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:37:03.827 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:37:03.836 | INFO     | __main__:main:192 - Cycle 1599: Scanned 4 markets, saved 4
+2026-04-20 11:37:04.191 | INFO     | __main__:main:308 - Cycle 1599 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:42:05.036 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:42:07.282 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:42:07.288 | INFO     | __main__:main:192 - Cycle 1600: Scanned 4 markets, saved 4
+2026-04-20 11:42:07.698 | INFO     | __main__:main:308 - Cycle 1600 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:47:08.507 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:47:10.665 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:47:10.671 | INFO     | __main__:main:192 - Cycle 1601: Scanned 4 markets, saved 4
+2026-04-20 11:47:11.032 | INFO     | __main__:main:308 - Cycle 1601 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:52:11.864 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:52:13.750 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:52:13.758 | INFO     | __main__:main:192 - Cycle 1602: Scanned 4 markets, saved 4
+2026-04-20 11:52:14.144 | INFO     | __main__:main:308 - Cycle 1602 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 11:57:14.978 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 11:57:16.832 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 11:57:16.838 | INFO     | __main__:main:192 - Cycle 1603: Scanned 4 markets, saved 4
+2026-04-20 11:57:17.223 | INFO     | __main__:main:308 - Cycle 1603 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:02:18.155 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:02:20.147 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 12:02:20.163 | INFO     | __main__:main:192 - Cycle 1604: Scanned 4 markets, saved 4
+2026-04-20 12:02:20.544 | INFO     | __main__:main:308 - Cycle 1604 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:07:21.346 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:07:23.404 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 12:07:23.412 | INFO     | __main__:main:192 - Cycle 1605: Scanned 4 markets, saved 4
+2026-04-20 12:07:23.775 | INFO     | __main__:main:308 - Cycle 1605 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:12:24.654 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:12:26.544 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 12:12:26.554 | INFO     | __main__:main:192 - Cycle 1606: Scanned 4 markets, saved 4
+2026-04-20 12:12:26.929 | INFO     | __main__:main:308 - Cycle 1606 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:17:27.793 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:17:29.872 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:17:29.881 | INFO     | __main__:main:192 - Cycle 1607: Scanned 5 markets, saved 5
+2026-04-20 12:17:30.252 | INFO     | __main__:main:308 - Cycle 1607 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:22:31.043 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:22:32.904 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:22:32.914 | INFO     | __main__:main:192 - Cycle 1608: Scanned 5 markets, saved 5
+2026-04-20 12:22:33.292 | INFO     | __main__:main:308 - Cycle 1608 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:27:34.163 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:27:35.718 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:27:35.725 | INFO     | __main__:main:192 - Cycle 1609: Scanned 5 markets, saved 5
+2026-04-20 12:27:36.097 | INFO     | __main__:main:308 - Cycle 1609 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:32:36.911 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:32:39.327 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:32:39.336 | INFO     | __main__:main:192 - Cycle 1610: Scanned 5 markets, saved 5
+2026-04-20 12:32:39.689 | INFO     | __main__:main:308 - Cycle 1610 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:37:40.530 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:37:42.820 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:37:42.830 | INFO     | __main__:main:192 - Cycle 1611: Scanned 5 markets, saved 5
+2026-04-20 12:37:43.213 | INFO     | __main__:main:308 - Cycle 1611 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:42:44.041 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:42:46.377 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 12:42:46.386 | INFO     | __main__:main:192 - Cycle 1612: Scanned 5 markets, saved 5
+2026-04-20 12:42:46.740 | INFO     | __main__:main:308 - Cycle 1612 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:47:47.598 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:47:50.156 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 12:47:50.165 | INFO     | __main__:main:192 - Cycle 1613: Scanned 4 markets, saved 4
+2026-04-20 12:47:50.524 | INFO     | __main__:main:308 - Cycle 1613 complete | Evaluated: 5 | Executed: 0 | Open: 6 | Exposure: $190.85 | Balance: $816.16 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:52:51.390 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:52:53.376 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 12:52:53.388 | INFO     | __main__:main:192 - Cycle 1614: Scanned 6 markets, saved 6
+2026-04-20 12:52:53.823 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.255 | Edge: 0.245 | prob=0.50 | "Will the price of Bitcoin be above $74,000 on April 21?"
+2026-04-20 12:52:53.825 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will the price of Bitcoin be above $74,0" shares=128.0 cost=$32.65 edge=+24.5%
+2026-04-20 12:52:53.882 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will the price of Bitcoin be above $74,000 on Apri" shares=128.0 @ $0.255 cost=$32.65
+2026-04-20 12:52:53.886 | INFO     | __main__:main:292 - POLY TRADE: NO "Will the price of Bitcoin be above $74,000 on April 21?" edge=+24.5% cost=$32.65
+2026-04-20 12:52:54.281 | INFO     | __main__:main:308 - Cycle 1614 complete | Evaluated: 6 | Executed: 1 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 12:57:55.089 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 12:57:57.116 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 6 qualifying markets
+2026-04-20 12:57:57.126 | INFO     | __main__:main:192 - Cycle 1615: Scanned 6 markets, saved 6
+2026-04-20 12:57:57.490 | INFO     | __main__:main:308 - Cycle 1615 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:02:58.331 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:03:00.577 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:03:00.590 | INFO     | __main__:main:192 - Cycle 1616: Scanned 5 markets, saved 5
+2026-04-20 13:03:01.079 | INFO     | __main__:main:308 - Cycle 1616 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:08:01.915 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:08:04.317 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:08:04.326 | INFO     | __main__:main:192 - Cycle 1617: Scanned 5 markets, saved 5
+2026-04-20 13:08:04.691 | INFO     | __main__:main:308 - Cycle 1617 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:13:05.499 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:13:07.430 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:13:07.438 | INFO     | __main__:main:192 - Cycle 1618: Scanned 5 markets, saved 5
+2026-04-20 13:13:07.789 | INFO     | __main__:main:308 - Cycle 1618 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:18:08.630 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:18:10.918 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:18:10.928 | INFO     | __main__:main:192 - Cycle 1619: Scanned 5 markets, saved 5
+2026-04-20 13:18:11.399 | INFO     | __main__:main:308 - Cycle 1619 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:23:12.387 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:23:14.322 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 13:23:14.330 | INFO     | __main__:main:192 - Cycle 1620: Scanned 4 markets, saved 4
+2026-04-20 13:23:14.691 | INFO     | __main__:main:308 - Cycle 1620 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:28:15.566 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:28:17.955 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:28:17.972 | INFO     | __main__:main:192 - Cycle 1621: Scanned 5 markets, saved 5
+2026-04-20 13:28:18.351 | INFO     | __main__:main:308 - Cycle 1621 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:33:19.184 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:33:21.673 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:33:21.681 | INFO     | __main__:main:192 - Cycle 1622: Scanned 5 markets, saved 5
+2026-04-20 13:33:22.098 | INFO     | __main__:main:308 - Cycle 1622 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:38:22.981 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:38:25.035 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:38:25.044 | INFO     | __main__:main:192 - Cycle 1623: Scanned 5 markets, saved 5
+2026-04-20 13:38:25.433 | INFO     | __main__:main:308 - Cycle 1623 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:43:26.263 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:43:28.598 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:43:28.607 | INFO     | __main__:main:192 - Cycle 1624: Scanned 5 markets, saved 5
+2026-04-20 13:43:28.954 | INFO     | __main__:main:308 - Cycle 1624 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:48:29.819 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:48:32.333 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:48:32.344 | INFO     | __main__:main:192 - Cycle 1625: Scanned 5 markets, saved 5
+2026-04-20 13:48:32.719 | INFO     | __main__:main:308 - Cycle 1625 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:53:33.589 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:53:35.795 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:53:35.803 | INFO     | __main__:main:192 - Cycle 1626: Scanned 5 markets, saved 5
+2026-04-20 13:53:36.182 | INFO     | __main__:main:308 - Cycle 1626 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 13:58:37.017 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 13:58:39.331 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 13:58:39.339 | INFO     | __main__:main:192 - Cycle 1627: Scanned 5 markets, saved 5
+2026-04-20 13:58:39.819 | INFO     | __main__:main:308 - Cycle 1627 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:03:40.681 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:03:44.547 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:03:44.554 | INFO     | __main__:main:192 - Cycle 1628: Scanned 3 markets, saved 3
+2026-04-20 14:03:44.942 | INFO     | __main__:main:308 - Cycle 1628 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:08:45.823 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:08:48.147 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:08:48.153 | INFO     | __main__:main:192 - Cycle 1629: Scanned 3 markets, saved 3
+2026-04-20 14:08:48.520 | INFO     | __main__:main:308 - Cycle 1629 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:13:49.479 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:13:51.771 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:13:51.779 | INFO     | __main__:main:192 - Cycle 1630: Scanned 3 markets, saved 3
+2026-04-20 14:13:52.171 | INFO     | __main__:main:308 - Cycle 1630 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:18:52.979 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:18:55.131 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:18:55.139 | INFO     | __main__:main:192 - Cycle 1631: Scanned 3 markets, saved 3
+2026-04-20 14:18:55.564 | INFO     | __main__:main:308 - Cycle 1631 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:23:56.412 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:23:58.628 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:23:58.637 | INFO     | __main__:main:192 - Cycle 1632: Scanned 3 markets, saved 3
+2026-04-20 14:23:59.028 | INFO     | __main__:main:308 - Cycle 1632 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:28:59.901 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:29:02.546 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-20 14:29:02.553 | INFO     | __main__:main:192 - Cycle 1633: Scanned 2 markets, saved 2
+2026-04-20 14:29:02.949 | INFO     | __main__:main:308 - Cycle 1633 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:34:03.760 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:34:06.066 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-20 14:34:06.071 | INFO     | __main__:main:192 - Cycle 1634: Scanned 2 markets, saved 2
+2026-04-20 14:34:06.432 | INFO     | __main__:main:308 - Cycle 1634 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:39:07.259 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:39:09.984 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-20 14:39:09.989 | INFO     | __main__:main:192 - Cycle 1635: Scanned 2 markets, saved 2
+2026-04-20 14:39:10.359 | INFO     | __main__:main:308 - Cycle 1635 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:44:11.188 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:44:13.437 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 2 qualifying markets
+2026-04-20 14:44:13.444 | INFO     | __main__:main:192 - Cycle 1636: Scanned 2 markets, saved 2
+2026-04-20 14:44:13.814 | INFO     | __main__:main:308 - Cycle 1636 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:49:14.633 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:49:16.828 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:49:16.833 | INFO     | __main__:main:192 - Cycle 1637: Scanned 3 markets, saved 3
+2026-04-20 14:49:17.200 | INFO     | __main__:main:308 - Cycle 1637 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:54:18.028 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:54:20.297 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:54:20.303 | INFO     | __main__:main:192 - Cycle 1638: Scanned 3 markets, saved 3
+2026-04-20 14:54:20.664 | INFO     | __main__:main:308 - Cycle 1638 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 14:59:21.519 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 14:59:23.812 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 14:59:23.830 | INFO     | __main__:main:192 - Cycle 1639: Scanned 3 markets, saved 3
+2026-04-20 14:59:24.200 | INFO     | __main__:main:308 - Cycle 1639 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:04:25.046 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:04:27.292 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:04:27.305 | INFO     | __main__:main:192 - Cycle 1640: Scanned 4 markets, saved 4
+2026-04-20 15:04:27.649 | INFO     | __main__:main:308 - Cycle 1640 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:09:28.527 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:09:30.451 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:09:30.458 | INFO     | __main__:main:192 - Cycle 1641: Scanned 4 markets, saved 4
+2026-04-20 15:09:30.834 | INFO     | __main__:main:308 - Cycle 1641 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:14:31.689 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:14:33.900 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:14:33.906 | INFO     | __main__:main:192 - Cycle 1642: Scanned 4 markets, saved 4
+2026-04-20 15:14:34.267 | INFO     | __main__:main:308 - Cycle 1642 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:19:35.105 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:19:37.313 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:19:37.326 | INFO     | __main__:main:192 - Cycle 1643: Scanned 4 markets, saved 4
+2026-04-20 15:19:37.678 | INFO     | __main__:main:308 - Cycle 1643 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:24:38.490 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:24:40.923 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:24:40.932 | INFO     | __main__:main:192 - Cycle 1644: Scanned 4 markets, saved 4
+2026-04-20 15:24:41.338 | INFO     | __main__:main:308 - Cycle 1644 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:29:42.177 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:29:44.570 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:29:44.578 | INFO     | __main__:main:192 - Cycle 1645: Scanned 4 markets, saved 4
+2026-04-20 15:29:44.966 | INFO     | __main__:main:308 - Cycle 1645 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:34:45.786 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:34:48.279 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:34:48.286 | INFO     | __main__:main:192 - Cycle 1646: Scanned 4 markets, saved 4
+2026-04-20 15:34:48.641 | INFO     | __main__:main:308 - Cycle 1646 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:39:49.522 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:39:52.021 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:39:52.029 | INFO     | __main__:main:192 - Cycle 1647: Scanned 4 markets, saved 4
+2026-04-20 15:39:52.410 | INFO     | __main__:main:308 - Cycle 1647 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:44:53.227 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:44:55.685 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:44:55.693 | INFO     | __main__:main:192 - Cycle 1648: Scanned 4 markets, saved 4
+2026-04-20 15:44:56.061 | INFO     | __main__:main:308 - Cycle 1648 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:49:56.904 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:49:59.073 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:49:59.081 | INFO     | __main__:main:192 - Cycle 1649: Scanned 4 markets, saved 4
+2026-04-20 15:49:59.436 | INFO     | __main__:main:308 - Cycle 1649 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 15:55:00.240 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 15:55:02.646 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 15:55:02.662 | INFO     | __main__:main:192 - Cycle 1650: Scanned 4 markets, saved 4
+2026-04-20 15:55:03.068 | INFO     | __main__:main:308 - Cycle 1650 complete | Evaluated: 5 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:00:04.320 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:00:08.132 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:00:08.140 | INFO     | __main__:main:192 - Cycle 1651: Scanned 4 markets, saved 4
+2026-04-20 16:00:08.702 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Ethereum be above $2,200 on April 20? → YES
+2026-04-20 16:00:08.892 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be above $74,000 on April 20? → YES
+2026-04-20 16:00:09.080 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be above $76,000 on April 20? → NO
+2026-04-20 16:00:09.437 | INFO     | __main__:main:197 - Resolved 3 markets
+2026-04-20 16:00:09.455 | INFO     | __main__:main:308 - Cycle 1651 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:05:10.278 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:05:12.497 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:05:12.505 | INFO     | __main__:main:192 - Cycle 1652: Scanned 4 markets, saved 4
+2026-04-20 16:05:13.257 | INFO     | __main__:main:308 - Cycle 1652 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:10:14.084 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:10:15.968 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:10:15.975 | INFO     | __main__:main:192 - Cycle 1653: Scanned 4 markets, saved 4
+2026-04-20 16:10:16.668 | INFO     | __main__:main:308 - Cycle 1653 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:15:17.484 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:15:19.641 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:15:19.648 | INFO     | __main__:main:192 - Cycle 1654: Scanned 4 markets, saved 4
+2026-04-20 16:15:20.371 | INFO     | __main__:main:308 - Cycle 1654 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:20:21.216 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:20:23.374 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:20:23.381 | INFO     | __main__:main:192 - Cycle 1655: Scanned 4 markets, saved 4
+2026-04-20 16:20:24.129 | INFO     | __main__:main:308 - Cycle 1655 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:25:25.006 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:25:27.042 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 16:25:27.050 | INFO     | __main__:main:192 - Cycle 1656: Scanned 4 markets, saved 4
+2026-04-20 16:25:27.830 | INFO     | __main__:main:308 - Cycle 1656 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $223.50 | Balance: $783.52 | PnL: $-696.27 | Next scan in 300s
+2026-04-20 16:30:28.706 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:30:28.945 | INFO     | agents.poly_monitor:_close_resolved:158 - POLY CLOSE [RESOLVED_LOSS]: "Will the price of Ethereum be above $2,300 on Apri" NO PnL=$-34.01 (-100.0%)
+2026-04-20 16:30:29.127 | INFO     | __main__:main:177 - Position closed: RESOLVED_LOSS PnL=$-34.01 (-100.0%)
+2026-04-20 16:30:31.459 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 16:30:31.470 | INFO     | __main__:main:192 - Cycle 1657: Scanned 5 markets, saved 5
+2026-04-20 16:30:32.044 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Bitcoin be between $74,000 and $76,000 on  → YES
+2026-04-20 16:30:32.227 | INFO     | data.polymarket_feed:check_resolutions:304 - POLY FEED: Market RESOLVED: Will the price of Ethereum be above $2,300 on April 20? → YES
+2026-04-20 16:30:32.227 | INFO     | __main__:main:197 - Resolved 2 markets
+2026-04-20 16:30:32.258 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.695 | Edge: 0.195 | prob=0.89 | "Will the price of Bitcoin be above $76,000 on April 21?"
+2026-04-20 16:30:32.259 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will the price of Bitcoin be above $76,0" shares=45.1 cost=$31.34 edge=+19.5%
+2026-04-20 16:30:32.288 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will the price of Bitcoin be above $76,000 on Apri" shares=45.1 @ $0.695 cost=$31.34
+2026-04-20 16:30:32.291 | INFO     | __main__:main:292 - POLY TRADE: NO "Will the price of Bitcoin be above $76,000 on April 21?" edge=+19.5% cost=$31.34
+2026-04-20 16:30:32.707 | INFO     | __main__:main:308 - Cycle 1657 complete | Evaluated: 4 | Executed: 1 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 16:35:33.549 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:35:36.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 16:35:36.024 | INFO     | __main__:main:192 - Cycle 1658: Scanned 3 markets, saved 3
+2026-04-20 16:35:36.398 | INFO     | __main__:main:308 - Cycle 1658 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 16:40:37.224 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:40:39.450 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 16:40:39.458 | INFO     | __main__:main:192 - Cycle 1659: Scanned 3 markets, saved 3
+2026-04-20 16:40:39.832 | INFO     | __main__:main:308 - Cycle 1659 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 16:45:40.735 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:45:43.282 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 16:45:43.294 | INFO     | __main__:main:192 - Cycle 1660: Scanned 3 markets, saved 3
+2026-04-20 16:45:43.645 | INFO     | __main__:main:308 - Cycle 1660 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 16:50:44.496 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:50:46.922 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 16:50:46.928 | INFO     | __main__:main:192 - Cycle 1661: Scanned 3 markets, saved 3
+2026-04-20 16:50:47.360 | INFO     | __main__:main:308 - Cycle 1661 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 16:55:48.193 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 16:55:50.605 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 16:55:50.611 | INFO     | __main__:main:192 - Cycle 1662: Scanned 3 markets, saved 3
+2026-04-20 16:55:51.002 | INFO     | __main__:main:308 - Cycle 1662 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:00:51.852 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:00:54.071 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:00:54.079 | INFO     | __main__:main:192 - Cycle 1663: Scanned 3 markets, saved 3
+2026-04-20 17:00:54.441 | INFO     | __main__:main:308 - Cycle 1663 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:05:55.357 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:05:57.597 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:05:57.603 | INFO     | __main__:main:192 - Cycle 1664: Scanned 3 markets, saved 3
+2026-04-20 17:05:57.991 | INFO     | __main__:main:308 - Cycle 1664 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:10:58.815 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:11:00.970 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:11:00.983 | INFO     | __main__:main:192 - Cycle 1665: Scanned 3 markets, saved 3
+2026-04-20 17:11:01.351 | INFO     | __main__:main:308 - Cycle 1665 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:16:02.218 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:16:04.538 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:16:04.545 | INFO     | __main__:main:192 - Cycle 1666: Scanned 3 markets, saved 3
+2026-04-20 17:16:04.919 | INFO     | __main__:main:308 - Cycle 1666 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:21:05.786 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:21:07.700 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:21:07.708 | INFO     | __main__:main:192 - Cycle 1667: Scanned 3 markets, saved 3
+2026-04-20 17:21:08.083 | INFO     | __main__:main:308 - Cycle 1667 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:26:08.968 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:26:10.969 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:26:10.976 | INFO     | __main__:main:192 - Cycle 1668: Scanned 3 markets, saved 3
+2026-04-20 17:26:11.359 | INFO     | __main__:main:308 - Cycle 1668 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:31:12.233 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:31:14.501 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:31:14.507 | INFO     | __main__:main:192 - Cycle 1669: Scanned 3 markets, saved 3
+2026-04-20 17:31:14.887 | INFO     | __main__:main:308 - Cycle 1669 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:36:15.744 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:36:18.339 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:36:18.346 | INFO     | __main__:main:192 - Cycle 1670: Scanned 3 markets, saved 3
+2026-04-20 17:36:18.709 | INFO     | __main__:main:308 - Cycle 1670 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:41:19.569 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:41:21.903 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:41:21.908 | INFO     | __main__:main:192 - Cycle 1671: Scanned 3 markets, saved 3
+2026-04-20 17:41:22.267 | INFO     | __main__:main:308 - Cycle 1671 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:46:23.129 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:46:25.366 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:46:25.372 | INFO     | __main__:main:192 - Cycle 1672: Scanned 3 markets, saved 3
+2026-04-20 17:46:25.744 | INFO     | __main__:main:308 - Cycle 1672 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:51:26.582 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:51:29.189 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:51:29.197 | INFO     | __main__:main:192 - Cycle 1673: Scanned 3 markets, saved 3
+2026-04-20 17:51:29.556 | INFO     | __main__:main:308 - Cycle 1673 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 17:56:30.390 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 17:56:33.000 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 17:56:33.009 | INFO     | __main__:main:192 - Cycle 1674: Scanned 3 markets, saved 3
+2026-04-20 17:56:33.384 | INFO     | __main__:main:308 - Cycle 1674 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 18:01:34.202 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:01:36.934 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:01:36.941 | INFO     | __main__:main:192 - Cycle 1675: Scanned 3 markets, saved 3
+2026-04-20 18:01:37.309 | INFO     | __main__:main:308 - Cycle 1675 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $220.84 | Balance: $752.18 | PnL: $-730.27 | Next scan in 300s
+2026-04-20 18:06:38.201 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:06:38.379 | INFO     | agents.poly_monitor:_close_position:182 - POLY CLOSE [STOP_LOSS]: "Will the price of Bitcoin be above $74,000 on Apri" NO exit@0.095 PnL=$-20.48
+2026-04-20 18:06:38.567 | INFO     | __main__:main:177 - Position closed: STOP_LOSS PnL=$-20.48 (-62.7%)
+2026-04-20 18:06:41.044 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:06:41.051 | INFO     | __main__:main:192 - Cycle 1676: Scanned 3 markets, saved 3
+2026-04-20 18:06:41.437 | INFO     | __main__:main:308 - Cycle 1676 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:11:42.320 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:11:44.380 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:11:44.388 | INFO     | __main__:main:192 - Cycle 1677: Scanned 3 markets, saved 3
+2026-04-20 18:11:44.761 | INFO     | __main__:main:308 - Cycle 1677 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:16:45.554 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:16:47.944 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:16:47.951 | INFO     | __main__:main:192 - Cycle 1678: Scanned 3 markets, saved 3
+2026-04-20 18:16:48.318 | INFO     | __main__:main:308 - Cycle 1678 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:21:49.137 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:21:51.490 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:21:51.497 | INFO     | __main__:main:192 - Cycle 1679: Scanned 3 markets, saved 3
+2026-04-20 18:21:51.853 | INFO     | __main__:main:308 - Cycle 1679 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:26:52.655 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:26:54.398 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:26:54.403 | INFO     | __main__:main:192 - Cycle 1680: Scanned 3 markets, saved 3
+2026-04-20 18:26:54.744 | INFO     | __main__:main:308 - Cycle 1680 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:31:55.628 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:31:57.723 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:31:57.728 | INFO     | __main__:main:192 - Cycle 1681: Scanned 3 markets, saved 3
+2026-04-20 18:31:58.108 | INFO     | __main__:main:308 - Cycle 1681 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:36:58.918 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:37:01.063 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:37:01.071 | INFO     | __main__:main:192 - Cycle 1682: Scanned 3 markets, saved 3
+2026-04-20 18:37:01.473 | INFO     | __main__:main:308 - Cycle 1682 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:42:02.312 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:42:04.425 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:42:04.431 | INFO     | __main__:main:192 - Cycle 1683: Scanned 3 markets, saved 3
+2026-04-20 18:42:04.795 | INFO     | __main__:main:308 - Cycle 1683 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:47:05.637 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:47:07.365 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:47:07.372 | INFO     | __main__:main:192 - Cycle 1684: Scanned 3 markets, saved 3
+2026-04-20 18:47:07.736 | INFO     | __main__:main:308 - Cycle 1684 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:52:08.599 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:52:10.360 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:52:10.366 | INFO     | __main__:main:192 - Cycle 1685: Scanned 3 markets, saved 3
+2026-04-20 18:52:10.759 | INFO     | __main__:main:308 - Cycle 1685 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 18:57:11.627 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 18:57:13.867 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 18:57:13.873 | INFO     | __main__:main:192 - Cycle 1686: Scanned 3 markets, saved 3
+2026-04-20 18:57:14.260 | INFO     | __main__:main:308 - Cycle 1686 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:02:15.074 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:02:16.840 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:02:16.847 | INFO     | __main__:main:192 - Cycle 1687: Scanned 3 markets, saved 3
+2026-04-20 19:02:17.193 | INFO     | __main__:main:308 - Cycle 1687 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:07:18.049 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:07:19.575 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:07:19.582 | INFO     | __main__:main:192 - Cycle 1688: Scanned 3 markets, saved 3
+2026-04-20 19:07:19.958 | INFO     | __main__:main:308 - Cycle 1688 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:12:20.791 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:12:23.034 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:12:23.041 | INFO     | __main__:main:192 - Cycle 1689: Scanned 3 markets, saved 3
+2026-04-20 19:12:23.395 | INFO     | __main__:main:308 - Cycle 1689 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:17:24.206 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:17:25.253 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:17:25.260 | INFO     | __main__:main:192 - Cycle 1690: Scanned 3 markets, saved 3
+2026-04-20 19:17:25.625 | INFO     | __main__:main:308 - Cycle 1690 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:22:26.507 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:22:28.759 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:22:28.765 | INFO     | __main__:main:192 - Cycle 1691: Scanned 3 markets, saved 3
+2026-04-20 19:22:29.145 | INFO     | __main__:main:308 - Cycle 1691 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:27:29.982 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:27:32.217 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:27:32.224 | INFO     | __main__:main:192 - Cycle 1692: Scanned 3 markets, saved 3
+2026-04-20 19:27:32.610 | INFO     | __main__:main:308 - Cycle 1692 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:32:33.429 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:32:36.036 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:32:36.045 | INFO     | __main__:main:192 - Cycle 1693: Scanned 3 markets, saved 3
+2026-04-20 19:32:36.422 | INFO     | __main__:main:308 - Cycle 1693 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:37:37.246 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:37:39.517 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:37:39.524 | INFO     | __main__:main:192 - Cycle 1694: Scanned 3 markets, saved 3
+2026-04-20 19:37:39.885 | INFO     | __main__:main:308 - Cycle 1694 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:42:40.725 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:42:43.015 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:42:43.030 | INFO     | __main__:main:192 - Cycle 1695: Scanned 3 markets, saved 3
+2026-04-20 19:42:43.392 | INFO     | __main__:main:308 - Cycle 1695 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:47:44.243 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:47:46.373 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:47:46.379 | INFO     | __main__:main:192 - Cycle 1696: Scanned 3 markets, saved 3
+2026-04-20 19:47:46.771 | INFO     | __main__:main:308 - Cycle 1696 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:52:47.617 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:52:49.437 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 3 qualifying markets
+2026-04-20 19:52:49.445 | INFO     | __main__:main:192 - Cycle 1697: Scanned 3 markets, saved 3
+2026-04-20 19:52:49.808 | INFO     | __main__:main:308 - Cycle 1697 complete | Evaluated: 3 | Executed: 0 | Open: 6 | Exposure: $188.19 | Balance: $764.34 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 19:57:50.654 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 19:57:52.661 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 19:57:52.669 | INFO     | __main__:main:192 - Cycle 1698: Scanned 4 markets, saved 4
+2026-04-20 19:57:53.077 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.710 | Edge: 0.210 | prob=0.90 | "Will Bitcoin reach $77,000 on April 20?"
+2026-04-20 19:57:53.079 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will Bitcoin reach $77,000 on April 20?" shares=43.1 cost=$30.57 edge=+21.0%
+2026-04-20 19:57:53.115 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will Bitcoin reach $77,000 on April 20?" shares=43.1 @ $0.710 cost=$30.57
+2026-04-20 19:57:53.118 | INFO     | __main__:main:292 - POLY TRADE: NO "Will Bitcoin reach $77,000 on April 20?" edge=+21.0% cost=$30.57
+2026-04-20 19:57:53.547 | INFO     | __main__:main:308 - Cycle 1698 complete | Evaluated: 4 | Executed: 1 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:02:54.423 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:02:57.129 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:02:57.136 | INFO     | __main__:main:192 - Cycle 1699: Scanned 4 markets, saved 4
+2026-04-20 20:02:57.538 | INFO     | __main__:main:308 - Cycle 1699 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:07:58.412 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:08:01.048 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:08:01.056 | INFO     | __main__:main:192 - Cycle 1700: Scanned 4 markets, saved 4
+2026-04-20 20:08:01.423 | INFO     | __main__:main:308 - Cycle 1700 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:13:02.292 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:13:05.119 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:13:05.127 | INFO     | __main__:main:192 - Cycle 1701: Scanned 4 markets, saved 4
+2026-04-20 20:13:05.512 | INFO     | __main__:main:308 - Cycle 1701 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:18:06.348 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:18:08.281 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 5 qualifying markets
+2026-04-20 20:18:08.292 | INFO     | __main__:main:192 - Cycle 1702: Scanned 5 markets, saved 5
+2026-04-20 20:18:08.657 | INFO     | __main__:main:308 - Cycle 1702 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:23:09.457 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:23:11.382 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:23:11.389 | INFO     | __main__:main:192 - Cycle 1703: Scanned 4 markets, saved 4
+2026-04-20 20:23:11.773 | INFO     | __main__:main:308 - Cycle 1703 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:28:12.597 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:28:14.691 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:28:14.698 | INFO     | __main__:main:192 - Cycle 1704: Scanned 4 markets, saved 4
+2026-04-20 20:28:15.070 | INFO     | __main__:main:308 - Cycle 1704 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:33:15.898 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:33:18.439 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:33:18.449 | INFO     | __main__:main:192 - Cycle 1705: Scanned 4 markets, saved 4
+2026-04-20 20:33:18.832 | INFO     | __main__:main:308 - Cycle 1705 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s
+2026-04-20 20:38:19.669 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-20 20:38:22.240 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-20 20:38:22.247 | INFO     | __main__:main:192 - Cycle 1706: Scanned 4 markets, saved 4
+2026-04-20 20:38:22.606 | INFO     | __main__:main:308 - Cycle 1706 complete | Evaluated: 3 | Executed: 0 | Open: 7 | Exposure: $218.76 | Balance: $733.76 | PnL: $-750.76 | Next scan in 300s

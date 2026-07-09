@@ -1,0 +1,12 @@
+2026-04-25 20:49:18 | INFO    | ════════════════════════════════════════════════════════════════
+2026-04-25 20:49:18 | INFO    | BTC DIRECTION MULTI-TF — AGENTE INICIANDO
+2026-04-25 20:49:18 | INFO    | Config:        /opt/trading/btc_direction/btc_direction_config.yaml
+2026-04-25 20:49:18 | INFO    | Paper mode:    True
+2026-04-25 20:49:18 | INFO    | Balance init:  $500.00 USDC
+2026-04-25 20:49:18 | INFO    | Max trade:     $5.00 USDC
+2026-04-25 20:49:18 | INFO    | Timeframes:    5m · 15m · 4H (determinístico) + 1H · Daily (scan)
+2026-04-25 20:49:18 | INFO    | ════════════════════════════════════════════════════════════════
+2026-04-25 20:49:18 | INFO    | Balance actual (desde DB): $131.75 USDC
+2026-04-25 20:49:18 | ERROR   | [Ciclo 1] Error inesperado: 'market_slug'
+2026-04-25 20:49:48 | ERROR   | [Ciclo 2] Error inesperado: 'market_slug'
+2026-04-25 20:50:18 | ERROR   | [Ciclo 3] Error inesperado: 'market_slug'

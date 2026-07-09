@@ -1,0 +1,20 @@
+2026-05-01 07:21:56.881 | INFO     | core.poly_strategy_hub:_init_strategies:69 - POLY HUB: SignalBasedPolyStrategy loaded
+2026-05-01 07:21:56.894 | INFO     | core.poly_strategy_hub:_init_strategies:78 - POLY HUB: TailEndPolyStrategy loaded
+2026-05-01 07:21:56.894 | INFO     | core.poly_strategy_hub:_init_strategies:109 - POLY HUB: 2 strategies active: ['signal_based', 'tail_end']
+2026-05-01 07:21:56.914 | INFO     | __main__:main:186 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_004 Balance: $731.37
+2026-05-01 07:21:56.918 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.9% >= 20% pero aún hay 1 posiciones abiertas. Esperando cierre.
+2026-05-01 07:21:57.153 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [STOP_LOSS]: "Pete Hegseth out as Secretary of Defense by June 3" YES exit@0.165 PnL=$-6.08
+2026-05-01 07:21:57.156 | INFO     | __main__:main:212 - Position closed: STOP_LOSS PnL=$-6.08 (-32.7%)
+2026-05-01 07:21:58.329 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-01 07:21:59.164 | INFO     | strategies.signal_based_poly:evaluate:423 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: UP_EVENT | Side: YES @ 0.575 | Edge: 0.150 | prob=0.62 | "Will the price of Bitcoin be above $76,000 on May 1?"
+2026-05-01 07:21:59.164 | INFO     | core.poly_strategy_hub:evaluate_all:215 - POLY HUB: 1 signals found: SIGNAL_BASED=1
+2026-05-01 07:21:59.164 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: YES "Will the price of Bitcoin be above $76,0" shares=19.4 cost=$11.16 edge=+15.0%
+2026-05-01 07:21:59.183 | INFO     | agents.poly_executor:execute:123 - POLY EXECUTED: YES "Will the price of Bitcoin be above $76,000 on May " shares=19.4 @ $0.575 cost=$11.16
+2026-05-01 07:21:59.185 | INFO     | __main__:main:366 - POLY TRADE [SIGNAL_BASED]: YES "Will the price of Bitcoin be above $76,000 on May 1?" edge=+15.0% cost=$11.16
+2026-05-01 07:21:59.597 | INFO     | __main__:main:388 - Cycle 1 complete | Evaluated: 1 | Executed: 1 | Open: 1 | Exposure: $11.16 | Balance: $732.75 | PnL: $-256.10 | Next scan in 300s
+2026-05-01 07:26:59.601 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 26.7% >= 20% pero aún hay 1 posiciones abiertas. Esperando cierre.
+2026-05-01 07:26:59.802 | INFO     | agents.poly_monitor:_evaluate_position:153 - POLY TRAILING: "Will the price of Bitcoin be above $76,000 on May " nuevo high=0.875
+2026-05-01 07:26:59.807 | INFO     | agents.poly_monitor:_close_position:326 - POLY CLOSE [TAKE_PROFIT]: "Will the price of Bitcoin be above $76,000 on May " YES exit@0.875 PnL=$+5.82
+2026-05-01 07:26:59.812 | INFO     | __main__:main:212 - Position closed: TAKE_PROFIT PnL=$+5.82 (+52.2%)
+2026-05-01 07:27:02.380 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-01 07:27:03.775 | INFO     | __main__:main:388 - Cycle 2 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $749.73 | PnL: $-250.27 | Next scan in 300s

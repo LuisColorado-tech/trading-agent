@@ -1,0 +1,445 @@
+2026-06-04 06:20:26.363 | INFO     | __main__:main:53 - OPTIONS AGENT v2.0.0 (BTC) — STARTING
+2026-06-04 06:20:29.074 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #1 ---
+2026-06-04 06:20:29.878 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:20:29.909 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:20:30.981 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:25:30.989 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #2 ---
+2026-06-04 06:25:30.995 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:25:30.997 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:25:31.444 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:30:31.450 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #3 ---
+2026-06-04 06:30:31.454 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:30:31.456 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:30:31.912 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:35:31.920 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #4 ---
+2026-06-04 06:35:31.925 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:35:31.929 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:35:32.380 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:40:32.382 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5 ---
+2026-06-04 06:40:32.389 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:40:32.393 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:40:32.818 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:45:32.819 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #6 ---
+2026-06-04 06:45:32.832 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:45:32.840 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:45:33.294 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:50:33.295 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #7 ---
+2026-06-04 06:50:33.298 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:50:33.299 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:50:33.700 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 06:55:33.701 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #8 ---
+2026-06-04 06:55:33.704 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 06:55:33.712 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 06:55:34.126 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:00:34.126 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #9 ---
+2026-06-04 07:00:34.131 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:00:34.133 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:00:34.552 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:05:34.552 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #10 ---
+2026-06-04 07:05:34.555 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:05:34.556 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:05:34.978 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:10:34.979 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #11 ---
+2026-06-04 07:10:34.984 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:10:34.986 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:10:35.418 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:15:35.419 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #12 ---
+2026-06-04 07:15:35.423 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:15:35.426 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:15:45.876 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:20:45.877 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #13 ---
+2026-06-04 07:20:45.880 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:20:45.882 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:20:46.268 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:25:46.268 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #14 ---
+2026-06-04 07:25:46.272 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:25:46.274 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:25:46.682 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:30:46.683 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #15 ---
+2026-06-04 07:30:46.686 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:30:46.687 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:30:47.088 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:35:47.092 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #16 ---
+2026-06-04 07:35:47.095 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:35:47.097 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:35:47.503 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:40:47.505 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #17 ---
+2026-06-04 07:40:47.514 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:40:47.534 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:40:47.945 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:45:47.945 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #18 ---
+2026-06-04 07:45:47.947 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:45:47.948 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:45:48.359 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:50:48.359 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #19 ---
+2026-06-04 07:50:48.363 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:50:48.365 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:50:48.773 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 07:55:48.774 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #20 ---
+2026-06-04 07:55:48.776 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 07:55:48.777 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 07:55:49.193 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:00:49.193 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #21 ---
+2026-06-04 08:00:49.197 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:00:49.202 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:00:50.436 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:05:50.437 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #22 ---
+2026-06-04 08:05:50.452 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:05:50.462 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:05:58.116 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:10:58.118 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #23 ---
+2026-06-04 08:10:58.120 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:10:58.123 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:10:58.512 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:15:58.512 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #24 ---
+2026-06-04 08:15:58.516 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:15:58.518 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:15:58.919 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:20:58.919 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #25 ---
+2026-06-04 08:20:58.922 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:20:58.923 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:21:09.367 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:26:09.368 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #26 ---
+2026-06-04 08:26:09.369 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:26:09.372 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:26:09.772 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:31:09.774 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #27 ---
+2026-06-04 08:31:09.776 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:31:09.778 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:31:10.176 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:36:10.176 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #28 ---
+2026-06-04 08:36:10.179 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:36:10.181 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:36:10.593 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:41:10.593 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #29 ---
+2026-06-04 08:41:10.597 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:41:10.598 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:41:10.987 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:46:10.989 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #30 ---
+2026-06-04 08:46:10.994 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:46:10.999 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:46:11.405 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:51:11.406 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #31 ---
+2026-06-04 08:51:11.408 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:51:11.410 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:51:11.835 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 08:56:11.835 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #32 ---
+2026-06-04 08:56:11.839 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 08:56:11.840 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 08:56:12.246 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:01:12.246 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #33 ---
+2026-06-04 09:01:12.249 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:01:12.251 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:01:12.659 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:06:12.659 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #34 ---
+2026-06-04 09:06:12.661 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:06:12.663 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:06:13.056 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:11:13.057 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #35 ---
+2026-06-04 09:11:13.061 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:11:13.063 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:11:13.468 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:16:13.470 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #36 ---
+2026-06-04 09:16:13.474 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:16:13.478 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:16:13.880 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:21:13.881 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #37 ---
+2026-06-04 09:21:13.883 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:21:13.885 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:21:14.277 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:26:14.278 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #38 ---
+2026-06-04 09:26:14.282 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:26:14.285 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:26:14.692 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:31:14.693 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #39 ---
+2026-06-04 09:31:14.695 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:31:14.701 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:31:15.120 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:36:15.121 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #40 ---
+2026-06-04 09:36:15.128 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:36:15.130 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:36:15.536 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:41:15.537 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #41 ---
+2026-06-04 09:41:15.542 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:41:15.544 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:41:15.944 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:46:15.946 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #42 ---
+2026-06-04 09:46:15.958 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:46:15.961 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:46:16.406 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:51:16.407 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #43 ---
+2026-06-04 09:51:16.409 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:51:16.411 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:51:16.841 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 09:56:16.841 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #44 ---
+2026-06-04 09:56:16.843 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 09:56:16.845 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 09:56:17.251 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:01:17.252 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #45 ---
+2026-06-04 10:01:17.255 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:01:17.257 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:01:17.695 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:06:17.695 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #46 ---
+2026-06-04 10:06:17.698 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:06:17.699 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:06:18.099 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:11:18.099 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #47 ---
+2026-06-04 10:11:18.105 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:11:18.106 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:11:18.522 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:16:18.522 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #48 ---
+2026-06-04 10:16:18.525 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:16:18.527 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:16:18.964 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:21:18.964 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #49 ---
+2026-06-04 10:21:18.967 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:21:18.969 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:21:19.370 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:26:19.370 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #50 ---
+2026-06-04 10:26:19.374 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:26:19.376 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:26:19.787 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:31:19.788 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #51 ---
+2026-06-04 10:31:19.790 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:31:19.795 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:31:20.198 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:36:20.199 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #52 ---
+2026-06-04 10:36:20.200 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:36:20.201 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:36:20.604 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:41:20.604 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #53 ---
+2026-06-04 10:41:20.606 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:41:20.608 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:41:20.998 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:46:20.998 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #54 ---
+2026-06-04 10:46:21.003 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:46:21.006 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:46:21.396 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:51:21.396 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #55 ---
+2026-06-04 10:51:21.398 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:51:21.401 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:51:21.782 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 10:56:21.782 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #56 ---
+2026-06-04 10:56:21.784 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 10:56:21.785 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 10:56:22.168 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:01:22.168 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #57 ---
+2026-06-04 11:01:22.172 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:01:22.174 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:01:22.562 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:06:22.564 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #58 ---
+2026-06-04 11:06:22.566 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:06:22.568 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:06:22.963 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:11:22.964 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #59 ---
+2026-06-04 11:11:22.966 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:11:22.968 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:11:23.391 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:16:23.392 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #60 ---
+2026-06-04 11:16:23.394 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:16:23.396 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:16:23.816 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:21:23.816 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #61 ---
+2026-06-04 11:21:23.822 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:21:23.825 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:21:34.240 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:26:34.240 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #62 ---
+2026-06-04 11:26:34.245 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:26:34.248 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:26:44.692 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:31:44.694 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #63 ---
+2026-06-04 11:31:44.696 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:31:44.698 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:31:45.098 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:36:45.099 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #64 ---
+2026-06-04 11:36:45.102 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:36:45.104 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:36:45.514 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:41:45.515 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #65 ---
+2026-06-04 11:41:45.517 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:41:45.518 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:41:45.925 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:46:45.925 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #66 ---
+2026-06-04 11:46:45.934 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:46:45.936 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:46:46.368 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:51:46.368 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #67 ---
+2026-06-04 11:51:46.370 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:51:46.371 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:51:46.765 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 11:56:46.766 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #68 ---
+2026-06-04 11:56:46.768 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 11:56:46.769 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 11:56:57.196 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:01:57.197 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #69 ---
+2026-06-04 12:01:57.200 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:01:57.204 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:02:08.068 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:07:08.068 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #70 ---
+2026-06-04 12:07:08.070 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:07:08.073 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:07:08.477 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:12:08.477 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #71 ---
+2026-06-04 12:12:08.480 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:12:08.482 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:12:08.892 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:17:08.892 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #72 ---
+2026-06-04 12:17:08.898 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:17:08.902 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:17:09.317 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:22:09.318 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #73 ---
+2026-06-04 12:22:09.320 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:22:09.323 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:22:09.719 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:27:09.719 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #74 ---
+2026-06-04 12:27:09.721 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:27:09.722 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:27:10.136 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:32:10.137 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #75 ---
+2026-06-04 12:32:10.139 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:32:10.141 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:32:10.564 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:37:10.565 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #76 ---
+2026-06-04 12:37:10.567 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:37:10.568 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:37:10.978 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:42:10.978 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #77 ---
+2026-06-04 12:42:10.980 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:42:10.981 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:42:11.400 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:47:11.400 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #78 ---
+2026-06-04 12:47:11.402 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:47:11.405 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:47:21.836 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:52:21.836 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #79 ---
+2026-06-04 12:52:21.839 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:52:21.842 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:52:22.246 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 12:57:22.246 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #80 ---
+2026-06-04 12:57:22.249 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 12:57:22.251 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 12:57:22.644 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:02:22.645 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #81 ---
+2026-06-04 13:02:22.647 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:02:22.648 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:02:23.047 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:07:23.047 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #82 ---
+2026-06-04 13:07:23.049 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:07:23.050 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:07:23.439 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:12:23.439 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #83 ---
+2026-06-04 13:12:23.444 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:12:23.447 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:12:23.864 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:17:23.864 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #84 ---
+2026-06-04 13:17:23.866 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:17:23.867 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:17:24.300 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:22:24.300 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #85 ---
+2026-06-04 13:22:24.305 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:22:24.309 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:22:24.736 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:27:24.737 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #86 ---
+2026-06-04 13:27:24.740 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:27:24.741 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:27:25.149 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:32:25.149 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #87 ---
+2026-06-04 13:32:25.151 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:32:25.152 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:32:25.555 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:37:25.556 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #88 ---
+2026-06-04 13:37:25.558 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:37:25.559 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:37:26.034 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:42:26.034 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #89 ---
+2026-06-04 13:42:26.036 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:42:26.038 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:42:26.429 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:47:26.430 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #90 ---
+2026-06-04 13:47:26.432 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:47:26.433 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:47:26.829 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:52:26.829 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #91 ---
+2026-06-04 13:52:26.834 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:52:26.836 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:52:27.257 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 13:57:27.257 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #92 ---
+2026-06-04 13:57:27.260 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 13:57:27.261 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 13:57:27.646 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:02:27.647 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #93 ---
+2026-06-04 14:02:27.651 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:02:27.653 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:02:28.068 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:07:28.069 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #94 ---
+2026-06-04 14:07:28.070 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:07:28.075 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:07:28.481 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:12:28.482 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #95 ---
+2026-06-04 14:12:28.485 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:12:28.488 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:12:28.889 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:17:28.889 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #96 ---
+2026-06-04 14:17:28.891 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:17:28.892 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:17:29.289 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:22:29.292 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #97 ---
+2026-06-04 14:22:29.297 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:22:29.299 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:22:29.719 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:27:29.719 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #98 ---
+2026-06-04 14:27:29.721 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:27:29.723 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:27:30.121 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:32:30.121 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #99 ---
+2026-06-04 14:32:30.123 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:32:30.125 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:32:30.516 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:37:30.517 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #100 ---
+2026-06-04 14:37:30.519 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:37:30.519 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:37:30.921 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:42:30.921 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #101 ---
+2026-06-04 14:42:30.924 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:42:30.926 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:42:31.389 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:47:31.389 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #102 ---
+2026-06-04 14:47:31.391 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:47:31.392 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:47:31.804 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:52:31.807 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #103 ---
+2026-06-04 14:52:31.810 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:52:31.816 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:52:32.232 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 14:57:32.232 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #104 ---
+2026-06-04 14:57:32.238 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 14:57:32.241 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 14:57:32.667 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:02:32.668 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #105 ---
+2026-06-04 15:02:32.670 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:02:32.671 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:02:33.126 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:07:33.126 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #106 ---
+2026-06-04 15:07:33.129 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:07:33.131 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:07:43.560 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:12:43.561 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #107 ---
+2026-06-04 15:12:43.563 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:12:43.564 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:12:43.958 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:17:43.958 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #108 ---
+2026-06-04 15:17:43.961 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:17:43.962 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:17:44.369 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:22:44.369 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #109 ---
+2026-06-04 15:22:44.372 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:22:44.375 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:22:44.791 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:27:44.792 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #110 ---
+2026-06-04 15:27:44.794 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:27:44.795 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:27:45.184 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-06-04 15:32:45.185 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #111 ---
+2026-06-04 15:32:45.187 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-06-04 15:32:45.188 | WARNING  | core.deribit_session_manager:check_drawdown_halt:385 - OPTIONS DRAWDOWN HALT: 30.7% >= 30% | PnL=$-613.60
+2026-06-04 15:32:45.590 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...

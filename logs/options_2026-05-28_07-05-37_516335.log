@@ -1,0 +1,1264 @@
+2026-05-28 07:05:37.511 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5149 ---
+2026-05-28 07:05:37.573 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:05:38.209 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0081BTC (-108%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:05:38.209 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:10:38.209 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5150 ---
+2026-05-28 07:10:38.214 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:10:38.860 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:10:38.861 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:15:38.861 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5151 ---
+2026-05-28 07:15:38.864 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:15:39.239 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 07:15:39.239 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 07:15:39.497 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:15:39.498 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:20:39.500 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5152 ---
+2026-05-28 07:20:39.502 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:20:40.109 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:20:40.109 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:25:40.119 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5153 ---
+2026-05-28 07:25:40.124 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:25:40.771 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0078BTC (-100%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:25:40.771 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:30:40.772 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5154 ---
+2026-05-28 07:30:40.776 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:30:48.322 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 07:30:48.604 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0078BTC (-100%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:30:48.606 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:35:48.606 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5155 ---
+2026-05-28 07:35:48.610 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:35:49.244 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:35:49.245 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:40:49.245 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5156 ---
+2026-05-28 07:40:49.248 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:40:49.893 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:40:49.893 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:45:49.893 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5157 ---
+2026-05-28 07:45:49.897 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:45:50.287 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 07:45:50.287 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 07:45:50.547 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:45:50.548 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:50:50.548 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5158 ---
+2026-05-28 07:50:50.551 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:50:51.148 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:50:51.148 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 07:55:51.148 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5159 ---
+2026-05-28 07:55:51.152 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 07:55:51.763 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 07:55:51.763 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:00:51.764 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5160 ---
+2026-05-28 08:00:51.767 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:00:52.376 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:00:53.298 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:05:53.299 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5161 ---
+2026-05-28 08:05:53.301 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:05:53.910 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:05:53.910 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:10:53.910 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5162 ---
+2026-05-28 08:10:53.912 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:10:54.505 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:10:54.505 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:15:54.506 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5163 ---
+2026-05-28 08:15:54.508 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:15:54.866 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 08:15:54.866 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 08:15:55.122 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:15:55.122 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:20:55.122 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5164 ---
+2026-05-28 08:20:55.125 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:20:55.779 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:20:55.779 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:25:55.780 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5165 ---
+2026-05-28 08:25:55.782 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:25:56.391 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:25:56.391 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:30:56.392 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5166 ---
+2026-05-28 08:30:56.394 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:31:03.907 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 08:31:04.181 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:31:04.181 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:36:04.181 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5167 ---
+2026-05-28 08:36:04.184 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:36:04.810 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0078BTC (-100%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:36:04.810 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:41:04.811 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5168 ---
+2026-05-28 08:41:04.814 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:41:05.468 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0078BTC (-100%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:41:05.469 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:46:05.469 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5169 ---
+2026-05-28 08:46:05.474 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:46:05.856 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 08:46:05.857 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 08:46:06.115 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:46:06.115 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:51:06.115 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5170 ---
+2026-05-28 08:51:06.118 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:51:06.718 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:51:06.718 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 08:56:06.718 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5171 ---
+2026-05-28 08:56:06.722 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 08:56:07.362 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 08:56:07.363 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:01:07.365 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5172 ---
+2026-05-28 09:01:07.369 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:01:07.992 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:01:07.992 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:06:07.993 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5173 ---
+2026-05-28 09:06:07.996 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:06:08.727 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:06:08.727 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:11:08.728 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5174 ---
+2026-05-28 09:11:08.731 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:11:09.460 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:11:09.460 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:16:09.460 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5175 ---
+2026-05-28 09:16:09.463 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:16:09.859 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 09:16:09.859 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 09:16:10.088 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:16:10.088 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:21:10.089 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5176 ---
+2026-05-28 09:21:10.093 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:21:10.706 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:21:10.706 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:26:10.706 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5177 ---
+2026-05-28 09:26:10.709 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:26:11.336 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:26:11.336 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:31:11.336 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5178 ---
+2026-05-28 09:31:11.339 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:31:18.757 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 09:31:19.002 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:31:19.003 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:36:19.004 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5179 ---
+2026-05-28 09:36:19.008 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:36:19.677 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:36:19.678 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:41:19.678 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5180 ---
+2026-05-28 09:41:19.680 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:41:20.315 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:41:20.315 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:46:20.315 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5181 ---
+2026-05-28 09:46:20.317 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:46:20.704 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 09:46:20.704 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 09:46:20.938 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:46:20.939 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:51:20.940 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5182 ---
+2026-05-28 09:51:20.943 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:51:21.580 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:51:21.581 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 09:56:21.581 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5183 ---
+2026-05-28 09:56:21.585 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 09:56:22.227 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 09:56:22.228 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:01:22.228 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5184 ---
+2026-05-28 10:01:22.230 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:01:22.836 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:01:22.838 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:06:22.838 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5185 ---
+2026-05-28 10:06:22.842 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:06:23.494 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:06:23.494 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:11:23.494 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5186 ---
+2026-05-28 10:11:23.498 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:11:24.171 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:11:24.173 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:16:24.173 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5187 ---
+2026-05-28 10:16:24.178 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:16:24.554 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 10:16:24.555 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 10:16:24.794 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:16:24.795 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:21:24.795 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5188 ---
+2026-05-28 10:21:24.804 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:21:25.462 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:21:25.462 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:26:25.462 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5189 ---
+2026-05-28 10:26:25.466 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:26:26.151 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:26:26.151 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:31:26.152 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5190 ---
+2026-05-28 10:31:26.159 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:31:33.603 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 10:31:33.867 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:31:33.867 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:36:33.867 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5191 ---
+2026-05-28 10:36:33.872 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:36:34.502 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:36:34.502 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:41:34.502 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5192 ---
+2026-05-28 10:41:34.506 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:41:35.161 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:41:35.161 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:46:35.162 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5193 ---
+2026-05-28 10:46:35.165 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:46:35.531 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 10:46:35.532 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 10:46:35.806 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:46:35.806 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:51:35.807 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5194 ---
+2026-05-28 10:51:35.819 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:51:36.517 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:51:36.517 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 10:56:36.518 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5195 ---
+2026-05-28 10:56:36.526 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 10:56:37.460 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 10:56:37.461 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:01:37.461 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5196 ---
+2026-05-28 11:01:37.466 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:01:38.116 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:01:38.116 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:06:38.116 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5197 ---
+2026-05-28 11:06:38.119 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:06:38.728 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:06:38.729 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:11:38.729 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5198 ---
+2026-05-28 11:11:38.733 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:11:39.356 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:11:39.356 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:16:39.356 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5199 ---
+2026-05-28 11:16:39.359 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:16:39.731 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 11:16:39.731 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 11:16:39.963 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:16:39.963 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:21:39.963 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5200 ---
+2026-05-28 11:21:39.967 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:21:40.601 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:21:40.601 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:26:40.602 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5201 ---
+2026-05-28 11:26:40.607 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:26:41.256 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:26:41.256 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:31:41.256 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5202 ---
+2026-05-28 11:31:41.261 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:31:48.821 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 11:31:49.072 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:31:49.074 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:36:49.074 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5203 ---
+2026-05-28 11:36:49.077 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:36:49.685 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:36:49.685 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:41:49.685 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5204 ---
+2026-05-28 11:41:49.688 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:41:50.302 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:41:50.303 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:46:50.303 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5205 ---
+2026-05-28 11:46:50.308 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:46:50.687 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 11:46:50.687 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 11:46:50.915 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:46:50.916 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:51:50.916 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5206 ---
+2026-05-28 11:51:50.918 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:51:51.556 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:51:51.556 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 11:56:51.556 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5207 ---
+2026-05-28 11:56:51.562 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 11:56:52.198 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 11:56:52.198 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:01:52.199 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5208 ---
+2026-05-28 12:01:52.203 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:01:52.831 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:02:03.770 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:07:03.771 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5209 ---
+2026-05-28 12:07:03.776 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:07:04.439 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:07:04.440 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:12:04.440 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5210 ---
+2026-05-28 12:12:04.443 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:12:05.136 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:12:05.137 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:17:05.137 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5211 ---
+2026-05-28 12:17:05.140 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:17:05.525 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 12:17:05.525 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 12:17:05.783 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:17:05.784 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:22:05.784 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5212 ---
+2026-05-28 12:22:05.787 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:22:06.476 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:22:06.477 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:27:06.477 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5213 ---
+2026-05-28 12:27:06.487 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:27:07.109 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0080BTC (-105%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:27:07.109 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:32:07.110 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5214 ---
+2026-05-28 12:32:07.116 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:32:14.885 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 12:32:15.152 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:32:15.154 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:37:15.156 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5215 ---
+2026-05-28 12:37:15.160 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:37:15.837 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0080BTC (-105%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:37:15.837 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:42:15.837 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5216 ---
+2026-05-28 12:42:15.843 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:42:16.500 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:42:16.500 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:47:16.502 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5217 ---
+2026-05-28 12:47:16.511 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:47:16.912 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 12:47:16.912 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 12:47:17.162 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:47:17.162 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:52:17.162 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5218 ---
+2026-05-28 12:52:17.166 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:52:17.788 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:52:17.788 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 12:57:17.790 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5219 ---
+2026-05-28 12:57:17.794 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 12:57:18.449 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 12:57:18.449 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:02:18.449 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5220 ---
+2026-05-28 13:02:18.452 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:02:19.183 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0076BTC (-95%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:02:19.183 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:07:19.183 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5221 ---
+2026-05-28 13:07:19.187 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:07:19.861 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:07:19.862 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:12:19.862 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5222 ---
+2026-05-28 13:12:19.871 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:12:20.549 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0080BTC (-105%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:12:20.553 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:17:20.553 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5223 ---
+2026-05-28 13:17:20.555 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:17:20.954 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 13:17:20.955 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 13:17:21.238 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0082BTC (-110%) | UN26-66000-P @0.0021BTC (-50%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:17:21.239 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:22:21.244 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5224 ---
+2026-05-28 13:22:21.250 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:22:21.948 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0084BTC (-115%) | UN26-66000-P @0.0021BTC (-50%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:22:21.948 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:27:21.949 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5225 ---
+2026-05-28 13:27:21.953 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:27:22.607 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0021BTC (-50%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:27:22.608 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:32:22.610 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5226 ---
+2026-05-28 13:32:22.613 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:32:30.115 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 13:32:30.371 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0088BTC (-126%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:32:30.372 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:37:30.372 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5227 ---
+2026-05-28 13:37:30.377 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:37:31.036 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0092BTC (-136%) | UN26-66000-P @0.0024BTC (-71%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:37:31.037 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:42:31.038 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5228 ---
+2026-05-28 13:42:31.041 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:42:31.841 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0089BTC (-128%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:42:31.841 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:47:31.842 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5229 ---
+2026-05-28 13:47:31.845 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:47:32.269 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 13:47:32.269 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 13:47:32.521 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0091BTC (-133%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:47:32.523 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:52:32.523 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5230 ---
+2026-05-28 13:52:32.527 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:52:33.176 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0087BTC (-123%) | UN26-66000-P @0.0022BTC (-57%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:52:33.176 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 13:57:33.177 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5231 ---
+2026-05-28 13:57:33.184 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 13:57:33.873 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0086BTC (-121%) | UN26-66000-P @0.0021BTC (-50%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 13:57:33.874 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:02:33.875 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5232 ---
+2026-05-28 14:02:33.880 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:02:34.546 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0091BTC (-133%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:02:34.546 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:07:34.546 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5233 ---
+2026-05-28 14:07:34.550 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:07:35.217 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0095BTC (-144%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:07:35.217 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:12:35.218 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5234 ---
+2026-05-28 14:12:35.228 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:12:35.911 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0094BTC (-141%) | UN26-66000-P @0.0023BTC (-64%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:12:35.912 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:17:35.914 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5235 ---
+2026-05-28 14:17:35.919 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:17:36.315 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 14:17:36.315 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 14:17:36.585 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:17:36.586 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:22:36.586 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5236 ---
+2026-05-28 14:22:36.590 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:22:37.243 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0081BTC (-108%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:22:37.243 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:27:37.244 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5237 ---
+2026-05-28 14:27:37.249 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:27:37.940 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:27:37.942 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:32:37.942 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5238 ---
+2026-05-28 14:32:37.947 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:32:45.320 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 14:32:45.585 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0085BTC (-118%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:32:45.586 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:37:45.587 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5239 ---
+2026-05-28 14:37:45.590 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:37:46.247 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0085BTC (-118%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:37:46.247 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:42:46.248 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5240 ---
+2026-05-28 14:42:46.250 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:42:46.880 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0087BTC (-123%) | UN26-66000-P @0.0020BTC (-43%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:42:46.880 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:47:46.880 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5241 ---
+2026-05-28 14:47:46.883 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:47:47.285 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 14:47:47.285 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 14:47:47.541 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0088BTC (-126%) | UN26-66000-P @0.0021BTC (-50%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:47:47.541 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:52:47.542 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5242 ---
+2026-05-28 14:52:47.545 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:52:48.196 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0084BTC (-115%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:52:48.196 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 14:57:48.196 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5243 ---
+2026-05-28 14:57:48.198 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 14:57:48.826 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 14:57:48.826 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:02:48.827 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5244 ---
+2026-05-28 15:02:48.830 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:02:49.485 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0082BTC (-110%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:02:49.485 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:07:49.486 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5245 ---
+2026-05-28 15:07:49.493 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:07:50.111 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0078BTC (-100%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:07:50.111 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:12:50.111 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5246 ---
+2026-05-28 15:12:50.115 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:12:50.770 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0082BTC (-110%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:12:50.771 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:17:50.771 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5247 ---
+2026-05-28 15:17:50.773 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:17:51.180 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 15:17:51.180 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 15:17:51.612 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:17:51.612 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:22:51.614 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5248 ---
+2026-05-28 15:22:51.621 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:22:52.289 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:22:52.290 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:27:52.290 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5249 ---
+2026-05-28 15:27:52.294 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:27:52.958 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0081BTC (-108%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:27:52.958 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:32:52.959 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5250 ---
+2026-05-28 15:32:52.964 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:33:00.343 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 15:33:00.618 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0083BTC (-113%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:33:00.618 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:38:00.619 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5251 ---
+2026-05-28 15:38:00.622 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:38:01.273 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0081BTC (-108%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:38:01.277 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:43:01.278 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5252 ---
+2026-05-28 15:43:01.280 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:43:02.025 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0080BTC (-105%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:43:02.026 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:48:02.026 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5253 ---
+2026-05-28 15:48:02.038 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:48:02.482 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 15:48:02.483 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 15:48:02.753 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0077BTC (-97%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:48:02.753 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:53:02.753 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5254 ---
+2026-05-28 15:53:02.756 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:53:03.426 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0080BTC (-105%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:53:03.427 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 15:58:03.427 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5255 ---
+2026-05-28 15:58:03.431 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 15:58:04.122 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0079BTC (-103%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 15:58:04.124 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:03:04.126 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5256 ---
+2026-05-28 16:03:04.133 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:03:04.767 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0081BTC (-108%) | UN26-66000-P @0.0018BTC (-29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:03:05.694 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:08:05.695 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5257 ---
+2026-05-28 16:08:05.699 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:08:06.369 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0082BTC (-110%) | UN26-66000-P @0.0019BTC (-36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:08:06.369 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:13:06.369 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5258 ---
+2026-05-28 16:13:06.374 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:13:07.038 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:13:07.038 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:18:07.039 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5259 ---
+2026-05-28 16:18:07.045 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:18:07.444 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 16:18:07.444 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 16:18:07.733 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0075BTC (-92%) | UN26-66000-P @0.0017BTC (-21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:18:07.733 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:23:07.735 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5260 ---
+2026-05-28 16:23:07.740 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:23:08.367 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:23:08.368 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:28:08.368 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5261 ---
+2026-05-28 16:28:08.373 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:28:09.012 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:28:09.012 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:33:09.012 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5262 ---
+2026-05-28 16:33:09.016 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:33:16.553 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 16:33:16.783 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:33:16.783 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:38:16.784 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5263 ---
+2026-05-28 16:38:16.791 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:38:17.456 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:38:17.457 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:43:17.457 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5264 ---
+2026-05-28 16:43:17.460 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:43:18.091 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:43:18.091 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:48:18.091 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5265 ---
+2026-05-28 16:48:18.098 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:48:18.504 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 16:48:18.504 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 16:48:18.776 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:48:18.776 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:53:18.776 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5266 ---
+2026-05-28 16:53:18.780 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:53:19.463 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:53:19.463 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 16:58:19.464 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5267 ---
+2026-05-28 16:58:19.469 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 16:58:20.168 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 16:58:20.169 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:03:20.170 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5268 ---
+2026-05-28 17:03:20.176 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:03:20.861 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:03:20.861 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:08:20.861 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5269 ---
+2026-05-28 17:08:20.865 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:08:21.476 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:08:21.476 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:13:21.476 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5270 ---
+2026-05-28 17:13:21.479 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:13:22.188 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:13:22.189 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:18:22.189 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5271 ---
+2026-05-28 17:18:22.193 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:18:22.556 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 17:18:22.556 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 17:18:22.804 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:18:22.804 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:23:22.804 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5272 ---
+2026-05-28 17:23:22.809 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:23:23.480 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:23:23.481 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:28:23.481 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5273 ---
+2026-05-28 17:28:23.484 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:28:24.129 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:28:24.129 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:33:24.129 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5274 ---
+2026-05-28 17:33:24.134 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:33:31.703 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 17:33:31.947 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:33:31.947 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:38:31.947 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5275 ---
+2026-05-28 17:38:31.950 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:38:32.536 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:38:32.536 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:43:32.537 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5276 ---
+2026-05-28 17:43:32.539 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:43:33.160 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:43:33.161 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:48:33.163 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5277 ---
+2026-05-28 17:48:33.168 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:48:33.546 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 17:48:33.546 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 17:48:33.787 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:48:33.788 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:53:33.788 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5278 ---
+2026-05-28 17:53:33.791 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:53:34.414 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:53:34.415 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 17:58:34.416 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5279 ---
+2026-05-28 17:58:34.419 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 17:58:35.044 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 17:58:35.045 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:03:35.045 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5280 ---
+2026-05-28 18:03:35.047 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:03:35.695 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:03:35.696 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:08:35.696 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5281 ---
+2026-05-28 18:08:35.703 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:08:36.368 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:08:36.368 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:13:36.368 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5282 ---
+2026-05-28 18:13:36.372 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:13:37.016 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:13:37.016 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:18:37.016 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5283 ---
+2026-05-28 18:18:37.019 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:18:37.426 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 18:18:37.426 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 18:18:37.669 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:18:37.669 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:23:37.670 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5284 ---
+2026-05-28 18:23:37.674 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:23:38.295 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:23:38.295 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:28:38.296 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5285 ---
+2026-05-28 18:28:38.298 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:28:38.949 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:28:38.949 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:33:38.949 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5286 ---
+2026-05-28 18:33:38.954 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:33:46.392 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 18:33:46.637 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:33:46.637 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:38:46.637 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5287 ---
+2026-05-28 18:38:46.641 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:38:47.288 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:38:47.288 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:43:47.288 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5288 ---
+2026-05-28 18:43:47.291 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:43:47.969 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:43:47.969 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:48:47.970 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5289 ---
+2026-05-28 18:48:47.972 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:48:48.373 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 18:48:48.374 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 18:48:48.617 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:48:48.618 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:53:48.618 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5290 ---
+2026-05-28 18:53:48.621 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:53:49.239 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:53:49.239 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 18:58:49.239 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5291 ---
+2026-05-28 18:58:49.243 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 18:58:49.912 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 18:58:49.912 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:03:49.913 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5292 ---
+2026-05-28 19:03:49.917 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:03:50.591 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:03:50.591 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:08:50.592 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5293 ---
+2026-05-28 19:08:50.595 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:08:51.226 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:08:51.227 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:13:51.227 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5294 ---
+2026-05-28 19:13:51.231 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:13:51.884 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:13:51.884 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:18:51.884 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5295 ---
+2026-05-28 19:18:51.887 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:18:52.289 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 19:18:52.290 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 19:18:52.570 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:18:52.571 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:23:52.573 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5296 ---
+2026-05-28 19:23:52.576 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:23:53.226 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:23:53.226 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:28:53.227 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5297 ---
+2026-05-28 19:28:53.230 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:28:53.834 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:28:53.835 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:33:53.835 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5298 ---
+2026-05-28 19:33:53.837 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:34:01.512 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 19:34:01.804 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:34:01.805 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:39:01.805 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5299 ---
+2026-05-28 19:39:01.809 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:39:02.620 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:39:02.621 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:44:02.621 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5300 ---
+2026-05-28 19:44:02.625 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:44:03.257 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:44:03.257 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:49:03.257 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5301 ---
+2026-05-28 19:49:03.259 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:49:03.651 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 19:49:03.651 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 19:49:03.917 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:49:03.917 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:54:03.918 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5302 ---
+2026-05-28 19:54:03.921 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:54:04.535 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:54:04.536 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 19:59:04.537 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5303 ---
+2026-05-28 19:59:04.541 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 19:59:05.214 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 19:59:05.215 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:04:05.216 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5304 ---
+2026-05-28 20:04:05.220 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:04:05.881 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:04:06.798 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:09:06.798 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5305 ---
+2026-05-28 20:09:06.801 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:09:07.483 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0074BTC (-90%) | UN26-66000-P @0.0016BTC (-14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:09:07.483 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:14:07.484 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5306 ---
+2026-05-28 20:14:07.488 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:14:08.152 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0015BTC (-7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:14:08.152 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:19:08.152 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5307 ---
+2026-05-28 20:19:08.157 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:19:08.557 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 20:19:08.558 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 20:19:08.815 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:19:08.815 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:24:08.816 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5308 ---
+2026-05-28 20:24:08.818 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:24:09.510 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:24:09.510 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:29:09.510 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5309 ---
+2026-05-28 20:29:09.512 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:29:10.159 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:29:10.159 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:34:10.159 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5310 ---
+2026-05-28 20:34:10.162 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:34:17.435 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 20:34:17.682 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:34:17.682 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:39:17.683 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5311 ---
+2026-05-28 20:39:17.685 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:39:18.357 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:39:18.357 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:44:18.358 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5312 ---
+2026-05-28 20:44:18.362 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:44:18.989 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:44:18.989 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:49:18.989 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5313 ---
+2026-05-28 20:49:18.992 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:49:19.376 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 20:49:19.376 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 20:49:19.618 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:49:19.619 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:54:19.620 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5314 ---
+2026-05-28 20:54:19.622 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:54:20.266 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:54:20.266 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 20:59:20.266 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5315 ---
+2026-05-28 20:59:20.269 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 20:59:20.915 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 20:59:20.916 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:04:20.916 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5316 ---
+2026-05-28 21:04:20.921 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:04:21.628 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:04:21.628 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:09:21.629 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5317 ---
+2026-05-28 21:09:21.635 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:09:22.310 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:09:22.311 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:14:22.311 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5318 ---
+2026-05-28 21:14:22.314 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:14:22.944 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:14:22.944 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:19:22.944 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5319 ---
+2026-05-28 21:19:22.947 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:19:23.320 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 21:19:23.320 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 21:19:23.581 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:19:23.582 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:24:23.584 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5320 ---
+2026-05-28 21:24:23.588 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:24:24.236 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:24:24.236 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:29:24.236 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5321 ---
+2026-05-28 21:29:24.240 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:29:24.910 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:29:24.910 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:34:24.910 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5322 ---
+2026-05-28 21:34:24.914 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:34:32.428 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 21:34:32.762 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:34:32.763 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:39:32.763 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5323 ---
+2026-05-28 21:39:32.765 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:39:33.379 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:39:33.379 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:44:33.379 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5324 ---
+2026-05-28 21:44:33.385 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:44:34.042 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:44:34.042 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:49:34.043 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5325 ---
+2026-05-28 21:49:34.045 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:49:34.410 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 21:49:34.410 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 21:49:34.661 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:49:34.662 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:54:34.662 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5326 ---
+2026-05-28 21:54:34.664 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:54:35.301 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0064BTC (-64%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:54:35.301 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 21:59:35.302 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5327 ---
+2026-05-28 21:59:35.304 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 21:59:35.954 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 21:59:35.957 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:04:35.960 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5328 ---
+2026-05-28 22:04:35.964 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:04:36.619 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:04:36.619 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:09:36.620 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5329 ---
+2026-05-28 22:09:36.624 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:09:37.256 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:09:37.256 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:14:37.256 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5330 ---
+2026-05-28 22:14:37.258 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:14:37.905 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:14:37.905 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:19:37.906 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5331 ---
+2026-05-28 22:19:37.908 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:19:38.290 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 22:19:38.291 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 22:19:38.526 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:19:38.526 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:24:38.526 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5332 ---
+2026-05-28 22:24:38.529 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:24:39.148 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:24:39.149 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:29:39.149 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5333 ---
+2026-05-28 22:29:39.152 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:29:39.779 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:29:39.779 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:34:39.780 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5334 ---
+2026-05-28 22:34:39.784 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:34:47.160 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 22:34:47.407 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:34:47.408 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:39:47.408 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5335 ---
+2026-05-28 22:39:47.410 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:39:48.017 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:39:48.017 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:44:48.018 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5336 ---
+2026-05-28 22:44:48.020 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:44:48.653 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:44:48.653 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:49:48.654 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5337 ---
+2026-05-28 22:49:48.656 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:49:49.035 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 22:49:49.035 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 22:49:49.274 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:49:49.274 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:54:49.275 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5338 ---
+2026-05-28 22:54:49.278 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:54:49.899 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:54:49.899 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 22:59:49.900 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5339 ---
+2026-05-28 22:59:49.902 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 22:59:50.525 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 22:59:50.525 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:04:50.525 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5340 ---
+2026-05-28 23:04:50.527 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:04:51.138 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:04:51.138 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:09:51.138 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5341 ---
+2026-05-28 23:09:51.145 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:09:51.826 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0014BTC (+0%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:09:51.827 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:14:51.827 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5342 ---
+2026-05-28 23:14:51.829 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:14:52.476 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:14:52.477 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:19:52.477 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5343 ---
+2026-05-28 23:19:52.481 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:19:52.862 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 23:19:52.862 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 23:19:53.118 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:19:53.118 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:24:53.119 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5344 ---
+2026-05-28 23:24:53.123 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:24:53.803 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:24:53.805 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:29:53.805 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5345 ---
+2026-05-28 23:29:53.808 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:29:54.477 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:29:54.477 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:34:54.477 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5346 ---
+2026-05-28 23:34:54.479 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:35:01.988 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-28 23:35:02.388 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:35:02.388 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:40:02.397 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5347 ---
+2026-05-28 23:40:02.400 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:40:03.198 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:40:03.198 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:45:03.198 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5348 ---
+2026-05-28 23:45:03.203 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:45:03.888 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:45:03.888 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:50:03.889 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5349 ---
+2026-05-28 23:50:03.909 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:50:04.445 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-28 23:50:04.459 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-28 23:50:04.953 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:50:04.957 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-28 23:55:04.958 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5350 ---
+2026-05-28 23:55:04.963 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-28 23:55:05.667 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-28 23:55:05.667 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:00:05.669 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5351 ---
+2026-05-29 00:00:05.692 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:00:10.622 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:00:14.080 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:05:14.082 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5352 ---
+2026-05-29 00:05:14.085 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:05:14.741 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:05:14.742 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:10:14.742 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5353 ---
+2026-05-29 00:10:14.745 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:10:15.365 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:10:15.365 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:15:15.365 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5354 ---
+2026-05-29 00:15:15.368 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:15:16.296 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:15:16.296 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:20:16.298 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5355 ---
+2026-05-29 00:20:16.304 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:20:16.677 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 00:20:16.677 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 00:20:16.918 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:20:16.919 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:25:16.919 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5356 ---
+2026-05-29 00:25:16.921 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:25:17.563 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:25:17.564 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:30:17.565 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5357 ---
+2026-05-29 00:30:17.567 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:30:18.196 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0064BTC (-64%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:30:18.197 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:35:18.197 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5358 ---
+2026-05-29 00:35:18.201 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:35:25.780 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 00:35:26.034 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:35:26.034 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:40:26.034 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5359 ---
+2026-05-29 00:40:26.037 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:40:26.646 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:40:26.646 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:45:26.647 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5360 ---
+2026-05-29 00:45:26.649 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:45:27.293 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:45:27.293 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:50:27.294 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5361 ---
+2026-05-29 00:50:27.296 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:50:27.764 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 00:50:27.765 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 00:50:28.090 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:50:28.091 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 00:55:28.091 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5362 ---
+2026-05-29 00:55:28.094 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 00:55:28.691 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 00:55:28.691 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:00:28.692 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5363 ---
+2026-05-29 01:00:28.699 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:00:29.358 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0064BTC (-64%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:00:29.359 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:05:29.359 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5364 ---
+2026-05-29 01:05:29.362 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:05:30.062 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:05:30.062 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:10:30.062 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5365 ---
+2026-05-29 01:10:30.065 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:10:30.676 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:10:30.677 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:15:30.677 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5366 ---
+2026-05-29 01:15:30.682 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:15:31.392 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:15:31.393 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:20:31.393 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5367 ---
+2026-05-29 01:20:31.396 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:20:31.771 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 01:20:31.771 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 01:20:32.020 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:20:32.021 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:25:32.021 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5368 ---
+2026-05-29 01:25:32.028 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:25:32.673 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:25:32.673 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:30:32.674 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5369 ---
+2026-05-29 01:30:32.677 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:30:33.267 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:30:33.267 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:35:33.267 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5370 ---
+2026-05-29 01:35:33.269 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:35:40.536 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 01:35:40.775 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:35:40.776 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:40:40.776 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5371 ---
+2026-05-29 01:40:40.780 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:40:41.454 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:40:41.455 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:45:41.455 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5372 ---
+2026-05-29 01:45:41.458 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:45:42.112 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:45:42.112 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:50:42.113 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5373 ---
+2026-05-29 01:50:42.115 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:50:42.512 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 01:50:42.513 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 01:50:42.754 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:50:42.755 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 01:55:42.755 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5374 ---
+2026-05-29 01:55:42.758 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 01:55:43.421 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 01:55:43.421 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:00:43.421 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5375 ---
+2026-05-29 02:00:43.426 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:00:44.983 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:00:44.986 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:05:44.986 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5376 ---
+2026-05-29 02:05:44.988 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:05:46.939 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:05:46.940 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:10:46.940 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5377 ---
+2026-05-29 02:10:46.942 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:10:47.549 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:10:47.549 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:15:47.549 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5378 ---
+2026-05-29 02:15:47.553 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:15:48.351 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0064BTC (-64%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:15:48.351 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:20:48.352 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5379 ---
+2026-05-29 02:20:48.365 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:20:48.771 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 02:20:48.771 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 02:20:49.029 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:20:49.030 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:25:49.030 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5380 ---
+2026-05-29 02:25:49.033 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:25:49.727 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:25:49.727 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:30:49.727 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5381 ---
+2026-05-29 02:30:49.731 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:30:50.385 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:30:50.386 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:35:50.386 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5382 ---
+2026-05-29 02:35:50.388 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:35:57.940 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 02:35:58.192 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:35:58.194 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:40:58.194 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5383 ---
+2026-05-29 02:40:58.197 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:40:58.865 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:40:58.866 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:45:58.866 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5384 ---
+2026-05-29 02:45:58.872 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:45:59.766 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:45:59.766 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:50:59.766 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5385 ---
+2026-05-29 02:50:59.769 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:51:00.165 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 02:51:00.166 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 02:51:00.429 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:51:00.430 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 02:56:00.431 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5386 ---
+2026-05-29 02:56:00.434 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 02:56:01.133 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 02:56:01.135 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:01:01.135 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5387 ---
+2026-05-29 03:01:01.138 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:01:02.913 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:01:02.914 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:06:02.915 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5388 ---
+2026-05-29 03:06:02.918 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:06:03.596 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:06:03.596 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:11:03.597 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5389 ---
+2026-05-29 03:11:03.602 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:11:04.276 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:11:04.277 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:16:04.277 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5390 ---
+2026-05-29 03:16:04.283 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:16:04.921 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:16:04.921 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:21:04.921 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5391 ---
+2026-05-29 03:21:04.926 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:21:05.348 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 03:21:05.349 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 03:21:05.612 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:21:05.614 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:26:05.614 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5392 ---
+2026-05-29 03:26:05.620 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:26:06.316 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:26:06.316 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:31:06.316 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5393 ---
+2026-05-29 03:31:06.319 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:31:06.983 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:31:06.983 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:36:06.983 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5394 ---
+2026-05-29 03:36:06.988 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:36:14.855 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 03:36:15.161 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:36:15.164 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:41:15.165 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5395 ---
+2026-05-29 03:41:15.175 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:41:15.832 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:41:15.832 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:46:15.833 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5396 ---
+2026-05-29 03:46:15.836 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:46:16.476 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:46:16.476 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:51:16.476 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5397 ---
+2026-05-29 03:51:16.480 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:51:16.894 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 03:51:16.895 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 03:51:17.149 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:51:17.150 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 03:56:17.150 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5398 ---
+2026-05-29 03:56:17.153 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 03:56:17.763 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 03:56:17.764 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:01:17.764 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5399 ---
+2026-05-29 04:01:17.767 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:01:18.394 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:01:19.276 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:06:19.277 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5400 ---
+2026-05-29 04:06:19.283 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:06:19.914 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0071BTC (-82%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:06:19.915 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:11:19.915 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5401 ---
+2026-05-29 04:11:19.918 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:11:20.566 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0073BTC (-87%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:11:20.566 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:16:20.567 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5402 ---
+2026-05-29 04:16:20.571 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:16:21.177 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:16:21.177 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:21:21.177 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5403 ---
+2026-05-29 04:21:21.181 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:21:21.588 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 04:21:21.589 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 04:21:21.850 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0072BTC (-85%) | UN26-66000-P @0.0013BTC (+7%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:21:21.853 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:26:21.853 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5404 ---
+2026-05-29 04:26:21.860 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:26:22.484 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:26:22.484 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:31:22.485 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5405 ---
+2026-05-29 04:31:22.487 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:31:23.102 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:31:23.102 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:36:23.102 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5406 ---
+2026-05-29 04:36:23.110 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:36:30.688 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 04:36:30.956 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:36:30.956 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:41:30.957 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5407 ---
+2026-05-29 04:41:30.961 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:41:31.587 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0070BTC (-79%) | UN26-66000-P @0.0012BTC (+14%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:41:31.587 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:46:31.587 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5408 ---
+2026-05-29 04:46:31.589 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:46:32.237 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:46:32.238 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:51:32.238 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5409 ---
+2026-05-29 04:51:32.240 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:51:32.633 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 04:51:32.634 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 04:51:32.904 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0069BTC (-77%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:51:32.904 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 04:56:32.904 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5410 ---
+2026-05-29 04:56:32.908 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 04:56:33.527 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0068BTC (-74%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 04:56:33.527 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:01:33.527 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5411 ---
+2026-05-29 05:01:33.531 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:01:34.221 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0067BTC (-72%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:01:34.222 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:06:34.224 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5412 ---
+2026-05-29 05:06:34.227 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:06:34.881 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0011BTC (+21%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:06:34.881 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:11:34.882 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5413 ---
+2026-05-29 05:11:34.884 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:11:35.530 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:11:35.530 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:16:35.531 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5414 ---
+2026-05-29 05:16:35.538 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:16:36.156 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:16:36.156 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:21:36.156 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5415 ---
+2026-05-29 05:21:36.161 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:21:36.565 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 05:21:36.565 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 05:21:36.794 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:21:36.795 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:26:36.795 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5416 ---
+2026-05-29 05:26:36.799 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:26:37.437 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:26:37.437 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:31:37.440 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5417 ---
+2026-05-29 05:31:37.443 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:31:38.047 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:31:38.047 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:36:38.048 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5418 ---
+2026-05-29 05:36:38.054 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:36:45.375 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 05:36:45.641 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0066BTC (-69%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:36:45.641 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:41:45.642 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5419 ---
+2026-05-29 05:41:45.648 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:41:46.266 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0065BTC (-67%) | UN26-66000-P @0.0010BTC (+29%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:41:46.266 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:46:46.267 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5420 ---
+2026-05-29 05:46:46.269 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:46:46.876 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:46:46.876 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:51:46.876 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5421 ---
+2026-05-29 05:51:46.880 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:51:47.273 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 05:51:47.273 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 05:51:47.561 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:51:47.562 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 05:56:47.563 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5422 ---
+2026-05-29 05:56:47.567 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 05:56:48.217 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 05:56:48.218 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:01:48.218 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5423 ---
+2026-05-29 06:01:48.225 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:01:48.948 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:01:48.948 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:06:48.948 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5424 ---
+2026-05-29 06:06:48.951 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:06:49.543 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0063BTC (-62%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:06:49.543 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:11:49.543 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5425 ---
+2026-05-29 06:11:49.551 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:11:50.177 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0062BTC (-59%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:11:50.178 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:16:50.179 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5426 ---
+2026-05-29 06:16:50.186 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:16:50.869 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0061BTC (-56%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:16:50.869 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:21:50.870 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5427 ---
+2026-05-29 06:21:50.876 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:21:51.307 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 06:21:51.307 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 06:21:51.572 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0060BTC (-54%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:21:51.574 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:26:51.574 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5428 ---
+2026-05-29 06:26:51.577 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:26:52.230 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0060BTC (-54%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:26:52.231 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:31:52.231 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5429 ---
+2026-05-29 06:31:52.238 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:31:52.887 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0060BTC (-54%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:31:52.887 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:36:52.887 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5430 ---
+2026-05-29 06:36:52.894 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:37:00.372 | INFO     | agents.options_agent:_save_iv_snapshot:393 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-29 06:37:00.660 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0061BTC (-56%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:37:00.662 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:42:00.664 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5431 ---
+2026-05-29 06:42:00.667 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:42:01.415 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0061BTC (-56%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:42:01.416 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:47:01.420 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5432 ---
+2026-05-29 06:47:01.428 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:47:02.194 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0060BTC (-54%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:47:02.196 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:52:02.199 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5433 ---
+2026-05-29 06:52:02.205 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:52:02.635 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-29 06:52:02.635 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming
+2026-05-29 06:52:02.911 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0059BTC (-51%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:52:02.911 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+2026-05-29 06:57:02.911 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #5434 ---
+2026-05-29 06:57:02.917 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-29 06:57:03.616 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [UN26-68000-P @0.0059BTC (-51%) | UN26-66000-P @0.0009BTC (+36%)] | balance=$1864.47 | PnL=$+1377.38 | margin=$1513
+2026-05-29 06:57:03.617 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...

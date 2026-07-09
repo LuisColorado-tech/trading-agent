@@ -1,0 +1,62 @@
+2026-05-19 01:44:09 | INFO    | SNIPE [ETH] UP entry=$0.9365 x8 move=+7.496%
+2026-05-19 01:46:11 | INFO    | RESOLVED [ETH] SNIPE UP → WIN | P&L=$+0.5080
+2026-05-19 01:50:45 | INFO    | Cycle 11320 | Open=0 | Wins=285/310 (91.9%) | P&L=$-149.27 | Bal=$350.73
+2026-05-19 02:01:01 | INFO    | Cycle 11340 | Open=0 | Wins=285/310 (91.9%) | P&L=$-149.27 | Bal=$350.73
+2026-05-19 02:11:09 | INFO    | Cycle 11360 | Open=0 | Wins=285/310 (91.9%) | P&L=$-149.27 | Bal=$350.73
+2026-05-19 02:21:24 | INFO    | Cycle 11380 | Open=0 | Wins=285/310 (91.9%) | P&L=$-149.27 | Bal=$350.73
+2026-05-19 02:28:30 | INFO    | SNIPE [BTC] UP entry=$0.9050 x15 move=+0.267%
+2026-05-19 02:31:07 | WARNING | ORACLE GAP [BTC] UP → UP | move=+0.1106% (below threshold 0.25%) | entry_move=+0.2673% | Kraken open=76698.6000 close=76783.4000 | outcome=WIN
+2026-05-19 02:31:07 | INFO    | RESOLVED [BTC] SNIPE UP → WIN | P&L=$+1.4250
+2026-05-19 02:31:38 | INFO    | Cycle 11400 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 02:41:45 | INFO    | Cycle 11420 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 02:52:00 | INFO    | Cycle 11440 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:02:16 | INFO    | Cycle 11460 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:12:24 | INFO    | Cycle 11480 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:22:38 | INFO    | Cycle 11500 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:32:53 | INFO    | Cycle 11520 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:43:02 | INFO    | Cycle 11540 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 03:53:15 | INFO    | Cycle 11560 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:03:30 | INFO    | Cycle 11580 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:13:43 | INFO    | Cycle 11600 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:23:53 | INFO    | Cycle 11620 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:34:06 | INFO    | Cycle 11640 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:44:21 | INFO    | Cycle 11660 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 04:54:30 | INFO    | Cycle 11680 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:04:46 | INFO    | Cycle 11700 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:15:01 | INFO    | Cycle 11720 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:25:10 | INFO    | Cycle 11740 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:35:25 | INFO    | Cycle 11760 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:45:39 | INFO    | Cycle 11780 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:55:47 | INFO    | Cycle 11800 | Open=0 | Wins=286/311 (92.0%) | P&L=$-147.84 | Bal=$352.16
+2026-05-19 05:58:22 | INFO    | SNIPE [ETH] UP entry=$0.9050 x15 move=+7.075%
+2026-05-19 06:01:30 | WARNING | ORACLE GAP [ETH] UP → DOWN | move=-0.0019% (below threshold 0.25%) | entry_move=+7.0750% | Kraken open=2134.2700 close=2134.2300 | outcome=LOSS
+2026-05-19 06:01:30 | INFO    | RESOLVED [ETH] SNIPE UP → LOSS | P&L=$-13.5750
+2026-05-19 06:36:01 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 07:36:02 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 08:36:03 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 09:36:04 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 10:36:04 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 11:36:05 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 12:36:05 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 13:36:06 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 14:36:06 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 15:36:07 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 16:36:07 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 17:36:08 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 18:36:08 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 19:36:09 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 20:36:10 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 21:36:10 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 22:36:11 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-19 23:36:11 | WARNING | Daily loss limit ($-11.64 <= -$10.0). Pausado hasta mañana.
+2026-05-20 00:00:16 | INFO    | Cycle 13968 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 00:10:26 | INFO    | Cycle 13988 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 00:20:39 | INFO    | Cycle 14008 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 00:30:53 | INFO    | Cycle 14028 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 00:41:01 | INFO    | Cycle 14048 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 00:51:15 | INFO    | Cycle 14068 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 01:01:29 | INFO    | Cycle 14088 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 01:11:37 | INFO    | Cycle 14108 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 01:21:52 | INFO    | Cycle 14128 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 01:32:04 | INFO    | Cycle 14148 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58
+2026-05-20 01:42:11 | INFO    | Cycle 14168 | Open=0 | Wins=286/312 (91.7%) | P&L=$-161.42 | Bal=$338.58

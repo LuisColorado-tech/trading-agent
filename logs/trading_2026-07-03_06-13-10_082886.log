@@ -1,0 +1,462 @@
+2026-07-03 06:13:25.740 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:13:25.760 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:13:25.762 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:13:25.821 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $500.00
+2026-07-03 06:13:25.826 | INFO     | __main__:main:208 - Startup warm-up: 180s antes del primer ciclo de trading...
+2026-07-03 06:16:28.167 | ERROR    | data.market_feed:fetch_ohlcv:94 - fetch_ohlcv BTC/1m (okx): '<' not supported between instances of 'NoneType' and 'str'
+2026-07-03 06:16:28.258 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 06:11:00+00:00, age=5min (max=3min)
+2026-07-03 06:16:28.745 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:16:28.745 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.98
+2026-07-03 06:16:29.173 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:16:29.175 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:16:29.752 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:16:30.208 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:16:30.713 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-03 06:16:31.121 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:16:31.122 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:16:31.505 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:16:31.980 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:16:32.403 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:16:32.889 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:16:33.392 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:16:33.991 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.50
+2026-07-03 06:16:34.408 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.25
+2026-07-03 06:16:34.854 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:16:34.856 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:16:35.284 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:16:35.828 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.66
+2026-07-03 06:16:36.748 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:16:37.176 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:16:39.059 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:16:39.593 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:16:41.041 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:16:41.504 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:16:42.117 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=1.00
+2026-07-03 06:16:42.121 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL RSI_OVERBOUGHT dir=SELL str=0.60
+2026-07-03 06:16:42.627 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:16:43.512 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:16:43.976 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.50
+2026-07-03 06:16:43.977 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:16:44.471 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.26
+2026-07-03 06:16:44.473 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=0.99
+2026-07-03 06:16:44.473 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=0.51
+2026-07-03 06:16:44.996 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:16:44.998 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:16:44.999 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:16:45.568 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:16:46.041 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.46
+2026-07-03 06:16:46.042 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA RSI_OVERBOUGHT dir=SELL str=0.44
+2026-07-03 06:16:46.043 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=0.96
+2026-07-03 06:16:46.044 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA VOLUME_SPIKE dir=NEUTRAL str=0.60
+2026-07-03 06:16:46.575 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:16:46.576 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:16:47.312 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:16:47.986 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:16:48.660 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:16:48.661 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:16:48.661 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:16:49.171 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:16:49.659 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:16:49.660 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:16:50.142 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:16:50.143 | INFO     | agents.market_scanner:scan:71 - Scan complete: 54 signals across 12 assets
+2026-07-03 06:16:50.149 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 06:11:00+00:00, age=6min (max=3min)
+2026-07-03 06:16:50.209 | INFO     | agents.strategy_engine:_get_macro_bias:139 - Macro regime: BULL_RUN
+2026-07-03 06:16:50.232 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:16:50.255 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.274 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.293 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.319 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:16:50.342 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.359 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:16:50.385 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.410 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.432 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.450 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:16:50.466 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.491 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.508 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.531 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:16:50.557 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.577 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:16:50.594 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.609 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.634 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.667 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:16:50.687 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:50.704 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:16:50.721 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:16:51.177 | INFO     | __main__:main:308 - Cycle 1 complete. Next scan in 60s. Balance: $500.00
+2026-07-03 06:17:52.072 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:17:52.072 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.98
+2026-07-03 06:17:52.558 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:17:52.559 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:17:52.898 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:17:53.408 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:17:53.980 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-03 06:17:54.530 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:17:54.535 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:17:55.093 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:17:55.542 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:17:55.543 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL VOLUME_SPIKE dir=NEUTRAL str=0.84
+2026-07-03 06:17:55.960 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:17:56.316 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:17:56.924 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:17:57.452 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:17:57.982 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.25
+2026-07-03 06:17:58.454 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:17:58.455 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:17:59.057 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:17:59.576 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.63
+2026-07-03 06:18:00.576 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:18:01.100 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:18:02.600 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:18:03.152 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:18:04.717 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:18:05.219 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:18:05.834 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.79
+2026-07-03 06:18:06.353 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:18:07.351 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:18:08.121 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.51
+2026-07-03 06:18:08.578 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.26
+2026-07-03 06:18:08.579 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=0.99
+2026-07-03 06:18:08.579 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=0.51
+2026-07-03 06:18:09.046 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:18:09.046 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:18:09.048 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:18:09.487 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:18:09.953 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.51
+2026-07-03 06:18:09.954 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA RSI_OVERBOUGHT dir=SELL str=0.50
+2026-07-03 06:18:09.955 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:18:10.471 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:18:10.471 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:18:11.025 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:18:11.550 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:18:12.041 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:18:12.041 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:18:12.042 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:18:12.484 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:18:12.897 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:18:12.898 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:18:13.363 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:18:13.364 | INFO     | agents.market_scanner:scan:71 - Scan complete: 52 signals across 12 assets
+2026-07-03 06:18:13.394 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:18:13.411 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.430 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.457 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.482 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:18:13.500 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.515 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:18:13.530 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.547 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.562 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.578 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:18:13.593 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.609 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.622 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.638 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:18:13.651 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.665 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:18:13.678 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.691 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.709 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.729 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:18:13.753 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:13.779 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:18:13.800 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:18:14.269 | INFO     | __main__:main:308 - Cycle 2 complete. Next scan in 60s. Balance: $500.00
+2026-07-03 06:19:15.215 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:19:15.217 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=0.98
+2026-07-03 06:19:15.534 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:19:15.534 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:19:15.916 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:19:16.422 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:19:17.090 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-03 06:19:17.430 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:19:17.431 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:19:17.815 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:19:18.227 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.28
+2026-07-03 06:19:18.743 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:19:19.151 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:19:19.644 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:19:20.114 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.54
+2026-07-03 06:19:20.541 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.25
+2026-07-03 06:19:20.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:19:20.902 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:19:21.425 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:19:22.072 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:19:23.193 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:19:23.789 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:19:26.064 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:19:26.647 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:19:28.032 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:19:28.504 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:19:28.945 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.73
+2026-07-03 06:19:29.673 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:19:30.965 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:19:31.716 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.47
+2026-07-03 06:19:32.474 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.26
+2026-07-03 06:19:32.477 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=0.99
+2026-07-03 06:19:32.481 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=0.51
+2026-07-03 06:19:33.103 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:19:33.105 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:19:33.107 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:19:33.592 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:19:34.037 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.42
+2026-07-03 06:19:34.491 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:19:34.492 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:19:34.873 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:19:35.303 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:19:35.719 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:19:35.719 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:19:35.720 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:19:36.160 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:19:36.643 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:19:36.643 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:19:37.229 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:19:37.230 | INFO     | agents.market_scanner:scan:71 - Scan complete: 49 signals across 12 assets
+2026-07-03 06:19:37.270 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:19:37.361 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.407 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.506 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.534 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:19:37.579 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.604 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:19:37.625 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.645 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.663 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.681 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:19:37.702 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.724 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.741 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.764 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:19:37.785 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.813 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:19:37.835 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.860 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.881 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.897 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:19:37.916 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:37.935 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:19:37.951 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:19:38.281 | INFO     | __main__:main:308 - Cycle 3 complete. Next scan in 60s. Balance: $500.00
+2026-07-03 06:20:39.362 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.31
+2026-07-03 06:20:39.801 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:20:39.802 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:20:40.221 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:20:40.733 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.31
+2026-07-03 06:20:41.368 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-03 06:20:42.016 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:20:42.017 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:20:42.464 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:20:43.574 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.16
+2026-07-03 06:20:44.088 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:20:44.519 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:20:45.038 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.41
+2026-07-03 06:20:45.497 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-03 06:20:46.033 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:20:46.067 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:20:46.514 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:20:46.987 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.54
+2026-07-03 06:20:46.995 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK VOLUME_SPIKE dir=NEUTRAL str=0.81
+2026-07-03 06:20:47.312 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:20:47.312 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK VOLUME_SPIKE dir=NEUTRAL str=0.85
+2026-07-03 06:20:47.727 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:20:48.179 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:20:49.465 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:20:49.869 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:20:51.095 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:20:51.572 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:20:52.029 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.72
+2026-07-03 06:20:53.578 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:20:53.958 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.44
+2026-07-03 06:20:54.388 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.27
+2026-07-03 06:20:54.879 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:20:54.880 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:20:54.880 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:20:55.303 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:20:55.753 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.44
+2026-07-03 06:20:56.236 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:20:56.691 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:20:57.142 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:20:57.484 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:20:57.485 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:20:57.485 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:20:57.976 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:20:58.360 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:20:58.360 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:20:58.767 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:20:58.767 | INFO     | agents.market_scanner:scan:71 - Scan complete: 46 signals across 12 assets
+2026-07-03 06:20:58.873 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:20:58.954 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.012 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.057 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.181 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:20:59.203 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.248 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:20:59.266 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.297 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.324 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.349 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:20:59.376 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.405 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.430 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.453 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:20:59.485 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.528 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:20:59.567 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.628 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.666 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.697 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:20:59.773 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:20:59.831 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:20:59.848 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:21:00.992 | INFO     | __main__:main:308 - Cycle 4 complete. Next scan in 60s. Balance: $500.00
+2026-07-03 06:22:01.757 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.31
+2026-07-03 06:22:02.162 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:22:02.163 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:22:02.746 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:22:03.255 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.27
+2026-07-03 06:22:03.655 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-03 06:22:04.146 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:22:04.147 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:22:04.774 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:22:05.287 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-03 06:22:05.877 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.16
+2026-07-03 06:22:06.383 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:22:06.804 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:22:07.291 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:22:07.679 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-03 06:22:08.281 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:22:08.283 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:22:08.756 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:22:09.119 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:22:09.120 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK BB_LOWER_TOUCH dir=BUY str=0.99
+2026-07-03 06:22:09.504 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:22:09.505 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK VOLUME_SPIKE dir=NEUTRAL str=0.85
+2026-07-03 06:22:09.864 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:22:10.268 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:22:11.478 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:22:11.908 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:22:13.443 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:22:13.809 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:22:15.814 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:22:16.184 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.41
+2026-07-03 06:22:16.539 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.27
+2026-07-03 06:22:16.962 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:22:16.962 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:22:16.962 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:22:17.521 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:22:17.941 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:22:18.310 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:22:18.687 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:22:19.038 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:22:19.412 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:22:19.414 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:22:19.415 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:22:19.806 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:22:20.278 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:22:20.282 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:22:20.666 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:22:20.669 | INFO     | agents.market_scanner:scan:71 - Scan complete: 46 signals across 12 assets
+2026-07-03 06:22:20.726 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:22:20.745 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.766 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.784 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.801 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:22:20.819 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.836 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:22:20.854 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.872 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.891 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.909 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:22:20.929 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.956 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:22:20.973 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.001 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:22:21.041 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.109 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:22:21.183 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.245 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.325 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.353 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:22:21.372 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.392 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:22:21.415 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:22:21.789 | INFO     | __main__:main:308 - Cycle 5 complete. Next scan in 60s. Balance: $500.00
+2026-07-03 06:23:22.534 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.31
+2026-07-03 06:23:22.954 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:23:22.954 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:23:23.303 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:23:23.924 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:23:23.924 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:23:24.284 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.30
+2026-07-03 06:23:24.623 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:23:24.624 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:23:25.004 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:23:25.388 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL RSI_OVERSOLD dir=BUY str=0.00
+2026-07-03 06:23:25.388 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:23:25.728 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.16
+2026-07-03 06:23:26.122 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:23:26.496 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:23:27.123 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_LOWER_TOUCH dir=BUY str=0.96
+2026-07-03 06:23:27.836 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.24
+2026-07-03 06:23:28.545 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:23:28.548 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:23:29.075 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AVAX EMA_CROSS_BULL dir=BUY str=0.29
+2026-07-03 06:23:29.526 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.42
+2026-07-03 06:23:29.944 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.15
+2026-07-03 06:23:29.945 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK VOLUME_SPIKE dir=NEUTRAL str=0.85
+2026-07-03 06:23:30.443 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:23:30.820 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: LINK EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:23:31.199 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ BB_UPPER_TOUCH dir=SELL str=0.99
+2026-07-03 06:23:32.095 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:23:32.440 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: INJ EMA_CROSS_BULL dir=BUY str=0.06
+2026-07-03 06:23:32.926 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE BB_LOWER_TOUCH dir=BUY str=0.98
+2026-07-03 06:23:33.785 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.07
+2026-07-03 06:23:34.271 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.06
+2026-07-03 06:23:36.235 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:23:36.618 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.39
+2026-07-03 06:23:36.991 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.27
+2026-07-03 06:23:37.442 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.20
+2026-07-03 06:23:37.451 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:23:37.454 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:23:37.970 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: DOT EMA_CROSS_BULL dir=BUY str=0.17
+2026-07-03 06:23:38.401 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.48
+2026-07-03 06:23:38.403 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA VOLUME_SPIKE dir=NEUTRAL str=0.56
+2026-07-03 06:23:39.167 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:23:39.606 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.37
+2026-07-03 06:23:40.119 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ADA EMA_CROSS_BULL dir=BUY str=0.49
+2026-07-03 06:23:40.523 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.87
+2026-07-03 06:23:40.525 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU BB_LOWER_TOUCH dir=BUY str=1.00
+2026-07-03 06:23:40.525 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU VOLUME_SPIKE dir=NEUTRAL str=0.44
+2026-07-03 06:23:40.999 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAU EMA_CROSS_BULL dir=BUY str=0.59
+2026-07-03 06:23:41.489 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.88
+2026-07-03 06:23:41.492 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:23:42.103 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: XAG EMA_CROSS_BULL dir=BUY str=0.45
+2026-07-03 06:23:42.104 | INFO     | agents.market_scanner:scan:71 - Scan complete: 50 signals across 12 assets
+2026-07-03 06:23:42.148 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity BTC/15m: low_atr 0.0015 < 0.0020
+2026-07-03 06:23:42.167 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity BTC/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.187 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.207 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ETH/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.228 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity SOL/15m: low_atr 0.0026 < 0.0030
+2026-07-03 06:23:42.300 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity SOL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.335 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity AVAX/15m: low_atr 0.0021 < 0.0030
+2026-07-03 06:23:42.352 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AVAX/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.369 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.385 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity INJ/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.403 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity LINK/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:23:42.421 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity LINK/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.438 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.459 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity AAVE/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.502 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity POL/15m: low_atr 0.0020 < 0.0030
+2026-07-03 06:23:42.536 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity POL/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.588 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity DOT/15m: low_atr 0.0025 < 0.0030
+2026-07-03 06:23:42.628 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity DOT/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.673 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/15m: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.705 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity ADA/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.724 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAU/15m: low_atr 0.0010 < 0.0030
+2026-07-03 06:23:42.759 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAU/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:42.802 | INFO     | agents.strategy_engine:evaluate:216 - No opportunity XAG/15m: low_atr 0.0018 < 0.0040
+2026-07-03 06:23:42.819 | INFO     | agents.strategy_engine:evaluate:225 - No opportunity XAG/1h: CHOPPY (régimen inactivo)
+2026-07-03 06:23:43.235 | INFO     | __main__:main:308 - Cycle 6 complete. Next scan in 60s. Balance: $500.00

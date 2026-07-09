@@ -1,0 +1,27 @@
+btc_direction:
+  paper_trading: true
+  initial_paper_balance: 500.0       # USDC simulados
+
+  # ── Riesgo ──
+  risk:
+    max_trade_usdc: 5.0              # REDUCIDO 2026-04-25: WR 27.6% en 105 trades. Era 20.0
+    max_open_positions: 1            # Reducido a 1 (era 2) mientras no se valide edge
+    momentum_threshold_pct: 0.20     # Aumentado 0.15→0.20: exigir señal más fuerte
+    min_price_edge: 0.05             # Aumentado 0.03→0.05: edge mínimo más exigente
+
+  # ── Datos de BTC ──
+  btc_data:
+    exchange: kraken
+    pair: BTC/USDT
+    timeframe: 1m
+    lookback_candles: 10             # Últimas 10 velas 1m para calcular momentum
+    fallback_exchange: okx
+
+  # ── Polymarket ──
+  polymarket:
+    gamma_api: "https://gamma-api.polymarket.com"
+    clob_api: "https://clob.polymarket.com"
+    series_slug: "btc-up-or-down-15m"
+    slot_duration_seconds: 900       # Cada slot dura 15 minutos
+    min_remaining_seconds: 60        # No entrar si quedan menos de 60s en el slot
+    max_entry_seconds: 600           # No entrar si ya pasaron más de 10m del slot

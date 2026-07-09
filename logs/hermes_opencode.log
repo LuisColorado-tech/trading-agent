@@ -1,0 +1,1136 @@
+[Fri May  8 04:12:54 UTC 2026] Hermes → OpenCode: grid_stable
+[Fri May  8 04:12:54 UTC 2026] Running: opencode run --phase grid_stable
+[0m
+> build · deepseek-v4-pro
+[0m
+[0m→ [0mRead docs/EXPANSION_PLAN.md
+[0m→ [0mRead agents/grid_agent.py
+[0m→ [0mRead scripts/backtest_grid.py
+[0m→ [0mRead config/exchange_config.yaml
+[Fri May  8 04:16:18 UTC 2026] Hermes → OpenCode: Fase vix
+[0m
+> build · deepseek-v4-pro
+[0m
+[0m• [0mRead expansion plan FASE 3[90m Explore Agent[0m
+[0m✓ [0mRead expansion plan FASE 3[90m Explore Agent[0m
+[0m→ [0mRead ../../root/.local/share/opencode/tool-output/tool_e05d29baa001WlqHwslT37gKjb[90m [offset=460][0m
+[0m→ [0mRead core/stocks_profiles.py
+[0m→ [0mRead config/exchange_config.yaml
+[0m• [0mFind dashboard React files[90m Explore Agent[0m
+[0m• [0mFind Telegram notification pattern[90m Explore Agent[0m
+Now let me explore the dashboard React structure and the Telegram notification pattern:
+[0m✓ [0mFind dashboard React files[90m Explore Agent[0m
+[Sun May 10 08:00:25 UTC 2026] Hermes → OpenCode: Fase pairs
+[0m
+> build · deepseek-v4-pro
+[0m
+[0m→ [0mRead docs/EXPANSION_PLAN.md
+[0m→ [0mRead config/exchange_config.yaml
+[0m→ [0mRead data/market_feed.py
+[0m• [0mExplore pairs trading patterns[90m Explore Agent[0m
+[Wed May 13 08:00:58 UTC 2026] Hermes → OpenCode: Fase earnings
+[0m
+> build · deepseek-v4-pro
+[0m
+[0m# [0mTodos
+[•] Read EXPANSION_PLAN.md FASE 5 section and understand requirements
+[ ] Study existing code patterns (similar strategies/agents)
+[ ] Create data/earnings_calendar.py
+[ ] Create data/options_chain_feed.py
+[ ] Create core/earnings_profiles.py
+[ ] Create strategies/earnings_strangle.py
+[ ] Create agents/earnings_executor.py
+[ ] Create scripts/backtest_earnings.py
+[ ] Update dashboard React (Earnings Strangle DEV status)
+[ ] Send Telegram report
+[ ] Git add, commit, push
+[0m
+[0m→ [0mRead docs/EXPANSION_PLAN.md
+[0m→ [0mRead agents
+[0m→ [0mRead strategies
+[0m→ [0mRead strategies/basis_trade.py
+[0m→ [0mRead agents/basis_executor.py
+[0m→ [0mRead core/alpaca_session_manager.py
+[0m→ [0mRead strategies/vol_mean_reversion.py
+[0m→ [0mRead core/vol_profiles.py
+Now let me study existing similar implementations for patterns:
+[0m→ [0mRead core/notifications.py[90m [limit=60][0m
+[0m→ [0mRead data
+[0m→ [0mRead core
+[0m→ [0mRead config/exchange_config.yaml[90m [limit=30][0m
+[0m✱ [0mGlob "web/**/*.tsx"[90m 26 matches[0m
+[0m→ [0mRead web/components/ConsortiumWidget.tsx
+[0m→ [0mRead web/components/AgentCard.tsx
+[0m→ [0mRead web/app/page.tsx
+[0m→ [0mRead config/exchange_config.yaml[90m [offset=270][0m
+[0m→ [0mRead scripts/backtest_pairs.py[90m [limit=80][0m
+[0m→ [0mRead agents/pairs_executor.py[90m [limit=80][0m
+[0m→ [0mRead core/pairs_profiles.py[90m [limit=60][0m
+[0m✱ [0mGrep "overview|consortium"[90m in api · 5 matches[0m
+[0m→ [0mRead core/stocks_profiles.py[90m [limit=50][0m
+[0m→ [0mRead api/routers/overview.py[90m [offset=290, limit=80][0m
+[0m→ [0mRead api/routers/overview.py[90m [offset=370, limit=121][0m
+[0m→ [0mRead scripts/backtest_vol.py[90m [limit=60][0m
+[0m→ [0mRead web/components/Sidebar.tsx[90m [limit=80][0m
+[0m
+[0m# [0mTodos
+[✓] Read EXPANSION_PLAN.md FASE 5 section and understand requirements
+[✓] Study existing code patterns (similar strategies/agents)
+[•] Create data/earnings_calendar.py
+[ ] Create data/options_chain_feed.py
+[ ] Create core/earnings_profiles.py
+[ ] Create strategies/earnings_strangle.py
+[ ] Create agents/earnings_executor.py
+[ ] Create scripts/backtest_earnings.py
+[ ] Update dashboard React (Earnings Strangle DEV status)
+[ ] Send Telegram report
+[ ] Git add, commit, push
+[0m
+[0m← [0mWrite data/earnings_calendar.py
+Wrote file successfully.
+[0m
+[0m← [0mWrite data/options_chain_feed.py
+Wrote file successfully.
+[0m
+[0m← [0mWrite core/earnings_profiles.py
+Wrote file successfully.
+[0m
+Now creating all 6 source files for the Earnings Strangle strategy:
+[0m← [0mWrite strategies/earnings_strangle.py
+Wrote file successfully.
+[0m
+[0m✗ [0mInvalid Tool
+The arguments provided to the tool are invalid: Invalid input for tool write: JSON parsing failed: Text: {"filePath": "/opt/trading/agents/earnings_executor.py", "content": "\"\"\"\nEarningsExecutor — Ejecutor de la estrategia Earnings Strangle.\n\nMonitorea calendario de earnings, compra strangles (call + put OTM)\n1 día antes del evento, y cierra 1 día después.\n\nPaper trading en Alpaca Options únicamente.\n\"\"\"\nimport os\nimport sys\nimport json\nimport time\nimport uuid\nfrom datetime import datetime, timezone, timedelta\nfrom typing import Optional\n\nimport yaml\nfrom loguru import logger\nfrom sqlalchemy import create_engine, text\n\nsys.path.insert(0, '/opt/trading')\nfrom dotenv import load_dotenv\nload_dotenv('/opt/trading/config/.env')\n\nfrom data.earnings_calendar import EarningsCalendar, EarningsEvent\nfrom data.options_chain_feed import OptionsChainFeed, StrangleQuote\nfrom core.earnings_profiles import EARNINGS_PROFILES, get_earnings_profile\nfrom strategies.earnings_strangle import (\n    EarningsStrangleStrategy, EarningsStrangleSignal, StranglePosition, StrangleState,\n)\nfrom core.notifications import send_telegram\n\nwith open('/opt/trading/config/exchange_config.yaml') as f:\n    CFG = yaml.safe_load(f).get('earnings_strangle', {})\n\nPAPER_TRADING = CFG.get('paper_trading', True)\nINITIAL_BALANCE = CFG.get('initial_balance', 1000.0)\nCYCLE_SECONDS = 3600\nENABLED = CFG.get('enabled', True)\nMAX_CONCURRENT = CFG.get('max_concurrent_trades', 3)\n\nASSETS = CFG.get('assets', ['NVDA', 'TSLA', 'AAPL', 'META', 'AMZN'])\nlogger.info(f'EarningsExecutor: {len(ASSETS)} activos: {ASSETS}')\n\ndb_url = (\n    f\"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}\"\n    f\"@{os.getenv('POSTGRES_HOST', 'localhost')}:{os.getenv('POSTGRES_PORT', '5432')}\"\n    f\"/{os.getenv('POSTGRES_DB', 'trading_agent')}\"\n)\nengine = create_engine(db_url)\n\ncalendar = EarningsCalendar(\n    min_market_cap=CFG.get('min_market_cap', 100e9),\n)\noptions_feed = OptionsChainFeed(paper=True)\nstrategy = EarningsStrangleStrategy(CFG)\n\nopen_positions: dict[str, StranglePosition] = {}\n\n\ndef _ensure_table():\n    with engine.connect() as conn:\n        try:\n            conn.execute(text(\"\"\"\n                CREATE TABLE IF NOT EXISTS earnings_trades (\n                    id TEXT PRIMARY KEY,\n                    ticker TEXT NOT NULL,\n                    stock_price_entry REAL,\n                    strike_call REAL,\n                    strike_put REAL,\n                    call_cost REAL,\n                    put_cost REAL,\n                    total_cost REAL,\n                    capital_used REAL,\n                    call_otm_pct REAL,\n                    put_otm_pct REAL,\n                    iv_rank_entry REAL,\n                    earnings_date TEXT,\n                    status TEXT.
+Error message: JSON Parse error: Unterminated string
+[0m
+[0m← [0mWrite agents/earnings_executor.py
+Wrote file successfully.
+[0m
+The agents file had a JSON encoding issue. Let me rewrite it:
+[Sat May 16 08:00:16 UTC 2026] Hermes → OpenCode: Fase final_report
+[0m
+> build · deepseek-v4-pro
+[0m
+[0m# [0mTodos
+[ ] Verificar que los 5 nuevos agentes estén corriendo (systemd status)
+[ ] Consolidar dashboard React para mostrar TODAS las líneas de negocio en Overview
+[ ] Agregar sección 'Rentabilidad Consolidada' que sume PnL de todos los agentes
+[ ] Enviar reporte final por Telegram con tabla consolidada y proyecciones
+[ ] Actualizar docs/EXPANSION_PLAN.md con estado COMPLETADO
+[ ] Git add, commit, push con mensaje de expansión completada
+[0m
+[0m$ [0msystemctl list-units --type=service --state=running 'trading-agent' 'options-agent' 'polymarket-agent' 'polymarket-snipe' 'stocks-agent' 'grid-stable' 'pairs-agent' 'basis-agent' 'vix-agent' 'dashboard-api' 'dashboard-web' 'trading-health' 'telegram-bot' 2>/dev/null; echo "---FULL---"; systemctl status trading-agent options-agent polymarket-agent polymarket-snipe stocks-agent grid-stable pairs-agent basis-agent vix-agent --no-pager -l 2>&1 | head -120
+UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+---FULL---
+● trading-agent.service - AI Trading Agent - Paper Trading Loop
+     Loaded: loaded (/etc/systemd/system/trading-agent.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-05-16 07:42:58 UTC; 17min ago
+   Main PID: 1255601 (python3)
+      Tasks: 3 (limit: 9483)
+     Memory: 237.8M (peak: 240.3M)
+        CPU: 25.330s
+     CGroup: /system.slice/trading-agent.service
+             └─1255601 /opt/trading/venv/bin/python3 /opt/trading/scripts/run_trading.py
+
+May 16 08:00:48 srv1347416 python3[1255601]: 2026-05-16 08:00:48.621 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.99
+May 16 08:00:48 srv1347416 python3[1255601]: 2026-05-16 08:00:48.622 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE RSI_OVERSOLD dir=BUY str=0.24
+May 16 08:00:49 srv1347416 python3[1255601]: 2026-05-16 08:00:49.778 | DEBUG    | data.market_feed:save_ohlcv:127 - Saved 250 candles for AAVE
+May 16 08:00:49 srv1347416 python3[1255601]: 2026-05-16 08:00:49.797 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE EMA_CROSS_BEAR dir=SELL str=0.75
+May 16 08:00:49 srv1347416 python3[1255601]: 2026-05-16 08:00:49.797 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE RSI_OVERSOLD dir=BUY str=0.31
+May 16 08:00:49 srv1347416 python3[1255601]: 2026-05-16 08:00:49.797 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: AAVE BB_LOWER_TOUCH dir=BUY str=1.00
+May 16 08:00:50 srv1347416 python3[1255601]: 2026-05-16 08:00:50.979 | DEBUG    | data.market_feed:save_ohlcv:127 - Saved 250 candles for POL
+May 16 08:00:50 srv1347416 python3[1255601]: 2026-05-16 08:00:50.995 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL VOLUME_SPIKE dir=NEUTRAL str=0.51
+May 16 08:00:52 srv1347416 python3[1255601]: 2026-05-16 08:00:52.097 | DEBUG    | data.market_feed:save_ohlcv:127 - Saved 250 candles for POL
+May 16 08:00:52 srv1347416 python3[1255601]: 2026-05-16 08:00:52.113 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: POL EMA_CROSS_BEAR dir=SELL str=0.82
+
+● options-agent.service - Options Agent — Theta Farming Deribit
+     Loaded: loaded (/etc/systemd/system/options-agent.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-05-10 07:00:45 UTC; 6 days ago
+   Main PID: 1078586 (python3)
+      Tasks: 1 (limit: 9483)
+     Memory: 45.7M (peak: 46.7M)
+        CPU: 6min 15.618s
+     CGroup: /system.slice/options-agent.service
+             └─1078586 /opt/trading/venv/bin/python3 /opt/trading/scripts/run_options.py
+
+May 16 07:46:28 srv1347416 options-agent[1078586]: 2026-05-16 07:46:28.825 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [AY26-71000-P @0.0058BTC (-100%) | AY26-72000-P @0.0025BTC (-150%)] | balance=$1749.13 | PnL=$+1390.60 | margin=$1641
+May 16 07:46:28 srv1347416 options-agent[1078586]: 2026-05-16 07:46:28.825 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+May 16 07:51:28 srv1347416 options-agent[1078586]: 2026-05-16 07:51:28.826 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #1732 ---
+May 16 07:51:28 srv1347416 options-agent[1078586]: 2026-05-16 07:51:28.828 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+May 16 07:51:29 srv1347416 options-agent[1078586]: 2026-05-16 07:51:29.424 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [AY26-71000-P @0.0059BTC (-103%) | AY26-72000-P @0.0026BTC (-160%)] | balance=$1749.13 | PnL=$+1390.60 | margin=$1641
+May 16 07:51:29 srv1347416 options-agent[1078586]: 2026-05-16 07:51:29.424 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+May 16 07:56:29 srv1347416 options-agent[1078586]: 2026-05-16 07:56:29.424 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #1733 ---
+May 16 07:56:29 srv1347416 options-agent[1078586]: 2026-05-16 07:56:29.426 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+May 16 07:56:30 srv1347416 options-agent[1078586]: 2026-05-16 07:56:30.020 | INFO     | agents.options_agent:run_cycle:154 - OPTIONS CYCLE END | open=2 | [AY26-71000-P @0.0060BTC (-107%) | AY26-72000-P @0.0027BTC (-170%)] | balance=$1749.13 | PnL=$+1390.60 | margin=$1641
+May 16 07:56:30 srv1347416 options-agent[1078586]: 2026-05-16 07:56:30.020 | INFO     | __main__:main:117 - Esperando 300s hasta próximo ciclo...
+
+● polymarket-agent.service - Polymarket Prediction Agent - Paper Trading Loop
+     Loaded: loaded (/etc/systemd/system/polymarket-agent.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-05-10 06:36:49 UTC; 6 days ago
+   Main PID: 1077857 (python3)
+      Tasks: 1 (limit: 9483)
+     Memory: 78.9M (peak: 81.6M)
+        CPU: 19min 23.484s
+     CGroup: /system.slice/polymarket-agent.service
+             └─1077857 /opt/trading/venv/bin/python3 /opt/trading/scripts/run_polymarket.py
+
+May 16 07:55:00 srv1347416 python3[1077857]: 2026-05-16 07:55:00.994 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 1 qualifying markets
+May 16 07:55:01 srv1347416 python3[1077857]: 2026-05-16 07:55:01.000 | DEBUG    | data.polymarket_feed:save_markets:259 - POLY FEED: Saved 1 markets to DB
+May 16 07:55:01 srv1347416 python3[1077857]: 2026-05-16 07:55:01.001 | INFO     | __main__:main:249 - Cycle 1721: Scanned 1 markets, saved 1
+May 16 07:55:03 srv1347416 python3[1077857]: 2026-05-16 07:55:03.321 | DEBUG    | data.polymarket_feed:scan_tail_end_markets:395 - POLY FEED tail_end: Found 0 tail-end candidates
+May 16 07:55:03 srv1347416 python3[1077857]: 2026-05-16 07:55:03.383 | DEBUG    | data.polymarket_feed:scan_15min_markets:576 - POLY FEED 15min: Found 0 markets closing in ≤15min
+May 16 07:55:03 srv1347416 python3[1077857]: 2026-05-16 07:55:03.388 | INFO     | __main__:main:385 - Cycle 1721 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $980.09 | PnL: $-19.91 | Next scan in 300s
+May 16 08:00:07 srv1347416 python3[1077857]: 2026-05-16 08:00:07.978 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+May 16 08:00:10 srv1347416 python3[1077857]: 2026-05-16 08:00:10.737 | DEBUG    | data.polymarket_feed:scan_tail_end_markets:395 - POLY FEED tail_end: Found 0 tail-end candidates
+May 16 08:00:10 srv1347416 python3[1077857]: 2026-05-16 08:00:10.800 | DEBUG    | data.polymarket_feed:scan_15min_markets:576 - POLY FEED 15min: Found 0 markets closing in ≤15min
+May 16 08:00:10 srv1347416 python3[1077857]: 2026-05-16 08:00:10.805 | INFO     | __main__:main:385 - Cycle 1722 complete | Evaluated: 0 | Executed: 0 | Open: 0 | Exposure: $0.00 | Balance: $980.09 | PnL: $-19.91 | Next scan in 300s
+
+● polymarket-snipe.service - Polymarket SNIPE Agent — Late-entry + ARB bot para mercados Up/Down 15m
+     Loaded: loaded (/etc/systemd/system/polymarket-snipe.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-05-15 01:43:04 UTC; 1 day 6h ago
+   Main PID: 1216412 (python3)
+      Tasks: 1 (limit: 9483)
+     Memory: 101.7M (max: 512.0M available: 410.2M peak: 102.2M)
+        CPU: 10min 36.861s
+     CGroup: /system.slice/polymarket-snipe.service
+             └─1216412 /opt/trading/venv/bin/python3 /opt/trading/scripts/run_polymarket_snipe.py
+
+May 16 07:15:13 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:15:13.719 | INFO     | __main__:main:211 - Cycle 3480 | Open=0 | Wins=257/282 (91.1%) | P&L=$-172.37 | Bal=$327.63
+May 16 07:25:19 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:25:19.769 | INFO     | __main__:main:211 - Cycle 3500 | Open=0 | Wins=257/282 (91.1%) | P&L=$-172.37 | Bal=$327.63
+May 16 07:28:22 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:28:22.693 | INFO     | agents.polymarket_snipe:open_snipe_trade:401 - SNIPE [BTC] UP entry=$0.9350 x8 move=+0.283%
+May 16 07:31:31 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:31:31.551 | WARNING  | agents.polymarket_snipe:resolve_expired_trades:480 - ORACLE GAP [BTC] UP → UP | move=+0.2215% (below threshold 0.25%) | entry_move=+0.2832% | Kraken open=78254.7000 close=78428.0000 | outcome=WIN
+May 16 07:31:31 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:31:31.555 | INFO     | agents.polymarket_snipe:resolve_expired_trades:500 - RESOLVED [BTC] SNIPE UP → WIN | P&L=$+0.5200
+May 16 07:35:34 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:35:34.327 | INFO     | __main__:main:211 - Cycle 3520 | Open=0 | Wins=258/283 (91.2%) | P&L=$-171.85 | Bal=$328.15
+May 16 07:43:43 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:43:43.856 | INFO     | agents.polymarket_snipe:open_snipe_trade:401 - SNIPE [ETH] UP entry=$0.9300 x8 move=+4.292%
+May 16 07:45:47 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:45:47.555 | INFO     | __main__:main:211 - Cycle 3540 | Open=1 | Wins=258/283 (91.2%) | P&L=$-171.85 | Bal=$328.15
+May 16 07:46:18 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:46:18.858 | INFO     | agents.polymarket_snipe:resolve_expired_trades:500 - RESOLVED [ETH] SNIPE UP → WIN | P&L=$+0.5600
+May 16 07:55:54 srv1347416 polymarket-snipe[1216412]: 2026-05-16 07:55:54.840 | INFO     | __main__:main:211 - Cycle 3560 | Open=0 | Wins=259/284 (91.2%) | P&L=$-171.29 | Bal=$328.71
+
+● stocks-agent.service - Arthas Stocks Agent — NYSE/NASDAQ Momentum Trading
+     Loaded: loaded (/etc/systemd/system/stocks-agent.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-05-13 16:01:37 UTC; 2 days ago
+   Main PID: 1150319 (python3)
+      Tasks: 3 (limit: 9483)
+     Memory: 91.3M (peak: 91.8M)
+        CPU: 1min 49.380s
+     CGroup: /system.slice/stocks-agent.service
+             └─1150319 /opt/trading/venv/bin/python3 /opt/trading/scripts/run_stocks.py
+
+May 16 07:39:12 srv1347416 python3[1150319]: 07:39:12 | INFO     | NYSE cerrado (07:39 UTC). Ciclo saltado.
+May 16 07:39:12 srv1347416 python3[1150319]: 07:39:12 | INFO     | Próximo ciclo en 300s...
+May 16 07:44:12 srv1347416 python3[1150319]: 07:44:12 | INFO     | NYSE cerrado (07:44 UTC). Ciclo saltado.
+May 16 07:44:12 srv1347416 python3[1150319]: 07:44:12 | INFO     | Próximo ciclo en 300s...
+May 16 07:49:12 srv1347416 python3[1150319]: 07:49:12 | INFO     | NYSE cerrado (07:49 UTC). Ciclo saltado.
+May 16 07:49:12 srv1347416 python3[1150319]: 07:49:12 | INFO     | Próximo ciclo en 300s...
+May 16 07:54:12 srv1347416 python3[1150319]: 07:54:12 | INFO     | NYSE cerrado (07:54 UTC). Ciclo saltado.
+May 16 07:54:12 srv1347416 python3[1150319]: 07:54:12 | INFO     | Próximo ciclo en 300s...
+May 16 07:59:12 srv1347416 python3[1150319]: 07:59:12 | INFO     | NYSE cerrado (07:59 UTC). Ciclo saltado.
+May 16 07:59:12 srv1347416 python3[1150319]: 07:59:12 | INFO     | Próximo ciclo en 300s...
+
+● grid-stable.service - Arthas Grid Stable Bot — Pares de baja volatilidad (ETH/BTC, LINK/BTC)
+     Loaded: loaded (/etc/systemd/system/grid-stable.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-05-03 17:55:04 UTC; 1 week 5 days ago
+   Main PID: 860790 (python3)
+      Tasks: 3 (limit: 9483)
+     Memory: 142.6M (peak: 143.1M)
+        CPU: 5min 8.948s
+     CGroup: /system.slice/grid-stable.service
+             └─860790 /opt/trading/venv/bin/python3 /opt/trading/agents/grid_stable_agent.py
+
+May 16 07:14:29 srv1347416 python3[860790]: 2026-05-16 07:14:29.979 | INFO     | __main__:close_trade:185 - GRID_STABLE CLOSE: ETH/BTC STOP_LOSS | entry=0.02813636 exit=0.02813636 PnL=$0.0000
+May 16 07:14:29 srv1347416 python3[860790]: 2026-05-16 07:14:29.982 | INFO     | __main__:close_trade:183 - COOLDOWN GRID_STABLE: ETH/BTC blocked for 10m (STOP_LOSS)
+May 16 07:14:29 srv1347416 python3[860790]: 2026-05-16 07:14:29.982 | INFO     | __main__:close_trade:185 - GRID_STABLE CLOSE: ETH/BTC STOP_LOSS | entry=0.02814182 exit=0.02813364 PnL=$-0.5000
+May 16 07:28:34 srv1347416 python3[860790]: 2026-05-16 07:28:34.435 | INFO     | __main__:open_trade:147 - GRID_STABLE OPEN: ETH/BTC level=1 entry=0.027983 size=36683.7858
+May 16 07:30:35 srv1347416 python3[860790]: 2026-05-16 07:30:35.732 | DEBUG    | __main__:monitor_trades:233 - GRID_STABLE trailing: ETH/BTC SL moved to break-even at 0.02798273
+[0m
+[0m→ [0mRead docs/EXPANSION_PLAN.md
+[0m
+[0m$ [0mset -a && source /opt/trading/config/.env && set +a && /opt/trading/venv/bin/python3 -c "
+from sqlalchemy import create_engine, text; import os
+e = create_engine(os.environ['DB_URL'])
+with e.connect() as c:
+    # Trading Agent
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM paper_sessions WHERE status='ACTIVE' OR status='OPEN' ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== TRADING (paper_sessions) ===')
+    [print(row) for row in r]
+    
+    # Stocks
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM stocks_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== STOCKS (stocks_sessions) ===')
+    [print(row) for row in r]
+    
+    # Options
+    r = c.execute(text(\"SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM options_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== OPTIONS (options_sessions) ===')
+    [print(row) for row in r]
+    
+    # Polymarket
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM poly_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== POLYMARKET (poly_sessions) ===')
+    [print(row) for row in r]
+    
+    # Snipe
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM snipe_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== SNIPE (snipe_sessions) ===')
+    [print(row) for row in r]
+    
+    # Grid Stable
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, initial_balance FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== GRID STABLE (grid_stable_sessions) ===')
+    [print(row) for row in r]
+" 2>&1
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+  File "<frozen os>", line 685, in __getitem__
+KeyError: 'DB_URL'
+[0m
+[0m✱ [0mGlob "web/src/**/*.{tsx,jsx,js,ts}"[90m in . · 0 matches[0m
+[0m✱ [0mGrep "telegram.*send|send.*telegram|TELEGRAM_BOT|send_telegram|send_message"[90m in . · 72 matches[0m
+Let me gather all the information in parallel first.
+[0m
+[0m$ [0msystemctl list-units --type=service --all 'basis-agent' 'vix-agent' 'pairs-agent' 'earnings-agent' 'grid-stable' 'kalshi-arb' 2>/dev/null; echo "---"; systemctl status basis-agent vix-agent pairs-agent kalshi-arb --no-pager -l 2>&1 | head -60
+UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+---
+● basis-agent.service - Basis Trade Agent — Spot-Futures funding rate capture
+     Loaded: loaded (/etc/systemd/system/basis-agent.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-05-15 01:08:47 UTC; 1 day 6h ago
+   Main PID: 1214489 (python3)
+      Tasks: 1 (limit: 9483)
+     Memory: 118.5M (peak: 120.6M)
+        CPU: 3.439s
+     CGroup: /system.slice/basis-agent.service
+             └─1214489 /opt/trading/venv/bin/python3 /opt/trading/agents/basis_executor.py
+
+May 16 03:10:02 srv1347416 python3[1214489]: 2026-05-16 03:10:02.732 | INFO     | __main__:run_cycle:183 - BASIS BTC: funding=11.0%/yr min=8.0%
+May 16 03:10:03 srv1347416 python3[1214489]: 2026-05-16 03:10:03.865 | ERROR    | __main__:main:243 - BasisTrade cycle error: name 'capital' is not defined
+May 16 04:10:04 srv1347416 python3[1214489]: 2026-05-16 04:10:04.137 | INFO     | __main__:run_cycle:183 - BASIS BTC: funding=11.0%/yr min=8.0%
+May 16 04:10:05 srv1347416 python3[1214489]: 2026-05-16 04:10:05.312 | ERROR    | __main__:main:243 - BasisTrade cycle error: name 'capital' is not defined
+May 16 05:10:05 srv1347416 python3[1214489]: 2026-05-16 05:10:05.754 | INFO     | __main__:run_cycle:183 - BASIS BTC: funding=11.0%/yr min=8.0%
+May 16 05:10:06 srv1347416 python3[1214489]: 2026-05-16 05:10:06.905 | ERROR    | __main__:main:243 - BasisTrade cycle error: name 'capital' is not defined
+May 16 06:10:07 srv1347416 python3[1214489]: 2026-05-16 06:10:07.513 | INFO     | __main__:run_cycle:183 - BASIS BTC: funding=11.0%/yr min=8.0%
+May 16 06:10:08 srv1347416 python3[1214489]: 2026-05-16 06:10:08.639 | ERROR    | __main__:main:243 - BasisTrade cycle error: name 'capital' is not defined
+May 16 07:10:09 srv1347416 python3[1214489]: 2026-05-16 07:10:09.325 | INFO     | __main__:run_cycle:183 - BASIS BTC: funding=11.0%/yr min=8.0%
+May 16 07:10:10 srv1347416 python3[1214489]: 2026-05-16 07:10:10.564 | ERROR    | __main__:main:243 - BasisTrade cycle error: name 'capital' is not defined
+
+● vix-agent.service - VIX Mean Reversion Agent — Volatility trading via SVXY
+     Loaded: loaded (/etc/systemd/system/vix-agent.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-05-15 00:16:55 UTC; 1 day 7h ago
+   Main PID: 1211561 (python3)
+      Tasks: 3 (limit: 9483)
+     Memory: 87.8M (peak: 88.3M)
+        CPU: 5.622s
+     CGroup: /system.slice/vix-agent.service
+             └─1211561 /opt/trading/venv/bin/python3 /opt/trading/agents/vol_executor.py
+
+May 16 05:17:46 srv1347416 python3[1211561]: $^VX3=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 05:17:46 srv1347416 python3[1211561]: 2026-05-16 05:17:46.336 | ERROR    | __main__:main:136 - VIX cycle error: unsupported format string passed to NoneType.__format__
+May 16 06:17:46 srv1347416 python3[1211561]: $^VX=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 06:17:47 srv1347416 python3[1211561]: $^VX2=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 06:17:47 srv1347416 python3[1211561]: $^VX3=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 06:17:47 srv1347416 python3[1211561]: 2026-05-16 06:17:47.660 | ERROR    | __main__:main:136 - VIX cycle error: unsupported format string passed to NoneType.__format__
+May 16 07:17:48 srv1347416 python3[1211561]: $^VX=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 07:17:48 srv1347416 python3[1211561]: $^VX2=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 07:17:49 srv1347416 python3[1211561]: $^VX3=F: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+May 16 07:17:49 srv1347416 python3[1211561]: 2026-05-16 07:17:49.229 | ERROR    | __main__:main:136 - VIX cyclUnit kalshi-arb.service could not be found.
+e error: unsupported format string passed to NoneType.__format__
+
+● pairs-agent.service - Pairs Trading Agent — Cointegration-based pairs trading
+     Loaded: loaded (/etc/systemd/system/pairs-agent.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-05-13 16:49:10 UTC; 2 days ago
+   Main PID: 1154262 (python3)
+      Tasks: 4 (limit: 9483)
+     Memory: 130.6M (peak: 131.1M)
+        CPU: 1min 28.494s
+     CGroup: /system.slice/pairs-agent.service
+             └─1154262 /opt/trading/venv/bin/python3 /opt/trading/agents/pairs_executor.py
+
+May 16 07:37:50 srv1347416 python3[1154262]: 2026-05-16 07:37:50.681 | INFO     | __main__:run_cycle:195 - Pairs GLD-SLV: HOLD z=0.82 hl=73.7d —
+May 16 07:37:50 srv1347416 python3[1154262]: 2026-05-16 07:37:50.981 | INFO     | __main__:run_cycle:195 - Pairs BTC-ETH: HOLD z=-0.03 hl=149.6d —
+May 16 07:42:51 srv1347416 python3[1154262]: 2026-05-16 07:42:51.267 | INFO     | __main__:run_cycle:195 - Pairs GLD-SLV: HOLD z=0.82 hl=73.7d —
+May 16 07:42:51 srv1347416 python3[1154262]: 2026-05-16 07:42:51.715 | INFO     | __main__:run_cycle:195 - Pairs BTC-ETH: HOLD z=-0.03 hl=149.6d —
+May 16 07:47:52 srv1347416 python3[1154262]: 2026-05-16 07:47:52.096 | INFO     | __main__:run_cycle:195 - Pairs GLD-SLV: HOLD z=0.82 hl=73.7d —
+May 16 07:47:52 srv1347416 python3[1154262]: 2026-05-16 07:47:52.374 | INFO     | __main__:run_cycle:195 - Pairs BTC-ETH: HOLD z=-0.03 hl=149.6d —
+May 16 07:52:52 srv1347416 python3[1154262]: 2026-05-16 07:52:52.737 | INFO     | __main__:run_cycle:195 - Pairs GLD-SLV: HOLD z=0.82 hl=73.7d —
+[0m
+[0m$ [0mcd /opt/trading && . config/.env && /opt/trading/venv/bin/python3 -c "
+from sqlalchemy import create_engine, text; import os
+e = create_engine(os.environ['DB_URL'])
+with e.connect() as c:
+    # Trading Agent
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM paper_sessions WHERE status='ACTIVE' OR status='OPEN' ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== TRADING (paper_sessions) ===')
+    [print(row) for row in r]
+    
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM stocks_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== STOCKS (stocks_sessions) ===')
+    [print(row) for row in r]
+    
+    r = c.execute(text(\"SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM options_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== OPTIONS (options_sessions) ===')
+    [print(row) for row in r]
+    
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM poly_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== POLYMARKET (poly_sessions) ===')
+    [print(row) for row in r]
+    
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM snipe_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== SNIPE (snipe_sessions) ===')
+    [print(row) for row in r]
+    
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 2\")).fetchall()
+    print('=== GRID STABLE (grid_stable_sessions) ===')
+    [print(row) for row in r]
+    
+    # Basis trades
+    try:
+        r = c.execute(text(\"SELECT * FROM basis_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+        print('=== BASIS (basis_sessions) ===')
+        print('Columns:', c.execute(text(\"SELECT column_name FROM information_schema.columns WHERE table_name='basis_sessions'\")).fetchall())
+        [print(row) for row in r]
+    except Exception as e:
+        print(f'=== BASIS: {e} ===')
+    
+    # Vol/VIX
+    try:
+        r = c.execute(text(\"SELECT * FROM vol_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+        print('=== VIX (vol_sessions) ===')
+        print('Columns:', c.execute(text(\"SELECT column_name FROM information_schema.columns WHERE table_name='vol_sessions'\")).fetchall())
+        [print(row) for row in r]
+    except Exception as e:
+        print(f'=== VIX: {e} ===')
+    
+    # Pairs
+    try:
+        r = c.execute(text(\"SELECT * FROM pairs_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+        print('=== PAIRS (pairs_sessions) ===')
+        print('Columns:', c.execute(text(\"SELECT column_name FROM information_schema.columns WHERE table_name='pairs_sessions'\")).fetchall())
+        [print(row) for row in r]
+    except Exception as e:
+        print(f'=== PAIRS: {e} ===')
+    
+    # Earnings
+    try:
+        r = c.execute(text(\"SELECT * FROM earnings_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+        print('=== EARNINGS (earnings_sessions) ===')
+        print('Columns:', c.execute(text(\"SELECT column_name FROM information_schema.columns WHERE table_name='earnings_sessions'\")).fetchall())
+        [print(row) for row in r]
+    except Exception as e:
+        print(f'=== EARNINGS: {e} ===')
+    
+    # Grid Stable recent trades
+    r = c.execute(text(\"SELECT COUNT(*) as total, SUM(CASE WHEN pnl > 0 THEN 1 ELSE 0 END) as wins, ROUND(SUM(COALESCE(pnl,0)),2) as total_pnl FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'\")).fetchall()
+    print('=== GRID STABLE trades PnL ===')
+    [print(row) for row in r]
+" 2>&1
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+  File "<frozen os>", line 685, in __getitem__
+KeyError: 'DB_URL'
+[0m
+[0m$ [0mls -la /opt/trading/web/
+total 248
+drwxr-xr-x   7 root root   4096 May 13 16:35 .
+drwxr-xr-x  21 root root   4096 May  3 16:51 ..
+-rw-r--r--   1 root root     42 Apr 24 15:56 .env.local
+-rw-r--r--   1 root root     45 Apr 24 15:56 .env.production
+-rw-r--r--   1 root root    391 Apr 24 15:49 .gitignore
+drwxr-xr-x   6 root root   4096 May 16 07:59 .next
+-rw-r--r--   1 root root   1450 Apr 24 15:49 README.md
+drwxr-xr-x  16 root root   4096 May 14 20:07 app
+drwxr-xr-x   2 root root   4096 May 12 00:08 components
+drwxr-xr-x   2 root root   4096 Apr 24 15:51 lib
+-rw-r--r--   1 root root    228 Apr 24 15:49 next-env.d.ts
+-rw-r--r--   1 root root     92 Apr 24 15:49 next.config.mjs
+drwxr-xr-x 118 root root   4096 Apr 24 15:57 node_modules
+-rw-r--r--   1 root root  67764 Apr 24 15:57 package-lock.json
+-rw-r--r--   1 root root    597 Apr 24 15:57 package.json
+-rw-r--r--   1 root root    135 Apr 24 15:49 postcss.config.mjs
+-rw-r--r--   1 root root   1311 Apr 24 15:56 tailwind.config.ts
+-rw-r--r--   1 root root    574 Apr 24 15:49 tsconfig.json
+-rw-r--r--   1 root root 113828 May 14 20:06 tsconfig.tsbuildinfo
+[0m
+[0m→ [0mRead core/notifications.py
+[0m
+[0m$ [0mls -la /opt/trading/web/app/ /opt/trading/web/components/
+/opt/trading/web/app/:
+total 116
+drwxr-xr-x 16 root root  4096 May 14 20:07 .
+drwxr-xr-x  7 root root  4096 May 13 16:35 ..
+drwxr-xr-x  2 root root  4096 Apr 24 15:54 analytics
+drwxr-xr-x  2 root root  4096 May  2 06:33 btc-direction
+drwxr-xr-x  2 root root  4096 May  1 15:31 crypto
+-rw-r--r--  1 root root 25931 Apr 24 15:49 favicon.ico
+drwxr-xr-x  2 root root  4096 Apr 24 15:49 fonts
+-rw-r--r--  1 root root  2198 May  1 15:32 globals.css
+drwxr-xr-x  2 root root  4096 May  3 18:06 grid-bot
+drwxr-xr-x  2 root root  4096 May  2 06:37 grid-stable
+drwxr-xr-x  2 root root  4096 May 14 05:44 kalshi-arb
+-rw-r--r--  1 root root   788 May 10 00:27 layout.tsx
+drwxr-xr-x  2 root root  4096 May  2 06:32 options
+-rw-r--r--  1 root root 13901 May 16 07:58 page.tsx
+drwxr-xr-x  2 root root  4096 May 12 00:49 pairs
+drwxr-xr-x  2 root root  4096 May  2 06:31 polymarket
+drwxr-xr-x  2 root root  4096 Apr 24 15:54 signals
+drwxr-xr-x  2 root root  4096 May  3 00:30 snipe
+drwxr-xr-x  2 root root  4096 Apr 24 15:53 stocks
+drwxr-xr-x  2 root root  4096 Apr 24 15:54 trades
+
+/opt/trading/web/components/:
+total 64
+drwxr-xr-x 2 root root 4096 May 12 00:08 .
+drwxr-xr-x 7 root root 4096 May 13 16:35 ..
+-rw-r--r-- 1 root root 1712 Apr 24 15:56 ADXGauge.tsx
+-rw-r--r-- 1 root root 5378 May 10 00:29 AgentCard.tsx
+-rw-r--r-- 1 root root 2128 May  2 00:58 AllocationChart.tsx
+-rw-r--r-- 1 root root 2220 May 10 00:27 AppShell.tsx
+-rw-r--r-- 1 root root 3207 May 10 08:51 ConsortiumWidget.tsx
+-rw-r--r-- 1 root root 1792 May 12 00:10 DrawdownChart.tsx
+-rw-r--r-- 1 root root 1511 May 10 00:31 LiveTicker.tsx
+-rw-r--r-- 1 root root 2105 May  1 15:33 MiniEquity.tsx
+-rw-r--r-- 1 root root 1656 May 12 00:10 MonthlyReturns.tsx
+-rw-r--r-- 1 root root 2379 Apr 24 15:56 PnlCalendar.tsx
+-rw-r--r-- 1 root root 2747 May 12 00:08 RiskPanel.tsx
+-rw-r--r-- 1 root root 4460 May 12 00:05 Sidebar.tsx
+[0m
+[0m$ [0mexport $(grep -v '^#' /opt/trading/config/.env | xargs) && /opt/trading/venv/bin/python3 -c "
+from sqlalchemy import create_engine, text; import os
+e = create_engine(os.environ['DB_URL'])
+with e.connect() as c:
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== TRADING ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM stocks_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== STOCKS ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM options_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== OPTIONS ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM poly_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== POLYMARKET ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM snipe_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== SNIPE ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== GRID STABLE ==='); [print(row) for row in r]
+    # Check for all tables
+    tables = c.execute(text(\"SELECT table_name FROM information_schema.tables WHERE table_schema='public' ORDER BY table_name\")).fetchall()
+    session_tables = [t[0] for t in tables if 'session' in t[0].lower()]
+    print('=== SESSION TABLES ==='); [print(t) for t in session_tables]
+" 2>&1
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+  File "<frozen os>", line 685, in __getitem__
+KeyError: 'DB_URL'
+[0m
+[0m$ [0msystemctl list-unit-files 'basis-agent.service' 'vix-agent.service' 'pairs-agent.service' 'earnings-agent.service' 'grid-stable.service' 'kalshi-arb.service' 2>/dev/null; echo "---"; systemctl status earnings-agent --no-pager -l 2>&1 | head -10
+UNIT FILE              STATE    PRESET
+basis-agent.service    enabled  enabled
+earnings-agent.service disabled enabled
+grid-stable.service    enabled  enabled
+pairs-agent.service    enabled  enabled
+vix-agent.service      enabled  enabled
+
+5 unit files listed.
+---
+○ earnings-agent.service - Earnings Strangle Agent — Pre-earnings OTM strangle on mega-cap tech
+     Loaded: loaded (/etc/systemd/system/earnings-agent.service; disabled; preset: enabled)
+     Active: inactive (dead)
+
+May 14 04:00:55 srv1347416 systemd[1]: Started earnings-agent.service - Earnings Strangle Agent — Pre-earnings OTM strangle on mega-cap tech.
+May 14 04:00:57 srv1347416 python3[1186834]: 2026-05-14 04:00:57.685 | INFO     | core.alpaca_session_manager:get_alpaca_client:222 - AlpacaClient inicializado (PAPER)
+May 14 04:00:57 srv1347416 python3[1186834]: 2026-05-14 04:00:57.686 | INFO     | __main__:<module>:57 - EarningsExecutor: 5 activos: ['NVDA', 'TSLA', 'AAPL', 'META', 'AMZN'] balance=$1000 paper=True
+May 14 04:00:57 srv1347416 python3[1186834]: 2026-05-14 04:00:57.686 | INFO     | __main__:main:353 - EarningsExecutor iniciado — paper trading
+May 14 04:00:57 srv1347416 python3[1186834]: 2026-05-14 04:00:57.762 | INFO     | __main__:_ensure_table:92 - earnings_trades table ready
+May 14 04:00:58 srv1347416 python3[1186834]: 2026-05-14 04:00:58.986 | ERROR    | __main__:main:378 - Earnings cycle error: 'int' object has no attribute 'replace'
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os, subprocess
+result = subprocess.run(['bash', '-c', 'set -a && source config/.env && set +a && env | grep DB_URL'], capture_output=True, text=True)
+print('sourcing result:', result.stdout.strip())
+result2 = subprocess.run(['bash', '-c', 'export \$(grep -v \"^#\" /opt/trading/config/.env | xargs) && env | grep DB_URL'], capture_output=True, text=True)
+print('export result:', result2.stdout.strip())
+" 2>&1
+sourcing result: 
+export result:
+[0m
+[0m→ [0mRead web/app/page.tsx
+[0m→ [0mRead web/components/ConsortiumWidget.tsx
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os
+# Read .env manually
+with open('config/.env') as f:
+    for line in f:
+        line = line.strip()
+        if line and not line.startswith('#') and '=' in line:
+            key, val = line.split('=', 1)
+            os.environ[key] = val.strip()
+from sqlalchemy import create_engine, text
+e = create_engine(os.environ['DB_URL'])
+with e.connect() as c:
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== TRADING (paper_sessions) ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM stocks_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== STOCKS (stocks_sessions) ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM options_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== OPTIONS (options_sessions) ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM poly_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== POLYMARKET (poly_sessions) ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM snipe_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== SNIPE (snipe_sessions) ==='); [print(row) for row in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== GRID STABLE (grid_stable_sessions) ==='); [print(row) for row in r]
+    # Check what tables exist for new agents
+    all_tables = c.execute(text(\"SELECT table_name FROM information_schema.tables WHERE table_schema='public' AND table_name LIKE '%session%' ORDER BY table_name\")).fetchall()
+    print('=== SESSION TABLES ==='); [print(t[0]) for t in all_tables]
+    # Check for pairs/vol/basis/earnings sessions
+    for tname in ['pairs_sessions','vol_sessions','basis_sessions','earnings_sessions']:
+        try:
+            r = c.execute(text(f'SELECT * FROM {tname} ORDER BY started_at DESC LIMIT 1')).fetchall()
+            print(f'=== {tname} ==='); [print(row) for row in r]
+        except Exception as ex:
+            print(f'=== {tname}: {ex} ===')
+" 2>&1
+Traceback (most recent call last):
+  File "<string>", line 11, in <module>
+  File "<frozen os>", line 685, in __getitem__
+KeyError: 'DB_URL'
+[0m
+[0m$ [0mls -la /opt/trading/api/ 2>/dev/null || ls -la /opt/trading/api/main.py 2>/dev/null; grep -r "consortium\|overview" /opt/trading/api/ --include="*.py" -l 2>/dev/null
+total 24
+drwxr-xr-x  4 root root 4096 Apr 24 15:48 .
+drwxr-xr-x 21 root root 4096 May  3 16:51 ..
+-rw-r--r--  1 root root    0 Apr 24 15:46 __init__.py
+drwxr-xr-x  2 root root 4096 May 14 20:06 __pycache__
+-rw-r--r--  1 root root 1049 Apr 24 15:56 db.py
+-rw-r--r--  1 root root 1577 May 14 20:04 main.py
+drwxr-xr-x  3 root root 4096 May 14 20:04 routers
+/opt/trading/api/routers/health.py
+/opt/trading/api/routers/overview.py
+/opt/trading/api/main.py
+[0m
+[0m$ [0mhead -20 /opt/trading/config/.env
+# ──────────────────────────────────────────────────
+# AI Trading Agent — Environment Variables
+# NUNCA commitear este archivo a git
+# ──────────────────────────────────────────────────
+
+# ── LLM Provider ──
+# Prioridad: DeepSeek > OpenAI > Anthropic
+# DeepSeek: ~10x más barato que gpt-4o-mini. API compatible con OpenAI.
+#   Obtener clave en: https://platform.deepseek.com/api_keys
+DEEPSEEK_API_KEY=sk-b33072a89bb446fab23f25d10c70e6b1
+#LLM_MODEL=deepseek-chat         # default cuando DEEPSEEK_API_KEY está activa
+
+# Control de costos: fracción de señales que consultan al LLM (default 10%)
+# 0.10 = ~$0.05/día con DeepSeek, 1.0 = cobertura total
+LLM_CALL_SAMPLE_RATE=0.10
+
+# OpenAI — desactivado (gastó todos los tokens con prediction.py, 43 trades 0 wins)
+#OPENAI_API_KEY=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
+
+# Anthropic — desactivado
+[0m
+[0m→ [0mRead api/routers/overview.py
+[0m
+[0m$ [0mgrep 'DB_URL\|DATABASE' /opt/trading/config/.env
+(no output)
+[0m
+[0m→ [0mRead api/db.py
+[0m
+[0m$ [0mls /opt/trading/api/routers/
+__init__.py
+__pycache__
+crypto.py
+grid_stable.py
+health.py
+kalshi_arb.py
+live.py
+options.py
+overview.py
+pairs.py
+polymarket.py
+stocks.py
+[0m
+[0m# [0mTodos
+[•] Verificar que los 5 nuevos agentes estén corriendo (systemd status)
+[ ] Consolidar dashboard React para mostrar TODAS las líneas de negocio en Overview
+[ ] Agregar sección 'Rentabilidad Consolidada' que sume PnL de todos los agentes
+[ ] Enviar reporte final por Telegram con tabla consolidada y proyecciones
+[ ] Actualizar docs/EXPANSION_PLAN.md con estado COMPLETADO
+[ ] Git add, commit, push con mensaje de expansión completada
+[0m
+Now I have full context. Let me gather the remaining data and start implementing. I'll work through each task systematically.
+[0m$ [0mgrep -n 'captial\|capital' /opt/trading/agents/basis_executor.py | head -20
+118:def open_basis_trade(signal, spot_price: float, capital: float):
+120:    size = strategy.calculate_position_size(capital, spot_price)
+192:            open_basis_trade(signal, spot, capital)
+[0m
+[0m$ [0mgrep -n "replace\|'int'" /opt/trading/agents/earnings_executor.py | head -15
+268:                ed = datetime.fromisoformat(earnings_date_str.replace('Z', '+00:00'))
+[0m
+[0m$ [0mgrep 'POSTGRES' /opt/trading/config/.env
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=trading_agent
+POSTGRES_USER=trading
+POSTGRES_PASSWORD=Tr4d1ng_Ag3nt_2026!
+[0m
+[0m→ [0mRead agents/basis_executor.py[90m [offset=170, limit=80][0m
+[0m→ [0mRead agents/earnings_executor.py[90m [offset=255, limit=30][0m
+[0m→ [0mRead agents/basis_executor.py[90m [limit=50][0m
+[0m→ [0mRead agents/basis_executor.py[90m [limit=70, offset=51][0m
+[0m
+[0m← [0mEdit agents/basis_executor.py
+Index: /opt/trading/agents/basis_executor.py
+===================================================================
+--- /opt/trading/agents/basis_executor.py
++++ /opt/trading/agents/basis_executor.py
+@@ -188,9 +188,9 @@
+         avg_30d = feed.get_avg_funding_annual(asset) or 0
+ 
+         signal = strategy.evaluate(asset, funding_annual, spot, fut, basis, avg_30d)
+         if signal and signal.is_valid:
+-            open_basis_trade(signal, spot, capital)
++            open_basis_trade(signal, spot, INITIAL_BALANCE)
+ 
+ 
+ def monitor_positions():
+     """Monitorea posiciones abiertas de basis trade."""
+
+[0m
+[0m→ [0mRead agents/earnings_executor.py[90m [limit=30, offset=260][0m
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os
+os.environ['POSTGRES_USER'] = 'trading'
+os.environ['POSTGRES_PASSWORD'] = 'Tr4d1ng_Ag3nt_2026!'
+os.environ['POSTGRES_HOST'] = 'localhost'
+os.environ['POSTGRES_PORT'] = '5432'
+os.environ['POSTGRES_DB'] = 'trading_agent'
+from sqlalchemy import create_engine, text
+url = f\"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB']}\"
+e = create_engine(url)
+with e.connect() as c:
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND((winning_trades::numeric/NULLIF(total_trades,0))*100,1) as wr, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== TRADING (paper_sessions) ==='); [print(f'  {r.session_name} | status={r.status} | trades={r.total_trades} | WR={r.wr}% | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM stocks_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== STOCKS ==='); [print(f'  {r.session_name} | status={r.status} | trades={r.total_trades} | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    r = c.execute(text(\"SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM options_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== OPTIONS ==='); [print(f'  {r.session_name} | status={r.status} | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM poly_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== POLYMARKET ==='); [print(f'  {r.session_name} | status={r.status} | trades={r.total_trades} | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM snipe_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== SNIPE ==='); [print(f'  {r.session_name} | status={r.status} | trades={r.total_trades} | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 1\")).fetchall()
+    print('=== GRID STABLE ==='); [print(f'  {r.session_name} | status={r.status} | trades={r.total_trades} | PnL=\${r.pnl} | capital=\${r.capital}') for r in r]
+    
+    # Grid Stable detailed trades
+    r = c.execute(text(\"SELECT COUNT(*) as t, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'\")).fetchone()
+    print(f'=== GRID STABLE trades: {r.t} closed, {r.wins} wins, PnL=\${r.pnl} ===')
+    r = c.execute(text(\"SELECT COUNT(*) as t, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'\")).fetchone()
+    print(f'=== PAIRS trades: {r.t} closed, {r.wins} wins, PnL=\${r.pnl} ===')
+    
+    # Check tables for vol, basis, earnings data
+    for tname in ['vol_positions','vol_sessions','basis_sessions','earnings_trades','earnings_sessions']:
+        try:
+            r = c.execute(text(f'SELECT COUNT(*) FROM {tname}')).fetchone()
+            print(f'{tname}: {r[0]} rows')
+            if r[0] > 0:
+                cols = [c[0] for c in c.execute(text(f\"SELECT column_name FROM information_schema.columns WHERE table_name='{tname}' ORDER BY ordinal_position\")).fetchall()]
+                print(f'  columns: {cols}')
+        except Exception as ex:
+            print(f'{tname}: {ex}')
+" 2>&1
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "final_balance" does not exist
+LINE 1: SELECT session_name, status, ROUND(final_balance - initial_b...
+                                           ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 16, in <module>
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "final_balance" does not exist
+LINE 1: SELECT session_name, status, ROUND(final_balance - initial_b...
+                                           ^
+
+[SQL: SELECT session_name, status, ROUND(final_balance - initial_balance, 2) as pnl, ROUND(initial_balance,2) as capital FROM options_sessions ORDER BY started_at DESC LIMIT 1]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+=== TRADING (paper_sessions) ===
+  PAPER_SESSION_009 | status=ACTIVE | trades=256 | WR=52.0% | PnL=$1428.56 | capital=$10000.00
+=== STOCKS ===
+  STOCKS_SESSION_002 | status=ACTIVE | trades=0 | PnL=$None | capital=$453.72
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os
+os.environ['POSTGRES_USER'] = 'trading'
+os.environ['POSTGRES_PASSWORD'] = 'Tr4d1ng_Ag3nt_2026!'
+os.environ['POSTGRES_HOST'] = 'localhost'
+os.environ['POSTGRES_PORT'] = '5432'
+os.environ['POSTGRES_DB'] = 'trading_agent'
+from sqlalchemy import create_engine, text
+url = f\"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB']}\"
+e = create_engine(url)
+with e.connect() as c:
+    # TRADING
+    r = c.execute(text(\"SELECT session_name, status, total_trades, winning_trades, ROUND(initial_balance,2) as capital FROM paper_sessions WHERE status='ACTIVE' ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    print(f'TRADING: {r.session_name} | status={r.status} | trades={r.total_trades} | capital=\${r.capital}')
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM trades WHERE status='CLOSED' AND strategy='TREND_MOMENTUM'\")).fetchone()
+    print(f'  TrendMomentum: {r.total} trades, {r.wins} wins, PnL=\${r.pnl}')
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl FROM trades WHERE status='CLOSED' AND strategy!='GRID_STABLE' AND strategy!='PAIRS_TRADING'\")).fetchone()
+    print(f'  Total Crypto PnL (excl Grid+Pairs): \${r.pnl}')
+    
+    # STOCKS
+    r = c.execute(text(\"SELECT * FROM stocks_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    d = dict(r._mapping)
+    print(f'STOCKS: {d[\"session_name\"]} | status={d[\"status\"]} | trades={d.get(\"total_trades\",0)} | capital=\${d.get(\"initial_balance\", 0)}')
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) as total FROM stocks_trades WHERE status='CLOSED'\")).fetchone()
+    print(f'  Stocks PnL: \${r.pnl} ({r.total} closed trades)')
+    
+    # OPTIONS
+    try:
+        r = c.execute(text(\"SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+        d = dict(r._mapping)
+        cols = list(d.keys())
+        pnl_col = 'final_balance_usd' if 'final_balance_usd' in cols else None
+        cap_col = 'initial_balance_usd' if 'initial_balance_usd' in cols else 'initial_balance'
+        print(f'OPTIONS: {d[\"session_name\"]} | status={d.get(\"status\",\"?\")} | columns={cols}')
+        r2 = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl_usd,0)),2) as pnl, COUNT(*) as total FROM options_positions WHERE status!='OPEN'\")).fetchone()
+        print(f'  Options PnL: \${r2.pnl} ({r2.total} closed)')
+    except Exception as ex:
+        print(f'OPTIONS: {ex}')
+    
+    # POLYMARKET
+    r = c.execute(text(\"SELECT * FROM poly_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    d = dict(r._mapping)
+    print(f'POLYMARKET: {d[\"session_name\"]} | status={d.get(\"status\",\"?\")} | trades={d.get(\"total_trades\",0)} | capital=\${d.get(\"initial_balance\",0)}')
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) as total, COUNT(*) FILTER (WHERE pnl>0) as wins FROM poly_positions WHERE status='CLOSED'\")).fetchone()
+    print(f'  Poly PnL: \${r.pnl} ({r.total} closed, {r.wins} wins)')
+    
+    # SNIPE
+    r = c.execute(text(\"SELECT * FROM snipe_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    d = dict(r._mapping)
+    print(f'SNIPE: {d[\"session_name\"]} | status={d.get(\"status\",\"?\")} | trades={d.get(\"total_trades\",\"?\")} | capital=\${d.get(\"initial_balance\",500)}')
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl_usdc,0)),2) as pnl, COUNT(*) as total, COUNT(*) FILTER (WHERE outcome='WIN') as wins FROM snipe_trades WHERE status='CLOSED'\")).fetchone()
+    print(f'  Snipe PnL: \${r.pnl} ({r.total} closed, {r.wins} wins)')
+    
+    # GRID STABLE
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) as total, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'\")).fetchone()
+    print(f'GRID STABLE: {r.total} closed, {r.wins} wins, PnL=\${r.pnl}')
+    r = c.execute(text(\"SELECT * FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    d = dict(r._mapping) if r else {}
+    print(f'  Session: {d.get(\"session_name\",\"N/A\")} | status={d.get(\"status\",\"N/A\")}')
+    
+    # PAIRS
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) as total, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'\")).fetchone()
+    print(f'PAIRS: {r.total} closed, {r.wins} wins, PnL=\${r.pnl}')
+    
+    # Check earnings_trades
+    r = c.execute(text(\"SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl FROM earnings_trades\")).fetchone() if False else None
+    try:
+        r = c.execute(text(\"SELECT COUNT(*) FROM earnings_trades\")).fetchone()
+        print(f'EARNINGS: {r[0]} records in earnings_trades')
+    except Exception as ex:
+        print(f'EARNINGS: {ex}')
+    try:
+        r = c.execute(text(\"SELECT COUNT(*) FROM vol_positions\")).fetchone()
+        print(f'VIX: {r[0]} records in vol_positions')
+    except:
+        pass
+" 2>&1
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "grid_stable_sessions" does not exist
+LINE 1: SELECT * FROM grid_stable_sessions ORDER BY started_at DESC ...
+                      ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 57, in <module>
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "grid_stable_sessions" does not exist
+LINE 1: SELECT * FROM grid_stable_sessions ORDER BY started_at DESC ...
+                      ^
+
+[SQL: SELECT * FROM grid_stable_sessions ORDER BY started_at DESC LIMIT 1]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+TRADING: PAPER_SESSION_009 | status=ACTIVE | trades=256 | capital=$10000.00
+  TrendMomentum: 348 trades, 174 wins, PnL=$11834.11
+  Total Crypto PnL (excl Grid+Pairs): $13588.43
+STOCKS: STOCKS_SESSION_002 | status=ACTIVE | trades=0 | capital=$453.7200
+  Stocks PnL: $-166.24 (187 closed trades)
+OPTIONS: OPTIONS_SESSION_001 | status=ACTIVE | columns=['id', 'session_name', 'mode', 'initial_balance_usd', 'current_balance_usd', 'peak_balance_usd', 'total_contracts', 'winning_contracts', 'total_pnl_usd', 'total_premium_usd', 'realized_losses_usd', 'max_drawdown_pct', 'profit_factor', 'status', 'started_at', 'ended_at', 'notes']
+  Options PnL: $1390.60 (6 closed)
+POLYMARKET: POLY_SESSION_005 | status=ACTIVE | trades=0 | capital=$1000.0
+  Poly PnL: $-981.33 (161 closed, 45 wins)
+SNIPE: SNIPE_SESSION_20260502_2115 | status=ACTIVE | trades=0 | capital=$500.0
+  Snipe PnL: $-171.29 (284 closed, 259 wins)
+GRID STABLE: 1049 closed, 480 wins, PnL=$556.84
+[0m
+[0m← [0mEdit agents/earnings_executor.py
+Index: /opt/trading/agents/earnings_executor.py
+===================================================================
+--- /opt/trading/agents/earnings_executor.py
++++ /opt/trading/agents/earnings_executor.py
+@@ -264,10 +264,16 @@
+ earnings_date_str = pos.get('earnings_date', '')
+ earnings_passed = False
+ if earnings_date_str:
+     try:
+-        ed = datetime.fromisoformat(earnings_date_str.replace('Z', '+00:00'))
+-        earnings_passed = datetime.now(timezone.utc) > ed + timedelta(days=strategy.days_after)
++        if isinstance(earnings_date_str, str):
++            ed = datetime.fromisoformat(earnings_date_str.replace('Z', '+00:00'))
++        elif isinstance(earnings_date_str, (int, float)):
++            ed = datetime.fromtimestamp(float(earnings_date_str), tz=timezone.utc)
++        else:
++            ed = None
++        if ed:
++            earnings_passed = datetime.now(timezone.utc) > ed + timedelta(days=strategy.days_after)
+     except (ValueError, TypeError):
+         pass
+ 
+ ticker = pos['ticker']
+
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os
+os.environ['POSTGRES_USER'] = 'trading'
+os.environ['POSTGRES_PASSWORD'] = 'Tr4d1ng_Ag3nt_2026!'
+os.environ['POSTGRES_HOST'] = 'localhost'
+os.environ['POSTGRES_PORT'] = '5432'
+os.environ['POSTGRES_DB'] = 'trading_agent'
+from sqlalchemy import create_engine, text
+url = f\"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB']}\"
+e = create_engine(url)
+with e.connect() as c:
+    # Pairs
+    r = c.execute(text(\"SELECT ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM trades WHERE strategy='PAIRS_TRADING' AND status='CLOSED'\")).fetchone()
+    print(f'PAIRS: {r.total} closed, {r.wins} wins, PnL=\${r.pnl}')
+    # Basis
+    r = c.execute(text(\"SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='BASIS_TRADE'\")).fetchone()
+    print(f'BASIS: {r.total} trades, {r.wins} wins, PnL=\${r.pnl}')
+    # Vol/VIX 
+    try:
+        r = c.execute(text(\"SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM vol_positions\")).fetchone()
+        print(f'VIX: {r.total} trades, {r.wins} wins, PnL=\${r.pnl}')
+    except:
+        print('VIX: table not found')
+    # Earnings
+    try:
+        r = c.execute(text(\"SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl FROM earnings_trades\")).fetchone()
+        print(f'EARNINGS: {r.total} trades, PnL=\${r.pnl}')
+    except:
+        print('EARNINGS: table error')
+    # Vol trades 
+    try:
+        r = c.execute(text(\"SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='VOL_MEAN_REVERSION'\")).fetchone()
+        print(f'VOL in trades: {r.total} trades, {r.wins} wins, PnL=\${r.pnl}')
+    except Exception as ex:
+        print(f'VOL in trades: {ex}')
+" 2>&1
+PAIRS: 0 closed, 0 wins, PnL=$None
+BASIS: 0 trades, 0 wins, PnL=$None
+VIX: table not found
+EARNINGS: table error
+VOL in trades: (psycopg2.errors.InFailedSqlTransaction) current transaction is aborted, commands ignored until end of transaction block
+
+[SQL: SELECT COUNT(*) as total, ROUND(SUM(COALESCE(pnl,0)),2) as pnl, COUNT(*) FILTER (WHERE pnl>0) as wins FROM trades WHERE strategy='VOL_MEAN_REVERSION']
+(Background on this error at: https://sqlalche.me/e/20/2j85)
+[0m
+[0m→ [0mRead web/lib/api.ts
+[0m→ [0mRead web/lib/fmt.ts
+[0m→ [0mRead api/routers/pairs.py
+[0m
+[0m$ [0mcd /opt/trading && /opt/trading/venv/bin/python3 -c "
+import os
+os.environ['POSTGRES_USER'] = 'trading'
+os.environ['POSTGRES_PASSWORD'] = 'Tr4d1ng_Ag3nt_2026!'
+os.environ['POSTGRES_HOST'] = 'localhost'
+os.environ['POSTGRES_PORT'] = '5432'
+os.environ['POSTGRES_DB'] = 'trading_agent'
+from sqlalchemy import create_engine, text
+url = f\"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB']}\"
+e = create_engine(url)
+with e.connect() as c:
+    # Stocks WR
+    r = c.execute(text(\"SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM stocks_trades WHERE status='CLOSED'\")).fetchone()
+    print(f'Stocks WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Options capital
+    r = c.execute(text(\"SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1\")).fetchone()
+    d = dict(r._mapping)
+    print(f'Options: initial=${d.get(\"initial_balance_usd\",\"?\")} current=${d.get(\"current_balance_usd\",\"?\")}')
+    # Poly WR
+    r = c.execute(text(\"SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM poly_positions WHERE status='CLOSED'\")).fetchone()
+    print(f'Poly WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Options WR
+    r = c.execute(text(\"SELECT COUNT(*) FILTER (WHERE pnl_usd>0) as wins, COUNT(*) as total FROM options_positions WHERE status!='OPEN'\")).fetchone()
+    print(f'Options WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Grid WR
+    r = c.execute(text(\"SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'\")).fetchone()
+    print(f'Grid WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+" 2>&1
+/usr/bin/bash: line 1: 
+import os
+os.environ['POSTGRES_USER'] = 'trading'
+os.environ['POSTGRES_PASSWORD'] = 'Tr4d1ng_Ag3nt_2026!'
+os.environ['POSTGRES_HOST'] = 'localhost'
+os.environ['POSTGRES_PORT'] = '5432'
+os.environ['POSTGRES_DB'] = 'trading_agent'
+from sqlalchemy import create_engine, text
+url = f"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB']}"
+e = create_engine(url)
+with e.connect() as c:
+    # Stocks WR
+    r = c.execute(text("SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM stocks_trades WHERE status='CLOSED'")).fetchone()
+    print(f'Stocks WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Options capital
+    r = c.execute(text("SELECT * FROM options_sessions ORDER BY started_at DESC LIMIT 1")).fetchone()
+    d = dict(r._mapping)
+    print(f'Options: initial=${d.get(\"initial_balance_usd\",\"?\")} current=${d.get(\"current_balance_usd\",\"?\")}')
+    # Poly WR
+    r = c.execute(text("SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM poly_positions WHERE status='CLOSED'")).fetchone()
+    print(f'Poly WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Options WR
+    r = c.execute(text("SELECT COUNT(*) FILTER (WHERE pnl_usd>0) as wins, COUNT(*) as total FROM options_positions WHERE status!='OPEN'")).fetchone()
+    print(f'Options WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+    # Grid WR
+    r = c.execute(text("SELECT COUNT(*) FILTER (WHERE pnl>0) as wins, COUNT(*) as total FROM trades WHERE strategy='GRID_STABLE' AND status='CLOSED'")).fetchone()
+    print(f'Grid WR: {r.wins}/{r.total} = {round(r.wins/r.total*100,1) if r.total else 0}%')
+: bad substitution
+[0m
+[0m$ [0m/opt/trading/venv/bin/python3 /opt/trading/scripts/ai_context.py 2>&1 | head -80
+────────────────────────────────────────────────────────────
+  SISTEMA
+────────────────────────────────────────────────────────────
+  Python:    3.12.3
+  Venv:      /opt/trading/venv/
+  Timestamp: 2026-05-16 08:09 UTC
+  Paper:     true
+
+  Archivos CLAVE:
+    ✓ StrategyEngine     → agents/strategy_engine.py
+    ✓ TradeMonitor       → agents/trade_monitor.py
+    ✓ ExecutionAgent     → agents/execution_agent.py
+    ✓ RiskManager        → risk/risk_manager.py
+    ✓ MarketRegime       → core/market_regime.py
+    ✓ AssetProfiles      → core/asset_profiles.py
+    ✓ PerformanceGuard   → core/performance_guard.py
+    ✓ TrendMomentum      → strategies/trend_momentum.py
+    ✓ Breakout           → strategies/breakout.py
+    ✓ MeanReversion      → strategies/mean_reversion.py
+    ✓ BtcDipBuyer        → strategies/btc_dip_buyer.py
+    ✓ MarketFeed         → data/market_feed.py
+    ✓ SessionManager     → core/paper_session_manager.py
+    ✓ SessionJournal     → core/session_journal.py
+    ✓ RunTrading         → scripts/run_trading.py
+
+  Comandos de ejecución:
+    Trading principal:  venv/bin/python3 scripts/run_trading.py
+    Backtest:           venv/bin/python3 scripts/backtest.py
+    Health check:       venv/bin/python3 scripts/health_check.py
+    Gestión sesión:     venv/bin/python3 scripts/manage_paper_session.py --help
+
+────────────────────────────────────────────────────────────
+  SESIONES PAPER (últimas 5)
+────────────────────────────────────────────────────────────
+  PAPER_SESSION_009: ACTIVE ← ACTIVA
+    Inicio: 2026-05-01 14:46 UTC | Trades: 256 | WR: 52.0% | PnL=$+1428.56
+    Balance: $10,000.00 → $11,428.56
+
+  PAPER_SESSION_008: COMPLETED
+    Inicio: 2026-04-12 06:08 UTC | Trades: 580 | WR: 49.0% | PnL=$+12512.26
+    Balance: $10,092.23 → $22,604.49
+
+  PAPER_SESSION_007: COMPLETED
+    Inicio: 2026-03-29 05:04 UTC | Trades: 100 | WR: 42.0% | PnL=$+92.23
+    Balance: $10,000.00 → $10,092.23
+
+  PAPER_SESSION_006: COMPLETED
+    Inicio: 2026-03-28 16:04 UTC | Trades: 8 | WR: 25.0% | PnL=$-29.59
+    Balance: $10,000.00 → $9,970.41
+
+  PAPER_SESSION_005: FAILED
+    Inicio: 2026-03-27 21:43 UTC | Trades: 0 | WR: 0.0% | PnL=$-30.22
+    Balance: $10,000.00 → $9,969.78
+
+
+────────────────────────────────────────────────────────────
+  PORTFOLIO ACTUAL + TRADES ABIERTOS
+────────────────────────────────────────────────────────────
+  Balance total:    $11,076.17
+  Cash disponible:  $523.73
+  Exposición:       0.6%
+  Drawdown actual:  0.00%
+  PnL total:        $+0.00
+
+  Trades abiertos: 5
+    INJ SELL | entry=4.6820 | SL=4.7806 | TP=4.4903 | RR=1.94 | strat=TREND_MOMENTUM
+      abierto: 2026-05-16 07:17 UTC | size=560.9634
+    BTC SELL | entry=78633.2000 | SL=78544.0829 | TP=78108.2461 | RR=5.89 | strat=TREND_MOMENTUM
+      abierto: 2026-05-16 07:29 UTC | size=0.0704
+    ETH/BTC SELL | entry=0.0280 | SL=0.0280 | TP=0.0280 | RR=3.00 | strat=GRID_STABLE
+      abierto: 2026-05-16 07:38 UTC | size=35260.9309
+    ETH/BTC SELL | entry=0.0280 | SL=0.0280 | TP=0.0280 | RR=3.00 | strat=GRID_STABLE
+      abierto: 2026-05-16 07:52 UTC | size=35260.9309
+    LINK/BTC BUY | entry=0.0001 | SL=0.0001 | TP=0.0001 | RR=3.05 | strat=GRID_STABLE
+      abierto: 2026-05-16 08:03 UTC | size=3289473.6842
+
+────────────────────────────────────────────────────────────
+  ÚLTIMOS 15 TRADES CERRADOS (sesión activa)
+────────────────────────────────────────────────────────────
+[0m
+[93m[1m! [0mpermission requested: external_directory (/tmp/*); auto-rejecting
+[0m✗ [0mWrite /tmp/query_pnl.py failed
+[91m[1mError: [0mThe user rejected permission to use this specific tool call.

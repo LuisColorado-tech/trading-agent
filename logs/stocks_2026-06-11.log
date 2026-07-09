@@ -1,0 +1,1320 @@
+2026-06-11 02:01:46.693 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:01 UTC). Ciclo saltado.
+2026-06-11 02:01:46.971 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:06:46.972 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:06 UTC). Ciclo saltado.
+2026-06-11 02:06:46.973 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:11:46.973 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:11 UTC). Ciclo saltado.
+2026-06-11 02:11:46.975 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:16:46.979 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:16 UTC). Ciclo saltado.
+2026-06-11 02:16:46.979 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:21:46.980 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:21 UTC). Ciclo saltado.
+2026-06-11 02:21:46.981 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:26:46.982 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:26 UTC). Ciclo saltado.
+2026-06-11 02:26:46.983 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:31:46.984 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:31 UTC). Ciclo saltado.
+2026-06-11 02:31:46.984 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:36:46.988 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:36 UTC). Ciclo saltado.
+2026-06-11 02:36:46.988 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:41:46.989 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:41 UTC). Ciclo saltado.
+2026-06-11 02:41:46.989 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:46:46.990 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:46 UTC). Ciclo saltado.
+2026-06-11 02:46:46.990 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:51:46.991 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:51 UTC). Ciclo saltado.
+2026-06-11 02:51:46.991 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 02:56:46.991 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (02:56 UTC). Ciclo saltado.
+2026-06-11 02:56:46.992 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:01:46.992 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:01 UTC). Ciclo saltado.
+2026-06-11 03:01:46.993 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:06:46.993 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:06 UTC). Ciclo saltado.
+2026-06-11 03:06:46.994 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:11:46.994 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:11 UTC). Ciclo saltado.
+2026-06-11 03:11:46.995 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:16:46.995 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:16 UTC). Ciclo saltado.
+2026-06-11 03:16:46.995 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:21:46.997 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:21 UTC). Ciclo saltado.
+2026-06-11 03:21:46.997 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:26:46.998 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:26 UTC). Ciclo saltado.
+2026-06-11 03:26:46.998 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:31:47.000 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:31 UTC). Ciclo saltado.
+2026-06-11 03:31:47.000 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:36:47.003 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:36 UTC). Ciclo saltado.
+2026-06-11 03:36:47.004 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:41:47.005 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:41 UTC). Ciclo saltado.
+2026-06-11 03:41:47.007 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:46:47.007 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:46 UTC). Ciclo saltado.
+2026-06-11 03:46:47.008 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:51:47.008 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:51 UTC). Ciclo saltado.
+2026-06-11 03:51:47.010 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 03:56:47.011 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (03:56 UTC). Ciclo saltado.
+2026-06-11 03:56:47.011 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:01:47.017 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:01 UTC). Ciclo saltado.
+2026-06-11 04:01:47.017 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:06:47.018 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:06 UTC). Ciclo saltado.
+2026-06-11 04:06:47.019 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:11:47.020 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:11 UTC). Ciclo saltado.
+2026-06-11 04:11:47.023 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:16:47.025 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:16 UTC). Ciclo saltado.
+2026-06-11 04:16:47.025 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:21:47.026 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:21 UTC). Ciclo saltado.
+2026-06-11 04:21:47.026 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:26:47.027 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:26 UTC). Ciclo saltado.
+2026-06-11 04:26:47.028 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:31:47.028 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:31 UTC). Ciclo saltado.
+2026-06-11 04:31:47.034 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:36:47.035 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:36 UTC). Ciclo saltado.
+2026-06-11 04:36:47.035 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:41:47.036 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:41 UTC). Ciclo saltado.
+2026-06-11 04:41:47.036 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:46:47.038 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:46 UTC). Ciclo saltado.
+2026-06-11 04:46:47.038 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:51:47.039 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:51 UTC). Ciclo saltado.
+2026-06-11 04:51:47.040 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 04:56:47.040 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (04:56 UTC). Ciclo saltado.
+2026-06-11 04:56:47.041 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:01:47.048 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:01 UTC). Ciclo saltado.
+2026-06-11 05:01:47.049 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:06:47.050 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:06 UTC). Ciclo saltado.
+2026-06-11 05:06:47.050 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:11:47.053 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:11 UTC). Ciclo saltado.
+2026-06-11 05:11:47.053 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:16:47.054 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:16 UTC). Ciclo saltado.
+2026-06-11 05:16:47.054 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:21:47.055 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:21 UTC). Ciclo saltado.
+2026-06-11 05:21:47.056 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:26:47.057 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:26 UTC). Ciclo saltado.
+2026-06-11 05:26:47.057 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:31:47.062 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:31 UTC). Ciclo saltado.
+2026-06-11 05:31:47.062 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:36:47.064 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:36 UTC). Ciclo saltado.
+2026-06-11 05:36:47.066 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:41:47.066 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:41 UTC). Ciclo saltado.
+2026-06-11 05:41:47.067 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:46:47.067 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:46 UTC). Ciclo saltado.
+2026-06-11 05:46:47.071 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:51:47.071 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:51 UTC). Ciclo saltado.
+2026-06-11 05:51:47.073 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 05:56:47.074 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (05:56 UTC). Ciclo saltado.
+2026-06-11 05:56:47.074 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:01:47.075 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:01 UTC). Ciclo saltado.
+2026-06-11 06:01:47.076 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:06:47.077 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:06 UTC). Ciclo saltado.
+2026-06-11 06:06:47.077 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:11:47.078 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:11 UTC). Ciclo saltado.
+2026-06-11 06:11:47.080 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:16:47.080 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:16 UTC). Ciclo saltado.
+2026-06-11 06:16:47.080 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:21:47.085 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:21 UTC). Ciclo saltado.
+2026-06-11 06:21:47.085 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:26:47.088 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:26 UTC). Ciclo saltado.
+2026-06-11 06:26:47.089 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:31:47.089 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:31 UTC). Ciclo saltado.
+2026-06-11 06:31:47.090 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:36:47.091 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:36 UTC). Ciclo saltado.
+2026-06-11 06:36:47.093 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:41:47.094 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:41 UTC). Ciclo saltado.
+2026-06-11 06:41:47.097 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:46:47.099 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:46 UTC). Ciclo saltado.
+2026-06-11 06:46:47.099 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:51:47.099 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:51 UTC). Ciclo saltado.
+2026-06-11 06:51:47.100 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 06:56:47.100 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (06:56 UTC). Ciclo saltado.
+2026-06-11 06:56:47.100 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:01:47.102 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:01 UTC). Ciclo saltado.
+2026-06-11 07:01:47.104 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:06:47.105 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:06 UTC). Ciclo saltado.
+2026-06-11 07:06:47.105 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:11:47.108 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:11 UTC). Ciclo saltado.
+2026-06-11 07:11:47.108 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:16:47.109 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:16 UTC). Ciclo saltado.
+2026-06-11 07:16:47.109 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:21:47.109 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:21 UTC). Ciclo saltado.
+2026-06-11 07:21:47.110 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:26:47.110 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:26 UTC). Ciclo saltado.
+2026-06-11 07:26:47.110 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:31:47.111 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:31 UTC). Ciclo saltado.
+2026-06-11 07:31:47.111 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:36:47.112 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:36 UTC). Ciclo saltado.
+2026-06-11 07:36:47.113 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:41:47.114 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:41 UTC). Ciclo saltado.
+2026-06-11 07:41:47.115 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:46:47.115 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:46 UTC). Ciclo saltado.
+2026-06-11 07:46:47.115 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:51:47.116 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:51 UTC). Ciclo saltado.
+2026-06-11 07:51:47.116 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 07:56:47.117 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (07:56 UTC). Ciclo saltado.
+2026-06-11 07:56:47.117 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:01:47.117 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:01 UTC). Ciclo saltado.
+2026-06-11 08:01:47.118 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:06:47.118 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:06 UTC). Ciclo saltado.
+2026-06-11 08:06:47.118 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:11:47.119 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:11 UTC). Ciclo saltado.
+2026-06-11 08:11:47.119 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:16:47.119 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:16 UTC). Ciclo saltado.
+2026-06-11 08:16:47.120 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:21:47.120 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:21 UTC). Ciclo saltado.
+2026-06-11 08:21:47.121 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:26:47.121 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:26 UTC). Ciclo saltado.
+2026-06-11 08:26:47.124 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:31:47.130 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:31 UTC). Ciclo saltado.
+2026-06-11 08:31:47.131 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:36:47.131 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:36 UTC). Ciclo saltado.
+2026-06-11 08:36:47.132 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:41:47.132 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:41 UTC). Ciclo saltado.
+2026-06-11 08:41:47.133 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:46:47.134 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:46 UTC). Ciclo saltado.
+2026-06-11 08:46:47.134 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:51:47.134 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:51 UTC). Ciclo saltado.
+2026-06-11 08:51:47.135 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 08:56:47.135 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (08:56 UTC). Ciclo saltado.
+2026-06-11 08:56:47.136 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:01:47.136 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:01 UTC). Ciclo saltado.
+2026-06-11 09:01:47.137 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:06:47.138 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:06 UTC). Ciclo saltado.
+2026-06-11 09:06:47.138 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:11:47.138 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:11 UTC). Ciclo saltado.
+2026-06-11 09:11:47.139 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:16:47.140 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:16 UTC). Ciclo saltado.
+2026-06-11 09:16:47.140 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:21:47.140 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:21 UTC). Ciclo saltado.
+2026-06-11 09:21:47.140 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:26:47.141 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:26 UTC). Ciclo saltado.
+2026-06-11 09:26:47.142 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:31:47.147 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:31 UTC). Ciclo saltado.
+2026-06-11 09:31:47.147 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:36:47.147 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:36 UTC). Ciclo saltado.
+2026-06-11 09:36:47.148 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:41:47.149 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:41 UTC). Ciclo saltado.
+2026-06-11 09:41:47.149 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:46:47.150 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:46 UTC). Ciclo saltado.
+2026-06-11 09:46:47.151 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:51:47.153 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:51 UTC). Ciclo saltado.
+2026-06-11 09:51:47.154 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 09:56:47.155 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (09:56 UTC). Ciclo saltado.
+2026-06-11 09:56:47.155 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:01:47.155 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:01 UTC). Ciclo saltado.
+2026-06-11 10:01:47.156 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:06:47.156 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:06 UTC). Ciclo saltado.
+2026-06-11 10:06:47.158 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:11:47.159 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:11 UTC). Ciclo saltado.
+2026-06-11 10:11:47.159 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:16:47.159 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:16 UTC). Ciclo saltado.
+2026-06-11 10:16:47.160 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:21:47.160 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:21 UTC). Ciclo saltado.
+2026-06-11 10:21:47.161 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:26:47.162 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:26 UTC). Ciclo saltado.
+2026-06-11 10:26:47.162 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:31:47.163 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:31 UTC). Ciclo saltado.
+2026-06-11 10:31:47.165 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:36:47.166 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:36 UTC). Ciclo saltado.
+2026-06-11 10:36:47.167 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:41:47.168 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:41 UTC). Ciclo saltado.
+2026-06-11 10:41:47.168 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:46:47.169 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:46 UTC). Ciclo saltado.
+2026-06-11 10:46:47.169 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:51:47.170 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:51 UTC). Ciclo saltado.
+2026-06-11 10:51:47.170 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 10:56:47.171 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (10:56 UTC). Ciclo saltado.
+2026-06-11 10:56:47.171 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:01:47.171 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:01 UTC). Ciclo saltado.
+2026-06-11 11:01:47.172 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:06:47.174 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:06 UTC). Ciclo saltado.
+2026-06-11 11:06:47.174 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:11:47.175 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:11 UTC). Ciclo saltado.
+2026-06-11 11:11:47.176 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:16:47.176 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:16 UTC). Ciclo saltado.
+2026-06-11 11:16:47.177 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:21:47.177 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:21 UTC). Ciclo saltado.
+2026-06-11 11:21:47.179 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:26:47.179 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:26 UTC). Ciclo saltado.
+2026-06-11 11:26:47.179 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:31:47.180 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:31 UTC). Ciclo saltado.
+2026-06-11 11:31:47.181 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:36:47.181 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:36 UTC). Ciclo saltado.
+2026-06-11 11:36:47.182 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:41:47.182 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:41 UTC). Ciclo saltado.
+2026-06-11 11:41:47.183 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:46:47.183 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:46 UTC). Ciclo saltado.
+2026-06-11 11:46:47.183 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:51:47.184 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:51 UTC). Ciclo saltado.
+2026-06-11 11:51:47.184 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 11:56:47.184 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (11:56 UTC). Ciclo saltado.
+2026-06-11 11:56:47.184 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:01:47.186 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:01 UTC). Ciclo saltado.
+2026-06-11 12:01:47.187 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:06:47.188 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:06 UTC). Ciclo saltado.
+2026-06-11 12:06:47.189 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:11:47.189 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:11 UTC). Ciclo saltado.
+2026-06-11 12:11:47.189 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:16:47.190 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:16 UTC). Ciclo saltado.
+2026-06-11 12:16:47.190 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:21:47.190 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:21 UTC). Ciclo saltado.
+2026-06-11 12:21:47.191 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:26:47.192 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:26 UTC). Ciclo saltado.
+2026-06-11 12:26:47.192 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:31:47.192 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:31 UTC). Ciclo saltado.
+2026-06-11 12:31:47.193 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:36:47.193 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:36 UTC). Ciclo saltado.
+2026-06-11 12:36:47.194 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:41:47.194 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:41 UTC). Ciclo saltado.
+2026-06-11 12:41:47.194 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:46:47.195 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:46 UTC). Ciclo saltado.
+2026-06-11 12:46:47.195 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:51:47.196 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:51 UTC). Ciclo saltado.
+2026-06-11 12:51:47.197 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 12:56:47.198 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (12:56 UTC). Ciclo saltado.
+2026-06-11 12:56:47.198 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:01:47.198 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:01 UTC). Ciclo saltado.
+2026-06-11 13:01:47.199 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:06:47.199 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:06 UTC). Ciclo saltado.
+2026-06-11 13:06:47.199 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:11:47.200 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:11 UTC). Ciclo saltado.
+2026-06-11 13:11:47.200 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:16:47.201 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:16 UTC). Ciclo saltado.
+2026-06-11 13:16:47.202 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:21:47.204 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:21 UTC). Ciclo saltado.
+2026-06-11 13:21:47.205 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:26:47.209 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:26 UTC). Ciclo saltado.
+2026-06-11 13:26:47.209 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:31:47.210 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:31 UTC). Ciclo saltado.
+2026-06-11 13:31:47.210 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:36:47.212 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:36 UTC). Ciclo saltado.
+2026-06-11 13:36:47.212 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:41:47.214 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:41 UTC). Ciclo saltado.
+2026-06-11 13:41:47.214 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:46:47.216 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:46 UTC). Ciclo saltado.
+2026-06-11 13:46:47.217 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:51:47.218 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:51 UTC). Ciclo saltado.
+2026-06-11 13:51:47.218 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 13:56:47.218 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (13:56 UTC). Ciclo saltado.
+2026-06-11 13:56:47.219 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:01:47.219 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:01 UTC). Ciclo saltado.
+2026-06-11 14:01:47.219 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:06:47.220 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:06 UTC). Ciclo saltado.
+2026-06-11 14:06:47.220 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:11:47.221 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:11 UTC). Ciclo saltado.
+2026-06-11 14:11:47.221 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:16:47.222 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:16 UTC). Ciclo saltado.
+2026-06-11 14:16:47.222 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:21:47.222 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:21 UTC). Ciclo saltado.
+2026-06-11 14:21:47.223 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:26:47.224 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (14:26 UTC). Ciclo saltado.
+2026-06-11 14:26:47.225 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:31:47.948 | INFO     | agents.stocks_agent:_close_trade:612 - Cerrando GLD qty=2 (disponible=3.544428464)
+2026-06-11 14:31:48.105 | INFO     | core.alpaca_session_manager:close_trade:384 - Trade cerrado GLD @ 373.6000 pnl=+10.90 reason=TP
+2026-06-11 14:31:48.887 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:31:49.378 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:31:50.024 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:31:50.340 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:31:50.483 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:31:50.533 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 14:31:50.877 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:31:51.151 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:31:51.499 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:31:51.734 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=75 < 80)
+2026-06-11 14:31:51.735 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:31:51.941 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:31:51.942 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:31:52.191 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=68
+2026-06-11 14:31:52.193 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:36:52.450 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:36:52.713 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:36:52.969 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:36:53.160 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:36:53.322 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:36:53.375 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.5%)
+2026-06-11 14:36:53.679 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:36:53.946 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:36:54.115 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:36:54.296 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=75 < 80)
+2026-06-11 14:36:54.296 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:36:54.610 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:36:54.610 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:36:54.886 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=68
+2026-06-11 14:36:54.886 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:41:55.181 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:41:55.521 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:41:55.806 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:41:56.050 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:41:56.182 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:41:56.233 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.5%)
+2026-06-11 14:41:56.519 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:41:56.834 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:41:57.126 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:41:57.327 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=75 < 80)
+2026-06-11 14:41:57.329 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:41:57.518 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:41:57.518 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:41:57.715 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=68
+2026-06-11 14:41:57.715 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:46:58.130 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:46:58.392 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:46:58.632 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:46:58.822 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:46:58.956 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:46:58.994 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 14:46:59.160 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:46:59.350 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:46:59.523 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:46:59.683 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=100 ≥ 80)
+2026-06-11 14:46:59.687 | INFO     | core.direction_guard:is_allowed:76 - DirectionGuard: cooldown expirado para EEM/BUY — re-evaluando
+2026-06-11 14:46:59.722 | WARNING  | core.direction_guard:is_allowed:86 - DirectionGuard: BLOQUEADO EEM/BUY (WR=19.4% en 62 trades) — hasta 2026-06-14 14:46 UTC
+2026-06-11 14:46:59.722 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:46:59.722 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:46:59.853 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:46:59.853 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:47:00.045 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=53
+2026-06-11 14:47:00.045 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:52:00.466 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:52:00.745 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:52:01.125 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:52:01.349 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:52:01.481 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:52:03.510 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.8%)
+2026-06-11 14:52:04.011 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:52:04.249 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:52:04.502 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:52:04.722 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=100 ≥ 80)
+2026-06-11 14:52:04.722 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:52:04.722 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:52:04.919 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:52:04.919 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:52:05.207 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=53
+2026-06-11 14:52:05.208 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 14:57:05.526 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 14:57:05.807 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:57:06.062 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:57:06.251 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 14:57:06.420 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 14:57:06.464 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-3.1%)
+2026-06-11 14:57:06.771 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 14:57:07.023 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:57:07.304 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 14:57:07.492 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=100 ≥ 80)
+2026-06-11 14:57:07.492 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 14:57:07.492 | DEBUG    | agents.stocks_agent:_evaluate_symbol:210 - FXI: hora bloqueada UTC=14
+2026-06-11 14:57:07.789 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 14:57:07.791 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 14:57:07.989 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=53
+2026-06-11 14:57:07.989 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:02:08.258 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:02:08.534 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:02:08.773 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:02:08.981 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:02:09.102 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:02:09.135 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-3.2%)
+2026-06-11 15:02:09.407 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:02:09.638 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:02:09.888 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:02:10.088 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=85 ≥ 80)
+2026-06-11 15:02:10.089 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:02:10.290 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:39.5', 'VOL_CONFIRM:3.98x', 'BELOW_VWAP']
+2026-06-11 15:02:10.386 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:02:10.470 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.178509027, available: 7.854811047)","symbol
+2026-06-11 15:02:10.471 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:02:10.561 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:02:10.562 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:02:10.742 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 15:02:10.928 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:02:10.928 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:07:11.180 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:07:11.428 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:07:11.660 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:07:11.831 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:07:11.981 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:07:12.018 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-3.1%)
+2026-06-11 15:07:12.226 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:07:12.402 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:07:12.599 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:07:12.757 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=85 ≥ 80)
+2026-06-11 15:07:12.757 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:07:12.945 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:39.5', 'VOL_CONFIRM:3.98x', 'BELOW_VWAP']
+2026-06-11 15:07:13.021 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:07:13.119 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.17147016, available: 7.854811047)","symbol"
+2026-06-11 15:07:13.119 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:07:13.199 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:07:13.199 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:07:13.371 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 15:07:13.530 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:07:13.530 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:12:13.805 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:12:14.109 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:12:14.381 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:12:14.597 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:12:14.771 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:12:14.809 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.9%)
+2026-06-11 15:12:15.035 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:12:15.215 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:12:15.412 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:12:15.565 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=85 ≥ 80)
+2026-06-11 15:12:15.566 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:12:15.746 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:39.5', 'VOL_CONFIRM:3.98x', 'BELOW_VWAP']
+2026-06-11 15:12:15.849 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:12:15.931 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.143355626, available: 7.854811047)","symbol
+2026-06-11 15:12:15.931 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:12:16.018 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:12:16.018 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:12:16.195 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 15:12:16.341 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:12:16.341 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:17:16.609 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:17:16.882 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:17:17.147 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:17:17.341 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:17:17.493 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:17:17.532 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.8%)
+2026-06-11 15:17:17.732 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:17:17.914 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:17:18.117 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:17:18.280 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:17:18.281 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:17:18.468 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:42.9', 'VOL_CONFIRM:3.44x', 'BELOW_VWAP']
+2026-06-11 15:17:18.552 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:17:18.633 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.150378126, available: 7.854811047)","symbol
+2026-06-11 15:17:18.633 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:17:18.710 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:17:18.710 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:17:18.896 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 15:17:18.896 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 15:17:19.072 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:17:19.072 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:22:19.414 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:22:19.786 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:22:20.048 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:22:20.261 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:22:20.424 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:22:20.479 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 15:22:20.719 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:22:20.944 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:22:21.166 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:22:21.418 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:22:21.418 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:22:21.632 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:42.9', 'VOL_CONFIRM:3.44x', 'BELOW_VWAP']
+2026-06-11 15:22:21.725 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:22:21.813 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.150378126, available: 7.854811047)","symbol
+2026-06-11 15:22:21.813 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:22:21.891 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:22:21.892 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:22:22.044 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 15:22:22.045 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 15:22:22.227 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:22:22.228 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:27:22.473 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:27:22.648 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen NVDA $201.46 for 303s
+2026-06-11 15:27:22.744 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:27:22.976 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:27:23.227 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:27:23.422 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:27:23.460 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 15:27:23.641 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:27:23.825 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:27:24.008 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:27:24.204 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:27:24.205 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:27:24.398 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:42.9', 'VOL_CONFIRM:3.44x', 'BELOW_VWAP']
+2026-06-11 15:27:24.479 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:27:24.609 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.129322871, available: 7.854811047)","symbol
+2026-06-11 15:27:24.609 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:27:24.700 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:27:24.700 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:27:24.885 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 15:27:24.885 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 15:27:25.086 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:27:25.086 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:32:25.359 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:32:25.637 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:32:25.869 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:32:26.070 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:32:26.208 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:32:26.245 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.8%)
+2026-06-11 15:32:26.454 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:32:26.654 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:32:26.862 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:32:27.049 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:32:27.050 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:32:27.285 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:43.5', 'VOL_CONFIRM:1.57x', 'BELOW_VWAP']
+2026-06-11 15:32:27.372 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:32:27.453 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.136337209, available: 7.854811047)","symbol
+2026-06-11 15:32:27.453 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:32:27.546 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:32:27.546 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:32:27.814 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:32:27.987 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:32:27.987 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:37:28.273 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:37:28.533 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:37:28.782 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:37:28.979 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:37:29.098 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:37:29.141 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 15:37:29.399 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:37:29.556 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:37:29.773 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:37:29.945 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:37:29.946 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:37:30.291 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:43.5', 'VOL_CONFIRM:1.57x', 'BELOW_VWAP']
+2026-06-11 15:37:30.365 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:37:30.447 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.136337209, available: 7.854811047)","symbol
+2026-06-11 15:37:30.447 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:37:30.524 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:37:30.525 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:37:30.672 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:37:30.829 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:37:30.829 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:42:31.083 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:42:31.394 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:42:31.680 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:42:31.964 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:42:32.123 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:42:32.159 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.6%)
+2026-06-11 15:42:32.374 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:42:32.611 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:42:32.833 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:42:33.112 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=108 ≥ 80)
+2026-06-11 15:42:33.112 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:42:33.348 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:43.5', 'VOL_CONFIRM:1.57x', 'BELOW_VWAP']
+2026-06-11 15:42:33.436 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:42:33.533 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.129322871, available: 7.854811047)","symbol
+2026-06-11 15:42:33.534 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:42:33.626 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:42:33.626 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:42:33.856 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:42:34.067 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:42:34.068 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:47:34.526 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:47:34.796 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:47:35.079 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:47:35.305 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:47:35.470 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:47:35.506 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 15:47:35.688 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:47:35.852 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:47:36.107 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:47:36.315 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 15:47:36.316 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:47:36.533 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:44.1', 'VOL_CONFIRM:1.73x', 'BELOW_VWAP']
+2026-06-11 15:47:36.613 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:47:36.691 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.143355626, available: 7.854811047)","symbol
+2026-06-11 15:47:36.691 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:47:36.926 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:47:36.926 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:47:37.086 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:47:37.269 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:47:37.269 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:52:37.545 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:52:37.850 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:52:38.097 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:52:38.278 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:52:38.399 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:52:38.441 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.8%)
+2026-06-11 15:52:38.617 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:52:38.844 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:52:39.047 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:52:39.221 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 15:52:39.222 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:52:39.398 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:44.1', 'VOL_CONFIRM:1.73x', 'BELOW_VWAP']
+2026-06-11 15:52:39.556 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:52:39.636 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.17147016, available: 7.854811047)","symbol"
+2026-06-11 15:52:39.636 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:52:39.712 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:52:39.713 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:52:39.849 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:52:40.005 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:52:40.006 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 15:57:40.274 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 15:57:40.522 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:57:40.768 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:57:40.969 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 15:57:41.115 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 15:57:41.171 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.7%)
+2026-06-11 15:57:41.387 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 15:57:41.634 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:57:41.822 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 15:57:42.039 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 15:57:42.040 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 15:57:42.249 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:44.1', 'VOL_CONFIRM:1.73x', 'BELOW_VWAP']
+2026-06-11 15:57:42.329 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 15:57:42.411 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.164435389, available: 7.854811047)","symbol
+2026-06-11 15:57:42.411 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 15:57:42.503 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 15:57:42.504 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 15:57:42.878 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=60
+2026-06-11 15:57:43.097 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 15:57:43.097 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:02:43.408 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:02:43.677 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:02:43.944 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:02:44.136 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:02:44.279 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:02:44.318 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.6%)
+2026-06-11 16:02:44.589 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 16:02:44.831 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:02:45.108 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 16:02:45.311 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 16:02:45.312 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:02:45.510 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:41.7', 'VOL_CONFIRM:2.11x', 'BELOW_VWAP']
+2026-06-11 16:02:45.635 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 16:02:45.736 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.150378126, available: 7.854811047)","symbol
+2026-06-11 16:02:45.736 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 16:02:45.820 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 16:02:45.822 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 16:02:46.069 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=45
+2026-06-11 16:02:46.323 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 16:02:46.323 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:07:46.797 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:07:46.925 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen AMZN $237.24 for 303s
+2026-06-11 16:07:47.219 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:07:47.732 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:07:48.046 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:07:48.240 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:07:48.372 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.6%)
+2026-06-11 16:07:48.619 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 16:07:48.845 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:07:49.062 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 16:07:49.229 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 16:07:49.230 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:07:49.395 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:41.7', 'VOL_CONFIRM:2.11x', 'BELOW_VWAP']
+2026-06-11 16:07:49.490 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 16:07:49.591 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.129322871, available: 7.854811047)","symbol
+2026-06-11 16:07:49.592 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 16:07:49.683 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 16:07:49.683 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 16:07:49.818 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=45
+2026-06-11 16:07:49.980 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 16:07:49.980 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:12:50.275 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:12:50.587 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:12:50.856 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:12:51.074 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:12:51.235 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:12:51.305 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.4%)
+2026-06-11 16:12:51.591 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 16:12:51.826 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:12:52.075 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 16:12:52.310 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 16:12:52.311 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:12:52.601 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI SELL score=83 conf=4 reasons=['EMA_BEAR_CROSS', 'PRICE_BELOW_EMA20', 'RSI_BEAR_ZONE:41.7', 'VOL_CONFIRM:2.11x', 'BELOW_VWAP']
+2026-06-11 16:12:52.696 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'sell', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 16:12:52.780 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24.129322871, available: 7.854811047)","symbol
+2026-06-11 16:12:52.780 | INFO     | agents.stocks_agent:_execute_trade:468 - SELL FXI: notional falló (403 client error: forbidden for url: https://paper-api.alpac), intentando qty=24...
+2026-06-11 16:12:52.867 | WARNING  | core.alpaca_session_manager:_post:56 - Alpaca API 403 /v2/orders: {"available":"7.854811047","code":40310000,"existing_qty":"7.854811047","held_for_orders":"0","message":"insufficient qty available for order (requested: 24, available: 7.854811047)","symbol":"FXI"}
+2026-06-11 16:12:52.868 | WARNING  | agents.stocks_agent:_execute_trade:480 - SELL FXI: sin shares para short — saltando
+2026-06-11 16:12:53.030 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=45
+2026-06-11 16:12:53.213 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 16:12:53.213 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:17:53.466 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:17:53.849 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:17:54.097 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:17:54.388 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 16:17:54.515 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 16:17:54.557 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-2.5%)
+2026-06-11 16:17:54.743 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 16:17:54.910 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:17:55.108 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 16:17:55.257 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EEM: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 16:17:55.257 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - EEM: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 16:17:55.419 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - FXI: BUY permitido en BEAR leve (score=83 ≥ 80)
+2026-06-11 16:17:55.421 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL FXI BUY score=83 conf=5 reasons=['PRICE_ABOVE_EMA20', 'RSI_MOMENTUM_ZONE:48.3', 'MACD_BULLISH', 'VOL_CONFIRM:3.37x', 'ROOM_TO_BB_UPPER', 'ABOVE_VWAP']
+2026-06-11 16:17:55.501 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'FXI', 'side': 'buy', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 16:17:55.609 | INFO     | agents.stocks_agent:_execute_trade:455 - Alpaca order fa5e76d6-9482-4cdd-bf3f-cdbb5a103e36 enviada: buy FXI $830.29
+2026-06-11 16:17:55.622 | INFO     | core.alpaca_session_manager:open_trade:347 - Trade abierto FXI BUY @ 34.4250 | id=098414c9-1cf5-4748-bcae-d2e9420fdd55
+2026-06-11 16:18:05.546 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 16:18:05.747 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SVXY: dirección SELL no permitida por perfil
+2026-06-11 16:18:05.747 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:23:06.121 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:23:06.316 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:23:06.316 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:28:06.405 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen FXI $34.42 for 301s
+2026-06-11 16:28:06.919 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:28:07.124 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:28:07.124 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:33:07.515 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:33:07.666 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen NVDA $201.29 for 301s
+2026-06-11 16:33:07.668 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:33:07.668 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:38:08.013 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:38:08.194 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:38:08.194 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:43:08.530 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:43:08.684 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:43:08.684 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:48:09.068 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:48:09.257 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:48:09.258 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:53:09.680 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:53:09.868 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:53:09.868 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 16:58:10.212 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 16:58:10.297 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen AMZN $236.44 for 301s
+2026-06-11 16:58:10.383 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 16:58:10.383 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:03:10.485 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen FXI $34.37 for 301s
+2026-06-11 17:03:10.776 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:03:10.939 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:03:10.940 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:08:11.420 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:08:11.506 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen AMZN $236.09 for 301s
+2026-06-11 17:08:11.587 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:08:11.587 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:13:11.676 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen FXI $34.35 for 301s
+2026-06-11 17:13:11.931 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:13:12.120 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:13:12.120 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:18:12.220 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen FXI $34.34 for 601s
+2026-06-11 17:18:12.469 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:18:12.635 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:18:12.636 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:23:12.980 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:23:13.159 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:23:13.160 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:28:13.523 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:28:13.721 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:28:13.721 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:33:13.999 | INFO     | agents.stocks_agent:_close_trade:612 - Cerrando FXI qty=24 (disponible=31.969827021)
+2026-06-11 17:33:14.110 | INFO     | core.alpaca_session_manager:close_trade:384 - Trade cerrado FXI @ 34.6900 pnl=+6.39 reason=TP
+2026-06-11 17:33:14.764 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:33:15.069 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 17:33:15.460 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 17:33:15.675 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 17:33:15.825 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 17:33:15.870 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.9%)
+2026-06-11 17:33:16.088 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 17:33:16.276 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 17:33:16.469 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 17:33:16.654 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 17:33:16.852 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - FXI: BUY bloqueado por macro BEAR leve (score=73 < 80)
+2026-06-11 17:33:16.988 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=73 < 80)
+2026-06-11 17:33:17.150 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL SVXY BUY score=73 conf=4 reasons=['PRICE_ABOVE_EMA20', 'RSI_MOMENTUM_ZONE:62.2', 'MACD_BULLISH', 'VOL_CONFIRM:3.42x', 'ABOVE_VWAP']
+2026-06-11 17:33:17.436 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'SVXY', 'side': 'buy', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 17:33:17.528 | INFO     | agents.stocks_agent:_execute_trade:455 - Alpaca order e8deb992-97b8-471f-95ee-ca9ac83a8507 enviada: buy SVXY $830.29
+2026-06-11 17:33:17.535 | INFO     | core.alpaca_session_manager:open_trade:347 - Trade abierto SVXY BUY @ 53.0400 | id=591e4cd0-cdd6-47c5-a608-bda2fca052fc
+2026-06-11 17:33:17.911 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:38:18.399 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:38:18.555 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:38:18.555 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:43:18.888 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:43:19.055 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:43:19.055 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:48:19.391 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:48:19.546 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:48:19.546 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:53:19.878 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:53:20.091 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:53:20.092 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 17:58:20.442 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 17:58:20.611 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 17:58:20.611 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:03:20.717 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen SVXY $53.26 for 301s
+2026-06-11 18:03:21.023 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:03:21.206 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 18:03:21.207 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:08:21.593 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:08:21.763 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 18:08:21.764 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:13:22.079 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:13:22.251 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 18:13:22.251 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:18:22.561 | INFO     | agents.stocks_agent:_close_trade:612 - Cerrando SVXY qty=15 (disponible=23.683320023)
+2026-06-11 18:18:22.695 | INFO     | core.alpaca_session_manager:close_trade:384 - Trade cerrado SVXY @ 53.4800 pnl=+6.89 reason=TP
+2026-06-11 18:18:23.403 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:18:24.072 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:18:24.589 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:18:25.064 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:18:25.196 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:18:25.230 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.6%)
+2026-06-11 18:18:25.451 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:18:25.664 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:18:25.867 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:18:26.044 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:18:26.224 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:18:26.502 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=98 ≥ 80)
+2026-06-11 18:18:26.502 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:18:26.710 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=65
+2026-06-11 18:18:26.710 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:23:27.016 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:23:27.285 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:23:27.538 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:23:27.764 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:23:27.924 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:23:27.984 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.9%)
+2026-06-11 18:23:28.179 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:23:28.361 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:23:28.562 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:23:28.780 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:23:28.983 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:23:29.184 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=98 ≥ 80)
+2026-06-11 18:23:29.184 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:23:29.408 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=65
+2026-06-11 18:23:29.408 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:28:29.672 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:28:29.759 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen AMZN $238.94 for 303s
+2026-06-11 18:28:29.931 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:28:30.247 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:28:30.453 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:28:30.608 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:28:30.652 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.8%)
+2026-06-11 18:28:30.902 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:28:31.142 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:28:31.424 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:28:31.770 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:28:31.995 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:28:32.157 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=98 ≥ 80)
+2026-06-11 18:28:32.157 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:28:32.339 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=65
+2026-06-11 18:28:32.340 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:33:32.705 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:33:33.151 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:33:33.394 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:33:33.741 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:33:33.865 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:33:33.910 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.7%)
+2026-06-11 18:33:34.167 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:33:34.407 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:33:34.587 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:33:34.751 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 18:33:34.939 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:33:35.133 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 18:33:35.133 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:33:35.348 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:33:35.348 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:38:35.613 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:38:35.872 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:38:36.120 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:38:36.339 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:38:36.477 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:38:36.519 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.7%)
+2026-06-11 18:38:36.716 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:38:36.900 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:38:37.097 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:38:37.306 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 18:38:37.572 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:38:37.735 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 18:38:37.735 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:38:37.912 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:38:37.912 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:43:38.198 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:43:38.473 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:43:38.710 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:43:38.945 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:43:39.071 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:43:39.113 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.7%)
+2026-06-11 18:43:39.314 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:43:39.502 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:43:39.691 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:43:39.843 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 18:43:39.993 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:43:40.215 | INFO     | agents.stocks_agent:_evaluate_symbol:269 - EWJ: BUY permitido en BEAR leve (score=90 ≥ 80)
+2026-06-11 18:43:40.215 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - EWJ: dirección BUY no permitida por perfil
+2026-06-11 18:43:40.417 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:43:40.417 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:48:40.696 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:48:40.956 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:48:41.242 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:48:41.449 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:48:41.621 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:48:41.663 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.6%)
+2026-06-11 18:48:41.949 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:48:42.154 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:48:42.387 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:48:42.579 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:48:42.807 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:48:42.979 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 18:48:43.148 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:48:43.148 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:53:43.407 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:53:43.497 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen AMZN $239.77 for 303s
+2026-06-11 18:53:43.669 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:53:43.892 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:53:44.085 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:53:44.203 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:53:44.243 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.6%)
+2026-06-11 18:53:44.415 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:53:44.587 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:53:44.758 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:53:44.928 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:53:45.137 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:53:45.342 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 18:53:45.506 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:53:45.506 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 18:58:45.769 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 18:58:46.117 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:58:46.427 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:58:46.763 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 18:58:46.947 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 18:58:47.007 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.6%)
+2026-06-11 18:58:47.240 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 18:58:47.529 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 18:58:47.822 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 18:58:48.038 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=63
+2026-06-11 18:58:48.226 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 18:58:48.490 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 18:58:48.836 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=58
+2026-06-11 18:58:48.836 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:03:49.120 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:03:49.285 | WARNING  | data.stocks_feed:get_price:158 - STOCKS FEED: frozen NVDA $202.56 for 303s
+2026-06-11 19:03:49.387 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:03:49.646 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:03:49.829 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:03:49.973 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:03:50.012 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.5%)
+2026-06-11 19:03:50.244 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:03:50.443 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:03:50.643 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:03:50.873 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=53
+2026-06-11 19:03:51.080 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 19:03:51.270 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 19:03:51.458 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:03:51.468 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:08:51.738 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:08:52.087 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:08:52.363 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:08:52.635 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:08:52.825 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:08:52.889 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.6%)
+2026-06-11 19:08:53.214 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:08:53.447 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:08:53.663 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:08:53.857 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=53
+2026-06-11 19:08:54.089 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 19:08:54.321 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 19:08:54.522 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:08:54.522 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:13:54.921 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:13:55.206 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:13:55.448 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:13:55.826 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:13:55.997 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:13:56.047 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.4%)
+2026-06-11 19:13:56.274 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:13:56.488 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:13:56.742 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:13:56.958 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=53
+2026-06-11 19:13:57.207 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=58
+2026-06-11 19:13:57.430 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EWJ: NEUTRAL score=63
+2026-06-11 19:13:57.645 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:13:57.645 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:18:58.057 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:18:58.346 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:18:58.583 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:18:58.782 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:18:58.908 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:18:58.958 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.4%)
+2026-06-11 19:18:59.223 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:18:59.446 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:18:59.677 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:18:59.878 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:19:00.069 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:19:00.274 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 19:19:00.473 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:19:00.473 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:24:00.826 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:24:01.119 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:24:01.371 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:24:01.672 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:24:01.845 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:24:01.887 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.3%)
+2026-06-11 19:24:02.283 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:24:02.798 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:24:03.119 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:24:03.420 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:24:03.719 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:24:03.995 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 19:24:04.201 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:24:04.202 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:29:04.506 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:29:04.804 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:29:05.137 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:29:05.363 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:29:05.479 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:29:05.513 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.2%)
+2026-06-11 19:29:05.694 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:29:05.866 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:29:06.124 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:29:06.345 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:29:06.597 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:29:06.803 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=78 < 80)
+2026-06-11 19:29:07.039 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:29:07.040 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:34:07.294 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:34:07.641 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:34:07.922 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:34:08.240 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:34:08.422 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:34:08.458 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-0.9%)
+2026-06-11 19:34:08.675 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:34:08.931 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:34:09.149 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:34:09.394 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=60
+2026-06-11 19:34:09.554 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:34:09.757 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:34:09.936 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:34:09.937 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:39:10.172 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:39:10.524 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:39:10.764 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:39:11.003 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:39:11.117 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:39:11.152 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.0%)
+2026-06-11 19:39:11.319 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:39:11.497 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:39:11.697 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:39:11.868 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=60
+2026-06-11 19:39:12.052 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:39:12.276 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:39:12.479 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:39:12.479 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:44:12.774 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:44:13.104 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:44:13.363 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:44:13.624 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:44:13.748 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:44:13.778 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.0%)
+2026-06-11 19:44:13.974 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:44:14.210 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:44:14.400 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:44:14.548 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - EEM: NEUTRAL score=60
+2026-06-11 19:44:14.695 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:44:14.829 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:44:15.010 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=63
+2026-06-11 19:44:15.010 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:49:15.259 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:49:15.545 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:49:15.844 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:49:16.184 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:49:16.331 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:49:16.373 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.2%)
+2026-06-11 19:49:16.557 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:49:16.711 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:49:16.895 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:49:17.103 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:49:17.298 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:49:17.449 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:49:17.595 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=70
+2026-06-11 19:49:17.595 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:54:18.264 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:54:18.574 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:54:18.838 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:54:19.092 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:54:19.243 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:54:19.337 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.1%)
+2026-06-11 19:54:19.589 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:54:19.826 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:54:20.094 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:54:20.309 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:54:20.515 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:54:20.702 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:54:20.914 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=70
+2026-06-11 19:54:20.914 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 19:59:21.175 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 19:59:21.496 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:59:21.742 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:59:21.962 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 19:59:22.103 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 19:59:22.157 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.1%)
+2026-06-11 19:59:22.534 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 19:59:22.769 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 19:59:23.209 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 19:59:23.425 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:59:23.631 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 19:59:23.772 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 19:59:24.021 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - SVXY: NEUTRAL score=70
+2026-06-11 19:59:24.021 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:04:24.318 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:04:24.589 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 20:04:24.865 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 20:04:25.076 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente SPY/1d: 20 barras → fallback yfinance
+2026-06-11 20:04:25.226 | DEBUG    | data.stocks_feed:get_latest:99 - StocksFeed Alpaca insuficiente QQQ/1d: 20 barras → fallback yfinance
+2026-06-11 20:04:25.270 | INFO     | agents.stocks_agent:_cycle:179 - Macro bias: BEAR (severity=-1.1%)
+2026-06-11 20:04:25.502 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - QQQ: NEUTRAL score=38
+2026-06-11 20:04:25.667 | INFO     | agents.stocks_agent:_evaluate_symbol:285 - GLD: dirección BUY bloqueada por DirectionGuard (WR bajo)
+2026-06-11 20:04:25.875 | DEBUG    | agents.stocks_agent:_evaluate_symbol:280 - SLV: dirección BUY no permitida por perfil
+2026-06-11 20:04:26.050 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EEM: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 20:04:26.273 | DEBUG    | agents.stocks_agent:_evaluate_symbol:253 - FXI: NEUTRAL score=45
+2026-06-11 20:04:26.477 | INFO     | agents.stocks_agent:_evaluate_symbol:267 - EWJ: BUY bloqueado por macro BEAR leve (score=68 < 80)
+2026-06-11 20:04:26.707 | INFO     | agents.stocks_agent:_evaluate_symbol:295 - SEÑAL SVXY BUY score=98 conf=5 reasons=['EMA_BULL_CROSS', 'PRICE_ABOVE_EMA20', 'RSI_MOMENTUM_ZONE:67.8', 'MACD_BULLISH', 'VOL_CONFIRM:2.95x', 'ABOVE_VWAP']
+2026-06-11 20:04:26.795 | INFO     | agents.stocks_agent:_execute_trade:452 - Validando orden: {'symbol': 'SVXY', 'side': 'buy', 'order_type': 'market', 'time_in_force': 'day', 'notional': 830.29}
+2026-06-11 20:04:26.885 | INFO     | agents.stocks_agent:_execute_trade:455 - Alpaca order 73ae66be-c264-4a9d-b5f5-99e0bb58772f enviada: buy SVXY $830.29
+2026-06-11 20:04:26.903 | INFO     | core.alpaca_session_manager:open_trade:347 - Trade abierto SVXY BUY @ 53.6700 | id=6ed06083-2351-4373-bf53-6a9892ed5112
+2026-06-11 20:04:27.322 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:09:27.415 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 585s ago
+2026-06-11 20:09:27.504 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 448s ago
+2026-06-11 20:09:27.581 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 569s ago
+2026-06-11 20:09:27.657 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 571s ago
+2026-06-11 20:09:27.661 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:09:27.661 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:14:27.743 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 885s ago
+2026-06-11 20:14:27.832 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 748s ago
+2026-06-11 20:14:27.922 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 869s ago
+2026-06-11 20:14:28.003 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 872s ago
+2026-06-11 20:14:28.006 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:14:28.006 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:19:28.107 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 1186s ago
+2026-06-11 20:19:28.395 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:19:28.477 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 1170s ago
+2026-06-11 20:19:28.565 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 1172s ago
+2026-06-11 20:19:28.570 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:19:28.571 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:24:28.666 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 1486s ago
+2026-06-11 20:24:28.747 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 305s ago
+2026-06-11 20:24:28.838 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 1470s ago
+2026-06-11 20:24:28.919 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 1473s ago
+2026-06-11 20:24:28.924 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:24:28.924 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:29:29.013 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 1786s ago
+2026-06-11 20:29:29.285 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:29:29.359 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 1771s ago
+2026-06-11 20:29:29.434 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 1773s ago
+2026-06-11 20:29:29.436 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:29:29.436 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:34:29.543 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 2087s ago
+2026-06-11 20:34:29.834 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:34:29.924 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 2071s ago
+2026-06-11 20:34:30.018 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 2074s ago
+2026-06-11 20:34:30.023 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:34:30.023 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:39:30.150 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 2388s ago
+2026-06-11 20:39:30.244 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 525s ago
+2026-06-11 20:39:30.325 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 2372s ago
+2026-06-11 20:39:30.415 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 2374s ago
+2026-06-11 20:39:30.421 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:39:30.422 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:44:30.512 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 2688s ago
+2026-06-11 20:44:30.781 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:44:30.859 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 2672s ago
+2026-06-11 20:44:30.947 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 2675s ago
+2026-06-11 20:44:30.950 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:44:30.950 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:49:31.037 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 2988s ago
+2026-06-11 20:49:31.120 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 481s ago
+2026-06-11 20:49:31.210 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 2973s ago
+2026-06-11 20:49:31.294 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 2975s ago
+2026-06-11 20:49:31.297 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:49:31.297 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:54:31.386 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 3289s ago
+2026-06-11 20:54:31.471 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale TSLA last trade 781s ago
+2026-06-11 20:54:31.551 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 3273s ago
+2026-06-11 20:54:31.644 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 3275s ago
+2026-06-11 20:54:31.647 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:54:31.648 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 20:59:31.803 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale SVXY last trade 3589s ago
+2026-06-11 20:59:32.113 | WARNING  | agents.stocks_agent:_close_trade:610 - No hay cantidad disponible para cerrar TSLA
+2026-06-11 20:59:32.198 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale AMZN last trade 3574s ago
+2026-06-11 20:59:32.279 | WARNING  | data.stocks_feed:get_price:145 - STOCKS FEED: stale NVDA last trade 3576s ago
+2026-06-11 20:59:32.282 | INFO     | agents.stocks_agent:_cycle:173 - Máximo de trades concurrentes alcanzado (4)
+2026-06-11 20:59:32.283 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:04:32.283 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:04 UTC). Ciclo saltado.
+2026-06-11 21:04:32.284 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:09:32.284 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:09 UTC). Ciclo saltado.
+2026-06-11 21:09:32.284 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:14:32.286 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:14 UTC). Ciclo saltado.
+2026-06-11 21:14:32.286 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:19:32.287 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:19 UTC). Ciclo saltado.
+2026-06-11 21:19:32.288 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:24:32.288 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:24 UTC). Ciclo saltado.
+2026-06-11 21:24:32.288 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:29:32.289 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:29 UTC). Ciclo saltado.
+2026-06-11 21:29:32.289 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:34:32.291 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:34 UTC). Ciclo saltado.
+2026-06-11 21:34:32.291 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:39:32.292 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:39 UTC). Ciclo saltado.
+2026-06-11 21:39:32.292 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:44:32.293 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:44 UTC). Ciclo saltado.
+2026-06-11 21:44:32.295 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:49:32.295 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:49 UTC). Ciclo saltado.
+2026-06-11 21:49:32.295 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:54:32.296 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:54 UTC). Ciclo saltado.
+2026-06-11 21:54:32.296 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 21:59:32.297 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (21:59 UTC). Ciclo saltado.
+2026-06-11 21:59:32.297 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:04:32.298 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:04 UTC). Ciclo saltado.
+2026-06-11 22:04:32.298 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:09:32.299 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:09 UTC). Ciclo saltado.
+2026-06-11 22:09:32.300 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:14:32.302 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:14 UTC). Ciclo saltado.
+2026-06-11 22:14:32.302 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:19:32.303 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:19 UTC). Ciclo saltado.
+2026-06-11 22:19:32.305 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:24:32.306 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:24 UTC). Ciclo saltado.
+2026-06-11 22:24:32.307 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:29:32.308 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:29 UTC). Ciclo saltado.
+2026-06-11 22:29:32.309 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:34:32.310 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:34 UTC). Ciclo saltado.
+2026-06-11 22:34:32.310 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:39:32.310 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:39 UTC). Ciclo saltado.
+2026-06-11 22:39:32.311 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:44:32.311 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:44 UTC). Ciclo saltado.
+2026-06-11 22:44:32.312 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:49:32.316 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:49 UTC). Ciclo saltado.
+2026-06-11 22:49:32.317 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:54:32.318 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:54 UTC). Ciclo saltado.
+2026-06-11 22:54:32.318 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 22:59:32.318 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (22:59 UTC). Ciclo saltado.
+2026-06-11 22:59:32.319 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:04:32.320 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:04 UTC). Ciclo saltado.
+2026-06-11 23:04:32.320 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:09:32.320 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:09 UTC). Ciclo saltado.
+2026-06-11 23:09:32.321 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:14:32.322 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:14 UTC). Ciclo saltado.
+2026-06-11 23:14:32.322 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:19:32.322 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:19 UTC). Ciclo saltado.
+2026-06-11 23:19:32.323 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:24:32.324 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:24 UTC). Ciclo saltado.
+2026-06-11 23:24:32.324 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:29:32.325 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:29 UTC). Ciclo saltado.
+2026-06-11 23:29:32.325 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:34:32.325 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:34 UTC). Ciclo saltado.
+2026-06-11 23:34:32.326 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:39:32.330 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:39 UTC). Ciclo saltado.
+2026-06-11 23:39:32.331 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:44:32.332 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:44 UTC). Ciclo saltado.
+2026-06-11 23:44:32.332 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:49:32.333 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:49 UTC). Ciclo saltado.
+2026-06-11 23:49:32.333 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:54:32.334 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:54 UTC). Ciclo saltado.
+2026-06-11 23:54:32.334 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-11 23:59:32.334 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (23:59 UTC). Ciclo saltado.
+2026-06-11 23:59:32.335 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:04:32.335 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:04 UTC). Ciclo saltado.
+2026-06-12 00:04:32.336 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:09:32.336 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:09 UTC). Ciclo saltado.
+2026-06-12 00:09:32.337 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:14:32.337 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:14 UTC). Ciclo saltado.
+2026-06-12 00:14:32.338 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:19:32.338 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:19 UTC). Ciclo saltado.
+2026-06-12 00:19:32.338 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:24:32.339 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:24 UTC). Ciclo saltado.
+2026-06-12 00:24:32.339 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:29:32.339 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:29 UTC). Ciclo saltado.
+2026-06-12 00:29:32.340 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:34:32.340 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:34 UTC). Ciclo saltado.
+2026-06-12 00:34:32.340 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:39:32.341 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:39 UTC). Ciclo saltado.
+2026-06-12 00:39:32.342 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:44:32.342 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:44 UTC). Ciclo saltado.
+2026-06-12 00:44:32.343 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:49:32.343 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:49 UTC). Ciclo saltado.
+2026-06-12 00:49:32.343 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:54:32.352 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:54 UTC). Ciclo saltado.
+2026-06-12 00:54:32.353 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 00:59:32.354 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (00:59 UTC). Ciclo saltado.
+2026-06-12 00:59:32.354 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:04:32.357 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:04 UTC). Ciclo saltado.
+2026-06-12 01:04:32.358 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:09:32.358 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:09 UTC). Ciclo saltado.
+2026-06-12 01:09:32.359 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:14:32.359 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:14 UTC). Ciclo saltado.
+2026-06-12 01:14:32.360 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:19:32.360 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:19 UTC). Ciclo saltado.
+2026-06-12 01:19:32.360 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:24:32.361 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:24 UTC). Ciclo saltado.
+2026-06-12 01:24:32.362 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:29:32.362 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:29 UTC). Ciclo saltado.
+2026-06-12 01:29:32.362 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:34:32.363 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:34 UTC). Ciclo saltado.
+2026-06-12 01:34:32.363 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:39:32.364 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:39 UTC). Ciclo saltado.
+2026-06-12 01:39:32.365 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:44:32.367 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:44 UTC). Ciclo saltado.
+2026-06-12 01:44:32.367 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:49:32.368 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:49 UTC). Ciclo saltado.
+2026-06-12 01:49:32.368 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...
+2026-06-12 01:54:32.369 | INFO     | agents.stocks_agent:_cycle:164 - NYSE cerrado (01:54 UTC). Ciclo saltado.
+2026-06-12 01:54:32.370 | INFO     | agents.stocks_agent:run:155 - Próximo ciclo en 300s...

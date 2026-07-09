@@ -1,0 +1,14 @@
+{
+  "topic": "PolySnipe: 341 trades, 91.8% WR, pero PnL -50.37 (balance 49). SOL -60, XRP -45, ETH +0, BTC +1. Expectativa negativa: cada loss borra 15 wins. El oracle Polymarket (15-min) no captura el movimiento de entrada. Cerrar o mejorar?",
+  "timestamp": "2026-05-29T18:02:22.655192+00:00",
+  "votes": {
+    "QUANT": "\u26a0\ufe0f",
+    "QUANT_reason": "91.8% WR pero expectativa negativa: E[x] = -$0.56 por trade. Cada loss en SOL (-$31.54 avg) borra 15 wins (+$2.13). El ratio de pago es estructural: la ventana oracle de 15 min no captura el movimiento de entrada. SOL -$160, XRP -$145 son toxicos. ETH UP +$12 y BTC UP +$30 son los unicos levemente positivos.",
+    "TECHNICAL": "\u274c",
+    "TECHNICAL_reason": "El problema es mecanico, no de parametros. El snipe apuesta a que un movimiento grande se mantenga en la ventana de liquidacion. Cuando revierte 0.02% pierde todo. No hay trailing stop que arregle esto. La unica mejora seria filtrar por % de movimiento minimo antes de entrar, pero reduce las oportunidades a cero. Cerrar SOL/XRP.",
+    "RISK": "\u274c",
+    "RISK_reason": "DD no es el problema ($150 en $500 = 30%), sino que el edge no existe. 341 trades es muestra suficiente. La estrategia es ruina segura: cada loss grande neutraliza semanas de wins chicos. Si ETH UP y BTC UP son marginalmente positivos, mantened solo esos dos. Pero con $500 de capital, el riesgo es desproporcionado.",
+    "PORTFOLIO": "\u26a0\ufe0f",
+    "PORTFOLIO_reason": "El capital en snipe ($349) seria mejor usado en TM o GRID_STABLE que tienen expectativa positiva comprobada. Si se mantiene, reducir a solo ETH UP + BTC UP con size minimo ($5/trade). Pero la recomendacion estrategica es: cerrar snipe, redistribuir capital a estrategias con edge positivo demostrado (+$226 en 3 dias)."
+  }
+}

@@ -1,0 +1,18 @@
+2026-07-03 06:24:17.214 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:24:17.247 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:24:17.256 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 06:24:17.365 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $500.00
+2026-07-03 06:24:17.398 | INFO     | __main__:main:208 - Startup warm-up: 180s antes del primer ciclo de trading...
+2026-07-03 06:27:20.817 | ERROR    | data.market_feed:fetch_ohlcv:94 - fetch_ohlcv BTC/1m (okx): '<' not supported between instances of 'NoneType' and 'str'
+2026-07-03 06:27:20.921 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1m latest=2026-07-03 06:23:00+00:00, age=4min (max=3min)
+2026-07-03 06:27:21.416 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.32
+2026-07-03 06:27:22.053 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC BB_UPPER_TOUCH dir=SELL str=1.00
+2026-07-03 06:27:22.053 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC VOLUME_SPIKE dir=NEUTRAL str=1.00
+2026-07-03 06:27:22.572 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: BTC EMA_CROSS_BULL dir=BUY str=0.38
+2026-07-03 06:27:23.452 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.31
+2026-07-03 06:27:23.911 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.34
+2026-07-03 06:27:23.912 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH BB_UPPER_TOUCH dir=SELL str=0.97
+2026-07-03 06:27:24.307 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: ETH EMA_CROSS_BULL dir=BUY str=0.57
+2026-07-03 06:27:25.119 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.16
+2026-07-03 06:27:25.496 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.10
+2026-07-03 06:27:25.872 | INFO     | agents.market_scanner:_publish_signals:197 - Signal: SOL EMA_CROSS_BULL dir=BUY str=0.49

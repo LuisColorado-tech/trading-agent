@@ -1,0 +1,1655 @@
+2026-03-16 07:00:14.239 | INFO     | core.claude_bridge:call:166 - Claude daily_briefing for ALL: 0% conf, 7973ms
+2026-03-16 07:00:14.277 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market briefing for March 16, 2026: With no market snapshot data available, we are unable to provide...
+{
+  "result": "Market briefing for March 16, 2026: With no market snapshot data available, we are unable to provide a comprehensive multi-asset analysis. Under normal circumstances, this daily briefing would cover equity indices performance across major regions (S&P 500, NASDAQ, Euro Stoxx, Nikkei), fixed income movements including Treasury yields and credit spreads, commodity price action in energy and precious metals, and FX dynamics across major currency pairs. Additionally, we would assess volatility metrics (VIX), cross-asset correlations, and any significant overnight developments from Asian and European sessions. The absence of portfolio context further limits our ability to provide tailored risk assessments and position-specific recommendations. Traders should exercise caution and await updated market data before making significant allocation decisions. We recommend monitoring central bank communications, economic calendar releases, and geopolitical developments that may impact risk sentiment. Until reliable data feeds are restored, maintain defensive positioning and ensure adequate liquidity buffers across all asset classes.",
+  "confidence": 0,
+  "reasoning": "No market snapshot data provided for analysis. Portfolio context is empty. Unable to assess current market conditions, trends, or risk factors without fundamental data inputs.",
+  "flags": [
+    "insufficient_data",
+    "empty_market_snapshot",
+    "no_portfolio_context",
+    "data_feed_verification_required"
+  ],
+  "_latency_ms": 7973
+}
+2026-03-17 07:00:10.558 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-17 07:00:14.979 | INFO     | core.claude_bridge:call:193 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 4232ms
+2026-03-17 07:00:15.028 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from ec...
+{
+  "result": "Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from economic indicators. Investors are cautious due to potential interest rate hikes and geopolitical tensions that could impact global markets. The lack of significant market movements today suggests a wait-and-see approach among traders.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to provide a comprehensive analysis of market conditions and trends.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 4232
+}
+2026-03-18 07:00:12.234 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-18 07:00:14.416 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 2069ms
+2026-03-18 07:00:14.491 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from ec...
+{
+  "result": "Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from economic indicators. Investors are cautious due to potential interest rate hikes and geopolitical tensions that could impact global markets. Volatility is expected to persist as traders assess the implications of upcoming economic data releases.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to provide a comprehensive analysis of market conditions and trends.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2069
+}
+2026-03-19 07:00:09.724 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-19 07:00:12.587 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 2738ms
+2026-03-19 07:00:12.616 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals from econom...
+{
+  "result": "Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals from economic indicators. Recent inflation data suggests persistent price pressures, while employment figures show signs of stabilization. Investors should remain cautious as geopolitical tensions could further impact market stability.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to provide a comprehensive analysis of market conditions and asset performance.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2738
+}
+2026-03-20 07:00:05.986 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-20 07:00:08.519 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 2472ms
+2026-03-20 07:00:08.544 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as of March 20, 2026, with no significant movements observed acro...
+{
+  "result": "Market conditions remain uncertain as of March 20, 2026, with no significant movements observed across major asset classes. Investors are likely awaiting key economic indicators and geopolitical developments that could influence market sentiment. The lack of fresh data points contributes to a cautious trading environment.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to assess market trends and catalysts effectively.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2472
+}
+2026-03-21 07:00:10.981 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-21 07:00:14.689 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 3579ms
+2026-03-21 07:00:14.751 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we enter the final week of March. Economic indicators suggest ...
+{
+  "result": "Market conditions remain uncertain as we enter the final week of March. Economic indicators suggest mixed signals, with inflationary pressures persisting while employment figures show signs of stabilization. Investors are advised to remain cautious amid potential volatility driven by geopolitical tensions and upcoming economic reports.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to provide a comprehensive analysis of market conditions.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3579
+}
+2026-03-22 07:00:09.661 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-22 07:00:11.836 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 2118ms
+2026-03-22 07:00:11.867 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain with a lack of significant data to inform trading strategies. The...
+{
+  "result": "Market conditions remain uncertain with a lack of significant data to inform trading strategies. The absence of key economic indicators and geopolitical developments contributes to a cautious outlook. Traders should remain vigilant and prepared for potential volatility as market sentiment is fragile.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to assess market conditions accurately.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2118
+}
+2026-03-23 07:00:11.694 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-23 07:00:14.719 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 2931ms
+2026-03-23 07:00:14.751 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we lack significant data to assess current trends. The absence...
+{
+  "result": "Market conditions remain uncertain as we lack significant data to assess current trends. The absence of a market snapshot limits our ability to provide a comprehensive analysis of asset performance. Investors should exercise caution given the insufficient information available.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to evaluate market conditions and asset performance.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2931
+}
+2026-03-24 07:00:10.989 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-24 07:00:14.194 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 3033ms
+2026-03-24 07:00:14.283 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain with a lack of significant data to inform trading strategies. The...
+{
+  "result": "Market conditions remain uncertain with a lack of significant data to inform trading strategies. The absence of key economic indicators and geopolitical developments has led to a cautious approach among investors. As a result, volatility may increase as market participants await clearer signals.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to assess market conditions accurately.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3033
+}
+2026-03-25 07:00:11.498 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-25 07:00:14.799 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 3145ms
+2026-03-25 07:00:14.849 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals across vari...
+{
+  "result": "Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals across various asset classes. Economic indicators suggest potential volatility due to upcoming central bank meetings and geopolitical tensions that could impact investor sentiment. Caution is advised as market participants await clearer guidance on monetary policy and global economic stability.",
+  "confidence": 0,
+  "reasoning": "Insufficient data to provide a comprehensive analysis of market conditions and trends.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3145
+}
+2026-03-26 07:00:10.299 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-26 07:00:13.685 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 30% conf, 3315ms
+2026-03-26 07:00:13.735 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from ec...
+{
+  "result": "Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from economic indicators. Investors are cautious due to potential interest rate hikes and geopolitical tensions that could impact asset prices. Overall, the lack of clear direction in the market leads to a heightened sense of volatility.",
+  "confidence": 30,
+  "reasoning": "Key catalysts include upcoming economic reports and central bank meetings that may influence market sentiment. Additionally, ongoing geopolitical issues are contributing to investor anxiety.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3315
+}
+2026-03-27 07:00:08.460 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-27 07:00:11.969 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 50% conf, 3427ms
+2026-03-27 07:00:11.997 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals across vari...
+{
+  "result": "Market conditions remain uncertain as we approach the end of Q1 2026, with mixed signals across various asset classes. Economic indicators suggest a potential slowdown, but investor sentiment remains cautiously optimistic due to recent policy adjustments by central banks. Key catalysts include upcoming earnings reports and geopolitical developments that could significantly impact market dynamics.",
+  "confidence": 50,
+  "reasoning": "The mixed economic signals and potential for volatility in the upcoming earnings season create a cautious outlook. Central bank policies may provide some support, but geopolitical tensions could introduce additional risks.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3427
+}
+2026-03-28 07:00:05.194 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-28 07:00:07.123 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 0% conf, 1877ms
+2026-03-28 07:00:07.150 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as of March 28, 2026, with no significant movements observed acro...
+{
+  "result": "Market conditions remain uncertain as of March 28, 2026, with no significant movements observed across major asset classes. The lack of recent economic data and geopolitical developments contributes to a cautious trading environment. Investors are advised to remain vigilant as volatility may increase with upcoming earnings reports and economic indicators.",
+  "confidence": 0,
+  "reasoning": "Insufficient data available to provide a comprehensive market analysis.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1877
+}
+2026-03-29 07:00:07.469 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-29 07:00:10.439 | INFO     | core.claude_bridge:call:200 - LLM [openai/gpt-4o-mini] daily_briefing for ALL: 40% conf, 2915ms
+2026-03-29 07:00:10.466 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from ec...
+{
+  "result": "Market conditions remain uncertain as we approach the end of the quarter, with mixed signals from economic indicators. Investors are cautious due to potential interest rate hikes and geopolitical tensions that could impact global markets. Overall, the lack of clear direction in key asset classes suggests a wait-and-see approach among traders.",
+  "confidence": 40,
+  "reasoning": "Key catalysts include upcoming economic data releases and central bank meetings that may influence market sentiment. The geopolitical landscape remains volatile, adding to investor apprehension.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2915
+}
+2026-03-30 07:00:08.837 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-30 07:00:10.693 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-03-30 07:00:10.734 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-03-31 07:00:08.274 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-03-31 07:00:10.156 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-03-31 07:00:10.217 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-01 07:00:08.341 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-01 07:00:10.056 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-01 07:00:10.082 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-02 07:00:10.101 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-02 07:00:12.012 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-02 07:00:12.049 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-03 07:00:12.896 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-03 07:00:14.813 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-03 07:00:14.880 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-04 07:00:11.693 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-04 07:00:13.388 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-04 07:00:13.470 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-05 07:00:08.182 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-05 07:00:09.801 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-05 07:00:09.828 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-06 07:00:10.856 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-06 07:00:12.452 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-06 07:00:12.498 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-07 07:00:09.203 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-07 07:00:11.166 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-07 07:00:11.214 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-08 07:00:10.130 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-08 07:00:12.225 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-08 07:00:12.285 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-09 07:00:09.931 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-09 07:00:12.315 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-09 07:00:12.346 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-10 07:00:12.305 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-10 07:00:16.748 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-10 07:00:16.819 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-11 07:00:09.491 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-11 07:00:11.265 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-11 07:00:11.301 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-12 07:00:09.893 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-12 07:00:11.712 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-12 07:00:11.738 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-13 07:00:10.763 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-13 07:00:15.711 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-13 07:00:15.763 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-14 07:00:07.932 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-14 07:00:12.648 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-14 07:00:12.687 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-15 07:00:11.393 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-15 07:00:13.460 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-15 07:00:13.508 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-16 07:00:11.527 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-16 07:00:15.196 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-16 07:00:15.228 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-17 07:00:12.696 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-17 07:00:14.781 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-17 07:00:14.822 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-18 07:00:08.223 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-18 07:00:11.508 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-18 07:00:11.549 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-19 07:00:10.097 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-19 07:00:11.802 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-19 07:00:11.827 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-20 07:00:10.029 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-20 07:00:12.097 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-20 07:00:12.199 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-21 07:00:10.498 | INFO     | core.claude_bridge:__init__:133 - LLMBridge: Using openai/gpt-4o-mini
+2026-04-21 07:00:14.566 | ERROR    | core.claude_bridge:call:207 - LLMBridge error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-04-21 07:00:14.609 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-04-23 07:00:11.432 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-23 07:00:16.642 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 5079ms
+2026-04-23 07:00:16.679 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Market data is insufficient to generate a daily briefing. The provided market snapshot is empty, and...
+{
+  "result": "Market data is insufficient to generate a daily briefing. The provided market snapshot is empty, and no portfolio context is available. A quantitative analysis cannot be performed without underlying price, volatility, or macroeconomic data.",
+  "confidence": 0,
+  "reasoning": "Empty market snapshot and no portfolio context provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 5079
+}
+2026-04-24 07:00:08.153 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-24 07:00:11.791 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 3565ms
+2026-04-24 07:00:11.823 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed assessment cannot be generated without underlying asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3565
+}
+2026-04-25 07:00:10.780 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-25 07:00:14.599 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 3684ms
+2026-04-25 07:00:14.674 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for April 25, 2026. A detailed assessment cannot be generated without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Cannot analyze trends, risks, or opportunities without any quantitative or qualitative information.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3684
+}
+2026-04-26 07:00:08.240 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-26 07:00:10.782 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2416ms
+2026-04-26 07:00:10.847 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for April 26, 2026. No asset prices, volumes, or economic indicat...
+{
+  "result": "Insufficient market data available for April 26, 2026. No asset prices, volumes, or economic indicators were provided in the snapshot. A comprehensive briefing cannot be generated without current market conditions.",
+  "confidence": 0,
+  "reasoning": "The market snapshot is empty, providing no data on equities, fixed income, currencies, or commodities. Without any price action, volatility measures, or macroeconomic inputs, no quantitative assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2416
+}
+2026-04-27 07:00:08.845 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-27 07:00:11.410 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2458ms
+2026-04-27 07:00:11.483 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date.",
+  "confidence": 0,
+  "reasoning": "No market data, portfolio holdings, or economic indicators were supplied. Cannot assess asset performance, volatility, or risk factors.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2458
+}
+2026-04-28 07:00:08.010 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-28 07:00:10.740 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2640ms
+2026-04-28 07:00:10.769 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for April 28, 2026. Unable to generate a briefing due to empty market snaps...
+{
+  "result": "No market data available for April 28, 2026. Unable to generate a briefing due to empty market snapshot. Recommend verifying data feeds and checking for any scheduled market closures or system outages.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty, indicating no price, volume, or volatility data for any asset class. Without any input data, no quantitative assessment or trend analysis is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2640
+}
+2026-04-29 07:00:10.159 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-29 07:00:13.062 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2809ms
+2026-04-29 07:00:13.123 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for April 29, 2026. Unable to generate a briefing due to empty market snaps...
+{
+  "result": "No market data available for April 29, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided for any asset class.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2809
+}
+2026-04-30 07:00:10.076 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-04-30 07:00:12.189 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1919ms
+2026-04-30 07:00:12.248 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for April 30, 2026. Unable to generate a briefing due to empty market snaps...
+{
+  "result": "No market data available for April 30, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1919
+}
+2026-05-01 07:00:09.232 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-01 07:00:11.407 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2127ms
+2026-05-01 07:00:11.441 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-01. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-01. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or trend assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2127
+}
+2026-05-02 07:00:07.364 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-02 07:00:09.369 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1904ms
+2026-05-02 07:00:09.408 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-02. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-02. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or fundamental data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1904
+}
+2026-05-03 07:00:09.263 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-03 07:00:11.215 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1898ms
+2026-05-03 07:00:11.239 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-03. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-03. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or economic data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1898
+}
+2026-05-04 07:00:09.827 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-04 07:00:12.229 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2296ms
+2026-05-04 07:00:12.262 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-04. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-04. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2296
+}
+2026-05-05 07:00:09.561 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-05 07:00:11.954 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2298ms
+2026-05-05 07:00:11.988 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for 2026-05-05. A neutral stance is recommended until further data is received.",
+  "confidence": 0,
+  "reasoning": "No market snapshot or portfolio context was supplied. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2298
+}
+2026-05-06 07:00:11.355 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-06 07:00:17.962 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 6506ms
+2026-05-06 07:00:17.996 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data is available for 2026-05-06. Without any price, volume, or economic indicators, a mea...
+{
+  "result": "No market data is available for 2026-05-06. Without any price, volume, or economic indicators, a meaningful briefing cannot be generated. The system is operating in a data vacuum, requiring immediate attention to data feeds.",
+  "confidence": 0,
+  "reasoning": "The market snapshot is empty, providing no basis for analysis. No assets, prices, or events are recorded. This indicates a complete lack of input data.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 6506
+}
+2026-05-07 07:00:09.718 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-07 07:00:12.311 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2357ms
+2026-05-07 07:00:12.414 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-07. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-07. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no asset prices, volumes, or economic indicators provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2357
+}
+2026-05-08 07:00:10.893 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-08 07:00:13.683 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2677ms
+2026-05-08 07:00:13.726 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed analysis cannot be generated without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Without any price, volume, or fundamental data, it is impossible to assess market conditions or generate a meaningful briefing.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2677
+}
+2026-05-09 07:00:09.604 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-09 07:00:12.689 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 3012ms
+2026-05-09 07:00:12.727 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for May 9, 2026. No asset prices, volumes, or economic indicators...
+{
+  "result": "Insufficient market data available for May 9, 2026. No asset prices, volumes, or economic indicators were provided in the snapshot. A comprehensive briefing cannot be generated without current market conditions.",
+  "confidence": 0,
+  "reasoning": "The market snapshot is empty, providing no data on equities, fixed income, currencies, or commodities. Without any price action, volatility measures, or macroeconomic inputs, no quantitative assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3012
+}
+2026-05-10 07:00:07.685 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-10 07:00:10.253 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2422ms
+2026-05-10 07:00:10.333 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed analysis cannot be performed without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Cannot assess current conditions or trends.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2422
+}
+2026-05-11 07:00:09.360 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-11 07:00:09.429 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=1500min (max=180min)
+2026-05-11 07:00:09.434 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=1500min (max=180min)
+2026-05-11 07:00:12.046 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2610ms
+2026-05-11 07:00:12.081 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-11. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-11. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2610
+}
+2026-05-12 07:00:10.151 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-12 07:00:10.284 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=2940min (max=180min)
+2026-05-12 07:00:10.287 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=2940min (max=180min)
+2026-05-12 07:00:15.419 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 5129ms
+2026-05-12 07:00:15.470 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for May 12, 2026. A full assessment requires current market snapshots and portfolio context.",
+  "confidence": 0,
+  "reasoning": "No market snapshot or portfolio data was supplied. Without any price, volatility, or fundamental inputs, no quantitative analysis is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 5129
+}
+2026-05-13 07:00:11.682 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-13 07:00:11.795 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=4380min (max=180min)
+2026-05-13 07:00:11.798 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=4380min (max=180min)
+2026-05-13 07:00:21.000 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 9200ms
+2026-05-13 07:00:21.060 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for May 13, 2026. No asset prices, volumes, or economic indicator...
+{
+  "result": "Insufficient market data available for May 13, 2026. No asset prices, volumes, or economic indicators were provided in the snapshot. A comprehensive briefing cannot be generated without current market conditions.",
+  "confidence": 0,
+  "reasoning": "No market snapshot data was supplied for any asset class. Cannot assess trends, risks, or catalysts.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 9200
+}
+2026-05-14 07:00:09.968 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-14 07:00:10.058 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=5820min (max=180min)
+2026-05-14 07:00:10.068 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=5820min (max=180min)
+2026-05-14 07:00:12.054 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1983ms
+2026-05-14 07:00:12.099 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-14. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-14. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1983
+}
+2026-05-15 07:00:08.726 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-15 07:00:08.774 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=7260min (max=180min)
+2026-05-15 07:00:08.777 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=7260min (max=180min)
+2026-05-15 07:00:42.802 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 34023ms
+2026-05-15 07:00:42.821 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio information was supplied.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 34023
+}
+2026-05-16 07:00:08.130 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-16 07:00:08.175 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=8700min (max=180min)
+2026-05-16 07:00:08.178 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=8700min (max=180min)
+2026-05-16 07:00:11.286 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 3106ms
+2026-05-16 07:00:11.312 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data is available for 2026-05-16. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data is available for 2026-05-16. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no data for any asset class. Without price, volume, or volatility information, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3106
+}
+2026-05-17 07:00:12.253 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-17 07:00:12.355 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=10140min (max=180min)
+2026-05-17 07:00:12.358 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=10140min (max=180min)
+2026-05-17 07:00:13.960 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1600ms
+2026-05-17 07:00:13.989 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-17. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-17. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1600
+}
+2026-05-18 07:00:11.890 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-18 07:00:12.045 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=11580min (max=180min)
+2026-05-18 07:00:12.049 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=11580min (max=180min)
+2026-05-18 07:00:14.146 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2094ms
+2026-05-18 07:00:14.185 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed analysis cannot be performed without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Cannot assess market conditions or generate actionable insights.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2094
+}
+2026-05-19 07:00:15.024 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-19 07:00:15.158 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-10 06:00:00+00:00, age=13020min (max=180min)
+2026-05-19 07:00:15.165 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-05-10 06:00:00+00:00, age=13020min (max=180min)
+2026-05-19 07:00:17.951 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2782ms
+2026-05-19 07:00:18.030 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-19. Unable to generate a meaningful briefing due to absence of ...
+{
+  "result": "No market data available for 2026-05-19. Unable to generate a meaningful briefing due to absence of price, volume, or economic indicators across all assets.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot is empty, with no asset prices, indices, or macroeconomic data to analyze.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2782
+}
+2026-05-20 07:03:33.220 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-20 07:03:54.565 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 6051ms
+2026-05-20 07:04:04.187 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-20. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-20. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 6051
+}
+2026-05-21 07:00:13.967 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-21 07:00:14.054 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=1380min (max=180min)
+2026-05-21 07:00:17.483 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 3422ms
+2026-05-21 07:00:17.514 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. Unable to assess asset performance, trends, or risks.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 3422
+}
+2026-05-22 07:00:09.913 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-22 07:00:09.988 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=2820min (max=180min)
+2026-05-22 07:00:12.262 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2267ms
+2026-05-22 07:00:12.339 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-22. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-22. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or indicators. Without any data, no analysis or trend assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2267
+}
+2026-05-23 07:00:11.039 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-23 07:00:11.212 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=4260min (max=180min)
+2026-05-23 07:00:12.804 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1587ms
+2026-05-23 07:00:12.888 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. Unable to assess asset performance, volatility, or key economic events.",
+  "confidence": 0,
+  "reasoning": "No market data, portfolio holdings, or economic indicators were supplied. Cannot generate a data-driven briefing without any input.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1587
+}
+2026-05-24 07:00:11.504 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-24 07:00:11.625 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=5700min (max=180min)
+2026-05-24 07:00:14.166 | ERROR    | core.claude_bridge:call:235 - LLMBridge error: Error code: 503 - {'error': {'message': 'Service is too busy. We advise users to temporarily switch to alternative LLM API service providers.', 'type': 'service_unavailable_error', 'param': None, 'code': 'service_unavailable_error'}}
+2026-05-24 07:00:14.213 | INFO     | __main__:run_briefing:81 - Daily briefing saved: NEUTRAL...
+{
+  "result": "NEUTRAL",
+  "confidence": 0,
+  "reasoning": "LLM unavailable: Error code: 503 - {'error': {'message': 'Service is too busy. We advise users to temporarily switch ",
+  "flags": [
+    "llm_unavailable"
+  ],
+  "_latency_ms": -1
+}
+2026-05-25 07:00:06.499 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-25 07:00:06.592 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=7140min (max=180min)
+2026-05-25 07:00:08.971 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2371ms
+2026-05-25 07:00:09.011 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed assessment cannot be generated without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Cannot analyze trends, risks, or opportunities.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2371
+}
+2026-05-26 07:00:13.584 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-26 07:00:13.665 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=8580min (max=180min)
+2026-05-26 07:00:15.606 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1934ms
+2026-05-26 07:00:15.648 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-26. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-26. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no asset prices, volumes, or economic indicators provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1934
+}
+2026-05-27 07:00:14.280 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-27 07:00:14.442 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=10020min (max=180min)
+2026-05-27 07:00:16.764 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2316ms
+2026-05-27 07:00:16.854 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-27. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-27. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2316
+}
+2026-05-28 07:00:11.918 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-28 07:00:12.092 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=11460min (max=180min)
+2026-05-28 07:00:13.999 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1899ms
+2026-05-28 07:00:14.054 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-28. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-28. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no asset prices, volumes, or economic indicators provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1899
+}
+2026-05-29 07:00:09.184 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-29 07:00:09.310 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=12900min (max=180min)
+2026-05-29 07:00:11.219 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1902ms
+2026-05-29 07:00:11.251 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for 2026-05-29. A neutral stance is recommended until further information is received.",
+  "confidence": 0,
+  "reasoning": "No market snapshot or portfolio context was supplied, making any quantitative assessment impossible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1902
+}
+2026-05-30 07:00:11.096 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-30 07:00:11.231 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=14340min (max=180min)
+2026-05-30 07:00:12.572 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1335ms
+2026-05-30 07:00:12.617 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-30. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-30. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or trend assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1335
+}
+2026-05-31 07:00:13.034 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-05-31 07:00:13.163 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=15780min (max=180min)
+2026-05-31 07:00:14.607 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1433ms
+2026-05-31 07:00:14.654 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-05-31. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-05-31. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or economic data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1433
+}
+2026-06-01 07:00:09.741 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-01 07:00:09.811 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=17220min (max=180min)
+2026-06-01 07:00:11.969 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2150ms
+2026-06-01 07:00:12.031 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for June 1, 2026. No asset prices, volumes, or economic indicator...
+{
+  "result": "Insufficient market data available for June 1, 2026. No asset prices, volumes, or economic indicators were provided in the snapshot. A comprehensive briefing cannot be generated without underlying data.",
+  "confidence": 0,
+  "reasoning": "The market snapshot is empty, providing no basis for analysis or trend assessment. No news, economic releases, or price history are available to evaluate market conditions.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2150
+}
+2026-06-02 07:00:13.319 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-02 07:00:13.450 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=18660min (max=180min)
+2026-06-02 07:00:15.188 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1732ms
+2026-06-02 07:00:15.288 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-02. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-02. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or trend assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1732
+}
+2026-06-03 07:00:14.458 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-03 07:00:14.581 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=20100min (max=180min)
+2026-06-03 07:00:16.471 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1883ms
+2026-06-03 07:00:16.579 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date.",
+  "confidence": 0,
+  "reasoning": "No market data, positions, or economic indicators were supplied to analyze current conditions or generate actionable insights.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1883
+}
+2026-06-04 07:00:13.653 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-04 07:00:13.784 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=21540min (max=180min)
+2026-06-04 07:00:15.385 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1593ms
+2026-06-04 07:00:15.446 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 4, 2026. Unable to generate a briefing due to empty market snapsho...
+{
+  "result": "No market data available for June 4, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1593
+}
+2026-06-05 07:00:11.405 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-05 07:00:11.550 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=22980min (max=180min)
+2026-06-05 07:00:13.665 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2103ms
+2026-06-05 07:00:13.759 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 5, 2026. Unable to generate a briefing due to empty snapshot....
+{
+  "result": "No market data available for June 5, 2026. Unable to generate a briefing due to empty snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2103
+}
+2026-06-06 07:00:12.007 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-06 07:00:12.115 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=24420min (max=180min)
+2026-06-06 07:00:14.045 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1925ms
+2026-06-06 07:00:14.113 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-06. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-06. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1925
+}
+2026-06-07 07:00:09.211 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-07 07:00:09.286 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=25860min (max=180min)
+2026-06-07 07:00:11.121 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1827ms
+2026-06-07 07:00:11.151 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for June 7, 2026. A neutral stance is recommended until further information is received.",
+  "confidence": 0,
+  "reasoning": "No market snapshot or portfolio context was supplied. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1827
+}
+2026-06-08 07:00:14.318 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-08 07:00:14.400 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=27300min (max=180min)
+2026-06-08 07:01:01.203 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 46797ms
+2026-06-08 07:01:01.254 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 8, 2026. Unable to generate a briefing due to empty market snapsho...
+{
+  "result": "No market data available for June 8, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 46797
+}
+2026-06-09 07:00:15.720 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-09 07:00:15.908 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=28740min (max=180min)
+2026-06-09 07:00:18.319 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2383ms
+2026-06-09 07:00:18.405 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data is available for June 9, 2026. The portfolio context is empty, and the market snapsho...
+{
+  "result": "No market data is available for June 9, 2026. The portfolio context is empty, and the market snapshot contains no information on asset prices, volumes, or economic indicators. A briefing cannot be generated without underlying data.",
+  "confidence": 0,
+  "reasoning": "Empty market snapshot and portfolio context provide no basis for analysis. No price trends, volatility measures, or news events are present. Insufficient data to assess any asset class.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2383
+}
+2026-06-10 07:00:13.563 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-10 07:00:13.663 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=30180min (max=180min)
+2026-06-10 07:00:15.584 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1899ms
+2026-06-10 07:00:15.646 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-10. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-10. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1899
+}
+2026-06-11 07:00:12.705 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-11 07:00:12.818 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=31620min (max=180min)
+2026-06-11 07:00:14.976 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2149ms
+2026-06-11 07:00:15.072 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-11. Unable to generate a meaningful briefing due to empty marke...
+{
+  "result": "No market data available for 2026-06-11. Unable to generate a meaningful briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2149
+}
+2026-06-12 07:00:12.283 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-12 07:00:12.393 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=33060min (max=180min)
+2026-06-12 07:00:14.502 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2102ms
+2026-06-12 07:00:14.580 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed assessment cannot be generated without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Unable to analyze trends, risks, or catalysts.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2102
+}
+2026-06-13 07:00:14.934 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-13 07:00:15.018 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=34500min (max=180min)
+2026-06-13 07:00:16.742 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1719ms
+2026-06-13 07:00:16.787 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-13. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-13. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or indicators. Without any data, no analysis or trend assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1719
+}
+2026-06-14 07:00:10.886 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-14 07:00:10.957 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=35940min (max=180min)
+2026-06-14 07:00:12.899 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1933ms
+2026-06-14 07:00:12.988 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-14. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-14. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1933
+}
+2026-06-15 07:00:12.053 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-15 07:00:12.275 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=37380min (max=180min)
+2026-06-15 07:00:14.180 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1898ms
+2026-06-15 07:00:14.318 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for June 15, 2026. No asset prices, volumes, or economic indicato...
+{
+  "result": "Insufficient market data available for June 15, 2026. No asset prices, volumes, or economic indicators were provided in the snapshot. A comprehensive briefing cannot be generated without current market conditions.",
+  "confidence": 0,
+  "reasoning": "No market snapshot data was supplied. Cannot assess any asset class or identify catalysts.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1898
+}
+2026-06-16 07:00:16.178 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-16 07:00:16.302 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=38820min (max=180min)
+2026-06-16 07:00:18.568 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2259ms
+2026-06-16 07:00:18.695 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date. A detailed analysis cannot be generated without asset prices, volumes, or economic indicators.",
+  "confidence": 0,
+  "reasoning": "No market data or portfolio context was supplied in the input. Cannot assess current conditions or identify catalysts.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2259
+}
+2026-06-17 07:00:11.726 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-17 07:00:11.827 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=40260min (max=180min)
+2026-06-17 07:00:14.149 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2313ms
+2026-06-17 07:00:14.198 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for the date 2026-06-17. A full market assessment cannot be performed at this time.",
+  "confidence": 0,
+  "reasoning": "No market snapshot data was supplied, making any quantitative analysis impossible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2313
+}
+2026-06-18 07:00:17.933 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-18 07:00:18.075 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=41700min (max=180min)
+2026-06-18 07:00:20.176 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2078ms
+2026-06-18 07:00:20.248 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-18. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-18. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2078
+}
+2026-06-19 07:00:10.352 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-19 07:00:10.464 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=43140min (max=180min)
+2026-06-19 07:00:12.677 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2202ms
+2026-06-19 07:00:12.734 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-06-19. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-06-19. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or volatility data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2202
+}
+2026-06-20 07:00:11.541 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-20 07:00:11.697 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=44580min (max=180min)
+2026-06-20 07:00:13.584 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1878ms
+2026-06-20 07:00:13.646 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or econom...
+{
+  "result": "Insufficient market data available for a comprehensive briefing. No asset prices, volumes, or economic indicators are provided for June 20, 2026. A full assessment requires updated market snapshots and portfolio context.",
+  "confidence": 0,
+  "reasoning": "No market snapshot or portfolio data was supplied. Without any price, volatility, or fundamental inputs, no quantitative analysis is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1878
+}
+2026-06-21 07:00:13.199 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-21 07:00:13.335 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=46020min (max=180min)
+2026-06-21 07:00:15.435 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2093ms
+2026-06-21 07:00:15.482 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 21, 2026. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data available for June 21, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 2093
+}
+2026-06-22 07:00:17.207 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-22 07:00:17.332 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=47460min (max=180min)
+2026-06-22 07:00:19.119 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1777ms
+2026-06-22 07:00:19.234 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 22, 2026. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data available for June 22, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1777
+}
+2026-06-23 07:00:15.396 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-23 07:00:15.561 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=48900min (max=180min)
+2026-06-23 07:00:17.057 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1489ms
+2026-06-23 07:00:17.160 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 23, 2026. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data available for June 23, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "Market snapshot is empty; no price, volume, or economic data provided.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1489
+}
+2026-06-24 07:00:15.116 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-24 07:00:15.226 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=50340min (max=180min)
+2026-06-24 07:00:16.985 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1749ms
+2026-06-24 07:00:17.086 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 24, 2026. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data available for June 24, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1749
+}
+2026-06-25 07:00:12.523 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-25 07:00:12.630 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=51780min (max=180min)
+2026-06-25 07:00:14.579 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1941ms
+2026-06-25 07:00:14.625 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for June 25, 2026. Unable to generate a briefing due to empty market snapsh...
+{
+  "result": "No market data available for June 25, 2026. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1941
+}
+2026-06-26 07:00:14.915 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-06-26 07:00:15.079 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=53220min (max=180min)
+2026-06-26 07:00:16.899 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1814ms
+2026-06-26 07:00:16.977 | INFO     | __main__:run_briefing:81 - Daily briefing saved: Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio con...
+{
+  "result": "Insufficient data available for a comprehensive market briefing. No market snapshot or portfolio context was provided for the specified date.",
+  "confidence": 0,
+  "reasoning": "No market data, portfolio holdings, or economic indicators were supplied to generate a briefing.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1814
+}
+2026-07-02 07:00:18.938 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 07:00:19.065 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-05-20 08:00:00+00:00, age=61860min (max=180min)
+2026-07-02 07:00:20.961 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1878ms
+2026-07-02 07:00:20.994 | INFO     | __main__:run_briefing:81 - Daily briefing saved: No market data available for 2026-07-02. Unable to generate a briefing due to empty market snapshot....
+{
+  "result": "No market data available for 2026-07-02. Unable to generate a briefing due to empty market snapshot.",
+  "confidence": 0,
+  "reasoning": "The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.",
+  "flags": [
+    "insufficient_data"
+  ],
+  "_latency_ms": 1878
+}
+2026-07-03 07:00:21.569 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-03 07:00:23.674 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1982ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...ta, no analysis or risk assessment is possible.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...ta, no analysis or risk assessment is possible.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-03. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "The ... (43 characters truncated) ...  prices, volumes, or indicators. Without any data, no analysis or risk assessment is possible.", "flags": ["insufficient_data"], "_latency_ms": 1982}', 'confidence': 0, 'reasoning': 'The provided market snapshot contains no asset prices, volumes, or indicators. Without any data, no analysis or risk assessment is possible.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-04 07:00:07.161 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-04 07:00:07.245 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=1440min (max=180min)
+2026-07-04 07:00:07.258 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=1440min (max=180min)
+2026-07-04 07:00:07.265 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=1440min (max=180min)
+2026-07-04 07:00:07.275 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=1440min (max=180min)
+2026-07-04 07:00:07.281 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=1440min (max=180min)
+2026-07-04 07:00:09.338 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 2053ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ... 'No market data or portfolio context provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ... 'No market data or portfolio context provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data is available for 2026-07-04. The portfolio context is empty, and the market snapshot contains no information. A briefing c ... (76 characters truncated) ... mic indicators.", "confidence": 0, "reasoning": "No market data or portfolio context provided.", "flags": ["insufficient_data"], "_latency_ms": 2053}', 'confidence': 0, 'reasoning': 'No market data or portfolio context provided.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-05 07:00:13.061 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-05 07:00:13.165 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=2880min (max=180min)
+2026-07-05 07:00:13.174 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=2880min (max=180min)
+2026-07-05 07:00:13.181 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=2880min (max=180min)
+2026-07-05 07:00:13.188 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=2880min (max=180min)
+2026-07-05 07:00:13.196 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=2880min (max=180min)
+2026-07-05 07:00:14.997 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1799ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...o analysis or risk assessment can be performed.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...o analysis or risk assessment can be performed.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-05. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "The ... (57 characters truncated) ... es, or economic indicators. Without any data, no analysis or risk assessment can be performed.", "flags": ["insufficient_data"], "_latency_ms": 1799}', 'confidence': 0, 'reasoning': 'The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment can be performed.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-06 07:00:12.454 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-06 07:00:12.635 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=4320min (max=180min)
+2026-07-06 07:00:12.645 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=4320min (max=180min)
+2026-07-06 07:00:12.656 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=4320min (max=180min)
+2026-07-06 07:00:12.667 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=4320min (max=180min)
+2026-07-06 07:00:12.677 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=4320min (max=180min)
+2026-07-06 07:00:14.367 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1687ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...ta, no analysis or risk assessment is possible.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...ta, no analysis or risk assessment is possible.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-06. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "The ... (52 characters truncated) ... volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.", "flags": ["insufficient_data"], "_latency_ms": 1687}', 'confidence': 0, 'reasoning': 'The provided market snapshot contains no asset prices, volumes, or economic indicators. Without any data, no analysis or risk assessment is possible.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-07 07:00:10.336 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-07 07:00:10.412 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=5760min (max=180min)
+2026-07-07 07:00:10.421 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=5760min (max=180min)
+2026-07-07 07:00:10.429 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=5760min (max=180min)
+2026-07-07 07:00:10.435 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=5760min (max=180min)
+2026-07-07 07:00:10.442 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=5760min (max=180min)
+2026-07-07 07:00:12.308 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1863ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...y; no price, volume, or economic data provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ...y; no price, volume, or economic data provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-07. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "Market snapshot is empty; no price, volume, or economic data provided.", "flags": ["insufficient_data"], "_latency_ms": 1863}', 'confidence': 0, 'reasoning': 'Market snapshot is empty; no price, volume, or economic data provided.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-08 07:00:12.158 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-08 07:00:12.376 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: BTC/1h latest=2026-07-03 07:00:00+00:00, age=7200min (max=180min)
+2026-07-08 07:00:12.393 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: ETH/1h latest=2026-07-03 07:00:00+00:00, age=7200min (max=180min)
+2026-07-08 07:00:12.399 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: SOL/1h latest=2026-07-03 07:00:00+00:00, age=7200min (max=180min)
+2026-07-08 07:00:12.406 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAU/1h latest=2026-07-03 07:00:00+00:00, age=7200min (max=180min)
+2026-07-08 07:00:12.411 | WARNING  | data.market_feed:get_latest:154 - STALE DATA: XAG/1h latest=2026-07-03 07:00:00+00:00, age=7200min (max=180min)
+2026-07-08 07:00:14.237 | INFO     | core.claude_bridge:call:228 - LLM [deepseek/deepseek-chat] daily_briefing for ALL: 0% conf, 1824ms
+Traceback (most recent call last):
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.DatatypeMismatch: column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ... asset prices, volumes, or indicators provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/trading/scripts/daily_briefing.py", line 86, in <module>
+    result = run_briefing()
+             ^^^^^^^^^^^^^^
+  File "/opt/trading/scripts/daily_briefing.py", line 61, in run_briefing
+    conn.execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/trading/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.DatatypeMismatch) column "flags" is of type jsonb but expression is of type text[]
+LINE 7: ... asset prices, volumes, or indicators provided.', ARRAY['ins...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+                INSERT INTO claude_explanations
+                    (task_type, asset, input_payload, result,
+                     confidence, reasoning, flags)
+                VALUES
+                    (%(task_type)s, %(asset)s, %(input_payload)s, %(result)s,
+                     %(confidence)s, %(reasoning)s, %(flags)s)
+            ]
+[parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-08. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "Market snapshot is empty; no asset prices, volumes, or indicators provided.", "flags": ["insufficient_data"], "_latency_ms": 1824}', 'confidence': 0, 'reasoning': 'Market snapshot is empty; no asset prices, volumes, or indicators provided.', 'flags': ['insufficient_data']}]
+(Background on this error at: https://sqlalche.me/e/20/f405)

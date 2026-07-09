@@ -1,0 +1,5 @@
+2026-04-28 17:34:40.033 | INFO     | core.poly_strategy_hub:_init_strategies:69 - POLY HUB: SignalBasedPolyStrategy loaded
+2026-04-28 17:34:40.047 | INFO     | core.poly_strategy_hub:_init_strategies:78 - POLY HUB: TailEndPolyStrategy loaded
+2026-04-28 17:34:40.047 | INFO     | core.poly_strategy_hub:_init_strategies:109 - POLY HUB: 2 strategies active: ['signal_based', 'tail_end']
+2026-04-28 17:34:40.083 | INFO     | __main__:main:186 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_004 Balance: $672.15
+2026-04-28 17:34:40.086 | WARNING  | __main__:maybe_rollover:125 - POLY DD HALT: 32.8% >= 20% pero aún hay 5 posiciones abiertas. Esperando cierre.

@@ -1,0 +1,1273 @@
+2026-05-04 20:40:30.046 | INFO     | __main__:main:53 - OPTIONS AGENT v2.0.0 (BTC) — STARTING
+2026-05-04 20:40:30.531 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #1 ---
+2026-05-04 20:40:30.570 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 20:40:30.979 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 20:40:30.979 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 20:40:38.009 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-04 20:40:38.019 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 20:40:38.019 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 20:45:38.019 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #2 ---
+2026-05-04 20:45:38.022 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 20:45:38.393 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 20:45:38.393 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 20:50:38.394 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #3 ---
+2026-05-04 20:50:38.396 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 20:50:38.760 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 20:50:38.761 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 20:55:38.761 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #4 ---
+2026-05-04 20:55:38.764 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 20:55:39.133 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 20:55:39.133 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:00:39.133 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #5 ---
+2026-05-04 21:00:39.136 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:00:39.511 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:00:39.511 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:05:39.511 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #6 ---
+2026-05-04 21:05:39.515 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:05:39.891 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:05:39.891 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:10:39.891 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #7 ---
+2026-05-04 21:10:39.893 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:10:40.263 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 21:10:40.263 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 21:10:40.267 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:10:40.268 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:15:40.268 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #8 ---
+2026-05-04 21:15:40.270 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:15:40.616 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:15:40.616 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:20:40.617 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #9 ---
+2026-05-04 21:20:40.619 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:20:40.970 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:20:40.970 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:25:40.971 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #10 ---
+2026-05-04 21:25:40.974 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:25:41.341 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:25:41.341 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:30:41.341 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #11 ---
+2026-05-04 21:30:41.343 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:30:41.688 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:30:41.688 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:35:41.688 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #12 ---
+2026-05-04 21:35:41.691 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:35:42.061 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:35:42.061 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:40:42.062 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #13 ---
+2026-05-04 21:40:42.067 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:40:42.441 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 21:40:42.441 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 21:40:49.194 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-04 21:40:49.200 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:40:49.200 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:45:49.200 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #14 ---
+2026-05-04 21:45:49.202 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:45:49.537 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:45:49.537 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:50:49.537 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #15 ---
+2026-05-04 21:50:49.540 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:50:49.914 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:50:49.915 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 21:55:49.915 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #16 ---
+2026-05-04 21:55:49.921 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 21:55:50.727 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 21:55:50.727 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:00:50.727 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #17 ---
+2026-05-04 22:00:50.729 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:00:51.120 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:00:51.121 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:05:51.121 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #18 ---
+2026-05-04 22:05:51.127 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:05:51.522 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:05:51.527 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:10:51.528 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #19 ---
+2026-05-04 22:10:51.529 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:10:51.864 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 22:10:51.865 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 22:10:51.867 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:10:51.867 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:15:51.868 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #20 ---
+2026-05-04 22:15:51.870 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:16:02.462 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:16:02.463 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:21:02.463 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #21 ---
+2026-05-04 22:21:02.465 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:21:02.828 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:21:02.829 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:26:02.829 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #22 ---
+2026-05-04 22:26:02.832 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:26:03.189 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:26:03.189 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:31:03.189 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #23 ---
+2026-05-04 22:31:03.194 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:31:03.545 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:31:03.545 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:36:03.546 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #24 ---
+2026-05-04 22:36:03.548 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:36:03.905 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:36:03.905 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:41:03.906 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #25 ---
+2026-05-04 22:41:03.908 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:41:04.259 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 22:41:04.259 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 22:41:10.926 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-04 22:41:10.931 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:41:10.931 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:46:10.931 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #26 ---
+2026-05-04 22:46:10.933 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:46:11.304 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:46:11.304 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:51:11.305 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #27 ---
+2026-05-04 22:51:11.306 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:51:11.641 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:51:11.641 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 22:56:11.641 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #28 ---
+2026-05-04 22:56:11.643 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 22:56:12.032 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 22:56:12.033 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:01:12.034 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #29 ---
+2026-05-04 23:01:12.036 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:01:12.379 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:01:12.379 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:06:12.379 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #30 ---
+2026-05-04 23:06:12.381 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:06:12.739 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:06:12.739 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:11:12.740 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #31 ---
+2026-05-04 23:11:12.742 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:11:13.111 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 23:11:13.112 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 23:11:13.114 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:11:13.114 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:16:13.114 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #32 ---
+2026-05-04 23:16:13.118 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:16:13.452 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:16:13.452 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:21:13.452 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #33 ---
+2026-05-04 23:21:13.454 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:21:13.790 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:21:13.790 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:26:13.790 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #34 ---
+2026-05-04 23:26:13.792 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:26:14.148 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:26:14.149 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:31:14.149 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #35 ---
+2026-05-04 23:31:14.150 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:31:14.496 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:31:14.496 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:36:14.496 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #36 ---
+2026-05-04 23:36:14.498 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:36:14.842 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:36:14.842 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:41:14.842 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #37 ---
+2026-05-04 23:41:14.844 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:41:15.180 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-04 23:41:15.180 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-04 23:41:21.888 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-04 23:41:21.894 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:41:21.895 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:46:21.895 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #38 ---
+2026-05-04 23:46:21.897 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:46:22.261 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:46:22.261 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:51:22.261 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #39 ---
+2026-05-04 23:51:22.263 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:51:22.620 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:51:22.620 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-04 23:56:22.621 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #40 ---
+2026-05-04 23:56:22.623 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-04 23:56:22.980 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-04 23:56:22.981 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:01:22.981 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #41 ---
+2026-05-05 00:01:22.982 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:01:23.334 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:01:23.334 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:06:23.334 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #42 ---
+2026-05-05 00:06:23.337 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:06:23.681 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:06:23.681 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:11:23.682 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #43 ---
+2026-05-05 00:11:23.683 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:11:24.030 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 00:11:24.030 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 00:11:24.033 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:11:24.033 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:16:24.034 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #44 ---
+2026-05-05 00:16:24.036 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:16:24.396 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:16:24.396 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:21:24.396 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #45 ---
+2026-05-05 00:21:24.398 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:21:24.749 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:21:24.749 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:26:24.749 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #46 ---
+2026-05-05 00:26:24.751 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:26:25.123 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:26:25.123 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:31:25.123 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #47 ---
+2026-05-05 00:31:25.126 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:31:25.481 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:31:25.482 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:36:25.482 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #48 ---
+2026-05-05 00:36:25.484 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:36:25.840 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:36:25.840 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:41:25.841 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #49 ---
+2026-05-05 00:41:25.843 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:41:26.195 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 00:41:26.195 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 00:41:32.987 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 00:41:32.994 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:41:32.994 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:46:32.994 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #50 ---
+2026-05-05 00:46:32.997 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:46:33.352 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:46:33.352 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:51:33.353 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #51 ---
+2026-05-05 00:51:33.355 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:51:33.703 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:51:33.703 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 00:56:33.704 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #52 ---
+2026-05-05 00:56:33.705 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 00:56:34.075 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 00:56:34.075 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:01:34.075 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #53 ---
+2026-05-05 01:01:34.077 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:01:37.332 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:01:37.332 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:06:37.332 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #54 ---
+2026-05-05 01:06:37.334 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:06:37.705 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:06:37.705 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:11:37.705 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #55 ---
+2026-05-05 01:11:37.707 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:11:38.064 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 01:11:38.064 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 01:11:38.066 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:11:38.066 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:16:38.067 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #56 ---
+2026-05-05 01:16:38.069 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:16:38.438 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:16:38.438 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:21:38.438 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #57 ---
+2026-05-05 01:21:38.440 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:21:38.791 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:21:38.792 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:26:38.792 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #58 ---
+2026-05-05 01:26:38.796 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:26:39.187 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:26:39.187 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:31:39.187 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #59 ---
+2026-05-05 01:31:39.189 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:31:40.878 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:31:40.878 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:36:40.879 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #60 ---
+2026-05-05 01:36:40.880 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:36:41.220 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:36:41.220 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:41:41.220 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #61 ---
+2026-05-05 01:41:41.222 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:41:41.554 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 01:41:41.555 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 01:41:48.200 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 01:41:48.206 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:41:48.206 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:46:48.206 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #62 ---
+2026-05-05 01:46:48.208 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:46:48.688 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:46:48.688 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:51:48.688 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #63 ---
+2026-05-05 01:51:48.690 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:51:49.035 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:51:49.035 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 01:56:49.035 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #64 ---
+2026-05-05 01:56:49.037 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 01:56:49.374 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 01:56:49.374 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:01:49.374 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #65 ---
+2026-05-05 02:01:49.377 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:01:49.741 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:01:49.741 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:06:49.741 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #66 ---
+2026-05-05 02:06:49.743 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:06:50.100 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:06:50.100 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:11:50.100 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #67 ---
+2026-05-05 02:11:50.102 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:11:50.447 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 02:11:50.447 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 02:11:50.451 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:11:50.451 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:16:50.451 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #68 ---
+2026-05-05 02:16:50.453 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:16:50.807 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:16:50.807 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:21:50.808 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #69 ---
+2026-05-05 02:21:50.810 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:21:51.169 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:21:51.169 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:26:51.170 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #70 ---
+2026-05-05 02:26:51.171 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:26:51.522 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:26:51.522 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:31:51.522 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #71 ---
+2026-05-05 02:31:51.524 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:31:51.870 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:31:51.870 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:36:51.870 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #72 ---
+2026-05-05 02:36:51.873 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:36:52.220 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:36:52.220 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:41:52.220 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #73 ---
+2026-05-05 02:41:52.222 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:41:52.569 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 02:41:52.569 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 02:41:59.216 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 02:41:59.220 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:41:59.220 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:46:59.220 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #74 ---
+2026-05-05 02:46:59.222 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:46:59.569 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:46:59.569 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:51:59.570 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #75 ---
+2026-05-05 02:51:59.572 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:51:59.918 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:51:59.919 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 02:56:59.919 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #76 ---
+2026-05-05 02:56:59.920 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 02:57:00.294 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 02:57:00.294 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:02:00.296 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #77 ---
+2026-05-05 03:02:00.298 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:02:00.718 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:02:00.719 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:07:00.721 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #78 ---
+2026-05-05 03:07:00.725 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:07:01.097 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:07:01.097 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:12:01.097 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #79 ---
+2026-05-05 03:12:01.099 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:12:01.475 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 03:12:01.476 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 03:12:01.483 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:12:01.484 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:17:01.484 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #80 ---
+2026-05-05 03:17:01.487 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:17:01.905 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:17:01.906 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:22:01.906 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #81 ---
+2026-05-05 03:22:01.910 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:22:02.333 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:22:02.334 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:27:02.334 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #82 ---
+2026-05-05 03:27:02.337 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:27:02.722 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:27:02.722 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:32:02.724 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #83 ---
+2026-05-05 03:32:02.725 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:32:03.097 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:32:03.097 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:37:03.097 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #84 ---
+2026-05-05 03:37:03.099 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:37:03.438 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:37:03.438 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:42:03.439 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #85 ---
+2026-05-05 03:42:03.442 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:42:03.800 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 03:42:03.800 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 03:42:10.639 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 03:42:10.645 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:42:10.645 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:47:10.646 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #86 ---
+2026-05-05 03:47:10.647 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:47:10.992 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:47:10.992 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:52:10.993 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #87 ---
+2026-05-05 03:52:10.995 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:52:11.345 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:52:11.345 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 03:57:11.345 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #88 ---
+2026-05-05 03:57:11.348 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 03:57:11.718 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 03:57:11.718 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:02:11.718 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #89 ---
+2026-05-05 04:02:11.722 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:02:12.109 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:02:12.109 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:07:12.110 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #90 ---
+2026-05-05 04:07:12.112 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:07:12.480 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:07:12.480 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:12:12.480 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #91 ---
+2026-05-05 04:12:12.482 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:12:12.835 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 04:12:12.835 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 04:12:12.838 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:12:12.839 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:17:12.839 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #92 ---
+2026-05-05 04:17:12.841 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:17:13.182 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:17:13.182 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:22:13.182 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #93 ---
+2026-05-05 04:22:13.184 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:22:13.546 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:22:13.546 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:27:13.546 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #94 ---
+2026-05-05 04:27:13.548 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:27:13.910 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:27:13.910 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:32:13.910 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #95 ---
+2026-05-05 04:32:13.912 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:32:14.260 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:32:14.260 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:37:14.260 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #96 ---
+2026-05-05 04:37:14.262 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:37:16.778 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:37:16.779 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:42:16.779 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #97 ---
+2026-05-05 04:42:16.781 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:42:17.133 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 04:42:17.133 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 04:42:23.784 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 04:42:23.789 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:42:23.789 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:47:23.789 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #98 ---
+2026-05-05 04:47:23.792 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:47:24.137 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:47:24.137 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:52:24.138 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #99 ---
+2026-05-05 04:52:24.140 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:52:24.481 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:52:24.482 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 04:57:24.482 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #100 ---
+2026-05-05 04:57:24.483 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 04:57:24.833 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 04:57:24.833 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:02:24.834 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #101 ---
+2026-05-05 05:02:24.836 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:02:25.190 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:02:25.190 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:07:25.190 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #102 ---
+2026-05-05 05:07:25.193 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:07:27.530 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:07:27.530 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:12:27.530 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #103 ---
+2026-05-05 05:12:27.532 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:12:27.900 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 05:12:27.900 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 05:12:27.903 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:12:27.903 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:17:27.903 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #104 ---
+2026-05-05 05:17:27.906 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:17:28.252 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:17:28.252 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:22:28.253 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #105 ---
+2026-05-05 05:22:28.255 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:22:28.612 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:22:28.612 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:27:28.613 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #106 ---
+2026-05-05 05:27:28.615 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:27:29.098 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:27:29.098 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:32:29.098 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #107 ---
+2026-05-05 05:32:29.101 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:32:29.456 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:32:29.456 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:37:29.456 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #108 ---
+2026-05-05 05:37:29.458 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:37:29.829 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:37:29.829 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:42:29.829 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #109 ---
+2026-05-05 05:42:29.831 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:42:30.186 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 05:42:30.186 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 05:42:36.847 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 05:42:36.852 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:42:36.852 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:47:36.852 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #110 ---
+2026-05-05 05:47:36.854 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:47:37.213 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:47:37.213 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:52:37.213 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #111 ---
+2026-05-05 05:52:37.215 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:52:37.567 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:52:37.569 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 05:57:37.570 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #112 ---
+2026-05-05 05:57:37.571 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 05:57:37.929 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 05:57:37.929 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:02:37.929 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #113 ---
+2026-05-05 06:02:37.930 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:02:38.280 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:02:38.280 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:07:38.280 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #114 ---
+2026-05-05 06:07:38.282 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:07:38.663 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:07:38.663 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:12:38.663 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #115 ---
+2026-05-05 06:12:38.665 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:12:39.028 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 06:12:39.028 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 06:12:39.031 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:12:39.031 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:17:39.031 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #116 ---
+2026-05-05 06:17:39.034 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:17:39.403 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:17:39.403 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:22:39.403 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #117 ---
+2026-05-05 06:22:39.409 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:22:39.845 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:22:39.845 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:27:39.845 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #118 ---
+2026-05-05 06:27:39.847 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:27:40.212 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:27:40.212 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:32:40.212 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #119 ---
+2026-05-05 06:32:40.214 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:32:40.555 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:32:40.555 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:37:40.556 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #120 ---
+2026-05-05 06:37:40.561 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:37:40.942 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:37:40.943 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:42:40.943 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #121 ---
+2026-05-05 06:42:40.945 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:42:41.298 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 06:42:41.299 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 06:42:48.318 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 06:42:48.334 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:42:48.335 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:47:48.337 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #122 ---
+2026-05-05 06:47:48.340 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:47:48.684 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:47:48.684 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:52:48.685 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #123 ---
+2026-05-05 06:52:48.687 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:52:49.031 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:52:49.031 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 06:57:49.032 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #124 ---
+2026-05-05 06:57:49.038 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 06:57:49.418 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 06:57:49.418 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:02:49.419 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #125 ---
+2026-05-05 07:02:49.421 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:02:49.760 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:02:49.760 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:07:49.760 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #126 ---
+2026-05-05 07:07:49.762 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:07:50.128 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:07:50.128 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:12:50.129 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #127 ---
+2026-05-05 07:12:50.132 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:12:50.467 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 07:12:50.467 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 07:12:50.470 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:12:50.470 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:17:50.470 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #128 ---
+2026-05-05 07:17:50.472 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:17:50.833 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:17:50.833 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:22:50.833 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #129 ---
+2026-05-05 07:22:50.835 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:22:51.188 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:22:51.188 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:27:51.188 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #130 ---
+2026-05-05 07:27:51.190 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:27:51.548 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:27:51.548 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:32:51.548 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #131 ---
+2026-05-05 07:32:51.550 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:32:51.886 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:32:51.887 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:37:51.887 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #132 ---
+2026-05-05 07:37:51.888 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:37:52.244 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:37:52.244 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:42:52.244 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #133 ---
+2026-05-05 07:42:52.246 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:42:52.592 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 07:42:52.592 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 07:42:59.259 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 07:42:59.264 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:42:59.264 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:47:59.264 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #134 ---
+2026-05-05 07:47:59.266 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:47:59.617 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:47:59.617 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:52:59.618 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #135 ---
+2026-05-05 07:52:59.620 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:52:59.955 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:52:59.955 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 07:57:59.955 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #136 ---
+2026-05-05 07:57:59.957 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 07:58:00.316 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 07:58:00.316 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:03:00.316 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #137 ---
+2026-05-05 08:03:00.318 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:03:00.707 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:03:00.707 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:08:00.707 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #138 ---
+2026-05-05 08:08:00.710 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:08:01.106 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:08:01.107 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:13:01.108 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #139 ---
+2026-05-05 08:13:01.110 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:13:01.503 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 08:13:01.503 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 08:13:01.506 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:13:01.507 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:18:01.507 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #140 ---
+2026-05-05 08:18:01.515 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:18:01.917 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:18:01.917 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:23:01.918 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #141 ---
+2026-05-05 08:23:01.922 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:23:02.300 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:23:02.301 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:28:02.301 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #142 ---
+2026-05-05 08:28:02.304 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:28:02.670 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:28:02.670 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:33:02.670 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #143 ---
+2026-05-05 08:33:02.672 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:33:03.024 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:33:03.024 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:38:03.025 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #144 ---
+2026-05-05 08:38:03.027 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:38:03.380 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:38:03.381 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:43:03.381 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #145 ---
+2026-05-05 08:43:03.383 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:43:03.723 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 08:43:03.723 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 08:43:10.393 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 08:43:10.397 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:43:10.397 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:48:10.398 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #146 ---
+2026-05-05 08:48:10.400 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:48:10.747 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:48:10.748 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:53:10.748 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #147 ---
+2026-05-05 08:53:10.750 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:53:11.093 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:53:11.093 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 08:58:11.094 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #148 ---
+2026-05-05 08:58:11.096 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 08:58:11.438 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 08:58:11.438 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:03:11.438 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #149 ---
+2026-05-05 09:03:11.440 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:03:11.786 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:03:11.787 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:08:11.787 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #150 ---
+2026-05-05 09:08:11.789 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:08:12.138 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:08:12.139 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:13:12.139 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #151 ---
+2026-05-05 09:13:12.141 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:13:12.483 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 09:13:12.483 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 09:13:12.485 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:13:12.486 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:18:12.486 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #152 ---
+2026-05-05 09:18:12.488 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:18:12.865 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:18:12.865 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:23:12.865 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #153 ---
+2026-05-05 09:23:12.867 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:23:13.214 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:23:13.214 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:28:13.214 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #154 ---
+2026-05-05 09:28:13.216 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:28:13.560 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:28:13.560 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:33:13.561 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #155 ---
+2026-05-05 09:33:13.562 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:33:13.920 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:33:13.920 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:38:13.920 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #156 ---
+2026-05-05 09:38:13.922 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:38:14.280 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:38:14.280 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:43:14.280 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #157 ---
+2026-05-05 09:43:14.282 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:43:14.622 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 09:43:14.622 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 09:43:21.283 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 09:43:21.288 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:43:21.288 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:48:21.288 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #158 ---
+2026-05-05 09:48:21.290 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:48:21.642 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:48:21.642 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:53:21.642 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #159 ---
+2026-05-05 09:53:21.644 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:53:21.982 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:53:21.982 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 09:58:21.983 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #160 ---
+2026-05-05 09:58:21.985 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 09:58:22.328 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 09:58:22.328 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:03:22.329 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #161 ---
+2026-05-05 10:03:22.330 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:03:22.680 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:03:22.680 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:08:22.680 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #162 ---
+2026-05-05 10:08:22.682 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:08:23.023 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:08:23.024 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:13:23.024 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #163 ---
+2026-05-05 10:13:23.026 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:13:23.401 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 10:13:23.401 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 10:13:23.409 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:13:23.410 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:18:23.410 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #164 ---
+2026-05-05 10:18:23.412 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:18:23.757 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:18:23.757 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:23:23.757 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #165 ---
+2026-05-05 10:23:23.759 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:23:24.127 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:23:24.127 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:28:24.127 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #166 ---
+2026-05-05 10:28:24.129 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:28:24.475 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:28:24.475 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:33:24.476 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #167 ---
+2026-05-05 10:33:24.477 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:33:24.853 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:33:24.854 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:38:24.854 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #168 ---
+2026-05-05 10:38:24.856 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:38:25.235 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:38:25.235 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:43:25.235 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #169 ---
+2026-05-05 10:43:25.237 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:43:25.593 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 10:43:25.593 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 10:43:32.213 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 10:43:32.219 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:43:32.219 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:48:32.219 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #170 ---
+2026-05-05 10:48:32.221 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:48:32.571 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:48:32.571 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:53:32.571 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #171 ---
+2026-05-05 10:53:32.573 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:53:32.908 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:53:32.908 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 10:58:32.908 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #172 ---
+2026-05-05 10:58:32.910 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 10:58:33.252 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 10:58:33.253 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:03:33.253 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #173 ---
+2026-05-05 11:03:33.254 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:03:33.595 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:03:33.595 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:08:33.595 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #174 ---
+2026-05-05 11:08:33.597 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:08:33.960 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:08:33.960 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:13:33.960 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #175 ---
+2026-05-05 11:13:33.962 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:13:34.305 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 11:13:34.305 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 11:13:34.308 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:13:34.308 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:18:34.308 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #176 ---
+2026-05-05 11:18:34.310 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:18:34.645 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:18:34.645 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:23:34.646 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #177 ---
+2026-05-05 11:23:34.647 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:23:34.978 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:23:34.978 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:28:34.979 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #178 ---
+2026-05-05 11:28:34.980 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:28:35.332 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:28:35.332 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:33:35.333 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #179 ---
+2026-05-05 11:33:35.334 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:33:35.680 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:33:35.680 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:38:35.681 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #180 ---
+2026-05-05 11:38:35.683 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:38:36.021 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:38:36.021 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:43:36.021 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #181 ---
+2026-05-05 11:43:36.024 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:43:36.386 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 11:43:36.386 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 11:43:43.025 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 11:43:43.030 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:43:43.030 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:48:43.030 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #182 ---
+2026-05-05 11:48:43.032 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:48:43.370 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:48:43.370 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:53:43.371 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #183 ---
+2026-05-05 11:53:43.372 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:53:43.708 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:53:43.708 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 11:58:43.709 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #184 ---
+2026-05-05 11:58:43.710 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 11:58:44.042 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 11:58:44.042 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:03:44.042 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #185 ---
+2026-05-05 12:03:44.044 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:03:44.405 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:03:44.405 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:08:44.405 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #186 ---
+2026-05-05 12:08:44.407 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:08:44.766 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:08:44.766 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:13:44.766 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #187 ---
+2026-05-05 12:13:44.768 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:13:45.107 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 12:13:45.107 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 12:13:45.109 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:13:45.110 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:18:45.110 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #188 ---
+2026-05-05 12:18:45.112 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:18:45.452 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:18:45.452 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:23:45.452 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #189 ---
+2026-05-05 12:23:45.454 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:23:45.804 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:23:45.804 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:28:45.804 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #190 ---
+2026-05-05 12:28:45.806 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:28:46.157 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:28:46.157 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:33:46.158 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #191 ---
+2026-05-05 12:33:46.159 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:33:46.502 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:33:46.502 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:38:46.503 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #192 ---
+2026-05-05 12:38:46.505 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:38:46.856 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:38:46.856 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:43:46.856 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #193 ---
+2026-05-05 12:43:46.858 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:43:47.209 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 12:43:47.210 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 12:43:53.835 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 12:43:53.841 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:43:53.841 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:48:53.841 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #194 ---
+2026-05-05 12:48:53.843 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:48:54.191 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:48:54.191 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:53:54.191 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #195 ---
+2026-05-05 12:53:54.193 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:53:54.544 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:53:54.545 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 12:58:54.545 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #196 ---
+2026-05-05 12:58:54.547 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 12:58:54.882 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 12:58:54.882 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:03:54.882 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #197 ---
+2026-05-05 13:03:54.884 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:03:55.218 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:03:55.218 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:08:55.219 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #198 ---
+2026-05-05 13:08:55.221 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:08:55.577 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:08:55.577 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:13:55.578 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #199 ---
+2026-05-05 13:13:55.579 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:13:55.913 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 13:13:55.913 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 13:13:55.915 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:13:55.915 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:18:55.915 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #200 ---
+2026-05-05 13:18:55.917 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:18:56.253 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:18:56.254 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:23:56.254 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #201 ---
+2026-05-05 13:23:56.256 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:23:56.626 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:23:56.626 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:28:56.626 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #202 ---
+2026-05-05 13:28:56.628 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:28:56.998 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:28:56.999 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:33:56.999 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #203 ---
+2026-05-05 13:33:57.001 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:33:57.340 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:33:57.340 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:38:57.340 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #204 ---
+2026-05-05 13:38:57.343 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:38:57.673 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:38:57.673 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:43:57.674 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #205 ---
+2026-05-05 13:43:57.676 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:43:58.051 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 13:43:58.051 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 13:44:04.853 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 13:44:04.858 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:44:04.858 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:49:04.858 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #206 ---
+2026-05-05 13:49:04.860 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:49:05.225 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:49:05.225 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:54:05.226 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #207 ---
+2026-05-05 13:54:05.227 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:54:05.589 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:54:05.589 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 13:59:05.590 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #208 ---
+2026-05-05 13:59:05.592 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 13:59:05.938 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 13:59:05.938 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:04:05.938 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #209 ---
+2026-05-05 14:04:05.941 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:04:06.291 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:04:06.291 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:09:06.292 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #210 ---
+2026-05-05 14:09:06.294 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:09:06.667 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:09:06.667 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:14:06.667 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #211 ---
+2026-05-05 14:14:06.669 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:14:07.023 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 14:14:07.023 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 14:14:07.025 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:14:07.026 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:19:07.026 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #212 ---
+2026-05-05 14:19:07.028 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:19:07.404 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:19:07.404 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:24:07.404 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #213 ---
+2026-05-05 14:24:07.406 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:24:07.744 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:24:07.744 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:29:07.745 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #214 ---
+2026-05-05 14:29:07.746 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:29:08.114 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:29:08.114 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:34:08.114 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #215 ---
+2026-05-05 14:34:08.116 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:34:08.448 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:34:08.448 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:39:08.448 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #216 ---
+2026-05-05 14:39:08.450 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:39:08.843 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:39:08.844 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:44:08.844 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #217 ---
+2026-05-05 14:44:08.846 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:44:09.235 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 14:44:09.236 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 14:44:15.940 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 14:44:15.944 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:44:15.944 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:49:15.944 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #218 ---
+2026-05-05 14:49:15.946 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:49:16.300 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:49:16.300 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:54:16.300 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #219 ---
+2026-05-05 14:54:16.302 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:54:16.644 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:54:16.644 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 14:59:16.645 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #220 ---
+2026-05-05 14:59:16.646 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 14:59:16.988 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 14:59:16.988 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:04:16.988 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #221 ---
+2026-05-05 15:04:16.990 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:04:17.365 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:04:17.366 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:09:17.366 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #222 ---
+2026-05-05 15:09:17.368 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:09:17.723 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:09:17.723 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:14:17.723 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #223 ---
+2026-05-05 15:14:17.725 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:14:18.077 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 15:14:18.079 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 15:14:18.086 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:14:18.086 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:19:18.086 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #224 ---
+2026-05-05 15:19:18.088 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:19:18.464 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:19:18.464 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:24:18.465 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #225 ---
+2026-05-05 15:24:18.467 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:24:18.837 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:24:18.838 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:29:18.838 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #226 ---
+2026-05-05 15:29:18.840 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:29:19.218 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:29:19.218 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:34:19.218 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #227 ---
+2026-05-05 15:34:19.221 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:34:19.597 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:34:19.598 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:39:19.598 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #228 ---
+2026-05-05 15:39:19.600 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:39:19.947 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:39:19.947 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:44:19.948 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #229 ---
+2026-05-05 15:44:19.950 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:44:20.313 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 15:44:20.313 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 15:44:26.984 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 15:44:26.989 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:44:26.989 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:49:26.989 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #230 ---
+2026-05-05 15:49:26.991 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:49:27.346 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:49:27.346 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:54:27.346 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #231 ---
+2026-05-05 15:54:27.348 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:54:27.700 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:54:27.700 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 15:59:27.701 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #232 ---
+2026-05-05 15:59:27.702 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 15:59:28.054 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 15:59:28.054 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:04:28.054 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #233 ---
+2026-05-05 16:04:28.056 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:04:28.435 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:04:28.435 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:09:28.436 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #234 ---
+2026-05-05 16:09:28.437 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:09:28.811 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:09:28.811 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:14:28.811 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #235 ---
+2026-05-05 16:14:28.813 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:14:29.168 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 16:14:29.168 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 16:14:29.172 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:14:29.172 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:19:29.172 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #236 ---
+2026-05-05 16:19:29.175 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:19:29.550 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:19:29.550 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:24:29.550 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #237 ---
+2026-05-05 16:24:29.553 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:24:29.923 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:24:29.923 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:29:29.924 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #238 ---
+2026-05-05 16:29:29.926 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:29:30.298 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:29:30.298 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:34:30.298 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #239 ---
+2026-05-05 16:34:30.300 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:34:30.638 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:34:30.638 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:39:30.638 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #240 ---
+2026-05-05 16:39:30.640 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:39:31.007 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:39:31.007 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:44:31.007 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #241 ---
+2026-05-05 16:44:31.009 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:44:31.385 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 16:44:31.385 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 16:44:38.141 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 16:44:38.148 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:44:38.148 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:49:38.148 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #242 ---
+2026-05-05 16:49:38.150 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:49:38.512 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:49:38.512 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:54:38.512 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #243 ---
+2026-05-05 16:54:38.515 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:54:38.891 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:54:38.891 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 16:59:38.892 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #244 ---
+2026-05-05 16:59:38.894 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 16:59:39.244 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 16:59:39.244 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:04:39.245 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #245 ---
+2026-05-05 17:04:39.247 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:04:39.608 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:04:39.608 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:09:39.608 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #246 ---
+2026-05-05 17:09:39.610 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:09:39.986 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:09:39.986 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:14:39.986 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #247 ---
+2026-05-05 17:14:39.988 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:14:40.331 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 17:14:40.331 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 17:14:40.333 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:14:40.333 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:19:40.334 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #248 ---
+2026-05-05 17:19:40.335 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:19:40.679 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:19:40.680 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:24:40.680 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #249 ---
+2026-05-05 17:24:40.682 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:24:41.032 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:24:41.032 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:29:41.032 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #250 ---
+2026-05-05 17:29:41.034 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:29:41.394 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:29:41.394 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:34:41.394 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #251 ---
+2026-05-05 17:34:41.397 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:34:41.768 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:34:41.768 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:39:41.769 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #252 ---
+2026-05-05 17:39:41.771 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:39:42.120 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:39:42.120 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:44:42.121 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #253 ---
+2026-05-05 17:44:42.122 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:44:42.500 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 17:44:42.501 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 17:44:49.203 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 17:44:49.208 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:44:49.208 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:49:49.208 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #254 ---
+2026-05-05 17:49:49.210 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:49:49.571 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:49:49.572 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:54:49.572 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #255 ---
+2026-05-05 17:54:49.573 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:54:49.937 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:54:49.937 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 17:59:49.937 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #256 ---
+2026-05-05 17:59:49.939 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 17:59:50.324 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 17:59:50.324 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:04:50.324 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #257 ---
+2026-05-05 18:04:50.326 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:04:50.685 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:04:50.686 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:09:50.686 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #258 ---
+2026-05-05 18:09:50.688 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:09:51.140 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:09:51.141 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:14:51.141 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #259 ---
+2026-05-05 18:14:51.143 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:14:51.507 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 18:14:51.507 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 18:14:51.512 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:14:51.512 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:19:51.512 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #260 ---
+2026-05-05 18:19:51.514 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:19:51.866 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:19:51.867 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:24:51.867 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #261 ---
+2026-05-05 18:24:51.869 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:24:52.235 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:24:52.236 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:29:52.236 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #262 ---
+2026-05-05 18:29:52.237 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:29:52.613 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:29:52.613 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:34:52.613 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #263 ---
+2026-05-05 18:34:52.616 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:34:52.977 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:34:52.977 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:39:52.978 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #264 ---
+2026-05-05 18:39:52.979 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:39:53.368 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:39:53.368 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:44:53.368 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #265 ---
+2026-05-05 18:44:53.370 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:44:53.757 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 18:44:53.757 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 18:45:00.473 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 18:45:00.481 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:45:00.481 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:50:00.482 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #266 ---
+2026-05-05 18:50:00.483 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:50:00.864 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:50:00.865 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 18:55:00.865 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #267 ---
+2026-05-05 18:55:00.866 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 18:55:01.281 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 18:55:01.281 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:00:01.281 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #268 ---
+2026-05-05 19:00:01.286 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:00:02.192 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:00:02.196 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:05:02.197 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #269 ---
+2026-05-05 19:05:02.199 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:05:02.586 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:05:02.586 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:10:02.586 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #270 ---
+2026-05-05 19:10:02.589 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:10:03.055 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:10:03.055 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:15:03.055 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #271 ---
+2026-05-05 19:15:03.059 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:15:03.478 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 19:15:03.479 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 19:15:03.484 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:15:03.484 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:20:03.484 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #272 ---
+2026-05-05 19:20:03.486 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:20:03.872 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:20:03.873 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:25:03.873 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #273 ---
+2026-05-05 19:25:03.875 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:25:04.244 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:25:04.244 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:30:04.244 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #274 ---
+2026-05-05 19:30:04.246 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:30:04.641 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:30:04.641 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:35:04.641 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #275 ---
+2026-05-05 19:35:04.643 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:35:05.010 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:35:05.010 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:40:05.011 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #276 ---
+2026-05-05 19:40:05.017 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:40:05.398 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:40:05.398 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:45:05.399 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #277 ---
+2026-05-05 19:45:05.400 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:45:05.804 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 19:45:05.804 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 19:45:12.545 | INFO     | agents.options_agent:_save_iv_snapshot:374 - IV SNAPSHOT: 20 instrumentos guardados
+2026-05-05 19:45:12.550 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:45:12.550 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:50:12.550 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #278 ---
+2026-05-05 19:50:12.552 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:50:12.935 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:50:12.935 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 19:55:12.935 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #279 ---
+2026-05-05 19:55:12.937 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 19:55:13.298 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 19:55:13.298 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:00:13.299 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #280 ---
+2026-05-05 20:00:13.301 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:00:13.686 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:00:13.686 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:05:13.686 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #281 ---
+2026-05-05 20:05:13.688 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:05:14.043 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:05:14.043 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:10:14.043 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #282 ---
+2026-05-05 20:10:14.045 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:10:14.412 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:10:14.413 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:15:14.413 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #283 ---
+2026-05-05 20:15:14.414 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:15:14.798 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-05 20:15:14.799 | INFO     | agents.options_agent:_scan_new_entry:265 - SCAN: sin señal de theta farming
+2026-05-05 20:15:14.802 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:15:14.802 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:20:14.804 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #284 ---
+2026-05-05 20:20:14.809 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:20:15.238 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:20:15.238 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:25:15.238 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #285 ---
+2026-05-05 20:25:15.240 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:25:15.602 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:25:15.602 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:30:15.603 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #286 ---
+2026-05-05 20:30:15.604 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:30:15.977 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:30:15.978 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:35:15.978 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #287 ---
+2026-05-05 20:35:15.983 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:35:16.365 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:35:16.365 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...
+2026-05-05 20:40:16.365 | INFO     | __main__:main:68 - --- OPTIONS CYCLE #288 ---
+2026-05-05 20:40:16.367 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-05 20:40:16.752 | INFO     | agents.options_agent:run_cycle:136 - OPTIONS CYCLE END | open=2 | balance=$1160.25 | PnL=$+761.51
+2026-05-05 20:40:16.752 | INFO     | __main__:main:86 - Esperando 300s hasta próximo ciclo...

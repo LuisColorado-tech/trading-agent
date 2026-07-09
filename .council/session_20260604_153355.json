@@ -1,0 +1,14 @@
+{
+  "topic": "Options Theta Farming en CRISIS: Peak ,852 \u2192 ,386 (-51.4%). 7 wins (+,524) borrados por 6 STOP_LOSS_2X (-,389). BTC de 74K a 66K revelo que vender puts no tiene edge en mercado bajista. Halt 30.7% activo pero llego tarde. Pausar o redisenar?",
+  "timestamp": "2026-06-04T15:33:55.599387+00:00",
+  "votes": {
+    "QUANT": "\u274c",
+    "QUANT_reason": "Theta farming vendiendo puts BTC: 7 wins consecutivos (+$1,524) borrados por 6 STOP_LOSS_2X consecutivos (-$2,389). Peak $2,852 \u2192 actual $1,386 (-51.4%). El patron es clasico: premios chicos consistentes hasta que un movimiento direccional grande los barre. El STOP_LOSS_2X limito cada perdida pero no hay stop-loss de sesion que frene despues de X losses seguidas. El halt de 30% llego demasiado tarde.",
+    "TECHNICAL": "\u274c",
+    "TECHNICAL_reason": "Estructuralmente es lo mismo que PolySnipe: expectativa negativa enmascarada por alta WR. Las primas son chicas (+$100 avg), las perdidas son grandes (-$398 avg). BTC cayendo de 74K a 66K revelo que no hay edge real \u2014 es apostar a que BTC no se mueva. Si el creador quiere produccion, esto no puede ir. Sugiero pausar hasta tener stop-loss de sesion (max 2-3 losses/dia o -$200/dia).",
+    "RISK": "\u274c",
+    "RISK_reason": "Drawdown real -51.4% desde pico. El halt de 30% se activo tarde porque el DD se computa sobre balance inicial ($2,000), no sobre el pico ($2,852). Si se hubiera usado el pico como referencia, el halt deberia haberse disparado en la 3ra o 4ta perdida. Ese es el bug de riesgo: max_drawdown_pct en DB muestra 0%. El halt actual esta protegiendo pero el da\u00f1o ya esta hecho.",
+    "PORTFOLIO": "\u26a0\ufe0f",
+    "PORTFOLIO_reason": "$1,386.40 de capital bloqueado en un agente que perdio -$613 y no puede operar. Ese capital estaria mejor en TM (+$282/dia) o GRID_STABLE. Propongo: pausar el agente como hicimos con VIX y PolySnipe, redistribuir el capital cuando el halt se levante, y redisenar la estrategia con stop-loss de sesion antes de reactivar."
+  }
+}

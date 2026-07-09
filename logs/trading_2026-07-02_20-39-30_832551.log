@@ -1,0 +1,5 @@
+2026-07-02 20:39:33.725 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 20:39:33.743 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 20:39:33.746 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 20:39:33.801 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $500.00
+2026-07-02 20:39:33.807 | INFO     | __main__:main:208 - Startup warm-up: 180s antes del primer ciclo de trading...

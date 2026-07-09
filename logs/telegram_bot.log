@@ -1,0 +1,18 @@
+nohup: ignoring input
+2026-03-28 16:37:39.124 | INFO     | __main__:polling_loop:193 - Telegram bot started — listening for commands...
+2026-03-28 16:37:43.681 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 1s
+2026-03-28 16:37:50.216 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 2s
+2026-03-28 16:37:53.743 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 4s
+nohup: ignoring input
+2026-03-28 16:38:16.411 | INFO     | __main__:polling_loop:193 - Telegram bot started — listening for commands...
+2026-03-28 16:38:22.187 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 1s
+2026-03-28 16:38:28.691 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 2s
+2026-03-28 16:38:32.509 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 4s
+2026-03-28 16:38:45.028 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 8s
+2026-03-28 16:39:04.207 | WARNING  | __main__:polling_loop:221 - Conflict 409 — backoff 16s
+nohup: ignoring input
+2026-03-28 16:40:08.026 | INFO     | __main__:polling_loop:193 - Telegram bot started — listening for commands...
+2026-03-28 16:40:13.810 | ERROR    | __main__:polling_loop:221 - Conflict 409 — hay otra instancia activa. Cerrando este proceso.
+nohup: ignoring input
+2026-03-28 16:40:44.818 | INFO     | __main__:polling_loop:193 - Telegram bot started — listening for commands...
+2026-03-28 16:40:55.478 | ERROR    | __main__:polling_loop:221 - Conflict 409 — hay otra instancia activa. Cerrando este proceso.

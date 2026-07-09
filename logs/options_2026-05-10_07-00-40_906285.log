@@ -1,0 +1,5 @@
+2026-05-10 07:00:41.460 | INFO     | __main__:main:53 - OPTIONS AGENT v2.0.0 (BTC) — STARTING
+2026-05-10 07:00:41.995 | INFO     | __main__:main:69 - --- OPTIONS CYCLE #1 ---
+2026-05-10 07:00:42.035 | INFO     | agents.options_agent:run_cycle:92 - OPTIONS CYCLE START | session=OPTIONS_SESSION_001 | mode=paper
+2026-05-10 07:00:42.415 | INFO     | strategies.theta_farming:evaluate:198 - THETA: max posiciones abiertas (2/2) — skip
+2026-05-10 07:00:42.415 | INFO     | agents.options_agent:_scan_new_entry:284 - SCAN: sin señal de theta farming

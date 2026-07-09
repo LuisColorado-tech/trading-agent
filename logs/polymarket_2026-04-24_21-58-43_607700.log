@@ -1,0 +1,31 @@
+2026-04-24 21:58:46.133 | INFO     | __main__:main:154 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_003 Balance: $828.33
+2026-04-24 21:58:46.805 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-24 21:58:46.956 | WARNING  | agents.poly_monitor:_handle_no_price:160 - POLY MONITOR: Token inválido y mercado expirado → forzando cierre EXPIRED_UNKNOWN: Will Bitcoin reach $76,000 April 13-19?
+2026-04-24 21:58:46.965 | INFO     | agents.poly_monitor:_close_position:259 - POLY CLOSE [EXPIRED_UNKNOWN]: "Will Bitcoin reach $76,000 April 13-19?" YES exit@0.000 PnL=$-35.25
+2026-04-24 21:58:47.408 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 245431929489...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-24 21:58:47.548 | INFO     | __main__:main:177 - Position closed: EXPIRED_UNKNOWN PnL=$-35.25 (-100.0%)
+2026-04-24 21:58:48.764 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-24 21:58:48.781 | INFO     | __main__:main:192 - Cycle 1: Scanned 4 markets, saved 4
+2026-04-24 21:58:48.820 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: UP_EVENT | Side: YES @ 0.275 | Edge: 0.225 | prob=0.50 | "Will the price of Bitcoin be above $78,000 on April 25?"
+2026-04-24 21:58:48.820 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: YES "Will the price of Bitcoin be above $78,0" shares=75.3 cost=$20.71 edge=+22.5%
+2026-04-24 21:58:48.850 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: YES "Will the price of Bitcoin be above $78,000 on Apri" shares=75.3 @ $0.275 cost=$20.71
+2026-04-24 21:58:48.852 | INFO     | __main__:main:292 - POLY TRADE: YES "Will the price of Bitcoin be above $78,000 on April 25?" edge=+22.5% cost=$20.71
+2026-04-24 21:58:49.245 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: DOWN_EVENT | Side: NO @ 0.790 | Edge: 0.290 | prob=0.90 | "Will Bitcoin dip to $77,000 on April 24?"
+2026-04-24 21:58:49.245 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: NO "Will Bitcoin dip to $77,000 on April 24?" shares=25.6 cost=$20.19 edge=+29.0%
+2026-04-24 21:58:49.247 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: NO "Will Bitcoin dip to $77,000 on April 24?" shares=25.6 @ $0.790 cost=$20.19
+2026-04-24 21:58:49.248 | INFO     | __main__:main:292 - POLY TRADE: NO "Will Bitcoin dip to $77,000 on April 24?" edge=+29.0% cost=$20.19
+2026-04-24 21:58:49.649 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: UP_EVENT | Side: YES @ 0.200 | Edge: 0.300 | prob=0.50 | "Will Bitcoin reach $79,000 on April 24?"
+2026-04-24 21:58:49.649 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: YES "Will Bitcoin reach $79,000 on April 24?" shares=98.4 cost=$19.69 edge=+30.0%
+2026-04-24 21:58:49.651 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: YES "Will Bitcoin reach $79,000 on April 24?" shares=98.4 @ $0.200 cost=$19.69
+2026-04-24 21:58:49.653 | INFO     | __main__:main:292 - POLY TRADE: YES "Will Bitcoin reach $79,000 on April 24?" edge=+30.0% cost=$19.69
+2026-04-24 21:58:50.085 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=1 SELL=0] → UP | Regime: UNKNOWN | Event: UP_EVENT | Side: YES @ 0.210 | Edge: 0.290 | prob=0.50 | "Will the price of Ethereum be above $2,400 on April 27?"
+2026-04-24 21:58:50.085 | INFO     | risk.poly_risk:evaluate:102 - POLY RISK APPROVED: YES "Will the price of Ethereum be above $2,4" shares=91.4 cost=$19.19 edge=+29.0%
+2026-04-24 21:58:50.089 | INFO     | agents.poly_executor:execute:118 - POLY EXECUTED: YES "Will the price of Ethereum be above $2,400 on Apri" shares=91.4 @ $0.210 cost=$19.19
+2026-04-24 21:58:50.091 | INFO     | __main__:main:292 - POLY TRADE: YES "Will the price of Ethereum be above $2,400 on April 27?" edge=+29.0% cost=$19.19
+2026-04-24 21:58:50.508 | INFO     | __main__:main:308 - Cycle 1 complete | Evaluated: 9 | Executed: 4 | Open: 10 | Exposure: $261.48 | Balance: $748.56 | PnL: $-693.25 | Next scan in 300s
+2026-04-24 22:03:51.470 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 245431929489...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-24 22:03:52.132 | INFO     | agents.poly_monitor:_close_resolved:235 - POLY CLOSE [RESOLVED_LOSS]: "Will Bitcoin reach $79,000 on April 24?" YES PnL=$-19.69 (-100.0%)
+2026-04-24 22:03:52.304 | INFO     | __main__:main:177 - Position closed: RESOLVED_LOSS PnL=$-19.69 (-100.0%)
+2026-04-24 22:03:54.429 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 4 qualifying markets
+2026-04-24 22:03:54.436 | INFO     | __main__:main:192 - Cycle 2: Scanned 4 markets, saved 4
+2026-04-24 22:03:54.448 | INFO     | __main__:main:308 - Cycle 2 complete | Evaluated: 5 | Executed: 0 | Open: 9 | Exposure: $241.79 | Balance: $748.56 | PnL: $-712.94 | Next scan in 300s

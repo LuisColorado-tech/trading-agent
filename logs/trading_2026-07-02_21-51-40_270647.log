@@ -1,0 +1,230 @@
+2026-07-02 21:51:42.865 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 21:51:42.882 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 21:51:42.884 | INFO     | core.claude_bridge:__init__:147 - LLMBridge: Using deepseek/deepseek-chat
+2026-07-02 21:51:42.943 | INFO     | __main__:main:189 - === TRADING AGENT STARTED (PAPER MODE) === Session: PAPER_SESSION_COST_MODEL_001 Balance: $500.00
+2026-07-02 21:51:42.947 | INFO     | __main__:main:208 - Startup warm-up: 180s antes del primer ciclo de trading...
+2026-07-02 21:54:46.066 | ERROR    | agents.market_scanner:scan:69 - Scan error BTC/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'ff76d6ab-b54a-44de-9e63-ad7be30667d8', 'asset': 'BTC', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 61566.14541293561, 'strength': 0.17592611146933906, 'price_at_signal': 61577.5, 'timestamp': '2026-07-02T21:54:46.064989+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:46.417 | ERROR    | agents.market_scanner:scan:69 - Scan error BTC/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '62017ace-531e-4e9f-b14b-7e32645fe7a8', 'asset': 'BTC', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 61195.32835354686, 'strength': 0.31512895710220695, 'price_at_signal': 61577.5, 'timestamp': '2026-07-02T21:54:46.416600+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:47.460 | ERROR    | agents.market_scanner:scan:69 - Scan error ETH/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'd2da5eac-9f9b-465b-897a-47cfe1a68edd', 'asset': 'ETH', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 1699.184583649011, 'strength': 0.4577442481563025, 'price_at_signal': 1699.09, 'timestamp': '2026-07-02T21:54:47.458830+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:47.786 | ERROR    | agents.market_scanner:scan:69 - Scan error ETH/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '370d4c48-194b-4529-aa82-9f4119069ee0', 'asset': 'ETH', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 1671.1470043012891, 'strength': 0.4180020388449192, 'price_at_signal': 1699.09, 'timestamp': '2026-07-02T21:54:47.785472+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:48.122 | ERROR    | agents.market_scanner:scan:69 - Scan error SOL/1m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '331dffae-d028-434d-bdcc-ae0ba0e9c444', 'asset': 'SOL', 'timeframe': '1m', 'signal_type': 'EMA_CROSS_BEAR', 'indicator': 'EMA_20_50', 'direction': 'SELL', 'value': 80.74179216906127, 'strength': 0.24245673133431037, 'price_at_signal': 80.76, 'timestamp': '2026-07-02T21:54:48.121634+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:48.797 | ERROR    | agents.market_scanner:scan:69 - Scan error SOL/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '1b7829dc-6241-4425-8c0b-9329cf864b86', 'asset': 'SOL', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 80.87460611943658, 'strength': 0.1868933521025624, 'price_at_signal': 80.76, 'timestamp': '2026-07-02T21:54:48.796181+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:49.103 | ERROR    | agents.market_scanner:scan:69 - Scan error SOL/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'dd8b7d22-30fe-4d88-9275-fc9a2ef04fa3', 'asset': 'SOL', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 80.01796482036715, 'strength': 0.4164833100499068, 'price_at_signal': 80.76, 'timestamp': '2026-07-02T21:54:49.102230+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:50.443 | ERROR    | agents.market_scanner:scan:69 - Scan error AVAX/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '7dc11cea-bcb1-43f5-a78a-26a60089ee41', 'asset': 'AVAX', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 6.746803941388299, 'strength': 0.17083117717045163, 'price_at_signal': 6.773, 'timestamp': '2026-07-02T21:54:50.442219+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:51.467 | ERROR    | agents.market_scanner:scan:69 - Scan error LINK/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'bfdedf3d-df65-49dd-9935-8f9d69974201', 'asset': 'LINK', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 7.746541542844518, 'strength': 0.27354898866759086, 'price_at_signal': 7.732, 'timestamp': '2026-07-02T21:54:51.466525+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:51.811 | ERROR    | agents.market_scanner:scan:69 - Scan error LINK/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '006539c4-d191-4460-abe8-6799eedcd6fb', 'asset': 'LINK', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 7.656498383767047, 'strength': 0.4159081016069316, 'price_at_signal': 7.728, 'timestamp': '2026-07-02T21:54:51.808758+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:52.864 | ERROR    | agents.market_scanner:scan:69 - Scan error INJ/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'b590cf4f-be84-4521-8c97-edfb866201cc', 'asset': 'INJ', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 4.619893791253786, 'strength': 0.05695760955318572, 'price_at_signal': 4.625, 'timestamp': '2026-07-02T21:54:52.863254+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:53.218 | ERROR    | agents.market_scanner:scan:69 - Scan error INJ/1h: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'a34c71e1-8452-44e8-a554-39c34e59769d', 'asset': 'INJ', 'timeframe': '1h', 'signal_type': 'EMA_CROSS_BEAR', 'indicator': 'EMA_20_50', 'direction': 'SELL', 'value': 4.614367673967015, 'strength': 0.04688796058635302, 'price_at_signal': 4.625, 'timestamp': '2026-07-02T21:54:53.217660+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:53.561 | ERROR    | agents.market_scanner:scan:69 - Scan error AAVE/1m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '26741b07-bb81-402f-aa37-33af9b63d4ed', 'asset': 'AAVE', 'timeframe': '1m', 'signal_type': 'EMA_CROSS_BEAR', 'indicator': 'EMA_20_50', 'direction': 'SELL', 'value': 86.76887240640087, 'strength': 0.6226581805220058, 'price_at_signal': 86.47, 'timestamp': '2026-07-02T21:54:53.558542+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:53.921 | ERROR    | agents.market_scanner:scan:69 - Scan error AAVE/5m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': 'e39f27b3-da0d-4fa1-a45c-36d969973c31', 'asset': 'AAVE', 'timeframe': '5m', 'signal_type': 'BB_LOWER_TOUCH', 'indicator': 'BB_20_2', 'direction': 'BUY', 'value': 86.42314569018045, 'strength': 0.96371566696693, 'price_at_signal': 86.46, 'timestamp': '2026-07-02T21:54:53.920198+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-07-02 21:54:54.269 | ERROR    | agents.market_scanner:scan:69 - Scan error AAVE/15m: (psycopg2.errors.UndefinedTable) relation "signals" does not exist
+LINE 2:                         INSERT INTO signals
+                                            ^
+
+[SQL: 
+                        INSERT INTO signals
+                            (id, asset, timeframe, signal_type, indicator,
+                             direction, value, strength, price_at_signal, timestamp)
+                        VALUES
+                            (%(id)s, %(asset)s, %(timeframe)s, %(signal_type)s, %(indicator)s,
+                             %(direction)s, %(value)s, %(strength)s, %(price_at_signal)s, %(timestamp)s)
+                        ON CONFLICT (id) DO NOTHING
+                    ]
+[parameters: {'id': '2249f5df-7921-4f73-bf31-1321820b5a43', 'asset': 'AAVE', 'timeframe': '15m', 'signal_type': 'EMA_CROSS_BULL', 'indicator': 'EMA_20_50', 'direction': 'BUY', 'value': 87.03432866326469, 'strength': 0.0956295957770457, 'price_at_signal': 86.46, 'timestamp': '2026-07-02T21:54:54.268703+00:00'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)

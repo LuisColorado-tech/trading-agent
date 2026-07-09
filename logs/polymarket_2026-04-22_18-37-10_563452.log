@@ -1,0 +1,9 @@
+2026-04-22 18:37:13.921 | INFO     | __main__:main:154 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_003 Balance: $828.26
+2026-04-22 18:37:14.744 | WARNING  | data.polymarket_feed:get_price:209 - POLY FEED: Price error for 846861504666...: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-04-22 18:37:15.961 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 7 qualifying markets
+2026-04-22 18:37:15.994 | INFO     | __main__:main:192 - Cycle 1: Scanned 7 markets, saved 7
+2026-04-22 18:37:16.215 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.680 | Edge: 0.180 | prob=0.86 | "Will Bitcoin reach $82,000 April 20-26?"
+2026-04-22 18:37:16.217 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.275 | Edge: 0.225 | prob=0.50 | "Will the price of Bitcoin be above $78,000 on April 23?"
+2026-04-22 18:37:16.219 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.200 | Edge: 0.300 | prob=0.50 | "Will Bitcoin reach $78,000 April 20-26?"
+2026-04-22 18:37:16.221 | INFO     | strategies.signal_based_poly:evaluate:420 - SIGNAL_POLY OPPORTUNITY: BTC[DB:macro BUY=0 SELL=1] → DOWN | Regime: UNKNOWN | Event: UP_EVENT | Side: NO @ 0.775 | Edge: 0.275 | prob=0.90 | "Will Bitcoin reach $80,000 on April 22?"
+2026-04-22 18:37:16.224 | INFO     | __main__:main:308 - Cycle 1 complete | Evaluated: 7 | Executed: 0 | Open: 7 | Exposure: $222.62 | Balance: $828.26 | PnL: $-652.40 | Next scan in 300s

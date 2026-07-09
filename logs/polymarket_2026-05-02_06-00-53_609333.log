@@ -1,0 +1,6 @@
+2026-05-02 06:00:55.551 | INFO     | core.poly_strategy_hub:_init_strategies:69 - POLY HUB: SignalBasedPolyStrategy loaded
+2026-05-02 06:00:55.567 | INFO     | core.poly_strategy_hub:_init_strategies:78 - POLY HUB: TailEndPolyStrategy loaded
+2026-05-02 06:00:55.567 | INFO     | core.poly_strategy_hub:_init_strategies:109 - POLY HUB: 2 strategies active: ['signal_based', 'tail_end']
+2026-05-02 06:00:55.590 | INFO     | __main__:main:186 - === POLYMARKET AGENT STARTED (PAPER) === Session: POLY_SESSION_005 Balance: $971.37
+2026-05-02 06:00:57.955 | INFO     | data.polymarket_feed:scan_markets:101 - POLY FEED: Scanned 11 pages, found 0 qualifying markets
+2026-05-02 06:00:59.345 | INFO     | __main__:main:388 - Cycle 1 complete | Evaluated: 0 | Executed: 0 | Open: 1 | Exposure: $14.79 | Balance: $971.37 | PnL: $-13.84 | Next scan in 300s
