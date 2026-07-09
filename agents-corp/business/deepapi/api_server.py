@@ -39,7 +39,12 @@ async def chat_completions(request: Request):
     if not api_key: raise HTTPException(status_code=401, detail="Missing API key")
     user = validate_api_key(api_key)
     if not user: raise HTTPException(status_code=401, detail="Invalid API key")
-    # Token-based monthly limits (matching pricing page)
+    # Maintenance mode: block all API usage until payments are set up
+    MAINTENANCE_MODE = os.getenv("DEEPAPI_MAINTENANCE", "true").lower() == "true"
+    if MAINTENANCE_MODE and user.get('plan', 'free') != 'admin':
+        raise HTTPException(
+            status_code=503,
+            detail="DeepAPI is in setup mode. Payments coming soon. Check /upgrade")
     token_limits = {'free': 5_000_000, 'starter': 50_000_000, 'pro': 150_000_000, 'business': 350_000_000}
     monthly_limit = token_limits.get(user.get('plan', 'free'), 5_000_000)
     
