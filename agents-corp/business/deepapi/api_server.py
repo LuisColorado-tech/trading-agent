@@ -11,6 +11,15 @@ from dotenv import load_dotenv
 load_dotenv('/opt/trading/config/.env')
 from shared import validate_api_key, check_rate_limit, track_token_usage, get_db
 from sqlalchemy import text
+import urllib.request
+
+MP_TOKEN = os.getenv("MERCADOPAGO_ACCESS_TOKEN", "")
+USDT_WALLET = os.getenv("USDT_WALLET_ADDRESS", "TU_DIRECCION_USDT_TRC20")
+CRYPTO_ADDRESSES = {
+    "USDT_TRC20": USDT_WALLET,
+}
+
+PLAN_PRICES = {"starter": 8, "pro": 25, "business": 69}
 
 app = FastAPI(title="DeepAPI", version="0.2.0", docs_url="/docs")
 
@@ -318,7 +327,112 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 <footer class="footer">DeepAPI — <a href="https://github.com/LuisColorado-tech/trading-agent">Agents Corp</a> | Built in Latin America for the world.</footer>
 </div></body></html>"""
 
-UPGRADE_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Upgrade | DeepAPI</title><style>body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;text-align:center}h1{color:#58a6ff}.btn{display:inline-block;background:#238636;color:white;padding:12px 30px;border-radius:6px;text-decoration:none;margin:10px;font-size:1.1em}</style></head><body><h1>⚡ Upgrade</h1><p>Pago con MercadoPago, cripto y transferencia próximamente.</p><p>Contáctanos en Telegram para activar tu plan manualmente.</p><a class="btn" href="https://t.me/Arthas_trading_bot">Contactar en Telegram</a></body></html>"""
+UPGRADE_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Upgrade | DeepAPI</title><style>body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;text-align:center}h1{color:#58a6ff}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:25px;margin:20px 0;text-align:left}.btn{display:inline-block;background:#238636;color:white;padding:14px 30px;border-radius:8px;text-decoration:none;margin:8px;font-weight:600;border:none;cursor:pointer}.btn-mp{background:#009ee3}.btn-crypto{background:#f7931a}input,select{background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:10px;border-radius:6px;width:100%;font-size:.9em;margin:10px 0}.label{color:#8b949e;font-size:.85em}</style></head><body>
+<h1>⚡ Upgrade Your Plan</h1>
+<div class="card"><form id="payForm"><label class="label">Email</label><input id="email" placeholder="tu@email.com" required><label class="label">Plan</label><select id="plan"><option value="starter">Starter — $8/mes (50M tokens)</option><option value="pro">Pro — $25/mes (150M tokens)</option><option value="business">Business — $69/mes (350M tokens)</option></select><label class="label">Método de pago</label><select id="method"><option value="crypto">💎 Crypto (USDT TRC-20)</option><option value="mercadopago">💳 MercadoPago (LatAm)</option></select><br>
+<button class="btn btn-mp" type="button" onclick="pay('mercadopago')">Pagar con MercadoPago</button>
+<button class="btn btn-crypto" type="button" onclick="pay('crypto')">Pagar con Crypto</button></form>
+<div id="result" style="margin-top:20px"></div></div>
+<script>
+async function pay(method){let e=document.getElementById('email').value;let p=document.getElementById('plan').value;if(!e)return alert('Email required');let r=await fetch('/v1/payments/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e,plan:p,method:method})});let d=await r.json();if(d.payment_url){if(method==='mercadopago'){window.open(d.payment_url,'_blank')}else{window.location.href=d.payment_url}}document.getElementById('result').innerHTML='<b>Payment ID:</b> '+d.payment_id+'<br>Status: <b>'+d.status+'</b>.<br>Check with: <code>curl /v1/payments/status?payment_id='+d.payment_id+'</code>'}</script>
+<a href="/" style="color:#58a6ff">← Back to Docs</a></body></html>"""
+
+
+# ─── Payment Endpoints ─────────────────────────────────────────────
+
+@app.post("/v1/payments/create")
+async def create_payment(request: Request):
+    body = await request.json()
+    email = body.get("email", ""); plan = body.get("plan", "starter"); method = body.get("method", "crypto")
+    if plan not in PLAN_PRICES: raise HTTPException(400, f"Invalid plan: {plan}")
+    if not email: raise HTTPException(400, "Email required")
+    amount = PLAN_PRICES[plan]; external_id = f"PAY-{secrets.token_hex(6).upper()}"
+    engine = get_db()
+    with engine.begin() as conn:
+        conn.execute(text("INSERT INTO payments (user_email,plan,amount_usd,method,external_id,metadata) VALUES (:e,:p,:a,:m,:x,:mt)"),
+                   {"e":email,"p":plan,"a":amount,"m":method,"x":external_id,"mt":json.dumps({"ip":"unknown"})})
+    url = ""
+    if method == "mercadopago" and MP_TOKEN: url = _create_mp_preference(external_id, plan, amount, email)
+    elif method == "crypto": url = f"/v1/payments/crypto?plan={plan}&email={email}&amount={amount}&payment_id={external_id}"
+    return {"payment_id":external_id,"plan":plan,"amount_usd":amount,"method":method,"payment_url":url,"status":"pending"}
+
+@app.get("/v1/payments/crypto")
+def crypto_payment(plan: str, email: str, amount: float, payment_id: str = ""):
+    page = CRYPTO_PAYMENT_PAGE.replace("{plan}",plan).replace("{email}",email).replace("{amount}",str(amount)).replace("{usdt_wallet}",USDT_WALLET).replace("{payment_id}",payment_id)
+    return HTMLResponse(content=page, status_code=200)
+
+@app.post("/v1/payments/confirm-crypto")
+async def confirm_crypto(request: Request):
+    body = await request.json(); pid = body.get("payment_id",""); tx = body.get("tx_hash","")
+    engine = get_db()
+    with engine.begin() as conn:
+        conn.execute(text("UPDATE payments SET metadata=metadata||:m, status='verifying' WHERE external_id=:pid"),{"m":json.dumps({"tx_hash":tx}),"pid":pid})
+    return {"status":"verifying","message":"Transaction submitted. Will be confirmed within 24h."}
+
+@app.get("/v1/payments/status")
+def payment_status(payment_id: str = Query(...)):
+    engine = get_db()
+    with engine.connect() as conn:
+        row = conn.execute(text("SELECT status,plan,amount_usd,method,activated FROM payments WHERE external_id=:pid"),{"pid":payment_id}).fetchone()
+    if not row: raise HTTPException(404)
+    return {"status":row[0],"plan":row[1],"amount":row[2],"method":row[3],"activated":row[4]}
+
+@app.post("/v1/payments/activate")
+async def activate_payment(request: Request):
+    api_key = request.headers.get("Authorization","").replace("Bearer ","")
+    user = validate_api_key(api_key)
+    if not user or user.get("plan")!="admin": raise HTTPException(403)
+    body = await request.json(); pid = body.get("payment_id","")
+    engine = get_db()
+    with engine.begin() as conn:
+        row = conn.execute(text("SELECT user_email,plan FROM payments WHERE external_id=:pid AND status!='activated'"),{"pid":pid}).fetchone()
+        if not row: raise HTTPException(404)
+        email, plan = row[0], row[1]
+        conn.execute(text("UPDATE api_users SET plan=:p WHERE email=:e"),{"p":plan,"e":email})
+        conn.execute(text("UPDATE payments SET status='activated',activated=true,confirmed_at=NOW() WHERE external_id=:pid"),{"pid":pid})
+    return {"status":"activated","email":email,"plan":plan}
+
+@app.post("/v1/payments/webhook")
+async def payment_webhook(request: Request):
+    body = await request.json()
+    engine = get_db()
+    with engine.begin() as conn:
+        conn.execute(text("INSERT INTO payment_webhooks (source,payload) VALUES ('mp',:p)"),{"p":json.dumps(body)})
+    if body.get("type")=="payment" and MP_TOKEN:
+        mp_id = body.get("data",{}).get("id")
+        if mp_id:
+            try:
+                req = urllib.request.Request(f"https://api.mercadopago.com/v1/payments/{mp_id}",headers={"Authorization":f"Bearer {MP_TOKEN}"})
+                resp = urllib.request.urlopen(req, timeout=10)
+                mp = json.loads(resp.read())
+                if mp.get("status")=="approved":
+                    ext = mp.get("external_reference","")
+                    with engine.begin() as c2:
+                        c2.execute(text("UPDATE payments SET status='activated',activated=true,confirmed_at=NOW() WHERE external_id=:pid"),{"pid":ext})
+                        r = c2.execute(text("SELECT user_email,plan FROM payments WHERE external_id=:pid"),{"pid":ext}).fetchone()
+                        if r: c2.execute(text("UPDATE api_users SET plan=:p WHERE email=:e"),{"p":r[1],"e":r[0]})
+            except: pass
+    return {"status":"received"}
+
+def _create_mp_preference(ext_id, plan, amount, email):
+    if not MP_TOKEN: return ""
+    try:
+        payload = json.dumps({"items":[{"title":f"DeepAPI - {plan.title()}","quantity":1,"currency_id":"USD","unit_price":amount}],"external_reference":ext_id,"payer":{"email":email},"back_urls":{"success":"/upgrade?ok=1"}}).encode()
+        req = urllib.request.Request("https://api.mercadopago.com/checkout/preferences",data=payload,headers={"Content-Type":"application/json","Authorization":f"Bearer {MP_TOKEN}"})
+        return json.loads(urllib.request.urlopen(req,timeout=10).read()).get("init_point","")
+    except: return ""
+
+CRYPTO_PAYMENT_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Pago Crypto | DeepAPI</title>
+<style>body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:500px;margin:40px auto;padding:20px;text-align:center}
+h1{color:#58a6ff}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:30px;margin:20px 0}
+.amount{font-size:3em;font-weight:800;color:#58a6ff}.addr{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:15px;font-family:monospace;font-size:.9em;word-break:break-all;margin:15px 0;color:#3fb950}
+.btn{display:inline-block;background:#238636;color:white;padding:12px 25px;border-radius:6px;text-decoration:none;font-weight:600}
+.note{color:#8b949e;font-size:.85em}.warn{color:#d29922;font-size:.85em}
+input{background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:10px;border-radius:6px;width:100%;font-size:.9em;margin:10px 0}</style></head><body>
+<h1>💎 Pago Crypto</h1><div class="card"><p>Plan <b>{plan}</b> — <span class="amount">${amount}</span> USD</p><p class="note">Envía <b>{amount} USDT</b> a:</p><div class="addr">{usdt_wallet}</div><p class="warn">⚠️ Red TRC-20 (TRON) solamente.</p>
+<input id="tx" placeholder="TX Hash / Transaction ID"><button class="btn" onclick="fetch('/v1/payments/confirm-crypto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({payment_id:'{payment_id}',tx_hash:document.getElementById('tx').value})}).then(r=>r.json()).then(d=>alert(d.message))">Verificar pago</button>
+<p class="note">Pago verificado manualmente en ~24h</p></div><a href="/" style="color:#58a6ff">← Back</a></body></html>"""
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=9001)
