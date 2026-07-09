@@ -44,7 +44,10 @@ class CEOSupervisor:
 
     def check_service(self):
         r = subprocess.run(['systemctl', 'is-active', self.service], capture_output=True, text=True)
-        return r.stdout.strip() == 'active'
+        ok = r.stdout.strip() == 'active'
+        # Also check the business API port
+        port_ok = self.check_port()
+        return ok or port_ok
 
     def check_port(self):
         if not self.port: return True

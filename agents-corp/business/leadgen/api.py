@@ -5,7 +5,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 import uvicorn
 
-sys.path.insert(0, '/opt/agents-corp')
+sys.path.insert(0, '/opt/trading/agents-corp')
+sys.path.insert(0, '/opt/trading')
+from dotenv import load_dotenv
+load_dotenv('/opt/trading/config/.env')
 from shared import get_db
 from sqlalchemy import text
 

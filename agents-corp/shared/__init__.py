@@ -1,8 +1,5 @@
 """
 Agents Corp — Shared Infrastructure
-
-Database connections, authentication, rate limiting, logging.
-Used by all business units.
 """
 import os
 import sys
@@ -10,6 +7,10 @@ import hashlib
 import secrets
 import time
 from datetime import datetime, timezone
+
+sys.path.insert(0, '/opt/trading')
+from dotenv import load_dotenv
+load_dotenv('/opt/trading/config/.env')
 
 import redis
 from loguru import logger
