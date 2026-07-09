@@ -1,0 +1,26 @@
+2026-07-09 19:10:39.474 | INFO     | __main__:scan:103 - Scan: balance=$2872 | 5 open positions
+2026-07-09 19:10:39.645 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 19:10:43.460 | INFO     | __main__:main:320 - Cycle 25 complete. Next scan in 3600s
+2026-07-09 20:10:43.467 | INFO     | __main__:scan:103 - Scan: balance=$2865 | 5 open positions
+2026-07-09 20:10:43.467 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 20:10:47.293 | INFO     | __main__:_close:263 - CLOSED ADA: net_pnl=$-4.05 | reason=FUNDING_BELOW_THRESHOLD_6.9%
+2026-07-09 20:10:47.294 | INFO     | __main__:monitor:236 - CLOSE ADA: funding 6.9% < 8% threshold
+2026-07-09 20:10:47.297 | INFO     | __main__:main:320 - Cycle 26 complete. Next scan in 3600s
+2026-07-09 21:10:47.301 | INFO     | __main__:scan:103 - Scan: balance=$3357 | 4 open positions
+2026-07-09 21:10:52.356 | INFO     | __main__:_open:179 - OPEN DOGE: $500 | spot=0.07 perp=0.07 | rate=0.0092%/8h annual=10.6%
+2026-07-09 21:10:55.161 | INFO     | __main__:_close:263 - CLOSED DOT: net_pnl=$-7.20 | reason=FUNDING_BELOW_THRESHOLD_4.2%
+2026-07-09 21:10:55.161 | INFO     | __main__:monitor:236 - CLOSE DOT: funding 4.2% < 8% threshold
+2026-07-09 21:10:55.861 | INFO     | __main__:main:320 - Cycle 27 complete. Next scan in 3600s
+2026-07-09 22:10:55.864 | INFO     | __main__:scan:103 - Scan: balance=$3350 | 4 open positions
+2026-07-09 22:10:59.473 | INFO     | __main__:_open:179 - OPEN AVAX: $500 | spot=6.71 perp=6.70 | rate=0.0083%/8h annual=9.5%
+2026-07-09 22:11:00.167 | INFO     | __main__:_open:179 - OPEN INJ: $500 | spot=4.90 perp=4.88 | rate=0.0100%/8h annual=11.6%
+2026-07-09 22:11:01.590 | INFO     | __main__:_close:263 - CLOSED SOL: net_pnl=$-5.94 | reason=FUNDING_BELOW_THRESHOLD_7.9%
+2026-07-09 22:11:01.590 | INFO     | __main__:monitor:236 - CLOSE SOL: funding 7.9% < 8% threshold
+2026-07-09 22:11:05.163 | INFO     | __main__:main:320 - Cycle 28 complete. Next scan in 3600s
+2026-07-09 23:07:05.521 | INFO     | __main__:main:303 - FundingAgent v2 started | Paper: True | Min funding: 8%/yr
+2026-07-09 23:07:05.523 | INFO     | __main__:main:304 - Pairs: ['BTC', 'ETH', 'SOL', 'ADA', 'AAVE', 'LINK', 'DOT', 'AVAX', 'INJ', 'XRP', 'DOGE'] | Max positions: 5 | Capital/pos: $500
+2026-07-09 23:07:05.687 | INFO     | __main__:scan:103 - Scan: balance=$2841 | 5 open positions
+2026-07-09 23:07:05.688 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 23:07:10.152 | INFO     | __main__:_close:263 - CLOSED DOGE: net_pnl=$-2.57 | reason=FUNDING_BELOW_THRESHOLD_7.8%
+2026-07-09 23:07:10.152 | INFO     | __main__:monitor:236 - CLOSE DOGE: funding 7.8% < 8% threshold
+2026-07-09 23:07:11.554 | INFO     | __main__:main:320 - Cycle 1 complete. Next scan in 3600s

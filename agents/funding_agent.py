@@ -218,7 +218,7 @@ class FundingAgent:
 
             # Actualizar totales en la sesión
             funding_earned = float(s['capital_usd']) * rate_8h
-            fee_paid = float(s['capital_usd']) * 0.003  # 0.30% round-trip estimado
+            fee_paid = 0  # Fees are charged once at open, not per funding cycle
 
             with engine.begin() as conn:
                 conn.execute(text("""

@@ -47,3 +47,54 @@
 2026-07-09 04:08:58.128 | INFO     | __main__:scan:103 - Scan: balance=$4443 | 2 open positions
 2026-07-09 04:09:01.243 | INFO     | __main__:_open:179 - OPEN LINK: $500 | spot=7.63 perp=7.62 | rate=0.0072%/8h annual=8.2%
 2026-07-09 04:09:05.275 | INFO     | __main__:main:320 - Cycle 10 complete. Next scan in 3600s
+2026-07-09 05:09:05.286 | INFO     | __main__:scan:103 - Scan: balance=$3939 | 3 open positions
+2026-07-09 05:09:08.233 | INFO     | __main__:_open:179 - OPEN AAVE: $500 | spot=87.85 perp=87.79 | rate=0.0083%/8h annual=9.5%
+2026-07-09 05:09:08.995 | INFO     | __main__:_open:179 - OPEN DOT: $500 | spot=0.83 perp=0.83 | rate=0.0079%/8h annual=9.1%
+2026-07-09 05:09:14.746 | INFO     | __main__:main:320 - Cycle 11 complete. Next scan in 3600s
+2026-07-09 06:09:14.912 | INFO     | __main__:scan:103 - Scan: balance=$2932 | 5 open positions
+2026-07-09 06:09:14.933 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 06:09:18.937 | INFO     | __main__:main:320 - Cycle 12 complete. Next scan in 3600s
+2026-07-09 07:09:19.003 | INFO     | __main__:scan:103 - Scan: balance=$2924 | 5 open positions
+2026-07-09 07:09:19.012 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 07:09:22.704 | INFO     | __main__:main:320 - Cycle 13 complete. Next scan in 3600s
+2026-07-09 08:09:22.714 | INFO     | __main__:scan:103 - Scan: balance=$2917 | 5 open positions
+2026-07-09 08:09:22.720 | INFO     | __main__:scan:109 - MAX_POSITIONS (5) reached
+2026-07-09 08:09:25.715 | INFO     | __main__:_close:263 - CLOSED AAVE: net_pnl=$-4.25 | reason=FUNDING_BELOW_THRESHOLD_6.8%
+2026-07-09 08:09:25.716 | INFO     | __main__:monitor:236 - CLOSE AAVE: funding 6.8% < 8% threshold
+2026-07-09 08:09:26.468 | INFO     | __main__:main:320 - Cycle 14 complete. Next scan in 3600s
+2026-07-09 09:09:26.472 | INFO     | __main__:scan:103 - Scan: balance=$3410 | 4 open positions
+2026-07-09 09:09:29.151 | INFO     | __main__:_open:179 - OPEN AVAX: $500 | spot=6.72 perp=6.71 | rate=0.0100%/8h annual=11.6%
+2026-07-09 09:09:30.790 | INFO     | __main__:_close:263 - CLOSED DOT: net_pnl=$-5.72 | reason=FUNDING_BELOW_THRESHOLD_6.6%
+2026-07-09 09:09:30.790 | INFO     | __main__:monitor:236 - CLOSE DOT: funding 6.6% < 8% threshold
+2026-07-09 09:09:33.134 | INFO     | __main__:main:320 - Cycle 15 complete. Next scan in 3600s
+2026-07-09 10:09:33.137 | INFO     | __main__:scan:103 - Scan: balance=$3404 | 4 open positions
+2026-07-09 10:09:38.688 | INFO     | __main__:_close:263 - CLOSED LINK: net_pnl=$-8.66 | reason=FUNDING_BELOW_THRESHOLD_6.8%
+2026-07-09 10:09:38.689 | INFO     | __main__:monitor:236 - CLOSE LINK: funding 6.8% < 8% threshold
+2026-07-09 10:09:38.921 | INFO     | __main__:main:320 - Cycle 16 complete. Next scan in 3600s
+2026-07-09 11:09:38.931 | INFO     | __main__:scan:103 - Scan: balance=$3900 | 3 open positions
+2026-07-09 11:09:45.352 | INFO     | __main__:_close:263 - CLOSED INJ: net_pnl=$-12.86 | reason=FUNDING_BELOW_THRESHOLD_4.7%
+2026-07-09 11:09:45.353 | INFO     | __main__:monitor:236 - CLOSE INJ: funding 4.7% < 8% threshold
+2026-07-09 11:09:45.592 | INFO     | __main__:main:320 - Cycle 17 complete. Next scan in 3600s
+2026-07-09 12:09:45.600 | INFO     | __main__:scan:103 - Scan: balance=$4397 | 2 open positions
+2026-07-09 12:09:52.464 | INFO     | __main__:main:320 - Cycle 18 complete. Next scan in 3600s
+2026-07-09 13:09:52.468 | INFO     | __main__:scan:103 - Scan: balance=$4395 | 2 open positions
+2026-07-09 13:09:58.821 | INFO     | __main__:main:320 - Cycle 19 complete. Next scan in 3600s
+2026-07-09 14:09:58.829 | INFO     | __main__:scan:103 - Scan: balance=$4394 | 2 open positions
+2026-07-09 14:10:05.611 | INFO     | __main__:main:320 - Cycle 20 complete. Next scan in 3600s
+2026-07-09 15:10:05.621 | INFO     | __main__:scan:103 - Scan: balance=$4392 | 2 open positions
+2026-07-09 15:10:12.561 | INFO     | __main__:_close:263 - CLOSED ADA: net_pnl=$-15.67 | reason=FUNDING_BELOW_THRESHOLD_2.3%
+2026-07-09 15:10:12.562 | INFO     | __main__:monitor:236 - CLOSE ADA: funding 2.3% < 8% threshold
+2026-07-09 15:10:12.566 | INFO     | __main__:main:320 - Cycle 21 complete. Next scan in 3600s
+2026-07-09 16:10:12.569 | INFO     | __main__:scan:103 - Scan: balance=$4889 | 1 open positions
+2026-07-09 16:10:16.337 | INFO     | __main__:_open:179 - OPEN AAVE: $500 | spot=91.66 perp=91.60 | rate=0.0095%/8h annual=10.9%
+2026-07-09 16:10:17.766 | INFO     | __main__:_open:179 - OPEN DOT: $500 | spot=0.83 perp=0.83 | rate=0.0097%/8h annual=11.2%
+2026-07-09 16:10:21.224 | INFO     | __main__:main:320 - Cycle 22 complete. Next scan in 3600s
+2026-07-09 17:10:21.234 | INFO     | __main__:scan:103 - Scan: balance=$3885 | 3 open positions
+2026-07-09 17:10:24.222 | INFO     | __main__:_open:179 - OPEN ADA: $500 | spot=0.17 perp=0.17 | rate=0.0094%/8h annual=10.9%
+2026-07-09 17:10:27.441 | INFO     | __main__:_close:263 - CLOSED AVAX: net_pnl=$-11.68 | reason=FUNDING_BELOW_THRESHOLD_6.4%
+2026-07-09 17:10:27.441 | INFO     | __main__:monitor:236 - CLOSE AVAX: funding 6.4% < 8% threshold
+2026-07-09 17:10:29.808 | INFO     | __main__:main:320 - Cycle 23 complete. Next scan in 3600s
+2026-07-09 18:10:29.812 | INFO     | __main__:scan:103 - Scan: balance=$3879 | 3 open positions
+2026-07-09 18:10:32.211 | INFO     | __main__:_open:179 - OPEN SOL: $500 | spot=78.19 perp=78.14 | rate=0.0088%/8h annual=10.1%
+2026-07-09 18:10:32.904 | INFO     | __main__:_open:179 - OPEN LINK: $500 | spot=7.79 perp=7.78 | rate=0.0100%/8h annual=11.6%
+2026-07-09 18:10:39.469 | INFO     | __main__:main:320 - Cycle 24 complete. Next scan in 3600s

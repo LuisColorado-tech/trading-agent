@@ -1653,3 +1653,4 @@ HINT:  You will need to rewrite or cast the expression.
             ]
 [parameters: {'task_type': 'daily_briefing', 'asset': 'ALL', 'input_payload': '{}', 'result': '{"result": "No market data available for 2026-07-08. Unable to generate a briefing due to empty market snapshot.", "confidence": 0, "reasoning": "Market snapshot is empty; no asset prices, volumes, or indicators provided.", "flags": ["insufficient_data"], "_latency_ms": 1824}', 'confidence': 0, 'reasoning': 'Market snapshot is empty; no asset prices, volumes, or indicators provided.', 'flags': ['insufficient_data']}]
 (Background on this error at: https://sqlalche.me/e/20/f405)
+/opt/trading/venv/bin/python: can't open file '/opt/trading/scripts/daily_briefing.py': [Errno 2] No such file or directory
