@@ -120,7 +120,7 @@ DOCS_ES = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta na
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.nav .logo{margin-right:auto}.nav .links{margin-left:20px}
 .nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
 .nav .links a{color:#8b949e;text-decoration:none;margin-left:20px;font-size:.9em;transition:color .2s}
 .nav .links a:hover{color:#58a6ff}
@@ -220,7 +220,7 @@ DOCS_PT = """<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta na
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.nav .logo{margin-right:auto}.nav .links{margin-left:20px}
 .nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
 .lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
 .hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
@@ -271,7 +271,7 @@ DOCS_EN = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta na
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.nav .logo{margin-right:auto}.nav .links{margin-left:20px}
 .nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
 .lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
 .hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
