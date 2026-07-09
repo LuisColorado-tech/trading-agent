@@ -146,6 +146,13 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 .plan ul li{padding:6px 0;display:flex;align-items:center;gap:8px}
 .plan ul li:before{content:'';display:inline-block;width:6px;height:6px;background:#3fb950;border-radius:50%;flex-shrink:0}
 .plan .btn{width:100%}.plan.featured .btn-primary{background:#1f6feb}.plan.featured .btn-primary:hover{background:#388bfd}
+.payments{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.payments span{background:#161b22;border:1px solid #30363d;padding:8px 16px;border-radius:20px;font-size:.85em;color:#c9d1d9;display:flex;align-items:center;gap:6px}
+.markets{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.market{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;text-align:center}
+.market .flag{font-size:2em}.market h4{color:#f0f6fc;margin:8px 0 4px}.market p{color:#8b949e;font-size:.82em}
+.lang-switch{display:flex;gap:8px;margin-left:auto}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em;transition:all .2s}
+.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
 .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:30px 0 60px}
 .why-card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:24px;transition:all .2s}
 .why-card:hover{border-color:#58a6ff40}.why-card .icon{font-size:1.5em;margin-bottom:10px}
@@ -162,8 +169,8 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 .footer a{color:#58a6ff;text-decoration:none}.footer a:hover{text-decoration:underline}
 @media(max-width:640px){.hero h1{font-size:2em}.plans{grid-template-columns:1fr}}
 </style></head><body>
-<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="links"><a href="#pricing">Precios</a><a href="#docs">API</a><a href="#why">¿Por qué?</a></div></nav>
-<div class="hero"><h1>IA de clase mundial sin barreras</h1><p>El mismo formato que OpenAI. La misma calidad que GPT-4o. Sin tarjeta de crédito, sin KYC, sin pagar en dólares. Solo necesitas un email.</p><div class="cta-group"><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Comenzar gratis →</a><a class="btn btn-outline" href="#docs">Ver documentación</a></div></div>
+<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es" class="active">ES</a><a href="?lang=pt">PT</a><a href="?lang=en">EN</a></div><div class="links"><a href="#pricing">Precios</a><a href="#regions">Regiones</a><a href="#docs">API</a></div></nav>
+<div class="hero"><h1>IA de clase mundial sin barreras</h1><p>El mismo formato que OpenAI. La misma calidad que GPT-4o. Sin tarjeta de crédito, sin KYC, sin pagar en dólares. Solo necesitas un email. Disponible en español, portugués e inglés.</p><div class="cta-group"><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Comenzar gratis →</a><a class="btn btn-outline" href="#docs">Ver documentación</a></div></div>
 <div class="container">
 <h2 id="pricing"><span>Planes simples, precios justos</span></h2>
 <div class="plans">
@@ -179,6 +186,23 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 <div class="why-card"><div class="icon">🔌</div><h4>OpenAI compatible</h4><p>Cambia la URL base y tu código funciona sin tocar nada. Migra en 2 minutos.</p></div>
 <div class="why-card"><div class="icon">🌎</div><h4>Soporte en español</h4><p>Documentación, errores y ayuda en tu idioma. Construido en Latinoamérica para el mundo.</p></div>
 <div class="why-card"><div class="icon">🛡️</div><h4>Sin KYC ni pasaporte</h4><p>No pedimos documentos, ni selfies, ni verificación de identidad. Tu privacidad importa.</p></div></div>
+
+<h2 id="regions"><span>Donde más se necesita</span></h2>
+<p style="text-align:center;color:#8b949e;max-width:600px;margin:0 auto 20px">Enfocados en las regiones donde pagar APIs de IA es más difícil: sin tarjeta internacional, sin dólares, sin barreras.</p>
+<div class="markets">
+<div class="market"><div class="flag">🇦🇷</div><h4>Argentina</h4><p>MercadoPago · PagoPlax</p></div>
+<div class="market"><div class="flag">🇧🇷</div><h4>Brasil</h4><p>PIX · Boleto</p></div>
+<div class="market"><div class="flag">🇨🇴</div><h4>Colombia</h4><p>PSE · Nequi</p></div>
+<div class="market"><div class="flag">🇲🇽</div><h4>México</h4><p>OXXO · SPEI</p></div>
+<div class="market"><div class="flag">🇨🇱</div><h4>Chile</h4><p>WebPay · Mach</p></div>
+<div class="market"><div class="flag">🇵🇪</div><h4>Perú</h4><p>Yape · Plin</p></div>
+<div class="market"><div class="flag">🇳🇬</div><h4>Nigeria</h4><p>Flutterwave · Paystack</p></div>
+<div class="market"><div class="flag">🇮🇩</div><h4>Indonesia</h4><p>GoPay · OVO</p></div>
+<div class="market"><div class="flag">🇮🇳</div><h4>India</h4><p>UPI · Paytm</p></div>
+<div class="market"><div class="flag">🇵🇭</div><h4>Filipinas</h4><p>GCash · Maya</p></div>
+<div class="market"><div class="flag">🇪🇬</div><h4>Egipto</h4><p>Fawry · Vodafone Cash</p></div>
+<div class="market"><div class="flag">🇻🇳</div><h4>Vietnam</h4><p>MoMo · ZaloPay</p></div></div>
+<p style="text-align:center;color:#8b949e;margin:10px 0 40px">¿Tu país no está? Pagos con <b>cripto (USDT)</b> disponibles globalmente. Más métodos próximamente.</p>
 <h2 id="docs"><span>Empezar en 30 segundos</span></h2>
 <div class="code-block"><span class="lang">bash</span><pre><span class="c">curl</span> -X POST <span class="u">http://localhost:9001/v1/auth/register</span> -H <span class="s">"Content-Type: application/json"</span> -d <span class="s">'{"email":"tu@email.com"}'</span></pre></div>
 <p style="color:#8b949e;text-align:center;margin:10px 0">Guarda tu <code style="background:#161b22;padding:2px 6px;border-radius:3px">api_key</code>. La necesitarás para todas las llamadas.</p>
