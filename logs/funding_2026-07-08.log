@@ -44,3 +44,6 @@
 2026-07-09 03:08:58.081 | INFO     | __main__:_close:263 - CLOSED LINK: net_pnl=$-10.25 | reason=FUNDING_BELOW_THRESHOLD_7.9%
 2026-07-09 03:08:58.081 | INFO     | __main__:monitor:236 - CLOSE LINK: funding 7.9% < 8% threshold
 2026-07-09 03:08:58.091 | INFO     | __main__:main:320 - Cycle 9 complete. Next scan in 3600s
+2026-07-09 04:08:58.128 | INFO     | __main__:scan:103 - Scan: balance=$4443 | 2 open positions
+2026-07-09 04:09:01.243 | INFO     | __main__:_open:179 - OPEN LINK: $500 | spot=7.63 perp=7.62 | rate=0.0072%/8h annual=8.2%
+2026-07-09 04:09:05.275 | INFO     | __main__:main:320 - Cycle 10 complete. Next scan in 3600s
