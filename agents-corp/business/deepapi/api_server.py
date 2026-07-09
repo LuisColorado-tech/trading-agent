@@ -30,18 +30,19 @@ async def chat_completions(request: Request):
     if not api_key: raise HTTPException(status_code=401, detail="Missing API key")
     user = validate_api_key(api_key)
     if not user: raise HTTPException(status_code=401, detail="Invalid API key")
-    limits = {'free': 100, 'pro': 10000, 'business': 100000}
-    max_req = limits.get(user.get('plan', 'free'), 100)
-    if not check_rate_limit(user['id'], max_req):
-        engine = get_db()
-        with engine.connect() as conn:
-            row = conn.execute(text("SELECT plan FROM api_users WHERE id=:id"), {'id': user['id']}).fetchone()
-            plan = row[0] if row else 'free'
-        upgrade = '. Upgrade: https://deepapi.ai/upgrade' if plan != 'business' else ''
-        raise HTTPException(
-            status_code=429,
-            detail=f"Rate limit exceeded ({max_req}/day).{upgrade}",
-            headers={"X-Upgrade-URL": "https://deepapi.ai/upgrade"})
+    # Token-based monthly limits (matching pricing page)
+    token_limits = {'free': 5_000_000, 'starter': 50_000_000, 'pro': 150_000_000, 'business': 350_000_000}
+    monthly_limit = token_limits.get(user.get('plan', 'free'), 5_000_000)
+    
+    if not monthly_limit:
+        pass  # unlimited for admin
+    else:
+        tokens_used = user.get('tokens_used', 0)
+        if tokens_used >= monthly_limit:
+            raise HTTPException(
+                status_code=429,
+                detail=f"Monthly token limit reached ({monthly_limit/1e6:.0f}M). Upgrade: https://deepapi.ai/upgrade",
+                headers={"X-Upgrade-URL": "https://deepapi.ai/upgrade"})
 
     body = await request.json()
     messages = body.get("messages", [])
