@@ -15,8 +15,10 @@ from sqlalchemy import text
 app = FastAPI(title="DeepAPI", version="0.2.0", docs_url="/docs")
 
 @app.get("/")
-def index():
-    return HTMLResponse(content=DOCS_PAGE, status_code=200)
+def index(lang: str = "es"):
+    if lang == "pt": return HTMLResponse(content=DOCS_PT, status_code=200)
+    if lang == "en": return HTMLResponse(content=DOCS_EN, status_code=200)
+    return HTMLResponse(content=DOCS_ES, status_code=200)
 
 @app.get("/health")
 def health():
@@ -114,7 +116,7 @@ th{{color:#58a6ff}}.stat{{font-size:2em;color:#58a6ff}}.card{{border:1px solid #
     return HTMLResponse(content=html, status_code=200)
     return HTMLResponse(content=UPGRADE_PAGE, status_code=200)
 
-DOCS_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepAPI — IA sin barreras</title>
+DOCS_ES = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepAPI — IA sin barreras</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
@@ -211,6 +213,108 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 <div class="endpoint"><span class="method">GET</span><span class="path">/v1/auth/stats?api_key=TU_KEY</span><div class="desc">Consulta tu uso, plan actual, tokens consumidos y referidos.</div></div>
 <div class="endpoint" style="border-left-color:#3fb950"><span class="method" style="background:#3fb95020;color:#3fb950">REFER</span><span class="path">3 referidos = 1 mes gratis</span><div class="desc">Comparte tu código. Cada 3 amigos que se registren, te regalamos 1 mes de tu plan actual.</div></div>
 <footer class="footer">DeepAPI es un producto de <a href="https://github.com/LuisColorado-tech/trading-agent">Agents Corp</a> — Construido en Latinoamérica para el mundo.</footer>
+</div></body></html>"""
+
+
+DOCS_PT = """<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepAPI — IA sem barreiras</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;position:sticky;top:0;z-index:10}
+.nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
+.lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
+.hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
+.hero h1{font-size:3em;font-weight:800;background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero p{font-size:1.25em;color:#8b949e;line-height:1.6;margin-bottom:30px}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:600;font-size:1em;text-decoration:none;transition:all .2s}
+.btn-primary{background:#238636;color:#fff;border:none}.btn-primary:hover{background:#2ea043;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#58a6ff;border:1px solid #30363d;margin-left:10px}.btn-outline:hover{border-color:#58a6ff}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+h2{font-size:2em;color:#f0f6fc;margin:60px 0 30px;text-align:center}
+h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:40px 0}
+.plan{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:32px 24px;text-align:center;transition:all .3s}
+.plan:hover{transform:translateY(-4px);box-shadow:0 8px 30px #00000040}
+.plan.featured{background:linear-gradient(180deg,#1f2937 0%,#161b22 100%);border-color:#1f6feb}
+.plan.featured:before{content:'MAIS POPULAR';position:absolute;top:12px;right:12px;background:#1f6feb;color:#fff;padding:4px 14px;border-radius:20px;font-size:.72em;font-weight:700}
+.plan .emoji{font-size:2.5em;margin-bottom:12px}
+.plan h3{font-size:1.15em;color:#f0f6fc;margin-bottom:16px}
+.plan .price{font-size:3em;font-weight:800;color:#58a6ff;line-height:1}
+.plan .tokens{display:inline-block;background:#23863620;color:#3fb950;padding:4px 12px;border-radius:20px;font-size:.9em;font-weight:600;margin-bottom:20px}
+.plan ul{list-style:none;text-align:left;margin:20px 0;font-size:.92em}
+.plan ul li{padding:6px 0;display:flex;align-items:center;gap:8px}
+.plan ul li:before{content:'';display:inline-block;width:6px;height:6px;background:#3fb950;border-radius:50%;flex-shrink:0}
+.plan .btn{width:100%}.plan.featured .btn-primary{background:#1f6feb}.plan.featured .btn-primary:hover{background:#388bfd}
+.code-block{background:#0d1117;border:1px solid #30363d;border-radius:12px;padding:24px;margin:20px 0;overflow-x:auto}
+.code-block pre{color:#c9d1d9;font-size:.9em;line-height:1.6}
+.c{color:#58a6ff}.s{color:#a5d6ff}.u{color:#3fb950}
+.footer{text-align:center;padding:40px 20px;color:#8b949e;font-size:.85em;border-top:1px solid #30363d;margin-top:60px}
+.footer a{color:#58a6ff;text-decoration:none}
+@media(max-width:640px){.hero h1{font-size:2em}.plans{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt" class="active">PT</a><a href="?lang=en">EN</a></div></nav>
+<div class="hero"><h1>IA de classe mundial sem barreiras</h1><p>Mesmo formato da OpenAI. Mesma qualidade do GPT-4o. Sem cartão de crédito, sem KYC, sem pagar em dólar. Só precisa de um email.</p><div><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Começar grátis →</a><a class="btn btn-outline" href="#docs">Documentação</a></div></div>
+<div class="container">
+<h2><span>Planos simples, preços justos</span></h2>
+<div class="plans">
+<div class="plan"><div class="emoji">🚀</div><h3>Grátis</h3><div class="price">$0</div><div class="tokens">5M tokens/mês</div><ul><li>~333 chamadas/dia</li><li>API OpenAI compatível</li><li>SDK open-source</li><li>Docs em português</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Começar</a></div>
+<div class="plan featured"><div class="emoji">⚡</div><h3>Starter</h3><div class="price">$8</div><div class="tokens">50M tokens/mês</div><ul><li>~3.300 chamadas/dia</li><li>Sem rate limiting</li><li>Histórico 30 dias</li><li>Suporte por email</li></ul><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Começar grátis</a></div>
+<div class="plan"><div class="emoji">💎</div><h3>Pro</h3><div class="price">$25</div><div class="tokens">150M tokens/mês</div><ul><li>~10.000 chamadas/dia</li><li>Acesso prioritário</li><li>Histórico 90 dias</li><li>Suporte WhatsApp</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Começar grátis</a></div>
+<div class="plan"><div class="emoji">🏢</div><h3>Business</h3><div class="price">$69</div><div class="tokens">350M tokens/mês</div><ul><li>~23K chamadas/dia</li><li>Suporte Slack</li><li>Até 5 membros</li><li>SLA 99.9%</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Começar grátis</a></div></div>
+<h2><span>Começar em 30 segundos</span></h2>
+<div class="code-block"><pre><span class="c">curl</span> -X POST <span class="u">http://localhost:9001/v1/auth/register</span> -H <span class="s">"Content-Type: application/json"</span> -d <span class="s">'{"email":"seu@email.com"}'</span></pre></div>
+<footer class="footer">DeepAPI — <a href="https://github.com/LuisColorado-tech/trading-agent">Agents Corp</a> | Construído na América Latina para o mundo.</footer>
+</div></body></html>"""
+
+
+DOCS_EN = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepAPI — AI Without Barriers</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #30363d;background:#0d1117f0;position:sticky;top:0;z-index:10}
+.nav .logo{font-size:1.4em;font-weight:700;color:#58a6ff;text-decoration:none}
+.lang-switch{display:flex;gap:8px}.lang-switch a{color:#8b949e;text-decoration:none;padding:4px 8px;border-radius:4px;font-size:.85em}.lang-switch a.active,.lang-switch a:hover{color:#58a6ff;background:#58a6ff15}
+.hero{text-align:center;padding:80px 20px 60px;max-width:700px;margin:0 auto}
+.hero h1{font-size:3em;font-weight:800;background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero p{font-size:1.25em;color:#8b949e;line-height:1.6;margin-bottom:30px}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:600;font-size:1em;text-decoration:none;transition:all .2s}
+.btn-primary{background:#238636;color:#fff;border:none}.btn-primary:hover{background:#2ea043;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#58a6ff;border:1px solid #30363d;margin-left:10px}.btn-outline:hover{border-color:#58a6ff}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+h2{font-size:2em;color:#f0f6fc;margin:60px 0 30px;text-align:center}
+h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:40px 0}
+.plan{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:32px 24px;text-align:center;transition:all .3s}
+.plan:hover{transform:translateY(-4px);box-shadow:0 8px 30px #00000040}
+.plan.featured{background:linear-gradient(180deg,#1f2937 0%,#161b22 100%);border-color:#1f6feb}
+.plan.featured:before{content:'MOST POPULAR';position:absolute;top:12px;right:12px;background:#1f6feb;color:#fff;padding:4px 14px;border-radius:20px;font-size:.72em;font-weight:700}
+.plan .emoji{font-size:2.5em;margin-bottom:12px}
+.plan h3{font-size:1.15em;color:#f0f6fc;margin-bottom:16px}
+.plan .price{font-size:3em;font-weight:800;color:#58a6ff;line-height:1}
+.plan .tokens{display:inline-block;background:#23863620;color:#3fb950;padding:4px 12px;border-radius:20px;font-size:.9em;font-weight:600;margin-bottom:20px}
+.plan ul{list-style:none;text-align:left;margin:20px 0;font-size:.92em}
+.plan ul li{padding:6px 0;display:flex;align-items:center;gap:8px}
+.plan ul li:before{content:'';display:inline-block;width:6px;height:6px;background:#3fb950;border-radius:50%;flex-shrink:0}
+.plan .btn{width:100%}.plan.featured .btn-primary{background:#1f6feb}.plan.featured .btn-primary:hover{background:#388bfd}
+.code-block{background:#0d1117;border:1px solid #30363d;border-radius:12px;padding:24px;margin:20px 0;overflow-x:auto}
+.code-block pre{color:#c9d1d9;font-size:.9em;line-height:1.6}
+.c{color:#58a6ff}.s{color:#a5d6ff}.u{color:#3fb950}
+.footer{text-align:center;padding:40px 20px;color:#8b949e;font-size:.85em;border-top:1px solid #30363d;margin-top:60px}
+.footer a{color:#58a6ff;text-decoration:none}
+@media(max-width:640px){.hero h1{font-size:2em}.plans{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt">PT</a><a href="?lang=en" class="active">EN</a></div></nav>
+<div class="hero"><h1>World-Class AI Without Barriers</h1><p>Same format as OpenAI. Same quality as GPT-4o. No credit card, no KYC, no USD payments. Just an email.</p><div><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Start free →</a><a class="btn btn-outline" href="#docs">Documentation</a></div></div>
+<div class="container">
+<h2><span>Simple plans, fair prices</span></h2>
+<div class="plans">
+<div class="plan"><div class="emoji">🚀</div><h3>Free</h3><div class="price">$0</div><div class="tokens">5M tokens/month</div><ul><li>~333 calls/day</li><li>OpenAI compatible API</li><li>Open-source SDK</li><li>English docs</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Start</a></div>
+<div class="plan featured"><div class="emoji">⚡</div><h3>Starter</h3><div class="price">$8</div><div class="tokens">50M tokens/month</div><ul><li>~3,300 calls/day</li><li>No rate limiting</li><li>30-day history</li><li>Email support</li></ul><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Start free</a></div>
+<div class="plan"><div class="emoji">💎</div><h3>Pro</h3><div class="price">$25</div><div class="tokens">150M tokens/month</div><ul><li>~10,000 calls/day</li><li>Priority access</li><li>90-day history</li><li>WhatsApp support</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Start free</a></div>
+<div class="plan"><div class="emoji">🏢</div><h3>Business</h3><div class="price">$69</div><div class="tokens">350M tokens/month</div><ul><li>~23K calls/day</li><li>Slack support</li><li>Up to 5 members</li><li>99.9% SLA</li></ul><a class="btn btn-outline" href="http://localhost:9001/v1/auth/register">Start free</a></div></div>
+<h2><span>Start in 30 seconds</span></h2>
+<div class="code-block"><pre><span class="c">curl</span> -X POST <span class="u">http://localhost:9001/v1/auth/register</span> -H <span class="s">"Content-Type: application/json"</span> -d <span class="s">'{"email":"you@email.com"}'</span></pre></div>
+<footer class="footer">DeepAPI — <a href="https://github.com/LuisColorado-tech/trading-agent">Agents Corp</a> | Built in Latin America for the world.</footer>
 </div></body></html>"""
 
 UPGRADE_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Upgrade | DeepAPI</title><style>body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;text-align:center}h1{color:#58a6ff}.btn{display:inline-block;background:#238636;color:white;padding:12px 30px;border-radius:6px;text-decoration:none;margin:10px;font-size:1.1em}</style></head><body><h1>⚡ Upgrade</h1><p>Pago con MercadoPago, cripto y transferencia próximamente.</p><p>Contáctanos en Telegram para activar tu plan manualmente.</p><a class="btn" href="https://t.me/Arthas_trading_bot">Contactar en Telegram</a></body></html>"""
