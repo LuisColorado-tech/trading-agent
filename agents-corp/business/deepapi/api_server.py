@@ -85,8 +85,33 @@ async def stats(api_key: str = Query(...)):
         row = conn.execute(text("SELECT tokens_used,plan,referral_count,months_free FROM api_users WHERE id=:i"),{'i':user['id']}).fetchone()
     return {"tokens_used":row[0],"plan":row[1],"referrals":row[2],"free_months":row[3]}
 
-@app.get("/upgrade")
-def upgrade_page():
+@app.get("/dashboard")
+def dashboard(api_key: str = Query(...)):
+    """Admin dashboard — shows all users and usage."""
+    user = validate_api_key(api_key)
+    if not user or user.get('plan') != 'admin':
+        raise HTTPException(status_code=403)
+
+    engine = get_db()
+    with engine.connect() as conn:
+        users = conn.execute(text("SELECT email, plan, tokens_used, tokens_limit, referral_count, created_at FROM api_users ORDER BY created_at DESC LIMIT 50")).fetchall()
+        total_users = conn.execute(text("SELECT COUNT(*) FROM api_users")).scalar()
+        total_tokens = conn.execute(text("SELECT COALESCE(SUM(tokens_used),0) FROM api_users")).scalar()
+
+    rows = ""
+    for u in users:
+        rows += f"<tr><td>{u[0]}</td><td><b>{u[1]}</b></td><td>{u[2]}/{u[3]}</td><td>{u[4]}</td><td>{str(u[5])[:10]}</td></tr>"
+
+    html = f"""<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>DeepAPI Dashboard</title>
+<style>body{{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:1000px;margin:0 auto;padding:20px}}
+h1{{color:#58a6ff}}table{{width:100%;border-collapse:collapse;margin:20px 0}}
+th,td{{padding:8px 12px;text-align:left;border-bottom:1px solid #30363d}}
+th{{color:#58a6ff}}.stat{{font-size:2em;color:#58a6ff}}.card{{border:1px solid #30363d;border-radius:8px;padding:20px;margin:10px;display:inline-block;min-width:150px}}</style></head><body>
+<h1>📊 DeepAPI Dashboard</h1>
+<div><div class="card"><div class="stat">{total_users}</div>Usuarios</div>
+<div class="card"><div class="stat">{total_tokens/1000:.0f}K</div>Tokens usados</div></div>
+<table><tr><th>Email</th><th>Plan</th><th>Tokens</th><th>Refs</th><th>Desde</th></tr>{rows}</table></body></html>"""
+    return HTMLResponse(content=html, status_code=200)
     return HTMLResponse(content=UPGRADE_PAGE, status_code=200)
 
 DOCS_PAGE = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepAPI Docs</title><style>body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px}h1{color:#58a6ff;font-size:2em;border-bottom:1px solid #30363d;padding-bottom:10px}h2{color:#58a6ff;margin-top:30px}code{background:#161b22;padding:2px 6px;border-radius:3px}pre{background:#161b22;padding:15px;border-radius:6px;overflow-x:auto;font-size:0.85em;border:1px solid #30363d}.endpoint{background:#0d419d20;border:1px solid #1f6feb;border-radius:6px;padding:10px;margin:10px 0}.method{color:#ff7b72;font-weight:bold}.plan{border:1px solid #30363d;border-radius:8px;padding:20px;margin:10px 0;flex:1}.plans{display:flex;gap:15px}.pro{border-color:#1f6feb}.business{border-color:#d29922}.price{font-size:2em;color:#58a6ff}.btn{display:inline-block;background:#238636;color:white;padding:10px 25px;border-radius:6px;text-decoration:none;margin-top:15px;font-weight:bold}</style></head><body><h1>🤖 DeepAPI — Documentación</h1><p>API de IA compatible con OpenAI. Sin tarjeta de crédito, sin pagar en dólares.</p><h2>🚀 Quick Start</h2><pre>curl -X POST http://localhost:9001/v1/auth/register -H "Content-Type: application/json" -d '{"email":"tu@email.com"}'</pre><p>Guarda tu <code>api_key</code>. La necesitarás para todas las llamadas.</p><h2>📡 Endpoints</h2><div class="endpoint"><span class="method">POST</span> <code>/v1/chat/completions</code><br>Compatible con OpenAI SDK.<pre>curl -X POST http://localhost:9001/v1/chat/completions -H "Authorization: Bearer TU_API_KEY" -H "Content-Type: application/json" -d '{"model":"deepseek-chat","messages":[{"role":"user","content":"Hola"}]}'</pre></div><div class="endpoint"><span class="method">POST</span> <code>/v1/auth/register</span><br>Registro por email. Sin tarjeta.<pre>curl -X POST http://localhost:9001/v1/auth/register -H "Content-Type: application/json" -d '{"email":"tu@email.com","plan":"free","ref":"CODIGO_REFERIDO"}'</pre><p>Opcional: <code>"ref"</code> — 3 referidos = 1 mes Pro gratis.</p></div><div class="endpoint"><span class="method">GET</span> <code>/v1/auth/stats?api_key=TU_KEY</code><br>Uso, plan, referidos.</div><h2>💎 Planes</h2><div class="plans"><div class="plan"><h3>Free</h3><div class="price">$0</div><ul><li>100 calls/día</li><li>Soporte email</li></ul><a class="btn" href="http://localhost:9001/v1/auth/register">Empezar</a></div><div class="plan pro"><h3>Pro</h3><div class="price">$49/mes</div><ul><li>10,000 calls/día</li><li>10 requests simultáneos</li><li>Factura electrónica</li></ul><a class="btn" href="/upgrade">Suscribir</a></div><div class="plan business"><h3>Business</h3><div class="price">$199/mes</div><ul><li>Ilimitado</li><li>Soporte 24/7</li><li>SLA 99.9%</li></ul><a class="btn" href="/upgrade">Contactar</a></div></div><p style="margin-top:40px;color:#8b949e;font-size:0.85em">DeepAPI — Agents Corp</p></body></html>"""
