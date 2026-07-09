@@ -52,7 +52,7 @@ h1{font-size:2.5em;background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-ba
 </style></head><body>
 <h1>📊 PriceGuard</h1><p style="font-size:1.2em;color:#8b949e">Monitoreo de precios multi-region para revendedores e importadores.</p>
 <div class="card"><h3>🚀 Features</h3><ul><li>MercadoLibre, Amazon, AliExpress</li><li>Alertas automaticas por cambios &gt;15%</li><li>Historial de precios</li><li>Multi-region: 🇦🇷 🇧🇷 🇲🇽 🇨🇴</li></ul></div>
-<p style="color:#8b949e">Dashboard interactivo proximamente.</p>
+<p style="color:#8b949e">API lista para integrar. Monitoreo 24/7 activo.</p>
 <a href="/" style="color:#58a6ff">← Agents Corp</a></body></html>"""
 
 if __name__=="__main__":uvicorn.run(app,host="127.0.0.1",port=9002)

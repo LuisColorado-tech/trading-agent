@@ -50,7 +50,7 @@ h1{font-size:2.5em;background:linear-gradient(135deg,#58a6ff,#d29922);-webkit-ba
 </style></head><body>
 <h1>🎯 LeadGen</h1><p style="font-size:1.2em;color:#8b949e">Generacion de leads B2B automatizada con inteligencia artificial.</p>
 <div class="card"><h3>🚀 Features</h3><ul><li>Google Maps scraper</li><li>AI enrichment + scoring A/B/C</li><li>Export CSV listo para CRM</li><li>Ideal para Fiverr y Workana</li></ul></div>
-<p style="color:#8b949e">API disponible. Contactanos en Telegram.</p>
+<p style="color:#8b949e">API lista. Export CSV y entrega automatica.</p>
 <a href="/" style="color:#58a6ff">← Agents Corp</a></body></html>"""
 
 if __name__=="__main__":uvicorn.run(app,host="127.0.0.1",port=9003)
