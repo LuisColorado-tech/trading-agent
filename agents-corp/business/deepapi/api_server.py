@@ -252,7 +252,7 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 .footer a{color:#58a6ff;text-decoration:none}
 @media(max-width:640px){.hero h1{font-size:2em}.plans{grid-template-columns:1fr}}
 </style></head><body>
-<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt" class="active">PT</a><a href="?lang=en">EN</a></div></nav>
+<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt" class="active">PT</a><a href="?lang=en">EN</a></div><div class="links"><a href="#pricing">Preços</a><a href="#docs">API</a></div></nav>
 <div class="hero"><h1>IA de classe mundial sem barreiras</h1><p>Mesmo formato da OpenAI. Mesma qualidade do GPT-4o. Sem cartão de crédito, sem KYC, sem pagar em dólar. Só precisa de um email.</p><div><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Começar grátis →</a><a class="btn btn-outline" href="#docs">Documentação</a></div></div>
 <div class="container">
 <h2><span>Planos simples, preços justos</span></h2>
@@ -303,7 +303,7 @@ h2 span{background:linear-gradient(135deg,#58a6ff,#3fb950);-webkit-background-cl
 .footer a{color:#58a6ff;text-decoration:none}
 @media(max-width:640px){.hero h1{font-size:2em}.plans{grid-template-columns:1fr}}
 </style></head><body>
-<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt">PT</a><a href="?lang=en" class="active">EN</a></div></nav>
+<nav class="nav"><a class="logo" href="/">🤖 DeepAPI</a><div class="lang-switch"><a href="?lang=es">ES</a><a href="?lang=pt">PT</a><a href="?lang=en" class="active">EN</a></div><div class="links"><a href="#pricing">Pricing</a><a href="#docs">API</a></div></nav>
 <div class="hero"><h1>World-Class AI Without Barriers</h1><p>Same format as OpenAI. Same quality as GPT-4o. No credit card, no KYC, no USD payments. Just an email.</p><div><a class="btn btn-primary" href="http://localhost:9001/v1/auth/register">Start free →</a><a class="btn btn-outline" href="#docs">Documentation</a></div></div>
 <div class="container">
 <h2><span>Simple plans, fair prices</span></h2>
