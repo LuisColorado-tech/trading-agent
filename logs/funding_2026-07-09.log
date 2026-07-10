@@ -24,3 +24,15 @@
 2026-07-09 23:07:10.152 | INFO     | __main__:_close:263 - CLOSED DOGE: net_pnl=$-2.57 | reason=FUNDING_BELOW_THRESHOLD_7.8%
 2026-07-09 23:07:10.152 | INFO     | __main__:monitor:236 - CLOSE DOGE: funding 7.8% < 8% threshold
 2026-07-09 23:07:11.554 | INFO     | __main__:main:320 - Cycle 1 complete. Next scan in 3600s
+2026-07-10 00:07:11.558 | INFO     | __main__:scan:103 - Scan: balance=$3445 | 4 open positions
+2026-07-10 00:07:12.361 | INFO     | __main__:_open:179 - OPEN BTC: $500 | spot=63224.40 perp=63200.00 | rate=0.0074%/8h annual=8.5%
+2026-07-10 00:07:17.126 | INFO     | __main__:_close:263 - CLOSED LINK: net_pnl=$-2.12 | reason=FUNDING_BELOW_THRESHOLD_7.6%
+2026-07-10 00:07:17.127 | INFO     | __main__:monitor:236 - CLOSE LINK: funding 7.6% < 8% threshold
+2026-07-10 00:07:19.199 | INFO     | __main__:_close:263 - CLOSED INJ: net_pnl=$-3.73 | reason=FUNDING_BELOW_THRESHOLD_7.8%
+2026-07-10 00:07:19.199 | INFO     | __main__:monitor:236 - CLOSE INJ: funding 7.8% < 8% threshold
+2026-07-10 00:07:19.964 | INFO     | __main__:main:320 - Cycle 2 complete. Next scan in 3600s
+2026-07-10 01:07:19.972 | INFO     | __main__:scan:103 - Scan: balance=$3945 | 3 open positions
+2026-07-10 01:07:24.481 | INFO     | __main__:_open:179 - OPEN INJ: $500 | spot=4.84 perp=4.84 | rate=0.0100%/8h annual=11.6%
+2026-07-10 01:07:27.998 | INFO     | __main__:_close:263 - CLOSED BTC: net_pnl=$+0.07 | reason=FUNDING_BELOW_THRESHOLD_7.7%
+2026-07-10 01:07:27.998 | INFO     | __main__:monitor:236 - CLOSE BTC: funding 7.7% < 8% threshold
+2026-07-10 01:07:28.688 | INFO     | __main__:main:320 - Cycle 3 complete. Next scan in 3600s
